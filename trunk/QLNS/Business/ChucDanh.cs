@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,9 +25,9 @@ namespace Business
 
         #region Properties
 
-        private int? id;
+        private int id;
 
-        public int? ID
+        public int ID
         {
             get { return id; }
             set { id = value; }
