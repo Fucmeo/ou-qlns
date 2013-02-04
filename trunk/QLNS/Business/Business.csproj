@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BE6A57C0-9563-47D1-B910-A25B573C1944}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Business</RootNamespace>
+    <AssemblyName>Business</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Npgsql, Version=2.0.12.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\Software\Database tools\npgsql\Npgsql2.0.12.0-bin-ms.net4.0\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ChucDanh.cs" />
+    <Compile Include="ChucVu.cs" />
+    <Compile Include="CNVC\CNVC.cs" />
+    <Compile Include="CNVC\CNVC_ChuyenMonTongQuat.cs" />
+    <Compile Include="CNVC\CNVC_DaoTaoBoiDuong.cs" />
+    <Compile Include="CNVC\CNVC_File.cs" />
+    <Compile Include="CNVC\CNVC_ChinhTri.cs" />
+    <Compile Include="CNVC\CNVC_CMND_HoChieu.cs" />
+    <Compile Include="CNVC\CNVC_DacDiemLSBanThan.cs" />
+    <Compile Include="CNVC\CNVC_DienBienSK.cs" />
+    <Compile Include="CNVC\CNVC_HopDong.cs" />
+    <Compile Include="CNVC\CNVC_QHGiaDinh.cs" />
+    <Compile Include="CNVC\CNVC_QTr_CongTac_NonOU_GD.cs" />
+    <Compile Include="CNVC\CNVC_QTr_CongTac_NonOU_NonGD.cs" />
+    <Compile Include="CNVC\CNVC_QTr_CongTac_OU.cs" />
+    <Compile Include="CNVC\CNVC_ThongTinPhu.cs" />
+    <Compile Include="CNVC\CNVC_ThongTinTuyenDung.cs" />
+    <Compile Include="CNVC\CNVC_TrinhDoPhoThong.cs" />
+    <Compile Include="DonVi.cs" />
+    <Compile Include="HinhThucDaoTao.cs" />
+    <Compile Include="LoaiHopDong.cs" />
+    <Compile Include="MoHinhDaoTao.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TinhTP.cs" />
+    <Compile Include="TinhTrangHonNhan.cs" />
+    <Compile Include="VanBangChinhQuy.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataProvider\DataProvider.csproj">
+      <Project>{2D9A8079-3C0A-4436-ACCF-A7B271C3EB6E}</Project>
+      <Name>DataProvider</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
