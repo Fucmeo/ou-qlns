@@ -1,0 +1,4 @@
+D:\Job\QLNS\Projects\QLNS\SystemConfig\bin\Release\SystemConfig.dll
+D:\Job\QLNS\Projects\QLNS\SystemConfig\bin\Release\SystemConfig.pdb
+D:\Job\QLNS\Projects\QLNS\SystemConfig\obj\Release\SystemConfig.dll
+D:\Job\QLNS\Projects\QLNS\SystemConfig\obj\Release\SystemConfig.pdb

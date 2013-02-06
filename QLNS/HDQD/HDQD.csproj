@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7B751014-E742-455D-8DD8-6E1E9E5D9156}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HDQD</RootNamespace>
+    <AssemblyName>HDQD</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\Popup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Popup.designer.cs">
+      <DependentUpon>Popup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UCs\BoNhiem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\BoNhiem.designer.cs">
+      <DependentUpon>BoNhiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCs\DanhSachHopDong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\DanhSachHopDong.designer.cs">
+      <DependentUpon>DanhSachHopDong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCs\DanhSachQuyetDinh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\DanhSachQuyetDinh.Designer.cs">
+      <DependentUpon>DanhSachQuyetDinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCs\DSCNVC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\DSCNVC.designer.cs">
+      <DependentUpon>DSCNVC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCs\HopDong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\HopDong.designer.cs">
+      <DependentUpon>HopDong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCs\LoaiHopDong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\LoaiHopDong.designer.cs">
+      <DependentUpon>LoaiHopDong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCs\LoaiPhuCap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\LoaiPhuCap.Designer.cs">
+      <DependentUpon>LoaiPhuCap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCs\LoaiQuyetDinh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\LoaiQuyetDinh.Designer.cs">
+      <DependentUpon>LoaiQuyetDinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCs\QuyetDinhChung.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\QuyetDinhChung.designer.cs">
+      <DependentUpon>QuyetDinhChung.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCs\ThoiBoNhiem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\ThoiBoNhiem.designer.cs">
+      <DependentUpon>ThoiBoNhiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCs\ThongTinBoNhiem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\ThongTinBoNhiem.designer.cs">
+      <DependentUpon>ThongTinBoNhiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCs\ThongTinCNVC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\ThongTinCNVC.designer.cs">
+      <DependentUpon>ThongTinCNVC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCs\ThongTinQuyetDinh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\ThongTinQuyetDinh.designer.cs">
+      <DependentUpon>ThongTinQuyetDinh.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\Popup.resx">
+      <DependentUpon>Popup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UCs\BoNhiem.resx">
+      <DependentUpon>BoNhiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\DanhSachHopDong.resx">
+      <DependentUpon>DanhSachHopDong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\DanhSachQuyetDinh.resx">
+      <DependentUpon>DanhSachQuyetDinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\DSCNVC.resx">
+      <DependentUpon>DSCNVC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\HopDong.resx">
+      <DependentUpon>HopDong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\LoaiHopDong.resx">
+      <DependentUpon>LoaiHopDong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\LoaiPhuCap.resx">
+      <DependentUpon>LoaiPhuCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\LoaiQuyetDinh.resx">
+      <DependentUpon>LoaiQuyetDinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\QuyetDinhChung.resx">
+      <DependentUpon>QuyetDinhChung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\ThoiBoNhiem.resx">
+      <DependentUpon>ThoiBoNhiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\ThongTinBoNhiem.resx">
+      <DependentUpon>ThongTinBoNhiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\ThongTinCNVC.resx">
+      <DependentUpon>ThongTinCNVC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\ThongTinQuyetDinh.resx">
+      <DependentUpon>ThongTinQuyetDinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Business\Business.csproj">
+      <Project>{BE6A57C0-9563-47D1-B910-A25B573C1944}</Project>
+      <Name>Business</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

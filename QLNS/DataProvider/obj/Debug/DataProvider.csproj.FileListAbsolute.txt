@@ -1,0 +1,118 @@
+C:\Users\Phuc\Downloads\Outlook\QLNS\DataProvider\bin\Debug\DataProvider.dll
+C:\Users\Phuc\Downloads\Outlook\QLNS\DataProvider\bin\Debug\DataProvider.pdb
+C:\Users\Phuc\Downloads\Outlook\QLNS\DataProvider\obj\Debug\DataProvider.dll
+C:\Users\Phuc\Downloads\Outlook\QLNS\DataProvider\obj\Debug\DataProvider.pdb
+C:\Users\Phuc\Downloads\Outlook\QLNS\DataProvider\obj\Debug\DataProvider.csprojResolveAssemblyReference.cache
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\DataProvider\bin\Debug\DataProvider.dll
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\DataProvider\bin\Debug\DataProvider.pdb
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\DataProvider\bin\Debug\SystemConfig.dll
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\DataProvider\bin\Debug\Mono.Security.dll
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\DataProvider\bin\Debug\SystemConfig.pdb
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\DataProvider\bin\Debug\Npgsql.pdb
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\DataProvider\bin\Debug\Npgsql.xml
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\DataProvider\bin\Debug\de\Npgsql.resources.dll
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\DataProvider\bin\Debug\es\Npgsql.resources.dll
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\DataProvider\bin\Debug\fi\Npgsql.resources.dll
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\DataProvider\bin\Debug\fr\Npgsql.resources.dll
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\DataProvider\bin\Debug\ja\Npgsql.resources.dll
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\DataProvider\bin\Debug\zh-CN\Npgsql.resources.dll
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\DataProvider\obj\Debug\DataProvider.csprojResolveAssemblyReference.cache
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\DataProvider\obj\Debug\DataProvider.dll
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\DataProvider\obj\Debug\DataProvider.pdb
+D:\Business\Project\QLNS\DataProvider\bin\Debug\DataProvider.dll
+D:\Business\Project\QLNS\DataProvider\bin\Debug\DataProvider.pdb
+D:\Business\Project\QLNS\DataProvider\bin\Debug\SystemConfig.dll
+D:\Business\Project\QLNS\DataProvider\bin\Debug\SystemConfig.pdb
+D:\Business\Project\QLNS\DataProvider\obj\Debug\DataProvider.csprojResolveAssemblyReference.cache
+D:\Business\Project\QLNS\DataProvider\obj\Debug\DataProvider.dll
+D:\Business\Project\QLNS\DataProvider\obj\Debug\DataProvider.pdb
+D:\Job\QLNS\Projects\QLNS\DataProvider\bin\Debug\DataProvider.dll
+D:\Job\QLNS\Projects\QLNS\DataProvider\bin\Debug\DataProvider.pdb
+D:\Job\QLNS\Projects\QLNS\DataProvider\bin\Debug\Npgsql.dll
+D:\Job\QLNS\Projects\QLNS\DataProvider\bin\Debug\SystemConfig.dll
+D:\Job\QLNS\Projects\QLNS\DataProvider\bin\Debug\Mono.Security.dll
+D:\Job\QLNS\Projects\QLNS\DataProvider\bin\Debug\SystemConfig.pdb
+D:\Job\QLNS\Projects\QLNS\DataProvider\bin\Debug\Npgsql.pdb
+D:\Job\QLNS\Projects\QLNS\DataProvider\bin\Debug\Npgsql.xml
+D:\Job\QLNS\Projects\QLNS\DataProvider\bin\Debug\de\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS\DataProvider\bin\Debug\es\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS\DataProvider\bin\Debug\fi\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS\DataProvider\bin\Debug\fr\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS\DataProvider\bin\Debug\ja\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS\DataProvider\bin\Debug\zh-CN\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS\DataProvider\obj\Debug\DataProvider.csprojResolveAssemblyReference.cache
+D:\Job\QLNS\Projects\QLNS\DataProvider\obj\Debug\DataProvider.dll
+D:\Job\QLNS\Projects\QLNS\DataProvider\obj\Debug\DataProvider.pdb
+C:\Users\Phuc Do\Downloads\QLNS\DataProvider\bin\Debug\DataProvider.dll
+C:\Users\Phuc Do\Downloads\QLNS\DataProvider\bin\Debug\DataProvider.pdb
+C:\Users\Phuc Do\Downloads\QLNS\DataProvider\bin\Debug\SystemConfig.dll
+C:\Users\Phuc Do\Downloads\QLNS\DataProvider\bin\Debug\Mono.Security.dll
+C:\Users\Phuc Do\Downloads\QLNS\DataProvider\bin\Debug\SystemConfig.pdb
+C:\Users\Phuc Do\Downloads\QLNS\DataProvider\bin\Debug\Npgsql.pdb
+C:\Users\Phuc Do\Downloads\QLNS\DataProvider\bin\Debug\Npgsql.xml
+C:\Users\Phuc Do\Downloads\QLNS\DataProvider\bin\Debug\de\Npgsql.resources.dll
+C:\Users\Phuc Do\Downloads\QLNS\DataProvider\bin\Debug\es\Npgsql.resources.dll
+C:\Users\Phuc Do\Downloads\QLNS\DataProvider\bin\Debug\fi\Npgsql.resources.dll
+C:\Users\Phuc Do\Downloads\QLNS\DataProvider\bin\Debug\fr\Npgsql.resources.dll
+C:\Users\Phuc Do\Downloads\QLNS\DataProvider\bin\Debug\ja\Npgsql.resources.dll
+C:\Users\Phuc Do\Downloads\QLNS\DataProvider\bin\Debug\zh-CN\Npgsql.resources.dll
+C:\Users\Phuc Do\Downloads\QLNS\DataProvider\obj\Debug\DataProvider.csprojResolveAssemblyReference.cache
+C:\Users\Phuc Do\Downloads\QLNS\DataProvider\obj\Debug\DataProvider.dll
+C:\Users\Phuc Do\Downloads\QLNS\DataProvider\obj\Debug\DataProvider.pdb
+D:\Download\QLNS\DataProvider\bin\Debug\DataProvider.dll
+D:\Download\QLNS\DataProvider\bin\Debug\DataProvider.pdb
+D:\Download\QLNS\DataProvider\bin\Debug\SystemConfig.dll
+D:\Download\QLNS\DataProvider\bin\Debug\Mono.Security.dll
+D:\Download\QLNS\DataProvider\bin\Debug\SystemConfig.pdb
+D:\Download\QLNS\DataProvider\bin\Debug\Npgsql.pdb
+D:\Download\QLNS\DataProvider\bin\Debug\Npgsql.xml
+D:\Download\QLNS\DataProvider\bin\Debug\de\Npgsql.resources.dll
+D:\Download\QLNS\DataProvider\bin\Debug\es\Npgsql.resources.dll
+D:\Download\QLNS\DataProvider\bin\Debug\fi\Npgsql.resources.dll
+D:\Download\QLNS\DataProvider\bin\Debug\fr\Npgsql.resources.dll
+D:\Download\QLNS\DataProvider\bin\Debug\ja\Npgsql.resources.dll
+D:\Download\QLNS\DataProvider\bin\Debug\zh-CN\Npgsql.resources.dll
+D:\Download\QLNS\DataProvider\obj\Debug\ResolveAssemblyReference.cache
+D:\Download\QLNS\DataProvider\obj\Debug\DataProvider.dll
+D:\Download\QLNS\DataProvider\obj\Debug\DataProvider.pdb
+D:\Business\Project\QLNS\DataProvider\bin\Debug\Mono.Security.dll
+D:\Business\Project\QLNS\DataProvider\bin\Debug\Npgsql.pdb
+D:\Business\Project\QLNS\DataProvider\bin\Debug\Npgsql.xml
+D:\Business\Project\QLNS\DataProvider\bin\Debug\de\Npgsql.resources.dll
+D:\Business\Project\QLNS\DataProvider\bin\Debug\es\Npgsql.resources.dll
+D:\Business\Project\QLNS\DataProvider\bin\Debug\fi\Npgsql.resources.dll
+D:\Business\Project\QLNS\DataProvider\bin\Debug\fr\Npgsql.resources.dll
+D:\Business\Project\QLNS\DataProvider\bin\Debug\ja\Npgsql.resources.dll
+D:\Business\Project\QLNS\DataProvider\bin\Debug\zh-CN\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\DataProvider\bin\Debug\DataProvider.dll
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\DataProvider\bin\Debug\DataProvider.pdb
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\DataProvider\bin\Debug\SystemConfig.dll
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\DataProvider\bin\Debug\Mono.Security.dll
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\DataProvider\bin\Debug\SystemConfig.pdb
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\DataProvider\bin\Debug\Npgsql.pdb
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\DataProvider\bin\Debug\Npgsql.xml
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\DataProvider\bin\Debug\de\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\DataProvider\bin\Debug\es\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\DataProvider\bin\Debug\fi\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\DataProvider\bin\Debug\fr\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\DataProvider\bin\Debug\ja\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\DataProvider\bin\Debug\zh-CN\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\DataProvider\obj\Debug\DataProvider.csprojResolveAssemblyReference.cache
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\DataProvider\obj\Debug\DataProvider.dll
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\DataProvider\obj\Debug\DataProvider.pdb
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\DataProvider\bin\Debug\DataProvider.dll
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\DataProvider\bin\Debug\DataProvider.pdb
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\DataProvider\bin\Debug\SystemConfig.dll
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\DataProvider\bin\Debug\Mono.Security.dll
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\DataProvider\bin\Debug\SystemConfig.pdb
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\DataProvider\bin\Debug\Npgsql.pdb
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\DataProvider\bin\Debug\Npgsql.xml
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\DataProvider\bin\Debug\de\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\DataProvider\bin\Debug\es\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\DataProvider\bin\Debug\fi\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\DataProvider\bin\Debug\fr\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\DataProvider\bin\Debug\ja\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\DataProvider\bin\Debug\zh-CN\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\DataProvider\obj\Debug\DataProvider.csprojResolveAssemblyReference.cache
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\DataProvider\obj\Debug\DataProvider.dll
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\DataProvider\obj\Debug\DataProvider.pdb
