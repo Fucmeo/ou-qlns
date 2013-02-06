@@ -9,7 +9,7 @@ using DataProvider;
 
 namespace Business
 {
-    public class ChucDanh
+    public class ChucDanhs
     {
         DataProvider.DataProvider dp;
 
