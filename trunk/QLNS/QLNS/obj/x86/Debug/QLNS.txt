@@ -1,0 +1,5 @@
+FILE DELETED
+------------
+
+Antigen for Exchange removed QLNS.rar->QLNS\QLNS\obj\x86\Debug\QLNS.exe since it
+was found to match the FILE FILTER= unnamed: *.exe file filter.

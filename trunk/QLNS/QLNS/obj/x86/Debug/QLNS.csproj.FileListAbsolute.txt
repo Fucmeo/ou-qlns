@@ -1,0 +1,326 @@
+C:\Users\Phuc\Downloads\Outlook\QLNS\QLNS\obj\x86\Debug\QLNS.exe
+C:\Users\Phuc\Downloads\Outlook\QLNS\QLNS\obj\x86\Debug\QLNS.pdb
+C:\Users\Phuc\Downloads\Outlook\QLNS\QLNS\bin\Debug\QLNS.exe
+C:\Users\Phuc\Downloads\Outlook\QLNS\QLNS\bin\Debug\QLNS.pdb
+C:\Users\Phuc\Downloads\Outlook\QLNS\QLNS\obj\x86\Debug\QLNS.Forms.Popup.resources
+C:\Users\Phuc\Downloads\Outlook\QLNS\QLNS\obj\x86\Debug\QLNS.Forms.QLNS_ThongTin.resources
+C:\Users\Phuc\Downloads\Outlook\QLNS\QLNS\obj\x86\Debug\QLNS.Properties.Resources.resources
+C:\Users\Phuc\Downloads\Outlook\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.MoHinhDaoTao.resources
+C:\Users\Phuc\Downloads\Outlook\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DienBienSK.resources
+C:\Users\Phuc\Downloads\Outlook\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DonVi.resources
+C:\Users\Phuc\Downloads\Outlook\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_ChucDanh.resources
+C:\Users\Phuc\Downloads\Outlook\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_ChucVu.resources
+C:\Users\Phuc\Downloads\Outlook\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DanhMucThongTin.resources
+C:\Users\Phuc\Downloads\Outlook\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DonVi_CNVC.resources
+C:\Users\Phuc\Downloads\Outlook\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DSTinh.resources
+C:\Users\Phuc\Downloads\Outlook\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DSTinhTrangHN.resources
+C:\Users\Phuc\Downloads\Outlook\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_HienThiThongTin.resources
+C:\Users\Phuc\Downloads\Outlook\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_HinhThucDaoTao.resources
+C:\Users\Phuc\Downloads\Outlook\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_TimKiem.resources
+C:\Users\Phuc\Downloads\Outlook\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_VanBang.resources
+C:\Users\Phuc\Downloads\Outlook\QLNS\QLNS\obj\x86\Debug\QLNS.csproj.GenerateResource.Cache
+C:\Users\Phuc\Downloads\Outlook\QLNS\QLNS\obj\x86\Debug\QLNS.csprojResolveAssemblyReference.cache
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\obj\x86\Debug\QLNS.exe
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\obj\x86\Debug\QLNS.pdb
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\bin\Debug\QLNS.exe
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\bin\Debug\QLNS.pdb
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\bin\Debug\Business.dll
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\bin\Debug\DataProvider.dll
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\bin\Debug\Npgsql.dll
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\bin\Debug\SystemConfig.dll
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\bin\Debug\Mono.Security.dll
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\bin\Debug\Business.pdb
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\bin\Debug\DataProvider.pdb
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\bin\Debug\Npgsql.pdb
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\bin\Debug\Npgsql.xml
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\bin\Debug\SystemConfig.pdb
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\bin\Debug\de\Npgsql.resources.dll
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\bin\Debug\es\Npgsql.resources.dll
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\bin\Debug\fi\Npgsql.resources.dll
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\bin\Debug\fr\Npgsql.resources.dll
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\bin\Debug\ja\Npgsql.resources.dll
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\bin\Debug\zh-CN\Npgsql.resources.dll
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\obj\x86\Debug\QLNS.csprojResolveAssemblyReference.cache
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\obj\x86\Debug\QLNS.Forms.Main.resources
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\obj\x86\Debug\QLNS.Forms.Popup.resources
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\obj\x86\Debug\QLNS.Forms.QLNS_ThongTin.resources
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\obj\x86\Debug\QLNS.Properties.Resources.resources
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.MoHinhDaoTao.resources
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DienBienSK.resources
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DonVi.resources
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_ChucDanh.resources
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_ChucVu.resources
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DanhMucThongTin.resources
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DonVi_CNVC.resources
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DSTinh.resources
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DSTinhTrangHN.resources
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_HienThiThongTin.resources
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_HinhThucDaoTao.resources
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_TimKiem.resources
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_VanBang.resources
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.ThemTinhTP.resources
+C:\Users\Phuc\Downloads\Compressed\project de gop\QLNS\QLNS\obj\x86\Debug\QLNS.csproj.GenerateResource.Cache
+D:\Business\Project\QLNS\QLNS\obj\x86\Debug\QLNS.exe
+D:\Business\Project\QLNS\QLNS\obj\x86\Debug\QLNS.pdb
+D:\Business\Project\QLNS\QLNS\bin\Debug\QLNS.exe
+D:\Business\Project\QLNS\QLNS\bin\Debug\QLNS.pdb
+D:\Business\Project\QLNS\QLNS\bin\Debug\Business.dll
+D:\Business\Project\QLNS\QLNS\bin\Debug\DataProvider.dll
+D:\Business\Project\QLNS\QLNS\bin\Debug\Npgsql.dll
+D:\Business\Project\QLNS\QLNS\bin\Debug\SystemConfig.dll
+D:\Business\Project\QLNS\QLNS\bin\Debug\Business.pdb
+D:\Business\Project\QLNS\QLNS\bin\Debug\DataProvider.pdb
+D:\Business\Project\QLNS\QLNS\bin\Debug\SystemConfig.pdb
+D:\Business\Project\QLNS\QLNS\obj\x86\Debug\QLNS.csprojResolveAssemblyReference.cache
+D:\Business\Project\QLNS\QLNS\obj\x86\Debug\QLNS.Forms.Main.resources
+D:\Business\Project\QLNS\QLNS\obj\x86\Debug\QLNS.Forms.Popup.resources
+D:\Business\Project\QLNS\QLNS\obj\x86\Debug\QLNS.Forms.QLNS_ThongTin.resources
+D:\Business\Project\QLNS\QLNS\obj\x86\Debug\QLNS.Properties.Resources.resources
+D:\Business\Project\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.MoHinhDaoTao.resources
+D:\Business\Project\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DienBienSK.resources
+D:\Business\Project\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_ChucDanh.resources
+D:\Business\Project\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_ChucVu.resources
+D:\Business\Project\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DanhMucThongTin.resources
+D:\Business\Project\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DonVi.resources
+D:\Business\Project\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DonVi_CNVC.resources
+D:\Business\Project\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DSTinh.resources
+D:\Business\Project\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DSTinhTrangHN.resources
+D:\Business\Project\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_HienThiThongTin.resources
+D:\Business\Project\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_HinhThucDaoTao.resources
+D:\Business\Project\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_TimKiem.resources
+D:\Business\Project\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_VanBang.resources
+D:\Business\Project\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.ThemTinhTP.resources
+D:\Business\Project\QLNS\QLNS\obj\x86\Debug\QLNS.csproj.GenerateResource.Cache
+D:\Business\Project\QLNS\QLNS\bin\Debug\Mono.Security.dll
+D:\Job\QLNS\Projects\QLNS\QLNS\bin\Debug\QLNS.exe
+D:\Job\QLNS\Projects\QLNS\QLNS\bin\Debug\QLNS.pdb
+D:\Job\QLNS\Projects\QLNS\QLNS\bin\Debug\Business.dll
+D:\Job\QLNS\Projects\QLNS\QLNS\bin\Debug\DataProvider.dll
+D:\Job\QLNS\Projects\QLNS\QLNS\bin\Debug\Npgsql.dll
+D:\Job\QLNS\Projects\QLNS\QLNS\bin\Debug\SystemConfig.dll
+D:\Job\QLNS\Projects\QLNS\QLNS\bin\Debug\Mono.Security.dll
+D:\Job\QLNS\Projects\QLNS\QLNS\bin\Debug\Business.pdb
+D:\Job\QLNS\Projects\QLNS\QLNS\bin\Debug\DataProvider.pdb
+D:\Job\QLNS\Projects\QLNS\QLNS\bin\Debug\Npgsql.pdb
+D:\Job\QLNS\Projects\QLNS\QLNS\bin\Debug\Npgsql.xml
+D:\Job\QLNS\Projects\QLNS\QLNS\bin\Debug\SystemConfig.pdb
+D:\Job\QLNS\Projects\QLNS\QLNS\bin\Debug\de\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS\QLNS\bin\Debug\es\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS\QLNS\bin\Debug\fi\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS\QLNS\bin\Debug\fr\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS\QLNS\bin\Debug\ja\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS\QLNS\bin\Debug\zh-CN\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.csprojResolveAssemblyReference.cache
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.Forms.Main.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.Forms.Popup.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.Forms.QLNS_ThongTin.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.Properties.Resources.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.MoHinhDaoTao.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DienBienSK.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_ChucDanh.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_ChucVu.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DanhMucThongTin.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DonVi.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DonVi_CNVC.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DSTinh.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DSTinhTrangHN.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_HienThiThongTin.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_HinhThucDaoTao.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_TimKiem.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_VanBang.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.ThemTinhTP.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.csproj.GenerateResource.Cache
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.exe
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.pdb
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.ManHinhChinh.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_TapTin.resources
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\obj\x86\Debug\QLNS.exe
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\obj\x86\Debug\QLNS.pdb
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\bin\Debug\QLNS.exe
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\bin\Debug\QLNS.pdb
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\bin\Debug\Business.dll
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\bin\Debug\DataProvider.dll
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\bin\Debug\Npgsql.dll
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\bin\Debug\SystemConfig.dll
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\bin\Debug\Mono.Security.dll
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\bin\Debug\Business.pdb
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\bin\Debug\DataProvider.pdb
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\bin\Debug\Npgsql.pdb
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\bin\Debug\Npgsql.xml
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\bin\Debug\SystemConfig.pdb
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\bin\Debug\de\Npgsql.resources.dll
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\bin\Debug\es\Npgsql.resources.dll
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\bin\Debug\fi\Npgsql.resources.dll
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\bin\Debug\fr\Npgsql.resources.dll
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\bin\Debug\ja\Npgsql.resources.dll
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\bin\Debug\zh-CN\Npgsql.resources.dll
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\obj\x86\Debug\QLNS.csprojResolveAssemblyReference.cache
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\obj\x86\Debug\QLNS.Forms.Main.resources
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\obj\x86\Debug\QLNS.Forms.Popup.resources
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\obj\x86\Debug\QLNS.Forms.QLNS_ThongTin.resources
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\obj\x86\Debug\QLNS.Properties.Resources.resources
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.ManHinhChinh.resources
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.MoHinhDaoTao.resources
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DienBienSK.resources
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_ChucDanh.resources
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_ChucVu.resources
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DanhMucThongTin.resources
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DonVi.resources
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DonVi_CNVC.resources
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DSTinh.resources
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DSTinhTrangHN.resources
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_HienThiThongTin.resources
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_HinhThucDaoTao.resources
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_TapTin.resources
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_TimKiem.resources
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_VanBang.resources
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.ThemTinhTP.resources
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\obj\x86\Debug\QLNS.csproj.GenerateResource.Cache
+D:\Download\QLNS\QLNS\obj\x86\Debug\QLNS.pdb
+D:\Download\QLNS\QLNS\bin\Debug\QLNS.exe
+D:\Download\QLNS\QLNS\bin\Debug\QLNS.pdb
+D:\Download\QLNS\QLNS\bin\Debug\Business.dll
+D:\Download\QLNS\QLNS\bin\Debug\DataProvider.dll
+D:\Download\QLNS\QLNS\bin\Debug\Npgsql.dll
+D:\Download\QLNS\QLNS\bin\Debug\SystemConfig.dll
+D:\Download\QLNS\QLNS\bin\Debug\Mono.Security.dll
+D:\Download\QLNS\QLNS\bin\Debug\Business.pdb
+D:\Download\QLNS\QLNS\bin\Debug\DataProvider.pdb
+D:\Download\QLNS\QLNS\bin\Debug\Npgsql.pdb
+D:\Download\QLNS\QLNS\bin\Debug\Npgsql.xml
+D:\Download\QLNS\QLNS\bin\Debug\SystemConfig.pdb
+D:\Download\QLNS\QLNS\bin\Debug\de\Npgsql.resources.dll
+D:\Download\QLNS\QLNS\bin\Debug\es\Npgsql.resources.dll
+D:\Download\QLNS\QLNS\bin\Debug\fi\Npgsql.resources.dll
+D:\Download\QLNS\QLNS\bin\Debug\fr\Npgsql.resources.dll
+D:\Download\QLNS\QLNS\bin\Debug\ja\Npgsql.resources.dll
+D:\Download\QLNS\QLNS\bin\Debug\zh-CN\Npgsql.resources.dll
+D:\Download\QLNS\QLNS\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Download\QLNS\QLNS\obj\x86\Debug\QLNS.Forms.Main.resources
+D:\Download\QLNS\QLNS\obj\x86\Debug\QLNS.Forms.Popup.resources
+D:\Download\QLNS\QLNS\obj\x86\Debug\QLNS.Forms.QLNS_ThongTin.resources
+D:\Download\QLNS\QLNS\obj\x86\Debug\QLNS.Properties.Resources.resources
+D:\Download\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.ManHinhChinh.resources
+D:\Download\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.MoHinhDaoTao.resources
+D:\Download\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DienBienSK.resources
+D:\Download\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_ChucDanh.resources
+D:\Download\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_ChucVu.resources
+D:\Download\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DanhMucThongTin.resources
+D:\Download\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DonVi.resources
+D:\Download\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DonVi_CNVC.resources
+D:\Download\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DSTinh.resources
+D:\Download\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DSTinhTrangHN.resources
+D:\Download\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_HienThiThongTin.resources
+D:\Download\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_HinhThucDaoTao.resources
+D:\Download\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_TapTin.resources
+D:\Download\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_TimKiem.resources
+D:\Download\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_VanBang.resources
+D:\Download\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.ThemTinhTP.resources
+D:\Download\QLNS\QLNS\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\Download\QLNS\QLNS\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\Download\QLNS\QLNS\obj\x86\Debug\QLNS.exe
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.ThemMoHinhDT.resources
+C:\Users\Phuc Do\Downloads\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.ThemMoHinhDT.resources
+D:\Business\Project\QLNS\QLNS\bin\Debug\Npgsql.pdb
+D:\Business\Project\QLNS\QLNS\bin\Debug\Npgsql.xml
+D:\Business\Project\QLNS\QLNS\bin\Debug\de\Npgsql.resources.dll
+D:\Business\Project\QLNS\QLNS\bin\Debug\es\Npgsql.resources.dll
+D:\Business\Project\QLNS\QLNS\bin\Debug\fi\Npgsql.resources.dll
+D:\Business\Project\QLNS\QLNS\bin\Debug\fr\Npgsql.resources.dll
+D:\Business\Project\QLNS\QLNS\bin\Debug\ja\Npgsql.resources.dll
+D:\Business\Project\QLNS\QLNS\bin\Debug\zh-CN\Npgsql.resources.dll
+D:\Business\Project\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.ManHinhChinh.resources
+D:\Business\Project\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_TapTin.resources
+D:\Business\Project\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.ThemMoHinhDT.resources
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\obj\x86\Debug\QLNS.exe
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\obj\x86\Debug\QLNS.pdb
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\bin\Debug\QLNS.exe
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\bin\Debug\QLNS.pdb
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\bin\Debug\Business.dll
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\bin\Debug\DataProvider.dll
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\bin\Debug\Npgsql.dll
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\bin\Debug\SystemConfig.dll
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\bin\Debug\Mono.Security.dll
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\bin\Debug\Business.pdb
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\bin\Debug\DataProvider.pdb
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\bin\Debug\Npgsql.pdb
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\bin\Debug\Npgsql.xml
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\bin\Debug\SystemConfig.pdb
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\bin\Debug\de\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\bin\Debug\es\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\bin\Debug\fi\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\bin\Debug\fr\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\bin\Debug\ja\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\bin\Debug\zh-CN\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\obj\x86\Debug\QLNS.csprojResolveAssemblyReference.cache
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\obj\x86\Debug\QLNS.Forms.Main.resources
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\obj\x86\Debug\QLNS.Forms.Popup.resources
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\obj\x86\Debug\QLNS.Forms.QLNS_ThongTin.resources
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\obj\x86\Debug\QLNS.Properties.Resources.resources
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.ManHinhChinh.resources
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.MoHinhDaoTao.resources
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DienBienSK.resources
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_ChucDanh.resources
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_ChucVu.resources
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DanhMucThongTin.resources
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DonVi.resources
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DonVi_CNVC.resources
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DSTinh.resources
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DSTinhTrangHN.resources
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_HienThiThongTin.resources
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_HinhThucDaoTao.resources
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_TapTin.resources
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_TimKiem.resources
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_VanBang.resources
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.ThemMoHinhDT.resources
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.ThemTinhTP.resources
+D:\Job\QLNS\Projects\QLNS_BK\QLNS\QLNS\obj\x86\Debug\QLNS.csproj.GenerateResource.Cache
+D:\Job\QLNS\Projects\QLNS\QLNS\bin\Debug\HDQD.exe
+D:\Job\QLNS\Projects\QLNS\QLNS\bin\Debug\HDQD.pdb
+D:\Business\Project\QLNS\QLNS\bin\Debug\HDQD.exe
+D:\Business\Project\QLNS\QLNS\bin\Debug\HDQD.pdb
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\bin\Debug\QLNS.exe
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\bin\Debug\QLNS.pdb
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\bin\Debug\Business.dll
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\bin\Debug\DataProvider.dll
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\bin\Debug\HDQD.exe
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\bin\Debug\Npgsql.dll
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\bin\Debug\SystemConfig.dll
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\bin\Debug\Mono.Security.dll
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\bin\Debug\Business.pdb
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\bin\Debug\DataProvider.pdb
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\bin\Debug\HDQD.pdb
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\bin\Debug\Npgsql.pdb
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\bin\Debug\Npgsql.xml
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\bin\Debug\SystemConfig.pdb
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\bin\Debug\de\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\bin\Debug\es\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\bin\Debug\fi\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\bin\Debug\fr\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\bin\Debug\ja\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\bin\Debug\zh-CN\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\obj\x86\Debug\QLNS.csprojResolveAssemblyReference.cache
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\obj\x86\Debug\QLNS.Forms.Main.resources
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\obj\x86\Debug\QLNS.Forms.Popup.resources
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\obj\x86\Debug\QLNS.Forms.QLNS_ThongTin.resources
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\obj\x86\Debug\QLNS.Properties.Resources.resources
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.ManHinhChinh.resources
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.MoHinhDaoTao.resources
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DienBienSK.resources
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_ChucDanh.resources
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_ChucVu.resources
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DanhMucThongTin.resources
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DonVi.resources
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DonVi_CNVC.resources
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DSTinh.resources
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DSTinhTrangHN.resources
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_HienThiThongTin.resources
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_HinhThucDaoTao.resources
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_TapTin.resources
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_TimKiem.resources
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_VanBang.resources
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.ThemMoHinhDT.resources
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.ThemTinhTP.resources
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\obj\x86\Debug\QLNS.csproj.GenerateResource.Cache
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\obj\x86\Debug\QLNS.exe
+D:\Job\QLNS\Projects\QLNS_GOP\QLNS\QLNS\obj\x86\Debug\QLNS.pdb
