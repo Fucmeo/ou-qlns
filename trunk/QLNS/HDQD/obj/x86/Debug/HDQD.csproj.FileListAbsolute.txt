@@ -106,3 +106,7 @@ D:\Job\QLNS\Projects\QLNS_GOP\QLNS\HDQD\obj\x86\Debug\HDQD.UCs.ThongTinBoNhiem.r
 D:\Job\QLNS\Projects\QLNS_GOP\QLNS\HDQD\obj\x86\Debug\HDQD.UCs.ThongTinCNVC.resources
 D:\Job\QLNS\Projects\QLNS_GOP\QLNS\HDQD\obj\x86\Debug\HDQD.UCs.ThongTinQuyetDinh.resources
 D:\Job\QLNS\Projects\QLNS_GOP\QLNS\HDQD\obj\x86\Debug\HDQD.csproj.GenerateResource.Cache
+D:\Job\QLNS\Projects\QLNS\HDQD\obj\x86\Debug\HDQD.UCs.DanhSachHopDong.resources
+D:\Job\QLNS\Projects\QLNS\HDQD\obj\x86\Debug\HDQD.UCs.LoaiHopDong.resources
+D:\Job\QLNS\Projects\QLNS\HDQD\obj\x86\Debug\HDQD.UCs.QuyetDinhChung.resources
+D:\Job\QLNS\Projects\QLNS\HDQD\obj\x86\Debug\HDQD.UCs.DoiThongTinDV.resources

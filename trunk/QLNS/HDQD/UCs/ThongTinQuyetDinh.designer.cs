@@ -41,10 +41,10 @@
             this.txt_MaQD = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dTP_NgayHetHan = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.rTB_MoTa = new System.Windows.Forms.RichTextBox();
             this.dTP_NgayKy = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.rTB_MoTa = new System.Windows.Forms.RichTextBox();
             this.tableLP_ThongTinQuyetDinh.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -85,10 +85,10 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.93889F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.44238F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.733953F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.88477F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.79696F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.63452F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.11675F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.70559F));
             this.tableLayoutPanel1.Controls.Add(this.comB_Loai, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label8, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.txt_TenQD, 3, 0);
@@ -124,7 +124,7 @@
             "Bổ nhiệm",
             "Kiêm nhiệm",
             "Điều động"});
-            this.comB_Loai.Location = new System.Drawing.Point(120, 68);
+            this.comB_Loai.Location = new System.Drawing.Point(158, 66);
             this.comB_Loai.Name = "comB_Loai";
             this.comB_Loai.Size = new System.Drawing.Size(194, 29);
             this.comB_Loai.TabIndex = 2;
@@ -142,16 +142,16 @@
             // txt_TenQD
             // 
             this.txt_TenQD.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_TenQD.Location = new System.Drawing.Point(388, 13);
+            this.txt_TenQD.Location = new System.Drawing.Point(485, 13);
             this.txt_TenQD.Name = "txt_TenQD";
-            this.txt_TenQD.Size = new System.Drawing.Size(397, 28);
+            this.txt_TenQD.Size = new System.Drawing.Size(300, 28);
             this.txt_TenQD.TabIndex = 1;
             // 
             // label6
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(320, 16);
+            this.label6.Location = new System.Drawing.Point(359, 16);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(33, 21);
             this.label6.TabIndex = 14;
@@ -163,7 +163,7 @@
             this.dTP_NgayHieuLuc.Checked = false;
             this.dTP_NgayHieuLuc.CustomFormat = "dd/MM/yyyy";
             this.dTP_NgayHieuLuc.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dTP_NgayHieuLuc.Location = new System.Drawing.Point(120, 121);
+            this.dTP_NgayHieuLuc.Location = new System.Drawing.Point(158, 121);
             this.dTP_NgayHieuLuc.Name = "dTP_NgayHieuLuc";
             this.dTP_NgayHieuLuc.Size = new System.Drawing.Size(194, 28);
             this.dTP_NgayHieuLuc.TabIndex = 4;
@@ -183,16 +183,16 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 114);
+            this.label4.Location = new System.Drawing.Point(3, 124);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(103, 42);
+            this.label4.Size = new System.Drawing.Size(124, 21);
             this.label4.TabIndex = 4;
             this.label4.Text = "Ngày có hiệu lực";
             // 
             // txt_MaQD
             // 
             this.txt_MaQD.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_MaQD.Location = new System.Drawing.Point(120, 13);
+            this.txt_MaQD.Location = new System.Drawing.Point(158, 13);
             this.txt_MaQD.Name = "txt_MaQD";
             this.txt_MaQD.Size = new System.Drawing.Size(194, 28);
             this.txt_MaQD.TabIndex = 0;
@@ -201,9 +201,9 @@
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(320, 108);
+            this.label7.Location = new System.Drawing.Point(359, 124);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(49, 54);
+            this.label7.Size = new System.Drawing.Size(102, 21);
             this.label7.TabIndex = 15;
             this.label7.Text = "Ngày hết hạn";
             // 
@@ -213,11 +213,32 @@
             this.dTP_NgayHetHan.Checked = false;
             this.dTP_NgayHetHan.CustomFormat = "dd/MM/yyyy";
             this.dTP_NgayHetHan.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dTP_NgayHetHan.Location = new System.Drawing.Point(388, 121);
+            this.dTP_NgayHetHan.Location = new System.Drawing.Point(485, 121);
             this.dTP_NgayHetHan.Name = "dTP_NgayHetHan";
             this.dTP_NgayHetHan.ShowCheckBox = true;
-            this.dTP_NgayHetHan.Size = new System.Drawing.Size(243, 28);
+            this.dTP_NgayHetHan.Size = new System.Drawing.Size(275, 28);
             this.dTP_NgayHetHan.TabIndex = 5;
+            // 
+            // dTP_NgayKy
+            // 
+            this.dTP_NgayKy.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.dTP_NgayKy.Checked = false;
+            this.dTP_NgayKy.CustomFormat = "dd/MM/yyyy";
+            this.dTP_NgayKy.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dTP_NgayKy.Location = new System.Drawing.Point(485, 67);
+            this.dTP_NgayKy.Name = "dTP_NgayKy";
+            this.dTP_NgayKy.Size = new System.Drawing.Size(261, 28);
+            this.dTP_NgayKy.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(359, 70);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 21);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Ngày ký";
             // 
             // label2
             // 
@@ -232,32 +253,11 @@
             // rTB_MoTa
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.rTB_MoTa, 3);
-            this.rTB_MoTa.Location = new System.Drawing.Point(120, 165);
+            this.rTB_MoTa.Location = new System.Drawing.Point(158, 165);
             this.rTB_MoTa.Name = "rTB_MoTa";
-            this.rTB_MoTa.Size = new System.Drawing.Size(665, 39);
+            this.rTB_MoTa.Size = new System.Drawing.Size(627, 39);
             this.rTB_MoTa.TabIndex = 7;
             this.rTB_MoTa.Text = "";
-            // 
-            // dTP_NgayKy
-            // 
-            this.dTP_NgayKy.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.dTP_NgayKy.Checked = false;
-            this.dTP_NgayKy.CustomFormat = "dd/MM/yyyy";
-            this.dTP_NgayKy.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dTP_NgayKy.Location = new System.Drawing.Point(388, 67);
-            this.dTP_NgayKy.Name = "dTP_NgayKy";
-            this.dTP_NgayKy.Size = new System.Drawing.Size(194, 28);
-            this.dTP_NgayKy.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(320, 60);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 42);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Ngày ký";
             // 
             // ThongTinQuyetDinh
             // 
