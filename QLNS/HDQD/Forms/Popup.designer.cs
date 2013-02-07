@@ -37,7 +37,6 @@
             this.ClientSize = new System.Drawing.Size(859, 766);
             this.Name = "Popup";
             this.Text = "Popup";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Popup_Load);
             this.ResumeLayout(false);
 

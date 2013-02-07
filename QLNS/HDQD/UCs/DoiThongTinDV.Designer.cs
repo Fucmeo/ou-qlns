@@ -68,7 +68,7 @@
             this.tableLP_DoiThongTinDV.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLP_DoiThongTinDV.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLP_DoiThongTinDV.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLP_DoiThongTinDV.Size = new System.Drawing.Size(700, 900);
+            this.tableLP_DoiThongTinDV.Size = new System.Drawing.Size(900, 900);
             this.tableLP_DoiThongTinDV.TabIndex = 0;
             // 
             // tableLP_Nut
@@ -87,13 +87,13 @@
             this.tableLP_Nut.Name = "tableLP_Nut";
             this.tableLP_Nut.RowCount = 1;
             this.tableLP_Nut.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLP_Nut.Size = new System.Drawing.Size(694, 94);
+            this.tableLP_Nut.Size = new System.Drawing.Size(894, 94);
             this.tableLP_Nut.TabIndex = 7;
             // 
             // btn_Huy
             // 
             this.btn_Huy.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Huy.Location = new System.Drawing.Point(466, 6);
+            this.btn_Huy.Location = new System.Drawing.Point(616, 6);
             this.btn_Huy.Name = "btn_Huy";
             this.btn_Huy.Size = new System.Drawing.Size(109, 81);
             this.btn_Huy.TabIndex = 1;
@@ -103,7 +103,7 @@
             // btn_Nhap
             // 
             this.btn_Nhap.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Nhap.Location = new System.Drawing.Point(119, 6);
+            this.btn_Nhap.Location = new System.Drawing.Point(169, 6);
             this.btn_Nhap.Name = "btn_Nhap";
             this.btn_Nhap.Size = new System.Drawing.Size(109, 81);
             this.btn_Nhap.TabIndex = 0;
@@ -112,38 +112,39 @@
             // 
             // tableLP_ThayDoiCapBac
             // 
-            this.tableLP_ThayDoiCapBac.ColumnCount = 5;
-            this.tableLP_ThayDoiCapBac.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.tableLP_ThayDoiCapBac.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLP_ThayDoiCapBac.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.tableLP_ThayDoiCapBac.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLP_ThayDoiCapBac.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLP_ThayDoiCapBac.ColumnCount = 7;
+            this.tableLP_ThayDoiCapBac.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLP_ThayDoiCapBac.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.27273F));
+            this.tableLP_ThayDoiCapBac.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLP_ThayDoiCapBac.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.27273F));
+            this.tableLP_ThayDoiCapBac.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLP_ThayDoiCapBac.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLP_ThayDoiCapBac.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
             this.tableLP_ThayDoiCapBac.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLP_ThayDoiCapBac.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLP_ThayDoiCapBac.Location = new System.Drawing.Point(3, 633);
             this.tableLP_ThayDoiCapBac.Name = "tableLP_ThayDoiCapBac";
             this.tableLP_ThayDoiCapBac.RowCount = 1;
             this.tableLP_ThayDoiCapBac.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLP_ThayDoiCapBac.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 164F));
-            this.tableLP_ThayDoiCapBac.Size = new System.Drawing.Size(694, 164);
+            this.tableLP_ThayDoiCapBac.Size = new System.Drawing.Size(894, 164);
             this.tableLP_ThayDoiCapBac.TabIndex = 6;
             // 
             // tableLP_ThayDoiCD
             // 
-            this.tableLP_ThayDoiCD.ColumnCount = 5;
-            this.tableLP_ThayDoiCD.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.tableLP_ThayDoiCD.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLP_ThayDoiCD.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.tableLP_ThayDoiCD.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLP_ThayDoiCD.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLP_ThayDoiCD.ColumnCount = 6;
+            this.tableLP_ThayDoiCD.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLP_ThayDoiCD.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLP_ThayDoiCD.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLP_ThayDoiCD.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLP_ThayDoiCD.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLP_ThayDoiCD.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLP_ThayDoiCD.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLP_ThayDoiCD.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLP_ThayDoiCD.Location = new System.Drawing.Point(3, 433);
             this.tableLP_ThayDoiCD.Name = "tableLP_ThayDoiCD";
             this.tableLP_ThayDoiCD.RowCount = 1;
             this.tableLP_ThayDoiCD.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLP_ThayDoiCD.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 164F));
-            this.tableLP_ThayDoiCD.Size = new System.Drawing.Size(694, 164);
+            this.tableLP_ThayDoiCD.Size = new System.Drawing.Size(894, 164);
             this.tableLP_ThayDoiCD.TabIndex = 5;
             // 
             // cb_ThayDoiTen
@@ -181,20 +182,19 @@
             // 
             // tableLP_ThayDoiTen
             // 
-            this.tableLP_ThayDoiTen.ColumnCount = 5;
-            this.tableLP_ThayDoiTen.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.tableLP_ThayDoiTen.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLP_ThayDoiTen.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.tableLP_ThayDoiTen.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLP_ThayDoiTen.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLP_ThayDoiTen.ColumnCount = 6;
+            this.tableLP_ThayDoiTen.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLP_ThayDoiTen.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLP_ThayDoiTen.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLP_ThayDoiTen.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLP_ThayDoiTen.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLP_ThayDoiTen.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLP_ThayDoiTen.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLP_ThayDoiTen.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLP_ThayDoiTen.Location = new System.Drawing.Point(3, 233);
             this.tableLP_ThayDoiTen.Name = "tableLP_ThayDoiTen";
             this.tableLP_ThayDoiTen.RowCount = 1;
-            this.tableLP_ThayDoiTen.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLP_ThayDoiTen.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 164F));
-            this.tableLP_ThayDoiTen.Size = new System.Drawing.Size(694, 164);
+            this.tableLP_ThayDoiTen.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLP_ThayDoiTen.Size = new System.Drawing.Size(894, 164);
             this.tableLP_ThayDoiTen.TabIndex = 4;
             // 
             // thongTinQuyetDinh1
@@ -205,7 +205,7 @@
             this.thongTinQuyetDinh1.Location = new System.Drawing.Point(3, 4);
             this.thongTinQuyetDinh1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.thongTinQuyetDinh1.Name = "thongTinQuyetDinh1";
-            this.thongTinQuyetDinh1.Size = new System.Drawing.Size(694, 192);
+            this.thongTinQuyetDinh1.Size = new System.Drawing.Size(894, 192);
             this.thongTinQuyetDinh1.TabIndex = 0;
             // 
             // DoiThongTinDV
@@ -217,7 +217,7 @@
             this.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "DoiThongTinDV";
-            this.Size = new System.Drawing.Size(700, 900);
+            this.Size = new System.Drawing.Size(900, 900);
             this.Load += new System.EventHandler(this.DoiThongTinDV_Load);
             this.tableLP_DoiThongTinDV.ResumeLayout(false);
             this.tableLP_DoiThongTinDV.PerformLayout();

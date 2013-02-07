@@ -16,12 +16,12 @@ namespace HDQD.Forms
         {
             InitializeComponent();
             oUC = _oUC;
-            
+            this.Size = oUC.Size;
         }
 
         public Popup()
         {
-            UCs.BoNhiem ucHopDong = new UCs.BoNhiem();
+            UCs.DoiThongTinDV ucHopDong = new UCs.DoiThongTinDV();            
             ucHopDong.Dock = DockStyle.Fill;
             this.Controls.Add(ucHopDong);
         }
