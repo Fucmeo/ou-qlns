@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Business;
 
 namespace HDQD.UCs
 {
@@ -14,6 +15,11 @@ namespace HDQD.UCs
         public DoiThongTinDV()
         {
             InitializeComponent();
+        }
+
+        private void DoiThongTinDV_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
