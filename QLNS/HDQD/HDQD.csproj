@@ -108,6 +108,12 @@
     <Compile Include="UCs\LoaiQuyetDinh.Designer.cs">
       <DependentUpon>LoaiQuyetDinh.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCs\M_A.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\M_A.Designer.cs">
+      <DependentUpon>M_A.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCs\QuyetDinhChung.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -176,6 +182,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\LoaiQuyetDinh.resx">
       <DependentUpon>LoaiQuyetDinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\M_A.resx">
+      <DependentUpon>M_A.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\QuyetDinhChung.resx">
       <DependentUpon>QuyetDinhChung.cs</DependentUpon>

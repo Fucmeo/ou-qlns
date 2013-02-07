@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.tableLP_DoiThongTinDV = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLP_Nut = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_Huy = new System.Windows.Forms.Button();
+            this.btn_Nhap = new System.Windows.Forms.Button();
             this.tableLP_ThayDoiCapBac = new System.Windows.Forms.TableLayoutPanel();
             this.tableLP_ThayDoiCD = new System.Windows.Forms.TableLayoutPanel();
             this.thongTinQuyetDinh1 = new HDQD.UCs.ThongTinQuyetDinh();
@@ -36,9 +39,6 @@
             this.cb_ThayDoiChucDanh = new System.Windows.Forms.CheckBox();
             this.cb_ThayDoiCapBac = new System.Windows.Forms.CheckBox();
             this.tableLP_ThayDoiTen = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLP_Nut = new System.Windows.Forms.TableLayoutPanel();
-            this.btn_Nhap = new System.Windows.Forms.Button();
-            this.btn_Huy = new System.Windows.Forms.Button();
             this.tableLP_DoiThongTinDV.SuspendLayout();
             this.tableLP_Nut.SuspendLayout();
             this.SuspendLayout();
@@ -70,6 +70,45 @@
             this.tableLP_DoiThongTinDV.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLP_DoiThongTinDV.Size = new System.Drawing.Size(700, 900);
             this.tableLP_DoiThongTinDV.TabIndex = 0;
+            // 
+            // tableLP_Nut
+            // 
+            this.tableLP_Nut.ColumnCount = 2;
+            this.tableLP_Nut.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLP_Nut.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLP_Nut.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLP_Nut.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLP_Nut.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLP_Nut.Controls.Add(this.btn_Huy, 1, 0);
+            this.tableLP_Nut.Controls.Add(this.btn_Nhap, 0, 0);
+            this.tableLP_Nut.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLP_Nut.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
+            this.tableLP_Nut.Location = new System.Drawing.Point(3, 803);
+            this.tableLP_Nut.Name = "tableLP_Nut";
+            this.tableLP_Nut.RowCount = 1;
+            this.tableLP_Nut.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLP_Nut.Size = new System.Drawing.Size(694, 94);
+            this.tableLP_Nut.TabIndex = 7;
+            // 
+            // btn_Huy
+            // 
+            this.btn_Huy.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Huy.Location = new System.Drawing.Point(466, 6);
+            this.btn_Huy.Name = "btn_Huy";
+            this.btn_Huy.Size = new System.Drawing.Size(109, 81);
+            this.btn_Huy.TabIndex = 1;
+            this.btn_Huy.Text = "Huỷ";
+            this.btn_Huy.UseVisualStyleBackColor = true;
+            // 
+            // btn_Nhap
+            // 
+            this.btn_Nhap.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Nhap.Location = new System.Drawing.Point(119, 6);
+            this.btn_Nhap.Name = "btn_Nhap";
+            this.btn_Nhap.Size = new System.Drawing.Size(109, 81);
+            this.btn_Nhap.TabIndex = 0;
+            this.btn_Nhap.Text = "Nhập";
+            this.btn_Nhap.UseVisualStyleBackColor = true;
             // 
             // tableLP_ThayDoiCapBac
             // 
@@ -168,45 +207,6 @@
             this.tableLP_ThayDoiTen.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 164F));
             this.tableLP_ThayDoiTen.Size = new System.Drawing.Size(694, 164);
             this.tableLP_ThayDoiTen.TabIndex = 4;
-            // 
-            // tableLP_Nut
-            // 
-            this.tableLP_Nut.ColumnCount = 2;
-            this.tableLP_Nut.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLP_Nut.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLP_Nut.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLP_Nut.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLP_Nut.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLP_Nut.Controls.Add(this.btn_Huy, 1, 0);
-            this.tableLP_Nut.Controls.Add(this.btn_Nhap, 0, 0);
-            this.tableLP_Nut.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLP_Nut.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.tableLP_Nut.Location = new System.Drawing.Point(3, 803);
-            this.tableLP_Nut.Name = "tableLP_Nut";
-            this.tableLP_Nut.RowCount = 1;
-            this.tableLP_Nut.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLP_Nut.Size = new System.Drawing.Size(694, 94);
-            this.tableLP_Nut.TabIndex = 7;
-            // 
-            // btn_Nhap
-            // 
-            this.btn_Nhap.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Nhap.Location = new System.Drawing.Point(119, 6);
-            this.btn_Nhap.Name = "btn_Nhap";
-            this.btn_Nhap.Size = new System.Drawing.Size(109, 81);
-            this.btn_Nhap.TabIndex = 0;
-            this.btn_Nhap.Text = "Nhập";
-            this.btn_Nhap.UseVisualStyleBackColor = true;
-            // 
-            // btn_Huy
-            // 
-            this.btn_Huy.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Huy.Location = new System.Drawing.Point(466, 6);
-            this.btn_Huy.Name = "btn_Huy";
-            this.btn_Huy.Size = new System.Drawing.Size(109, 81);
-            this.btn_Huy.TabIndex = 1;
-            this.btn_Huy.Text = "Huỷ";
-            this.btn_Huy.UseVisualStyleBackColor = true;
             // 
             // DoiThongTinDV
             // 
