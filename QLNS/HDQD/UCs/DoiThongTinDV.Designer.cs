@@ -34,11 +34,11 @@
             this.btn_Nhap = new System.Windows.Forms.Button();
             this.tableLP_ThayDoiCapBac = new System.Windows.Forms.TableLayoutPanel();
             this.tableLP_ThayDoiCD = new System.Windows.Forms.TableLayoutPanel();
-            this.thongTinQuyetDinh1 = new HDQD.UCs.ThongTinQuyetDinh();
             this.cb_ThayDoiTen = new System.Windows.Forms.CheckBox();
             this.cb_ThayDoiChucDanh = new System.Windows.Forms.CheckBox();
             this.cb_ThayDoiCapBac = new System.Windows.Forms.CheckBox();
             this.tableLP_ThayDoiTen = new System.Windows.Forms.TableLayoutPanel();
+            this.thongTinQuyetDinh1 = new HDQD.UCs.ThongTinQuyetDinh();
             this.tableLP_DoiThongTinDV.SuspendLayout();
             this.tableLP_Nut.SuspendLayout();
             this.SuspendLayout();
@@ -146,17 +146,6 @@
             this.tableLP_ThayDoiCD.Size = new System.Drawing.Size(694, 164);
             this.tableLP_ThayDoiCD.TabIndex = 5;
             // 
-            // thongTinQuyetDinh1
-            // 
-            this.thongTinQuyetDinh1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.thongTinQuyetDinh1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.thongTinQuyetDinh1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.thongTinQuyetDinh1.Location = new System.Drawing.Point(3, 4);
-            this.thongTinQuyetDinh1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.thongTinQuyetDinh1.Name = "thongTinQuyetDinh1";
-            this.thongTinQuyetDinh1.Size = new System.Drawing.Size(694, 192);
-            this.thongTinQuyetDinh1.TabIndex = 0;
-            // 
             // cb_ThayDoiTen
             // 
             this.cb_ThayDoiTen.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -208,6 +197,17 @@
             this.tableLP_ThayDoiTen.Size = new System.Drawing.Size(694, 164);
             this.tableLP_ThayDoiTen.TabIndex = 4;
             // 
+            // thongTinQuyetDinh1
+            // 
+            this.thongTinQuyetDinh1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.thongTinQuyetDinh1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.thongTinQuyetDinh1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.thongTinQuyetDinh1.Location = new System.Drawing.Point(3, 4);
+            this.thongTinQuyetDinh1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.thongTinQuyetDinh1.Name = "thongTinQuyetDinh1";
+            this.thongTinQuyetDinh1.Size = new System.Drawing.Size(694, 192);
+            this.thongTinQuyetDinh1.TabIndex = 0;
+            // 
             // DoiThongTinDV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -218,6 +218,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "DoiThongTinDV";
             this.Size = new System.Drawing.Size(700, 900);
+            this.Load += new System.EventHandler(this.DoiThongTinDV_Load);
             this.tableLP_DoiThongTinDV.ResumeLayout(false);
             this.tableLP_DoiThongTinDV.PerformLayout();
             this.tableLP_Nut.ResumeLayout(false);
