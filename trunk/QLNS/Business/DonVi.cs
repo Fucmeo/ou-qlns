@@ -218,6 +218,15 @@ namespace Business
             return dt;
         }
 
+        public DataTable GetActiveDonVi()
+        {
+            DataTable dt = new DataTable();
+
+            dt = dp.getDataTable("select * from v_don_vi_con_hd");
+
+            return dt;
+        }
+
         #endregion
     }
 }
