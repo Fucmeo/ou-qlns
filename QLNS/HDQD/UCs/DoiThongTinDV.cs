@@ -12,21 +12,34 @@ namespace HDQD.UCs
 {
     public partial class DoiThongTinDV : UserControl
     {
+        Business.DonVi oDonVi;
+        Business.ChucVu oChucVu;
+        DataTable dtDonVi , dtChucVu;
+
         public DoiThongTinDV()
         {
             InitializeComponent();
+            oDonVi = new DonVi();
+            oChucVu = new ChucVu();
+            dtDonVi = oDonVi.GetActiveDonVi();
+            dtChucVu = oChucVu.GetList();
         }
 
         private void DoiThongTinDV_Load(object sender, EventArgs e)
         {
             GenUI_Name(0);
+            GenUI_Relationship(0);
+            GenUI_Title(0);
         }
+
+        #region Code giao diện
 
         /// <summary>
         /// Add cac control vao khung thay đổi tên.
         /// </summary>
         private void GenUI_Name(int row)
         {
+            #region layout code
             Label lb = new Label();
             lb.Anchor = AnchorStyles.None;
             lb.Text = "Từ";
@@ -78,6 +91,153 @@ namespace HDQD.UCs
             tableLP_ThayDoiTen.Controls.Add(lb_ten_them, 4, row);
             tableLP_ThayDoiTen.Controls.Add(lb_ten_xoa, 5, row);
 
+
+            PopulateDonViComB(com);
+            #endregion
+
+        }
+
+        /// <summary>
+        /// Add cac control vao khung thay đổi quan hệ.
+        /// </summary>
+        private void GenUI_Relationship(int row)
+        {
+
+            #region layout code
+            ComboBox com = new ComboBox();
+            com.Anchor = AnchorStyles.None;
+            com.DropDownStyle = ComboBoxStyle.DropDownList;
+            com.Width = 500;
+            com.Name = "comB_DV_CapBac_" + row.ToString();
+
+            Label lb = new Label();
+            lb.Anchor = AnchorStyles.None;
+            lb.Text = "Từ";
+            lb.Name = "lbl_Tu_CapBac_" + row.ToString();
+
+
+            ComboBox com2 = new ComboBox();
+            com2.Anchor = AnchorStyles.None;
+            com2.DropDownStyle = ComboBoxStyle.DropDownList;
+            com2.Width = 500;
+            com2.Name = "comB_Tu_CapBac_" + row.ToString();
+
+
+            Label lb2 = new Label();
+            lb2.Anchor = AnchorStyles.None;
+            lb2.Text = "Sang";
+            lb2.Name = "lbl_Sang_CapBac_" + row.ToString();
+
+
+            ComboBox com3 = new ComboBox();
+            com3.Anchor = AnchorStyles.None;
+            com3.DropDownStyle = ComboBoxStyle.DropDownList;
+            com3.Width = 500;
+            com3.Name = "comB_Sang_CapBac_" + row.ToString();
+
+
+            Label lb_ten_them = new Label();
+            lb_ten_them.MouseClick += new MouseEventHandler(lb_MouseClick);
+            lb_ten_them.Anchor = AnchorStyles.None;
+            lb_ten_them.Text = "Thêm";
+            lb_ten_them.Cursor = Cursors.Hand;
+            lb_ten_them.Font = new Font(lb_ten_them.Font.Name, lb_ten_them.Font.Size, FontStyle.Underline);
+            lb_ten_them.ForeColor = Color.Blue;
+            lb_ten_them.Name = "txt_Them_CapBac_" + row.ToString();
+
+
+            Label lb_ten_xoa = new Label();
+            lb_ten_xoa.Anchor = AnchorStyles.None;
+            lb_ten_xoa.MouseClick += new MouseEventHandler(lb_MouseClick);
+            lb_ten_xoa.Text = "Xoá";
+            lb_ten_xoa.Cursor = Cursors.Hand;
+            lb_ten_xoa.Font = new Font(lb_ten_them.Font.Name, lb_ten_them.Font.Size, FontStyle.Underline);
+            lb_ten_xoa.ForeColor = Color.Blue;
+            lb_ten_xoa.Name = "txt_Xoa_CapBac_" + row.ToString();
+
+
+            tableLP_ThayDoiCapBac.Controls.Add(com, 0, row);
+            tableLP_ThayDoiCapBac.Controls.Add(lb, 1, row);
+            tableLP_ThayDoiCapBac.Controls.Add(com2, 2, row);
+            tableLP_ThayDoiCapBac.Controls.Add(lb2, 3, row);
+            tableLP_ThayDoiCapBac.Controls.Add(com3, 4, row);
+            tableLP_ThayDoiCapBac.Controls.Add(lb_ten_them, 5, row);
+            tableLP_ThayDoiCapBac.Controls.Add(lb_ten_xoa, 6, row);
+
+
+            #endregion
+        }
+
+        /// <summary>
+        /// Add cac control vao khung thay đổi chức danh.
+        /// </summary>
+        private void GenUI_Title(int row)
+        {
+            #region layout code
+            ComboBox com = new ComboBox();
+            com.Anchor = AnchorStyles.None;
+            com.DropDownStyle = ComboBoxStyle.DropDownList;
+            com.Width = 500;
+            com.Name = "comB_DV_ChucVu_" + row.ToString();
+
+            Label lb = new Label();
+            lb.Anchor = AnchorStyles.None;
+            lb.Text = "Từ";
+            lb.Name = "lbl_Tu_ChucVu_" + row.ToString();
+
+
+            ComboBox com2 = new ComboBox();
+            com2.Anchor = AnchorStyles.None;
+            com2.DropDownStyle = ComboBoxStyle.DropDownList;
+            com2.Width = 500;
+            com2.Name = "comB_Tu_ChucVu_" + row.ToString();
+
+
+            Label lb2 = new Label();
+            lb2.Anchor = AnchorStyles.None;
+            lb2.Text = "Sang";
+            lb2.Name = "lbl_Sang_ChucVu_" + row.ToString();
+
+
+            ComboBox com3 = new ComboBox();
+            com3.Anchor = AnchorStyles.None;
+            com3.DropDownStyle = ComboBoxStyle.DropDownList;
+            com3.Width = 500;
+            com3.Name = "comB_Sang_ChucVu_" + row.ToString();
+
+
+            Label lb_ten_them = new Label();
+            lb_ten_them.MouseClick += new MouseEventHandler(lb_MouseClick);
+            lb_ten_them.Anchor = AnchorStyles.None;
+            lb_ten_them.Text = "Thêm";
+            lb_ten_them.Cursor = Cursors.Hand;
+            lb_ten_them.Font = new Font(lb_ten_them.Font.Name, lb_ten_them.Font.Size, FontStyle.Underline);
+            lb_ten_them.ForeColor = Color.Blue;
+            lb_ten_them.Name = "txt_Them_ChucVu_" + row.ToString();
+
+
+            Label lb_ten_xoa = new Label();
+            lb_ten_xoa.Anchor = AnchorStyles.None;
+            lb_ten_xoa.MouseClick += new MouseEventHandler(lb_MouseClick);
+            lb_ten_xoa.Text = "Xoá";
+            lb_ten_xoa.Cursor = Cursors.Hand;
+            lb_ten_xoa.Font = new Font(lb_ten_them.Font.Name, lb_ten_them.Font.Size, FontStyle.Underline);
+            lb_ten_xoa.ForeColor = Color.Blue;
+            lb_ten_xoa.Name = "txt_Xoa_ChucVu_" + row.ToString();
+
+            tableLP_ThayDoiCD.Controls.Add(com, 0, row);
+            tableLP_ThayDoiCD.Controls.Add(lb, 1, row);
+            tableLP_ThayDoiCD.Controls.Add(com2, 2, row);
+            tableLP_ThayDoiCD.Controls.Add(lb2, 3, row);
+            tableLP_ThayDoiCD.Controls.Add(com3, 4, row);
+            tableLP_ThayDoiCD.Controls.Add(lb_ten_them, 5, row);
+            tableLP_ThayDoiCD.Controls.Add(lb_ten_xoa, 6, row);
+
+            PopulateDonViComB(com);
+            PopulateChucVuComB(com2);
+            PopulateChucVuComB(com3);
+
+            #endregion
         }
 
         /// <summary>
@@ -92,63 +252,34 @@ namespace HDQD.UCs
             string name = lb.Name;
             int TLPRows = TLP.RowCount;
             int lbRow = TLP.GetRow(lb);
+            int lbCol = TLP.GetColumn(lb);
 
-            switch (TLP.Name)
+            if (name.Contains("Xoa"))
             {
-                case "tableLP_ThayDoiTen":
-                    if (name.Contains("Xoa"))
+                if (TLPRows > 1)   // khong duoc xoa dong cuoi cung
+                {
+                    // dòng bị xoá là dòng cuối 
+                    //thì unhide "Thêm" ở dòng kế cuối
+                    if ((lbRow + 1) == TLPRows)
                     {
-                        if (TLPRows > 1)   // khong duoc xoa dong cuoi cung
-                        {
-                            // dòng bị xoá là dòng cuối 
-                            //thì unhide "Thêm" ở dòng kế cuối
-                            if ((lbRow+1) == TLPRows)
-                            {
-                                Control c = TLP.Controls[4 + TLP.ColumnCount * (lbRow-1)];
-                                c.Visible = true;
-                            }
-                            AddRemoveRow(tableLP_ThayDoiTen, "Remove", lbRow);
-                            MoveUp(tableLP_ThayDoiTen, lbRow);
-                        }
+                        Control c = TLP.Controls[lbCol - 1 + TLP.ColumnCount * (lbRow - 1)];    // trừ 1 để chuyển sang lb Thêm
+                        c.Visible = true;
                     }
-                    else if (name.Contains("Them"))
-                    {
-                        if (TLPRows < 4)    // gioi han 4 dong
-                        {
-                            TLP.Controls[4 + TLP.ColumnCount * (lbRow)].Visible = false; // hide chữ "thêm" trước khi thêm mới 
-                            AddRemoveRow(tableLP_ThayDoiTen, "Add", ++lbRow);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Số lượng dòng vượt quá giới hạn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                    }
-                    break;
-
-                //case "tableLP_ThayDoiCD":
-                //    if (name.Contains("Xoa"))
-                //    {
-                //        AddRemoveRow(tableLP_ThayDoiCD, "Remove", row);
-                //    }
-                //    else if (name.Contains("Them"))
-                //    {
-                //        AddRemoveRow(tableLP_ThayDoiCD, "Add", row);
-                //    }
-                //    break;
-
-                //case "tableLP_ThayDoiCapBac":
-                //    if (name.Contains("Xoa"))
-                //    {
-                //        AddRemoveRow(tableLP_ThayDoiCapBac, "Remove", row);
-                //    }
-                //    else if (name.Contains("Them"))
-                //    {
-                //        AddRemoveRow(tableLP_ThayDoiCapBac, "Add", row);
-                //    }
-                //    break;
-
-                default:
-                    break;
+                    AddRemoveRow(TLP, "Remove", lbRow);
+                    MoveUp(TLP, lbRow);
+                }
+            }
+            else if (name.Contains("Them"))
+            {
+                if (TLPRows < 4)    // gioi han 4 dong
+                {
+                    TLP.Controls[lbCol + TLP.ColumnCount * (lbRow)].Visible = false; // hide chữ "thêm" trước khi thêm mới 
+                    AddRemoveRow(TLP, "Add", ++lbRow);
+                }
+                else
+                {
+                    MessageBox.Show("Số lượng dòng vượt quá giới hạn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
 
         }
@@ -173,23 +304,6 @@ namespace HDQD.UCs
 
         }
 
-
-        /// <summary>
-        /// Add cac control vao khung thay đổi cấp bậc.
-        /// </summary>
-        private void GenUI_Relationship()
-        {
-
-        }
-
-        /// <summary>
-        /// Add cac control vao khung thay đổi chức danh.
-        /// </summary>
-        private void GenUI_Title()
-        {
-
-        }
-
         /// <summary>
         /// thêm xoá dòng tương ứng trong TLP
         /// dịch chuyển các control
@@ -202,21 +316,27 @@ namespace HDQD.UCs
             if (Action == "Add")
             {
                 tableLP.RowCount++;
-                GenUI_Name(row);
+                switch (tableLP.Name)
+                {
+                    case "tableLP_ThayDoiTen":
+                        GenUI_Name(row);
+                        break;
+                    case "tableLP_ThayDoiCD":
+                        GenUI_Title(row);
+                        break;
+                    case "tableLP_ThayDoiCapBac":
+                        GenUI_Relationship(row);
+                        break;
+
+                    default:
+                        break;
+                }
+
             }
             else if (Action == "Remove")
             {
                 tableLP.RowCount--;
-                switch (tableLP.Name)
-                {
-                    case "tableLP_ThayDoiTen":
-
-                        RemoveControlsFromTLP(tableLP_ThayDoiTen, row);
-
-                        break;
-                    default:
-                        break;
-                }
+                RemoveControlsFromTLP(tableLP, row);
             }
         }
 
@@ -229,9 +349,49 @@ namespace HDQD.UCs
         {
             for (int i = 0; i < TLP.ColumnCount; i++)
             {
-                Control c = TLP.Controls[row  * TLP.ColumnCount ];    // do khi remove, thứ tự index sẽ bị đôn lên
+                Control c = TLP.Controls[row * TLP.ColumnCount];    // do khi remove, thứ tự index sẽ bị đôn lên
                 TLP.Controls.Remove(c);
             }
+        }
+
+        private void cb_ThayDoi_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox cb = ((CheckBox)(sender));
+            switch (cb.Name)
+            {
+                case "cb_ThayDoiCapBac":
+                    tableLP_ThayDoiCapBac.Enabled = cb.Checked;
+                    break;
+                case "cb_ThayDoiTen":
+                    tableLP_ThayDoiTen.Enabled = cb.Checked;
+                    break;
+                case "cb_ThayDoiChucDanh":
+                    tableLP_ThayDoiCD.Enabled = cb.Checked;
+                    break;
+                default:
+                    break;
+            }
+        } 
+        #endregion
+
+        private void PopulateDonViComB(ComboBox comb)
+        {
+            comb.DataSource = dtDonVi;
+            comb.DisplayMember = "ten_don_vi";
+            comb.ValueMember = "id";
+
+            if (dtDonVi.Rows.Count > 0)
+                comb.SelectedIndex = 0;
+        }
+
+        private void PopulateChucVuComB(ComboBox comb)
+        {
+            comb.DataSource = dtChucVu;
+            comb.DisplayMember = "ten_chuc_vu";
+            comb.ValueMember = "id";
+
+            if (dtChucVu.Rows.Count > 0)
+                comb.SelectedIndex = 0;
         }
     }
 }
