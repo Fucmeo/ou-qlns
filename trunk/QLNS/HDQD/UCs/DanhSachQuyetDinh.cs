@@ -74,7 +74,7 @@ namespace HDQD.UCs
             dtgv_DSQD.Columns[6].Width = 100;
             dtgv_DSQD.Columns[7].HeaderText = "Ngày hiệu lực";
             dtgv_DSQD.Columns[7].Width = 100;
-            dtgv_DSQD.Columns[8].HeaderText = "Ngày hết hẹn";
+            dtgv_DSQD.Columns[8].HeaderText = "Ngày hết hạn";
             dtgv_DSQD.Columns[8].Width = 100;
             // An cot ID
             dtgv_DSQD.Columns[2].Visible = false;
@@ -142,17 +142,21 @@ namespace HDQD.UCs
                 oQuyetDinh.Ngay_Ky_Tu = dTP_TuNgay.Value;
                 oQuyetDinh.Ngay_Ky_Den = dTP_DenNgay.Value;
             }
-            dtDSQuyetDinh = oQuyetDinh.Search_QD();
-            //dtgv_DSQD.DataSource = dtDSQuyetDinh;
-            if (dtDSQuyetDinh != null)
+            try
             {
-                PrepareDataSource();
-                EditDtgInterface();
-                if (dtDSQuyetDinh.Rows.Count != 0)
-                    ResetInterface(true);
-                else
-                    ResetInterface(false);
+                dtDSQuyetDinh = oQuyetDinh.Search_QD();
+                //dtgv_DSQD.DataSource = dtDSQuyetDinh;
+                if (dtDSQuyetDinh != null)
+                {
+                    PrepareDataSource();
+                    EditDtgInterface();
+                    if (dtDSQuyetDinh.Rows.Count != 0)
+                        ResetInterface(true);
+                    else
+                        ResetInterface(false);
+                }
             }
+            catch { }
         }
 
         private void dtgv_DSQD_SelectionChanged(object sender, EventArgs e)

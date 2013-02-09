@@ -195,6 +195,19 @@ namespace Business.CNVC
             return dt;
         }
 
+        public DataTable Search_Ho_Ten()
+        {
+            DataTable dt;
+
+            IDataParameter[] paras = new IDataParameter[1]{
+                new NpgsqlParameter("p_ma_nv",manv)               
+            };
+
+            dt = dp.getDataTableProc("sp1_qsearch_hoten_nv", paras);
+
+            return dt;
+        }
+
         #endregion
 
 

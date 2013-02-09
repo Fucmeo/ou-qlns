@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.tableLP_HopDong = new System.Windows.Forms.TableLayoutPanel();
+            this.thongTinCNVC1 = new HDQD.UCs.ThongTinCNVC();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLP_ChiTietHopDong = new System.Windows.Forms.TableLayoutPanel();
             this.comB_ChucDanh = new System.Windows.Forms.ComboBox();
@@ -62,7 +63,6 @@
             this.btn_Them = new System.Windows.Forms.Button();
             this.btn_NhapFile = new System.Windows.Forms.Button();
             this.btn_DungHD = new System.Windows.Forms.Button();
-            this.thongTinCNVC1 = new HDQD.UCs.ThongTinCNVC();
             this.tableLP_HopDong.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLP_ChiTietHopDong.SuspendLayout();
@@ -85,6 +85,17 @@
             this.tableLP_HopDong.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.tableLP_HopDong.Size = new System.Drawing.Size(700, 850);
             this.tableLP_HopDong.TabIndex = 0;
+            // 
+            // thongTinCNVC1
+            // 
+            this.thongTinCNVC1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.thongTinCNVC1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.thongTinCNVC1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.thongTinCNVC1.Location = new System.Drawing.Point(3, 4);
+            this.thongTinCNVC1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.thongTinCNVC1.Name = "thongTinCNVC1";
+            this.thongTinCNVC1.Size = new System.Drawing.Size(694, 162);
+            this.thongTinCNVC1.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -151,7 +162,7 @@
             this.comB_ChucDanh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_ChucDanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_ChucDanh.FormattingEnabled = true;
-            this.comB_ChucDanh.Location = new System.Drawing.Point(106, 244);
+            this.comB_ChucDanh.Location = new System.Drawing.Point(106, 246);
             this.comB_ChucDanh.Name = "comB_ChucDanh";
             this.comB_ChucDanh.Size = new System.Drawing.Size(234, 25);
             this.comB_ChucDanh.TabIndex = 34;
@@ -174,7 +185,7 @@
             this.comB_ThuViecChinhThuc.Items.AddRange(new object[] {
             "Chính thức",
             "Thử việc"});
-            this.comB_ThuViecChinhThuc.Location = new System.Drawing.Point(449, 73);
+            this.comB_ThuViecChinhThuc.Location = new System.Drawing.Point(449, 75);
             this.comB_ThuViecChinhThuc.Name = "comB_ThuViecChinhThuc";
             this.comB_ThuViecChinhThuc.Size = new System.Drawing.Size(236, 25);
             this.comB_ThuViecChinhThuc.TabIndex = 22;
@@ -184,10 +195,11 @@
             this.comB_LoaiHD.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_LoaiHD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_LoaiHD.FormattingEnabled = true;
-            this.comB_LoaiHD.Location = new System.Drawing.Point(449, 16);
+            this.comB_LoaiHD.Location = new System.Drawing.Point(449, 18);
             this.comB_LoaiHD.Name = "comB_LoaiHD";
             this.comB_LoaiHD.Size = new System.Drawing.Size(236, 25);
             this.comB_LoaiHD.TabIndex = 21;
+            this.comB_LoaiHD.DropDownClosed += new System.EventHandler(this.comB_LoaiHD_DropDownClosed);
             // 
             // txt_MaHD
             // 
@@ -364,7 +376,7 @@
             this.comB_ChucVu.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_ChucVu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_ChucVu.FormattingEnabled = true;
-            this.comB_ChucVu.Location = new System.Drawing.Point(449, 187);
+            this.comB_ChucVu.Location = new System.Drawing.Point(449, 189);
             this.comB_ChucVu.Name = "comB_ChucVu";
             this.comB_ChucVu.Size = new System.Drawing.Size(236, 25);
             this.comB_ChucVu.TabIndex = 24;
@@ -428,7 +440,7 @@
             this.comB_DonVi.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_DonVi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_DonVi.FormattingEnabled = true;
-            this.comB_DonVi.Location = new System.Drawing.Point(106, 187);
+            this.comB_DonVi.Location = new System.Drawing.Point(106, 189);
             this.comB_DonVi.Name = "comB_DonVi";
             this.comB_DonVi.Size = new System.Drawing.Size(234, 25);
             this.comB_DonVi.TabIndex = 23;
@@ -477,17 +489,6 @@
             this.btn_DungHD.Text = "Dừng hợp đồng";
             this.btn_DungHD.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_DungHD.UseVisualStyleBackColor = true;
-            // 
-            // thongTinCNVC1
-            // 
-            this.thongTinCNVC1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.thongTinCNVC1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.thongTinCNVC1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.thongTinCNVC1.Location = new System.Drawing.Point(3, 4);
-            this.thongTinCNVC1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.thongTinCNVC1.Name = "thongTinCNVC1";
-            this.thongTinCNVC1.Size = new System.Drawing.Size(694, 162);
-            this.thongTinCNVC1.TabIndex = 0;
             // 
             // HopDong
             // 

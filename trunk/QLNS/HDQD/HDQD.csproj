@@ -69,7 +69,7 @@
     <Compile Include="UCs\DanhSachQuyetDinh.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UCs\DanhSachQuyetDinh.Designer.cs">
+    <Compile Include="UCs\DanhSachQuyetDinh.designer.cs">
       <DependentUpon>DanhSachQuyetDinh.cs</DependentUpon>
     </Compile>
     <Compile Include="UCs\DoiThongTinDV.cs">
