@@ -17,6 +17,7 @@ namespace HDQD.UCs
         Business.ChucDanh oChucdanh;
         Business.ChucVu oChucvu;
         Business.DonVi oDonvi;
+        Business.CNVC.CNVC cnvc;
 
         public HopDong()
         {
@@ -26,6 +27,19 @@ namespace HDQD.UCs
             oChucdanh = new ChucDanh();
             oChucvu = new ChucVu();
             oDonvi = new DonVi();
+        }
+
+        public HopDong(Business.HDQD.CNVC_HopDong p_HopDong)
+        {
+            InitializeComponent();
+            oHopdong = new Business.HDQD.CNVC_HopDong();
+            oLoaihopdong = new Business.HDQD.LoaiHopDong();
+            oChucdanh = new ChucDanh();
+            oChucvu = new ChucVu();
+            oDonvi = new DonVi();
+
+            oHopdong = p_HopDong;
+            DisplayInfo();
         }
 
         private void btn_Them_Click(object sender, EventArgs e)
@@ -89,6 +103,7 @@ namespace HDQD.UCs
         }
 
         #region Private Methods
+        
         private bool CheckInputData()
         {
             if (thongTinCNVC1.txt_MaNV.Text != "" && txt_MaHD.Text != "" && dtp_TuNgay.Checked == true)
@@ -123,6 +138,38 @@ namespace HDQD.UCs
             comB_DonVi.DisplayMember = "ten_don_vi";
             comB_DonVi.ValueMember = "id";
         }
+
+        private void DisplayInfo()
+        {
+            thongTinCNVC1.txt_MaNV.Text = oHopdong.Ma_NV;
+            // thông tin Họ tên NV.
+            cnvc = new Business.CNVC.CNVC();
+            cnvc.MaNV = oHopdong.Ma_NV;
+            DataTable dtHoTenNV = cnvc.Search_Ho_Ten();
+            thongTinCNVC1.txt_Ho.Text = dtHoTenNV.Rows[0]["ho"].ToString();
+            thongTinCNVC1.txt_Ten.Text = dtHoTenNV.Rows[0]["ten"].ToString();
+
+            txt_MaHD.Text = oHopdong.Ma_Hop_Dong;
+            rTB_GhiChu.Text = oHopdong.Ghi_Chu;
+
+            if (oHopdong.Ngay_Ky != null)
+            {
+                dTP_NgayKy.Checked = true;
+                dTP_NgayKy.Value = oHopdong.Ngay_Ky.Value;
+            }
+            if (oHopdong.Ngay_Hieu_Luc != null)
+            {
+                dtp_TuNgay.Checked = true;
+                dtp_TuNgay.Value = oHopdong.Ngay_Hieu_Luc.Value;
+            }
+            if (oHopdong.Ngay_Het_Han != null)
+            {
+                dtp_DenNgay.Checked = true;
+                dtp_DenNgay.Value = oHopdong.Ngay_Het_Han.Value;
+            }
+
+            //Xử lý combo box
+        }
         #endregion
 
         private void txt_MaHD_TextChanged(object sender, EventArgs e)
@@ -131,6 +178,14 @@ namespace HDQD.UCs
                 btn_Them.Enabled = true;
             else
                 btn_Them.Enabled = false;
+        }
+
+        private void comB_LoaiHD_DropDownClosed(object sender, EventArgs e)
+        {
+            if (!comB_LoaiHD.Items.Contains(oHopdong.Loai_Hop_Dong))
+            {
+                comB_LoaiHD.Items.Remove(oHopdong.Loai_Hop_Dong);
+            }
         }
     }
 }

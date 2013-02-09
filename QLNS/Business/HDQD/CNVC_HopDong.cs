@@ -46,6 +46,14 @@ namespace Business.HDQD
             set { ma_loai_hd = value; }
         }
 
+        private string loai_hd;
+
+        public string Loai_Hop_Dong
+        {
+            get { return loai_hd; }
+            set { loai_hd = value; }
+        }
+
         private bool? thuviec_chinhthuc;
 
         public bool? ThuViec_ChinhThuc
@@ -94,6 +102,14 @@ namespace Business.HDQD
             set { chuc_vu_id = value; }
         }
 
+        private string chuc_vu;
+
+        public string Chuc_Vu
+        {
+            get { return chuc_vu; }
+            set { chuc_vu = value; }
+        }
+
         private int? don_vi_id;
 
         public int? Don_Vi_ID
@@ -102,12 +118,28 @@ namespace Business.HDQD
             set { don_vi_id = value; }
         }
 
+        private string don_vi;
+
+        public string Don_Vi
+        {
+            get { return don_vi; }
+            set { don_vi = value; }
+        }
+
         private int? chuc_danh_id;
 
         public int? Chuc_Danh_ID
         {
             get { return chuc_danh_id; }
             set { chuc_danh_id = value; }
+        }
+
+        private string chuc_danh;
+
+        public string Chuc_Danh
+        {
+            get { return chuc_danh; }
+            set { chuc_danh = value; }
         }
 
         private bool? tinh_trang;
@@ -161,33 +193,33 @@ namespace Business.HDQD
                 return false;
         }
 
-        public bool Update()
-        {
-            int check;
-            IDataParameter[] paras = new IDataParameter[13]{
-                new NpgsqlParameter("p_ma_nv",ma_nv),
-                new NpgsqlParameter("p_ma_loai_hd",ma_loai_hd),
-                new NpgsqlParameter("p_thuviec_chinhthuc",thuviec_chinhthuc),
-                new NpgsqlParameter("p_ngay_ky",ngay_ky),
-                new NpgsqlParameter("p_ngay_hieu_luc",ngay_hieu_luc),
-                new NpgsqlParameter("p_ngay_het_han",ngay_het_han),
-                new NpgsqlParameter("p_chuc_vu_chinh_id",chuc_vu_id),
-                new NpgsqlParameter("p_don_vi_chinh_id",don_vi_id),
-                new NpgsqlParameter("p_tinh_trang",tinh_trang),
-                new NpgsqlParameter("p_ghi_chu",ghi_chu),
-                new NpgsqlParameter("p_chuc_danh_chinh_id",chuc_danh_id),
-                new NpgsqlParameter("p_ma_hop_dong_new",ma_hop_dong),
-                new NpgsqlParameter("p_ma_hop_dong_old",ma_hop_dong)
-            };
+        //public bool Update()
+        //{
+        //    int check;
+        //    IDataParameter[] paras = new IDataParameter[13]{
+        //        new NpgsqlParameter("p_ma_nv",ma_nv),
+        //        new NpgsqlParameter("p_ma_loai_hd",ma_loai_hd),
+        //        new NpgsqlParameter("p_thuviec_chinhthuc",thuviec_chinhthuc),
+        //        new NpgsqlParameter("p_ngay_ky",ngay_ky),
+        //        new NpgsqlParameter("p_ngay_hieu_luc",ngay_hieu_luc),
+        //        new NpgsqlParameter("p_ngay_het_han",ngay_het_han),
+        //        new NpgsqlParameter("p_chuc_vu_chinh_id",chuc_vu_id),
+        //        new NpgsqlParameter("p_don_vi_chinh_id",don_vi_id),
+        //        new NpgsqlParameter("p_tinh_trang",tinh_trang),
+        //        new NpgsqlParameter("p_ghi_chu",ghi_chu),
+        //        new NpgsqlParameter("p_chuc_danh_chinh_id",chuc_danh_id),
+        //        new NpgsqlParameter("p_ma_hop_dong_new",ma_hop_dong),
+        //        new NpgsqlParameter("p_ma_hop_dong_old",ma_hop_dong)
+        //    };
             
-            check = (int)dp.executeScalarProc("sp1_insert_cnvc_hop_dong", paras);
-            if (check > 0)
-            {
-                return true;
-            }
-            else
-                return false;
-        }
+        //    check = (int)dp.executeScalarProc("sp1_insert_cnvc_hop_dong", paras);
+        //    if (check > 0)
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //        return false;
+        //}
 
         public bool StopHopDong()
         {
@@ -198,6 +230,40 @@ namespace Business.HDQD
             };
 
             check = (int)dp.executeScalarProc("sp1_update_cnvc_dung_hopdong", paras);
+            if (check > 0)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
+        public DataTable Search_HD(string p_ma_nv, string p_ma_hop_dong, int? p_ma_loai_hd, bool? p_thuviec_chinhthuc, DateTime? p_ngay_ky_tu, DateTime? p_ngay_ky_den)
+        {
+            DataTable dt;
+
+            IDataParameter[] paras = new IDataParameter[6]{
+                new NpgsqlParameter("p_ma_nv",p_ma_nv),
+                new NpgsqlParameter("p_ma_hd",p_ma_hop_dong),
+                new NpgsqlParameter("p_loai_hd",p_ma_loai_hd),
+                new NpgsqlParameter("p_thuviec_chinhthuc",p_thuviec_chinhthuc),
+                new NpgsqlParameter("p_ngay_ky_tu",p_ngay_ky_tu),
+                new NpgsqlParameter("p_ngay_ky_den",p_ngay_ky_den)
+            };
+
+            dt = dp.getDataTableProc("sp1_qsearch_hop_dong", paras);
+
+            return dt;
+        }
+
+        public bool Delete()
+        {
+            int check;
+            IDataParameter[] paras = new IDataParameter[2]{
+                new NpgsqlParameter("p_ma_nv",ma_nv),
+                new NpgsqlParameter("p_ma_hop_dong",ma_hop_dong)
+            };
+            check = (int)dp.executeScalarProc("sp1_delete_cnvc_hop_dong", paras);
             if (check > 0)
             {
                 return true;
