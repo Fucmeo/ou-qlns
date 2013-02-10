@@ -14,7 +14,7 @@ namespace HDQD.UCs
     {
         Business.DonVi oDonVi;
         Business.ChucVu oChucVu;
-        DataTable dtDonVi , dtChucVu;
+        DataTable dtDonVi , dtChucVu , dtChuyenDonVi ;  // dtChuyenDonVi chua cac don vi co the tro thanh parent cua dtDonVi  
 
         public DoiThongTinDV()
         {
@@ -92,7 +92,7 @@ namespace HDQD.UCs
             tableLP_ThayDoiTen.Controls.Add(lb_ten_xoa, 5, row);
 
 
-            PopulateDonViComB(com);
+            PopulateDonViComB(com,dtDonVi);
             #endregion
 
         }
@@ -109,23 +109,12 @@ namespace HDQD.UCs
             com.DropDownStyle = ComboBoxStyle.DropDownList;
             com.Width = 500;
             com.Name = "comB_DV_CapBac_" + row.ToString();
-
-            Label lb = new Label();
-            lb.Anchor = AnchorStyles.None;
-            lb.Text = "Từ";
-            lb.Name = "lbl_Tu_CapBac_" + row.ToString();
-
-
-            ComboBox com2 = new ComboBox();
-            com2.Anchor = AnchorStyles.None;
-            com2.DropDownStyle = ComboBoxStyle.DropDownList;
-            com2.Width = 500;
-            com2.Name = "comB_Tu_CapBac_" + row.ToString();
-
+            com.SelectionChangeCommitted += new EventHandler(com_SelectionChangeCommitted);
 
             Label lb2 = new Label();
             lb2.Anchor = AnchorStyles.None;
-            lb2.Text = "Sang";
+            lb2.Text = " Chuyển sang trực thuộc";
+            lb2.Width = 500;
             lb2.Name = "lbl_Sang_CapBac_" + row.ToString();
 
 
@@ -157,15 +146,33 @@ namespace HDQD.UCs
 
 
             tableLP_ThayDoiCapBac.Controls.Add(com, 0, row);
-            tableLP_ThayDoiCapBac.Controls.Add(lb, 1, row);
-            tableLP_ThayDoiCapBac.Controls.Add(com2, 2, row);
-            tableLP_ThayDoiCapBac.Controls.Add(lb2, 3, row);
-            tableLP_ThayDoiCapBac.Controls.Add(com3, 4, row);
-            tableLP_ThayDoiCapBac.Controls.Add(lb_ten_them, 5, row);
-            tableLP_ThayDoiCapBac.Controls.Add(lb_ten_xoa, 6, row);
+            tableLP_ThayDoiCapBac.Controls.Add(lb2, 1, row);
+            tableLP_ThayDoiCapBac.Controls.Add(com3, 2, row);
+            tableLP_ThayDoiCapBac.Controls.Add(lb_ten_them, 3, row);
+            tableLP_ThayDoiCapBac.Controls.Add(lb_ten_xoa, 4, row);
 
-
+            PopulateDonViComB(com,dtDonVi);
+            if (dtDonVi.Rows.Count > 1)
+            {
+                dtChuyenDonVi = (from p in dtDonVi.AsEnumerable() where p.Field<int>("id") != Convert.ToInt32(com.SelectedValue) select p).CopyToDataTable();
+                PopulateDonViComB(com3, dtChuyenDonVi);
+            }
+            
             #endregion
+        }
+
+        void com_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (dtDonVi.Rows.Count > 1)
+            {
+                ComboBox combo = (ComboBox)sender;
+                TableLayoutPanel TLP = (TableLayoutPanel)combo.Parent;
+                ComboBox combo2 = (ComboBox)TLP.Controls["comB_Sang_CapBac_" + combo.Name.Substring(combo.Name.Length - 1, 1)];
+
+                dtChuyenDonVi = (from p in dtDonVi.AsEnumerable() where p.Field<int>("id") != Convert.ToInt32(combo.SelectedValue) select p).CopyToDataTable();
+                PopulateDonViComB(combo2, dtChuyenDonVi);
+            }
+            
         }
 
         /// <summary>
@@ -233,9 +240,9 @@ namespace HDQD.UCs
             tableLP_ThayDoiCD.Controls.Add(lb_ten_them, 5, row);
             tableLP_ThayDoiCD.Controls.Add(lb_ten_xoa, 6, row);
 
-            PopulateDonViComB(com);
-            PopulateChucVuComB(com2);
-            PopulateChucVuComB(com3);
+            PopulateDonViComB(com,dtDonVi);
+            PopulateChucVuComB(com2,dtChucVu);
+            PopulateChucVuComB(com3, dtChucVu);
 
             #endregion
         }
@@ -315,7 +322,10 @@ namespace HDQD.UCs
         {
             if (Action == "Add")
             {
+                tableLP.RowStyles.Insert(row, new RowStyle(SizeType.Absolute));                
                 tableLP.RowCount++;
+                CalculateHeight(tableLP);
+                
                 switch (tableLP.Name)
                 {
                     case "tableLP_ThayDoiTen":
@@ -335,7 +345,9 @@ namespace HDQD.UCs
             }
             else if (Action == "Remove")
             {
+                tableLP.RowStyles.RemoveAt(row);
                 tableLP.RowCount--;
+                CalculateHeight(tableLP);
                 RemoveControlsFromTLP(tableLP, row);
             }
         }
@@ -371,12 +383,22 @@ namespace HDQD.UCs
                 default:
                     break;
             }
-        } 
+        }
+
+        private void CalculateHeight(TableLayoutPanel TLP)
+        {
+            for (int i = 0; i < TLP.RowCount; i++)
+            {
+                TLP.RowStyles[i].Height = TLP.Height / TLP.RowCount;
+            }
+        }
+
         #endregion
 
-        private void PopulateDonViComB(ComboBox comb)
+        private void PopulateDonViComB(ComboBox comb,DataTable dt)
         {
-            comb.DataSource = dtDonVi;
+            DataTable newdt = dt.Copy();
+            comb.DataSource = newdt;
             comb.DisplayMember = "ten_don_vi";
             comb.ValueMember = "id";
 
@@ -384,9 +406,10 @@ namespace HDQD.UCs
                 comb.SelectedIndex = 0;
         }
 
-        private void PopulateChucVuComB(ComboBox comb)
+        private void PopulateChucVuComB(ComboBox comb,DataTable dt)
         {
-            comb.DataSource = dtChucVu;
+            DataTable newdt = dt.Copy();
+            comb.DataSource = newdt;
             comb.DisplayMember = "ten_chuc_vu";
             comb.ValueMember = "id";
 
