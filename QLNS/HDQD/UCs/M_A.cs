@@ -186,13 +186,8 @@ namespace HDQD.UCs
             tableLP_Sang.Controls.Add(lb_ten_xoa, 11, row);
             tableLP_Sang.Controls.Add(lb_tim_nv, 12, row);
 
-            if (dtDonVi.Rows.Count > 1)
-            {
-                //dtChuyenDonVi = (from p in dtDonVi.AsEnumerable() where p.Field<int>("id") != Convert.ToInt32(com.SelectedValue) select p).CopyToDataTable();
-               
-                //dtChuyenDonVi = ExcludeFromDonVi();
-                //PopulateDonViComB(com, dtChuyenDonVi);
-            }
+            PopulateDonViComB(com, dtChuyenDonVi);
+
             #endregion
 
         }
@@ -206,14 +201,20 @@ namespace HDQD.UCs
         /// duyệt các selected value ở TLP From, exclude nó trong comb DV trực thuộc ở TLP To
         /// </summary>
         /// <returns>Datatable chứa các đơn vị đã exclude</returns>
-        private DataTable ExcludeFromDonVi()
-        {
-            DataTable dt = new DataTable();
+        //private DataTable ExcludeFromDonVi()
+        //{
+        //    DataTable dt = new DataTable();
+        //    List<int> l = new List<int>();
+        //    for (int i = 0; i < tableLP_Tu.RowCount; i++)
+        //    {
+        //        ComboBox c = (ComboBox)tableLP_Tu.Controls[i*tableLP_Tu.ColumnCount + 1];
+        //        l.Add(Convert.ToInt32(c.SelectedValue));
+        //    }
+        //    //p.Field<int>("id"))
+        //    dt = (from p in dtDonVi.AsEnumerable().Except(l) select p).CopyToDataTable();
 
-
-
-            return dt;
-        }
+        //    return dt;
+        //}
 
         /// <summary>
         /// xét label dược click thuộc tableLP nào, row index nào
