@@ -416,5 +416,54 @@ namespace HDQD.UCs
             if (dtChucVu.Rows.Count > 0)
                 comb.SelectedIndex = 0;
         }
+
+        private void btn_Nhap_Click(object sender, EventArgs e)
+        {
+            if (VerifyQD())
+            {
+                
+            }
+        }
+
+        private void btn_Huy_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private bool VerifyQD()
+        {
+            if (string.IsNullOrWhiteSpace(thongTinQuyetDinh1.txt_MaQD.Text) || string.IsNullOrWhiteSpace(thongTinQuyetDinh1.txt_TenQD.Text))
+            {
+                return false;
+            }
+
+            if (cb_ThayDoiTen.Checked)
+            {
+                for (int i = 0; i < tableLP_ThayDoiTen.RowCount; i++)
+                {
+                    TextBox txt = (TextBox)tableLP_ThayDoiTen.Controls[i * tableLP_ThayDoiTen.ColumnCount + 4];
+                    if (string.IsNullOrWhiteSpace(txt.Text))
+                    {
+                        return false;
+                    }
+                }    
+            }
+
+            if (cb_ThayDoiChucDanh.Checked)
+            {
+                for (int i = 0; i < tableLP_ThayDoiCD.RowCount; i++)
+                {
+                    ComboBox com_Tu = (ComboBox)tableLP_ThayDoiCD.Controls[i * tableLP_ThayDoiCD.ColumnCount + 2];
+                    ComboBox com_Den = (ComboBox)tableLP_ThayDoiCD.Controls[i * tableLP_ThayDoiCD.ColumnCount + 4];
+                    if (com_Tu.SelectedValue == com_Den.SelectedValue)
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+            
+        }
     }
 }

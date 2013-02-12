@@ -33,8 +33,8 @@
             this.btn_Huy = new System.Windows.Forms.Button();
             this.btn_Nhap = new System.Windows.Forms.Button();
             this.tableLP_Sang = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLP_Tu = new System.Windows.Forms.TableLayoutPanel();
             this.thongTinQuyetDinh1 = new HDQD.UCs.ThongTinQuyetDinh();
+            this.tableLP_Tu = new System.Windows.Forms.TableLayoutPanel();
             this.tableLP_MA.SuspendLayout();
             this.tableLP_Nut.SuspendLayout();
             this.SuspendLayout();
@@ -96,7 +96,6 @@
             // 
             // tableLP_Sang
             // 
-            this.tableLP_Sang.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLP_Sang.ColumnCount = 13;
             this.tableLP_Sang.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLP_Sang.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -115,9 +114,20 @@
             this.tableLP_Sang.Location = new System.Drawing.Point(3, 527);
             this.tableLP_Sang.Name = "tableLP_Sang";
             this.tableLP_Sang.RowCount = 1;
-            this.tableLP_Sang.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 276F));
+            this.tableLP_Sang.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 277F));
             this.tableLP_Sang.Size = new System.Drawing.Size(994, 269);
             this.tableLP_Sang.TabIndex = 2;
+            // 
+            // thongTinQuyetDinh1
+            // 
+            this.thongTinQuyetDinh1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.thongTinQuyetDinh1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.thongTinQuyetDinh1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.thongTinQuyetDinh1.Location = new System.Drawing.Point(3, 4);
+            this.thongTinQuyetDinh1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.thongTinQuyetDinh1.Name = "thongTinQuyetDinh1";
+            this.thongTinQuyetDinh1.Size = new System.Drawing.Size(994, 242);
+            this.thongTinQuyetDinh1.TabIndex = 0;
             // 
             // tableLP_Tu
             // 
@@ -135,17 +145,6 @@
             this.tableLP_Tu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 268F));
             this.tableLP_Tu.Size = new System.Drawing.Size(994, 268);
             this.tableLP_Tu.TabIndex = 1;
-            // 
-            // thongTinQuyetDinh1
-            // 
-            this.thongTinQuyetDinh1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.thongTinQuyetDinh1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.thongTinQuyetDinh1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.thongTinQuyetDinh1.Location = new System.Drawing.Point(3, 4);
-            this.thongTinQuyetDinh1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.thongTinQuyetDinh1.Name = "thongTinQuyetDinh1";
-            this.thongTinQuyetDinh1.Size = new System.Drawing.Size(994, 242);
-            this.thongTinQuyetDinh1.TabIndex = 0;
             // 
             // M_A
             // 
