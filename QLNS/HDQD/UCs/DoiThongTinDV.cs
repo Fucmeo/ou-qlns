@@ -15,6 +15,7 @@ namespace HDQD.UCs
         Business.DonVi oDonVi;
         Business.ChucVu oChucVu;
         DataTable dtDonVi , dtChucVu , dtChuyenDonVi ;  // dtChuyenDonVi chua cac don vi co the tro thanh parent cua dtDonVi  
+        const int TenDVPos = 3 , DV_Ten = 1, CD_Tu = 2, CD_Sang = 4, DV_CapBac = 0;
 
         public DoiThongTinDV()
         {
@@ -64,6 +65,17 @@ namespace HDQD.UCs
             txt.Name = "txt_DV_Ten_" + row.ToString();
             txt.Width = 500;
 
+            Label lb3 = new Label();
+            lb3.Anchor = AnchorStyles.None;
+            lb3.Text = "Viết tắt";
+            lb3.Name = "lbl_Sang_Ten_tat_" + row.ToString();
+
+
+            TextBox txt2 = new TextBox();
+            txt2.Anchor = AnchorStyles.None;
+            txt2.Name = "txt_DV_tat_Ten_" + row.ToString();
+            txt2.Width = 500;
+
 
             Label lb_ten_them = new Label();
             lb_ten_them.MouseClick += new MouseEventHandler(lb_MouseClick);
@@ -88,8 +100,10 @@ namespace HDQD.UCs
             tableLP_ThayDoiTen.Controls.Add(com, 1, row);
             tableLP_ThayDoiTen.Controls.Add(lb2, 2, row);
             tableLP_ThayDoiTen.Controls.Add(txt, 3, row);
-            tableLP_ThayDoiTen.Controls.Add(lb_ten_them, 4, row);
-            tableLP_ThayDoiTen.Controls.Add(lb_ten_xoa, 5, row);
+            tableLP_ThayDoiTen.Controls.Add(lb3, 4, row);
+            tableLP_ThayDoiTen.Controls.Add(txt2, 5, row);
+            tableLP_ThayDoiTen.Controls.Add(lb_ten_them, 6, row);
+            tableLP_ThayDoiTen.Controls.Add(lb_ten_xoa, 7, row);
 
 
             PopulateDonViComB(com,dtDonVi);
@@ -419,9 +433,16 @@ namespace HDQD.UCs
 
         private void btn_Nhap_Click(object sender, EventArgs e)
         {
-            if (VerifyQD())
+            try
             {
-                
+                if (VerifyQD())
+                {
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Nhập không thành công.\r\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -434,31 +455,57 @@ namespace HDQD.UCs
         {
             if (string.IsNullOrWhiteSpace(thongTinQuyetDinh1.txt_MaQD.Text) || string.IsNullOrWhiteSpace(thongTinQuyetDinh1.txt_TenQD.Text))
             {
-                return false;
+                throw new Exception("Mã và tên quyết định không được để trống.");
             }
 
             if (cb_ThayDoiTen.Checked)
             {
+                int[] a = new int[tableLP_ThayDoiTen.RowCount];
                 for (int i = 0; i < tableLP_ThayDoiTen.RowCount; i++)
                 {
-                    TextBox txt = (TextBox)tableLP_ThayDoiTen.Controls[i * tableLP_ThayDoiTen.ColumnCount + 4];
+                    TextBox txt = (TextBox)tableLP_ThayDoiTen.Controls[i * tableLP_ThayDoiTen.ColumnCount + TenDVPos];
                     if (string.IsNullOrWhiteSpace(txt.Text))
                     {
-                        return false;
+                        throw new Exception("Tên đơn vị không được để trống.");
                     }
-                }    
+
+                    a[i] = Convert.ToInt32(((ComboBox)tableLP_ThayDoiTen.Controls[i * tableLP_ThayDoiTen.ColumnCount + DV_Ten]).SelectedValue);
+                }
+
+                if (a.Distinct().Count() < a.Length)    // distinct ma < length ==> co don vi trung nhau
+                {
+                    throw new Exception("Đơn vị ở phần thay đổi tên đơn vị không được trùng lắp.");
+                }
             }
 
             if (cb_ThayDoiChucDanh.Checked)
             {
+                int[] a = new int[tableLP_ThayDoiCD.RowCount * 2];
+
                 for (int i = 0; i < tableLP_ThayDoiCD.RowCount; i++)
                 {
-                    ComboBox com_Tu = (ComboBox)tableLP_ThayDoiCD.Controls[i * tableLP_ThayDoiCD.ColumnCount + 2];
-                    ComboBox com_Den = (ComboBox)tableLP_ThayDoiCD.Controls[i * tableLP_ThayDoiCD.ColumnCount + 4];
-                    if (com_Tu.SelectedValue == com_Den.SelectedValue)
-                    {
-                        return false;
-                    }
+                    a[i*2] = Convert.ToInt32(((ComboBox)tableLP_ThayDoiCD.Controls[i * tableLP_ThayDoiCD.ColumnCount + CD_Tu]).SelectedValue);
+                    a[i*2 + 1] = Convert.ToInt32(((ComboBox)tableLP_ThayDoiCD.Controls[i * tableLP_ThayDoiCD.ColumnCount + CD_Sang]).SelectedValue);
+                }
+
+                if (a.Distinct().Count() < a.Length)    // distinct ma < length ==> co don vi trung nhau
+                {
+                    throw new Exception("Chức danh ở phần thay đổi tên chức danh không được trùng lắp.");
+                }
+            }
+
+            if (cb_ThayDoiCapBac.Checked)
+            {
+                int[] a = new int[tableLP_ThayDoiCapBac.RowCount];
+
+                for (int i = 0; i < tableLP_ThayDoiCapBac.RowCount; i++)
+                {
+                    a[i] = Convert.ToInt32(((ComboBox)tableLP_ThayDoiCapBac.Controls[i * tableLP_ThayDoiCapBac.ColumnCount + DV_CapBac]).SelectedValue);
+                }
+
+                if (a.Distinct().Count() < a.Length)    // distinct ma < length ==> co don vi trung nhau
+                {
+                    throw new Exception("Đơn vị ở phần thay đổi tên cấp bậc không được trùng lắp.");
                 }
             }
 
