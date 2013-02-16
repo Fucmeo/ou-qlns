@@ -14,16 +14,23 @@ namespace HDQD.UCs
     {
         Business.DonVi oDonVi;
         Business.ChucVu oChucVu;
+        Business.HDQD.QuyetDinh oQuyetDinh;
         DataTable dtDonVi , dtChucVu , dtChuyenDonVi ;  // dtChuyenDonVi chua cac don vi co the tro thanh parent cua dtDonVi  
-        const int TenDVPos = 3 , DV_Ten = 1, CD_Tu = 2, CD_Sang = 4, DV_CapBac = 0;
+        const int TenDVPos = 3 , TenDVTatPos = 5, DV_TenPos = 1, CD_TuPos = 2, CD_SangPos = 4, DV_CapBacPos = 0;
+        int TLPTenColCount , TLPCDColCount , TLPCapBacColCount;
 
         public DoiThongTinDV()
         {
             InitializeComponent();
             oDonVi = new DonVi();
             oChucVu = new ChucVu();
+            oQuyetDinh = new Business.HDQD.QuyetDinh();
             dtDonVi = oDonVi.GetActiveDonVi();
             dtChucVu = oChucVu.GetList();
+
+            TLPTenColCount = tableLP_ThayDoiTen.ColumnCount;
+            TLPCDColCount = tableLP_ThayDoiCD.ColumnCount;
+            TLPCapBacColCount = tableLP_ThayDoiCapBac.ColumnCount;
         }
 
         private void DoiThongTinDV_Load(object sender, EventArgs e)
@@ -433,11 +440,22 @@ namespace HDQD.UCs
 
         private void btn_Nhap_Click(object sender, EventArgs e)
         {
+            int[] IDDV_Chung = null; string[] TenDV_Chung = null; string[] TenDVTat_Chung = null; int[] IDDVCha_Chung = null;
+            int[] IDDV_Ten = null; string[] TenDV_Ten = null; string[] TenDVTat_Ten = null;
+            int[] IDDV_CD = null; int[] IDCu_CD = null; int[] IDMoi_CD = null;
+            int [] IDDV_CapBac = null ; int[] IDDVCha_CapBac= null ; 
+
             try
             {
-                if (VerifyQD())
+                if (VerifyAndGetDataQD(ref IDDV_Ten, ref TenDV_Ten, ref TenDVTat_Ten))
                 {
+                    GetQDDetails();
+                    oQuyetDinh.Add_ThayDoiThongTinDV(IDDV_Chung,TenDV_Chung,TenDVTat_Chung,IDDVCha_Chung,
+                                                    IDDV_Ten,TenDV_Ten,TenDVTat_Ten,
+                                                    IDDV_CD,IDCu_CD,IDMoi_CD,
+                                                    IDDV_CapBac,IDDVCha_CapBac);
 
+                    MessageBox.Show("Nhập quyết định thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -451,28 +469,40 @@ namespace HDQD.UCs
 
         }
 
-        private bool VerifyQD()
+        private bool VerifyAndGetDataQD(ref int[] m_IDDV_Ten, ref string[] m_TenDV_Ten, ref string[] m_TenDVTat_Ten)
         {
             if (string.IsNullOrWhiteSpace(thongTinQuyetDinh1.txt_MaQD.Text) || string.IsNullOrWhiteSpace(thongTinQuyetDinh1.txt_TenQD.Text))
             {
                 throw new Exception("Mã và tên quyết định không được để trống.");
             }
+            else
+            {
+                GetQDDetails();
+            }
 
             if (cb_ThayDoiTen.Checked)
             {
-                int[] a = new int[tableLP_ThayDoiTen.RowCount];
+                m_IDDV_Ten = new int[tableLP_ThayDoiTen.RowCount];
+                m_TenDV_Ten = new string[tableLP_ThayDoiTen.RowCount];
+                m_TenDVTat_Ten = new string[tableLP_ThayDoiTen.RowCount];
                 for (int i = 0; i < tableLP_ThayDoiTen.RowCount; i++)
                 {
-                    TextBox txt = (TextBox)tableLP_ThayDoiTen.Controls[i * tableLP_ThayDoiTen.ColumnCount + TenDVPos];
-                    if (string.IsNullOrWhiteSpace(txt.Text))
+                    TextBox txt_TenDV = (TextBox)tableLP_ThayDoiTen.Controls[i * TLPTenColCount + TenDVPos];
+                    TextBox txt_TenDV_Tat = (TextBox)tableLP_ThayDoiTen.Controls[i * TLPTenColCount + TenDVTatPos];
+                    if (string.IsNullOrWhiteSpace(txt_TenDV.Text))
                     {
                         throw new Exception("Tên đơn vị không được để trống.");
                     }
+                    else
+                    {
+                        m_TenDV_Ten[i] = txt_TenDV.Text.Trim();
+                        m_TenDVTat_Ten[i] = txt_TenDV_Tat.Text.Trim();
+                    }
 
-                    a[i] = Convert.ToInt32(((ComboBox)tableLP_ThayDoiTen.Controls[i * tableLP_ThayDoiTen.ColumnCount + DV_Ten]).SelectedValue);
+                    m_IDDV_Ten[i] = Convert.ToInt32(((ComboBox)tableLP_ThayDoiTen.Controls[i * TLPTenColCount + DV_TenPos]).SelectedValue);
                 }
 
-                if (a.Distinct().Count() < a.Length)    // distinct ma < length ==> co don vi trung nhau
+                if (m_IDDV_Ten.Distinct().Count() < m_IDDV_Ten.Length)    // distinct ma < length ==> co don vi trung nhau
                 {
                     throw new Exception("Đơn vị ở phần thay đổi tên đơn vị không được trùng lắp.");
                 }
@@ -484,8 +514,8 @@ namespace HDQD.UCs
 
                 for (int i = 0; i < tableLP_ThayDoiCD.RowCount; i++)
                 {
-                    a[i*2] = Convert.ToInt32(((ComboBox)tableLP_ThayDoiCD.Controls[i * tableLP_ThayDoiCD.ColumnCount + CD_Tu]).SelectedValue);
-                    a[i*2 + 1] = Convert.ToInt32(((ComboBox)tableLP_ThayDoiCD.Controls[i * tableLP_ThayDoiCD.ColumnCount + CD_Sang]).SelectedValue);
+                    a[i*2] = Convert.ToInt32(((ComboBox)tableLP_ThayDoiCD.Controls[i * TLPCDColCount + CD_TuPos]).SelectedValue);
+                    a[i*2 + 1] = Convert.ToInt32(((ComboBox)tableLP_ThayDoiCD.Controls[i * TLPCDColCount + CD_SangPos]).SelectedValue);
                 }
 
                 if (a.Distinct().Count() < a.Length)    // distinct ma < length ==> co don vi trung nhau
@@ -500,7 +530,7 @@ namespace HDQD.UCs
 
                 for (int i = 0; i < tableLP_ThayDoiCapBac.RowCount; i++)
                 {
-                    a[i] = Convert.ToInt32(((ComboBox)tableLP_ThayDoiCapBac.Controls[i * tableLP_ThayDoiCapBac.ColumnCount + DV_CapBac]).SelectedValue);
+                    a[i] = Convert.ToInt32(((ComboBox)tableLP_ThayDoiCapBac.Controls[i * TLPCapBacColCount + DV_CapBacPos]).SelectedValue);
                 }
 
                 if (a.Distinct().Count() < a.Length)    // distinct ma < length ==> co don vi trung nhau
@@ -512,5 +542,23 @@ namespace HDQD.UCs
             return true;
             
         }
+
+        private void GetQDDetails()
+        {
+            oQuyetDinh.Ma_Quyet_Dinh = thongTinQuyetDinh1.txt_MaQD.Text.Trim();
+            oQuyetDinh.Ten_Quyet_Dinh = thongTinQuyetDinh1.txt_TenQD.Text;
+            oQuyetDinh.Ngay_Ky = thongTinQuyetDinh1.dTP_NgayKy.Value;
+            oQuyetDinh.Ngay_Ky_Tu = thongTinQuyetDinh1.dTP_NgayHieuLuc.Value;
+            if (thongTinQuyetDinh1.dTP_NgayHetHan.Checked)
+            {
+                oQuyetDinh.Ngay_Ky_Den = thongTinQuyetDinh1.dTP_NgayHetHan.Value;
+            }
+            else
+                oQuyetDinh.Ngay_Ky_Den = null;
+
+            oQuyetDinh.MoTa = thongTinQuyetDinh1.rTB_MoTa.Text;
+        }
+
+
     }
 }
