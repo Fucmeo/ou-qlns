@@ -310,7 +310,10 @@ namespace DataProvider
                 if (ex.Code == "23505")
                 {
                     trans.Rollback();
-                    throw new Exception("Mã nhân viên đã tồn tại, xin vui lòng kiểm tra lại.");
+                    if(ex.BaseMessage.Contains("quyet_dinh"))
+                        throw new Exception("Mã quyết định đã tồn tại, xin vui lòng kiểm tra lại.");
+                    else if(ex.BaseMessage.Contains("ma_nv"))
+                        throw new Exception("Mã nhân viên đã tồn tại, xin vui lòng kiểm tra lại.");
                 }
                 Error = ex.Message;
                 trans.Rollback();
