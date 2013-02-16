@@ -16,8 +16,8 @@ namespace HDQD.UCs
         Business.ChucVu oChucVu;
         Business.HDQD.QuyetDinh oQuyetDinh;
         DataTable dtDonVi , dtChucVu , dtChuyenDonVi ;  // dtChuyenDonVi chua cac don vi co the tro thanh parent cua dtDonVi  
-        const int TenDVPos = 3 , TenDVTatPos = 5, DV_TenPos = 1, CD_TuPos = 2, CD_SangPos = 4, DV_CapBacPos = 0;
-        int TLPTenColCount , TLPCDColCount , TLPCapBacColCount;
+        const int TenDVPos = 3 , TenDVTatPos = 5, DV_TenPos = 1, CD_TuPos = 2, CD_SangPos = 4, DV_CapBacPos = 0, DV_CVPos = 0;
+        int TLPTenColCount , TLPCVColCount , TLPCapBacColCount;
 
         public DoiThongTinDV()
         {
@@ -29,7 +29,7 @@ namespace HDQD.UCs
             dtChucVu = oChucVu.GetList();
 
             TLPTenColCount = tableLP_ThayDoiTen.ColumnCount;
-            TLPCDColCount = tableLP_ThayDoiCD.ColumnCount;
+            TLPCVColCount = tableLP_ThayDoiCV.ColumnCount;
             TLPCapBacColCount = tableLP_ThayDoiCapBac.ColumnCount;
         }
 
@@ -197,7 +197,7 @@ namespace HDQD.UCs
         }
 
         /// <summary>
-        /// Add cac control vao khung thay đổi chức danh.
+        /// Add cac control vao khung thay đổi Chức vụ.
         /// </summary>
         private void GenUI_Title(int row)
         {
@@ -253,13 +253,13 @@ namespace HDQD.UCs
             lb_ten_xoa.ForeColor = Color.Blue;
             lb_ten_xoa.Name = "txt_Xoa_ChucVu_" + row.ToString();
 
-            tableLP_ThayDoiCD.Controls.Add(com, 0, row);
-            tableLP_ThayDoiCD.Controls.Add(lb, 1, row);
-            tableLP_ThayDoiCD.Controls.Add(com2, 2, row);
-            tableLP_ThayDoiCD.Controls.Add(lb2, 3, row);
-            tableLP_ThayDoiCD.Controls.Add(com3, 4, row);
-            tableLP_ThayDoiCD.Controls.Add(lb_ten_them, 5, row);
-            tableLP_ThayDoiCD.Controls.Add(lb_ten_xoa, 6, row);
+            tableLP_ThayDoiCV.Controls.Add(com, 0, row);
+            tableLP_ThayDoiCV.Controls.Add(lb, 1, row);
+            tableLP_ThayDoiCV.Controls.Add(com2, 2, row);
+            tableLP_ThayDoiCV.Controls.Add(lb2, 3, row);
+            tableLP_ThayDoiCV.Controls.Add(com3, 4, row);
+            tableLP_ThayDoiCV.Controls.Add(lb_ten_them, 5, row);
+            tableLP_ThayDoiCV.Controls.Add(lb_ten_xoa, 6, row);
 
             PopulateDonViComB(com,dtDonVi);
             PopulateChucVuComB(com2,dtChucVu);
@@ -352,7 +352,7 @@ namespace HDQD.UCs
                     case "tableLP_ThayDoiTen":
                         GenUI_Name(row);
                         break;
-                    case "tableLP_ThayDoiCD":
+                    case "tableLP_ThayDoiCV":
                         GenUI_Title(row);
                         break;
                     case "tableLP_ThayDoiCapBac":
@@ -398,8 +398,8 @@ namespace HDQD.UCs
                 case "cb_ThayDoiTen":
                     tableLP_ThayDoiTen.Enabled = cb.Checked;
                     break;
-                case "cb_ThayDoiChucDanh":
-                    tableLP_ThayDoiCD.Enabled = cb.Checked;
+                case "cb_ThayDoiChucVu":
+                    tableLP_ThayDoiCV.Enabled = cb.Checked;
                     break;
                 default:
                     break;
@@ -442,17 +442,18 @@ namespace HDQD.UCs
         {
             int[] IDDV_Chung = null; string[] TenDV_Chung = null; string[] TenDVTat_Chung = null; int[] IDDVCha_Chung = null;
             int[] IDDV_Ten = null; string[] TenDV_Ten = null; string[] TenDVTat_Ten = null;
-            int[] IDDV_CD = null; int[] IDCu_CD = null; int[] IDMoi_CD = null;
+            int[] IDDV_CV = null; int[] IDCu_CV = null; int[] IDMoi_CV = null;
             int [] IDDV_CapBac = null ; int[] IDDVCha_CapBac= null ; 
 
             try
             {
-                if (VerifyAndGetDataQD(ref IDDV_Ten, ref TenDV_Ten, ref TenDVTat_Ten))
+                if (VerifyAndGetDataQD(ref IDDV_Ten, ref TenDV_Ten, ref TenDVTat_Ten, ref  IDDV_Chung, ref  TenDV_Chung, ref  TenDVTat_Chung, ref  IDDVCha_Chung,
+                                        ref   IDDV_CV, ref  IDCu_CV, ref  IDMoi_CV,ref   IDDV_CapBac, ref  IDDVCha_CapBac))
                 {
                     GetQDDetails();
                     oQuyetDinh.Add_ThayDoiThongTinDV(IDDV_Chung,TenDV_Chung,TenDVTat_Chung,IDDVCha_Chung,
                                                     IDDV_Ten,TenDV_Ten,TenDVTat_Ten,
-                                                    IDDV_CD,IDCu_CD,IDMoi_CD,
+                                                    IDDV_CV,IDCu_CV,IDMoi_CV,
                                                     IDDV_CapBac,IDDVCha_CapBac);
 
                     MessageBox.Show("Nhập quyết định thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -469,7 +470,10 @@ namespace HDQD.UCs
 
         }
 
-        private bool VerifyAndGetDataQD(ref int[] m_IDDV_Ten, ref string[] m_TenDV_Ten, ref string[] m_TenDVTat_Ten)
+        private bool VerifyAndGetDataQD(ref int[] m_IDDV_Ten, ref string[] m_TenDV_Ten, ref string[] m_TenDVTat_Ten,
+                                        ref int[] m_IDDV_Chung, ref string[] m_TenDV_Chung, ref string[] m_TenDVTat_Chung, ref int[] m_IDDVCha_Chung,
+                                        ref  int[] m_IDDV_CV, ref int[] m_IDCu_CV, ref int[] m_IDMoi_CV,
+                                        ref  int[] m_IDDV_CapBac, ref int[] m_IDDVCha_CapBac)
         {
             if (string.IsNullOrWhiteSpace(thongTinQuyetDinh1.txt_MaQD.Text) || string.IsNullOrWhiteSpace(thongTinQuyetDinh1.txt_TenQD.Text))
             {
@@ -508,19 +512,23 @@ namespace HDQD.UCs
                 }
             }
 
-            if (cb_ThayDoiChucDanh.Checked)
+            if (cb_ThayDoiChucVu.Checked)
             {
-                int[] a = new int[tableLP_ThayDoiCD.RowCount * 2];
+                int[] a = new int[tableLP_ThayDoiCV.RowCount * 2];
+                m_IDDV_CV = new int[tableLP_ThayDoiCV.RowCount];
+                m_IDCu_CV = new int[tableLP_ThayDoiCV.RowCount];
+                m_IDMoi_CV = new int[tableLP_ThayDoiCV.RowCount];
 
-                for (int i = 0; i < tableLP_ThayDoiCD.RowCount; i++)
+                for (int i = 0; i < tableLP_ThayDoiCV.RowCount; i++)
                 {
-                    a[i*2] = Convert.ToInt32(((ComboBox)tableLP_ThayDoiCD.Controls[i * TLPCDColCount + CD_TuPos]).SelectedValue);
-                    a[i*2 + 1] = Convert.ToInt32(((ComboBox)tableLP_ThayDoiCD.Controls[i * TLPCDColCount + CD_SangPos]).SelectedValue);
+                    m_IDDV_CV[i] = Convert.ToInt32(((ComboBox)tableLP_ThayDoiCV.Controls[i * TLPCVColCount + DV_CVPos]).SelectedValue);
+                    a[i*2] = m_IDCu_CV[i] = Convert.ToInt32(((ComboBox)tableLP_ThayDoiCV.Controls[i * TLPCVColCount + CD_TuPos]).SelectedValue);
+                    a[i*2 + 1] = m_IDMoi_CV[i] = Convert.ToInt32(((ComboBox)tableLP_ThayDoiCV.Controls[i * TLPCVColCount + CD_SangPos]).SelectedValue);
                 }
 
                 if (a.Distinct().Count() < a.Length)    // distinct ma < length ==> co don vi trung nhau
                 {
-                    throw new Exception("Chức danh ở phần thay đổi tên chức danh không được trùng lắp.");
+                    throw new Exception("Chức vụ ở phần thay đổi tên Chức vụ không được trùng lắp.");
                 }
             }
 
