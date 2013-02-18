@@ -186,7 +186,7 @@ namespace HDQD.UCs
             tableLP_Sang.Controls.Add(lb_ten_xoa, 11, row);
             tableLP_Sang.Controls.Add(lb_tim_nv, 12, row);
 
-            PopulateDonViComB(com, dtChuyenDonVi);
+            PopulateDonViComB(com, dtDonVi);
 
             #endregion
 
