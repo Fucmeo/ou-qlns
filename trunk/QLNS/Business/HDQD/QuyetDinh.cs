@@ -129,16 +129,11 @@ namespace Business.HDQD
                 return false;
         }
 
-        public bool Add_ThayDoiThongTinDV(int[] m_IDDV_Chung, string[] m_TenDV_Chung, string[] m_TenDVTat_Chung , int[] m_IDDVCha_Chung,
-                                                int[] m_IDDV_Ten, string[] m_TenDV_Ten, string[] m_TenDVTat_Ten,
+        public bool Add_ThayDoiThongTinDV(int[] m_IDDV_Ten, string[] m_TenDV_Ten, string[] m_TenDVTat_Ten,
                                                 int[] m_IDDV_CD , int[] m_IDCu_CD , int[] m_IDMoi_CD,
                                                 int [] m_IDDV_CapBac , int[] m_IDDVCha_CapBac)
         {
-            IDataParameter[] paras = new IDataParameter[21]{
-                new NpgsqlParameter("id_dv_chung",m_IDDV_Chung),
-                new NpgsqlParameter("ten_dv_moi_chung",m_TenDV_Chung),
-                new NpgsqlParameter("ten_dv_tat_moi_chung",m_TenDVTat_Chung),
-                new NpgsqlParameter("id_dv_cha_chung",m_IDDVCha_Chung),
+            IDataParameter[] paras = new IDataParameter[17]{
                 new NpgsqlParameter("id_dv_doiten",m_IDDV_Ten),
                 new NpgsqlParameter("ten_dv_moi",m_TenDV_Ten),
                 new NpgsqlParameter("ten_dv_tat_moi",m_TenDVTat_Ten),
