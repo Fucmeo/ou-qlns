@@ -16,7 +16,7 @@ namespace HDQD.UCs
         Business.ChucVu oChucVu;
         Business.HDQD.QuyetDinh oQuyetDinh;
         DataTable dtDonVi , dtChucVu , dtChuyenDonVi ;  // dtChuyenDonVi chua cac don vi co the tro thanh parent cua dtDonVi  
-        const int TenDVPos = 3 , TenDVTatPos = 5, DV_TenPos = 1, CD_TuPos = 2, CD_SangPos = 4, DV_CapBacPos = 0, DV_CVPos = 0;
+        const int TenDVPos = 3 , TenDVTatPos = 5, DV_TenPos = 1, CD_TuPos = 2, CD_SangPos = 4, DV_CapBacPos = 0, DV_CapBacChaPos = 2, DV_CVPos = 0;
         int TLPTenColCount , TLPCVColCount , TLPCapBacColCount;
 
         public DoiThongTinDV()
@@ -440,37 +440,31 @@ namespace HDQD.UCs
 
         private void btn_Nhap_Click(object sender, EventArgs e)
         {
-            int[] IDDV_Chung = null; string[] TenDV_Chung = null; string[] TenDVTat_Chung = null;
-            int[] IDDV_CapBac_Chung = null; int[] IDDVCha_Chung = null;
-            int[] IDDV_CV_Chung = null; int[] IDCu_CV_Chung = null; int[] IDMoi_CV_Chung = null;
-
-            int[] IDDV_Ten = null; string[] TenDV_Ten = null; string[] TenDVTat_Ten = null;
-            int[] IDDV_CV = null; int[] IDCu_CV = null; int[] IDMoi_CV = null;
-            int [] IDDV_CapBac = null ; int[] IDDVCha_CapBac= null ; 
-
-            try
+            if (MessageBox.Show("Bạn có muốn nhập quyết định này hay không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (VerifyAndGetDataQD(ref  IDDV_Chung, ref  TenDV_Chung, ref  TenDVTat_Chung, 
-                                        ref IDDV_CapBac_Chung,ref  IDDVCha_Chung, 
-                                        ref IDDV_CV_Chung,ref IDCu_CV_Chung, ref IDMoi_CV_Chung,
-                                        ref IDDV_Ten, ref TenDV_Ten, ref TenDVTat_Ten,                                         
-                                        ref   IDDV_CV, ref  IDCu_CV, ref  IDMoi_CV,
-                                        ref   IDDV_CapBac, ref  IDDVCha_CapBac) )
+                int[] IDDV_Ten = null; string[] TenDV_Ten = null; string[] TenDVTat_Ten = null;
+                int[] IDDV_CV = null; int[] IDCu_CV = null; int[] IDMoi_CV = null;
+                int[] IDDV_CapBac = null; int[] IDDVCha_CapBac = null;
+
+                try
                 {
-                    GetQDDetails();
+                    if (VerifyAndGetDataQD(ref IDDV_Ten, ref TenDV_Ten, ref TenDVTat_Ten,
+                                            ref   IDDV_CV, ref  IDCu_CV, ref  IDMoi_CV,
+                                            ref   IDDV_CapBac, ref  IDDVCha_CapBac))
+                    {
+                        GetQDDetails();
 
-                    oQuyetDinh.Add_ThayDoiThongTinDV(IDDV_Chung,TenDV_Chung,TenDVTat_Chung,IDDVCha_Chung,
-                                                    IDDV_Ten,TenDV_Ten,TenDVTat_Ten,
-                                                    IDDV_CV,IDCu_CV,IDMoi_CV,
-                                                    IDDV_CapBac,IDDVCha_CapBac);
+                        oQuyetDinh.Add_ThayDoiThongTinDV(IDDV_Ten, TenDV_Ten, TenDVTat_Ten, IDDV_CV, IDCu_CV, IDMoi_CV, IDDV_CapBac, IDDVCha_CapBac);
 
-                    MessageBox.Show("Nhập quyết định thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Nhập quyết định thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Nhập không thành công.\r\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Nhập không thành công.\r\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            
         }
 
         private void btn_Huy_Click(object sender, EventArgs e)
@@ -478,10 +472,7 @@ namespace HDQD.UCs
 
         }
 
-        private bool VerifyAndGetDataQD(ref int[] m_IDDV_Chung, ref string[] m_TenDV_Chung, ref string[] m_TenDVTat_Chung, 
-                                        ref int[] m_IDDV_CapBac_Chung,ref int[] m_IDDVCha_Chung, 
-                                        ref int[] m_IDDV_CV_Chung,ref int[] m_IDCu_CV_Chung , ref int[] m_IDMoi_CV_Chung,
-                                        ref int[] m_IDDV_Ten, ref string[] m_TenDV_Ten, ref string[] m_TenDVTat_Ten,                                        
+        private bool VerifyAndGetDataQD(ref int[] m_IDDV_Ten, ref string[] m_TenDV_Ten, ref string[] m_TenDVTat_Ten,                                        
                                         ref  int[] m_IDDV_CV, ref int[] m_IDCu_CV, ref int[] m_IDMoi_CV,
                                         ref  int[] m_IDDV_CapBac, ref int[] m_IDDVCha_CapBac)
         {
@@ -545,84 +536,21 @@ namespace HDQD.UCs
             #region Cap Bac
             if (cb_ThayDoiCapBac.Checked)
             {
-                int[] a = new int[tableLP_ThayDoiCapBac.RowCount];
+                m_IDDV_CapBac = new int[tableLP_ThayDoiCapBac.RowCount];
 
                 for (int i = 0; i < tableLP_ThayDoiCapBac.RowCount; i++)
                 {
-                    a[i] = Convert.ToInt32(((ComboBox)tableLP_ThayDoiCapBac.Controls[i * TLPCapBacColCount + DV_CapBacPos]).SelectedValue);
+                    m_IDDV_CapBac[i] = Convert.ToInt32(((ComboBox)tableLP_ThayDoiCapBac.Controls[i * TLPCapBacColCount + DV_CapBacPos]).SelectedValue);
+                    m_IDDVCha_CapBac[i] = Convert.ToInt32(((ComboBox)tableLP_ThayDoiCapBac.Controls[i * TLPCapBacColCount + DV_CapBacChaPos]).SelectedValue);
                 }
 
-                if (a.Distinct().Count() < a.Length)    // distinct ma < length ==> co don vi trung nhau
+                if (m_IDDV_CapBac.Distinct().Count() < m_IDDV_CapBac.Length)    // distinct ma < length ==> co don vi trung nhau
                 {
                     throw new Exception("Đơn vị ở phần thay đổi tên cấp bậc không được trùng lắp.");
                 }
             }
             
             #endregion
-
-            // get common id dv
-            // get common value based on common id dv
-            // exclude common value from original array
-            if (cb_ThayDoiTen.Checked)
-            {
-                if (cb_ThayDoiChucVu.Checked && cb_ThayDoiCapBac.Checked)
-                {
-                    // get common id dv
-                    int iddv_chung_count = (m_IDDV_Ten.Intersect(m_IDDV_CV).Intersect(m_IDDV_CapBac)).ToArray().Count();
-                    m_IDDV_Chung = m_IDDV_CapBac_Chung = new int[iddv_chung_count];
-                    m_IDDV_Chung = m_IDDV_CapBac_Chung = (m_IDDV_Ten.Intersect(m_IDDV_CV).Intersect(m_IDDV_CapBac)).ToArray();
-                    if (iddv_chung_count > 0)
-                    {
-                        m_TenDV_Chung = new string[iddv_chung_count]; m_TenDVTat_Chung = new string[iddv_chung_count];
-                        m_IDDV_CapBac_Chung = new int[iddv_chung_count]; m_IDDVCha_Chung = new int[iddv_chung_count];
-                        m_IDDV_CV_Chung = new int[0]; m_IDCu_CV_Chung = new int[0]; m_IDMoi_CV_Chung = new int[0];  // khai bao length = 0, khi concat thi array se tu add them
-                        for (int i = 0; i < iddv_chung_count; i++)
-                        {
-                            int iddv = m_IDDV_Chung[i];
-
-                            // get common value based on common id dv
-                            int idx = Array.IndexOf(m_IDDV_Ten, iddv);
-                            m_TenDV_Chung[i] = m_TenDV_Ten[idx];
-                            m_TenDVTat_Chung[i] = m_TenDVTat_Ten[idx];
-
-                            // exclude common value from original array
-                            m_TenDV_Ten = m_TenDV_Ten.Where((ten,index) => index != idx).ToArray();
-                            m_TenDVTat_Chung = m_TenDVTat_Chung.Where((ten, index) => index != idx).ToArray();
-
-                            idx = Array.IndexOf(m_IDDV_CapBac, m_IDDV_Chung[i]);
-                            // get common value based on common id dv
-                            m_IDDVCha_Chung[i] = m_IDDVCha_CapBac[idx];
-                            // exclude common value from original array
-                            m_IDDVCha_CapBac = m_IDDVCha_CapBac.Where((id, index) => index != idx).ToArray();
-
-                            // xu ly chuc vu
-                            int cv_chung_count = (m_IDDV_CV.Select(id => id).Where(id => id.Equals(iddv))).Count();
-                            for (int y = 0; y < cv_chung_count; y++)
-                            {
-                                m_IDDV_CV_Chung = m_IDDV_CV_Chung.Concat(m_IDDV_CV.Select(id => id).Where(id => id.Equals(iddv)).ToArray()).ToArray();
-                                m_IDCu_CV_Chung = m_IDCu_CV_Chung.Concat(m_IDCu_CV.Select(id => id).Where(id => id.Equals(iddv)).ToArray()).ToArray();
-                                m_IDMoi_CV_Chung = m_IDMoi_CV_Chung.Concat(m_IDMoi_CV.Select(id => id).Where(id => id.Equals(iddv)).ToArray()).ToArray();
-                            }
-                        }
-
-                    }
-                    
-                }
-                else if (cb_ThayDoiChucVu.Checked)
-                {
-                    m_IDDV_Chung = (m_IDDV_Ten.Intersect(m_IDDV_CV)).ToArray();
-                }
-                else if (cb_ThayDoiCapBac.Checked)
-                {
-                    m_IDDV_Chung = (m_IDDV_Ten.Intersect(m_IDDV_CapBac)).ToArray();
-                }
-
-
-            }
-
-            
-
-
 
             return true;
             
