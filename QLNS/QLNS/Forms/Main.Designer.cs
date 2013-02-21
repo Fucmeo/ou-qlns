@@ -36,6 +36,8 @@
             this.tsmi_QLNSHienThiThongTin = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_QLNSTimKiem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_QLHD = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_QLHD_DSHD = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_QLHD_DSQD = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_QLL = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_QLDD = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_QLDT = new System.Windows.Forms.ToolStripMenuItem();
@@ -135,6 +137,9 @@
             // tsmi_QLHD
             // 
             this.tsmi_QLHD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(174)))), ((int)(((byte)(218)))));
+            this.tsmi_QLHD.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmi_QLHD_DSHD,
+            this.tsmi_QLHD_DSQD});
             this.tsmi_QLHD.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tsmi_QLHD.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.tsmi_QLHD.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -143,7 +148,20 @@
             this.tsmi_QLHD.Size = new System.Drawing.Size(150, 25);
             this.tsmi_QLHD.Text = "Quản lý hợp đồng";
             this.tsmi_QLHD.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsmi_QLHD.Click += new System.EventHandler(this.tsmi_QLHD_Click);
+            // 
+            // tsmi_QLHD_DSHD
+            // 
+            this.tsmi_QLHD_DSHD.Name = "tsmi_QLHD_DSHD";
+            this.tsmi_QLHD_DSHD.Size = new System.Drawing.Size(233, 26);
+            this.tsmi_QLHD_DSHD.Text = "Danh sách hợp đồng";
+            this.tsmi_QLHD_DSHD.Click += new System.EventHandler(this.tsmi_QLHD_DSHD_Click);
+            // 
+            // tsmi_QLHD_DSQD
+            // 
+            this.tsmi_QLHD_DSQD.Name = "tsmi_QLHD_DSQD";
+            this.tsmi_QLHD_DSQD.Size = new System.Drawing.Size(233, 26);
+            this.tsmi_QLHD_DSQD.Text = "Danh sách quyết định";
+            this.tsmi_QLHD_DSQD.Click += new System.EventHandler(this.tsmi_QLHD_DSQD_Click);
             // 
             // tsmi_QLL
             // 
@@ -365,6 +383,9 @@
             this.ImageL_MenuStripItem.Images.SetKeyName(9, "Logout.png");
             this.ImageL_MenuStripItem.Images.SetKeyName(10, "Business Man Find.png");
             this.ImageL_MenuStripItem.Images.SetKeyName(11, "User-Information2.png");
+            this.ImageL_MenuStripItem.Images.SetKeyName(12, "Document-Zoom-In.png");
+            this.ImageL_MenuStripItem.Images.SetKeyName(13, "Contract.png");
+            this.ImageL_MenuStripItem.Images.SetKeyName(14, "Decision.png");
             // 
             // Main
             // 
@@ -417,6 +438,8 @@
         private System.Windows.Forms.ToolStripMenuItem tsmi_BaoCao;
         private System.Windows.Forms.TableLayoutPanel tableLP_Main;
         private System.Windows.Forms.ImageList ImageL_MenuStripItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_QLHD_DSHD;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_QLHD_DSQD;
 
 
 

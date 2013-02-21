@@ -22,9 +22,8 @@ namespace QLNS.Forms
         }
 
         private void Main_Load(object sender, EventArgs e)
-         {
+        {
              LoadImageToMenuStrip();
-
         }
 
         private void LoadImageToMenuStrip()
@@ -46,7 +45,9 @@ namespace QLNS.Forms
             tsmi_ThongTin.Image = ImageL_MenuStripItem.Images["User-Information.png"];
             tsmi_DangXuat.Image = ImageL_MenuStripItem.Images["Logout.png"];
             tsmi_ThongTinPM.Image = ImageL_MenuStripItem.Images["About.png"];
-            tsmi_TaiLieuHD.Image = ImageL_MenuStripItem.Images[""];
+            tsmi_TaiLieuHD.Image = ImageL_MenuStripItem.Images["Document-Zoom-In.png"];
+            tsmi_QLHD_DSHD.Image = ImageL_MenuStripItem.Images["Contract.png"];
+            tsmi_QLHD_DSQD.Image = ImageL_MenuStripItem.Images["Decision.png"];
 
             // QL doi tuong
             tsmi_MoHinhDaoTao.Image = ImageL_MenuStripItem.Images["Diagram.png"];
@@ -68,6 +69,7 @@ namespace QLNS.Forms
                 UC = uc;
                 this.tableLP_Main.Controls.Clear();
                 this.tableLP_Main.Controls.Add(UC, 0, 0);
+                this.Text = "QUẢN LÝ NHÂN SỰ - HIỂN THỊ THÔNG TIN";
             }
             
         }
@@ -81,6 +83,7 @@ namespace QLNS.Forms
                 UC = uc;
                 this.tableLP_Main.Controls.Clear();
                 this.tableLP_Main.Controls.Add(UC, 0, 0);
+                this.Text = "QUẢN LÝ NHÂN SỰ - TÌM KIẾM";
             }
         }
 
@@ -128,17 +131,32 @@ namespace QLNS.Forms
 
         private void tsmi_QLHD_Click(object sender, EventArgs e)
         {
-            if (this.tableLP_Main.Controls[0].Name != "HopDong")
-            {
-                //HDQD.UCs.HopDong ucHopDong = new HDQD.UCs.HopDong();
-                //ucHopDong.Dock = DockStyle.Fill;
-                //UC = ucHopDong;
+            
+        }
 
-                HDQD.UCs.BoNhiem ucBoNhiem = new HDQD.UCs.BoNhiem();
-                ucBoNhiem.Dock = DockStyle.Fill;
-                UC = ucBoNhiem;
+        private void tsmi_QLHD_DSHD_Click(object sender, EventArgs e)
+        {
+            if (this.tableLP_Main.Controls[0].Name != "DanhSachHopDong")
+            {
+                HDQD.UCs.DanhSachHopDong uc = new HDQD.UCs.DanhSachHopDong();
+                uc.Dock = DockStyle.Fill;
+                UC = uc;
                 this.tableLP_Main.Controls.Clear();
                 this.tableLP_Main.Controls.Add(UC, 0, 0);
+                this.Text = "QUẢN LÝ NHÂN SỰ - DANH SÁCH HỢP ĐỒNG";
+            }
+        }
+
+        private void tsmi_QLHD_DSQD_Click(object sender, EventArgs e)
+        {
+            if (this.tableLP_Main.Controls[0].Name != "DanhSachQuyetDinh")
+            {
+                HDQD.UCs.DanhSachQuyetDinh uc = new HDQD.UCs.DanhSachQuyetDinh();
+                uc.Dock = DockStyle.Fill;
+                UC = uc;
+                this.tableLP_Main.Controls.Clear();
+                this.tableLP_Main.Controls.Add(UC, 0, 0);
+                this.Text = "QUẢN LÝ NHÂN SỰ - DANH SÁCH QUYẾT ĐỊNH";
             }
         }
     }

@@ -124,7 +124,7 @@
             "Bổ nhiệm",
             "Kiêm nhiệm",
             "Điều động"});
-            this.comB_Loai.Location = new System.Drawing.Point(158, 66);
+            this.comB_Loai.Location = new System.Drawing.Point(158, 68);
             this.comB_Loai.Name = "comB_Loai";
             this.comB_Loai.Size = new System.Drawing.Size(194, 29);
             this.comB_Loai.TabIndex = 2;
