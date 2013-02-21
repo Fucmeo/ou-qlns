@@ -537,14 +537,15 @@ namespace HDQD.UCs
             if (cb_ThayDoiCapBac.Checked)
             {
                 m_IDDV_CapBac = new int[tableLP_ThayDoiCapBac.RowCount];
+                m_IDDVCha_CapBac = new int[tableLP_ThayDoiCapBac.RowCount];
 
                 for (int i = 0; i < tableLP_ThayDoiCapBac.RowCount; i++)
                 {
                     m_IDDV_CapBac[i] = Convert.ToInt32(((ComboBox)tableLP_ThayDoiCapBac.Controls[i * TLPCapBacColCount + DV_CapBacPos]).SelectedValue);
                     m_IDDVCha_CapBac[i] = Convert.ToInt32(((ComboBox)tableLP_ThayDoiCapBac.Controls[i * TLPCapBacColCount + DV_CapBacChaPos]).SelectedValue);
                 }
-
-                if (m_IDDV_CapBac.Distinct().Count() < m_IDDV_CapBac.Length)    // distinct ma < length ==> co don vi trung nhau
+                // distinct ma < length ==> co don vi trung nhau
+                if (m_IDDV_CapBac.Distinct().Count() < m_IDDV_CapBac.Length)    
                 {
                     throw new Exception("Đơn vị ở phần thay đổi tên cấp bậc không được trùng lắp.");
                 }
