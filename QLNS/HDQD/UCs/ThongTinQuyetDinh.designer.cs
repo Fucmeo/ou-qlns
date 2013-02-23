@@ -43,8 +43,9 @@
             this.dTP_NgayHetHan = new System.Windows.Forms.DateTimePicker();
             this.dTP_NgayKy = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.rTB_MoTa = new System.Windows.Forms.RichTextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.tableLP_ThongTinQuyetDinh.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -102,6 +103,7 @@
             this.tableLayoutPanel1.Controls.Add(this.dTP_NgayKy, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.rTB_MoTa, 1, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
@@ -216,7 +218,7 @@
             this.dTP_NgayHetHan.Location = new System.Drawing.Point(485, 121);
             this.dTP_NgayHetHan.Name = "dTP_NgayHetHan";
             this.dTP_NgayHetHan.ShowCheckBox = true;
-            this.dTP_NgayHetHan.Size = new System.Drawing.Size(275, 28);
+            this.dTP_NgayHetHan.Size = new System.Drawing.Size(300, 28);
             this.dTP_NgayHetHan.TabIndex = 5;
             // 
             // dTP_NgayKy
@@ -227,7 +229,7 @@
             this.dTP_NgayKy.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dTP_NgayKy.Location = new System.Drawing.Point(485, 67);
             this.dTP_NgayKy.Name = "dTP_NgayKy";
-            this.dTP_NgayKy.Size = new System.Drawing.Size(261, 28);
+            this.dTP_NgayKy.Size = new System.Drawing.Size(300, 28);
             this.dTP_NgayKy.TabIndex = 3;
             // 
             // label3
@@ -240,24 +242,38 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Ngày ký";
             // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 179);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 21);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Mô tả";
-            // 
             // rTB_MoTa
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.rTB_MoTa, 3);
+            this.tableLayoutPanel1.SetColumnSpan(this.rTB_MoTa, 2);
+            this.rTB_MoTa.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rTB_MoTa.Location = new System.Drawing.Point(158, 165);
             this.rTB_MoTa.Name = "rTB_MoTa";
-            this.rTB_MoTa.Size = new System.Drawing.Size(627, 39);
+            this.rTB_MoTa.Size = new System.Drawing.Size(321, 49);
             this.rTB_MoTa.TabIndex = 7;
             this.rTB_MoTa.Text = "";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 179);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(131, 21);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Mô tả quyết định";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label5.AutoSize = true;
+            this.label5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label5.Font = new System.Drawing.Font("Calibri", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label5.Location = new System.Drawing.Point(485, 179);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(131, 21);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "Chọn tập tin hình";
             // 
             // ThongTinQuyetDinh
             // 
@@ -283,7 +299,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label2;
         public System.Windows.Forms.DateTimePicker dTP_NgayHieuLuc;
         public System.Windows.Forms.DateTimePicker dTP_NgayKy;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -296,5 +311,7 @@
         public System.Windows.Forms.TextBox txt_MaQD;
         public System.Windows.Forms.TextBox txt_TenQD;
         public System.Windows.Forms.ComboBox comB_Loai;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label5;
     }
 }
