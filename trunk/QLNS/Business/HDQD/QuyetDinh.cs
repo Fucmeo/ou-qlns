@@ -70,6 +70,22 @@ namespace Business.HDQD
             set { ngay_ky = value; }
         }
 
+        private DateTime? ngay_hieu_luc;
+
+        public DateTime? Ngay_Hieu_Luc
+        {
+            get { return ngay_hieu_luc; }
+            set { ngay_hieu_luc = value; }
+        }
+
+        private DateTime? ngay_het_han;
+
+        public DateTime? Ngay_Het_Han
+        {
+            get { return ngay_het_han; }
+            set { ngay_het_han = value; }
+        }
+
         private string mota;
 
         public string MoTa
@@ -162,6 +178,67 @@ namespace Business.HDQD
                 throw;
             }
                       
+        }
+
+        public bool MA_Tach_DonVi(int p_tu_don_vi_id, string[] p_ten_don_vi_moi, string[] p_ten_dv_moi_viet_tat, int[] p_truc_thuoc_don_vi,
+                                    DateTime[] p_tu_ngay, string[] p_ghi_chu, string[] p_ma_nhan_vien)
+        {
+            IDataParameter[] paras = new IDataParameter[15]{
+                new NpgsqlParameter("p_ma_qd",ma_qd),
+                new NpgsqlParameter("p_ten_qd",ten_qd),
+                new NpgsqlParameter("p_ma_loai_qd",loai_qd_id),
+                new NpgsqlParameter("p_path",path),
+                new NpgsqlParameter("p_ngay_ky",ngay_ky),
+                new NpgsqlParameter("p_ngay_hieu_luc",ngay_hieu_luc),
+                new NpgsqlParameter("p_ngay_het_han",ngay_het_han),
+                new NpgsqlParameter("p_mo_ta",mota),
+                new NpgsqlParameter("p_tu_don_vi_id",p_tu_don_vi_id),
+                new NpgsqlParameter("p_ten_don_vi_moi",p_ten_don_vi_moi),
+                new NpgsqlParameter("p_ten_dv_moi_viet_tat",p_ten_dv_moi_viet_tat),
+                new NpgsqlParameter("p_truc_thuoc_don_vi",p_truc_thuoc_don_vi),
+                new NpgsqlParameter("p_tu_ngay",p_tu_ngay),
+                new NpgsqlParameter("p_ghi_chu",p_ghi_chu),
+                new NpgsqlParameter("p_ma_nhan_vien",p_ma_nhan_vien)
+            };
+            try
+            {
+                dp.executeScalarProc("sp1_insert_qdma_tach_don_vi", paras);
+                return true;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public bool MA_Gop_DonVi(int[] p_tu_don_vi_id, string p_ten_don_vi_moi, string p_ten_dv_moi_viet_tat, int p_truc_thuoc_don_vi,
+                                    DateTime p_tu_ngay, string p_ghi_chu)
+        {
+            IDataParameter[] paras = new IDataParameter[14]{
+                new NpgsqlParameter("p_ma_qd",ma_qd),
+                new NpgsqlParameter("p_ten_qd",ten_qd),
+                new NpgsqlParameter("p_ma_loai_qd",loai_qd_id),
+                new NpgsqlParameter("p_path",path),
+                new NpgsqlParameter("p_ngay_ky",ngay_ky),
+                new NpgsqlParameter("p_ngay_hieu_luc",ngay_hieu_luc),
+                new NpgsqlParameter("p_ngay_het_han",ngay_het_han),
+                new NpgsqlParameter("p_mo_ta",mota),
+                new NpgsqlParameter("p_tu_don_vi_id",p_tu_don_vi_id),
+                new NpgsqlParameter("p_ten_don_vi_moi",p_ten_don_vi_moi),
+                new NpgsqlParameter("p_ten_dv_moi_viet_tat",p_ten_dv_moi_viet_tat),
+                new NpgsqlParameter("p_truc_thuoc_don_vi",p_truc_thuoc_don_vi),
+                new NpgsqlParameter("p_tu_ngay",p_tu_ngay),
+                new NpgsqlParameter("p_ghi_chu",p_ghi_chu)
+            };
+            try
+            {
+                dp.executeScalarProc("sp1_insert_qdma_gop_don_vi", paras);
+                return true;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
         #endregion
     }
