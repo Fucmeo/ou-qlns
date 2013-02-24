@@ -13,28 +13,31 @@ namespace HDQD.UCs
     public partial class M_A : UserControl
     {
         Business.DonVi oDonvi;
+        DataTable dtDonVi;
         
         public M_A()
         {
             InitializeComponent();
             oDonvi = new DonVi();
+            dtDonVi = new DataTable();
         }
 
         private void M_A_Load(object sender, EventArgs e)
         {
+            PreapreDataSource();
             GenUI_TuDonVi(0);
 
-            PreapreDataSource();
+            
         }
 
         #region Private Methods
         private void PreapreDataSource()
         {
-            DataTable dt = oDonvi.GetDonViList();
-            DataRow row = dt.NewRow();
-            dt.Rows.InsertAt(row, 0);
+            dtDonVi = oDonvi.GetDonViList();
+            DataRow row = dtDonVi.NewRow();
+            dtDonVi.Rows.InsertAt(row, 0);
 
-            comb_DVTrucThuoc.DataSource = dt;
+            comb_DVTrucThuoc.DataSource = dtDonVi;
             comb_DVTrucThuoc.DisplayMember = "ten_don_vi";
             comb_DVTrucThuoc.ValueMember = "id";
         }
@@ -55,6 +58,11 @@ namespace HDQD.UCs
             com.DropDownStyle = ComboBoxStyle.DropDownList;
             com.Width = 500;
             com.Name = "comB_TuDV_" + row.ToString();
+
+            //load data for combo box
+            com.DataSource = dtDonVi;
+            com.DisplayMember = "ten_don_vi";
+            com.ValueMember = "id";
 
             Label lb_ten_xoa = new Label();
             lb_ten_xoa.Anchor = AnchorStyles.Right;
