@@ -84,6 +84,12 @@
     <Compile Include="UCs\DSCNVC.designer.cs">
       <DependentUpon>DSCNVC.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCs\DSTapTin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\DSTapTin.Designer.cs">
+      <DependentUpon>DSTapTin.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCs\HopDong.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -170,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\DSCNVC.resx">
       <DependentUpon>DSCNVC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\DSTapTin.resx">
+      <DependentUpon>DSTapTin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\HopDong.resx">
       <DependentUpon>HopDong.cs</DependentUpon>
