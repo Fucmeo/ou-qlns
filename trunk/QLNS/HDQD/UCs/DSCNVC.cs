@@ -12,7 +12,7 @@ namespace HDQD.UCs
     public partial class DSCNVC : UserControl
     {
         DataTable dtDSCNVC;
-        public enum ParentUC  { BoNhiem,ThoiBoNhiem,QuyetDinhChung };
+        public enum ParentUC  { BoNhiem,ThoiBoNhiem,QuyetDinhChung, MA };
         public static ParentUC eParentUC;
         public DSCNVC(DataTable _dtDSCNVC)
         {
@@ -71,6 +71,34 @@ namespace HDQD.UCs
             dtgv_DSCNVC.Columns["ngay_sinh"].Width = 150;
             dtgv_DSCNVC.Columns["gioi_tinh"].HeaderText = "Giới tính";
             dtgv_DSCNVC.Columns["gioi_tinh"].Width = 50;
+        }
+
+        private void btn_Chon_Click(object sender, EventArgs e)
+        {
+            switch (eParentUC)
+            {
+                case ParentUC.MA:
+                    int row_count = dtgv_DSCNVC.SelectedRows.Count;
+                    string[] ma_nv = new string[row_count];
+                    string[] ho_ten = new string[row_count];
+                    int i = 0;
+                    foreach (DataGridViewRow item in dtgv_DSCNVC.SelectedRows)
+                    {
+                        ma_nv[i] = item.Cells["ma_nv"].Value.ToString();
+                        ho_ten[i] = item.Cells["ho"].Value.ToString() + " " + item.Cells["ten"].Value.ToString();
+
+                        i++;
+                    }
+                    HDQD.UCs.M_A.m_ma_nv = ma_nv;
+                    HDQD.UCs.M_A.m_ho_ten = ho_ten;
+                    HDQD.UCs.M_A.row_count = row_count;
+                    HDQD.UCs.M_A.hitOK = true;
+
+                    break;
+                default:
+                    break;
+            }
+            ((Form)this.Parent).Close();
         }
     }
 }

@@ -208,6 +208,19 @@ namespace Business.CNVC
             return dt;
         }
 
+        public DataTable Search_CNVC_by_DonVi(int p_don_vi_id)
+        {
+            DataTable dt;
+
+            IDataParameter[] paras = new IDataParameter[1]{
+                new NpgsqlParameter("p_ma_don_vi",p_don_vi_id)               
+            };
+
+            dt = dp.getDataTableProc("sp1_qsearch_nv_by_donvi", paras);
+
+            return dt;
+        }
+
         #endregion
 
 
