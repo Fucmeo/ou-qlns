@@ -12,17 +12,36 @@ namespace HDQD.UCs
 {
     public partial class M_A : UserControl
     {
+        Business.DonVi oDonvi;
         
         public M_A()
         {
             InitializeComponent();
+            oDonvi = new DonVi();
         }
 
         private void M_A_Load(object sender, EventArgs e)
         {
             GenUI_TuDonVi(0);
+
+            PreapreDataSource();
         }
 
+        #region Private Methods
+        private void PreapreDataSource()
+        {
+            DataTable dt = oDonvi.GetDonViList();
+            DataRow row = dt.NewRow();
+            dt.Rows.InsertAt(row, 0);
+
+            comb_DVTrucThuoc.DataSource = dt;
+            comb_DVTrucThuoc.DisplayMember = "ten_don_vi";
+            comb_DVTrucThuoc.ValueMember = "id";
+        }
+
+        #endregion
+
+        #region Khang
         #region Code giao diện
 
         /// <summary>
@@ -39,7 +58,7 @@ namespace HDQD.UCs
 
             Label lb_ten_xoa = new Label();
             lb_ten_xoa.Anchor = AnchorStyles.Right;
-            lb_ten_xoa.MouseClick +=new MouseEventHandler(lb_ten_xoa_MouseClick);
+            lb_ten_xoa.MouseClick += new MouseEventHandler(lb_ten_xoa_MouseClick);
             lb_ten_xoa.Text = "Xoá";
             lb_ten_xoa.Cursor = Cursors.Hand;
             lb_ten_xoa.Font = new Font(lb_ten_xoa.Font.Name, lb_ten_xoa.Font.Size, FontStyle.Underline);
@@ -65,7 +84,7 @@ namespace HDQD.UCs
                 AddRemoveRow(tableLP_ComboTuDV, "Remove", lbRow);
                 MoveUp(tableLP_ComboTuDV, lbRow);
             }
-            
+
         }
 
         /// <summary>
@@ -152,8 +171,11 @@ namespace HDQD.UCs
             {
                 MessageBox.Show("Số lượng dòng vượt quá giới hạn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            
+
 
         }
+        #endregion
+        
+        
     }
 }
