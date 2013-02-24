@@ -13,12 +13,24 @@ namespace HDQD.UCs
     public partial class M_A : UserControl
     {
         Business.DonVi oDonvi;
+        Business.CNVC.CNVC oCNVC;
+        List<Business.DonVi> dsDonVi_new;
+        List<string> dsCNVC;
         DataTable dtDonVi;
+
+        public static string[] m_ma_nv;
+        public static string[] m_ho_ten;
+        public static int row_count;
+        public static bool hitOK;
         
         public M_A()
         {
             InitializeComponent();
             oDonvi = new DonVi();
+            oCNVC = new Business.CNVC.CNVC();
+            dsDonVi_new = new List<DonVi>();
+            dsCNVC = new List<string>();
+
             dtDonVi = new DataTable();
         }
 
@@ -42,6 +54,42 @@ namespace HDQD.UCs
             comb_DVTrucThuoc.ValueMember = "id";
         }
 
+        private void EnableControls(bool p_value)
+        {
+            if (p_value == false)
+            {
+                btn_LuuThongTin.Enabled = btn_HuyThongTin.Enabled = lb_TimNV.Enabled = txt_TenDV.Enabled = txt_TenDVTat.Enabled = 
+                    comb_DVTrucThuoc.Enabled = dTP_NgayHieuLuc.Enabled = rTB_GhiChu.Enabled = true;
+                btn_ThemTuDV.Enabled = btn_ThemSangDV.Enabled = btn_XoaSangDV.Enabled = btn_Nhap.Enabled = btn_Huy.Enabled = false;
+
+                txt_TenDV.Text = txt_TenDVTat.Text = rTB_GhiChu.Text = "";
+                txt_TenDV.Focus();
+
+                //thongTinQuyetDinh1.txt_MaQD.Enabled = thongTinQuyetDinh1.txt_TenQD.Enabled = thongTinQuyetDinh1.comB_Loai.Enabled =
+                //    thongTinQuyetDinh1.dTP_NgayKy.Enabled = thongTinQuyetDinh1.dTP_NgayHieuLuc.Enabled = thongTinQuyetDinh1.dTP_NgayHetHan.Enabled = 
+                //    thongTinQuyetDinh1.rTB_MoTa.Enabled = 
+                thongTinQuyetDinh1.Enabled = false;
+
+                listB_SangDV.Enabled = tableLP_ComboTuDV.Enabled = false;
+            }
+            else
+            {
+                btn_LuuThongTin.Enabled = btn_HuyThongTin.Enabled = lb_TimNV.Enabled = txt_TenDV.Enabled = txt_TenDVTat.Enabled =
+                    comb_DVTrucThuoc.Enabled = dTP_NgayHieuLuc.Enabled = rTB_GhiChu.Enabled = false;
+                btn_ThemTuDV.Enabled = btn_ThemSangDV.Enabled = btn_XoaSangDV.Enabled = btn_Nhap.Enabled = btn_Huy.Enabled = true;
+
+                txt_TenDV.Text = txt_TenDVTat.Text = rTB_GhiChu.Text = "";
+                //txt_TenDV.Focus();
+
+                //thongTinQuyetDinh1.txt_MaQD.Enabled = thongTinQuyetDinh1.txt_TenQD.Enabled = thongTinQuyetDinh1.comB_Loai.Enabled =
+                //    thongTinQuyetDinh1.dTP_NgayKy.Enabled = thongTinQuyetDinh1.dTP_NgayHieuLuc.Enabled = thongTinQuyetDinh1.dTP_NgayHetHan.Enabled = 
+                //    thongTinQuyetDinh1.rTB_MoTa.Enabled = 
+                thongTinQuyetDinh1.Enabled = true;
+
+                listB_SangDV.Enabled = tableLP_ComboTuDV.Enabled = true;
+            }
+        }
+
         #endregion
 
         #region Khang
@@ -60,7 +108,8 @@ namespace HDQD.UCs
             com.Name = "comB_TuDV_" + row.ToString();
 
             //load data for combo box
-            com.DataSource = dtDonVi;
+            DataTable dt_temp = dtDonVi.Copy();
+            com.DataSource = dt_temp;
             com.DisplayMember = "ten_don_vi";
             com.ValueMember = "id";
 
@@ -183,7 +232,104 @@ namespace HDQD.UCs
 
         }
         #endregion
-        
+
+        private void btn_ThemSangDV_Click(object sender, EventArgs e)
+        {
+            EnableControls(false);
+        }
+
+        private void btn_HuyThongTin_Click(object sender, EventArgs e)
+        {
+            EnableControls(true);
+        }
+
+        private void btn_LuuThongTin_Click(object sender, EventArgs e)
+        {
+            if (txt_TenDV.Text != null && dTP_NgayHieuLuc.Checked == true)
+            {
+                DonVi dv = new DonVi();
+                dv.TenDonVi = txt_TenDV.Text;
+                dv.TenDVVietTat = txt_TenDVTat.Text;
+                if (comb_DVTrucThuoc.Text != "")
+                    dv.DVChaID = Convert.ToInt16(comb_DVTrucThuoc.SelectedValue);
+                else
+                    dv.DVChaID = null;
+
+                dv.TuNgay = dTP_NgayHieuLuc.Value;
+                dv.GhiChu = rTB_GhiChu.Text;
+
+                //Xử lý chuỗi mã nhân viên
+                string ma_nv_arr = "";
+                foreach (string item in m_ma_nv)
+                {
+                    ma_nv_arr = ma_nv_arr + "'" + item + "', ";
+                }
+                ma_nv_arr = ma_nv_arr.Remove(ma_nv_arr.Length - 2);
+
+                int i = listB_SangDV.Items.Count + 1;
+                dsDonVi_new.Insert(i, dv);
+                dsCNVC.Insert(i, ma_nv_arr);
+
+                listB_SangDV.Items.Add(txt_TenDV.Text);
+
+                EnableControls(true);
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void lb_TimNV_Click(object sender, EventArgs e)
+        {
+            hitOK = false;
+            m_ma_nv = new string[0];
+            m_ho_ten = new string[0];
+
+            int dv_id = 0;
+            for (int i = 0; i < tableLP_ComboTuDV.RowCount; i++)
+            {
+                ComboBox cbo_DonVi = (ComboBox)tableLP_ComboTuDV.Controls[i];
+                if (cbo_DonVi.Text != "")
+                    dv_id = Convert.ToInt16(cbo_DonVi.SelectedValue);
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn một đơn vị.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            if (dv_id != 0)
+            {
+                DataTable dtCNVC = oCNVC.Search_CNVC_by_DonVi(dv_id);
+
+                Forms.Popup frPopup = new Forms.Popup(new UCs.DSCNVC(dtCNVC));
+                HDQD.UCs.DSCNVC.eParentUC = DSCNVC.ParentUC.MA;
+                frPopup.ShowDialog();
+            }
+            if (hitOK)
+            {
+                listB_DSNV.Items.Clear();
+
+                //Set_CNVCs_to_LB(m_ma_nv, m_ho_ten, row_count);
+                foreach (string item in m_ho_ten)
+                {
+                    listB_DSNV.Items.Add(item);
+                }
+            }
+
+        }
+
+        private void Set_CNVCs_to_LB(string[] p_ma_nv, string[] p_ho_ten, int num)
+        {
+            foreach (string item in p_ho_ten)
+            {
+                listB_DSNV.Items.Add(item);
+            }
+        }
+
+        private void btn_XoaSangDV_Click(object sender, EventArgs e)
+        {
+
+        }
         
     }
 }
