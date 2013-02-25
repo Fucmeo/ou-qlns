@@ -12,7 +12,7 @@ namespace HDQD.UCs
     public partial class DSCNVC : UserControl
     {
         DataTable dtDSCNVC;
-        public enum ParentUC  { BoNhiem,ThoiBoNhiem,QuyetDinhChung, MA };
+        public enum ParentUC  { BoNhiem,ThoiBoNhiem,QuyetDinhChung, MA , HopDong};
         public static ParentUC eParentUC;
         public DSCNVC(DataTable _dtDSCNVC)
         {
@@ -48,6 +48,18 @@ namespace HDQD.UCs
                         HDQD.UCs.ThongTinCNVC.strMaNV = HDQD.UCs.QuyetDinhChung.strMaNVOld = dtgv_DSCNVC.Rows[e.RowIndex].Cells["ma_nv"].Value.ToString();
                         HDQD.UCs.ThongTinCNVC.strHo = HDQD.UCs.QuyetDinhChung.strHoOld = dtgv_DSCNVC.Rows[e.RowIndex].Cells["ho"].Value.ToString();
                         HDQD.UCs.ThongTinCNVC.strTen = HDQD.UCs.QuyetDinhChung.strTenOld = dtgv_DSCNVC.Rows[e.RowIndex].Cells["ten"].Value.ToString();
+                        break;
+
+                    case ParentUC.HopDong:
+                        HDQD.UCs.ThongTinCNVC.strMaNV 
+                            //= HDQD.UCs.HopDong.strMaNVOld 
+                            = dtgv_DSCNVC.Rows[e.RowIndex].Cells["ma_nv"].Value.ToString();
+                        HDQD.UCs.ThongTinCNVC.strHo 
+                            //= HDQD.UCs.HopDong.strHoOld 
+                            = dtgv_DSCNVC.Rows[e.RowIndex].Cells["ho"].Value.ToString();
+                        HDQD.UCs.ThongTinCNVC.strTen 
+                            //= HDQD.UCs.HopDong.strTenOld 
+                            = dtgv_DSCNVC.Rows[e.RowIndex].Cells["ten"].Value.ToString();
                         break;
 
                     default:
@@ -94,6 +106,36 @@ namespace HDQD.UCs
                     HDQD.UCs.M_A.row_count = row_count;
                     HDQD.UCs.M_A.hitOK = true;
 
+                    break;
+
+                case ParentUC.BoNhiem:
+                    HDQD.UCs.ThongTinCNVC.strMaNV = HDQD.UCs.BoNhiem.strMaNVOld = dtgv_DSCNVC.SelectedRows[0].Cells["ma_nv"].Value.ToString();
+                    HDQD.UCs.ThongTinCNVC.strHo = HDQD.UCs.BoNhiem.strHoOld = dtgv_DSCNVC.SelectedRows[0].Cells["ho"].Value.ToString();
+                    HDQD.UCs.ThongTinCNVC.strTen = HDQD.UCs.BoNhiem.strTenOld = dtgv_DSCNVC.SelectedRows[0].Cells["teb"].Value.ToString();
+                    break;
+
+                case ParentUC.ThoiBoNhiem:
+                    HDQD.UCs.ThongTinCNVC.strMaNV = HDQD.UCs.ThoiBoNhiem.strMaNVOld = dtgv_DSCNVC.SelectedRows[0].Cells["ma_nv"].Value.ToString();
+                    HDQD.UCs.ThongTinCNVC.strHo = HDQD.UCs.ThoiBoNhiem.strHoOld = dtgv_DSCNVC.SelectedRows[0].Cells["ho"].Value.ToString();
+                    HDQD.UCs.ThongTinCNVC.strTen = HDQD.UCs.ThoiBoNhiem.strTenOld = dtgv_DSCNVC.SelectedRows[0].Cells["ten"].Value.ToString();
+                    break;
+
+                case ParentUC.QuyetDinhChung:
+                    HDQD.UCs.ThongTinCNVC.strMaNV = HDQD.UCs.QuyetDinhChung.strMaNVOld = dtgv_DSCNVC.SelectedRows[0].Cells["ma_nv"].Value.ToString();
+                    HDQD.UCs.ThongTinCNVC.strHo = HDQD.UCs.QuyetDinhChung.strHoOld = dtgv_DSCNVC.SelectedRows[0].Cells["ho"].Value.ToString();
+                    HDQD.UCs.ThongTinCNVC.strTen = HDQD.UCs.QuyetDinhChung.strTenOld = dtgv_DSCNVC.SelectedRows[0].Cells["ten"].Value.ToString();
+                    break;
+
+                case ParentUC.HopDong:
+                    HDQD.UCs.ThongTinCNVC.strMaNV
+                        //= HDQD.UCs.HopDong.strMaNVOld 
+                        = dtgv_DSCNVC.SelectedRows[0].Cells["ma_nv"].Value.ToString();
+                    HDQD.UCs.ThongTinCNVC.strHo
+                        //= HDQD.UCs.HopDong.strHoOld 
+                        = dtgv_DSCNVC.SelectedRows[0].Cells["ho"].Value.ToString();
+                    HDQD.UCs.ThongTinCNVC.strTen
+                        //= HDQD.UCs.HopDong.strTenOld 
+                        = dtgv_DSCNVC.SelectedRows[0].Cells["ten"].Value.ToString();
                     break;
                 default:
                     break;

@@ -29,7 +29,6 @@ namespace QLNS.UCs
             InitializeComponent();
         }
 
-
         private void QLNS_HienThiThongTin_Load(object sender, EventArgs e)
         {
             qlnS_DanhMucThongTin1 = new QLNS_DanhMucThongTin();
@@ -45,8 +44,8 @@ namespace QLNS.UCs
 
         private void btn_Them_Click(object sender, EventArgs e)
         {
-            if (qlnS_DonVi_CNVC1.nSelectedDVID != 0)
-            {
+            //if (qlnS_DonVi_CNVC1.nSelectedDVID != 0)
+            //{
                 ResetInterface(false);
                 bAddFlag = true;
                 if (!string.IsNullOrWhiteSpace(qlnS_DanhMucThongTin1.txt_MaNV.Text))   // neu da chon CNVC moi empty content
@@ -64,14 +63,12 @@ namespace QLNS.UCs
                     Setup_dtgv_QuanHeGiaDinh();
                     Setup_dtgv_TrinhDoPhoThong();
                     //Setup_dtgv_DHMo();
-                    
-
                 }
-            }
-            else
-            {
-                MessageBox.Show("Xin vui lòng chọn đơn vị trước.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Xin vui lòng chọn đơn vị trước.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
             
         }
 
@@ -416,11 +413,11 @@ namespace QLNS.UCs
                 qlnS_DanhMucThongTin1.oCMND.Add(); 
             }
 
-            // luồng tạm thời
-            qlnS_DanhMucThongTin1.oQTCT.MaNV = qlnS_DanhMucThongTin1.txt_MaNV.Text.Trim();
-            qlnS_DanhMucThongTin1.oQTCT.DonViID = (qlnS_DonVi_CNVC1.nSelectedDVID);
-            qlnS_DanhMucThongTin1.oQTCT.TinhTrang = true;
-            qlnS_DanhMucThongTin1.oQTCT.Add();
+            //// luồng tạm thời
+            //qlnS_DanhMucThongTin1.oQTCT.MaNV = qlnS_DanhMucThongTin1.txt_MaNV.Text.Trim();
+            //qlnS_DanhMucThongTin1.oQTCT.DonViID = (qlnS_DonVi_CNVC1.nSelectedDVID);
+            //qlnS_DanhMucThongTin1.oQTCT.TinhTrang = true;
+            //qlnS_DanhMucThongTin1.oQTCT.Add();
         }
 
         private void ThemThongTinBoSung()

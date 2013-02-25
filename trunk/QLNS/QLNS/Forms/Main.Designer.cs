@@ -57,6 +57,13 @@
             this.ImageL_MenuStrip = new System.Windows.Forms.ImageList(this.components);
             this.tableLP_Main = new System.Windows.Forms.TableLayoutPanel();
             this.ImageL_MenuStripItem = new System.Windows.Forms.ImageList(this.components);
+            this.tsmi_QLHD_ThemQD = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_QLHD_KiemNhiem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_QLHD_ThoiBoNhiem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_QLHD_DoiThongTInDV = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_QLHD_TachDV = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_QLHD_GopDV = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_QLHD_QDChung = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -139,7 +146,8 @@
             this.tsmi_QLHD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(174)))), ((int)(((byte)(218)))));
             this.tsmi_QLHD.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmi_QLHD_DSHD,
-            this.tsmi_QLHD_DSQD});
+            this.tsmi_QLHD_DSQD,
+            this.tsmi_QLHD_ThemQD});
             this.tsmi_QLHD.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tsmi_QLHD.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.tsmi_QLHD.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -151,6 +159,8 @@
             // 
             // tsmi_QLHD_DSHD
             // 
+            this.tsmi_QLHD_DSHD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(55)))), ((int)(((byte)(78)))));
+            this.tsmi_QLHD_DSHD.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.tsmi_QLHD_DSHD.Name = "tsmi_QLHD_DSHD";
             this.tsmi_QLHD_DSHD.Size = new System.Drawing.Size(233, 26);
             this.tsmi_QLHD_DSHD.Text = "Danh sách hợp đồng";
@@ -158,6 +168,8 @@
             // 
             // tsmi_QLHD_DSQD
             // 
+            this.tsmi_QLHD_DSQD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(55)))), ((int)(((byte)(78)))));
+            this.tsmi_QLHD_DSQD.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.tsmi_QLHD_DSQD.Name = "tsmi_QLHD_DSQD";
             this.tsmi_QLHD_DSQD.Size = new System.Drawing.Size(233, 26);
             this.tsmi_QLHD_DSQD.Text = "Danh sách quyết định";
@@ -386,6 +398,76 @@
             this.ImageL_MenuStripItem.Images.SetKeyName(12, "Document-Zoom-In.png");
             this.ImageL_MenuStripItem.Images.SetKeyName(13, "Contract.png");
             this.ImageL_MenuStripItem.Images.SetKeyName(14, "Decision.png");
+            this.ImageL_MenuStripItem.Images.SetKeyName(15, "Document-Add.png");
+            // 
+            // tsmi_QLHD_ThemQD
+            // 
+            this.tsmi_QLHD_ThemQD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(55)))), ((int)(((byte)(78)))));
+            this.tsmi_QLHD_ThemQD.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmi_QLHD_KiemNhiem,
+            this.tsmi_QLHD_ThoiBoNhiem,
+            this.tsmi_QLHD_DoiThongTInDV,
+            this.tsmi_QLHD_TachDV,
+            this.tsmi_QLHD_GopDV,
+            this.tsmi_QLHD_QDChung});
+            this.tsmi_QLHD_ThemQD.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tsmi_QLHD_ThemQD.Name = "tsmi_QLHD_ThemQD";
+            this.tsmi_QLHD_ThemQD.Size = new System.Drawing.Size(233, 26);
+            this.tsmi_QLHD_ThemQD.Text = "Thêm quyết định";
+            // 
+            // tsmi_QLHD_KiemNhiem
+            // 
+            this.tsmi_QLHD_KiemNhiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(55)))), ((int)(((byte)(78)))));
+            this.tsmi_QLHD_KiemNhiem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tsmi_QLHD_KiemNhiem.Name = "tsmi_QLHD_KiemNhiem";
+            this.tsmi_QLHD_KiemNhiem.Size = new System.Drawing.Size(300, 26);
+            this.tsmi_QLHD_KiemNhiem.Text = "Kiêm / bổ nhiệm & Điều động";
+            this.tsmi_QLHD_KiemNhiem.Click += new System.EventHandler(this.tsmi_QLHD_KiemNhiem_Click);
+            // 
+            // tsmi_QLHD_ThoiBoNhiem
+            // 
+            this.tsmi_QLHD_ThoiBoNhiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(55)))), ((int)(((byte)(78)))));
+            this.tsmi_QLHD_ThoiBoNhiem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tsmi_QLHD_ThoiBoNhiem.Name = "tsmi_QLHD_ThoiBoNhiem";
+            this.tsmi_QLHD_ThoiBoNhiem.Size = new System.Drawing.Size(300, 26);
+            this.tsmi_QLHD_ThoiBoNhiem.Text = "Thôi bổ nhiệm / thôi điều động";
+            this.tsmi_QLHD_ThoiBoNhiem.Click += new System.EventHandler(this.tsmi_QLHD_ThoiBoNhiem_Click);
+            // 
+            // tsmi_QLHD_DoiThongTInDV
+            // 
+            this.tsmi_QLHD_DoiThongTInDV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(55)))), ((int)(((byte)(78)))));
+            this.tsmi_QLHD_DoiThongTInDV.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tsmi_QLHD_DoiThongTInDV.Name = "tsmi_QLHD_DoiThongTInDV";
+            this.tsmi_QLHD_DoiThongTInDV.Size = new System.Drawing.Size(300, 26);
+            this.tsmi_QLHD_DoiThongTInDV.Text = "Đổi thông tin đơn vị";
+            this.tsmi_QLHD_DoiThongTInDV.Click += new System.EventHandler(this.tsmi_QLHD_DoiThongTInDV_Click);
+            // 
+            // tsmi_QLHD_TachDV
+            // 
+            this.tsmi_QLHD_TachDV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(55)))), ((int)(((byte)(78)))));
+            this.tsmi_QLHD_TachDV.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tsmi_QLHD_TachDV.Name = "tsmi_QLHD_TachDV";
+            this.tsmi_QLHD_TachDV.Size = new System.Drawing.Size(300, 26);
+            this.tsmi_QLHD_TachDV.Text = "Tách đơn vị";
+            this.tsmi_QLHD_TachDV.Click += new System.EventHandler(this.tsmi_QLHD_TachDV_Click);
+            // 
+            // tsmi_QLHD_GopDV
+            // 
+            this.tsmi_QLHD_GopDV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(55)))), ((int)(((byte)(78)))));
+            this.tsmi_QLHD_GopDV.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tsmi_QLHD_GopDV.Name = "tsmi_QLHD_GopDV";
+            this.tsmi_QLHD_GopDV.Size = new System.Drawing.Size(300, 26);
+            this.tsmi_QLHD_GopDV.Text = "Gộp đơn vị";
+            this.tsmi_QLHD_GopDV.Click += new System.EventHandler(this.tsmi_QLHD_GopDV_Click);
+            // 
+            // tsmi_QLHD_QDChung
+            // 
+            this.tsmi_QLHD_QDChung.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(55)))), ((int)(((byte)(78)))));
+            this.tsmi_QLHD_QDChung.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tsmi_QLHD_QDChung.Name = "tsmi_QLHD_QDChung";
+            this.tsmi_QLHD_QDChung.Size = new System.Drawing.Size(300, 26);
+            this.tsmi_QLHD_QDChung.Text = "Quyết định chung";
+            this.tsmi_QLHD_QDChung.Click += new System.EventHandler(this.tsmi_QLHD_QDChung_Click);
             // 
             // Main
             // 
@@ -440,6 +522,13 @@
         private System.Windows.Forms.ImageList ImageL_MenuStripItem;
         private System.Windows.Forms.ToolStripMenuItem tsmi_QLHD_DSHD;
         private System.Windows.Forms.ToolStripMenuItem tsmi_QLHD_DSQD;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_QLHD_ThemQD;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_QLHD_KiemNhiem;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_QLHD_ThoiBoNhiem;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_QLHD_DoiThongTInDV;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_QLHD_TachDV;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_QLHD_GopDV;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_QLHD_QDChung;
 
 
 

@@ -343,20 +343,20 @@ namespace QLNS.UCs
 
             #region Trong OU
 
-            //oQTCT.MaNV = MaCNVC;
-            //dtTrongOU = oQTCT.GetData();
-            //if ((dtTrongOU) != null && dtTrongOU.Rows.Count > 0)
-            //{
-            //    dtgv_DHMo.DataSource = null;
-            //    dtgv_DHMo.Columns.Clear();
-            //    dtgv_DHMo.DataSource = dtTrongOU;
-            //    SetupDataGridView("dtgv_TrongOU");
-            //}
-            //else
-            //{
-            //    dtgv_DHMo.DataSource = null;
-            //    dtgv_CMNDHoChieu.Columns.Clear();
-            //}
+            oQTCT.MaNV = MaCNVC;
+            dtTrongOU = oQTCT.GetData();
+            if ((dtTrongOU) != null && dtTrongOU.Rows.Count > 0)
+            {
+                dtgv_DHMo.DataSource = null;
+                dtgv_DHMo.Columns.Clear();
+                dtgv_DHMo.DataSource = dtTrongOU;
+                SetupDataGridView("dtgv_TrongOU");
+            }
+            else
+            {
+                dtgv_DHMo.DataSource = null;
+                dtgv_CMNDHoChieu.Columns.Clear();
+            }
 
             #endregion
 
@@ -809,24 +809,27 @@ namespace QLNS.UCs
                 #region Trong OU
 
                 case "dtgv_TrongOU":
-                    dtgv_DHMo.Columns[2].Visible = false;
+                    dtgv_DHMo.Columns["ma_nv"].Visible =
+                        dtgv_DHMo.Columns["don_vi_id"].Visible =
+                        dtgv_DHMo.Columns["chuc_danh_id"].Visible =
+                        dtgv_DHMo.Columns["chuc_vu_id"].Visible = false;
 
-                    dtgv_DHMo.Columns[0].HeaderText = "Hợp đồng";
-                    dtgv_DHMo.Columns[0].Width = 250;
-                    dtgv_DHMo.Columns[1].HeaderText = "Quyết định";
-                    dtgv_DHMo.Columns[1].Width = 200;
-                    dtgv_DHMo.Columns[3].HeaderText = "Đơn vị";
-                    dtgv_DHMo.Columns[3].Width = 200;
-                    dtgv_DHMo.Columns[4].HeaderText = "Chức danh";
-                    dtgv_DHMo.Columns[4].Width = 150;
-                    dtgv_DHMo.Columns[5].HeaderText = "Chức vụ";
-                    dtgv_DHMo.Columns[5].Width = 150;
-                    dtgv_DHMo.Columns[6].HeaderText = "Từ ngày";
-                    dtgv_DHMo.Columns[6].Width = 100;
-                    dtgv_DHMo.Columns[7].HeaderText = "Đến ngày";
-                    dtgv_DHMo.Columns[7].Width = 100;
-                    dtgv_DHMo.Columns[8].HeaderText = "Tình Trạng";
-                    dtgv_DHMo.Columns[8].Width = 50;
+                    dtgv_DHMo.Columns["ma_hop_dong"].HeaderText = "Hợp đồng";
+                    dtgv_DHMo.Columns["ma_hop_dong"].Width = 250;
+                    dtgv_DHMo.Columns["ma_quyet_dinh"].HeaderText = "Quyết định";
+                    dtgv_DHMo.Columns["ma_quyet_dinh"].Width = 200;
+                    dtgv_DHMo.Columns["don_vi"].HeaderText = "Đơn vị";
+                    dtgv_DHMo.Columns["don_vi"].Width = 200;
+                    dtgv_DHMo.Columns["chuc_danh"].HeaderText = "Chức danh";
+                    dtgv_DHMo.Columns["chuc_danh"].Width = 150;
+                    dtgv_DHMo.Columns["chuc_vu"].HeaderText = "Chức vụ";
+                    dtgv_DHMo.Columns["chuc_vu"].Width = 150;
+                    dtgv_DHMo.Columns["tu_thoi_gian"].HeaderText = "Từ ngày";
+                    dtgv_DHMo.Columns["tu_thoi_gian"].Width = 100;
+                    dtgv_DHMo.Columns["den_thoi_gian"].HeaderText = "Đến ngày";
+                    dtgv_DHMo.Columns["den_thoi_gian"].Width = 100;
+                    dtgv_DHMo.Columns["tinh_trang"].HeaderText = "Tình Trạng";
+                    dtgv_DHMo.Columns["tinh_trang"].Width = 50;
 
                     break;
 

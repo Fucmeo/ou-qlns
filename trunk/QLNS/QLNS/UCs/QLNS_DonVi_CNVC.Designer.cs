@@ -85,13 +85,13 @@
             this.tableLayoutPanel4.Controls.Add(this.txt_TimCNVC, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.btn_TimCNVC, 0, 2);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 21);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 25);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 3;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(338, 620);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(338, 616);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // TreeV_CNVC
@@ -101,7 +101,7 @@
             this.TreeV_CNVC.Location = new System.Drawing.Point(3, 6);
             this.TreeV_CNVC.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.TreeV_CNVC.Name = "TreeV_CNVC";
-            this.TreeV_CNVC.Size = new System.Drawing.Size(332, 484);
+            this.TreeV_CNVC.Size = new System.Drawing.Size(332, 480);
             this.TreeV_CNVC.TabIndex = 0;
             this.TreeV_CNVC.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.TreeV_CNVC_NodeMouseDoubleClick);
             // 
@@ -110,10 +110,10 @@
             this.txt_TimCNVC.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tableLayoutPanel4.SetColumnSpan(this.txt_TimCNVC, 2);
             this.txt_TimCNVC.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_TimCNVC.Location = new System.Drawing.Point(8, 502);
+            this.txt_TimCNVC.Location = new System.Drawing.Point(8, 498);
             this.txt_TimCNVC.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.txt_TimCNVC.Name = "txt_TimCNVC";
-            this.txt_TimCNVC.Size = new System.Drawing.Size(322, 25);
+            this.txt_TimCNVC.Size = new System.Drawing.Size(322, 29);
             this.txt_TimCNVC.TabIndex = 1;
             // 
             // btn_TimCNVC
@@ -123,7 +123,7 @@
             this.btn_TimCNVC.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_TimCNVC.ImageKey = "Business Man Find(1).png";
             this.btn_TimCNVC.ImageList = this.imageList1;
-            this.btn_TimCNVC.Location = new System.Drawing.Point(39, 533);
+            this.btn_TimCNVC.Location = new System.Drawing.Point(39, 528);
             this.btn_TimCNVC.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.btn_TimCNVC.Name = "btn_TimCNVC";
             this.btn_TimCNVC.Size = new System.Drawing.Size(90, 81);
@@ -161,13 +161,13 @@
             this.tableLayoutPanel2.Controls.Add(this.btn_LamTuoi, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.btn_TimDonVi, 0, 2);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 21);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 25);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(338, 620);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(338, 616);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // txt_TimDonVi
@@ -175,10 +175,10 @@
             this.txt_TimDonVi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tableLayoutPanel2.SetColumnSpan(this.txt_TimDonVi, 2);
             this.txt_TimDonVi.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_TimDonVi.Location = new System.Drawing.Point(8, 502);
+            this.txt_TimDonVi.Location = new System.Drawing.Point(8, 498);
             this.txt_TimDonVi.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.txt_TimDonVi.Name = "txt_TimDonVi";
-            this.txt_TimDonVi.Size = new System.Drawing.Size(321, 25);
+            this.txt_TimDonVi.Size = new System.Drawing.Size(321, 29);
             this.txt_TimDonVi.TabIndex = 2;
             // 
             // TreeV_DonVi
@@ -187,7 +187,7 @@
             this.TreeV_DonVi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TreeV_DonVi.Location = new System.Drawing.Point(3, 3);
             this.TreeV_DonVi.Name = "TreeV_DonVi";
-            this.TreeV_DonVi.Size = new System.Drawing.Size(332, 490);
+            this.TreeV_DonVi.Size = new System.Drawing.Size(332, 486);
             this.TreeV_DonVi.TabIndex = 1;
             this.TreeV_DonVi.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.TreeV_DonVi_NodeMouseClick);
             this.TreeV_DonVi.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.TreeV_DonVi_NodeMouseDoubleClick);
@@ -199,7 +199,7 @@
             this.btn_LamTuoi.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_LamTuoi.ImageKey = "Refresh.png";
             this.btn_LamTuoi.ImageList = this.imageList1;
-            this.btn_LamTuoi.Location = new System.Drawing.Point(208, 533);
+            this.btn_LamTuoi.Location = new System.Drawing.Point(208, 528);
             this.btn_LamTuoi.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.btn_LamTuoi.Name = "btn_LamTuoi";
             this.btn_LamTuoi.Size = new System.Drawing.Size(90, 81);
@@ -216,7 +216,7 @@
             this.btn_TimDonVi.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_TimDonVi.ImageKey = "Business Man Find(1).png";
             this.btn_TimDonVi.ImageList = this.imageList1;
-            this.btn_TimDonVi.Location = new System.Drawing.Point(39, 533);
+            this.btn_TimDonVi.Location = new System.Drawing.Point(39, 528);
             this.btn_TimDonVi.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.btn_TimDonVi.Name = "btn_TimDonVi";
             this.btn_TimDonVi.Size = new System.Drawing.Size(90, 81);
@@ -228,7 +228,7 @@
             // 
             // QLNS_DonVi_CNVC
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLP_DV_CNVC);
             this.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
