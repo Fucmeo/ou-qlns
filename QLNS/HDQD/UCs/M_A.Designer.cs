@@ -130,6 +130,7 @@
             this.btn_Nhap.TabIndex = 1;
             this.btn_Nhap.Text = "Nhập";
             this.btn_Nhap.UseVisualStyleBackColor = true;
+            this.btn_Nhap.Click += new System.EventHandler(this.btn_Nhap_Click);
             // 
             // tableLP_ChiTietQD
             // 
@@ -406,6 +407,7 @@
             this.listB_SangDV.Name = "listB_SangDV";
             this.listB_SangDV.Size = new System.Drawing.Size(230, 409);
             this.listB_SangDV.TabIndex = 0;
+            this.listB_SangDV.SelectedIndexChanged += new System.EventHandler(this.listB_SangDV_SelectedIndexChanged);
             // 
             // tableLayoutPanel1
             // 
