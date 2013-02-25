@@ -182,10 +182,10 @@ namespace HDQD.UCs
 
         private void comB_LoaiHD_DropDownClosed(object sender, EventArgs e)
         {
-            if (!comB_LoaiHD.Items.Contains(oHopdong.Loai_Hop_Dong))
-            {
-                comB_LoaiHD.Items.Remove(oHopdong.Loai_Hop_Dong);
-            }
+            //if (!comB_LoaiHD.Items.Contains(oHopdong.Loai_Hop_Dong))
+            //{
+            //    comB_LoaiHD.Items.Remove(oHopdong.Loai_Hop_Dong);
+            //}
         }
     }
 }

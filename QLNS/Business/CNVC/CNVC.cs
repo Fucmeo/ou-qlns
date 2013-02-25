@@ -167,7 +167,7 @@ namespace Business.CNVC
             return dt;
         }
 
-        public DataTable SearchDataForQD()
+        public DataTable SearchDataForQD(bool bIngoreQTCT)
         {
             DataTable dt;
 
@@ -176,8 +176,15 @@ namespace Business.CNVC
                 new NpgsqlParameter("p_ho",ho),
                 new NpgsqlParameter("p_ten",ten)
             };
-
-            dt = dp.getDataTableProc("sp1_qsearch_nv_basic_info", paras);
+            if (bIngoreQTCT)
+            {
+                dt = dp.getDataTableProc("sp1_qsearch_nv_basic_info_ingore_qtct", paras);  
+            }
+            else
+            {
+                dt = dp.getDataTableProc("sp1_qsearch_nv_basic_info", paras);
+            }
+            
 
             return dt;
         }

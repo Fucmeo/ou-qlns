@@ -63,13 +63,13 @@
             this.tableLP_BoNhiem.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.41176F));
             this.tableLP_BoNhiem.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.76471F));
             this.tableLP_BoNhiem.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLP_BoNhiem.Size = new System.Drawing.Size(776, 719);
+            this.tableLP_BoNhiem.Size = new System.Drawing.Size(1000, 900);
             this.tableLP_BoNhiem.TabIndex = 1;
             // 
             // btn_Nhap
             // 
             this.btn_Nhap.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Nhap.Location = new System.Drawing.Point(332, 637);
+            this.btn_Nhap.Location = new System.Drawing.Point(444, 807);
             this.btn_Nhap.Name = "btn_Nhap";
             this.btn_Nhap.Size = new System.Drawing.Size(112, 77);
             this.btn_Nhap.TabIndex = 32;
@@ -86,7 +86,7 @@
             this.thongTinCNVC1.Location = new System.Drawing.Point(3, 4);
             this.thongTinCNVC1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.thongTinCNVC1.Name = "thongTinCNVC1";
-            this.thongTinCNVC1.Size = new System.Drawing.Size(770, 203);
+            this.thongTinCNVC1.Size = new System.Drawing.Size(994, 256);
             this.thongTinCNVC1.TabIndex = 0;
             // 
             // tableLP_Button1
@@ -97,17 +97,17 @@
             this.tableLP_Button1.Controls.Add(this.btn_Them, 0, 0);
             this.tableLP_Button1.Controls.Add(this.btn_Huy, 0, 0);
             this.tableLP_Button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLP_Button1.Location = new System.Drawing.Point(3, 214);
+            this.tableLP_Button1.Location = new System.Drawing.Point(3, 267);
             this.tableLP_Button1.Name = "tableLP_Button1";
             this.tableLP_Button1.RowCount = 1;
             this.tableLP_Button1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLP_Button1.Size = new System.Drawing.Size(770, 78);
+            this.tableLP_Button1.Size = new System.Drawing.Size(994, 99);
             this.tableLP_Button1.TabIndex = 2;
             // 
             // btn_Them
             // 
             this.btn_Them.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Them.Location = new System.Drawing.Point(521, 4);
+            this.btn_Them.Location = new System.Drawing.Point(689, 15);
             this.btn_Them.Name = "btn_Them";
             this.btn_Them.Size = new System.Drawing.Size(112, 69);
             this.btn_Them.TabIndex = 33;
@@ -119,7 +119,7 @@
             // btn_Huy
             // 
             this.btn_Huy.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Huy.Location = new System.Drawing.Point(136, 4);
+            this.btn_Huy.Location = new System.Drawing.Point(192, 15);
             this.btn_Huy.Name = "btn_Huy";
             this.btn_Huy.Size = new System.Drawing.Size(112, 69);
             this.btn_Huy.TabIndex = 32;
@@ -131,9 +131,9 @@
             // 
             this.groupBox1.Controls.Add(this.dtgv_DS);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(3, 298);
+            this.groupBox1.Location = new System.Drawing.Point(3, 372);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(770, 120);
+            this.groupBox1.Size = new System.Drawing.Size(994, 152);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh sách";
@@ -148,7 +148,7 @@
             this.dtgv_DS.ReadOnly = true;
             this.dtgv_DS.RowTemplate.Height = 24;
             this.dtgv_DS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgv_DS.Size = new System.Drawing.Size(764, 93);
+            this.dtgv_DS.Size = new System.Drawing.Size(988, 125);
             this.dtgv_DS.TabIndex = 4;
             // 
             // thongTinQuyetDinh1
@@ -156,10 +156,10 @@
             this.thongTinQuyetDinh1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.thongTinQuyetDinh1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.thongTinQuyetDinh1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.thongTinQuyetDinh1.Location = new System.Drawing.Point(3, 425);
+            this.thongTinQuyetDinh1.Location = new System.Drawing.Point(3, 531);
             this.thongTinQuyetDinh1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.thongTinQuyetDinh1.Name = "thongTinQuyetDinh1";
-            this.thongTinQuyetDinh1.Size = new System.Drawing.Size(770, 203);
+            this.thongTinQuyetDinh1.Size = new System.Drawing.Size(994, 256);
             this.thongTinQuyetDinh1.TabIndex = 33;
             this.thongTinQuyetDinh1.Load += new System.EventHandler(this.thongTinQuyetDinh1_Load);
             // 
@@ -172,7 +172,7 @@
             this.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ThoiBoNhiem";
-            this.Size = new System.Drawing.Size(776, 719);
+            this.Size = new System.Drawing.Size(1000, 900);
             this.tableLP_BoNhiem.ResumeLayout(false);
             this.tableLP_Button1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);

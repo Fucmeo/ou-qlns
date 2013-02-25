@@ -61,18 +61,18 @@
             this.tableLayoutPanel1.Controls.Add(this.btn_Chon, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.dtgv_DSCNVC, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 20);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 24);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(794, 277);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(794, 273);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // btn_ChonTatCa
             // 
             this.btn_ChonTatCa.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_ChonTatCa.Location = new System.Drawing.Point(77, 210);
+            this.btn_ChonTatCa.Location = new System.Drawing.Point(77, 207);
             this.btn_ChonTatCa.Name = "btn_ChonTatCa";
             this.btn_ChonTatCa.Size = new System.Drawing.Size(109, 63);
             this.btn_ChonTatCa.TabIndex = 7;
@@ -82,7 +82,7 @@
             // btn_HuyTatCa
             // 
             this.btn_HuyTatCa.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_HuyTatCa.Location = new System.Drawing.Point(606, 210);
+            this.btn_HuyTatCa.Location = new System.Drawing.Point(606, 207);
             this.btn_HuyTatCa.Name = "btn_HuyTatCa";
             this.btn_HuyTatCa.Size = new System.Drawing.Size(109, 63);
             this.btn_HuyTatCa.TabIndex = 6;
@@ -92,7 +92,7 @@
             // btn_Chon
             // 
             this.btn_Chon.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Chon.Location = new System.Drawing.Point(341, 210);
+            this.btn_Chon.Location = new System.Drawing.Point(341, 207);
             this.btn_Chon.Name = "btn_Chon";
             this.btn_Chon.Size = new System.Drawing.Size(109, 63);
             this.btn_Chon.TabIndex = 4;
@@ -112,12 +112,13 @@
             this.dtgv_DSCNVC.ReadOnly = true;
             this.dtgv_DSCNVC.RowTemplate.Height = 24;
             this.dtgv_DSCNVC.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgv_DSCNVC.Size = new System.Drawing.Size(788, 201);
+            this.dtgv_DSCNVC.Size = new System.Drawing.Size(788, 198);
             this.dtgv_DSCNVC.TabIndex = 1;
+            this.dtgv_DSCNVC.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtgv_DSCNVC_CellMouseDoubleClick);
             // 
             // DSCNVC
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.groupBox1);

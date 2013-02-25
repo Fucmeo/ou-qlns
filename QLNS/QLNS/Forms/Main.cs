@@ -48,6 +48,7 @@ namespace QLNS.Forms
             tsmi_TaiLieuHD.Image = ImageL_MenuStripItem.Images["Document-Zoom-In.png"];
             tsmi_QLHD_DSHD.Image = ImageL_MenuStripItem.Images["Contract.png"];
             tsmi_QLHD_DSQD.Image = ImageL_MenuStripItem.Images["Decision.png"];
+            tsmi_QLHD_ThemQD.Image = ImageL_MenuStripItem.Images["Document-Add.png"];
 
             // QL doi tuong
             tsmi_MoHinhDaoTao.Image = ImageL_MenuStripItem.Images["Diagram.png"];
@@ -158,6 +159,42 @@ namespace QLNS.Forms
                 this.tableLP_Main.Controls.Add(UC, 0, 0);
                 this.Text = "QUẢN LÝ NHÂN SỰ - DANH SÁCH QUYẾT ĐỊNH";
             }
+        }
+
+        private void tsmi_QLHD_KiemNhiem_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Quyết định Bổ nhiệm / Kiệm nhiệm / Điều động", new HDQD.UCs.BoNhiem());
+            f.ShowDialog();
+        }
+
+        private void tsmi_QLHD_ThoiBoNhiem_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Quyết định Thôi nhiệm / Thôi Kiêm nhiệm / Thôi điều động", new HDQD.UCs.ThoiBoNhiem());
+            f.ShowDialog();
+        }
+
+        private void tsmi_QLHD_DoiThongTInDV_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Quyết định đổi thông tin đơn vị", new HDQD.UCs.DoiThongTinDV());
+            f.ShowDialog();
+        }
+
+        private void tsmi_QLHD_TachDV_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Quyết định tách đơn vị", new HDQD.UCs.M_A());
+            f.ShowDialog();
+        }
+
+        private void tsmi_QLHD_QDChung_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Quyết định chung", new HDQD.UCs.QuyetDinhChung());
+            f.ShowDialog();
+        }
+
+        private void tsmi_QLHD_GopDV_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Quyết định gộp đơn vị", new HDQD.UCs.BoNhiem());
+            f.ShowDialog();
         }
     }
 }

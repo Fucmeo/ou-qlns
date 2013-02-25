@@ -167,6 +167,7 @@ namespace QLNS.UCs
                 TreeNode newNode = new TreeNode();
                 newNode.Name = node.ID.ToString();
                 newNode.Text = node.TenDonVi;
+                if (node.IsActive == false) newNode.BackColor = Color.Gray;
                 if (parentNode == null)
                 {
                     TreeV_DonVi.Nodes.Add(newNode);

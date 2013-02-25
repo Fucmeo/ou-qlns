@@ -31,8 +31,18 @@ namespace HDQD.UCs
                 oCNVC.Ten = txt_Ten.Text.Trim();
                 oCNVC.MaNV = string.IsNullOrWhiteSpace(txt_MaNV.Text.Trim()) ? null : txt_MaNV.Text.Trim();
                 strMaNV = null;
+                DataTable dt;
 
-                DataTable dt = oCNVC.SearchDataForQD();
+                // neu dang o UC HopDong thi search nv - khong can quan tam qua trinh cong tac
+                if (this.Parent.Parent.Name == "HopDong")
+                {
+                    dt = oCNVC.SearchDataForQD(true);
+                }
+                else
+                {
+                    dt = oCNVC.SearchDataForQD(false);
+                }
+
                 if (dt.Rows.Count > 0)
                 {
                     switch (this.Parent.Parent.Name)
@@ -45,6 +55,9 @@ namespace HDQD.UCs
                             break;
                         case "ThoiBoNhiem":
                             UCs.DSCNVC.eParentUC = DSCNVC.ParentUC.ThoiBoNhiem;
+                            break;
+                        case "HopDong":
+                            UCs.DSCNVC.eParentUC = DSCNVC.ParentUC.HopDong;
                             break;
 
                         default:
@@ -59,31 +72,37 @@ namespace HDQD.UCs
                         txt_Ho.Text = strHo;
                         txt_Ten.Text = strTen;
 
-                        dtDonViChucVu = oCNVC.GetDonViChucVuForQD();
-
-                        if (dtDonViChucVu.Rows.Count > 0)
+                        if (UCs.DSCNVC.eParentUC != DSCNVC.ParentUC.HopDong)
                         {
-                            // xu ly LINQ
-                            var dsDonVi = (from dsDonViChucVu in dtDonViChucVu.AsEnumerable()
-                                           select new
-                                           {
-                                               don_vi_id = dsDonViChucVu.Field<int>("don_vi_id"),
-                                               ten_don_vi = dsDonViChucVu.Field<string>("ten_don_vi")
-                                           }).Distinct();
+                            dtDonViChucVu = oCNVC.GetDonViChucVuForQD();
 
-                            comB_DonVi.DataSource = dsDonVi.ToList();
-                            comB_DonVi.DisplayMember = "ten_don_vi";
-                            comB_DonVi.ValueMember = "don_vi_id";
-                            //comB_DonVi.Enabled = true;
-                            comB_DonVi.SelectedIndex = 0;
-                            GetValueForChucVuComb();
+                            if (dtDonViChucVu.Rows.Count > 0)
+                            {
+                                // xu ly LINQ
+                                var dsDonVi = (from dsDonViChucVu in dtDonViChucVu.AsEnumerable()
+                                               select new
+                                               {
+                                                   don_vi_id = dsDonViChucVu.Field<int>("don_vi_id"),
+                                                   ten_don_vi = dsDonViChucVu.Field<string>("ten_don_vi")
+                                               }).Distinct();
+
+                                comB_DonVi.DataSource = dsDonVi.ToList();
+                                comB_DonVi.DisplayMember = "ten_don_vi";
+                                comB_DonVi.ValueMember = "don_vi_id";
+                                //comB_DonVi.Enabled = true;
+                                comB_DonVi.SelectedIndex = 0;
+                                GetValueForChucVuComb();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Nhân viên này khòng còn hợp đồng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                comB_DonVi.Enabled = comB_ChucVu.Enabled = false;
+                            } 
                         }
                         else
                         {
-                            MessageBox.Show("Nhân viên này khòng còn hợp đồng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             comB_DonVi.Enabled = comB_ChucVu.Enabled = false;
                         }
-
 
                     }
                 }
