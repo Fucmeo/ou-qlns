@@ -16,12 +16,15 @@ namespace HDQD.UCs
         Business.CNVC.CNVC oCNVC;
         List<Business.DonVi> dsDonVi_new;
         List<string> dsCNVC;
+        List<string> ds_tenCNVC;
         DataTable dtDonVi;
 
         public static string[] m_ma_nv;
         public static string[] m_ho_ten;
         public static int row_count;
         public static bool hitOK;
+
+        public static bool is_Tach_DV = true; //true = tach; false = gop
         
         public M_A()
         {
@@ -30,6 +33,7 @@ namespace HDQD.UCs
             oCNVC = new Business.CNVC.CNVC();
             dsDonVi_new = new List<DonVi>();
             dsCNVC = new List<string>();
+            ds_tenCNVC = new List<string>();
 
             dtDonVi = new DataTable();
         }
@@ -71,6 +75,7 @@ namespace HDQD.UCs
                 thongTinQuyetDinh1.Enabled = false;
 
                 listB_SangDV.Enabled = tableLP_ComboTuDV.Enabled = false;
+                listB_DSNV.Items.Clear();
             }
             else
             {
@@ -87,6 +92,7 @@ namespace HDQD.UCs
                 thongTinQuyetDinh1.Enabled = true;
 
                 listB_SangDV.Enabled = tableLP_ComboTuDV.Enabled = true;
+                listB_DSNV.Items.Clear();
             }
         }
 
@@ -260,15 +266,27 @@ namespace HDQD.UCs
 
                 //Xử lý chuỗi mã nhân viên
                 string ma_nv_arr = "";
-                foreach (string item in m_ma_nv)
-                {
-                    ma_nv_arr = ma_nv_arr + "'" + item + "', ";
-                }
-                ma_nv_arr = ma_nv_arr.Remove(ma_nv_arr.Length - 2);
+                string ten_nv_arr = "";
+                //foreach (string item in m_ma_nv)
+                //{
+                //    ma_nv_arr = ma_nv_arr + "'" + item + "', ";
 
-                int i = listB_SangDV.Items.Count + 1;
+                //}
+                if (m_ma_nv != null)
+                {
+                    for (int y = 0; y < m_ma_nv.Length; y++)
+                    {
+                        ma_nv_arr = ma_nv_arr + "'" + m_ma_nv[y] + "', ";
+                        ten_nv_arr = ten_nv_arr + m_ho_ten[y] + ";";
+                    }
+
+                    ma_nv_arr = ma_nv_arr.Remove(ma_nv_arr.Length - 2);
+                    ten_nv_arr = ten_nv_arr.Remove(ten_nv_arr.Length - 1);
+                }
+                int i = listB_SangDV.Items.Count;
                 dsDonVi_new.Insert(i, dv);
                 dsCNVC.Insert(i, ma_nv_arr);
+                ds_tenCNVC.Insert(i, ten_nv_arr);
 
                 listB_SangDV.Items.Add(txt_TenDV.Text);
 
@@ -328,6 +346,106 @@ namespace HDQD.UCs
 
         private void btn_XoaSangDV_Click(object sender, EventArgs e)
         {
+            int index = listB_SangDV.SelectedIndex;
+            dsDonVi_new.RemoveAt(index);
+            dsCNVC.RemoveAt(index);
+            ds_tenCNVC.RemoveAt(index);
+
+            listB_SangDV.Items.RemoveAt(index);
+        }
+
+        private void listB_SangDV_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listB_SangDV.SelectedIndex != -1)
+            {
+                int index = listB_SangDV.SelectedIndex;
+                DonVi dv = new DonVi();
+                dv = dsDonVi_new[index];
+                txt_TenDV.Text = dv.TenDonVi;
+                txt_TenDVTat.Text = dv.TenDVVietTat;
+                if (dv.DVChaID != null)
+                    comb_DVTrucThuoc.SelectedValue = dv.DVChaID;
+                else
+                    comb_DVTrucThuoc.SelectedValue = 0;
+                if (dv.TuNgay != null)
+                    dTP_NgayHieuLuc.Value = dv.TuNgay.Value;
+                else
+                    dTP_NgayHieuLuc.Checked = false;
+                rTB_GhiChu.Text = dv.GhiChu;
+
+                string ho_ten_nv = ds_tenCNVC[index];
+                string[] nv_arr = ho_ten_nv.Split(';');
+                listB_DSNV.Items.Clear();
+                foreach (string item in nv_arr)
+                {
+                    listB_DSNV.Items.Add(item);
+                }
+            }
+        }
+
+        private void btn_Nhap_Click(object sender, EventArgs e)
+        {
+            Business.HDQD.QuyetDinh quyetdinh = new Business.HDQD.QuyetDinh();
+            quyetdinh.Ma_Quyet_Dinh = thongTinQuyetDinh1.txt_MaQD.Text;
+            quyetdinh.Ten_Quyet_Dinh = thongTinQuyetDinh1.txt_TenQD.Text;
+            quyetdinh.Loai_QuyetDinh_ID = Convert.ToInt16(thongTinQuyetDinh1.comB_Loai.SelectedValue);
+            quyetdinh.Ngay_Ky = thongTinQuyetDinh1.dTP_NgayKy.Value;
+            quyetdinh.Ngay_Hieu_Luc = thongTinQuyetDinh1.dTP_NgayHieuLuc.Value;
+            if (thongTinQuyetDinh1.dTP_NgayHetHan.Checked == true)
+                quyetdinh.Ngay_Het_Han = thongTinQuyetDinh1.dTP_NgayHetHan.Value;
+            else
+                quyetdinh.Ngay_Het_Han = null;
+            quyetdinh.MoTa = thongTinQuyetDinh1.rTB_MoTa.Text;
+
+            if (is_Tach_DV == true) // tach don vi
+            {
+                try
+                {
+                    int count = dsDonVi_new.Count;
+                    string[] ten_don_vi_moi = new string[count];
+                    string[] ten_dv_viet_tat = new string[count];
+                    int[] dv_cha_id = new int[count];
+                    string[] tu_ngay = new string[count];
+                    string[] ghi_chu = new string[count];
+                    string[] ma_nv = new string[count];
+
+                    for (int i = 0; i < dsDonVi_new.Count; i++)
+                    {
+                        DonVi dv = new DonVi();
+                        dv = dsDonVi_new[i];
+
+                        ten_don_vi_moi[i] = dv.TenDonVi;
+                        ten_dv_viet_tat[i] = dv.TenDVVietTat;
+                        if (dv.DVChaID != null)
+                            dv_cha_id[i] = dv.DVChaID.Value;
+                        else
+                            dv_cha_id[i] = 0;
+                        tu_ngay[i] = dv.TuNgay.Value.ToShortDateString();
+
+                        ma_nv[i] = dsCNVC[i];
+
+                    }
+
+                    int[] tu_don_vi = new int[1];
+                    ComboBox cbo_DonVi = (ComboBox)tableLP_ComboTuDV.Controls[0];
+                    if (cbo_DonVi.Text != "")
+                        tu_don_vi[0] = Convert.ToInt16(cbo_DonVi.SelectedValue);
+                    else
+                    {
+                        MessageBox.Show("Vui lòng chọn một đơn vị.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+
+                    bool result = quyetdinh.MA_Tach_DonVi(tu_don_vi, ten_don_vi_moi, ten_dv_viet_tat, dv_cha_id, tu_ngay, ghi_chu, ma_nv);
+                    if (result == true)
+                        MessageBox.Show("tach thanh cong");
+                    else
+                        MessageBox.Show("tach that bai");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("co loi xay ra");
+                }
+            }
 
         }
         
