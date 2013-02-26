@@ -32,6 +32,7 @@
             this.tableLP_Nut = new System.Windows.Forms.TableLayoutPanel();
             this.btn_Huy = new System.Windows.Forms.Button();
             this.btn_Nhap = new System.Windows.Forms.Button();
+            this.thongTinQuyetDinh1 = new HDQD.UCs.ThongTinQuyetDinh();
             this.tableLP_ChiTietQD = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tableLP_ThongTinDV = new System.Windows.Forms.TableLayoutPanel();
@@ -62,7 +63,6 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_ThemTuDV = new System.Windows.Forms.Button();
             this.tableLP_ComboTuDV = new System.Windows.Forms.TableLayoutPanel();
-            this.thongTinQuyetDinh1 = new HDQD.UCs.ThongTinQuyetDinh();
             this.tableLP_MA.SuspendLayout();
             this.tableLP_Nut.SuspendLayout();
             this.tableLP_ChiTietQD.SuspendLayout();
@@ -131,6 +131,17 @@
             this.btn_Nhap.Text = "Nhập";
             this.btn_Nhap.UseVisualStyleBackColor = true;
             this.btn_Nhap.Click += new System.EventHandler(this.btn_Nhap_Click);
+            // 
+            // thongTinQuyetDinh1
+            // 
+            this.thongTinQuyetDinh1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.thongTinQuyetDinh1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.thongTinQuyetDinh1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.thongTinQuyetDinh1.Location = new System.Drawing.Point(3, 4);
+            this.thongTinQuyetDinh1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.thongTinQuyetDinh1.Name = "thongTinQuyetDinh1";
+            this.thongTinQuyetDinh1.Size = new System.Drawing.Size(994, 242);
+            this.thongTinQuyetDinh1.TabIndex = 0;
             // 
             // tableLP_ChiTietQD
             // 
@@ -281,7 +292,7 @@
             this.comb_DVTrucThuoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comb_DVTrucThuoc.Enabled = false;
             this.comb_DVTrucThuoc.FormattingEnabled = true;
-            this.comb_DVTrucThuoc.Location = new System.Drawing.Point(75, 115);
+            this.comb_DVTrucThuoc.Location = new System.Drawing.Point(75, 117);
             this.comb_DVTrucThuoc.Name = "comb_DVTrucThuoc";
             this.comb_DVTrucThuoc.Size = new System.Drawing.Size(237, 25);
             this.comb_DVTrucThuoc.TabIndex = 8;
@@ -508,17 +519,6 @@
             this.tableLP_ComboTuDV.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 409F));
             this.tableLP_ComboTuDV.Size = new System.Drawing.Size(230, 409);
             this.tableLP_ComboTuDV.TabIndex = 3;
-            // 
-            // thongTinQuyetDinh1
-            // 
-            this.thongTinQuyetDinh1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.thongTinQuyetDinh1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.thongTinQuyetDinh1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.thongTinQuyetDinh1.Location = new System.Drawing.Point(3, 4);
-            this.thongTinQuyetDinh1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.thongTinQuyetDinh1.Name = "thongTinQuyetDinh1";
-            this.thongTinQuyetDinh1.Size = new System.Drawing.Size(994, 242);
-            this.thongTinQuyetDinh1.TabIndex = 0;
             // 
             // M_A
             // 
