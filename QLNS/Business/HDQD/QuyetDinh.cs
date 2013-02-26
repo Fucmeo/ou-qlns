@@ -215,18 +215,22 @@ namespace Business.HDQD
             }
         }
 
-        public bool MA_Gop_DonVi(int[] p_tu_don_vi_id, string p_ten_don_vi_moi, string p_ten_dv_moi_viet_tat, int p_truc_thuoc_don_vi,
-                                    DateTime p_tu_ngay, string p_ghi_chu)
+        public bool MA_Gop_DonVi(int[] p_tu_don_vi_id, string p_ten_don_vi_moi, string p_ten_dv_moi_viet_tat, int? p_truc_thuoc_don_vi,
+                                    string p_tu_ngay, string p_ghi_chu)
         {
+            string m_ngay_het_han = null;
+            if (ngay_het_han != null)
+                m_ngay_het_han = ngay_het_han.Value.ToShortDateString();
+
             IDataParameter[] paras = new IDataParameter[14]{
-                new NpgsqlParameter("p_ma_qd",ma_qd.ToString()),
-                new NpgsqlParameter("p_ten_qd",ten_qd.ToString()),
+                new NpgsqlParameter("p_ma_qd",ma_qd),
+                new NpgsqlParameter("p_ten_qd",ten_qd),
                 new NpgsqlParameter("p_ma_loai_qd",loai_qd_id),
-                new NpgsqlParameter("p_path",path.ToString()),
-                new NpgsqlParameter("p_ngay_ky", ngay_ky.Value),
-                new NpgsqlParameter("p_ngay_hieu_luc",ngay_hieu_luc.Value),
-                new NpgsqlParameter("p_ngay_het_han",ngay_het_han.Value),
-                new NpgsqlParameter("p_mo_ta",mota.ToString()),
+                new NpgsqlParameter("p_path",path),
+                new NpgsqlParameter("p_ngay_ky", ngay_ky.Value.ToShortDateString()),
+                new NpgsqlParameter("p_ngay_hieu_luc",ngay_hieu_luc.Value.ToShortDateString()),
+                new NpgsqlParameter("p_ngay_het_han",m_ngay_het_han),
+                new NpgsqlParameter("p_mo_ta",mota),
                 new NpgsqlParameter("p_tu_don_vi_id",p_tu_don_vi_id),
                 new NpgsqlParameter("p_ten_don_vi_moi",p_ten_don_vi_moi),
                 new NpgsqlParameter("p_ten_dv_moi_viet_tat",p_ten_dv_moi_viet_tat),

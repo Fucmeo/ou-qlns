@@ -24,7 +24,7 @@ namespace HDQD.UCs
         public static int row_count;
         public static bool hitOK;
 
-        public static bool is_Tach_DV = true; //true = tach; false = gop
+        public static bool is_Tach_DV = false; //true = tach; false = gop
         
         public M_A()
         {
@@ -43,7 +43,14 @@ namespace HDQD.UCs
             PreapreDataSource();
             GenUI_TuDonVi(0);
 
-            
+            if (is_Tach_DV == true) //tách đơn vị
+            {
+                btn_ThemTuDV.Enabled = false;
+            }
+            else //gộp đơn vị
+            {
+                lb_TimNV.Enabled = groupBox4.Enabled = false;
+            }
         }
 
         #region Private Methods
@@ -69,9 +76,6 @@ namespace HDQD.UCs
                 txt_TenDV.Text = txt_TenDVTat.Text = rTB_GhiChu.Text = "";
                 txt_TenDV.Focus();
 
-                //thongTinQuyetDinh1.txt_MaQD.Enabled = thongTinQuyetDinh1.txt_TenQD.Enabled = thongTinQuyetDinh1.comB_Loai.Enabled =
-                //    thongTinQuyetDinh1.dTP_NgayKy.Enabled = thongTinQuyetDinh1.dTP_NgayHieuLuc.Enabled = thongTinQuyetDinh1.dTP_NgayHetHan.Enabled = 
-                //    thongTinQuyetDinh1.rTB_MoTa.Enabled = 
                 thongTinQuyetDinh1.Enabled = false;
 
                 listB_SangDV.Enabled = tableLP_ComboTuDV.Enabled = false;
@@ -86,13 +90,19 @@ namespace HDQD.UCs
                 txt_TenDV.Text = txt_TenDVTat.Text = rTB_GhiChu.Text = "";
                 //txt_TenDV.Focus();
 
-                //thongTinQuyetDinh1.txt_MaQD.Enabled = thongTinQuyetDinh1.txt_TenQD.Enabled = thongTinQuyetDinh1.comB_Loai.Enabled =
-                //    thongTinQuyetDinh1.dTP_NgayKy.Enabled = thongTinQuyetDinh1.dTP_NgayHieuLuc.Enabled = thongTinQuyetDinh1.dTP_NgayHetHan.Enabled = 
-                //    thongTinQuyetDinh1.rTB_MoTa.Enabled = 
                 thongTinQuyetDinh1.Enabled = true;
 
                 listB_SangDV.Enabled = tableLP_ComboTuDV.Enabled = true;
                 listB_DSNV.Items.Clear();
+            }
+
+            if (is_Tach_DV == true) //tách đơn vị
+            {
+                btn_ThemTuDV.Enabled = false;
+            }
+            else //gộp đơn vị
+            {
+                lb_TimNV.Enabled = groupBox4.Enabled = false;
             }
         }
 
@@ -241,7 +251,19 @@ namespace HDQD.UCs
 
         private void btn_ThemSangDV_Click(object sender, EventArgs e)
         {
-            EnableControls(false);
+            
+            if (is_Tach_DV == false) //gộp đơn vị
+            {
+                int count = listB_SangDV.Items.Count;
+                if (count > 0)
+                {
+                    MessageBox.Show("Chỉ được tồn tại duy nhất một đơn vị được gộp. \r\nVui lòng xóa đơn vị cũ trước khi thêm đơn vị mới.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                    EnableControls(false);
+            }
+            else
+                EnableControls(false);
         }
 
         private void btn_HuyThongTin_Click(object sender, EventArgs e)
@@ -385,68 +407,109 @@ namespace HDQD.UCs
 
         private void btn_Nhap_Click(object sender, EventArgs e)
         {
-            Business.HDQD.QuyetDinh quyetdinh = new Business.HDQD.QuyetDinh();
-            quyetdinh.Ma_Quyet_Dinh = thongTinQuyetDinh1.txt_MaQD.Text;
-            quyetdinh.Ten_Quyet_Dinh = thongTinQuyetDinh1.txt_TenQD.Text;
-            quyetdinh.Loai_QuyetDinh_ID = Convert.ToInt16(thongTinQuyetDinh1.comB_Loai.SelectedValue);
-            quyetdinh.Ngay_Ky = thongTinQuyetDinh1.dTP_NgayKy.Value;
-            quyetdinh.Ngay_Hieu_Luc = thongTinQuyetDinh1.dTP_NgayHieuLuc.Value;
-            if (thongTinQuyetDinh1.dTP_NgayHetHan.Checked == true)
-                quyetdinh.Ngay_Het_Han = thongTinQuyetDinh1.dTP_NgayHetHan.Value;
-            else
-                quyetdinh.Ngay_Het_Han = null;
-            quyetdinh.MoTa = thongTinQuyetDinh1.rTB_MoTa.Text;
-
-            if (is_Tach_DV == true) // tach don vi
+            if (thongTinQuyetDinh1.txt_MaQD.Text != "")
             {
-                try
+                Business.HDQD.QuyetDinh quyetdinh = new Business.HDQD.QuyetDinh();
+                quyetdinh.Ma_Quyet_Dinh = thongTinQuyetDinh1.txt_MaQD.Text;
+                quyetdinh.Ten_Quyet_Dinh = thongTinQuyetDinh1.txt_TenQD.Text;
+                quyetdinh.Loai_QuyetDinh_ID = Convert.ToInt16(thongTinQuyetDinh1.comB_Loai.SelectedValue);
+                quyetdinh.Ngay_Ky = thongTinQuyetDinh1.dTP_NgayKy.Value;
+                quyetdinh.Ngay_Hieu_Luc = thongTinQuyetDinh1.dTP_NgayHieuLuc.Value;
+                if (thongTinQuyetDinh1.dTP_NgayHetHan.Checked == true)
+                    quyetdinh.Ngay_Het_Han = thongTinQuyetDinh1.dTP_NgayHetHan.Value;
+                else
+                    quyetdinh.Ngay_Het_Han = null;
+                quyetdinh.MoTa = thongTinQuyetDinh1.rTB_MoTa.Text;
+
+                if (is_Tach_DV == true) // tach don vi
                 {
-                    int count = dsDonVi_new.Count;
-                    string[] ten_don_vi_moi = new string[count];
-                    string[] ten_dv_viet_tat = new string[count];
-                    int[] dv_cha_id = new int[count];
-                    string[] tu_ngay = new string[count];
-                    string[] ghi_chu = new string[count];
-                    string[] ma_nv = new string[count];
-
-                    for (int i = 0; i < dsDonVi_new.Count; i++)
+                    #region Tách đơn vị
+                    try
                     {
-                        DonVi dv = new DonVi();
-                        dv = dsDonVi_new[i];
+                        int count = dsDonVi_new.Count;
+                        string[] ten_don_vi_moi = new string[count];
+                        string[] ten_dv_viet_tat = new string[count];
+                        int[] dv_cha_id = new int[count];
+                        string[] tu_ngay = new string[count];
+                        string[] ghi_chu = new string[count];
+                        string[] ma_nv = new string[count];
 
-                        ten_don_vi_moi[i] = dv.TenDonVi;
-                        ten_dv_viet_tat[i] = dv.TenDVVietTat;
-                        if (dv.DVChaID != null)
-                            dv_cha_id[i] = dv.DVChaID.Value;
+                        for (int i = 0; i < dsDonVi_new.Count; i++)
+                        {
+                            DonVi dv = new DonVi();
+                            dv = dsDonVi_new[i];
+
+                            ten_don_vi_moi[i] = dv.TenDonVi;
+                            ten_dv_viet_tat[i] = dv.TenDVVietTat;
+                            if (dv.DVChaID != null)
+                                dv_cha_id[i] = dv.DVChaID.Value;
+                            else
+                                dv_cha_id[i] = 0;
+                            tu_ngay[i] = dv.TuNgay.Value.ToShortDateString();
+
+                            ma_nv[i] = dsCNVC[i];
+
+                        }
+
+                        int[] tu_don_vi = new int[1];
+                        ComboBox cbo_DonVi = (ComboBox)tableLP_ComboTuDV.Controls[0];
+                        if (cbo_DonVi.Text != "")
+                            tu_don_vi[0] = Convert.ToInt16(cbo_DonVi.SelectedValue);
                         else
-                            dv_cha_id[i] = 0;
-                        tu_ngay[i] = dv.TuNgay.Value.ToShortDateString();
+                        {
+                            MessageBox.Show("Vui lòng chọn một đơn vị.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
 
-                        ma_nv[i] = dsCNVC[i];
-
+                        bool result = quyetdinh.MA_Tach_DonVi(tu_don_vi, ten_don_vi_moi, ten_dv_viet_tat, dv_cha_id, tu_ngay, ghi_chu, ma_nv);
+                        if (result == true)
+                            MessageBox.Show("Nhập quyết định tách đơn vị thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else
+                            MessageBox.Show("Nhập quyết định tách đơn vị không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-
-                    int[] tu_don_vi = new int[1];
-                    ComboBox cbo_DonVi = (ComboBox)tableLP_ComboTuDV.Controls[0];
-                    if (cbo_DonVi.Text != "")
-                        tu_don_vi[0] = Convert.ToInt16(cbo_DonVi.SelectedValue);
-                    else
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("Vui lòng chọn một đơn vị.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Nhập quyết định tách đơn vị không thành công.\r\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-
-                    bool result = quyetdinh.MA_Tach_DonVi(tu_don_vi, ten_don_vi_moi, ten_dv_viet_tat, dv_cha_id, tu_ngay, ghi_chu, ma_nv);
-                    if (result == true)
-                        MessageBox.Show("Nhập quyết định tách đơn vị thành công.","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                    else
-                        MessageBox.Show("Nhập quyết định tách đơn vị không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    #endregion
                 }
-                catch (Exception ex)
+                else // gộp đơn vị
                 {
-                    MessageBox.Show("Nhập quyết định tách đơn vị không thành công.\r\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    #region Gộp đơn vị
+                    try
+                    {
+                        int[] tu_don_vi_id = new int[tableLP_ComboTuDV.RowCount];
+                        for (int i = 0; i < tableLP_ComboTuDV.RowCount; i++)
+                        {
+                            tu_don_vi_id[i] = Convert.ToInt16(((ComboBox)tableLP_ComboTuDV.Controls[i * 2]).SelectedValue);
+                        }
+
+                        DonVi dv = new DonVi();
+                        dv = dsDonVi_new[0];
+
+                        string ten_dv_moi = dv.TenDonVi;
+                        string ten_dv_viet_tat = dv.TenDVVietTat;
+                        int? dv_cha_id = dv.DVChaID;
+                        //if (comb_DVTrucThuoc.Text != "")
+                        //    dv_cha_id = Convert.ToInt16(comb_DVTrucThuoc.SelectedValue);
+                        string tu_ngay = dv.TuNgay.Value.ToShortDateString();
+                        string ghi_chu = dv.GhiChu;
+
+                        bool result = quyetdinh.MA_Gop_DonVi(tu_don_vi_id, ten_dv_moi, ten_dv_viet_tat, dv_cha_id, tu_ngay, ghi_chu);
+                        if (result == true)
+                            MessageBox.Show("Nhập quyết định gộp đơn vị thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else
+                            MessageBox.Show("Nhập quyết định gộp đơn vị không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Nhập quyết định gộp đơn vị không thành công.\r\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    #endregion
+
                 }
             }
-
+            else
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         
     }
