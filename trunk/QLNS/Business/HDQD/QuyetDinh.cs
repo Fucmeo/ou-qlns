@@ -200,7 +200,7 @@ namespace Business.HDQD
                 new NpgsqlParameter("p_ten_don_vi_moi",p_ten_don_vi_moi),
                 new NpgsqlParameter("p_ten_dv_moi_viet_tat",p_ten_dv_moi_viet_tat),
                 new NpgsqlParameter("p_truc_thuoc_don_vi",p_truc_thuoc_don_vi),
-                new NpgsqlParameter("p_tu_ngay",p_tu_ngay),
+                new NpgsqlParameter("p_tu_ngay",p_tu_ngay),  // format : mm/dd/yyyy
                 new NpgsqlParameter("p_ghi_chu",p_ghi_chu),
                 new NpgsqlParameter("p_ma_nhan_vien",p_ma_nhan_vien)
             };
@@ -209,9 +209,9 @@ namespace Business.HDQD
                 dp.executeScalarProc("sp1_insert_qdma_tach_don_vi", paras);
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                throw new Exception(ex.Message) ;
             }
         }
 
