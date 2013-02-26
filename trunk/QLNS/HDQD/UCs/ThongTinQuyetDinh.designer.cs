@@ -249,6 +249,7 @@
             this.rTB_MoTa.Name = "rTB_MoTa";
             this.rTB_MoTa.Size = new System.Drawing.Size(324, 92);
             this.rTB_MoTa.TabIndex = 7;
+            this.rTB_MoTa.Text = "";
             // 
             // ThongTinQuyetDinh
             // 

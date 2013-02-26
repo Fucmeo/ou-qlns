@@ -33,6 +33,21 @@ namespace HDQD.UCs
             TLPCapBacColCount = tableLP_ThayDoiCapBac.ColumnCount;
         }
 
+        private void PrepareSourceLoaiQuyetDinh()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("loai_quyet_dinh_id", typeof(int));
+            dt.Columns.Add("ten_loai_quyet_dinh", typeof(string));
+
+            dt.Rows.Add(new object[2] { 1, "Đổi thông tin đơn vị" });
+
+            thongTinQuyetDinh1.comB_Loai.DataSource = dt;
+            thongTinQuyetDinh1.comB_Loai.DisplayMember = "ten_loai_quyet_dinh";
+            thongTinQuyetDinh1.comB_Loai.ValueMember = "loai_quyet_dinh_id";
+
+            thongTinQuyetDinh1.comB_Loai.SelectedIndex = 0;
+        }
+
         private void DoiThongTinDV_Load(object sender, EventArgs e)
         {
             GenUI_Name(0);
