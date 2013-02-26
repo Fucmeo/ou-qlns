@@ -272,7 +272,7 @@ namespace HDQD.UCs
                 //    ma_nv_arr = ma_nv_arr + "'" + item + "', ";
 
                 //}
-                if (m_ma_nv != null)
+                if (m_ma_nv != null && m_ma_nv.Length > 0)
                 {
                     for (int y = 0; y < m_ma_nv.Length; y++)
                     {
@@ -437,13 +437,13 @@ namespace HDQD.UCs
 
                     bool result = quyetdinh.MA_Tach_DonVi(tu_don_vi, ten_don_vi_moi, ten_dv_viet_tat, dv_cha_id, tu_ngay, ghi_chu, ma_nv);
                     if (result == true)
-                        MessageBox.Show("tach thanh cong");
+                        MessageBox.Show("Nhập quyết định tách đơn vị thành công.","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     else
-                        MessageBox.Show("tach that bai");
+                        MessageBox.Show("Nhập quyết định tách đơn vị không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("co loi xay ra");
+                    MessageBox.Show("Nhập quyết định tách đơn vị không thành công.\r\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
 

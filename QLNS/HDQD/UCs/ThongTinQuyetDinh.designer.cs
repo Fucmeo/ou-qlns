@@ -232,7 +232,6 @@
             // 
             this.lb_ChonTapTin.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lb_ChonTapTin.AutoSize = true;
-            this.lb_ChonTapTin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lb_ChonTapTin.Font = new System.Drawing.Font("Calibri", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_ChonTapTin.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lb_ChonTapTin.Location = new System.Drawing.Point(489, 113);
@@ -240,6 +239,7 @@
             this.lb_ChonTapTin.Size = new System.Drawing.Size(96, 21);
             this.lb_ChonTapTin.TabIndex = 20;
             this.lb_ChonTapTin.Text = "Chọn tập tin";
+            this.lb_ChonTapTin.Click += new System.EventHandler(this.lb_ChonTapTin_Click);
             // 
             // rTB_MoTa
             // 
@@ -249,7 +249,6 @@
             this.rTB_MoTa.Name = "rTB_MoTa";
             this.rTB_MoTa.Size = new System.Drawing.Size(324, 92);
             this.rTB_MoTa.TabIndex = 7;
-            this.rTB_MoTa.Text = "";
             // 
             // ThongTinQuyetDinh
             // 

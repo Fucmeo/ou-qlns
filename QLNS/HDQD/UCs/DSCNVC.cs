@@ -111,7 +111,7 @@ namespace HDQD.UCs
                 case ParentUC.BoNhiem:
                     HDQD.UCs.ThongTinCNVC.strMaNV = HDQD.UCs.BoNhiem.strMaNVOld = dtgv_DSCNVC.SelectedRows[0].Cells["ma_nv"].Value.ToString();
                     HDQD.UCs.ThongTinCNVC.strHo = HDQD.UCs.BoNhiem.strHoOld = dtgv_DSCNVC.SelectedRows[0].Cells["ho"].Value.ToString();
-                    HDQD.UCs.ThongTinCNVC.strTen = HDQD.UCs.BoNhiem.strTenOld = dtgv_DSCNVC.SelectedRows[0].Cells["teb"].Value.ToString();
+                    HDQD.UCs.ThongTinCNVC.strTen = HDQD.UCs.BoNhiem.strTenOld = dtgv_DSCNVC.SelectedRows[0].Cells["ten"].Value.ToString();
                     break;
 
                 case ParentUC.ThoiBoNhiem:
