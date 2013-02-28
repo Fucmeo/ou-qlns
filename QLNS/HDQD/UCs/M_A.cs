@@ -26,7 +26,19 @@ namespace HDQD.UCs
 
         public static bool is_Tach_DV = false; //true = tach; false = gop
         
-        public M_A()
+        //public M_A()
+        //{
+        //    InitializeComponent();
+        //    oDonvi = new DonVi();
+        //    oCNVC = new Business.CNVC.CNVC();
+        //    dsDonVi_new = new List<DonVi>();
+        //    dsCNVC = new List<string>();
+        //    ds_tenCNVC = new List<string>();
+
+        //    dtDonVi = new DataTable();
+        //}
+
+        public M_A(bool p_is_Tach_DV)
         {
             InitializeComponent();
             oDonvi = new DonVi();
@@ -36,10 +48,13 @@ namespace HDQD.UCs
             ds_tenCNVC = new List<string>();
 
             dtDonVi = new DataTable();
+
+            is_Tach_DV = p_is_Tach_DV;
         }
 
         private void M_A_Load(object sender, EventArgs e)
         {
+            PrepareSourceLoaiQuyetDinh();
             PreapreDataSource();
             GenUI_TuDonVi(0);
 
@@ -54,6 +69,26 @@ namespace HDQD.UCs
         }
 
         #region Private Methods
+        private void PrepareSourceLoaiQuyetDinh()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("loai_quyet_dinh_id", typeof(int));
+            dt.Columns.Add("ten_loai_quyet_dinh", typeof(string));
+
+            if (is_Tach_DV == true) //tách đơn vị
+            {
+                dt.Rows.Add(new object[2] { 5, "Tách đơn vị" });
+            }
+            else //gộp đơn vị
+            {
+                dt.Rows.Add(new object[2] { 9, "Gộp đơn vị" });
+            }
+
+            thongTinQuyetDinh1.comB_Loai.DataSource = dt;
+            thongTinQuyetDinh1.comB_Loai.DisplayMember = "ten_loai_quyet_dinh";
+            thongTinQuyetDinh1.comB_Loai.ValueMember = "loai_quyet_dinh_id";
+        }
+
         private void PreapreDataSource()
         {
             dtDonVi = oDonvi.GetDonViList();

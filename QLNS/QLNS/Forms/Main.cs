@@ -181,7 +181,7 @@ namespace QLNS.Forms
 
         private void tsmi_QLHD_TachDV_Click(object sender, EventArgs e)
         {
-            Forms.Popup f = new Popup("Quyết định tách đơn vị", new HDQD.UCs.M_A());
+            Forms.Popup f = new Popup("Quyết định tách đơn vị", new HDQD.UCs.M_A(true));
             f.ShowDialog();
         }
 
@@ -193,7 +193,7 @@ namespace QLNS.Forms
 
         private void tsmi_QLHD_GopDV_Click(object sender, EventArgs e)
         {
-            Forms.Popup f = new Popup("Quyết định gộp đơn vị", new HDQD.UCs.BoNhiem());
+            Forms.Popup f = new Popup("Quyết định gộp đơn vị", new HDQD.UCs.M_A(false));
             f.ShowDialog();
         }
     }
