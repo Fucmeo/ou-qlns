@@ -376,7 +376,7 @@ namespace HDQD.UCs
             {
                 DataTable dtCNVC = oCNVC.Search_CNVC_by_DonVi(dv_id);
 
-                Forms.Popup frPopup = new Forms.Popup(new UCs.DSCNVC(dtCNVC));
+                Forms.Popup frPopup = new Forms.Popup(new UCs.DSCNVC(dtCNVC), "QUẢN LÝ NHÂN SỰ - DANH SÁCH CNVC");
                 HDQD.UCs.DSCNVC.eParentUC = DSCNVC.ParentUC.MA;
                 frPopup.ShowDialog();
             }

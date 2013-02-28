@@ -30,3 +30,8 @@ D:\Job\QLNS\Projects\QLNS_GOP\QLNS\SystemConfig\bin\Debug\SystemConfig.pdb
 D:\Job\QLNS\Projects\QLNS_GOP\QLNS\SystemConfig\obj\Debug\SystemConfig.csprojResolveAssemblyReference.cache
 D:\Job\QLNS\Projects\QLNS_GOP\QLNS\SystemConfig\obj\Debug\SystemConfig.dll
 D:\Job\QLNS\Projects\QLNS_GOP\QLNS\SystemConfig\obj\Debug\SystemConfig.pdb
+D:\QLNS\SystemConfig\bin\Debug\SystemConfig.dll
+D:\QLNS\SystemConfig\bin\Debug\SystemConfig.pdb
+D:\QLNS\SystemConfig\obj\Debug\ResolveAssemblyReference.cache
+D:\QLNS\SystemConfig\obj\Debug\SystemConfig.dll
+D:\QLNS\SystemConfig\obj\Debug\SystemConfig.pdb

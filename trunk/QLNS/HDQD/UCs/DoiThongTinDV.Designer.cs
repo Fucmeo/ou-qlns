@@ -34,11 +34,11 @@
             this.btn_Huy = new System.Windows.Forms.Button();
             this.btn_Nhap = new System.Windows.Forms.Button();
             this.tableLP_ThayDoiCapBac = new System.Windows.Forms.TableLayoutPanel();
-            this.thongTinQuyetDinh1 = new HDQD.UCs.ThongTinQuyetDinh();
             this.cb_ThayDoiTen = new System.Windows.Forms.CheckBox();
             this.cb_ThayDoiChucVu = new System.Windows.Forms.CheckBox();
             this.cb_ThayDoiCapBac = new System.Windows.Forms.CheckBox();
             this.tableLP_ThayDoiTen = new System.Windows.Forms.TableLayoutPanel();
+            this.thongTinQuyetDinh1 = new HDQD.UCs.ThongTinQuyetDinh();
             this.tableLP_DoiThongTinDV.SuspendLayout();
             this.tableLP_Nut.SuspendLayout();
             this.SuspendLayout();
@@ -148,24 +148,13 @@
             this.tableLP_ThayDoiCapBac.Size = new System.Drawing.Size(1194, 260);
             this.tableLP_ThayDoiCapBac.TabIndex = 6;
             // 
-            // thongTinQuyetDinh1
-            // 
-            this.thongTinQuyetDinh1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.thongTinQuyetDinh1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.thongTinQuyetDinh1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.thongTinQuyetDinh1.Location = new System.Drawing.Point(3, 4);
-            this.thongTinQuyetDinh1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.thongTinQuyetDinh1.Name = "thongTinQuyetDinh1";
-            this.thongTinQuyetDinh1.Size = new System.Drawing.Size(1194, 242);
-            this.thongTinQuyetDinh1.TabIndex = 0;
-            // 
             // cb_ThayDoiTen
             // 
             this.cb_ThayDoiTen.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cb_ThayDoiTen.AutoSize = true;
             this.cb_ThayDoiTen.Location = new System.Drawing.Point(3, 253);
             this.cb_ThayDoiTen.Name = "cb_ThayDoiTen";
-            this.cb_ThayDoiTen.Size = new System.Drawing.Size(118, 19);
+            this.cb_ThayDoiTen.Size = new System.Drawing.Size(97, 19);
             this.cb_ThayDoiTen.TabIndex = 1;
             this.cb_ThayDoiTen.Text = "Thay đổi tên";
             this.cb_ThayDoiTen.UseVisualStyleBackColor = true;
@@ -177,7 +166,7 @@
             this.cb_ThayDoiChucVu.AutoSize = true;
             this.cb_ThayDoiChucVu.Location = new System.Drawing.Point(3, 544);
             this.cb_ThayDoiChucVu.Name = "cb_ThayDoiChucVu";
-            this.cb_ThayDoiChucVu.Size = new System.Drawing.Size(149, 19);
+            this.cb_ThayDoiChucVu.Size = new System.Drawing.Size(121, 19);
             this.cb_ThayDoiChucVu.TabIndex = 2;
             this.cb_ThayDoiChucVu.Text = "Thay đổi chức vụ";
             this.cb_ThayDoiChucVu.UseVisualStyleBackColor = true;
@@ -189,7 +178,7 @@
             this.cb_ThayDoiCapBac.AutoSize = true;
             this.cb_ThayDoiCapBac.Location = new System.Drawing.Point(3, 835);
             this.cb_ThayDoiCapBac.Name = "cb_ThayDoiCapBac";
-            this.cb_ThayDoiCapBac.Size = new System.Drawing.Size(147, 19);
+            this.cb_ThayDoiCapBac.Size = new System.Drawing.Size(121, 19);
             this.cb_ThayDoiCapBac.TabIndex = 3;
             this.cb_ThayDoiCapBac.Text = "Thay đổi cấp bậc";
             this.cb_ThayDoiCapBac.UseVisualStyleBackColor = true;
@@ -207,7 +196,6 @@
             this.tableLP_ThayDoiTen.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLP_ThayDoiTen.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLP_ThayDoiTen.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLP_ThayDoiTen.Enabled = false;
             this.tableLP_ThayDoiTen.Location = new System.Drawing.Point(3, 278);
             this.tableLP_ThayDoiTen.Name = "tableLP_ThayDoiTen";
             this.tableLP_ThayDoiTen.RowCount = 1;
@@ -215,9 +203,20 @@
             this.tableLP_ThayDoiTen.Size = new System.Drawing.Size(1194, 260);
             this.tableLP_ThayDoiTen.TabIndex = 4;
             // 
+            // thongTinQuyetDinh1
+            // 
+            this.thongTinQuyetDinh1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.thongTinQuyetDinh1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.thongTinQuyetDinh1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.thongTinQuyetDinh1.Location = new System.Drawing.Point(3, 4);
+            this.thongTinQuyetDinh1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.thongTinQuyetDinh1.Name = "thongTinQuyetDinh1";
+            this.thongTinQuyetDinh1.Size = new System.Drawing.Size(1194, 242);
+            this.thongTinQuyetDinh1.TabIndex = 0;
+            // 
             // DoiThongTinDV
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.tableLP_DoiThongTinDV);

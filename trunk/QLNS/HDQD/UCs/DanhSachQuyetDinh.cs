@@ -201,11 +201,30 @@ namespace HDQD.UCs
                 switch (index)
                 {
                     case 5: //tách đơn vị
-                        f = new Forms.Popup(new HDQD.UCs.M_A(true));
+                        f = new Forms.Popup(new HDQD.UCs.M_A(true), "QUẢN LÝ NHÂN SỰ - QUYẾT ĐỊNH TÁCH ĐƠN VỊ");
                         f.ShowDialog();
                         break;
                     case 9: //gộp đơn vị
-                        f = new Forms.Popup(new HDQD.UCs.M_A(false));
+                        f = new Forms.Popup(new HDQD.UCs.M_A(false), "QUẢN LÝ NHÂN SỰ - QUYẾT ĐỊNH GỘP ĐƠN VỊ");
+                        f.ShowDialog();
+                        break;
+                    case 1:
+                    case 2:
+                    case 3:
+                        f = new Forms.Popup(new HDQD.UCs.BoNhiem(), "QUẢN LÝ NHÂN SỰ - QUYẾT ĐỊNH BỔ NHIỆM");
+                        f.ShowDialog();
+                        break;
+                    case 4:
+                        f = new Forms.Popup(new HDQD.UCs.DoiThongTinDV(), "QUẢN LÝ NHÂN SỰ - QUYẾT ĐỊNH ĐỔI THÔNG TIN ĐƠN VỊ");
+                        f.ShowDialog();
+                        break;
+                    case 6:
+                    case 7:
+                        f = new Forms.Popup(new HDQD.UCs.ThoiBoNhiem(), "QUẢN LÝ NHÂN SỰ - QUYẾT ĐỊNH THÔI BỔ NHIỆM");
+                        f.ShowDialog();
+                        break;
+                    case 8:
+                        f = new Forms.Popup(new HDQD.UCs.QuyetDinhChung(), "QUẢN LÝ NHÂN SỰ - QUYẾT ĐỊNH CHUNG");
                         f.ShowDialog();
                         break;
 
@@ -216,5 +235,10 @@ namespace HDQD.UCs
             else
                 MessageBox.Show("Vui lòng chọn một loại quyết định", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+
+
+
+
     }
 }

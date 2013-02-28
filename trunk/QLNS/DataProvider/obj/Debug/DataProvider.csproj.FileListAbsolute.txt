@@ -116,3 +116,10 @@ D:\Job\QLNS\Projects\QLNS_GOP\QLNS\DataProvider\bin\Debug\zh-CN\Npgsql.resources
 D:\Job\QLNS\Projects\QLNS_GOP\QLNS\DataProvider\obj\Debug\DataProvider.csprojResolveAssemblyReference.cache
 D:\Job\QLNS\Projects\QLNS_GOP\QLNS\DataProvider\obj\Debug\DataProvider.dll
 D:\Job\QLNS\Projects\QLNS_GOP\QLNS\DataProvider\obj\Debug\DataProvider.pdb
+D:\QLNS\DataProvider\bin\Debug\DataProvider.dll
+D:\QLNS\DataProvider\bin\Debug\DataProvider.pdb
+D:\QLNS\DataProvider\bin\Debug\SystemConfig.dll
+D:\QLNS\DataProvider\bin\Debug\SystemConfig.pdb
+D:\QLNS\DataProvider\obj\Debug\ResolveAssemblyReference.cache
+D:\QLNS\DataProvider\obj\Debug\DataProvider.dll
+D:\QLNS\DataProvider\obj\Debug\DataProvider.pdb

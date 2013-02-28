@@ -132,3 +132,12 @@ D:\Job\QLNS\Projects\QLNS_GOP\QLNS\Business\bin\Debug\zh-CN\Npgsql.resources.dll
 D:\Job\QLNS\Projects\QLNS_GOP\QLNS\Business\obj\Debug\Business.csprojResolveAssemblyReference.cache
 D:\Job\QLNS\Projects\QLNS_GOP\QLNS\Business\obj\Debug\Business.dll
 D:\Job\QLNS\Projects\QLNS_GOP\QLNS\Business\obj\Debug\Business.pdb
+D:\QLNS\Business\bin\Debug\Business.dll
+D:\QLNS\Business\bin\Debug\Business.pdb
+D:\QLNS\Business\bin\Debug\DataProvider.dll
+D:\QLNS\Business\bin\Debug\SystemConfig.dll
+D:\QLNS\Business\bin\Debug\DataProvider.pdb
+D:\QLNS\Business\bin\Debug\SystemConfig.pdb
+D:\QLNS\Business\obj\Debug\ResolveAssemblyReference.cache
+D:\QLNS\Business\obj\Debug\Business.dll
+D:\QLNS\Business\obj\Debug\Business.pdb
