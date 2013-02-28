@@ -15,7 +15,7 @@ namespace HDQD
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Forms.Popup(new UCs.DanhSachQuyetDinh()));
+            Application.Run(new Forms.Popup(new UCs.DanhSachQuyetDinh(), "QUẢN LÝ NHÂN SỰ - DANH SÁCH QUYẾT ĐỊNH"));
         }
     }
 }

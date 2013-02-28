@@ -63,7 +63,7 @@ namespace HDQD.UCs
                         default:
                             break;
                     }
-                    Forms.Popup frPopup = new Forms.Popup(new UCs.DSCNVC(dt));
+                    Forms.Popup frPopup = new Forms.Popup(new UCs.DSCNVC(dt), "QUẢN LÝ NHÂN SỰ - DANH SÁCH CNVC");
                     frPopup.ShowDialog();
                     if (strMaNV != null)
                     {

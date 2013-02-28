@@ -419,7 +419,7 @@ namespace HDQD.UCs
                 default:
                     break;
             }
-        }
+         }
 
         private void CalculateHeight(TableLayoutPanel TLP)
         {

@@ -23,7 +23,7 @@ namespace HDQD.UCs
 
         private void lb_ChonTapTin_Click(object sender, EventArgs e)
         {
-            HDQD.Forms.Popup f = new Forms.Popup(new HDQD.UCs.DSTapTin());
+            HDQD.Forms.Popup f = new Forms.Popup(new HDQD.UCs.DSTapTin(), "QUẢN LÝ NHÂN SỰ - DANH SÁCH TẬP TIN");
             f.ShowDialog();
         }
     }

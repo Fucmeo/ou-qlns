@@ -244,7 +244,7 @@ namespace HDQD.UCs
         private void btn_Them_Click(object sender, EventArgs e)
         {
             UCs.HopDong hopdong = new HopDong();
-            Forms.Popup popup = new Forms.Popup(hopdong);
+            Forms.Popup popup = new Forms.Popup(hopdong, "QUẢN LÝ NHÂN SỰ - HỢP ĐỒNG");
             popup.Show();
         }
 
@@ -276,7 +276,7 @@ namespace HDQD.UCs
                 oHopDong.Ghi_Chu = row.Cells[16].Value.ToString();
 
                 UCs.HopDong hopdong = new HopDong(oHopDong);
-                Forms.Popup popup = new Forms.Popup(hopdong);
+                Forms.Popup popup = new Forms.Popup(hopdong, "QUẢN LÝ NHÂN SỰ - HỢP ĐỒNG");
                 popup.Show();
             }
         }
