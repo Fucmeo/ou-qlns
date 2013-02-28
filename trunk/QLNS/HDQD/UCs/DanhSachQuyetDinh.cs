@@ -194,7 +194,27 @@ namespace HDQD.UCs
 
         private void btn_Them_Click(object sender, EventArgs e)
         {
+            if (comB_Loai.Text != "")
+            {
+                int index = Convert.ToInt16(comB_Loai.SelectedValue);
+                HDQD.Forms.Popup f;
+                switch (index)
+                {
+                    case 5: //tách đơn vị
+                        f = new Forms.Popup(new HDQD.UCs.M_A(true));
+                        f.ShowDialog();
+                        break;
+                    case 9: //gộp đơn vị
+                        f = new Forms.Popup(new HDQD.UCs.M_A(false));
+                        f.ShowDialog();
+                        break;
 
+                    default:
+                        break;
+                }
+            }
+            else
+                MessageBox.Show("Vui lòng chọn một loại quyết định", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
