@@ -30,15 +30,14 @@
         {
             this.tableLP_BoNhiem = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
             this.btn_Nhap = new System.Windows.Forms.Button();
+            this.thongTinCNVC1 = new HDQD.UCs.ThongTinCNVC();
+            this.thongTinBoNhiem1 = new HDQD.UCs.ThongTinBoNhiem();
             this.tableLP_Button1 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_Them = new System.Windows.Forms.Button();
             this.btn_Huy = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtgv_DS = new System.Windows.Forms.DataGridView();
-            this.thongTinCNVC1 = new HDQD.UCs.ThongTinCNVC();
-            this.thongTinBoNhiem1 = new HDQD.UCs.ThongTinBoNhiem();
             this.thongTinQuyetDinh1 = new HDQD.UCs.ThongTinQuyetDinh();
             this.tableLP_BoNhiem.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -76,7 +75,6 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.button1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.btn_Nhap, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 1098);
@@ -85,17 +83,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(994, 99);
             this.tableLayoutPanel1.TabIndex = 34;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.Location = new System.Drawing.Point(192, 27);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 44);
-            this.button1.TabIndex = 35;
-            this.button1.Text = "Nhập File";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // btn_Nhap
             // 
@@ -108,6 +95,28 @@
             this.btn_Nhap.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Nhap.UseVisualStyleBackColor = true;
             this.btn_Nhap.Click += new System.EventHandler(this.btn_Nhap_Click);
+            // 
+            // thongTinCNVC1
+            // 
+            this.thongTinCNVC1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.thongTinCNVC1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.thongTinCNVC1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.thongTinCNVC1.Location = new System.Drawing.Point(3, 4);
+            this.thongTinCNVC1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.thongTinCNVC1.Name = "thongTinCNVC1";
+            this.thongTinCNVC1.Size = new System.Drawing.Size(994, 211);
+            this.thongTinCNVC1.TabIndex = 0;
+            // 
+            // thongTinBoNhiem1
+            // 
+            this.thongTinBoNhiem1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.thongTinBoNhiem1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.thongTinBoNhiem1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.thongTinBoNhiem1.Location = new System.Drawing.Point(3, 223);
+            this.thongTinBoNhiem1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.thongTinBoNhiem1.Name = "thongTinBoNhiem1";
+            this.thongTinBoNhiem1.Size = new System.Drawing.Size(994, 297);
+            this.thongTinBoNhiem1.TabIndex = 1;
             // 
             // tableLP_Button1
             // 
@@ -172,28 +181,6 @@
             this.dtgv_DS.Size = new System.Drawing.Size(988, 148);
             this.dtgv_DS.TabIndex = 4;
             // 
-            // thongTinCNVC1
-            // 
-            this.thongTinCNVC1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.thongTinCNVC1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.thongTinCNVC1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.thongTinCNVC1.Location = new System.Drawing.Point(3, 4);
-            this.thongTinCNVC1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.thongTinCNVC1.Name = "thongTinCNVC1";
-            this.thongTinCNVC1.Size = new System.Drawing.Size(994, 211);
-            this.thongTinCNVC1.TabIndex = 0;
-            // 
-            // thongTinBoNhiem1
-            // 
-            this.thongTinBoNhiem1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.thongTinBoNhiem1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.thongTinBoNhiem1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.thongTinBoNhiem1.Location = new System.Drawing.Point(3, 223);
-            this.thongTinBoNhiem1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.thongTinBoNhiem1.Name = "thongTinBoNhiem1";
-            this.thongTinBoNhiem1.Size = new System.Drawing.Size(994, 297);
-            this.thongTinBoNhiem1.TabIndex = 1;
-            // 
             // thongTinQuyetDinh1
             // 
             this.thongTinQuyetDinh1.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -238,6 +225,5 @@
         private ThongTinQuyetDinh thongTinQuyetDinh1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button btn_Nhap;
-        private System.Windows.Forms.Button button1;
     }
 }

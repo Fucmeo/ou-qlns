@@ -92,7 +92,7 @@ namespace QLNS.UCs
                         ThemAvatar();
                         MessageBox.Show("Thao tác thêm thành công.\r\n", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        RefreshTreeVCNVC();
+                        //RefreshTreeVCNVC();
                         EmptyAllContent();
                         ResetInterface(true);
                         bAddFlag = false;
@@ -134,7 +134,7 @@ namespace QLNS.UCs
                             MessageBox.Show("Thao tác sửa thành công.\r\n", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             EmptyAllContent();
                             ResetInterface(true);
-                            RefreshTreeVCNVC(); // phong truong hop user sua ho ten
+                            //RefreshTreeVCNVC(); // phong truong hop user sua ho ten
                         }
                         catch (Exception ex)
                         {

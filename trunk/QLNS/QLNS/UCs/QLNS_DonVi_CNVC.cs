@@ -195,17 +195,25 @@ namespace QLNS.UCs
         /// <param name="_MaDV">ma don vi dang chon</param>
         public void RefreshTreeVCNVC(string _MaDV)
         {
-            TreeV_DonVi.SelectedNode.Name = _MaDV;
-            dtDSCNVC = oDonVi.GetCNVCList(_MaDV);
-            TreeV_CNVC.Nodes.Clear();
-            if (dtDSCNVC != null && dtDSCNVC.Rows.Count > 0)
+            if (_MaDV == "0" || _MaDV == null)
             {
-                
-                foreach (DataRow row in dtDSCNVC.Rows)
+                TreeV_CNVC.Nodes.Clear();
+            }
+            else
+            {
+                TreeV_DonVi.SelectedNode.Name = _MaDV;
+                dtDSCNVC = oDonVi.GetCNVCList(_MaDV);
+                TreeV_CNVC.Nodes.Clear();
+                if (dtDSCNVC != null && dtDSCNVC.Rows.Count > 0)
                 {
-                    TreeV_CNVC.Nodes.Add(row["ma_nv"].ToString(), row["ho"].ToString() + " " + row["ten"].ToString());
+
+                    foreach (DataRow row in dtDSCNVC.Rows)
+                    {
+                        TreeV_CNVC.Nodes.Add(row["ma_nv"].ToString(), row["ho"].ToString() + " " + row["ten"].ToString());
+                    }
                 }
             }
+            
         }
 
 
