@@ -248,6 +248,36 @@ namespace Business.HDQD
                 throw;
             }
         }
+
+
+        public bool Add_ThanhLapDV(string[] m_TenDV_Ten, string[] m_TenDVTat_Ten,
+                                                int[] m_IDDVCha, string[] m_GhiChu, DateTime[] m_NgayHieuLuc)
+        {
+            IDataParameter[] paras = new IDataParameter[13]{
+                new NpgsqlParameter("p_ma_qd",ma_qd),
+                new NpgsqlParameter("p_ten_qd",ten_qd),
+                new NpgsqlParameter("path",path),
+                new NpgsqlParameter("path_mo_ta",pathmota),
+                new NpgsqlParameter("p_ngay_ky",ngay_ky),
+                new NpgsqlParameter("p_ngay_hieu_luc",ngay_hieu_luc),
+                new NpgsqlParameter("p_ngay_het_han",ngay_het_han),
+                new NpgsqlParameter("p_mo_ta",mota),
+                new NpgsqlParameter("p_ten_don_vi_moi",m_TenDV_Ten),
+                new NpgsqlParameter("p_ten_dv_moi_viet_tat",m_TenDVTat_Ten),
+                new NpgsqlParameter("p_truc_thuoc_don_vi",m_IDDVCha),
+                new NpgsqlParameter("p_tu_ngay",m_NgayHieuLuc.Select( a => a.ToString("d", CultureInfo.CreateSpecificCulture("en-NZ"))).ToArray()),  // format : mm/dd/yyyy),
+                new NpgsqlParameter("p_ghi_chu",m_GhiChu)
+            };
+            try
+            {
+                dp.executeScalarProc("sp1_insert_thanh_lap_dv", paras);
+                return true;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         #endregion
     }
 }
