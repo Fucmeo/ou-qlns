@@ -186,3 +186,4 @@ D:\Job\QLNS\Projects\QLNS2\HDQD\obj\x86\Debug\HDQD.UCs.ThongTinQuyetDinh.resourc
 D:\Job\QLNS\Projects\QLNS2\HDQD\obj\x86\Debug\HDQD.csproj.GenerateResource.Cache
 D:\Job\QLNS\Projects\QLNS2\HDQD\obj\x86\Debug\HDQD.exe
 D:\Job\QLNS\Projects\QLNS2\HDQD\obj\x86\Debug\HDQD.pdb
+D:\Job\QLNS\Projects\QLNS\HDQD\obj\x86\Debug\HDQD.UCs.ThanhLapDonVi.resources
