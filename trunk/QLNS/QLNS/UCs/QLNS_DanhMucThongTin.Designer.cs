@@ -1393,7 +1393,7 @@
             this.comB_MoHinhDaoTao.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_MoHinhDaoTao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_MoHinhDaoTao.FormattingEnabled = true;
-            this.comB_MoHinhDaoTao.Location = new System.Drawing.Point(119, 175);
+            this.comB_MoHinhDaoTao.Location = new System.Drawing.Point(119, 177);
             this.comB_MoHinhDaoTao.Name = "comB_MoHinhDaoTao";
             this.comB_MoHinhDaoTao.Size = new System.Drawing.Size(264, 30);
             this.comB_MoHinhDaoTao.TabIndex = 4;
@@ -2187,11 +2187,7 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TableLayoutPanel tableLP_ThongTinTuyenDung;
         private System.Windows.Forms.TableLayoutPanel tableLP_HopDong;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label lbl_SoHopDong;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -2283,9 +2279,6 @@
         public System.Windows.Forms.ComboBox comB_TinhTrangHonNhan;
         public System.Windows.Forms.TableLayoutPanel tableLP_ThongTinChinh;
         public System.Windows.Forms.TableLayoutPanel tableLP_HopDong_TuyenDung;
-        public System.Windows.Forms.TextBox txt_CoQuan;
-        public System.Windows.Forms.TextBox txt_NgheNghiep;
-        public System.Windows.Forms.DateTimePicker dTP_NgayTuyenDung;
         public System.Windows.Forms.DataGridView dtgv_HopDong;
         public System.Windows.Forms.TableLayoutPanel tableLP_QuaTrinhCongTac;
         public System.Windows.Forms.DataGridView dtgv_TrongGD;
@@ -2332,6 +2325,13 @@
         private System.Windows.Forms.ImageList imageList1;
         public System.Windows.Forms.PictureBox picB_HinhDaiDien;
         public System.Windows.Forms.Button btn_DelAvatar;
+        private System.Windows.Forms.TableLayoutPanel tableLP_ThongTinTuyenDung;
+        public System.Windows.Forms.DateTimePicker dTP_NgayTuyenDung;
+        public System.Windows.Forms.TextBox txt_CoQuan;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label25;
+        public System.Windows.Forms.TextBox txt_NgheNghiep;
 
     }
 }

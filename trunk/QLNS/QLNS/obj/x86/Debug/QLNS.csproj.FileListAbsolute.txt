@@ -172,3 +172,10 @@ D:\Job\QLNS\Projects\QLNS2\QLNS\obj\x86\Debug\QLNS.UCs.ThemTinhTP.resources
 D:\Job\QLNS\Projects\QLNS2\QLNS\obj\x86\Debug\QLNS.csproj.GenerateResource.Cache
 D:\Job\QLNS\Projects\QLNS3\QLNS\obj\x86\Debug\QLNS.exe
 D:\Job\QLNS\Projects\QLNS3\QLNS\obj\x86\Debug\QLNS.pdb
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DaoTaoBoiDuong.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_HopDongTuyenDung.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_QuaTrinhCongTac.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_ThongTinGiaDinh.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_ThongTinNV.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_ThongTinNV_Phu.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_TrinhDo_ChuyenMon.resources
