@@ -179,3 +179,4 @@ D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_ThongTinGiaDinh.resou
 D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_ThongTinNV.resources
 D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_ThongTinNV_Phu.resources
 D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_TrinhDo_ChuyenMon.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_ChinhTri.resources

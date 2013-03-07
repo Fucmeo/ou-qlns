@@ -84,6 +84,12 @@
     <Compile Include="UCs\MoHinhDaoTao.Designer.cs">
       <DependentUpon>MoHinhDaoTao.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCs\QLNS_ChinhTri.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\QLNS_ChinhTri.Designer.cs">
+      <DependentUpon>QLNS_ChinhTri.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCs\QLNS_DaoTaoBoiDuong.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -240,6 +246,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\MoHinhDaoTao.resx">
       <DependentUpon>MoHinhDaoTao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\QLNS_ChinhTri.resx">
+      <DependentUpon>QLNS_ChinhTri.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\QLNS_DaoTaoBoiDuong.resx">
       <DependentUpon>QLNS_DaoTaoBoiDuong.cs</DependentUpon>
