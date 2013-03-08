@@ -162,6 +162,12 @@
     <Compile Include="UCs\QLNS_HopDongTuyenDung.Designer.cs">
       <DependentUpon>QLNS_HopDongTuyenDung.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCs\QLNS_LichSuBanThan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\QLNS_LichSuBanThan.Designer.cs">
+      <DependentUpon>QLNS_LichSuBanThan.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCs\QLNS_QuaTrinhCongTac.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -285,6 +291,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\QLNS_HopDongTuyenDung.resx">
       <DependentUpon>QLNS_HopDongTuyenDung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\QLNS_LichSuBanThan.resx">
+      <DependentUpon>QLNS_LichSuBanThan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\QLNS_QuaTrinhCongTac.resx">
       <DependentUpon>QLNS_QuaTrinhCongTac.cs</DependentUpon>
