@@ -1439,10 +1439,6 @@ namespace QLNS.UCs
 
         private void lbl_ChiTietSucKhoe_Click(object sender, EventArgs e)
         {
-            UCs.QLNS_DienBienSK oDienBienSK = new UCs.QLNS_DienBienSK("T.A");
-            oDienBienSK.Dock = DockStyle.Fill;
-            Forms.Popup fPopup = new Forms.Popup("Diễn biến sức khoẻ", oDienBienSK);
-            fPopup.ShowDialog();
             
         }
 

@@ -15,10 +15,10 @@ namespace QLNS.UCs
 
         Business.DonVi oDonVi;
         Business.CNVC.CNVC oCNVC;
+        QLNS_HienThiThongTin oQLNS_HienThiThongTin;
         
         DataTable dtDSCNVC;
         List<Business.DonVi> listDonVi;
-        UCs.QLNS_DanhMucThongTin UCDanhMucThongTin;
         public int nSelectedDVID = 0;
 
         #endregion
@@ -30,18 +30,13 @@ namespace QLNS.UCs
             InitializeComponent();
             oDonVi = new Business.DonVi();
             oCNVC = new Business.CNVC.CNVC();
+            
         }
 
-        public QLNS_DonVi_CNVC( ref UCs.QLNS_DanhMucThongTin _UCDanhMucThongTin)
-        {
-            InitializeComponent();
-            oDonVi = new Business.DonVi();
-            oCNVC = new Business.CNVC.CNVC();
-            UCDanhMucThongTin = _UCDanhMucThongTin;
-        }
 
         private void QLNS_DonVi_CNVC_Load(object sender, EventArgs e)
         {
+            oQLNS_HienThiThongTin = (QLNS_HienThiThongTin)this.Parent.Parent;
             listDonVi = oDonVi.GetList();
             if (listDonVi != null)
             {
@@ -67,21 +62,20 @@ namespace QLNS.UCs
             {
                 TreeV_CNVC.Nodes.Clear();
             }
-            UCDanhMucThongTin.EmptyDaoTaoBDContent();
-            UCDanhMucThongTin.EmptyGiaDinhContent();
-            UCDanhMucThongTin.EmptyHoatDongCTContent();
-            UCDanhMucThongTin.EmptyHopDongTTContent();
-            UCDanhMucThongTin.EmptyThongTinContent();
-            UCDanhMucThongTin.EmptyThongTinPhuContent();
-            UCDanhMucThongTin.EnableTableLP(false);
-                    
+                          
         }
 
         private void TreeV_CNVC_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            //UCs.QLNS_DanhMucThongTin DanhMucThongTin = new QLNS_DanhMucThongTin(e.Node.Name);
-            UCDanhMucThongTin.MaCNVC = e.Node.Name;
-            UCDanhMucThongTin.LoadThongTin();
+            if (oQLNS_HienThiThongTin.comB_DanhMuc.SelectedIndex != 0 || oQLNS_HienThiThongTin.oQLNS_ThongTinNV.dtCNVC.Rows.Count <= 0)
+            {
+                oQLNS_HienThiThongTin.comB_DanhMuc.SelectedIndex = 0;
+                oQLNS_HienThiThongTin.tableLP_DanhMucThongTin.Controls.RemoveAt(1);
+                oQLNS_HienThiThongTin.tableLP_DanhMucThongTin.Controls.Add(oQLNS_HienThiThongTin.oQLNS_ThongTinNV, 0, 1);
+                oQLNS_HienThiThongTin.oQLNS_ThongTinNV.GetCNVCInfo(TreeV_CNVC.SelectedNode.Name);
+                oQLNS_HienThiThongTin.oQLNS_ThongTinNV.LoadInfo();
+            }
+            
         }
 
         private void btn_TimDonVi_Click(object sender, EventArgs e)

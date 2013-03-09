@@ -25,6 +25,14 @@ namespace Business.CNVC
 
         #region Properties
 
+        private string mahoso;
+
+        public string MaHoSo
+        {
+            get { return mahoso; }
+            set { mahoso = value; }
+        }
+
         private string manv;
 
         public string MaNV
@@ -57,6 +65,46 @@ namespace Business.CNVC
             set { diachi = value; }
         }
 
+        private string sonha;
+
+        public string SoNha
+        {
+            get { return sonha; }
+            set { sonha = value; }
+        }
+
+        private string duong;
+
+        public string Duong
+        {
+            get { return duong; }
+            set { duong = value; }
+        }
+
+        private string phuong;
+
+        public string Phuong
+        {
+            get { return phuong; }
+            set { phuong = value; }
+        }
+
+        private string quan;
+
+        public string Quan
+        {
+            get { return quan; }
+            set { quan = value; }
+        }
+
+        private int? tinh;
+
+        public int? Tinh
+        {
+            get { return tinh; }
+            set { tinh = value; }
+        }
+        
         private string sobhxh;
 
         public string SoBHXH
