@@ -457,7 +457,7 @@
             "Nam",
             "Nữ",
             " "});
-            this.comB_GioiTinh.Location = new System.Drawing.Point(120, 386);
+            this.comB_GioiTinh.Location = new System.Drawing.Point(120, 389);
             this.comB_GioiTinh.Name = "comB_GioiTinh";
             this.comB_GioiTinh.Size = new System.Drawing.Size(79, 30);
             this.comB_GioiTinh.TabIndex = 7;
@@ -614,7 +614,7 @@
             this.comB_QueTinh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_QueTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_QueTinh.FormattingEnabled = true;
-            this.comB_QueTinh.Location = new System.Drawing.Point(3, 17);
+            this.comB_QueTinh.Location = new System.Drawing.Point(3, 16);
             this.comB_QueTinh.Name = "comB_QueTinh";
             this.comB_QueTinh.Size = new System.Drawing.Size(263, 30);
             this.comB_QueTinh.TabIndex = 9;
@@ -853,7 +853,7 @@
             this.comB_NoiSinhTinh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_NoiSinhTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_NoiSinhTinh.FormattingEnabled = true;
-            this.comB_NoiSinhTinh.Location = new System.Drawing.Point(3, 17);
+            this.comB_NoiSinhTinh.Location = new System.Drawing.Point(3, 16);
             this.comB_NoiSinhTinh.Name = "comB_NoiSinhTinh";
             this.comB_NoiSinhTinh.Size = new System.Drawing.Size(265, 30);
             this.comB_NoiSinhTinh.TabIndex = 5;
@@ -877,7 +877,7 @@
             this.comB_TinhTrangHonNhan.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_TinhTrangHonNhan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_TinhTrangHonNhan.FormattingEnabled = true;
-            this.comB_TinhTrangHonNhan.Location = new System.Drawing.Point(120, 665);
+            this.comB_TinhTrangHonNhan.Location = new System.Drawing.Point(120, 664);
             this.comB_TinhTrangHonNhan.Name = "comB_TinhTrangHonNhan";
             this.comB_TinhTrangHonNhan.Size = new System.Drawing.Size(263, 30);
             this.comB_TinhTrangHonNhan.TabIndex = 14;
@@ -1393,7 +1393,7 @@
             this.comB_MoHinhDaoTao.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_MoHinhDaoTao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_MoHinhDaoTao.FormattingEnabled = true;
-            this.comB_MoHinhDaoTao.Location = new System.Drawing.Point(119, 178);
+            this.comB_MoHinhDaoTao.Location = new System.Drawing.Point(119, 177);
             this.comB_MoHinhDaoTao.Name = "comB_MoHinhDaoTao";
             this.comB_MoHinhDaoTao.Size = new System.Drawing.Size(264, 30);
             this.comB_MoHinhDaoTao.TabIndex = 4;

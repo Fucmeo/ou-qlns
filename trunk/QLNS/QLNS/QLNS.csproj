@@ -84,22 +84,22 @@
     <Compile Include="UCs\MoHinhDaoTao.Designer.cs">
       <DependentUpon>MoHinhDaoTao.cs</DependentUpon>
     </Compile>
-    <Compile Include="UCs\QLNS_ChinhTri.cs">
+    <Compile Include="UCs\DanhMucThongTin\QLNS_ChinhTri.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UCs\QLNS_ChinhTri.Designer.cs">
+    <Compile Include="UCs\DanhMucThongTin\QLNS_ChinhTri.Designer.cs">
       <DependentUpon>QLNS_ChinhTri.cs</DependentUpon>
     </Compile>
-    <Compile Include="UCs\QLNS_DaoTaoBoiDuong.cs">
+    <Compile Include="UCs\DanhMucThongTin\QLNS_DaoTaoBoiDuong.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UCs\QLNS_DaoTaoBoiDuong.Designer.cs">
+    <Compile Include="UCs\DanhMucThongTin\QLNS_DaoTaoBoiDuong.Designer.cs">
       <DependentUpon>QLNS_DaoTaoBoiDuong.cs</DependentUpon>
     </Compile>
-    <Compile Include="UCs\QLNS_DienBienSK.cs">
+    <Compile Include="UCs\DanhMucThongTin\QLNS_DienBienSK.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UCs\QLNS_DienBienSK.Designer.cs">
+    <Compile Include="UCs\DanhMucThongTin\QLNS_DienBienSK.Designer.cs">
       <DependentUpon>QLNS_DienBienSK.cs</DependentUpon>
     </Compile>
     <Compile Include="UCs\QLNS_ChucDanh.cs">
@@ -156,22 +156,22 @@
     <Compile Include="UCs\QLNS_HinhThucDaoTao.designer.cs">
       <DependentUpon>QLNS_HinhThucDaoTao.cs</DependentUpon>
     </Compile>
-    <Compile Include="UCs\QLNS_HopDongTuyenDung.cs">
+    <Compile Include="UCs\DanhMucThongTin\QLNS_HopDongTuyenDung.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UCs\QLNS_HopDongTuyenDung.Designer.cs">
+    <Compile Include="UCs\DanhMucThongTin\QLNS_HopDongTuyenDung.Designer.cs">
       <DependentUpon>QLNS_HopDongTuyenDung.cs</DependentUpon>
     </Compile>
-    <Compile Include="UCs\QLNS_LichSuBanThan.cs">
+    <Compile Include="UCs\DanhMucThongTin\QLNS_LichSuBanThan.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UCs\QLNS_LichSuBanThan.Designer.cs">
+    <Compile Include="UCs\DanhMucThongTin\QLNS_LichSuBanThan.Designer.cs">
       <DependentUpon>QLNS_LichSuBanThan.cs</DependentUpon>
     </Compile>
-    <Compile Include="UCs\QLNS_QuaTrinhCongTac.cs">
+    <Compile Include="UCs\DanhMucThongTin\QLNS_QuaTrinhCongTac.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UCs\QLNS_QuaTrinhCongTac.Designer.cs">
+    <Compile Include="UCs\DanhMucThongTin\QLNS_QuaTrinhCongTac.Designer.cs">
       <DependentUpon>QLNS_QuaTrinhCongTac.cs</DependentUpon>
     </Compile>
     <Compile Include="UCs\QLNS_TapTin.cs">
@@ -180,22 +180,22 @@
     <Compile Include="UCs\QLNS_TapTin.Designer.cs">
       <DependentUpon>QLNS_TapTin.cs</DependentUpon>
     </Compile>
-    <Compile Include="UCs\QLNS_ThongTinGiaDinh.cs">
+    <Compile Include="UCs\DanhMucThongTin\QLNS_ThongTinGiaDinh.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UCs\QLNS_ThongTinGiaDinh.Designer.cs">
+    <Compile Include="UCs\DanhMucThongTin\QLNS_ThongTinGiaDinh.Designer.cs">
       <DependentUpon>QLNS_ThongTinGiaDinh.cs</DependentUpon>
     </Compile>
-    <Compile Include="UCs\QLNS_ThongTinNV.cs">
+    <Compile Include="UCs\DanhMucThongTin\QLNS_ThongTinNV.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UCs\QLNS_ThongTinNV.Designer.cs">
+    <Compile Include="UCs\DanhMucThongTin\QLNS_ThongTinNV.Designer.cs">
       <DependentUpon>QLNS_ThongTinNV.cs</DependentUpon>
     </Compile>
-    <Compile Include="UCs\QLNS_ThongTinNV_Phu.cs">
+    <Compile Include="UCs\DanhMucThongTin\QLNS_ThongTinNV_Phu.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UCs\QLNS_ThongTinNV_Phu.Designer.cs">
+    <Compile Include="UCs\DanhMucThongTin\QLNS_ThongTinNV_Phu.Designer.cs">
       <DependentUpon>QLNS_ThongTinNV_Phu.cs</DependentUpon>
     </Compile>
     <Compile Include="UCs\QLNS_TimKiem.cs">
@@ -204,10 +204,10 @@
     <Compile Include="UCs\QLNS_TimKiem.designer.cs">
       <DependentUpon>QLNS_TimKiem.cs</DependentUpon>
     </Compile>
-    <Compile Include="UCs\QLNS_TrinhDo_ChuyenMon.cs">
+    <Compile Include="UCs\DanhMucThongTin\QLNS_TrinhDo_ChuyenMon.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UCs\QLNS_TrinhDo_ChuyenMon.Designer.cs">
+    <Compile Include="UCs\DanhMucThongTin\QLNS_TrinhDo_ChuyenMon.Designer.cs">
       <DependentUpon>QLNS_TrinhDo_ChuyenMon.cs</DependentUpon>
     </Compile>
     <Compile Include="UCs\QLNS_VanBang.cs">
@@ -253,13 +253,13 @@
     <EmbeddedResource Include="UCs\MoHinhDaoTao.resx">
       <DependentUpon>MoHinhDaoTao.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UCs\QLNS_ChinhTri.resx">
+    <EmbeddedResource Include="UCs\DanhMucThongTin\QLNS_ChinhTri.resx">
       <DependentUpon>QLNS_ChinhTri.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UCs\QLNS_DaoTaoBoiDuong.resx">
+    <EmbeddedResource Include="UCs\DanhMucThongTin\QLNS_DaoTaoBoiDuong.resx">
       <DependentUpon>QLNS_DaoTaoBoiDuong.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UCs\QLNS_DienBienSK.resx">
+    <EmbeddedResource Include="UCs\DanhMucThongTin\QLNS_DienBienSK.resx">
       <DependentUpon>QLNS_DienBienSK.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\QLNS_ChucDanh.resx">
@@ -289,31 +289,31 @@
     <EmbeddedResource Include="UCs\QLNS_HinhThucDaoTao.resx">
       <DependentUpon>QLNS_HinhThucDaoTao.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UCs\QLNS_HopDongTuyenDung.resx">
+    <EmbeddedResource Include="UCs\DanhMucThongTin\QLNS_HopDongTuyenDung.resx">
       <DependentUpon>QLNS_HopDongTuyenDung.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UCs\QLNS_LichSuBanThan.resx">
+    <EmbeddedResource Include="UCs\DanhMucThongTin\QLNS_LichSuBanThan.resx">
       <DependentUpon>QLNS_LichSuBanThan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UCs\QLNS_QuaTrinhCongTac.resx">
+    <EmbeddedResource Include="UCs\DanhMucThongTin\QLNS_QuaTrinhCongTac.resx">
       <DependentUpon>QLNS_QuaTrinhCongTac.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\QLNS_TapTin.resx">
       <DependentUpon>QLNS_TapTin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UCs\QLNS_ThongTinGiaDinh.resx">
+    <EmbeddedResource Include="UCs\DanhMucThongTin\QLNS_ThongTinGiaDinh.resx">
       <DependentUpon>QLNS_ThongTinGiaDinh.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UCs\QLNS_ThongTinNV.resx">
+    <EmbeddedResource Include="UCs\DanhMucThongTin\QLNS_ThongTinNV.resx">
       <DependentUpon>QLNS_ThongTinNV.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UCs\QLNS_ThongTinNV_Phu.resx">
+    <EmbeddedResource Include="UCs\DanhMucThongTin\QLNS_ThongTinNV_Phu.resx">
       <DependentUpon>QLNS_ThongTinNV_Phu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\QLNS_TimKiem.resx">
       <DependentUpon>QLNS_TimKiem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UCs\QLNS_TrinhDo_ChuyenMon.resx">
+    <EmbeddedResource Include="UCs\DanhMucThongTin\QLNS_TrinhDo_ChuyenMon.resx">
       <DependentUpon>QLNS_TrinhDo_ChuyenMon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\QLNS_VanBang.resx">
@@ -361,6 +361,7 @@
   <ItemGroup>
     <Content Include="couple.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
