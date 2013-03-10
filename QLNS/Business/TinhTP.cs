@@ -55,6 +55,14 @@ namespace Business
             get { return mota; }
             set { mota = value; }
         }
+
+        private int quoc_gia_id;
+
+        public int QuocGiaID
+        {
+            get { return quoc_gia_id; }
+            set { quoc_gia_id = value; }
+        }
         
 
         #endregion
@@ -64,9 +72,10 @@ namespace Business
         public bool Add()
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[2]{
+            IDataParameter[] paras = new IDataParameter[3]{
                 new NpgsqlParameter("ten_tinh_tp",tentinhtp), 
-                new NpgsqlParameter("mo_ta",mota)
+                new NpgsqlParameter("mo_ta",mota),
+                new NpgsqlParameter("quoc_gia_id",quoc_gia_id)
             };
             check = (int)dp.executeScalarProc("sp_insert_tinh_tp", paras);
             if (check > 0)
@@ -80,9 +89,10 @@ namespace Business
         public int AddWithReturnID()
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[2]{
+            IDataParameter[] paras = new IDataParameter[3]{
                 new NpgsqlParameter("ten_tinh_tp",tentinhtp), 
-                new NpgsqlParameter("mo_ta",mota)
+                new NpgsqlParameter("mo_ta",mota),
+                new NpgsqlParameter("quoc_gia_id",quoc_gia_id)
             };
             check = (int)dp.executeScalarProc("sp_insert_tinh_tp", paras);
             if (check > 0)
@@ -110,11 +120,12 @@ namespace Business
 
         public bool Update()
         {
-            int check;
-            IDataParameter[] paras = new IDataParameter[3]{
+            int check; 
+            IDataParameter[] paras = new IDataParameter[4]{
                 new NpgsqlParameter("p_id",id),
                 new NpgsqlParameter("p_ten_tinh_tp",tentinhtp), 
-                new NpgsqlParameter("p_mo_ta",mota)
+                new NpgsqlParameter("p_mo_ta",mota),
+                new NpgsqlParameter("p_quoc_gia_id",quoc_gia_id)
             };
             check = (int)dp.executeScalarProc("sp_update_tinhtp", paras);
             if (check > 0)
