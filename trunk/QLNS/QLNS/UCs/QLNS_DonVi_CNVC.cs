@@ -73,7 +73,7 @@ namespace QLNS.UCs
                 oQLNS_HienThiThongTin.tableLP_DanhMucThongTin.Controls.RemoveAt(1);
                 oQLNS_HienThiThongTin.tableLP_DanhMucThongTin.Controls.Add(oQLNS_HienThiThongTin.oQLNS_ThongTinNV, 0, 1);
                 oQLNS_HienThiThongTin.oQLNS_ThongTinNV.GetCNVCInfo(TreeV_CNVC.SelectedNode.Name);
-                oQLNS_HienThiThongTin.oQLNS_ThongTinNV.LoadInfo();
+                oQLNS_HienThiThongTin.oQLNS_ThongTinNV.FillInfo();
             }
             
         }

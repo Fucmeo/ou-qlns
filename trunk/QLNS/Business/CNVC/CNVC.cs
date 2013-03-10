@@ -104,6 +104,14 @@ namespace Business.CNVC
             get { return tinh; }
             set { tinh = value; }
         }
+
+        private int? quocgia;
+
+        public int? QuocGia
+        {
+            get { return quocgia; }
+            set { quocgia = value; }
+        }
         
         private string sobhxh;
 
@@ -145,15 +153,21 @@ namespace Business.CNVC
         public bool Add()
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[8]{
-                new NpgsqlParameter("ma_nv",manv), 
-                new NpgsqlParameter("ho",ho), 
-                new NpgsqlParameter("ten",ten), 
-                new NpgsqlParameter("diachi",diachi), 
-                new NpgsqlParameter("so_so_bhxh",sobhxh), 
-                new NpgsqlParameter("ma_so_thue",masothue), 
-                new NpgsqlParameter("ngay_sinh",ngaysinh),
-                new NpgsqlParameter("gioi_tinh",gioitinh)
+            IDataParameter[] paras = new IDataParameter[14]{
+                new NpgsqlParameter("p_ma_nv",manv), 
+                new NpgsqlParameter("p_ho",ho), 
+                new NpgsqlParameter("p_ten",ten), 
+                new NpgsqlParameter("p_ma_ho_so",mahoso), 
+                new NpgsqlParameter("p_so_so_bhxh",sobhxh), 
+                new NpgsqlParameter("p_ma_so_thue",masothue), 
+                new NpgsqlParameter("p_ngay_sinh",ngaysinh),
+                new NpgsqlParameter("p_gioi_tinh",gioitinh),
+                new NpgsqlParameter("p_so_nha",sonha), 
+                new NpgsqlParameter("p_duong",duong), 
+                new NpgsqlParameter("p_phuong_xa",phuong), 
+                new NpgsqlParameter("p_quan_huyen",quan),
+                new NpgsqlParameter("p_tinh_thanhpho",tinh),
+                new NpgsqlParameter("p_quoc_gia",quocgia)
             };
             check = (int)dp.executeScalarProc("sp_insert_cnvc", paras);
             if (check > 0)
@@ -182,16 +196,22 @@ namespace Business.CNVC
         public bool Update(string ma_nv_old)
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[9]{
-                new NpgsqlParameter("p_ma_nv_old",ma_nv_old), 
+            IDataParameter[] paras = new IDataParameter[15]{
+                new NpgsqlParameter("p_ma_nv_old",manv), 
                 new NpgsqlParameter("p_ma_nv",manv), 
                 new NpgsqlParameter("p_ho",ho), 
                 new NpgsqlParameter("p_ten",ten), 
-                new NpgsqlParameter("p_diachi",diachi), 
+                new NpgsqlParameter("p_ma_ho_so",mahoso), 
                 new NpgsqlParameter("p_so_so_bhxh",sobhxh), 
                 new NpgsqlParameter("p_ma_so_thue",masothue), 
                 new NpgsqlParameter("p_ngay_sinh",ngaysinh),
-                new NpgsqlParameter("p_gioi_tinh",gioitinh)
+                new NpgsqlParameter("p_gioi_tinh",gioitinh),
+                new NpgsqlParameter("p_so_nha",sonha), 
+                new NpgsqlParameter("p_duong",duong), 
+                new NpgsqlParameter("p_phuong_xa",phuong), 
+                new NpgsqlParameter("p_quan_huyen",quan),
+                new NpgsqlParameter("p_tinh_thanhpho",tinh),
+                new NpgsqlParameter("p_quoc_gia",quocgia)
             };
             check = (int)dp.executeScalarProc("sp_update_cnvc", paras);
             if (check > 0)

@@ -1560,7 +1560,7 @@ namespace QLNS.UCs
                         if (oQLNS_DonVi_CNVC1.TreeV_CNVC.Nodes.Count > 0 && oQLNS_ThongTinNV.dtCNVC.Rows.Count <= 0)
                         {
                             oQLNS_ThongTinNV.GetCNVCInfo(oQLNS_DonVi_CNVC1.TreeV_CNVC.SelectedNode.Name);
-                            oQLNS_ThongTinNV.LoadInfo();
+                            oQLNS_ThongTinNV.FillInfo();
                         }
                         break;
 
