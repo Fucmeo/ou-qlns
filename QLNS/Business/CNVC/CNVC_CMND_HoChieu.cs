@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Data;
 using Npgsql;
 using DataProvider;
+using System.Globalization;
 
 namespace Business.CNVC
 {
@@ -32,9 +33,9 @@ namespace Business.CNVC
             set { id = value; }
         }
 
-        private bool cmndhochieu;
+        private bool[] cmndhochieu;
 
-        public bool CMNDHoChieu
+        public bool[] CMNDHoChieu
         {
             get { return cmndhochieu; }
             set { cmndhochieu = value; }
@@ -48,34 +49,34 @@ namespace Business.CNVC
             set { manv = value; }
         }
 
-        private string maso;
+        private string[] maso;
 
-        public string MaSo
+        public string[] MaSo
         {
             get { return maso; }
             set { maso = value; }
         }
 
-        private DateTime? ngaycap;
+        private DateTime?[] ngaycap;
 
-        public DateTime? NgayCap
+        public DateTime?[] NgayCap
         {
             get { return ngaycap; }
             set { ngaycap = value; }
         }
 
-        private string noicap;
+        private string[] noicap;
 
-        public string NoiCap
+        public string[] NoiCap
         {
             get { return noicap; }
             set { noicap = value; }
         }
         
 
-        private bool? isactive;
+        private bool[] isactive;
 
-        public bool? IsActive
+        public bool[] IsActive
         {
             get { return isactive; }
             set { isactive = value; }
@@ -96,7 +97,7 @@ namespace Business.CNVC
                 new NpgsqlParameter("cmnd_hochieu",cmndhochieu), 
                 new NpgsqlParameter("ma_so",maso), 
                 new NpgsqlParameter("is_active",isactive),
-                new NpgsqlParameter("ngay_cap",ngaycap),                
+                new NpgsqlParameter("ngay_cap",ngaycap.Select( a => a.Value.ToString("d", CultureInfo.CreateSpecificCulture("en-NZ"))).ToArray()),  // format : mm/dd/yyyy                
                 new NpgsqlParameter("noi_cap",noicap)
             };
             check = (int)dp.executeScalarProc("sp_insert_cnvc_cmnd_hochieu", paras);

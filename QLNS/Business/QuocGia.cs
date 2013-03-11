@@ -51,9 +51,9 @@ namespace Business
         {
             int check;
             IDataParameter[] paras = new IDataParameter[1]{
-                new NpgsqlParameter("ten_tinh_tp",tenquocgia)
+                new NpgsqlParameter("p_ten_quoc_gia",tenquocgia)
             };
-            check = (int)dp.executeScalarProc("sp_insert_tinh_tp", paras);
+            check = (int)dp.executeScalarProc("sp_insert_quoc_gia", paras);
             if (check > 0)
             {
                 return true;
@@ -66,9 +66,9 @@ namespace Business
         {
             int check;
             IDataParameter[] paras = new IDataParameter[1]{
-                new NpgsqlParameter("ten_tinh_tp",tenquocgia)
+                new NpgsqlParameter("p_ten_quoc_gia",tenquocgia)
             };
-            check = (int)dp.executeScalarProc("sp_insert_tinh_tp", paras);
+            check = (int)dp.executeScalarProc("sp_insert_quoc_gia", paras);
             if (check > 0)
             {
                 return check;
@@ -84,7 +84,7 @@ namespace Business
                 new NpgsqlParameter("p_id",id)
             };
 
-            check = (int)dp.executeScalarProc("sp_delete_tinhtp", paras);
+            check = (int)dp.executeScalarProc("sp_delete_quoc_gia", paras);
             if (check > 0)
                 return true;
             else
@@ -97,9 +97,9 @@ namespace Business
             int check;
             IDataParameter[] paras = new IDataParameter[2]{
                 new NpgsqlParameter("p_id",id),
-                new NpgsqlParameter("p_ten_tinh_tp",tenquocgia)
+                new NpgsqlParameter("p_ten_quoc_gia",tenquocgia)
             };
-            check = (int)dp.executeScalarProc("sp_update_tinhtp", paras);
+            check = (int)dp.executeScalarProc("sp_update_quoc_gia", paras);
             if (check > 0)
             {
                 return true;
@@ -113,22 +113,15 @@ namespace Business
             DataTable dt = new DataTable();
 
 
-            dt = dp.getDataTable("select * from v_tinhtp");
+            dt = dp.getDataTable("select * from v_quoc_gia");
             DataRow dr = dt.NewRow();
-            dr["ten_tinh_tp"] = "";
+            dr["ten_quoc_gia"] = "";
             dr["id"] = -1;
             dt.Rows.Add(dr);
 
             return dt;
         }
 
-        public DataTable GetData_Compact()
-        {
-            DataTable dt = new DataTable();
-            dt = dp.getDataTable("select * from v_tinhtp_compact");
-
-            return dt;
-        }
 
         #endregion
     }
