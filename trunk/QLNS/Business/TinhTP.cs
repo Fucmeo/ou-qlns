@@ -145,6 +145,7 @@ namespace Business
             DataRow dr = dt.NewRow();
             dr["ten_tinh_tp"] = "";
             dr["id"] = -1;
+            dr["quoc_gia_id"] = -1;
             dt.Rows.Add(dr);
 
             return dt;
