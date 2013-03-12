@@ -19,6 +19,8 @@ namespace QLNS
             Application.Run(new Forms.Main(new UCs.QLNS_HienThiThongTin()));
         }
 
+        public static string selected_ma_nv = "";
+
         static public void DkButton(Button[] ShowButtons, Button[] HideButtons)
         {
             foreach (Button sb in ShowButtons)
