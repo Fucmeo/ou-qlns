@@ -14,7 +14,7 @@ namespace QLNS.UCs.DanhMucThongTin
     {
         public CNVC oCNVC ;
         public CNVC_CMND_HoChieu oCMND_HoChieu;
-        public DataTable dtCNVC , dtTinhTP, dtQuocGia;
+        public DataTable dtCNVC , dtCMND , dtTinhTP, dtQuocGia;
         Business.TinhTP oTinhTP;
         Business.QuocGia oQuocGia;
         bool bAddCNVCFlag = false , bAddCMNDFlag = false ;
@@ -26,6 +26,7 @@ namespace QLNS.UCs.DanhMucThongTin
             InitializeComponent();
             oCNVC = new CNVC();
             dtCNVC = new DataTable();
+            dtCMND = new DataTable();
             dtTinhTP = new DataTable();
             oTinhTP = new Business.TinhTP();
             oQuocGia = new Business.QuocGia();
@@ -36,6 +37,9 @@ namespace QLNS.UCs.DanhMucThongTin
         {
             oCNVC.MaNV = m_MaNV;
             dtCNVC = oCNVC.GetData();
+
+            oCMND_HoChieu.MaNV = m_MaNV;
+            dtCMND = oCMND_HoChieu.GetData();
         }
 
         private void QLNS_ThongTinNV_Load(object sender, EventArgs e)
@@ -47,14 +51,15 @@ namespace QLNS.UCs.DanhMucThongTin
             if (comB_QuocGia.Items.Count > 0)
                 comB_QuocGia.SelectedIndex = 0;
 
-            Setup_dtgv_CMNDHoChieu();
+            comB_CMND_HoChieu.SelectedIndex = comB_TinhTrang.SelectedIndex = 0;
+            Init_dtgv_CMNDHoChieu();
 
         }
 
         public void FillInfo()
         {    
   
-            if (dtCNVC != null && dtCNVC.Rows.Count > 0)
+            if (dtCNVC.Rows.Count > 0)
             {
                 txt_MaHoSo.Text = Convert.ToString(dtCNVC.Rows[0]["ma_ho_so_goc"]);
                 txt_MaNV.Text = Convert.ToString(dtCNVC.Rows[0]["ma_nv"]);
@@ -80,23 +85,38 @@ namespace QLNS.UCs.DanhMucThongTin
                         break;
                 }
             }
+
+            if (dtCMND.Rows.Count > 0)
+            {
+                DataTable dt = dtCMND.Copy();
+                dtgv_CMNDHoChieu.Columns.Clear();
+                dtgv_CMNDHoChieu.DataSource = dt;
+                Setup_dtgv_CMNDHoChieu();
+                
+            }
         }
 
-        private void btn_Luu_Click(object sender, EventArgs e)
+        private void btn_LuuCNVC_Click(object sender, EventArgs e)
         {
-            if (VerifyData())
+            if (VerifyCNVCData())
             {
-                if ((MessageBox.Show("Thêm nhân viên này vào hệ thống?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
+                if ((MessageBox.Show("Thêm / cập nhật nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
                 {
                     try
                     {
                         GetCNVCInfoData();
-                        GetCMNDInputData();
+                        if (QLNS_HienThiThongTin.bAddFlag)
+                        {
+                            oCNVC.Add();
+                            MessageBox.Show("Thêm nhân viên thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);    
+                        }
+                        else
+                        {
+                            oCNVC.Update(Program.selected_ma_nv);
 
-                        oCNVC.Add();
-                        oCMND_HoChieu.Add();
-
-                        MessageBox.Show("Thêm nhân viên thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("Cập nhật nhân viên thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        
                     }
                     catch (Exception)
                     {
@@ -142,7 +162,7 @@ namespace QLNS.UCs.DanhMucThongTin
             LoadTinhData(dt);
         }
 
-        private bool VerifyData()
+        private bool VerifyCNVCData()
         {
             if (string.IsNullOrWhiteSpace(txt_MaHoSo.Text) || string.IsNullOrWhiteSpace(txt_MaNV.Text) || string.IsNullOrWhiteSpace(txt_MaHoSo.Text))
             {
@@ -157,6 +177,7 @@ namespace QLNS.UCs.DanhMucThongTin
             oCNVC.MaNV = txt_MaNV.Text.Trim();
             oCNVC.Ho = txt_Ho.Text.Trim();
             oCNVC.Ten = txt_Ten.Text.Trim();
+            oCNVC.MaHoSo = txt_MaHoSo.Text.Trim();
             oCNVC.SoBHXH = txt_SoSoBHXH.Text.Trim();
             oCNVC.MaSoThue = txt_MaSoThue.Text.Trim();
             oCNVC.SoNha = txt_SoNha.Text;
@@ -193,15 +214,15 @@ namespace QLNS.UCs.DanhMucThongTin
                 {
                     DataGridViewRow r = dtgv_CMNDHoChieu.Rows[i];
 
-                    oCMND_HoChieu.CMNDHoChieu[i] = r.Cells[0].ToString() == "CMND" ? true : false;
-                    oCMND_HoChieu.MaSo[i] = r.Cells[2].ToString();
+                    oCMND_HoChieu.CMNDHoChieu[i] = r.Cells[0].Value.ToString() == "CMND" ? true : false;
+                    oCMND_HoChieu.MaSo[i] = r.Cells[2].Value.ToString();
                     if (r.Cells[3].Value.ToString() != "")
                         oCMND_HoChieu.NgayCap[i] = Convert.ToDateTime(r.Cells[3].Value.ToString());
                     else
                         oCMND_HoChieu.NgayCap[i] = DateTime.MinValue;
 
-                    oCMND_HoChieu.NoiCap[i] = r.Cells[4].ToString();
-                    oCMND_HoChieu.IsActive[i] = r.Cells[5].ToString() == "Còn hiệu lực" ? true : false;
+                    oCMND_HoChieu.NoiCap[i] = r.Cells[4].Value.ToString();
+                    oCMND_HoChieu.IsActive[i] = r.Cells[5].Value.ToString() == "Còn hiệu lực" ? true : false;
                 }
             }
            
@@ -278,7 +299,8 @@ namespace QLNS.UCs.DanhMucThongTin
             if (lbl_ThemCMND.Text == "Thêm")
             {
                 bAddCMNDFlag = true;
-                ControlCMND(true);    
+                ControlCMND(true);
+                ClearCMNDData();
             }
             else        // LƯU
             {
@@ -306,6 +328,7 @@ namespace QLNS.UCs.DanhMucThongTin
                     }
                     
                     ControlCMND(false);
+                    ClearCMNDData();
                 }
                 else
                 {
@@ -333,8 +356,16 @@ namespace QLNS.UCs.DanhMucThongTin
             else        // HUỶ
             {
                     ControlCMND(false);
+                    ClearCMNDData();
              
             }
+        }
+
+        private void ClearCMNDData()
+        {
+            txt_NoiCap.Text = txt_MaSo.Text = "";
+            comB_CMND_HoChieu.SelectedIndex = comB_TinhTrang.SelectedIndex = 0;
+            dTP_NgayCap.Checked = false;
         }
 
         private void ControlCMND(bool Add)
@@ -353,9 +384,7 @@ namespace QLNS.UCs.DanhMucThongTin
                 lbl_ThemCMND.Text = "Thêm";
                 txt_NoiCap.Enabled = txt_MaSo.Enabled = dTP_NgayCap.Enabled = comB_CMND_HoChieu.Enabled = comB_TinhTrang.Enabled = false;
                 dtgv_CMNDHoChieu.Enabled = true;
-                txt_NoiCap.Text = txt_MaSo.Text = "";
-                comB_CMND_HoChieu.SelectedIndex = comB_TinhTrang.SelectedIndex = 0;
-                dTP_NgayCap.Checked = false;
+                
             }
         }
 
@@ -369,7 +398,7 @@ namespace QLNS.UCs.DanhMucThongTin
             return true;
         }
 
-        private void Setup_dtgv_CMNDHoChieu()
+        private void Init_dtgv_CMNDHoChieu()
         {
             dtgv_CMNDHoChieu.Columns.Clear();
             DataGridViewTextBoxColumn col = new DataGridViewTextBoxColumn();
@@ -407,6 +436,24 @@ namespace QLNS.UCs.DanhMucThongTin
             //dtgv_CMNDHoChieu.Rows.Add(1);
         }
 
+        private void Setup_dtgv_CMNDHoChieu()
+        {
+            dtgv_CMNDHoChieu.Columns[0].HeaderText = "CMND / Hộ chiếu";
+            dtgv_CMNDHoChieu.Columns[0].Width = 150;
+
+            dtgv_CMNDHoChieu.Columns[1].Visible = false;
+
+            dtgv_CMNDHoChieu.Columns[2].HeaderText = "Mã số";
+            dtgv_CMNDHoChieu.Columns[2].Width = 200;
+            dtgv_CMNDHoChieu.Columns[3].HeaderText = "Ngày cấp";
+            dtgv_CMNDHoChieu.Columns[3].Width = 200;
+            dtgv_CMNDHoChieu.Columns[4].HeaderText = "Nơi cấp";
+            dtgv_CMNDHoChieu.Columns[4].Width = 200;
+            dtgv_CMNDHoChieu.Columns[5].HeaderText = "Tình trạng";
+            dtgv_CMNDHoChieu.Columns[5].Width = 150;
+
+        }
+
         private void dtgv_CMNDHoChieu_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dtgv_CMNDHoChieu.Rows.Count > 0 && dtgv_CMNDHoChieu.SelectedRows != null)
@@ -422,8 +469,11 @@ namespace QLNS.UCs.DanhMucThongTin
                     comB_CMND_HoChieu.Text = "Hộ chiếu";
                 }
                 txt_MaSo.Text = r.Cells[2].Value.ToString();
-                if (r.Cells[3].Value.ToString() != "")
+                if (r.Cells[3].Value.ToString() != "" && r.Cells[3].Value.ToString() != DateTime.MinValue.ToString())
+                {
+                    dTP_NgayCap.Checked = true;
                     dTP_NgayCap.Value = Convert.ToDateTime(r.Cells[3].Value);
+                }
                 else
                     dTP_NgayCap.Checked = false;
 
@@ -437,6 +487,31 @@ namespace QLNS.UCs.DanhMucThongTin
                     comB_TinhTrang.Text = "Hết hiệu lực";
                 }
 
+            }
+        }
+
+        private void btn_LuuCMND_Click(object sender, EventArgs e)
+        {
+            if (VerifyCNVCData() && dtgv_CMNDHoChieu.Rows.Count > 0)
+            {
+                if ((MessageBox.Show("Thêm thông tin về CMND / Hộ chiếu của nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
+                {
+                    try
+                    {
+                        GetCMNDInputData();
+                        oCMND_HoChieu.Add();
+
+                        MessageBox.Show("Thêm thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Thông tin không phù hợp, xin vui lòng xem lại thông tin CMND/ Hộ chiếu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Thông tin không đầy đủ, xin vui lòng xem lại thông tin nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

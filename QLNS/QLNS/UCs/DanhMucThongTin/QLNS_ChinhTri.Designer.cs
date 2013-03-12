@@ -430,7 +430,7 @@
             "Đảng viên",
             "Dân quân tự vệ",
             "Công đoàn viên"});
-            this.comB_Loai.Location = new System.Drawing.Point(101, 33);
+            this.comB_Loai.Location = new System.Drawing.Point(101, 31);
             this.comB_Loai.Name = "comB_Loai";
             this.comB_Loai.Size = new System.Drawing.Size(191, 29);
             this.comB_Loai.TabIndex = 42;
@@ -498,7 +498,7 @@
             this.comB_ChucVu.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_ChucVu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_ChucVu.FormattingEnabled = true;
-            this.comB_ChucVu.Location = new System.Drawing.Point(3, 37);
+            this.comB_ChucVu.Location = new System.Drawing.Point(3, 39);
             this.comB_ChucVu.Name = "comB_ChucVu";
             this.comB_ChucVu.Size = new System.Drawing.Size(144, 29);
             this.comB_ChucVu.TabIndex = 9;

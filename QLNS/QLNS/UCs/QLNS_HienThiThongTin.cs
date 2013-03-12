@@ -69,7 +69,6 @@ namespace QLNS.UCs
             oQLNS_DonVi_CNVC1.Dock = DockStyle.Fill;
             this.tableLP_HienThiThongTin.Controls.Add(oQLNS_DonVi_CNVC1, 0,0);
             //this.tableLayoutPanel1.Controls.Add(qlnS_DanhMucThongTin1,1, 1);
-            this.tableLP_HienThiThongTin.SetRowSpan(oQLNS_DonVi_CNVC1, 2);
             
             comB_DanhMuc.SelectedIndex = 0;
             tableLP_DanhMucThongTin.Controls.Add(oQLNS_ThongTinNV, 0, 1);
@@ -183,6 +182,8 @@ namespace QLNS.UCs
 
             //Setup_dtgv_CMNDHoChieu();
         }
+
+
 
         //private void EmptyThongTinPhuContent()
         //{
