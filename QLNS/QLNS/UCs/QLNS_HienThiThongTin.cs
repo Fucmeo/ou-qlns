@@ -1612,7 +1612,7 @@ namespace QLNS.UCs
                     case "Thông tin gia đình":
                         if (oQLNS_ThongTinGiaDinh == null)
                         {
-                            oQLNS_ThongTinGiaDinh = new QLNS_ThongTinGiaDinh();
+                            oQLNS_ThongTinGiaDinh = new QLNS_ThongTinGiaDinh(Program.selected_ma_nv);
                             oQLNS_ThongTinGiaDinh.Dock = DockStyle.Fill;
                         }
                         tableLP_DanhMucThongTin.Controls.Add(oQLNS_ThongTinGiaDinh, 0, 1);

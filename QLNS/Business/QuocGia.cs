@@ -117,7 +117,7 @@ namespace Business
             DataRow dr = dt.NewRow();
             dr["ten_quoc_gia"] = "";
             dr["id"] = -1;
-            dt.Rows.Add(dr);
+            dt.Rows.InsertAt(dr, 0);
 
             return dt;
         }

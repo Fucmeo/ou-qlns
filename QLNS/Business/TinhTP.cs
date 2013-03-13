@@ -146,7 +146,7 @@ namespace Business
             dr["ten_tinh_tp"] = "";
             dr["id"] = -1;
             dr["quoc_gia_id"] = -1;
-            dt.Rows.Add(dr);
+            dt.Rows.InsertAt(dr, 0);
 
             return dt;
         }
