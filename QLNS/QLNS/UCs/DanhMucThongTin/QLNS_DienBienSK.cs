@@ -16,11 +16,11 @@ namespace QLNS.UCs.DanhMucThongTin
         bool AddFlag;   // xac dinh thao tac add hay edit
         string ma_nv = "";
 
-        public QLNS_DienBienSK()
-        {
-            InitializeComponent();
-            suckhoe = new Business.CNVC.CNVC_DienBienSK();
-        }
+        //public QLNS_DienBienSK()
+        //{
+        //    InitializeComponent();
+        //    suckhoe = new Business.CNVC.CNVC_DienBienSK();
+        //}
 
         public QLNS_DienBienSK(string p_ma_nv)
         {
@@ -56,32 +56,32 @@ namespace QLNS.UCs.DanhMucThongTin
         private void EditDtgInterface()
         {
             //// Dat ten cho cac cot
-            dtgv_DienBienSK.Columns[2].HeaderText = "Thời điểm";
+            dtgv_DienBienSK.Columns["thoi_diem"].HeaderText = "Thời điểm";
             //dtgv_DienBienSK.Columns[3].HeaderText = "Tình trạng";
             //dtgv_DienBienSK.Columns[2].Width = 150;
-            dtgv_DienBienSK.Columns[3].HeaderText = "Cân nặng";
+            dtgv_DienBienSK.Columns["can_nang"].HeaderText = "Cân nặng";
             //dtgv_DienBienSK.Columns[4].Width = 200;
-            dtgv_DienBienSK.Columns[4].HeaderText = "Bộ mỡ";
-            dtgv_DienBienSK.Columns[5].HeaderText = "CNGAN_SGOT";
-            dtgv_DienBienSK.Columns[6].HeaderText = "CNGAN_SGPT";
-            dtgv_DienBienSK.Columns[7].HeaderText = "VIEMGAN_HBSAG";
-            dtgv_DienBienSK.Columns[8].HeaderText = "VIEMGAN_HBSAB";
-            dtgv_DienBienSK.Columns[9].HeaderText = "VIEMGAN_HCVAB";
-            dtgv_DienBienSK.Columns[10].HeaderText = "TSH";
-            dtgv_DienBienSK.Columns[11].HeaderText = "FT4";
-            dtgv_DienBienSK.Columns[12].HeaderText = "AFP";
-            dtgv_DienBienSK.Columns[13].HeaderText = "CEA";
-            dtgv_DienBienSK.Columns[14].HeaderText = "PSA";
-            dtgv_DienBienSK.Columns[15].HeaderText = "HP Định lượng";
-            dtgv_DienBienSK.Columns[16].HeaderText = "TPTNT";
-            dtgv_DienBienSK.Columns[17].HeaderText = "Phân loại";
-            dtgv_DienBienSK.Columns[18].HeaderText = "Kết luận";
-            dtgv_DienBienSK.Columns[19].HeaderText = "Đề nghị";
+            dtgv_DienBienSK.Columns["bo_mo"].HeaderText = "Bộ mỡ";
+            dtgv_DienBienSK.Columns["cngan_sgot"].HeaderText = "CNGAN_SGOT";
+            dtgv_DienBienSK.Columns["cngan_sgpt"].HeaderText = "CNGAN_SGPT";
+            dtgv_DienBienSK.Columns["viemgan_hbsag"].HeaderText = "VIEMGAN_HBSAG";
+            dtgv_DienBienSK.Columns["viemgan_hbsab"].HeaderText = "VIEMGAN_HBSAB";
+            dtgv_DienBienSK.Columns["viemgan_hcvab"].HeaderText = "VIEMGAN_HCVAB";
+            dtgv_DienBienSK.Columns["tsh"].HeaderText = "TSH";
+            dtgv_DienBienSK.Columns["ft4"].HeaderText = "FT4";
+            dtgv_DienBienSK.Columns["afp"].HeaderText = "AFP";
+            dtgv_DienBienSK.Columns["cea"].HeaderText = "CEA";
+            dtgv_DienBienSK.Columns["psa"].HeaderText = "PSA";
+            dtgv_DienBienSK.Columns["hp_dinh_luong"].HeaderText = "HP Định lượng";
+            dtgv_DienBienSK.Columns["tptnt"].HeaderText = "TPTNT";
+            dtgv_DienBienSK.Columns["phan_loai"].HeaderText = "Phân loại";
+            dtgv_DienBienSK.Columns["ket_luan"].HeaderText = "Kết luận";
+            dtgv_DienBienSK.Columns["de_nghi"].HeaderText = "Đề nghị";
 
 
             // An cac cot ID
-            dtgv_DienBienSK.Columns[0].Visible = false;
-            dtgv_DienBienSK.Columns[1].Visible = false;
+            dtgv_DienBienSK.Columns["id"].Visible = false;
+            dtgv_DienBienSK.Columns["ma_nv"].Visible = false;
 
         }
 
@@ -117,25 +117,25 @@ namespace QLNS.UCs.DanhMucThongTin
         {
             if (row != null)
             {
-                DateTime dt = Convert.ToDateTime(row.Cells[2].Value.ToString());
+                DateTime dt = Convert.ToDateTime(row.Cells["thoi_diem"].Value.ToString());
                 dTP_ThoiDiem.Value = dt;
-                txt_CanNang.Text = row.Cells[3].Value.ToString();
-                txt_BoMo.Text = row.Cells[4].Value.ToString();
-                txt_SGOT.Text = row.Cells[5].Value.ToString();
-                txt_SGPT.Text = row.Cells[6].Value.ToString();
-                txt_HBsAG.Text = row.Cells[7].Value.ToString();
-                txt_HbsAb.Text = row.Cells[8].Value.ToString();
-                txt_HCVAb.Text = row.Cells[9].Value.ToString();
-                txt_TSH.Text = row.Cells[10].Value.ToString();
-                txt_FT4.Text = row.Cells[11].Value.ToString();
-                txt_AFP.Text = row.Cells[12].Value.ToString();
-                txt_CEA.Text = row.Cells[13].Value.ToString();
-                txt_PSA.Text = row.Cells[14].Value.ToString();
-                txt_HPDinhLuong.Text = row.Cells[15].Value.ToString();
-                txt_TPTNT.Text = row.Cells[16].Value.ToString();
-                txt_PhanLoai.Text = row.Cells[17].Value.ToString();
-                rtb_KetLuan.Text = row.Cells[18].Value.ToString();
-                rtb_DeNghi.Text = row.Cells[19].Value.ToString();
+                txt_CanNang.Text = row.Cells["can_nang"].Value.ToString();
+                txt_BoMo.Text = row.Cells["bo_mo"].Value.ToString();
+                txt_SGOT.Text = row.Cells["cngan_sgot"].Value.ToString();
+                txt_SGPT.Text = row.Cells["cngan_sgpt"].Value.ToString();
+                txt_HBsAG.Text = row.Cells["viemgan_hbsag"].Value.ToString();
+                txt_HbsAb.Text = row.Cells["viemgan_hbsab"].Value.ToString();
+                txt_HCVAb.Text = row.Cells["viemgan_hcvab"].Value.ToString();
+                txt_TSH.Text = row.Cells["tsh"].Value.ToString();
+                txt_FT4.Text = row.Cells["ft4"].Value.ToString();
+                txt_AFP.Text = row.Cells["afp"].Value.ToString();
+                txt_CEA.Text = row.Cells["cea"].Value.ToString();
+                txt_PSA.Text = row.Cells["psa"].Value.ToString();
+                txt_HPDinhLuong.Text = row.Cells["hp_dinh_luong"].Value.ToString();
+                txt_TPTNT.Text = row.Cells["tptnt"].Value.ToString();
+                txt_PhanLoai.Text = row.Cells["phan_loai"].Value.ToString();
+                rtb_KetLuan.Text = row.Cells["ket_luan"].Value.ToString();
+                rtb_DeNghi.Text = row.Cells["de_nghi"].Value.ToString();
             }
         }
 
@@ -180,7 +180,7 @@ namespace QLNS.UCs.DanhMucThongTin
         {
             if (dtgv_DienBienSK.CurrentRow != null)
             {
-                if (MessageBox.Show("Bạn thực sự muốn xoá ngành này? TOÀN BỘ CÁC SINH VIÊN THUỘC NGÀNH NÀY SẼ BỊ XOÁ THEO.", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Bạn thực sự muốn xoá thông tin diễn biến sức khỏe này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     //vanbang = ToDepartmentObject(dtg_DepartmentList.CurrentRow);
                     suckhoe = new Business.CNVC.CNVC_DienBienSK(Convert.ToInt16(dtgv_DienBienSK.CurrentRow.Cells[0].Value.ToString()));
@@ -204,7 +204,7 @@ namespace QLNS.UCs.DanhMucThongTin
             #region thao tac them
             if (AddFlag)
             {
-                if (MessageBox.Show("Bạn thực sự muốn thêm diễn biến sức khỏe của nhân viên này ?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Bạn thực sự muốn thêm diễn biến sức khỏe của nhân viên?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     suckhoe = new Business.CNVC.CNVC_DienBienSK();
                     suckhoe.MaNV = ma_nv;
