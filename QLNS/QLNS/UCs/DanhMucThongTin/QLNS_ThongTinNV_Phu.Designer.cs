@@ -136,7 +136,7 @@
             this.comB_QuocTich.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_QuocTich.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_QuocTich.FormattingEnabled = true;
-            this.comB_QuocTich.Location = new System.Drawing.Point(153, 148);
+            this.comB_QuocTich.Location = new System.Drawing.Point(153, 146);
             this.comB_QuocTich.Name = "comB_QuocTich";
             this.comB_QuocTich.Size = new System.Drawing.Size(263, 29);
             this.comB_QuocTich.TabIndex = 38;
@@ -210,7 +210,7 @@
             this.comB_HoKhauTinh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_HoKhauTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_HoKhauTinh.FormattingEnabled = true;
-            this.comB_HoKhauTinh.Location = new System.Drawing.Point(3, 16);
+            this.comB_HoKhauTinh.Location = new System.Drawing.Point(3, 14);
             this.comB_HoKhauTinh.Name = "comB_HoKhauTinh";
             this.comB_HoKhauTinh.Size = new System.Drawing.Size(266, 29);
             this.comB_HoKhauTinh.TabIndex = 5;
@@ -330,7 +330,7 @@
             this.comB_NoiSinhTinh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_NoiSinhTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_NoiSinhTinh.FormattingEnabled = true;
-            this.comB_NoiSinhTinh.Location = new System.Drawing.Point(3, 14);
+            this.comB_NoiSinhTinh.Location = new System.Drawing.Point(3, 16);
             this.comB_NoiSinhTinh.Name = "comB_NoiSinhTinh";
             this.comB_NoiSinhTinh.Size = new System.Drawing.Size(266, 29);
             this.comB_NoiSinhTinh.TabIndex = 5;
@@ -414,7 +414,7 @@
             this.comB_TinhTrangHonNhan.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_TinhTrangHonNhan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_TinhTrangHonNhan.FormattingEnabled = true;
-            this.comB_TinhTrangHonNhan.Location = new System.Drawing.Point(653, 10);
+            this.comB_TinhTrangHonNhan.Location = new System.Drawing.Point(653, 8);
             this.comB_TinhTrangHonNhan.Name = "comB_TinhTrangHonNhan";
             this.comB_TinhTrangHonNhan.Size = new System.Drawing.Size(263, 29);
             this.comB_TinhTrangHonNhan.TabIndex = 14;
@@ -547,7 +547,7 @@
             this.comB_QueTinh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_QueTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_QueTinh.FormattingEnabled = true;
-            this.comB_QueTinh.Location = new System.Drawing.Point(3, 14);
+            this.comB_QueTinh.Location = new System.Drawing.Point(3, 16);
             this.comB_QueTinh.Name = "comB_QueTinh";
             this.comB_QueTinh.Size = new System.Drawing.Size(263, 29);
             this.comB_QueTinh.TabIndex = 9;
@@ -634,6 +634,7 @@
             this.btn_Luu.Text = "Lưu";
             this.btn_Luu.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Luu.UseVisualStyleBackColor = true;
+            this.btn_Luu.Click += new System.EventHandler(this.btn_Luu_Click);
             // 
             // QLNS_ThongTinNV_Phu
             // 
@@ -645,6 +646,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "QLNS_ThongTinNV_Phu";
             this.Size = new System.Drawing.Size(1000, 1000);
+            this.Load += new System.EventHandler(this.QLNS_ThongTinNV_Phu_Load);
             this.tableLP_ThongTinBoSung.ResumeLayout(false);
             this.tableLP_ThongTinBoSung.PerformLayout();
             this.groupBox3.ResumeLayout(false);

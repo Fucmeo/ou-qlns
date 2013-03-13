@@ -211,6 +211,7 @@
             this.comB_QuocGia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_QuocGia.Enabled = false;
             this.comB_QuocGia.FormattingEnabled = true;
+            this.comB_QuocGia.Location = new System.Drawing.Point(636, 125);
             this.comB_QuocGia.Location = new System.Drawing.Point(636, 132);
             this.comB_QuocGia.Name = "comB_QuocGia";
             this.comB_QuocGia.Size = new System.Drawing.Size(263, 25);
@@ -223,6 +224,7 @@
             this.comB_Tinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_Tinh.Enabled = false;
             this.comB_Tinh.FormattingEnabled = true;
+            this.comB_Tinh.Location = new System.Drawing.Point(149, 125);
             this.comB_Tinh.Location = new System.Drawing.Point(149, 132);
             this.comB_Tinh.Name = "comB_Tinh";
             this.comB_Tinh.Size = new System.Drawing.Size(263, 25);
@@ -418,6 +420,7 @@
             this.comB_MoiQH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_MoiQH.Enabled = false;
             this.comB_MoiQH.FormattingEnabled = true;
+            this.comB_MoiQH.Location = new System.Drawing.Point(149, 10);
             this.comB_MoiQH.Items.AddRange(new object[] {
             "Ba, mẹ ruột",
             "Ba, mẹ bên vợ/chồng",

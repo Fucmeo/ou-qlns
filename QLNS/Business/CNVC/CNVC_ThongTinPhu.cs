@@ -104,13 +104,23 @@ namespace Business.CNVC
             set { tongiao = value; }
         }
 
-        private string hokhauthuongchu;
+        public int QuocTinh { get; set; }
 
-        public string HoKhauThuongTru
+        private string hokhauthuongchu_xa;
+
+        public string HoKhauThuongTruXa
         {
-            get { return hokhauthuongchu; }
-            set { hokhauthuongchu = value; }
+            get { return hokhauthuongchu_xa; }
+            set { hokhauthuongchu_xa = value; }
         }
+
+        public string HoKhauThuongChu_Huyen { get; set; }
+
+        public int? HoKhauThuongChu_Tinh { get; set; }
+
+        public int QueQuan_QuocGia { get; set; }
+
+        public int HoKhauThuongTru_QuocGia { get; set; }
 
         private string chieucao;
 
@@ -144,21 +154,26 @@ namespace Business.CNVC
         public bool Add()
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[14]{
-                new NpgsqlParameter("ma_nv",manv), 
-                new NpgsqlParameter("ten_goi_khac",tengoikhac), 
-                new NpgsqlParameter("noi_sinh_xa",noisinhxa), 
-                new NpgsqlParameter("noi_sinh_huyen",noisinhhuyen),
-                new NpgsqlParameter("noi_sinh_huyen",noisinhtinh),
-                new NpgsqlParameter("noi_sinh_huyen",quequanxa),
-                new NpgsqlParameter("noi_sinh_huyen",quequanhuyen),
-                new NpgsqlParameter("noi_sinh_huyen",quequantinh),
-                new NpgsqlParameter("noi_sinh_huyen",dantoc),
-                new NpgsqlParameter("noi_sinh_huyen",tongiao),
-                new NpgsqlParameter("noi_sinh_huyen",hokhauthuongchu),
-                new NpgsqlParameter("noi_sinh_huyen",chieucao),
-                new NpgsqlParameter("noi_sinh_huyen",nhommau),
-                new NpgsqlParameter("noi_sinh_huyen",tinhtranghonhan)
+            IDataParameter[] paras = new IDataParameter[19]{
+                new NpgsqlParameter("p_ma_nv",manv), 
+                new NpgsqlParameter("p_ten_goi_khac",tengoikhac), 
+                new NpgsqlParameter("p_noi_sinh_xa",noisinhxa), 
+                new NpgsqlParameter("p_noi_sinh_huyen",noisinhhuyen),
+                new NpgsqlParameter("p_noi_sinh_tinh",noisinhtinh),
+                new NpgsqlParameter("p_que_quan_xa",quequanxa),
+                new NpgsqlParameter("p_que_quan_huyen",quequanhuyen),
+                new NpgsqlParameter("p_que_quan_tinh",quequantinh),
+                new NpgsqlParameter("p_dan_toc",dantoc),
+                new NpgsqlParameter("p_ton_giao",tongiao),
+                new NpgsqlParameter("p_chieu_cao",chieucao),
+                new NpgsqlParameter("p_nhom_mau",nhommau),
+                new NpgsqlParameter("p_ttr_hon_nhan_id",tinhtranghonhan),
+                new NpgsqlParameter("p_quoc_tich",QuocTinh),
+                new NpgsqlParameter("p_hokhau_thuongtru_xa",HoKhauThuongTruXa),
+                new NpgsqlParameter("p_hokhau_thuongtru_huyen",HoKhauThuongChu_Huyen),
+                new NpgsqlParameter("p_hokhau_thuongtru_tinh",HoKhauThuongChu_Tinh),
+                new NpgsqlParameter("p_que_quan_quoc_gia",QueQuan_QuocGia),
+                new NpgsqlParameter("p_hokhau_thuongtru_quoc_gia",HoKhauThuongTru_QuocGia)
             };
             check = (int)dp.executeScalarProc("sp_insert_cnvc_thong_tin_phu", paras);
             if (check > 0)
@@ -173,7 +188,7 @@ namespace Business.CNVC
         public bool Update()
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[14]{
+            IDataParameter[] paras = new IDataParameter[19]{
            new NpgsqlParameter("p_ma_nv",manv), 
                 new NpgsqlParameter("p_ten_goi_khac",tengoikhac), 
                 new NpgsqlParameter("p_noi_sinh_xa",noisinhxa), 
@@ -184,10 +199,15 @@ namespace Business.CNVC
                 new NpgsqlParameter("p_que_quan_tinh",quequantinh),
                 new NpgsqlParameter("p_dan_toc",dantoc),
                 new NpgsqlParameter("p_ton_giao",tongiao),
-                new NpgsqlParameter("p_noi_dk_hokhau_thuongtru",hokhauthuongchu),
                 new NpgsqlParameter("p_chieu_cao",chieucao),
                 new NpgsqlParameter("p_nhom_mau",nhommau),
-                new NpgsqlParameter("p_ttr_hon_nhan_id",tinhtranghonhan)
+                new NpgsqlParameter("p_ttr_hon_nhan_id",tinhtranghonhan),
+                new NpgsqlParameter("p_quoc_tich",QuocTinh),
+                new NpgsqlParameter("p_hokhau_thuongtru_xa",HoKhauThuongTruXa),
+                new NpgsqlParameter("p_hokhau_thuongtru_huyen",HoKhauThuongChu_Huyen),
+                new NpgsqlParameter("p_hokhau_thuongtru_tinh",HoKhauThuongChu_Tinh),
+                new NpgsqlParameter("p_que_quan_quoc_gia",QueQuan_QuocGia),
+                new NpgsqlParameter("p_hokhau_thuongtru_quoc_gia",HoKhauThuongTru_QuocGia)
             };
             check = (int)dp.executeScalarProc("sp_update_cnvc_thong_tin_phu", paras);
             if (check > 0)
