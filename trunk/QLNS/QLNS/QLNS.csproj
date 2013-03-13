@@ -222,6 +222,12 @@
     <Compile Include="UCs\ThemMoHinhDT.Designer.cs">
       <DependentUpon>ThemMoHinhDT.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCs\ThemQuocGia.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\ThemQuocGia.Designer.cs">
+      <DependentUpon>ThemQuocGia.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCs\ThemTinhTP.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -321,6 +327,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\ThemMoHinhDT.resx">
       <DependentUpon>ThemMoHinhDT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\ThemQuocGia.resx">
+      <DependentUpon>ThemQuocGia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\ThemTinhTP.resx">
       <DependentUpon>ThemTinhTP.cs</DependentUpon>

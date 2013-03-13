@@ -181,3 +181,4 @@ D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.DanhMucThongTin.QLNS_Thong
 D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.DanhMucThongTin.QLNS_ThongTinNV.resources
 D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.DanhMucThongTin.QLNS_ThongTinNV_Phu.resources
 D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.DanhMucThongTin.QLNS_TrinhDo_ChuyenMon.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.ThemQuocGia.resources

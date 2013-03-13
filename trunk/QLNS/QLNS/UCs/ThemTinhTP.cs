@@ -12,17 +12,23 @@ namespace QLNS.UCs
     public partial class ThemTinhTP : UserControl
     {
         Business.TinhTP oTinhTP ;
+        Business.QuocGia oQuocGia;
+        DataTable dtQuocGia;
         string UCCallerName;    // ten UC cha goi UC them tinh tp
         public ThemTinhTP()
         {
             InitializeComponent();
             oTinhTP = new Business.TinhTP();
+            oQuocGia = new Business.QuocGia();
+            dtQuocGia = new DataTable();
         }
 
         public ThemTinhTP(string m_Caller)
         {
             InitializeComponent();
             oTinhTP = new Business.TinhTP();
+            oQuocGia = new Business.QuocGia();
+            dtQuocGia = new DataTable();
             UCCallerName = m_Caller;
         }
 
@@ -32,6 +38,8 @@ namespace QLNS.UCs
             {
                 oTinhTP.TenTinhTP = txt_Ten.Text;
                 oTinhTP.MoTa = rTB_GhiChu.Text;
+                oTinhTP.QuocGiaID = Convert.ToInt32(comB_QuocGia.SelectedValue);
+                
                 try
                 {
                     int i = oTinhTP.AddWithReturnID();
@@ -47,7 +55,7 @@ namespace QLNS.UCs
                             default:
                                 break;
                         }
-                        
+                        ((Form)this.Parent.Parent).Close();
                     }
                 }
                 catch (Exception ex)
@@ -59,6 +67,34 @@ namespace QLNS.UCs
             {
                 MessageBox.Show("Xin vui lòng điền tên tỉnh thành phố.\r\n", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void ThemTinhTP_Load(object sender, EventArgs e)
+        {
+            LoadQuocGiaData();
+        }
+
+        public void LoadQuocGiaData()
+        {
+            dtQuocGia = oQuocGia.GetData();
+            dtQuocGia = dtQuocGia.AsEnumerable().Where(a => a.Field<int>("id") != -1).CopyToDataTable();
+
+            // comb
+            comB_QuocGia.DataSource = dtQuocGia;
+            comB_QuocGia.DisplayMember = "ten_quoc_gia";
+            comB_QuocGia.ValueMember = "id";
+
+            if (dtQuocGia.Rows.Count > 0)
+            {
+                comB_QuocGia.SelectedIndex = 0;
+            }
+            else
+            {
+                MessageBox.Show("Chưa có quốc gia, xin vui lòng thêm quốc gia trước.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ((Form)this.Parent).Close();
+            }
+
+            
         }
     }
 }
