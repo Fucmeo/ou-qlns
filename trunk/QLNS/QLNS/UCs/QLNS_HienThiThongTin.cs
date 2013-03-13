@@ -1628,7 +1628,7 @@ namespace QLNS.UCs
                     case "Diến biến sức khỏe":
                         if (oQLNS_DienBienSK == null)
                         {
-                            oQLNS_DienBienSK = new QLNS_DienBienSK();
+                            oQLNS_DienBienSK = new QLNS_DienBienSK(Program.selected_ma_nv);
                             oQLNS_DienBienSK.Dock = DockStyle.Fill; 
                         }
                         tableLP_DanhMucThongTin.Controls.Add(oQLNS_DienBienSK, 0, 1);
