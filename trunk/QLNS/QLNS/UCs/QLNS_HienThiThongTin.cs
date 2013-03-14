@@ -1560,13 +1560,18 @@ namespace QLNS.UCs
                         tableLP_DanhMucThongTin.Controls.Add(oQLNS_ThongTinNV, 0, 1);
                         if (oQLNS_DonVi_CNVC1.TreeV_CNVC.Nodes.Count > 0 && oQLNS_ThongTinNV.dtCNVC.Rows.Count <= 0)
                         {
-                            oQLNS_ThongTinNV.GetCNVCInfo(oQLNS_DonVi_CNVC1.TreeV_CNVC.SelectedNode.Name);
+                            oQLNS_ThongTinNV.GetCNVCInfo(Program.selected_ma_nv);
                             oQLNS_ThongTinNV.FillInfo();
                         }
                         break;
 
                     case "Thông tin nhân viên bổ sung":
                         tableLP_DanhMucThongTin.Controls.Add(oQLNS_ThongTinNV_Phu, 0, 1);
+                        if (oQLNS_DonVi_CNVC1.TreeV_CNVC.Nodes.Count > 0)
+                        {
+                            oQLNS_ThongTinNV_Phu.GetCNVCInfo_Phu(Program.selected_ma_nv);
+                            oQLNS_ThongTinNV_Phu.FillInfo();
+                        }
                         break;
 
                     case "Quá trình công tác":

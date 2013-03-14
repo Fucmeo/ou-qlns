@@ -96,7 +96,6 @@ D:\QLNS\QLNS\obj\x86\Debug\QLNS.Forms.QLNS_ThongTin.resources
 D:\QLNS\QLNS\obj\x86\Debug\QLNS.Properties.Resources.resources
 D:\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.ManHinhChinh.resources
 D:\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.MoHinhDaoTao.resources
-D:\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DienBienSK.resources
 D:\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_ChucDanh.resources
 D:\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_ChucVu.resources
 D:\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_DanhMucThongTin.resources
@@ -182,3 +181,14 @@ D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.DanhMucThongTin.QLNS_Thong
 D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.DanhMucThongTin.QLNS_ThongTinNV_Phu.resources
 D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.DanhMucThongTin.QLNS_TrinhDo_ChuyenMon.resources
 D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.ThemQuocGia.resources
+D:\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.DanhMucThongTin.QLNS_ChinhTri.resources
+D:\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.DanhMucThongTin.QLNS_DaoTaoBoiDuong.resources
+D:\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.DanhMucThongTin.QLNS_DienBienSK.resources
+D:\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.DanhMucThongTin.QLNS_HopDongTuyenDung.resources
+D:\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.DanhMucThongTin.QLNS_LichSuBanThan.resources
+D:\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.DanhMucThongTin.QLNS_QuaTrinhCongTac.resources
+D:\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.DanhMucThongTin.QLNS_ThongTinGiaDinh.resources
+D:\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.DanhMucThongTin.QLNS_ThongTinNV.resources
+D:\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.DanhMucThongTin.QLNS_ThongTinNV_Phu.resources
+D:\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.DanhMucThongTin.QLNS_TrinhDo_ChuyenMon.resources
+D:\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.ThemQuocGia.resources
