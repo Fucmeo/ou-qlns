@@ -118,9 +118,9 @@ namespace Business.CNVC
 
         public int? HoKhauThuongChu_Tinh { get; set; }
 
-        public int QueQuan_QuocGia { get; set; }
+        public int? QueQuan_QuocGia { get; set; }
 
-        public int HoKhauThuongTru_QuocGia { get; set; }
+        public int? HoKhauThuongTru_QuocGia { get; set; }
 
         private string chieucao;
 
