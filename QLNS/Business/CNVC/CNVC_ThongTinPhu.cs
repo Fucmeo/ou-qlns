@@ -104,7 +104,7 @@ namespace Business.CNVC
             set { tongiao = value; }
         }
 
-        public int QuocTinh { get; set; }
+        public int? QuocTinh { get; set; }
 
         private string hokhauthuongchu_xa;
 
