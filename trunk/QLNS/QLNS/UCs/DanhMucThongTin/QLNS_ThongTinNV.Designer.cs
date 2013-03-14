@@ -46,7 +46,6 @@
             this.label17 = new System.Windows.Forms.Label();
             this.txt_NoiCap = new System.Windows.Forms.TextBox();
             this.lbl_ThemCMND = new System.Windows.Forms.Label();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLP_ThongTinNV = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -69,6 +68,7 @@
             this.lbl_ThemQuocGia = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_DelAvatar = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.picB_HinhDaiDien = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
             this.comB_GioiTinh = new System.Windows.Forms.ComboBox();
@@ -191,7 +191,7 @@
             this.comB_TinhTrang.Items.AddRange(new object[] {
             "Còn hiệu lực",
             "Hết hiệu lực"});
-            this.comB_TinhTrang.Location = new System.Drawing.Point(151, 111);
+            this.comB_TinhTrang.Location = new System.Drawing.Point(151, 113);
             this.comB_TinhTrang.Name = "comB_TinhTrang";
             this.comB_TinhTrang.Size = new System.Drawing.Size(265, 29);
             this.comB_TinhTrang.TabIndex = 4;
@@ -205,7 +205,7 @@
             this.comB_CMND_HoChieu.Items.AddRange(new object[] {
             "CMND",
             "Hộ chiếu"});
-            this.comB_CMND_HoChieu.Location = new System.Drawing.Point(644, 62);
+            this.comB_CMND_HoChieu.Location = new System.Drawing.Point(644, 64);
             this.comB_CMND_HoChieu.Name = "comB_CMND_HoChieu";
             this.comB_CMND_HoChieu.Size = new System.Drawing.Size(269, 29);
             this.comB_CMND_HoChieu.TabIndex = 3;
@@ -319,12 +319,6 @@
             this.lbl_ThemCMND.TabIndex = 5;
             this.lbl_ThemCMND.Text = "Thêm";
             this.lbl_ThemCMND.Click += new System.EventHandler(this.lbl_ThemCMND_Click);
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "Remove Avatar.png");
             // 
             // groupBox2
             // 
@@ -522,7 +516,7 @@
             this.comB_Tinh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_Tinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_Tinh.FormattingEnabled = true;
-            this.comB_Tinh.Location = new System.Drawing.Point(3, 8);
+            this.comB_Tinh.Location = new System.Drawing.Point(3, 10);
             this.comB_Tinh.Name = "comB_Tinh";
             this.comB_Tinh.Size = new System.Drawing.Size(265, 29);
             this.comB_Tinh.TabIndex = 0;
@@ -572,7 +566,7 @@
             this.comB_QuocGia.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_QuocGia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_QuocGia.FormattingEnabled = true;
-            this.comB_QuocGia.Location = new System.Drawing.Point(3, 8);
+            this.comB_QuocGia.Location = new System.Drawing.Point(3, 10);
             this.comB_QuocGia.Name = "comB_QuocGia";
             this.comB_QuocGia.Size = new System.Drawing.Size(265, 29);
             this.comB_QuocGia.TabIndex = 0;
@@ -620,6 +614,12 @@
             this.btn_DelAvatar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_DelAvatar.UseVisualStyleBackColor = true;
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Remove Avatar.png");
+            // 
             // picB_HinhDaiDien
             // 
             this.picB_HinhDaiDien.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -651,7 +651,7 @@
             "Nam",
             "Nữ",
             " "});
-            this.comB_GioiTinh.Location = new System.Drawing.Point(644, 113);
+            this.comB_GioiTinh.Location = new System.Drawing.Point(644, 115);
             this.comB_GioiTinh.Name = "comB_GioiTinh";
             this.comB_GioiTinh.Size = new System.Drawing.Size(97, 29);
             this.comB_GioiTinh.TabIndex = 2;

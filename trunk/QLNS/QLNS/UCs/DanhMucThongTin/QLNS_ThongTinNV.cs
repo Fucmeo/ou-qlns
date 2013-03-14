@@ -172,7 +172,7 @@ namespace QLNS.UCs.DanhMucThongTin
                 dr["ten_tinh_tp"] = "";
                 dr["id"] = -1;
                 dr["quoc_gia_id"] = -1;
-                dt.Rows.Add(dr);
+                dt.Rows.InsertAt(dr,0);
             }
             
             // comb
@@ -296,11 +296,7 @@ namespace QLNS.UCs.DanhMucThongTin
                 comB_Tinh.DisplayMember = "ten_tinh_tp";
                 comB_Tinh.ValueMember = "id";
 
-                if (QLNS_HienThiThongTin.bAddFlag)  // dang them thi chi can load vao thoi
-                {
-                    comB_Tinh.SelectedValue = nNewTinhTPID;
-                }
-                else
+                if (x != null)
                 {
                     comB_Tinh.SelectedValue = x;
                 }
@@ -329,11 +325,7 @@ namespace QLNS.UCs.DanhMucThongTin
                 comB_QuocGia.DisplayMember = "ten_quoc_gia";
                 comB_QuocGia.ValueMember = "id";
 
-                if (QLNS_HienThiThongTin.bAddFlag)  // dang them thi chi can load vao thoi
-                {
-                    comB_QuocGia.SelectedValue = nNewQuocGiaID;
-                }
-                else
+                if (x!= null)
                 {
                     comB_QuocGia.SelectedValue = x;
                 }
@@ -605,7 +597,7 @@ namespace QLNS.UCs.DanhMucThongTin
         {
             int v = Convert.ToInt32(comB_Tinh.SelectedValue);
 
-            if (v != -1)    // combo quoc gia rong
+            if (v != -1)    // combo tinh rong
             {
                 var ids = from c in dtTinhTP.AsEnumerable()
                           where c.Field<int>("id") == v
@@ -614,7 +606,35 @@ namespace QLNS.UCs.DanhMucThongTin
                 int quoc_gia_id = ids.ElementAt<int>(0);
 
                 comB_QuocGia.SelectedValue = quoc_gia_id;
+                ExcludeTinhData(quoc_gia_id, v);
             }
+        }
+
+        /// <summary>
+        /// khi do full tinh vao combo, sau do chon 1 tinh, can phai exclude cac tinh o thuoc quoc gia do
+        /// ==> loai bo nhung value tinh ra khoi combo
+        /// </summary>
+        /// <param name="quoc_gia_id"></param>
+        /// <param name="SelectedValue">tinh mà ng dung da chon</param>
+        private void ExcludeTinhData( int quoc_gia_id, int SelectedValue)
+        {
+            var dt = dtTinhTP.AsEnumerable().Where(a => a.Field<int>("quoc_gia_id") == quoc_gia_id);
+            DataTable dt2 = dt.CopyToDataTable();
+            if (dt2.AsEnumerable().Where(a => a.Field<int>("id") == -1).Count() <= 0)
+            {
+                DataRow dr = dt2.NewRow();
+                dr["ten_tinh_tp"] = "";
+                dr["id"] = -1;
+                dr["quoc_gia_id"] = -1;
+                dt2.Rows.Add(dr);
+            }
+
+            // comb
+            comB_Tinh.DataSource = dt2;
+            comB_Tinh.DisplayMember = "ten_tinh_tp";
+            comB_Tinh.ValueMember = "id";
+
+            comB_Tinh.SelectedValue = SelectedValue;
         }
     }
 }

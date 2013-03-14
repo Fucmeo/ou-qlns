@@ -87,6 +87,7 @@ namespace QLNS.UCs
            tableLP_DanhMucThongTin.Controls.Add(oQLNS_ThongTinNV, 0, 1);
 
            bAddFlag = true;
+           Program.selected_ma_nv = "";
         }
 
         private void btn_Luu_Click(object sender, EventArgs e)
@@ -1558,7 +1559,8 @@ namespace QLNS.UCs
                 {
                     case "Thông tin nhân viên":
                         tableLP_DanhMucThongTin.Controls.Add(oQLNS_ThongTinNV, 0, 1);
-                        if (oQLNS_DonVi_CNVC1.TreeV_CNVC.Nodes.Count > 0 && oQLNS_ThongTinNV.dtCNVC.Rows.Count <= 0)
+                        if (oQLNS_DonVi_CNVC1.TreeV_CNVC.SelectedNode != null && 
+                            oQLNS_ThongTinNV.dtCNVC.AsEnumerable().Where(a => a.Field<string>("ma_nv") == Program.selected_ma_nv).Count() <= 0)
                         {
                             oQLNS_ThongTinNV.GetCNVCInfo(Program.selected_ma_nv);
                             oQLNS_ThongTinNV.FillInfo();
@@ -1567,7 +1569,9 @@ namespace QLNS.UCs
 
                     case "Thông tin nhân viên bổ sung":
                         tableLP_DanhMucThongTin.Controls.Add(oQLNS_ThongTinNV_Phu, 0, 1);
-                        if (oQLNS_DonVi_CNVC1.TreeV_CNVC.Nodes.Count > 0)
+                        // co chon nv va nv chon khac voi nv hien tai moi get lai thong tin nv
+                        if (oQLNS_DonVi_CNVC1.TreeV_CNVC.SelectedNode != null && 
+                                oQLNS_ThongTinNV_Phu.dtCNVC_InfoPhu.AsEnumerable().Where(a => a.Field<string>("ma_nv") == Program.selected_ma_nv).Count() <= 0)
                         {
                             oQLNS_ThongTinNV_Phu.GetCNVCInfo_Phu(Program.selected_ma_nv);
                             oQLNS_ThongTinNV_Phu.FillInfo();
