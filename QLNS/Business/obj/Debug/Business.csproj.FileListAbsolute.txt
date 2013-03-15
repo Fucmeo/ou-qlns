@@ -160,3 +160,4 @@ D:\Job\QLNS\Projects\QLNS2\Business\bin\Debug\zh-CN\Npgsql.resources.dll
 D:\Job\QLNS\Projects\QLNS2\Business\obj\Debug\Business.csprojResolveAssemblyReference.cache
 D:\Job\QLNS\Projects\QLNS2\Business\obj\Debug\Business.dll
 D:\Job\QLNS\Projects\QLNS2\Business\obj\Debug\Business.pdb
+D:\QLNS\Business\bin\Debug\Npgsql.xml
