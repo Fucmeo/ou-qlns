@@ -41,29 +41,18 @@ namespace Business.CNVC
             set { manv = value; }
         }
 
-        private string truongcap1;
+        public int CapHoc{ get; set; }
 
-        public string TruongCap1
-        {
-            get { return truongcap1; }
-            set { truongcap1 = value; }
-        }
+        public string TenTruong { get; set; }
 
-        private string truongcap2;
+        public string Phuong { get; set; }
 
-        public string TruongCap2
-        {
-            get { return truongcap2; }
-            set { truongcap2 = value; }
-        }
+        public string Quan { get; set; }
 
-        private string truongcap3;
+        public int? Tinh { get; set; }
 
-        public string TruongCap3
-        {
-            get { return truongcap3; }
-            set { truongcap3 = value; }
-        }
+        public string NamHoc { get; set; }
+
 
         #endregion
 
@@ -72,11 +61,14 @@ namespace Business.CNVC
         public bool Add()
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[4]{
+            IDataParameter[] paras = new IDataParameter[7]{
                 new NpgsqlParameter("ma_nv",manv),
-                new NpgsqlParameter("truong_cap_1",truongcap1),
-                new NpgsqlParameter("truong_cap_2",truongcap2),
-                new NpgsqlParameter("truong_cap_3",truongcap3)
+                new NpgsqlParameter("cap_hoc",CapHoc),
+                new NpgsqlParameter("ten_truong",TenTruong),
+                new NpgsqlParameter("phuong_xa",Phuong),
+                new NpgsqlParameter("quan_huyen",Quan),
+                new NpgsqlParameter("tinh_thanhpho",Tinh),
+                new NpgsqlParameter("nam_hoc",NamHoc)
             };
             check = (int)dp.executeScalarProc("sp_insert_cnvc_trinh_do_pho_thong", paras);
             if (check > 0)
@@ -90,12 +82,14 @@ namespace Business.CNVC
         public bool Update()
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[5]{
-                new NpgsqlParameter("id",id), 
-                new NpgsqlParameter("ma_nv",manv),
-                new NpgsqlParameter("truong_cap_1",truongcap1),
-                new NpgsqlParameter("truong_cap_2",truongcap2),
-                new NpgsqlParameter("truong_cap_3",truongcap3)
+            IDataParameter[] paras = new IDataParameter[7]{
+                new NpgsqlParameter("p_id",id),
+                new NpgsqlParameter("p_cap_hoc",CapHoc),
+                new NpgsqlParameter("p_ten_truong",TenTruong),
+                new NpgsqlParameter("p_phuong_xa",Phuong),
+                new NpgsqlParameter("p_quan_huyen",Quan),
+                new NpgsqlParameter("p_tinh_thanhpho",Tinh),
+                new NpgsqlParameter("p_nam_hoc",NamHoc)
             };
             check = (int)dp.executeScalarProc("sp_update_cnvc_trinh_do_pho_thong", paras);
             if (check > 0)
@@ -110,7 +104,7 @@ namespace Business.CNVC
         {
             int check;
             IDataParameter[] paras = new IDataParameter[1]{
-                new NpgsqlParameter("p_ma_nv",manv)
+                new NpgsqlParameter("p_id",id)
             };
             check = (int)dp.executeScalarProc("sp_delete_cnvc_trinh_do_pho_thong", paras);
             if (check > 0)
