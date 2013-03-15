@@ -1607,6 +1607,14 @@ namespace QLNS.UCs
                             oQLNS_TrinhDo_ChuyenMon.Dock = DockStyle.Fill;
                         }
                         tableLP_DanhMucThongTin.Controls.Add(oQLNS_TrinhDo_ChuyenMon, 0, 1);
+                        // co chon nv va nv chon khac voi nv hien tai moi get lai thong tin nv
+                        if (oQLNS_DonVi_CNVC1.TreeV_CNVC.SelectedNode != null &&
+                                oQLNS_TrinhDo_ChuyenMon.dtTrinhDo.AsEnumerable().Where(a => a.Field<string>("ma_nv") == Program.selected_ma_nv).Count() <= 0)
+                        {
+                            oQLNS_TrinhDo_ChuyenMon.GetChuyenMonInfo(Program.selected_ma_nv);
+                            oQLNS_TrinhDo_ChuyenMon.GetTrinhDoInfo(Program.selected_ma_nv);
+                            oQLNS_TrinhDo_ChuyenMon.FillInfo();
+                        }
                         break;
 
                     case "Hoạt động chính trị":

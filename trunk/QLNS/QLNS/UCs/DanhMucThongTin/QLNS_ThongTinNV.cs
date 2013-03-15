@@ -447,14 +447,14 @@ namespace QLNS.UCs.DanhMucThongTin
                 lbl_SuaCMND.Text = "Huỷ";
                 lbl_ThemCMND.Text = "Lưu";
                 txt_NoiCap.Enabled = txt_MaSo.Enabled = dTP_NgayCap.Enabled = comB_CMND_HoChieu.Enabled = comB_TinhTrang.Enabled = true;
-                dtgv_CMNDHoChieu.Enabled = false;
+                dtgv_CMNDHoChieu.Enabled = lbl_XoaCMND.Enabled = false;
             }
             else
             {
                 lbl_SuaCMND.Text = "Sửa";
                 lbl_ThemCMND.Text = "Thêm";
                 txt_NoiCap.Enabled = txt_MaSo.Enabled = dTP_NgayCap.Enabled = comB_CMND_HoChieu.Enabled = comB_TinhTrang.Enabled = false;
-                dtgv_CMNDHoChieu.Enabled = true;
+                dtgv_CMNDHoChieu.Enabled = lbl_XoaCMND.Enabled = true;
                 
             }
         }
