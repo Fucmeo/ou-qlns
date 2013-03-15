@@ -568,31 +568,6 @@ namespace QLNS.UCs.DanhMucThongTin
             }
         }
 
-        private void btn_LuuCMND_Click(object sender, EventArgs e)
-        {
-            if (VerifyCNVCData() && dtgv_CMNDHoChieu.Rows.Count > 0)
-            {
-                if ((MessageBox.Show("Thêm thông tin về CMND / Hộ chiếu của nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
-                {
-                    try
-                    {
-                        GetCMNDInputData();
-                        oCMND_HoChieu.Add();
-
-                        MessageBox.Show("Thêm thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("Thông tin không phù hợp, xin vui lòng xem lại thông tin CMND/ Hộ chiếu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Thông tin không đầy đủ, xin vui lòng xem lại thông tin nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
         private void comB_Tinh_SelectionChangeCommitted(object sender, EventArgs e)
         {
             int v = Convert.ToInt32(comB_Tinh.SelectedValue);
@@ -635,6 +610,31 @@ namespace QLNS.UCs.DanhMucThongTin
             comB_Tinh.ValueMember = "id";
 
             comB_Tinh.SelectedValue = SelectedValue;
+        }
+
+        private void lbl_XoaCMND_Click(object sender, EventArgs e)
+        {
+            if (dtgv_CMNDHoChieu.SelectedRows != null &&
+                (MessageBox.Show("Xoá dòng dữ liệu CMND / Hộ chiếu của nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
+            {
+                DataGridViewRow r = dtgv_CMNDHoChieu.SelectedRows[0];
+                oCMND_HoChieu.ID = Convert.ToInt32(r.Cells[6].Value);
+
+                try
+                {
+                    oCMND_HoChieu.Delete();
+                    // load lai dtgv_CMND
+                    dtCMND = oCMND_HoChieu.GetData();
+                    dtgv_CMNDHoChieu.DataSource = dtCMND;
+                    Setup_dtgv_CMNDHoChieu();
+
+                    MessageBox.Show("Xoá thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Xoá không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                }
+            }
         }
     }
 }
