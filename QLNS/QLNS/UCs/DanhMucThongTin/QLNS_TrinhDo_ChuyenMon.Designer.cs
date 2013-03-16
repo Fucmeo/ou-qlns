@@ -231,7 +231,7 @@
             this.comB_MoHinhDaoTao.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_MoHinhDaoTao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_MoHinhDaoTao.FormattingEnabled = true;
-            this.comB_MoHinhDaoTao.Location = new System.Drawing.Point(121, 118);
+            this.comB_MoHinhDaoTao.Location = new System.Drawing.Point(121, 120);
             this.comB_MoHinhDaoTao.Name = "comB_MoHinhDaoTao";
             this.comB_MoHinhDaoTao.Size = new System.Drawing.Size(264, 29);
             this.comB_MoHinhDaoTao.TabIndex = 4;
@@ -378,7 +378,7 @@
             this.comB_Tinh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_Tinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_Tinh.FormattingEnabled = true;
-            this.comB_Tinh.Location = new System.Drawing.Point(3, 5);
+            this.comB_Tinh.Location = new System.Drawing.Point(3, 7);
             this.comB_Tinh.Name = "comB_Tinh";
             this.comB_Tinh.Size = new System.Drawing.Size(263, 29);
             this.comB_Tinh.TabIndex = 9;
@@ -444,7 +444,7 @@
             "Tiểu học",
             "Trung học cơ sở",
             "Trung học phổ thông"});
-            this.comB_CapDo.Location = new System.Drawing.Point(121, 25);
+            this.comB_CapDo.Location = new System.Drawing.Point(121, 23);
             this.comB_CapDo.Name = "comB_CapDo";
             this.comB_CapDo.Size = new System.Drawing.Size(264, 29);
             this.comB_CapDo.TabIndex = 46;
