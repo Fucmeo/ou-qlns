@@ -370,7 +370,7 @@
             "Thử việc",
             "Chính thức",
             " "});
-            this.comB_ThuviecChinhthuc.Location = new System.Drawing.Point(449, 55);
+            this.comB_ThuviecChinhthuc.Location = new System.Drawing.Point(449, 57);
             this.comB_ThuviecChinhthuc.Name = "comB_ThuviecChinhthuc";
             this.comB_ThuviecChinhthuc.Size = new System.Drawing.Size(234, 25);
             this.comB_ThuviecChinhthuc.TabIndex = 36;
@@ -515,7 +515,7 @@
             "Bổ nhiệm",
             "Kiêm nhiệm",
             "Điều động"});
-            this.comB_Loai.Location = new System.Drawing.Point(106, 57);
+            this.comB_Loai.Location = new System.Drawing.Point(106, 55);
             this.comB_Loai.Name = "comB_Loai";
             this.comB_Loai.Size = new System.Drawing.Size(234, 25);
             this.comB_Loai.TabIndex = 25;

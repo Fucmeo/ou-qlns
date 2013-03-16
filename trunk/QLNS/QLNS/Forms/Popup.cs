@@ -11,6 +11,7 @@ namespace QLNS.Forms
 {
     public partial class Popup : Form
     {
+
         public Popup(string title , UserControl uc)
         {
             InitializeComponent();

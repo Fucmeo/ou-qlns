@@ -39,7 +39,6 @@ namespace HDQD.UCs
             oDonvi = new DonVi();
 
             oHopdong = p_HopDong;
-            DisplayInfo();
         }
 
         private void btn_Them_Click(object sender, EventArgs e)
@@ -100,6 +99,7 @@ namespace HDQD.UCs
         private void HopDong_Load(object sender, EventArgs e)
         {
             PreapreDataSource();
+            DisplayInfo();
         }
 
         #region Private Methods
@@ -169,6 +169,35 @@ namespace HDQD.UCs
             }
 
             //Xử lý combo box
+            if (oHopdong.Chuc_Danh_ID != null)
+                comB_ChucDanh.SelectedValue = oHopdong.Chuc_Danh_ID;
+            if (oHopdong.Chuc_Vu_ID != null)
+                comB_ChucVu.SelectedValue = oHopdong.Chuc_Vu_ID;
+            if (oHopdong.Don_Vi_ID != null)
+                comB_DonVi.SelectedValue = oHopdong.Don_Vi_ID;
+            if (oHopdong.Ma_Loai_HD != null)
+                comB_LoaiHD.SelectedValue = oHopdong.Ma_Loai_HD;
+            if (oHopdong.ThuViec_ChinhThuc == true) //chính thức
+                comB_ThuViecChinhThuc.Text = "Chính thức";
+            else
+                comB_ThuViecChinhThuc.Text = "Thử việc";
+            //try
+            //{
+            //    comB_ChucDanh.SelectedValue = oHopdong.Chuc_Danh_ID;
+            //    comB_ChucVu.SelectedValue = oHopdong.Chuc_Vu_ID;
+            //    comB_DonVi.SelectedValue = oHopdong.Don_Vi_ID;
+            //    comB_LoaiHD.SelectedValue = oHopdong.Ma_Loai_HD;
+            //    if (oHopdong.ThuViec_ChinhThuc == true) //chính thức
+            //        comB_ThuViecChinhThuc.Text = "Chính thức";
+            //    else
+            //        comB_ThuViecChinhThuc.Text = "Thử việc";
+            //}
+            //catch {
+            //    comB_ChucDanh.SelectedValue = 0;
+            //    comB_ChucVu.SelectedValue = 0;
+            //    comB_DonVi.SelectedValue = 0;
+            //    comB_LoaiHD.SelectedValue = 0;
+            //}
         }
         #endregion
 

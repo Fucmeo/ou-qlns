@@ -266,11 +266,14 @@ namespace HDQD.UCs
                     oHopDong.Ngay_Hieu_Luc = Convert.ToDateTime(row.Cells[7].Value.ToString());
                 if (row.Cells[8].Value.ToString() != "")
                     oHopDong.Ngay_Het_Han = Convert.ToDateTime(row.Cells[8].Value.ToString());
-                oHopDong.Chuc_Vu_ID = Convert.ToInt16(row.Cells[9].Value.ToString());
+                if (row.Cells[9].Value.ToString() != "")
+                    oHopDong.Chuc_Vu_ID = Convert.ToInt16(row.Cells[9].Value.ToString());
                 oHopDong.Chuc_Vu = row.Cells[10].Value.ToString();
-                oHopDong.Chuc_Danh_ID = Convert.ToInt16(row.Cells[11].Value.ToString());
+                if (row.Cells[11].Value.ToString() != "")
+                    oHopDong.Chuc_Danh_ID = Convert.ToInt16(row.Cells[11].Value.ToString());
                 oHopDong.Chuc_Danh = row.Cells[12].Value.ToString();
-                oHopDong.Don_Vi_ID = Convert.ToInt16(row.Cells[13].Value.ToString());
+                if (row.Cells[13].Value.ToString() != "")
+                    oHopDong.Don_Vi_ID = Convert.ToInt16(row.Cells[13].Value.ToString());
                 oHopDong.Don_Vi = row.Cells[14].Value.ToString();
                 oHopDong.Tinh_Trang = Convert.ToBoolean(row.Cells[15].Value.ToString());
                 oHopDong.Ghi_Chu = row.Cells[16].Value.ToString();
