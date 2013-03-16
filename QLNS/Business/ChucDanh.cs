@@ -97,6 +97,11 @@ namespace Business
 
             dt = dp.getDataTable("select * from v_chucdanh");
 
+            DataRow dr = dt.NewRow();
+            dr["ten_chuc_danh"] = "";
+            dr["id"] = -1;
+            dt.Rows.InsertAt(dr, 0);
+
             return dt;
         }
 

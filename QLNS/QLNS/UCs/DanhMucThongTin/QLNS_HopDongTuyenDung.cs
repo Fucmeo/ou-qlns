@@ -122,5 +122,69 @@ namespace QLNS.UCs.DanhMucThongTin
         
         #endregion
 
+        private void dtgv_HopDong_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dtgv_HopDong.CurrentRow != null)
+            {
+                DataGridViewRow row = dtgv_HopDong.CurrentRow;
+                Business.HDQD.CNVC_HopDong m_oHopDong = new Business.HDQD.CNVC_HopDong();
+                m_oHopDong.ID = Convert.ToInt16(row.Cells["id"].Value.ToString());
+                m_oHopDong.Ma_NV = row.Cells["ma_nv"].Value.ToString();
+                m_oHopDong.Ma_Hop_Dong = row.Cells["ma_hop_dong"].Value.ToString();
+                m_oHopDong.Ma_Loai_HD = Convert.ToInt16(row.Cells["ma_loai_hd"].Value.ToString());
+                m_oHopDong.Loai_Hop_Dong = row.Cells["loai_hop_dong"].Value.ToString();
+                m_oHopDong.ThuViec_ChinhThuc = Convert.ToBoolean(row.Cells["thuviec_chinhthuc"].Value.ToString());
+                if (row.Cells["ngay_ky"].Value.ToString() != "")
+                    m_oHopDong.Ngay_Ky = Convert.ToDateTime(row.Cells["ngay_ky"].Value.ToString());
+                if (row.Cells["ngay_hieu_luc"].Value.ToString() != "")
+                    m_oHopDong.Ngay_Hieu_Luc = Convert.ToDateTime(row.Cells["ngay_hieu_luc"].Value.ToString());
+                if (row.Cells["ngay_het_han"].Value.ToString() != "")
+                    m_oHopDong.Ngay_Het_Han = Convert.ToDateTime(row.Cells["ngay_het_han"].Value.ToString());
+                if (row.Cells["chuc_vu_chinh_id"].Value.ToString() != "")
+                    m_oHopDong.Chuc_Vu_ID = Convert.ToInt16(row.Cells["chuc_vu_chinh_id"].Value.ToString());
+                m_oHopDong.Chuc_Vu = row.Cells["ten_chuc_vu"].Value.ToString();
+                if (row.Cells["chuc_danh_chinh_id"].Value.ToString() != "")
+                    m_oHopDong.Chuc_Danh_ID = Convert.ToInt16(row.Cells["chuc_danh_chinh_id"].Value.ToString());
+                m_oHopDong.Chuc_Danh = row.Cells["ten_chuc_danh"].Value.ToString();
+                if (row.Cells["don_vi_chinh_id"].Value.ToString() != "")
+                    m_oHopDong.Don_Vi_ID = Convert.ToInt16(row.Cells["don_vi_chinh_id"].Value.ToString());
+                m_oHopDong.Don_Vi = row.Cells["ten_don_vi"].Value.ToString();
+                m_oHopDong.Tinh_Trang = Convert.ToBoolean(row.Cells["tinh_trang"].Value.ToString());
+                m_oHopDong.Ghi_Chu = row.Cells["ghi_chu"].Value.ToString();
+
+                HDQD.UCs.HopDong hopdong = new HDQD.UCs.HopDong(m_oHopDong);
+                //UCs.HopDong hopdong = new HopDong(oHopDong);
+                Forms.Popup popup = new Forms.Popup("QUẢN LÝ NHÂN SỰ - HỢP ĐỒNG", hopdong);
+                popup.Show();
+            }
+        }
+
+        private void btn_Luu_Click(object sender, EventArgs e)
+        {
+            oTTTuyenDung = new Business.CNVC.CNVC_ThongTinTuyenDung();
+            oTTTuyenDung.MaNV = m_ma_nv;
+            oTTTuyenDung.NgheNghiepTruocDay = txt_NgheNghiep.Text;
+            oTTTuyenDung.CoQuanTuyenDung = txt_CoQuan.Text;
+            if (dTP_NgayTuyenDung.Checked == true)
+                oTTTuyenDung.NgayTuyenDung = dTP_NgayTuyenDung.Value;
+
+            try
+            {
+                if (MessageBox.Show("Bạn thực sự muốn lưu thông tin tuyển dụng cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    if (oTTTuyenDung.Update())
+                    {
+                        MessageBox.Show("Lưu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                        MessageBox.Show("Thao tác lưu thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Thao tác lưu thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }
