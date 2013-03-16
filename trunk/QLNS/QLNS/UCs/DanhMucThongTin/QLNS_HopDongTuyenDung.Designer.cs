@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.tableLP_HopDong_TuyenDung = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_Luu = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLP_ThongTinTuyenDung = new System.Windows.Forms.TableLayoutPanel();
             this.dTP_NgayTuyenDung = new System.Windows.Forms.DateTimePicker();
@@ -40,7 +41,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLP_HopDong = new System.Windows.Forms.TableLayoutPanel();
             this.dtgv_HopDong = new System.Windows.Forms.DataGridView();
-            this.btn_Luu = new System.Windows.Forms.Button();
             this.tableLP_HopDong_TuyenDung.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLP_ThongTinTuyenDung.SuspendLayout();
@@ -57,7 +57,6 @@
             this.tableLP_HopDong_TuyenDung.Controls.Add(this.groupBox1, 0, 0);
             this.tableLP_HopDong_TuyenDung.Controls.Add(this.groupBox2, 0, 1);
             this.tableLP_HopDong_TuyenDung.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLP_HopDong_TuyenDung.Enabled = false;
             this.tableLP_HopDong_TuyenDung.Location = new System.Drawing.Point(0, 0);
             this.tableLP_HopDong_TuyenDung.Name = "tableLP_HopDong_TuyenDung";
             this.tableLP_HopDong_TuyenDung.RowCount = 3;
@@ -66,6 +65,20 @@
             this.tableLP_HopDong_TuyenDung.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLP_HopDong_TuyenDung.Size = new System.Drawing.Size(800, 800);
             this.tableLP_HopDong_TuyenDung.TabIndex = 1;
+            // 
+            // btn_Luu
+            // 
+            this.btn_Luu.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Luu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_Luu.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Luu.ImageKey = "(none)";
+            this.btn_Luu.Location = new System.Drawing.Point(350, 723);
+            this.btn_Luu.Name = "btn_Luu";
+            this.btn_Luu.Size = new System.Drawing.Size(100, 74);
+            this.btn_Luu.TabIndex = 39;
+            this.btn_Luu.Text = "Lưu";
+            this.btn_Luu.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Luu.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -92,12 +105,12 @@
             this.tableLP_ThongTinTuyenDung.Controls.Add(this.label25, 0, 1);
             this.tableLP_ThongTinTuyenDung.Controls.Add(this.txt_NgheNghiep, 1, 0);
             this.tableLP_ThongTinTuyenDung.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLP_ThongTinTuyenDung.Location = new System.Drawing.Point(3, 24);
+            this.tableLP_ThongTinTuyenDung.Location = new System.Drawing.Point(3, 20);
             this.tableLP_ThongTinTuyenDung.Name = "tableLP_ThongTinTuyenDung";
             this.tableLP_ThongTinTuyenDung.RowCount = 2;
             this.tableLP_ThongTinTuyenDung.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLP_ThongTinTuyenDung.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLP_ThongTinTuyenDung.Size = new System.Drawing.Size(788, 167);
+            this.tableLP_ThongTinTuyenDung.Size = new System.Drawing.Size(788, 171);
             this.tableLP_ThongTinTuyenDung.TabIndex = 0;
             // 
             // dTP_NgayTuyenDung
@@ -106,27 +119,27 @@
             this.dTP_NgayTuyenDung.Checked = false;
             this.dTP_NgayTuyenDung.CustomFormat = "dd/MM/yyyy";
             this.dTP_NgayTuyenDung.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dTP_NgayTuyenDung.Location = new System.Drawing.Point(121, 111);
+            this.dTP_NgayTuyenDung.Location = new System.Drawing.Point(121, 116);
             this.dTP_NgayTuyenDung.Name = "dTP_NgayTuyenDung";
             this.dTP_NgayTuyenDung.ShowCheckBox = true;
-            this.dTP_NgayTuyenDung.Size = new System.Drawing.Size(264, 28);
+            this.dTP_NgayTuyenDung.Size = new System.Drawing.Size(264, 24);
             this.dTP_NgayTuyenDung.TabIndex = 2;
             // 
             // txt_CoQuan
             // 
             this.txt_CoQuan.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_CoQuan.Location = new System.Drawing.Point(514, 27);
+            this.txt_CoQuan.Location = new System.Drawing.Point(514, 30);
             this.txt_CoQuan.Name = "txt_CoQuan";
-            this.txt_CoQuan.Size = new System.Drawing.Size(266, 28);
+            this.txt_CoQuan.Size = new System.Drawing.Size(266, 24);
             this.txt_CoQuan.TabIndex = 1;
             // 
             // label26
             // 
             this.label26.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(396, 20);
+            this.label26.Location = new System.Drawing.Point(396, 25);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(97, 42);
+            this.label26.Size = new System.Drawing.Size(111, 34);
             this.label26.TabIndex = 2;
             this.label26.Text = "Cơ quan khi tuyển dụng";
             // 
@@ -134,9 +147,9 @@
             // 
             this.label24.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(3, 10);
+            this.label24.Location = new System.Drawing.Point(3, 25);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(101, 63);
+            this.label24.Size = new System.Drawing.Size(101, 34);
             this.label24.TabIndex = 0;
             this.label24.Text = "Nghề nghiệp khi tuyển dụng";
             // 
@@ -144,18 +157,18 @@
             // 
             this.label25.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(3, 104);
+            this.label25.Location = new System.Drawing.Point(3, 119);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(93, 42);
+            this.label25.Size = new System.Drawing.Size(103, 17);
             this.label25.TabIndex = 1;
             this.label25.Text = "Ngày tuyển dụng";
             // 
             // txt_NgheNghiep
             // 
             this.txt_NgheNghiep.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_NgheNghiep.Location = new System.Drawing.Point(121, 27);
+            this.txt_NgheNghiep.Location = new System.Drawing.Point(121, 30);
             this.txt_NgheNghiep.Name = "txt_NgheNghiep";
-            this.txt_NgheNghiep.Size = new System.Drawing.Size(264, 28);
+            this.txt_NgheNghiep.Size = new System.Drawing.Size(264, 24);
             this.txt_NgheNghiep.TabIndex = 0;
             // 
             // groupBox2
@@ -176,11 +189,11 @@
             this.tableLP_HopDong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 709F));
             this.tableLP_HopDong.Controls.Add(this.dtgv_HopDong, 0, 0);
             this.tableLP_HopDong.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLP_HopDong.Location = new System.Drawing.Point(3, 24);
+            this.tableLP_HopDong.Location = new System.Drawing.Point(3, 20);
             this.tableLP_HopDong.Name = "tableLP_HopDong";
             this.tableLP_HopDong.RowCount = 1;
             this.tableLP_HopDong.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLP_HopDong.Size = new System.Drawing.Size(788, 487);
+            this.tableLP_HopDong.Size = new System.Drawing.Size(788, 491);
             this.tableLP_HopDong.TabIndex = 1;
             // 
             // dtgv_HopDong
@@ -194,26 +207,12 @@
             this.dtgv_HopDong.Name = "dtgv_HopDong";
             this.dtgv_HopDong.ReadOnly = true;
             this.dtgv_HopDong.RowTemplate.Height = 24;
-            this.dtgv_HopDong.Size = new System.Drawing.Size(782, 481);
+            this.dtgv_HopDong.Size = new System.Drawing.Size(782, 485);
             this.dtgv_HopDong.TabIndex = 3;
-            // 
-            // btn_Luu
-            // 
-            this.btn_Luu.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Luu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_Luu.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Luu.ImageKey = "(none)";
-            this.btn_Luu.Location = new System.Drawing.Point(350, 723);
-            this.btn_Luu.Name = "btn_Luu";
-            this.btn_Luu.Size = new System.Drawing.Size(100, 74);
-            this.btn_Luu.TabIndex = 39;
-            this.btn_Luu.Text = "Lưu";
-            this.btn_Luu.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Luu.UseVisualStyleBackColor = true;
             // 
             // QLNS_HopDongTuyenDung
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.tableLP_HopDong_TuyenDung);
@@ -221,6 +220,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "QLNS_HopDongTuyenDung";
             this.Size = new System.Drawing.Size(800, 800);
+            this.Load += new System.EventHandler(this.QLNS_HopDongTuyenDung_Load);
             this.tableLP_HopDong_TuyenDung.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.tableLP_ThongTinTuyenDung.ResumeLayout(false);

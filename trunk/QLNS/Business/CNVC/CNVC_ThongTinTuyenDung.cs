@@ -84,7 +84,7 @@ namespace Business.CNVC
         {
             int check;
             IDataParameter[] paras = new IDataParameter[4]{
-           new NpgsqlParameter("ma_nv",manv), 
+                new NpgsqlParameter("ma_nv",manv), 
                 new NpgsqlParameter("nghe_nghiep_trc_day",nghenghieptruocday), 
                 new NpgsqlParameter("ngay_tuyen_dung",ngaytuyendung), 
                 new NpgsqlParameter("co_quan_tuyen_dung",coquantuyendung)
@@ -102,7 +102,7 @@ namespace Business.CNVC
         {
             int check;
             IDataParameter[] paras = new IDataParameter[1]{
-           new NpgsqlParameter("p_ma_nv",manv)
+                new NpgsqlParameter("p_ma_nv",manv)
             };
             check = (int)dp.executeScalarProc("sp_delete_cnvc_thong_tin_tuyen_dung", paras);
             if (check > 0)
