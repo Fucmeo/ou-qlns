@@ -42,13 +42,14 @@
             this.label33 = new System.Windows.Forms.Label();
             this.txt_NgoaiNgu = new System.Windows.Forms.TextBox();
             this.comB_MoHinhDaoTao = new System.Windows.Forms.ComboBox();
+            this.btn_LuuChuyenMon = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tableLP_TrinhDoPT = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lbl_ThemTrinhDoPT = new System.Windows.Forms.Label();
             this.lbl_XoaTrinhDoPT = new System.Windows.Forms.Label();
             this.lbl_SuaTrinhDoPT = new System.Windows.Forms.Label();
-            this.tableLP_QueQuan = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLP_Tinh = new System.Windows.Forms.TableLayoutPanel();
             this.comB_Tinh = new System.Windows.Forms.ComboBox();
             this.lbl_ThemTinh = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -63,14 +64,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txt_NamHoc = new System.Windows.Forms.TextBox();
-            this.btn_LuuChuyenMon = new System.Windows.Forms.Button();
             this.tableLP_TrinhDo_ChuyenMon.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.tableLP_ChuyenMonTongQuat.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tableLP_TrinhDoPT.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.tableLP_QueQuan.SuspendLayout();
+            this.tableLP_Tinh.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_TrinhDo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -231,10 +231,26 @@
             this.comB_MoHinhDaoTao.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_MoHinhDaoTao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_MoHinhDaoTao.FormattingEnabled = true;
-            this.comB_MoHinhDaoTao.Location = new System.Drawing.Point(121, 120);
+            this.comB_MoHinhDaoTao.Location = new System.Drawing.Point(121, 118);
             this.comB_MoHinhDaoTao.Name = "comB_MoHinhDaoTao";
             this.comB_MoHinhDaoTao.Size = new System.Drawing.Size(264, 29);
             this.comB_MoHinhDaoTao.TabIndex = 4;
+            // 
+            // btn_LuuChuyenMon
+            // 
+            this.btn_LuuChuyenMon.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tableLP_ChuyenMonTongQuat.SetColumnSpan(this.btn_LuuChuyenMon, 4);
+            this.btn_LuuChuyenMon.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_LuuChuyenMon.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_LuuChuyenMon.ImageKey = "(none)";
+            this.btn_LuuChuyenMon.Location = new System.Drawing.Point(344, 162);
+            this.btn_LuuChuyenMon.Name = "btn_LuuChuyenMon";
+            this.btn_LuuChuyenMon.Size = new System.Drawing.Size(100, 69);
+            this.btn_LuuChuyenMon.TabIndex = 41;
+            this.btn_LuuChuyenMon.Text = "Lưu";
+            this.btn_LuuChuyenMon.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_LuuChuyenMon.UseVisualStyleBackColor = true;
+            this.btn_LuuChuyenMon.Click += new System.EventHandler(this.btn_LuuChuyenMon_Click);
             // 
             // groupBox3
             // 
@@ -255,7 +271,7 @@
             this.tableLP_TrinhDoPT.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLP_TrinhDoPT.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tableLP_TrinhDoPT.Controls.Add(this.tableLayoutPanel2, 2, 3);
-            this.tableLP_TrinhDoPT.Controls.Add(this.tableLP_QueQuan, 1, 2);
+            this.tableLP_TrinhDoPT.Controls.Add(this.tableLP_Tinh, 1, 2);
             this.tableLP_TrinhDoPT.Controls.Add(this.label6, 2, 2);
             this.tableLP_TrinhDoPT.Controls.Add(this.txt_QuanHuyen, 3, 1);
             this.tableLP_TrinhDoPT.Controls.Add(this.txt_PhuongXa, 1, 1);
@@ -341,28 +357,28 @@
             this.lbl_SuaTrinhDoPT.Text = "Sửa";
             this.lbl_SuaTrinhDoPT.Click += new System.EventHandler(this.lbl_SuaTrinhDoPT_Click);
             // 
-            // tableLP_QueQuan
+            // tableLP_Tinh
             // 
-            this.tableLP_QueQuan.ColumnCount = 1;
-            this.tableLP_QueQuan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLP_QueQuan.Controls.Add(this.comB_Tinh, 0, 0);
-            this.tableLP_QueQuan.Controls.Add(this.lbl_ThemTinh, 0, 1);
-            this.tableLP_QueQuan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLP_QueQuan.Enabled = false;
-            this.tableLP_QueQuan.Location = new System.Drawing.Point(121, 153);
-            this.tableLP_QueQuan.Name = "tableLP_QueQuan";
-            this.tableLP_QueQuan.RowCount = 2;
-            this.tableLP_QueQuan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 59.30233F));
-            this.tableLP_QueQuan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.69767F));
-            this.tableLP_QueQuan.Size = new System.Drawing.Size(269, 69);
-            this.tableLP_QueQuan.TabIndex = 52;
+            this.tableLP_Tinh.ColumnCount = 1;
+            this.tableLP_Tinh.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLP_Tinh.Controls.Add(this.comB_Tinh, 0, 0);
+            this.tableLP_Tinh.Controls.Add(this.lbl_ThemTinh, 0, 1);
+            this.tableLP_Tinh.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLP_Tinh.Enabled = false;
+            this.tableLP_Tinh.Location = new System.Drawing.Point(121, 153);
+            this.tableLP_Tinh.Name = "tableLP_Tinh";
+            this.tableLP_Tinh.RowCount = 2;
+            this.tableLP_Tinh.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 59.30233F));
+            this.tableLP_Tinh.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.69767F));
+            this.tableLP_Tinh.Size = new System.Drawing.Size(269, 69);
+            this.tableLP_Tinh.TabIndex = 52;
             // 
             // comB_Tinh
             // 
             this.comB_Tinh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_Tinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_Tinh.FormattingEnabled = true;
-            this.comB_Tinh.Location = new System.Drawing.Point(3, 7);
+            this.comB_Tinh.Location = new System.Drawing.Point(3, 5);
             this.comB_Tinh.Name = "comB_Tinh";
             this.comB_Tinh.Size = new System.Drawing.Size(263, 29);
             this.comB_Tinh.TabIndex = 9;
@@ -428,7 +444,7 @@
             "Tiểu học",
             "Trung học cơ sở",
             "Trung học phổ thông"});
-            this.comB_CapDo.Location = new System.Drawing.Point(121, 23);
+            this.comB_CapDo.Location = new System.Drawing.Point(121, 25);
             this.comB_CapDo.Name = "comB_CapDo";
             this.comB_CapDo.Size = new System.Drawing.Size(264, 29);
             this.comB_CapDo.TabIndex = 46;
@@ -508,22 +524,6 @@
             this.txt_NamHoc.Size = new System.Drawing.Size(264, 28);
             this.txt_NamHoc.TabIndex = 51;
             // 
-            // btn_LuuChuyenMon
-            // 
-            this.btn_LuuChuyenMon.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tableLP_ChuyenMonTongQuat.SetColumnSpan(this.btn_LuuChuyenMon, 4);
-            this.btn_LuuChuyenMon.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_LuuChuyenMon.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_LuuChuyenMon.ImageKey = "(none)";
-            this.btn_LuuChuyenMon.Location = new System.Drawing.Point(344, 162);
-            this.btn_LuuChuyenMon.Name = "btn_LuuChuyenMon";
-            this.btn_LuuChuyenMon.Size = new System.Drawing.Size(100, 69);
-            this.btn_LuuChuyenMon.TabIndex = 41;
-            this.btn_LuuChuyenMon.Text = "Lưu";
-            this.btn_LuuChuyenMon.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_LuuChuyenMon.UseVisualStyleBackColor = true;
-            this.btn_LuuChuyenMon.Click += new System.EventHandler(this.btn_LuuChuyenMon_Click);
-            // 
             // QLNS_TrinhDo_ChuyenMon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -544,8 +544,8 @@
             this.tableLP_TrinhDoPT.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            this.tableLP_QueQuan.ResumeLayout(false);
-            this.tableLP_QueQuan.PerformLayout();
+            this.tableLP_Tinh.ResumeLayout(false);
+            this.tableLP_Tinh.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_TrinhDo)).EndInit();
             this.ResumeLayout(false);
 
@@ -581,7 +581,7 @@
         public System.Windows.Forms.ComboBox comB_CapDo;
         private System.Windows.Forms.Label label6;
         public System.Windows.Forms.TextBox txt_NamHoc;
-        private System.Windows.Forms.TableLayoutPanel tableLP_QueQuan;
+        private System.Windows.Forms.TableLayoutPanel tableLP_Tinh;
         public System.Windows.Forms.ComboBox comB_Tinh;
         private System.Windows.Forms.Label lbl_ThemTinh;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;

@@ -51,7 +51,7 @@ namespace Business.CNVC
 
         public int? Tinh { get; set; }
 
-        public string NamHoc { get; set; }
+        public string NamHoc { get; set; } 
 
 
         #endregion

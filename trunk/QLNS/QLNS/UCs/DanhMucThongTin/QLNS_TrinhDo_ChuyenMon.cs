@@ -22,6 +22,7 @@ namespace QLNS.UCs.DanhMucThongTin
         bool bAddTrinhDoFlag = false;
 
         public static int nNewTinhTPID = 0;     // ID cua tinh thanh pho moi them vao
+        public static int nNewMoHinhID = 0;     // ID cua tinh thanh pho moi them vao
 
         public QLNS_TrinhDo_ChuyenMon()
         {
@@ -82,18 +83,20 @@ namespace QLNS.UCs.DanhMucThongTin
 
             DataTable dt = dtMoHinh.Copy();
 
-            if (dt.AsEnumerable().Where(a => a.Field<int>("id") == -1).Count() <= 0)
-            {
-                DataRow dr = dt.NewRow();
-                dr["ten_mo_hinh"] = "";
-                dr["id"] = -1;
-                dt.Rows.InsertAt(dr, 0);
-            }
+            //if (dt.AsEnumerable().Where(a => a.Field<int>("id") == -1).Count() <= 0)
+            //{
+            //    DataRow dr = dt.NewRow();
+            //    dr["ten_mo_hinh"] = "";
+            //    dr["id"] = -1;
+            //    dt.Rows.InsertAt(dr, 0);
+            //}
 
             // comb
             comB_MoHinhDaoTao.DataSource = dt;
             comB_MoHinhDaoTao.DisplayMember = "ten_mo_hinh";
             comB_MoHinhDaoTao.ValueMember = "id";
+
+            comB_MoHinhDaoTao.SelectedIndex = 0;
         }
 
         public void FillInfo()
@@ -239,9 +242,63 @@ namespace QLNS.UCs.DanhMucThongTin
 
         private void lbl_ThemTinh_Click(object sender, EventArgs e)
         {
+            UCs.ThemTinhTP oThemTinhTP = new ThemTinhTP("QLNS_TrinhDo_ChuyenMon");
+            oThemTinhTP.Dock = DockStyle.Fill;
+            Forms.Popup fPopup = new Forms.Popup("Thêm tỉnh thành phố", oThemTinhTP);
+            fPopup.ShowDialog();
+            if (nNewTinhTPID > 0)
+            {
+                int? x = null;
+
+                if (comB_Tinh.SelectedValue != Convert.DBNull && comB_Tinh.SelectedValue != null)
+                    x = Convert.ToInt16(comB_Tinh.SelectedValue);
+
+                dtTinhTP = oTinhTP.GetData();
+
+                comB_Tinh.DataSource = dtTinhTP;
+                comB_Tinh.DisplayMember = "ten_tinh_tp";
+                comB_Tinh.ValueMember = "id";
+
+                if (x != null)
+                {
+                    comB_Tinh.SelectedValue = x;
+                }
+                nNewTinhTPID = 0;
+            }
+        }
+
+        private void lbl_ThemMoHinh_Click(object sender, EventArgs e)
+        {
+            UCs.ThemMoHinhDT oThemMoHinhDT = new ThemMoHinhDT("QLNS_TrinhDo_ChuyenMon");
+            oThemMoHinhDT.Dock = DockStyle.Fill;
+            Forms.Popup fPopup = new Forms.Popup("Thêm mô hình đào tạo", oThemMoHinhDT);
+            fPopup.ShowDialog();
+            if (nNewMoHinhID > 0)
+            {
+                int? x = null;
+
+                if (comB_MoHinhDaoTao.SelectedValue != Convert.DBNull && comB_MoHinhDaoTao.SelectedValue != null)
+                    x = Convert.ToInt16(comB_MoHinhDaoTao.SelectedValue);
+
+                dtMoHinh = oTinhTP.GetData();
+
+                comB_MoHinhDaoTao.DataSource = dtMoHinh;
+                comB_MoHinhDaoTao.DisplayMember = "ten_mo_hinh";
+                comB_MoHinhDaoTao.ValueMember = "id";
+
+                if (x != null)
+                {
+                    comB_MoHinhDaoTao.SelectedValue = x;
+                }
+                nNewMoHinhID = 0;
+            }
+        }
+
+        private void lbl_ThemTrinhDoPT_Click(object sender, EventArgs e)
+        {
             #region MyRegion
 
-            if (lbl_ThemMoHinh.Text == "Thêm")
+            if (lbl_ThemTrinhDoPT.Text == "Thêm")
             {
                 bAddTrinhDoFlag = true;
                 ControlTrinhDo(true);
@@ -253,7 +310,7 @@ namespace QLNS.UCs.DanhMucThongTin
                 {
                     if (bAddTrinhDoFlag)   // Thêm mới
                     {
-                        if ((MessageBox.Show("Thêm thông tin về CMND / Hộ chiếu của nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
+                        if ((MessageBox.Show("Thêm thông tin về trình độ phổ thông của nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
                         {
                             try
                             {
@@ -269,13 +326,13 @@ namespace QLNS.UCs.DanhMucThongTin
                             }
                             catch (Exception)
                             {
-                                MessageBox.Show("Thông tin không phù hợp, xin vui lòng xem lại thông tin CMND/ Hộ chiếu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                MessageBox.Show("Thông tin không phù hợp, xin vui lòng xem lại thông tin trình độ phổ thông.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             }
                         }
                     }
                     else        // Sửa
                     {
-                        if ((MessageBox.Show("Sửa thông tin về CMND / Hộ chiếu của nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
+                        if ((MessageBox.Show("Sửa thông tin về trình độ phổ thông của nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
                         {
                             try
                             {
@@ -291,32 +348,20 @@ namespace QLNS.UCs.DanhMucThongTin
                             }
                             catch (Exception)
                             {
-                                MessageBox.Show("Thông tin không phù hợp, xin vui lòng xem lại thông tin CMND/ Hộ chiếu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                MessageBox.Show("Thông tin không phù hợp, xin vui lòng xem lại thông tin trình độ phổ thông.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             }
                         }
                     }
-
-
 
                     ControlTrinhDo(false);
                     ClearTrinhDoData();
                 }
                 else
                 {
-                    MessageBox.Show("Thông tin CMND / Hộ chiếu không phù hợp, xin vui lòng kiểm tra lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Thông tin trình độ phổ thông không phù hợp, xin vui lòng kiểm tra lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             #endregion
-        }
-
-        private void lbl_ThemMoHinh_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbl_ThemTrinhDoPT_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void lbl_SuaTrinhDoPT_Click(object sender, EventArgs e)
@@ -346,7 +391,7 @@ namespace QLNS.UCs.DanhMucThongTin
         private void lbl_XoaTrinhDoPT_Click(object sender, EventArgs e)
         {
             if (dtgv_TrinhDo.SelectedRows != null &&
-                (MessageBox.Show("Xoá dòng dữ liệu CMND / Hộ chiếu của nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
+                (MessageBox.Show("Xoá dòng dữ liệu trình độ phổ thông của nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
             {
                 DataGridViewRow r = dtgv_TrinhDo.SelectedRows[0];
                 oCNVC_TrinhDoPhoThong.ID = Convert.ToInt32(r.Cells[6].Value);
@@ -370,7 +415,36 @@ namespace QLNS.UCs.DanhMucThongTin
 
         private void btn_LuuChuyenMon_Click(object sender, EventArgs e)
         {
+            if (VerifyChuyenMonData())
+            {
+                if ((MessageBox.Show("Thêm / cập nhật thông tin chuyên môn của nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
+                {
+                    try
+                    {
+                        GetChuyenMonInputData();
+                        if (QLNS_HienThiThongTin.bAddFlag)
+                        {
+                            oCNVC_ChuyenMonTongQuat.Add();
+                            MessageBox.Show("Thêm thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            oCNVC_ChuyenMonTongQuat.Update();
 
+                            MessageBox.Show("Cập nhật thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Thông tin chuyên môn không phù hợp, xin vui lòng xem lại thông tin chuyên môn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Thông tin không đầy đủ, xin vui lòng xem lại thông tin chuyên môn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void ControlTrinhDo(bool Add)
@@ -379,17 +453,17 @@ namespace QLNS.UCs.DanhMucThongTin
             if (Add)
             {
                 lbl_SuaTrinhDoPT.Text = "Huỷ";
-                lbl_ThemMoHinh.Text = "Lưu";
+                lbl_ThemTrinhDoPT.Text = "Lưu";
                 txt_TenTruong.Enabled = txt_PhuongXa.Enabled = txt_QuanHuyen.Enabled 
-                    = txt_NamHoc.Enabled = comB_CapDo.Enabled = comB_Tinh.Enabled = true;
+                    = txt_NamHoc.Enabled = comB_CapDo.Enabled =  tableLP_Tinh.Enabled = true;
                 dtgv_TrinhDo.Enabled = lbl_XoaTrinhDoPT.Enabled = false;
             }
             else
             {
                 lbl_SuaTrinhDoPT.Text = "Sửa";
-                lbl_ThemMoHinh.Text = "Thêm";
+                lbl_ThemTrinhDoPT.Text = "Thêm";
                 txt_TenTruong.Enabled = txt_PhuongXa.Enabled = txt_QuanHuyen.Enabled
-                    = txt_NamHoc.Enabled = comB_CapDo.Enabled = comB_Tinh.Enabled = false;
+                    = txt_NamHoc.Enabled = comB_CapDo.Enabled = tableLP_Tinh.Enabled = false;
                 dtgv_TrinhDo.Enabled = lbl_XoaTrinhDoPT.Enabled  = true;
 
             }
@@ -397,11 +471,16 @@ namespace QLNS.UCs.DanhMucThongTin
 
         private bool VerifyTrinhDoData()
         {
-            if (string.IsNullOrWhiteSpace(txt_TenTruong.Text) || Convert.ToInt32(comB_CapDo.SelectedValue) <= 0)
+            if (string.IsNullOrWhiteSpace(txt_TenTruong.Text))
             {
                 return false;
             }
 
+            return true;
+        }
+
+        private bool VerifyChuyenMonData()
+        {
             return true;
         }
 
@@ -423,6 +502,17 @@ namespace QLNS.UCs.DanhMucThongTin
             {
                 oCNVC_TrinhDoPhoThong.Tinh = null;
             }
+        }
+
+        private void GetChuyenMonInputData()
+        {
+            oCNVC_ChuyenMonTongQuat.MaNV = Program.selected_ma_nv;
+            oCNVC_ChuyenMonTongQuat.NgoaiNgu = txt_NgoaiNgu.Text;
+            oCNVC_ChuyenMonTongQuat.TinHoc = txt_TinHoc.Text;
+            oCNVC_ChuyenMonTongQuat.SoTruongCTac = txt_SoTruong.Text;
+            oCNVC_ChuyenMonTongQuat.TrinhDoChuyenMon = txt_TrinhDoChuyenMon.Text;
+            oCNVC_ChuyenMonTongQuat.MoHinhDaoTaoID = Convert.ToInt32(comB_MoHinhDaoTao.SelectedValue);
+
         }
 
         private void ClearTrinhDoData()

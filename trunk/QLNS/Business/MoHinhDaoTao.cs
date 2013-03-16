@@ -122,10 +122,10 @@ namespace Business
             DataTable dt = new DataTable();
 
             dt = dp.getDataTable("select * from v_mohinhdaotao");
-            DataRow dr = dt.NewRow();
-            dr["ten_mo_hinh"] = "";
-            dr["id"] = -1;
-            dt.Rows.Add(dr);
+            //DataRow dr = dt.NewRow();
+            //dr["ten_mo_hinh"] = "";
+            //dr["id"] = -1;
+            //dt.Rows.Add(dr);
             return dt;
         }
 

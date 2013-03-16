@@ -65,9 +65,9 @@ namespace Business.CNVC
             set { trdochuyenmon = value; }
         }
 
-        private int? mohinhdaotaoid;
+        private int mohinhdaotaoid;
 
-        public int? MoHinhDaoTaoID
+        public int MoHinhDaoTaoID
         {
             get { return mohinhdaotaoid; }
             set { mohinhdaotaoid = value; }
