@@ -1418,23 +1418,23 @@ namespace QLNS.UCs
 
         private void lbl_ThemMoHinh_Click(object sender, EventArgs e)
         {
-            UCs.ThemMoHinhDT oThemMoHinhDT = new ThemMoHinhDT();
-            oThemMoHinhDT.Dock = DockStyle.Fill;
-            Forms.Popup fPopup = new Forms.Popup("Thêm mô hình đào tạo", oThemMoHinhDT);
-            fPopup.ShowDialog();
-            if (nNewMoHinhDT > 0)
-            {
-                dtMoHinhDT = oMoHinhDT.GetData();
+            //UCs.ThemMoHinhDT oThemMoHinhDT = new ThemMoHinhDT();
+            //oThemMoHinhDT.Dock = DockStyle.Fill;
+            //Forms.Popup fPopup = new Forms.Popup("Thêm mô hình đào tạo", oThemMoHinhDT);
+            //fPopup.ShowDialog();
+            //if (nNewMoHinhDT > 0)
+            //{
+            //    dtMoHinhDT = oMoHinhDT.GetData();
 
-                comB_MoHinhDaoTao.DataSource = dtMoHinhDT;
-                comB_MoHinhDaoTao.DisplayMember = "ten_mo_hinh";
-                comB_MoHinhDaoTao.ValueMember = "id";
+            //    comB_MoHinhDaoTao.DataSource = dtMoHinhDT;
+            //    comB_MoHinhDaoTao.DisplayMember = "ten_mo_hinh";
+            //    comB_MoHinhDaoTao.ValueMember = "id";
 
-                comB_MoHinhDaoTao.SelectedValue = nNewMoHinhDT;
+            //    comB_MoHinhDaoTao.SelectedValue = nNewMoHinhDT;
                 
 
-                nNewMoHinhDT = 0;
-            }
+            //    nNewMoHinhDT = 0;
+            //}
         }
 
         private void lbl_ChiTietSucKhoe_Click(object sender, EventArgs e)

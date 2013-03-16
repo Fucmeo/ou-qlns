@@ -211,6 +211,19 @@ namespace Business.CNVC
                 return false;
         }
 
+        public DataTable GetData()
+        {
+            DataTable dt;
+
+            IDataParameter[] paras = new IDataParameter[1]{
+                new NpgsqlParameter("p_ma_nv",manv)               
+            };
+
+            dt = dp.getDataTableProc("sp_select_cnvc_hop_dong", paras);
+
+            return dt;
+        }
+
         #endregion
     }
 }
