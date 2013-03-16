@@ -394,7 +394,7 @@ namespace QLNS.UCs.DanhMucThongTin
                 (MessageBox.Show("Xoá dòng dữ liệu trình độ phổ thông của nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
             {
                 DataGridViewRow r = dtgv_TrinhDo.SelectedRows[0];
-                oCNVC_TrinhDoPhoThong.ID = Convert.ToInt32(r.Cells[6].Value);
+                oCNVC_TrinhDoPhoThong.ID = Convert.ToInt32(r.Cells["id"].Value);
 
                 try
                 {
