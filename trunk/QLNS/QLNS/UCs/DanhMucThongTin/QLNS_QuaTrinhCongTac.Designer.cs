@@ -189,7 +189,7 @@
             this.comB_Nganh.Items.AddRange(new object[] {
             "Trong ngành giáo dục",
             "Ngoài ngành giáo dục"});
-            this.comB_Nganh.Location = new System.Drawing.Point(151, 287);
+            this.comB_Nganh.Location = new System.Drawing.Point(151, 285);
             this.comB_Nganh.Name = "comB_Nganh";
             this.comB_Nganh.Size = new System.Drawing.Size(269, 25);
             this.comB_Nganh.TabIndex = 42;
@@ -283,7 +283,6 @@
             this.dTP_DenNgay.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dTP_DenNgay.Checked = false;
             this.dTP_DenNgay.CustomFormat = "dd/MM/yyyy";
-            this.dTP_DenNgay.Enabled = false;
             this.dTP_DenNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dTP_DenNgay.Location = new System.Drawing.Point(644, 200);
             this.dTP_DenNgay.Name = "dTP_DenNgay";
@@ -311,8 +310,10 @@
             this.dtgv_QTCT_Ngoai.Name = "dtgv_QTCT_Ngoai";
             this.dtgv_QTCT_Ngoai.ReadOnly = true;
             this.dtgv_QTCT_Ngoai.RowTemplate.Height = 24;
+            this.dtgv_QTCT_Ngoai.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgv_QTCT_Ngoai.Size = new System.Drawing.Size(982, 225);
             this.dtgv_QTCT_Ngoai.TabIndex = 44;
+            this.dtgv_QTCT_Ngoai.SelectionChanged += new System.EventHandler(this.dtgv_QTCT_Ngoai_SelectionChanged);
             // 
             // rTB_CongViecChinh
             // 
@@ -328,7 +329,6 @@
             this.dTP_TuNgay.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dTP_TuNgay.Checked = false;
             this.dTP_TuNgay.CustomFormat = "dd/MM/yyyy";
-            this.dTP_TuNgay.Enabled = false;
             this.dTP_TuNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dTP_TuNgay.Location = new System.Drawing.Point(151, 200);
             this.dTP_TuNgay.Name = "dTP_TuNgay";
@@ -348,6 +348,7 @@
             this.lbl_SuaNgoai.Size = new System.Drawing.Size(31, 18);
             this.lbl_SuaNgoai.TabIndex = 47;
             this.lbl_SuaNgoai.Text = "Sửa";
+            this.lbl_SuaNgoai.Click += new System.EventHandler(this.lbl_SuaNgoai_Click);
             // 
             // lbl_ThemNgoai
             // 
@@ -361,6 +362,7 @@
             this.lbl_ThemNgoai.Size = new System.Drawing.Size(43, 18);
             this.lbl_ThemNgoai.TabIndex = 46;
             this.lbl_ThemNgoai.Text = "Thêm";
+            this.lbl_ThemNgoai.Click += new System.EventHandler(this.lbl_ThemNgoai_Click);
             // 
             // QLNS_QuaTrinhCongTac
             // 
@@ -372,6 +374,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "QLNS_QuaTrinhCongTac";
             this.Size = new System.Drawing.Size(1000, 1000);
+            this.Load += new System.EventHandler(this.QLNS_QuaTrinhCongTac_Load);
             this.tableLP_QuaTrinhCongTac.ResumeLayout(false);
             this.tableLP_TrongDH.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
