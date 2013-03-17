@@ -166,7 +166,7 @@ namespace QLNS.UCs.DanhMucThongTin
             {
                 lbl_ThemNgoai.Visible = lbl_SuaNgoai.Visible = true;
                 //btn_Huy.Visible = 
-                btn_Luu.Visible = false;
+                //btn_Luu.Visible = false;
                 txt_ChucDanh.Enabled = txt_ChucVu.Enabled = txt_TenDV.Enabled = comB_Nganh.Enabled = dTP_DenNgay.Enabled = dTP_TuNgay.Enabled = rTB_CongViecChinh.Enabled = false;
 
                 dtgv_QTCT_Ngoai.Enabled = true;
@@ -179,7 +179,7 @@ namespace QLNS.UCs.DanhMucThongTin
             {
                 lbl_ThemNgoai.Visible = lbl_SuaNgoai.Visible = false;
                 //btn_Huy.Visible = 
-                btn_Luu.Visible = true;
+                //btn_Luu.Visible = true;
                 txt_ChucDanh.Enabled = txt_ChucVu.Enabled = txt_TenDV.Enabled = comB_Nganh.Enabled = dTP_DenNgay.Enabled = dTP_TuNgay.Enabled = rTB_CongViecChinh.Enabled = true;
                 dtgv_QTCT_Ngoai.Enabled = false;
 
