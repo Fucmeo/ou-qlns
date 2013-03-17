@@ -1598,6 +1598,13 @@ namespace QLNS.UCs
                             oQLNS_DaoTaoBoiDuong.Dock = DockStyle.Fill;
                         }
                         tableLP_DanhMucThongTin.Controls.Add(oQLNS_DaoTaoBoiDuong, 0, 1);
+                        if (oQLNS_DonVi_CNVC1.TreeV_CNVC.SelectedNode != null &&
+                                oQLNS_DaoTaoBoiDuong.dtDaoTaoBoiDuong.AsEnumerable().Where(a => a.Field<string>("ma_nv") == Program.selected_ma_nv).Count() <= 0)
+                        {
+                            oQLNS_DaoTaoBoiDuong.GetDaoTaoBoiDuongInfo(Program.selected_ma_nv);
+                            oQLNS_DaoTaoBoiDuong.FillBoiDuongData();
+                            oQLNS_DaoTaoBoiDuong.FillDaoTaoData();
+                        }
                         break;
 
                     case "Trình độ chuyên môn":
