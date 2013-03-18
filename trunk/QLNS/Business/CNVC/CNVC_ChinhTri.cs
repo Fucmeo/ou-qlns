@@ -24,245 +24,62 @@ namespace Business.CNVC
 
         #region Properties
 
-        private string manv;
+        public string Ma_NV { get; set; }
 
-        public string MaNV
-        {
-            get { return manv; }
-            set { manv = value; }
-        }
+        public string Ly_Luan_Chinh_Tri { get; set; }
 
-        private bool? dangvien;
+        public string Quan_Ly_Nha_Nuoc { get; set; }
 
-        public bool? DangVien
-        {
-            get { return dangvien; }
-            set { dangvien = value; }
-        }
+        public DateTime? Ngay_Nhap_Ngu { get; set; }
 
-        private bool? doanvien;
-            
-        public bool? DoanVien
-        {
-            get { return doanvien; }
-            set { doanvien = value; }
-        }
+        public DateTime? Ngay_Xuat_Ngu { get; set; }
 
-        private DateTime? ngayvaodang;
+        public string Quan_Ham_Cao_Nhat { get; set; }
 
-        public DateTime? NgayVaoDang
-        {
-            get { return ngayvaodang; }
-            set { ngayvaodang = value; }
-        }
+        public string Danh_Hieu_Cao_Nhat { get; set; }
 
+        public string Thuong_Binh_Hang { get; set; }
 
-        private DateTime? ngayvaodoan;
+        public string Gia_Dinh_Chinh_Sach { get; set; }
 
-        public DateTime? NgayVaoDoan
-        {
-            get { return ngayvaodoan; }
-            set { ngayvaodoan = value; }
-        }
+        public string Khen_Thuong { get; set; }
 
-        private DateTime? ngayradang;
-
-        public DateTime? NgayRaDang
-        {
-            get { return ngayradang; }
-            set { ngayradang = value; }
-        }
-
-        private DateTime? ngayradoan;
-
-        public DateTime? NgayRaDoan
-        {
-            get { return ngayradoan; }
-            set { ngayradoan = value; }
-        }
-
-        private DateTime? ngaytaivaodang;
-
-        public DateTime? NgayTaiVaoDang
-        {
-            get { return ngaytaivaodang; }
-            set { ngaytaivaodang = value; }
-        }
-
-        private DateTime? ngaytaivaodoan;
-
-        public DateTime? NgayTaiVaoDoan
-        {
-            get { return ngaytaivaodoan; }
-            set { ngaytaivaodoan = value; }
-        }
-        
-
-        private DateTime? ngaychinhthuc;
-
-        public DateTime? NgayChinhThuc
-        {
-            get { return ngaychinhthuc; }
-            set { ngaychinhthuc = value; }
-        }
-
-        private string lyluanchinhtri;
-
-        public string LyLuanChinhTri
-        {
-            get { return lyluanchinhtri; }
-            set { lyluanchinhtri = value; }
-        }
-
-        private string quanlynhanuoc;
-
-        public string QuanLyNhaNuoc
-        {
-            get { return quanlynhanuoc; }
-            set { quanlynhanuoc = value; }
-        }
-
-        private DateTime? ngaynhapngu;
-
-        public DateTime? NgayNhapNgu
-        {
-            get { return ngaynhapngu; }
-            set { ngaynhapngu = value; }
-        }
-
-        private DateTime? ngayxuatngu;
-
-        public DateTime? NgayXuatNgu
-        {
-            get { return ngayxuatngu; }
-            set { ngayxuatngu = value; }
-        }
-
-        private string quanhamcaonhat;
-
-        public string QuanHamCaoNhat
-        {
-            get { return quanhamcaonhat; }
-            set { quanhamcaonhat = value; }
-        }
-
-        private string danhhieucaonhat;
-
-        public string DanhHieuCaoNhat
-        {
-            get { return danhhieucaonhat; }
-            set { danhhieucaonhat = value; }
-        }
-
-        private string thuongbinhhang;
-
-        public string ThuongBinhHang
-        {
-            get { return thuongbinhhang; }
-            set { thuongbinhhang = value; }
-        }
-
-        private string gdchinhsach;
-
-        public string GDChinhSach
-        {
-            get { return gdchinhsach; }
-            set { gdchinhsach = value; }
-        }
-
-        private string khenthuong;
-
-        public string KhenThuong
-        {
-            get { return khenthuong; }
-            set { khenthuong = value; }
-        }
-
-        private string kyluat;
-
-        public string KyLuat
-        {
-            get { return kyluat; }
-            set { kyluat = value; }
-        }
-
-        private bool? iscongdoanvien;
-
-        public bool? IsCongDoanVien
-        {
-            get { return iscongdoanvien; }
-            set { iscongdoanvien = value; }
-        }
-        
+        public string Ky_Luat { get; set; }
 
         #endregion
 
         #region Methods
 
-        public bool Add()
+        
+        public DataTable GetData()
         {
-            int check;
-            IDataParameter[] paras = new IDataParameter[21]{
-                new NpgsqlParameter("ma_nv",manv), 
-                new NpgsqlParameter("dang_vien",dangvien), 
-                new NpgsqlParameter("doan_vien",doanvien), 
-                new NpgsqlParameter("ngay_vao_dang",ngayvaodang), 
-                new NpgsqlParameter("ngay_vao_doan",ngayvaodoan),
-                new NpgsqlParameter("ngay_ra_khoi_dang",ngayradang),
-                new NpgsqlParameter("ngay_ra_khoi_doan",ngayradoan),
-                new NpgsqlParameter("ngay_tai_gia_nhap_dang",ngaytaivaodang),
-                new NpgsqlParameter("ngay_tai_gia_nhap_doan",ngaytaivaodoan),
-                                new NpgsqlParameter("ngay_chinh_thuc",ngaychinhthuc),
-                new NpgsqlParameter("ly_luan_chinh_tri",lyluanchinhtri),
-                new NpgsqlParameter("quan_ly_nha_nuoc",quanlynhanuoc),
+            DataTable dt;
 
-                new NpgsqlParameter("ngay_nhap_ngu",ngaynhapngu),
-                new NpgsqlParameter("ngay_xuat_ngu",ngayxuatngu),
-                new NpgsqlParameter("quan_ham_cao_nhat",quanhamcaonhat),
-                new NpgsqlParameter("danh_hieu_cao_nhat",danhhieucaonhat),
-                new NpgsqlParameter("thuong_binh_hang",thuongbinhhang),
-                new NpgsqlParameter("gia_dinh_chinh_sach",gdchinhsach),
-                new NpgsqlParameter("khen_thuong",khenthuong),
-                new NpgsqlParameter("ky_luat",kyluat),
-                new NpgsqlParameter("is_cong_doan_vien",iscongdoanvien)
+            IDataParameter[] paras = new IDataParameter[1]{
+                new NpgsqlParameter("p_ma_nv",Ma_NV)               
             };
-            check = (int)dp.executeScalarProc("sp_insert_cnvc_chinh_tri", paras);
-            if (check > 0)
-            {
-                return true;
-            }
-            else
-                return false;
+
+            dt = dp.getDataTableProc("sp_select_cnvc_chinh_tri", paras);
+
+            return dt;
         }
 
-
-        public bool Update()
+        public bool Save()
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[21]{
-                new NpgsqlParameter("p_ma_nv",manv), 
-                new NpgsqlParameter("p_dang_vien",dangvien), 
-                new NpgsqlParameter("p_doan_vien",doanvien), 
-                new NpgsqlParameter("p_ngay_vao_dang",ngayvaodang), 
-                new NpgsqlParameter("p_ngay_vao_doan",ngayvaodoan),
-                new NpgsqlParameter("p_ngay_ra_khoi_dang",ngayradang),
-                new NpgsqlParameter("p_ngay_ra_khoi_doan",ngayradoan),
-                new NpgsqlParameter("p_ngay_tai_gia_nhap_dang",ngaytaivaodang),
-                new NpgsqlParameter("p_ngay_tai_gia_nhap_doan",ngaytaivaodoan),
-                new NpgsqlParameter("p_ngay_chinh_thuc",ngaychinhthuc),
-                new NpgsqlParameter("p_ly_luan_chinh_tri",lyluanchinhtri),
-                new NpgsqlParameter("p_quan_ly_nha_nuoc",quanlynhanuoc),
-                new NpgsqlParameter("p_ngay_nhap_ngu",ngaynhapngu),
-                new NpgsqlParameter("p_ngay_xuat_ngu",ngayxuatngu),
-                new NpgsqlParameter("p_quan_ham_cao_nhat",quanhamcaonhat),
-                new NpgsqlParameter("p_danh_hieu_cao_nhat",danhhieucaonhat),
-                new NpgsqlParameter("p_thuong_binh_hang",thuongbinhhang),
-                new NpgsqlParameter("p_gia_dinh_chinh_sach",gdchinhsach),
-                new NpgsqlParameter("p_khen_thuong",khenthuong),
-                new NpgsqlParameter("p_ky_luat",kyluat),
-                new NpgsqlParameter("p_is_cong_doan_vien",iscongdoanvien)
+            IDataParameter[] paras = new IDataParameter[11]{
+                new NpgsqlParameter("p_ma_nv",Ma_NV), 
+                new NpgsqlParameter("p_ly_luan_chinh_tri",Ly_Luan_Chinh_Tri), 
+                new NpgsqlParameter("p_quan_ly_nha_nuoc",Quan_Ly_Nha_Nuoc), 
+                new NpgsqlParameter("p_ngay_nhap_ngu",Ngay_Nhap_Ngu),
+                new NpgsqlParameter("p_ngay_xuat_ngu",Ngay_Xuat_Ngu), 
+                new NpgsqlParameter("p_quan_ham_cao_nhat",Quan_Ham_Cao_Nhat), 
+                new NpgsqlParameter("p_danh_hieu_cao_nhat",Danh_Hieu_Cao_Nhat), 
+                new NpgsqlParameter("p_thuong_binh_hang",Thuong_Binh_Hang),
+                new NpgsqlParameter("p_gia_dinh_chinh_sach",Gia_Dinh_Chinh_Sach), 
+                new NpgsqlParameter("p_khen_thuong",Khen_Thuong), 
+                new NpgsqlParameter("p_ky_luat",Ky_Luat),
             };
-
             check = (int)dp.executeScalarProc("sp_update_cnvc_chinh_tri", paras);
             if (check > 0)
             {
@@ -270,19 +87,6 @@ namespace Business.CNVC
             }
             else
                 return false;
-        }
-
-        public DataTable GetData()
-        {
-            DataTable dt;
-
-            IDataParameter[] paras = new IDataParameter[1]{
-                new NpgsqlParameter("p_ma_nv",manv)               
-            };
-
-            dt = dp.getDataTableProc("sp_select_cnvc_chinh_tri", paras);
-
-            return dt;
         }
         
         #endregion

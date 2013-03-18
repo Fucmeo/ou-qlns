@@ -526,131 +526,131 @@ namespace QLNS.UCs
 
         private void LoadHoatDongCT()
         {
-            oChinhTri.MaNV = MaCNVC;
-            dtChinhTri = oChinhTri.GetData();
-            if ((dtChinhTri) != null && dtChinhTri.Rows.Count > 0)
-            {
-                #region DOAN VIEN
+            //oChinhTri.MaNV = MaCNVC;
+            //dtChinhTri = oChinhTri.GetData();
+            //if ((dtChinhTri) != null && dtChinhTri.Rows.Count > 0)
+            //{
+            //    #region DOAN VIEN
 
-                cb_DoanVien.Checked = dtChinhTri.Rows[0]["doan_vien"].ToString() == "True" ? true : false;
-                if (cb_DoanVien.Checked)
-                {
-                    dtp_NgayRaDoan.Enabled = dtp_NgayVaoDoan.Enabled = dtp_NgayTaiNapDoan.Enabled = true;
+            //    cb_DoanVien.Checked = dtChinhTri.Rows[0]["doan_vien"].ToString() == "True" ? true : false;
+            //    if (cb_DoanVien.Checked)
+            //    {
+            //        dtp_NgayRaDoan.Enabled = dtp_NgayVaoDoan.Enabled = dtp_NgayTaiNapDoan.Enabled = true;
 
-                    string dt = dtChinhTri.Rows[0]["ngay_vao_doan"].ToString();
-                    if (!string.IsNullOrWhiteSpace(dt))
-                    {
-                        dtp_NgayVaoDoan.Value = Convert.ToDateTime(dt);
-                        dtp_NgayVaoDoan.Checked = true;
-                    }
-                    else
-                        dtp_NgayVaoDoan.Checked = false;
+            //        string dt = dtChinhTri.Rows[0]["ngay_vao_doan"].ToString();
+            //        if (!string.IsNullOrWhiteSpace(dt))
+            //        {
+            //            dtp_NgayVaoDoan.Value = Convert.ToDateTime(dt);
+            //            dtp_NgayVaoDoan.Checked = true;
+            //        }
+            //        else
+            //            dtp_NgayVaoDoan.Checked = false;
 
-                    dt = dtChinhTri.Rows[0]["ngay_ra_khoi_doan"].ToString();
-                    if (!string.IsNullOrWhiteSpace(dt))
-                    {
-                        dtp_NgayRaDoan.Value = Convert.ToDateTime(dt);
-                        dtp_NgayRaDoan.Checked = true;
-                    }
-                    else
-                        dtp_NgayRaDoan.Checked = false;
+            //        dt = dtChinhTri.Rows[0]["ngay_ra_khoi_doan"].ToString();
+            //        if (!string.IsNullOrWhiteSpace(dt))
+            //        {
+            //            dtp_NgayRaDoan.Value = Convert.ToDateTime(dt);
+            //            dtp_NgayRaDoan.Checked = true;
+            //        }
+            //        else
+            //            dtp_NgayRaDoan.Checked = false;
 
-                    dt = dtChinhTri.Rows[0]["ngay_tai_gia_nhap_doan"].ToString();
-                    if (!string.IsNullOrWhiteSpace(dt))
-                    {
-                        dtp_NgayTaiNapDoan.Value = Convert.ToDateTime(dt);
-                        dtp_NgayTaiNapDoan.Checked = true;
-                    }
-                    else
-                        dtp_NgayTaiNapDoan.Checked = false;
-                }
+            //        dt = dtChinhTri.Rows[0]["ngay_tai_gia_nhap_doan"].ToString();
+            //        if (!string.IsNullOrWhiteSpace(dt))
+            //        {
+            //            dtp_NgayTaiNapDoan.Value = Convert.ToDateTime(dt);
+            //            dtp_NgayTaiNapDoan.Checked = true;
+            //        }
+            //        else
+            //            dtp_NgayTaiNapDoan.Checked = false;
+            //    }
 
-                #endregion
+            //    #endregion
 
-                #region DANG VIEN
+            //    #region DANG VIEN
 
-                cb_DangVien.Checked = dtChinhTri.Rows[0]["dang_vien"].ToString() == "True" ? true : false;
-                if (cb_DangVien.Checked)
-                {
-                    dtp_NgayChinhThuc.Enabled = dtp_NgayVaoDang.Enabled = dtp_NgayRaDang.Enabled = dtp_NgayTaiNapDang.Enabled = true;
+            //    cb_DangVien.Checked = dtChinhTri.Rows[0]["dang_vien"].ToString() == "True" ? true : false;
+            //    if (cb_DangVien.Checked)
+            //    {
+            //        dtp_NgayChinhThuc.Enabled = dtp_NgayVaoDang.Enabled = dtp_NgayRaDang.Enabled = dtp_NgayTaiNapDang.Enabled = true;
 
-                    string dt = dtChinhTri.Rows[0]["ngay_vao_dang"].ToString();
-                    if (!string.IsNullOrWhiteSpace(dt))
-                    {
-                        dtp_NgayVaoDang.Value = Convert.ToDateTime(dt);
-                        dtp_NgayVaoDang.Checked = true;
-                    }
-                    else
-                        dtp_NgayVaoDang.Checked = false;
+            //        string dt = dtChinhTri.Rows[0]["ngay_vao_dang"].ToString();
+            //        if (!string.IsNullOrWhiteSpace(dt))
+            //        {
+            //            dtp_NgayVaoDang.Value = Convert.ToDateTime(dt);
+            //            dtp_NgayVaoDang.Checked = true;
+            //        }
+            //        else
+            //            dtp_NgayVaoDang.Checked = false;
                     
-                    dt = dtChinhTri.Rows[0]["ngay_ra_khoi_dang"].ToString();
-                    if (!string.IsNullOrWhiteSpace(dt))
-                    {
-                        dtp_NgayRaDang.Value = Convert.ToDateTime(dt);
-                        dtp_NgayRaDang.Checked = true;
-                    }
-                    else
-                        dtp_NgayRaDang.Checked = false;
+            //        dt = dtChinhTri.Rows[0]["ngay_ra_khoi_dang"].ToString();
+            //        if (!string.IsNullOrWhiteSpace(dt))
+            //        {
+            //            dtp_NgayRaDang.Value = Convert.ToDateTime(dt);
+            //            dtp_NgayRaDang.Checked = true;
+            //        }
+            //        else
+            //            dtp_NgayRaDang.Checked = false;
 
-                    dt = dtChinhTri.Rows[0]["ngay_chinh_thuc"].ToString();
-                    if (!string.IsNullOrWhiteSpace(dt))
-                    {
-                        dtp_NgayChinhThuc.Value = Convert.ToDateTime(dt);
-                        dtp_NgayChinhThuc.Checked = true;
-                    }
-                    else
-                        dtp_NgayChinhThuc.Checked = false;
+            //        dt = dtChinhTri.Rows[0]["ngay_chinh_thuc"].ToString();
+            //        if (!string.IsNullOrWhiteSpace(dt))
+            //        {
+            //            dtp_NgayChinhThuc.Value = Convert.ToDateTime(dt);
+            //            dtp_NgayChinhThuc.Checked = true;
+            //        }
+            //        else
+            //            dtp_NgayChinhThuc.Checked = false;
 
-                    dt = dtChinhTri.Rows[0]["ngay_tai_gia_nhap_dang"].ToString();
-                    if (!string.IsNullOrWhiteSpace(dt))
-                    {
-                        dtp_NgayTaiNapDang.Value = Convert.ToDateTime(dt);
-                        dtp_NgayTaiNapDang.Checked = true;
-                    }
-                    else
-                        dtp_NgayTaiNapDang.Checked = false;
-                }
+            //        dt = dtChinhTri.Rows[0]["ngay_tai_gia_nhap_dang"].ToString();
+            //        if (!string.IsNullOrWhiteSpace(dt))
+            //        {
+            //            dtp_NgayTaiNapDang.Value = Convert.ToDateTime(dt);
+            //            dtp_NgayTaiNapDang.Checked = true;
+            //        }
+            //        else
+            //            dtp_NgayTaiNapDang.Checked = false;
+            //    }
 
-                #endregion
+            //    #endregion
 
-                #region THONG TIN KHAC
+            //    #region THONG TIN KHAC
 
-                cb_CongDoan.Checked = dtChinhTri.Rows[0]["is_cong_doan_vien"].ToString() == "True" ? true : false;
+            //    cb_CongDoan.Checked = dtChinhTri.Rows[0]["is_cong_doan_vien"].ToString() == "True" ? true : false;
 
-                string cb = dtChinhTri.Rows[0]["ngay_nhap_ngu"].ToString();
-                if (!string.IsNullOrWhiteSpace(cb))
-                {
-                    dtp_NgayNhapNgu.Value = Convert.ToDateTime(cb);
-                    dtp_NgayNhapNgu.Checked = true;
-                }
-                else
-                    dtp_NgayNhapNgu.Checked = false;
+            //    string cb = dtChinhTri.Rows[0]["ngay_nhap_ngu"].ToString();
+            //    if (!string.IsNullOrWhiteSpace(cb))
+            //    {
+            //        dtp_NgayNhapNgu.Value = Convert.ToDateTime(cb);
+            //        dtp_NgayNhapNgu.Checked = true;
+            //    }
+            //    else
+            //        dtp_NgayNhapNgu.Checked = false;
 
-                cb = dtChinhTri.Rows[0]["ngay_xuat_ngu"].ToString();
-                if (!string.IsNullOrWhiteSpace(cb))
-                {
-                    dtp_NgayXuatNgu.Value = Convert.ToDateTime(cb);
-                    dtp_NgayXuatNgu.Checked = true;
-                }
-                else
-                    dtp_NgayXuatNgu.Checked = false;
+            //    cb = dtChinhTri.Rows[0]["ngay_xuat_ngu"].ToString();
+            //    if (!string.IsNullOrWhiteSpace(cb))
+            //    {
+            //        dtp_NgayXuatNgu.Value = Convert.ToDateTime(cb);
+            //        dtp_NgayXuatNgu.Checked = true;
+            //    }
+            //    else
+            //        dtp_NgayXuatNgu.Checked = false;
 
-                txt_QuanHam.Text = dtChinhTri.Rows[0]["quan_ham_cao_nhat"].ToString();
-                txt_DanhHieu.Text = dtChinhTri.Rows[0]["danh_hieu_cao_nhat"].ToString();
-                txt_QuanLyNhaNuoc.Text = dtChinhTri.Rows[0]["quan_ly_nha_nuoc"].ToString();
-                txt_LyLuanChinhTri.Text = dtChinhTri.Rows[0]["ly_luan_chinh_tri"].ToString();
-                txt_ThuongBinh.Text = dtChinhTri.Rows[0]["thuong_binh_hang"].ToString();
-                txt_GiaDinh.Text = dtChinhTri.Rows[0]["gia_dinh_chinh_sach"].ToString();
-                rtb_KhenThuong.Text = dtChinhTri.Rows[0]["khen_thuong"].ToString();
-                rtb_KyLuat.Text = dtChinhTri.Rows[0]["ky_luat"].ToString();
+            //    txt_QuanHam.Text = dtChinhTri.Rows[0]["quan_ham_cao_nhat"].ToString();
+            //    txt_DanhHieu.Text = dtChinhTri.Rows[0]["danh_hieu_cao_nhat"].ToString();
+            //    txt_QuanLyNhaNuoc.Text = dtChinhTri.Rows[0]["quan_ly_nha_nuoc"].ToString();
+            //    txt_LyLuanChinhTri.Text = dtChinhTri.Rows[0]["ly_luan_chinh_tri"].ToString();
+            //    txt_ThuongBinh.Text = dtChinhTri.Rows[0]["thuong_binh_hang"].ToString();
+            //    txt_GiaDinh.Text = dtChinhTri.Rows[0]["gia_dinh_chinh_sach"].ToString();
+            //    rtb_KhenThuong.Text = dtChinhTri.Rows[0]["khen_thuong"].ToString();
+            //    rtb_KyLuat.Text = dtChinhTri.Rows[0]["ky_luat"].ToString();
 
 
 
-                #endregion
+            //    #endregion
 
-            }
-            else
-                EmptyHoatDongCTContent();
+            //}
+            //else
+            //    EmptyHoatDongCTContent();
         }
 
         private void cb_DoanVien_CheckedChanged(object sender, EventArgs e)
