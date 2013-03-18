@@ -346,6 +346,239 @@ namespace QLNS.UCs.DanhMucThongTin
 
             }
         }
+
+        private void lbl_ThemDaoTao_Click(object sender, EventArgs e)
+        {
+            #region MyRegion
+
+            if (lbl_ThemDaoTao.Text == "Thêm")
+            {
+                bAddDaoTaoFlag = true;
+                ControlDaoTao(true);
+                ClearDaoTaoData();
+            }
+            else        // LƯU
+            {
+                if (VerifyDaoTaoData())
+                {
+                    if (bAddDaoTaoFlag)   // Thêm mới
+                    {
+                        if ((MessageBox.Show("Thêm thông tin đào tạo của nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
+                        {
+                            try
+                            {
+                                GetDaoTaoInputData();
+                                oCNVC_DaoTaoBoiDuong.Add();
+
+                                // load lai dtgv_CMND
+                                GetDaoTaoBoiDuongInfo(Program.selected_ma_nv);
+                                dtgv_DaoTao.DataSource = dtDaoTao;
+                                Setup_dtgv_DaoTao();
+
+                                MessageBox.Show("Thêm thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            catch (Exception)
+                            {
+                                MessageBox.Show("Thông tin không phù hợp, xin vui lòng xem lại thông tin đào tạo.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                        }
+                    }
+                    else        // Sửa
+                    {
+                        if ((MessageBox.Show("Sửa thông tin đào tạo của nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
+                        {
+                            try
+                            {
+                                GetDaoTaoInputData();
+                                oCNVC_DaoTaoBoiDuong.Update();
+
+                                // load lai dtgv_CMND
+                                GetDaoTaoBoiDuongInfo(Program.selected_ma_nv);
+                                dtgv_DaoTao.DataSource = dtDaoTao;
+                                Setup_dtgv_DaoTao();
+
+                                MessageBox.Show("Sửa thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            catch (Exception)
+                            {
+                                MessageBox.Show("Thông tin không phù hợp, xin vui lòng xem lại thông tin đào tạo.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                        }
+                    }
+
+                    ControlDaoTao(false);
+                    ClearDaoTaoData();
+                }
+                else
+                {
+                    MessageBox.Show("Thông tin đào tạo không phù hợp, xin vui lòng kiểm tra lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            #endregion
+        }
+
+        private void lbl_SuaDaoTao_Click(object sender, EventArgs e)
+        {
+            if (lbl_SuaDaoTao.Text == "Sửa")
+            {
+                if (dtgv_DaoTao.Rows.Count > 0 && dtgv_DaoTao.SelectedRows != null)
+                {
+                    txt_TenTruong_DaoTao.Focus();
+                    bAddDaoTaoFlag = false;
+                    ControlDaoTao(true);
+                }
+                else
+                {
+                    MessageBox.Show("Chưa có thông tin về trình độ phổ thông của nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else        // HUỶ
+            {
+                bAddDaoTaoFlag = false;
+                ControlDaoTao(false);
+                ClearDaoTaoData();
+
+            }
+        }
+
+        private void lbl_XoaDaoTao_Click(object sender, EventArgs e)
+        {
+            if (dtgv_DaoTao.SelectedRows != null &&
+                (MessageBox.Show("Xoá dòng dữ liệu đào tạo của nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
+            {
+                DataGridViewRow r = dtgv_DaoTao.SelectedRows[0];
+                oCNVC_DaoTaoBoiDuong.ID = Convert.ToInt32(r.Cells["id"].Value);
+
+                try
+                {
+                    oCNVC_DaoTaoBoiDuong.Delete();
+                    // load lai dtgv_DaoTao
+                    GetDaoTaoBoiDuongInfo(Program.selected_ma_nv);
+                    dtgv_DaoTao.DataSource = dtDaoTao;
+                    Setup_dtgv_DaoTao();
+
+                    MessageBox.Show("Xoá thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Xoá không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                }
+            }
+        }
+
+        private bool VerifyDaoTaoData()
+        {
+            return true;
+
+        }
+
+        private bool VerifyBoiDuongData()
+        {
+            return true;
+
+        }
+
+        private void GetDaoTaoInputData()
+        {
+            oCNVC_DaoTaoBoiDuong.MaNV = Program.selected_ma_nv;
+            oCNVC_DaoTaoBoiDuong.TenTruong = txt_TenTruong_DaoTao.Text;
+            oCNVC_DaoTaoBoiDuong.ChuyenNganhDaoTao = txt_ChuyenNganh_DaoTao.Text;
+            oCNVC_DaoTaoBoiDuong.XepLoai = txt_XepLoai_DaoTao.Text;
+            oCNVC_DaoTaoBoiDuong.CQ_TenLuanVan = txt_TenLuanVan.Text;
+            oCNVC_DaoTaoBoiDuong.CQ_HoiDongCham = txt_HoiDong.Text;
+            oCNVC_DaoTaoBoiDuong.BD_TenChungChi = "";
+
+            if (dTP_TuNgay_DaoTao.Checked)
+            {
+                oCNVC_DaoTaoBoiDuong.TuNgay = dTP_TuNgay_DaoTao.Value;
+            }
+            else
+            {
+                oCNVC_DaoTaoBoiDuong.TuNgay = null;
+            }
+
+            if (dTP_DenNgay_DaoTao.Checked)
+            {
+                oCNVC_DaoTaoBoiDuong.DenNgay = dTP_DenNgay_DaoTao.Value;
+            }
+            else
+            {
+                oCNVC_DaoTaoBoiDuong.DenNgay = null;
+            }
+
+            oCNVC_DaoTaoBoiDuong.HinhThucDaoTaoID = Convert.ToInt32(comB_HinhThuc.SelectedValue);
+            oCNVC_DaoTaoBoiDuong.CQ_VanBangID = Convert.ToInt32(comB_VanBang.SelectedValue);
+                 
+
+        }
+
+        private void GetBoiDuongInputData()
+        {
+            oCNVC_DaoTaoBoiDuong.MaNV = Program.selected_ma_nv;
+            oCNVC_DaoTaoBoiDuong.TenTruong = txt_TenTruong_BoiDuong.Text;
+            oCNVC_DaoTaoBoiDuong.ChuyenNganhDaoTao = txt_ChuyenNganh_BoiDuong.Text;
+            oCNVC_DaoTaoBoiDuong.XepLoai = txt_XepLoai_BoiDuong.Text;
+            oCNVC_DaoTaoBoiDuong.BD_TenChungChi = txt_TenChungChi.Text;
+            oCNVC_DaoTaoBoiDuong.CQ_HoiDongCham = "";
+            oCNVC_DaoTaoBoiDuong.CQ_TenLuanVan = txt_TenLuanVan.Text;
+
+            if (dTP_TuNgay_DaoTao.Checked)
+            {
+                oCNVC_DaoTaoBoiDuong.TuNgay = dTP_TuNgay_BoiDuong.Value;
+            }
+            else
+            {
+                oCNVC_DaoTaoBoiDuong.TuNgay = null;
+            }
+
+            if (dTP_DenNgay_DaoTao.Checked)
+            {
+                oCNVC_DaoTaoBoiDuong.DenNgay = dTP_DenNgay_BoiDuong.Value;
+            }
+            else
+            {
+                oCNVC_DaoTaoBoiDuong.DenNgay = null;
+            }
+
+            oCNVC_DaoTaoBoiDuong.HinhThucDaoTaoID = null;
+            oCNVC_DaoTaoBoiDuong.CQ_VanBangID = null;
+
+
+        }
+
+        private void ClearDaoTaoData()
+        {
+            txt_TenTruong_DaoTao.Text = txt_ChuyenNganh_DaoTao.Text = txt_HoiDong.Text
+                = txt_TenLuanVan.Text = txt_XepLoai_DaoTao.Text = "";
+            
+            dTP_DenNgay_DaoTao.Checked = dTP_TuNgay_DaoTao.Checked = false;
+
+            comB_HinhThuc.SelectedIndex = comB_VanBang.SelectedIndex = 0;
+        }
+
+        private void ClearBoiDuongData()
+        {
+            txt_TenTruong_BoiDuong.Text = txt_ChuyenNganh_BoiDuong.Text = 
+                txt_TenChungChi.Text = txt_XepLoai_BoiDuong.Text = "";
+
+            dTP_DenNgay_BoiDuong.Checked = dTP_TuNgay_BoiDuong.Checked = false;
+
+        }
+
+        private void lbl_ThemBoiDuong_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_SuaBoiDuong_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_XoaBoiDuong_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
