@@ -17,6 +17,8 @@ namespace QLNS.UCs.DanhMucThongTin
         DataTable dtCtac_NonOU_GD;
         Business.CNVC.CNVC_QTr_CongTac_NonOU_NonGD oQtrCtac_NonOU_NonGD;
         DataTable dtCtac_NonOU_NonGD;
+        Business.CNVC.CNVC_QTr_CongTac_OU oQtrCtac_OU;
+        DataTable dtCtac_OU;
 
         string m_ma_nv;
         bool bAddFlag;
@@ -31,6 +33,7 @@ namespace QLNS.UCs.DanhMucThongTin
             InitializeComponent();
             oQtrCtac_NonOU_GD = new Business.CNVC.CNVC_QTr_CongTac_NonOU_GD();
             oQtrCtac_NonOU_NonGD = new Business.CNVC.CNVC_QTr_CongTac_NonOU_NonGD();
+            oQtrCtac_OU = new Business.CNVC.CNVC_QTr_CongTac_OU();
 
             m_ma_nv = p_ma_nv;
         }
@@ -38,6 +41,7 @@ namespace QLNS.UCs.DanhMucThongTin
         private void QLNS_QuaTrinhCongTac_Load(object sender, EventArgs e)
         {
             Load_Qtr_Ctac_NonOU();
+            Load_Qtr_Ctac_OU();
 
             ResetInterface(true);
         }
@@ -51,6 +55,47 @@ namespace QLNS.UCs.DanhMucThongTin
         }
 
         #region Private Methods
+        private void Load_Qtr_Ctac_OU()
+        {
+            oQtrCtac_OU.MaNV = m_ma_nv;
+            dtCtac_OU = oQtrCtac_OU.GetData();
+
+            if ((dtCtac_OU) != null && dtCtac_OU.Rows.Count > 0)
+            {
+                PrepareDataSource_Trong();
+                EditDtgInterface_Trong();
+            }
+        }
+
+        private void PrepareDataSource_Trong()
+        {
+            BindingSource bs = new BindingSource();
+            bs.DataSource = dtCtac_OU;
+            dtgv_QTCT_Trong.DataSource = bs;
+        }
+
+        private void EditDtgInterface_Trong()
+        {
+            dtgv_QTCT_Trong.Columns["ma_hop_dong"].HeaderText = "Mã hợp đồng";
+            dtgv_QTCT_Trong.Columns["ma_hop_dong"].Width = 120;
+            dtgv_QTCT_Trong.Columns["ma_quyet_dinh"].HeaderText = "Mã quyết định";
+            dtgv_QTCT_Trong.Columns["ma_quyet_dinh"].Width = 120;
+            dtgv_QTCT_Trong.Columns["don_vi"].HeaderText = "Tên đơn vị";
+            dtgv_QTCT_Trong.Columns["chuc_danh"].HeaderText = "Chức danh";
+            dtgv_QTCT_Trong.Columns["chuc_vu"].HeaderText = "Chức vụ";
+            dtgv_QTCT_Trong.Columns["tu_thoi_gian"].HeaderText = "Từ thời gian";
+            dtgv_QTCT_Trong.Columns["tu_thoi_gian"].Width = 120;
+            dtgv_QTCT_Trong.Columns["den_thoi_gian"].HeaderText = "Đến thời gian";
+            dtgv_QTCT_Trong.Columns["den_thoi_gian"].Width = 120;
+            dtgv_QTCT_Trong.Columns["tinh_trang"].HeaderText = "Tình trạng";
+
+            dtgv_QTCT_Trong.Columns["id"].Visible = false;
+            dtgv_QTCT_Trong.Columns["ma_nv"].Visible = false;
+            dtgv_QTCT_Trong.Columns["don_vi_id"].Visible = false;
+            dtgv_QTCT_Trong.Columns["chuc_danh_id"].Visible = false;
+            dtgv_QTCT_Trong.Columns["chuc_vu_id"].Visible = false;
+        }
+
         private void DisplayInfo(DataGridViewRow row)
         {
             if (row != null)
@@ -96,12 +141,12 @@ namespace QLNS.UCs.DanhMucThongTin
 
             if (((dtCtac_NonOU_GD) != null && dtCtac_NonOU_GD.Rows.Count > 0) || ((dtCtac_NonOU_NonGD) != null && dtCtac_NonOU_NonGD.Rows.Count > 0))
             {
-                PrepareDataSource();
-                EditDtgInterface();
+                PrepareDataSource_Ngoai();
+                EditDtgInterface_Ngoai();
             }
         }
 
-        private void EditDtgInterface()
+        private void EditDtgInterface_Ngoai()
         {
             dtgv_QTCT_Ngoai.Columns["is_gd"].HeaderText = "Trong ngành giáo dục?";
             dtgv_QTCT_Ngoai.Columns["is_gd"].Width = 170;
@@ -118,7 +163,7 @@ namespace QLNS.UCs.DanhMucThongTin
             dtgv_QTCT_Ngoai.Columns["ma_nv"].Visible = false;
         }
 
-        private void PrepareDataSource()
+        private void PrepareDataSource_Ngoai()
         {
             var result = ((from c in dtCtac_NonOU_GD.AsEnumerable()
                            select new
@@ -156,7 +201,7 @@ namespace QLNS.UCs.DanhMucThongTin
 
             if (dt != null)
             {
-                //lbl_Sua.Visible = lbl_Xoa.Visible = true;
+                lbl_SuaNgoai.Visible = lbl_XoaNgoai.Visible = true;
             }
         }
 
@@ -164,9 +209,6 @@ namespace QLNS.UCs.DanhMucThongTin
         {
             if (init)
             {
-                lbl_ThemNgoai.Visible = lbl_SuaNgoai.Visible = true;
-                //btn_Huy.Visible = 
-                //btn_Luu.Visible = false;
                 txt_ChucDanh.Enabled = txt_ChucVu.Enabled = txt_TenDV.Enabled = comB_Nganh.Enabled = dTP_DenNgay.Enabled = dTP_TuNgay.Enabled = rTB_CongViecChinh.Enabled = false;
 
                 dtgv_QTCT_Ngoai.Enabled = true;
@@ -174,19 +216,25 @@ namespace QLNS.UCs.DanhMucThongTin
                 {
                     DisplayInfo(dtgv_QTCT_Ngoai.CurrentRow);
                 }
+
+                lbl_ThemNgoai.Text = "Thêm";
+                lbl_SuaNgoai.Text = "Sửa";
+                lbl_XoaNgoai.Visible = true;
             }
             else
             {
-                lbl_ThemNgoai.Visible = lbl_SuaNgoai.Visible = false;
-                //btn_Huy.Visible = 
-                //btn_Luu.Visible = true;
-                txt_ChucDanh.Enabled = txt_ChucVu.Enabled = txt_TenDV.Enabled = comB_Nganh.Enabled = dTP_DenNgay.Enabled = dTP_TuNgay.Enabled = rTB_CongViecChinh.Enabled = true;
-                dtgv_QTCT_Ngoai.Enabled = false;
+                txt_ChucDanh.Enabled = txt_ChucVu.Enabled = txt_TenDV.Enabled = dTP_DenNgay.Enabled = dTP_TuNgay.Enabled = rTB_CongViecChinh.Enabled = true;
+                dtgv_QTCT_Ngoai.Enabled = comB_Nganh.Enabled = false;
 
                 if (bAddFlag) // thao tac them moi xoa rong cac field
                 {
                     txt_ChucDanh.Text = txt_ChucVu.Text = txt_TenDV.Text = rTB_CongViecChinh.Text = "";
+                    comB_Nganh.Enabled = true;
                 }
+
+                lbl_ThemNgoai.Text = "Lưu";
+                lbl_SuaNgoai.Text = "Hủy";
+                lbl_XoaNgoai.Visible = false;
             }
         }
        
@@ -245,14 +293,155 @@ namespace QLNS.UCs.DanhMucThongTin
 
         private void lbl_ThemNgoai_Click(object sender, EventArgs e)
         {
-            bAddFlag = true;
-            ResetInterface(false);
+            if (lbl_ThemNgoai.Text == "Thêm")
+            {
+                bAddFlag = true;
+                ResetInterface(false);
+            }
+            else //chức năng Lưu
+            {
+                bool is_gd;
+                if (comB_Nganh.Text == "Trong ngành giáo dục")
+                {
+                    is_gd = true;
+                    oQtrCtac_NonOU_GD = new Business.CNVC.CNVC_QTr_CongTac_NonOU_GD();
+                    oQtrCtac_NonOU_GD.MaNV = m_ma_nv;
+                    oQtrCtac_NonOU_GD.TenDonVi = txt_TenDV.Text;
+                    oQtrCtac_NonOU_GD.ChucDanh = txt_ChucDanh.Text;
+                    oQtrCtac_NonOU_GD.ChucVu = txt_ChucVu.Text;
+                    oQtrCtac_NonOU_GD.CongViecChinh = rTB_CongViecChinh.Text;
+                    if (dTP_TuNgay.Checked == true)
+                        oQtrCtac_NonOU_GD.TuNgay = dTP_TuNgay.Value;
+                    if (dTP_DenNgay.Checked == true)
+                        oQtrCtac_NonOU_GD.DenNgay = dTP_DenNgay.Value;
+                }
+                else
+                {
+                    is_gd = false;
+                    oQtrCtac_NonOU_NonGD = new Business.CNVC.CNVC_QTr_CongTac_NonOU_NonGD();
+                    oQtrCtac_NonOU_NonGD.MaNV = m_ma_nv;
+                    oQtrCtac_NonOU_NonGD.TenDonVi = txt_TenDV.Text;
+                    oQtrCtac_NonOU_NonGD.ChucDanh = txt_ChucDanh.Text;
+                    oQtrCtac_NonOU_NonGD.ChucVu = txt_ChucVu.Text;
+                    oQtrCtac_NonOU_NonGD.CongViecChinh = rTB_CongViecChinh.Text;
+                    if (dTP_TuNgay.Checked == true)
+                        oQtrCtac_NonOU_NonGD.TuNgay = dTP_TuNgay.Value;
+                    if (dTP_DenNgay.Checked == true)
+                        oQtrCtac_NonOU_NonGD.DenNgay = dTP_DenNgay.Value;
+                }
+
+                #region thao tac them
+                if (bAddFlag)
+                {
+                    if (MessageBox.Show("Bạn thực sự muốn thêm quá trình công tác của nhân viên?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            if (is_gd == true) // trong ngành giáo dục
+                            {
+                                if (oQtrCtac_NonOU_GD.Add())
+                                    MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            { 
+                                if (oQtrCtac_NonOU_NonGD.Add())
+                                    MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            Load_Qtr_Ctac_NonOU();
+                            ResetInterface(true);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Thao tác thêm thất bại.\n" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+
+                }
+                #endregion
+
+                #region thao tac sua
+                else                // thao tac sua
+                {
+                    if (MessageBox.Show("Bạn thực sự muốn sửa quá trình công tác này của nhân viên?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            if (is_gd == true) // trong ngành giáo dục
+                            {
+                                oQtrCtac_NonOU_GD.ID = Convert.ToInt32(dtgv_QTCT_Ngoai.CurrentRow.Cells["id"].Value.ToString());
+                                if (oQtrCtac_NonOU_GD.Update())
+                                    MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                oQtrCtac_NonOU_NonGD.ID = Convert.ToInt32(dtgv_QTCT_Ngoai.CurrentRow.Cells["id"].Value.ToString());
+                                if (oQtrCtac_NonOU_NonGD.Update())
+                                    MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            Load_Qtr_Ctac_NonOU();
+                            ResetInterface(true);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Thao tác sửa thất bại.\n" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+                #endregion
+            }
+            
         }
 
         private void lbl_SuaNgoai_Click(object sender, EventArgs e)
         {
-            bAddFlag = false;
-            ResetInterface(false);
+            if (lbl_SuaNgoai.Text == "Sửa")
+            {
+                bAddFlag = false;
+                ResetInterface(false);
+            }
+            else if (lbl_SuaNgoai.Text == "Hủy")
+            {
+                ResetInterface(true);
+            }
+        }
+
+        private void lbl_XoaNgoai_Click(object sender, EventArgs e)
+        {
+            if (dtgv_QTCT_Ngoai.CurrentRow != null)
+            {
+                if (MessageBox.Show("Bạn thực sự muốn xoá thông tin quá trình công tác này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    try
+                    {
+                        if (comB_Nganh.Text == "Trong ngành giáo dục")
+                        {
+                            oQtrCtac_NonOU_GD = new Business.CNVC.CNVC_QTr_CongTac_NonOU_GD();
+                            oQtrCtac_NonOU_GD.ID = Convert.ToInt16(dtgv_QTCT_Ngoai.CurrentRow.Cells["id"].Value.ToString());
+                            if (oQtrCtac_NonOU_GD.Delete())
+                                MessageBox.Show("Xoá thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            else
+                                MessageBox.Show("Xóa thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            oQtrCtac_NonOU_NonGD = new Business.CNVC.CNVC_QTr_CongTac_NonOU_NonGD();
+                            oQtrCtac_NonOU_NonGD.ID = Convert.ToInt16(dtgv_QTCT_Ngoai.CurrentRow.Cells["id"].Value.ToString());
+                            if (oQtrCtac_NonOU_NonGD.Delete())
+                                MessageBox.Show("Xoá thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            else
+                                MessageBox.Show("Xóa thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
+                        Load_Qtr_Ctac_NonOU();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Xóa thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                }
+            }
         }
 
     }

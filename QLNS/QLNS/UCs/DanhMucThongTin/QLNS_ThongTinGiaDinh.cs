@@ -267,6 +267,8 @@ namespace QLNS.UCs.DanhMucThongTin
                         {
                             MessageBox.Show("Xoá thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
+                        else
+                            MessageBox.Show("Xóa thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         RefreshDataSource();
 
                     }
