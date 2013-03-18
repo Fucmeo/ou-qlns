@@ -29,7 +29,7 @@ namespace QLNS.UCs
         public Business.MoHinhDaoTao oMoHinhDT = new Business.MoHinhDaoTao();
         public Business.CNVC.CNVC_TrinhDoPhoThong oTrinhDoPT = new Business.CNVC.CNVC_TrinhDoPhoThong();
         public Business.CNVC.CNVC_QHGiaDinh oQuanHeGD = new Business.CNVC.CNVC_QHGiaDinh();
-        public Business.CNVC.CNVC_DacDiemLSBanThan oDacDiemBT = new Business.CNVC.CNVC_DacDiemLSBanThan();
+        public Business.CNVC.CNVC_LSBiBat oDacDiemBT = new Business.CNVC.CNVC_LSBiBat();
         public Business.CNVC.CNVC_ChinhTri oChinhTri = new Business.CNVC.CNVC_ChinhTri();
         public Business.CNVC.CNVC_File oFile = new Business.CNVC.CNVC_File();
         public Business.HinhThucDaoTao oHinhThucDT = new Business.HinhThucDaoTao();
