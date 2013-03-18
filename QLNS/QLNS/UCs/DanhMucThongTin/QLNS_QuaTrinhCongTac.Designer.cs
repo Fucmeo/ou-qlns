@@ -34,6 +34,10 @@
             this.dtgv_QTCT_Trong = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLP_NgoaiDH = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.lbl_ThemNgoai = new System.Windows.Forms.Label();
+            this.lbl_XoaNgoai = new System.Windows.Forms.Label();
+            this.lbl_SuaNgoai = new System.Windows.Forms.Label();
             this.comB_Nganh = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -49,18 +53,14 @@
             this.dtgv_QTCT_Ngoai = new System.Windows.Forms.DataGridView();
             this.rTB_CongViecChinh = new System.Windows.Forms.RichTextBox();
             this.dTP_TuNgay = new System.Windows.Forms.DateTimePicker();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.lbl_ThemNgoai = new System.Windows.Forms.Label();
-            this.lbl_XoaNgoai = new System.Windows.Forms.Label();
-            this.lbl_SuaNgoai = new System.Windows.Forms.Label();
             this.tableLP_QuaTrinhCongTac.SuspendLayout();
             this.tableLP_TrongDH.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_QTCT_Trong)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tableLP_NgoaiDH.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgv_QTCT_Ngoai)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_QTCT_Ngoai)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLP_QuaTrinhCongTac
@@ -166,6 +166,65 @@
             this.tableLP_NgoaiDH.Size = new System.Drawing.Size(988, 633);
             this.tableLP_NgoaiDH.TabIndex = 1;
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLP_NgoaiDH.SetColumnSpan(this.tableLayoutPanel2, 2);
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.Controls.Add(this.lbl_ThemNgoai, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lbl_XoaNgoai, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lbl_SuaNgoai, 1, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(496, 285);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(489, 88);
+            this.tableLayoutPanel2.TabIndex = 54;
+            // 
+            // lbl_ThemNgoai
+            // 
+            this.lbl_ThemNgoai.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbl_ThemNgoai.AutoSize = true;
+            this.lbl_ThemNgoai.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_ThemNgoai.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ThemNgoai.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lbl_ThemNgoai.Location = new System.Drawing.Point(3, 32);
+            this.lbl_ThemNgoai.Name = "lbl_ThemNgoai";
+            this.lbl_ThemNgoai.Size = new System.Drawing.Size(53, 23);
+            this.lbl_ThemNgoai.TabIndex = 8;
+            this.lbl_ThemNgoai.Text = "Thêm";
+            this.lbl_ThemNgoai.Click += new System.EventHandler(this.lbl_ThemNgoai_Click);
+            // 
+            // lbl_XoaNgoai
+            // 
+            this.lbl_XoaNgoai.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbl_XoaNgoai.AutoSize = true;
+            this.lbl_XoaNgoai.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_XoaNgoai.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_XoaNgoai.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lbl_XoaNgoai.Location = new System.Drawing.Point(329, 32);
+            this.lbl_XoaNgoai.Name = "lbl_XoaNgoai";
+            this.lbl_XoaNgoai.Size = new System.Drawing.Size(39, 23);
+            this.lbl_XoaNgoai.TabIndex = 9;
+            this.lbl_XoaNgoai.Text = "Xoá";
+            // 
+            // lbl_SuaNgoai
+            // 
+            this.lbl_SuaNgoai.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbl_SuaNgoai.AutoSize = true;
+            this.lbl_SuaNgoai.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_SuaNgoai.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_SuaNgoai.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lbl_SuaNgoai.Location = new System.Drawing.Point(166, 32);
+            this.lbl_SuaNgoai.Name = "lbl_SuaNgoai";
+            this.lbl_SuaNgoai.Size = new System.Drawing.Size(39, 23);
+            this.lbl_SuaNgoai.TabIndex = 7;
+            this.lbl_SuaNgoai.Text = "Sửa";
+            this.lbl_SuaNgoai.Click += new System.EventHandler(this.lbl_SuaNgoai_Click);
+            // 
             // comB_Nganh
             // 
             this.comB_Nganh.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -174,7 +233,7 @@
             this.comB_Nganh.Items.AddRange(new object[] {
             "Trong ngành giáo dục",
             "Ngoài ngành giáo dục"});
-            this.comB_Nganh.Location = new System.Drawing.Point(151, 314);
+            this.comB_Nganh.Location = new System.Drawing.Point(151, 316);
             this.comB_Nganh.Name = "comB_Nganh";
             this.comB_Nganh.Size = new System.Drawing.Size(269, 29);
             this.comB_Nganh.TabIndex = 42;
@@ -321,65 +380,6 @@
             this.dTP_TuNgay.Size = new System.Drawing.Size(269, 28);
             this.dTP_TuNgay.TabIndex = 38;
             // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLP_NgoaiDH.SetColumnSpan(this.tableLayoutPanel2, 2);
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.Controls.Add(this.lbl_ThemNgoai, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.lbl_XoaNgoai, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.lbl_SuaNgoai, 1, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(496, 285);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(489, 88);
-            this.tableLayoutPanel2.TabIndex = 54;
-            // 
-            // lbl_ThemNgoai
-            // 
-            this.lbl_ThemNgoai.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lbl_ThemNgoai.AutoSize = true;
-            this.lbl_ThemNgoai.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbl_ThemNgoai.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ThemNgoai.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lbl_ThemNgoai.Location = new System.Drawing.Point(3, 32);
-            this.lbl_ThemNgoai.Name = "lbl_ThemNgoai";
-            this.lbl_ThemNgoai.Size = new System.Drawing.Size(53, 23);
-            this.lbl_ThemNgoai.TabIndex = 8;
-            this.lbl_ThemNgoai.Text = "Thêm";
-            this.lbl_ThemNgoai.Click += new System.EventHandler(this.lbl_ThemNgoai_Click);
-            // 
-            // lbl_XoaNgoai
-            // 
-            this.lbl_XoaNgoai.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lbl_XoaNgoai.AutoSize = true;
-            this.lbl_XoaNgoai.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbl_XoaNgoai.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_XoaNgoai.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lbl_XoaNgoai.Location = new System.Drawing.Point(329, 32);
-            this.lbl_XoaNgoai.Name = "lbl_XoaNgoai";
-            this.lbl_XoaNgoai.Size = new System.Drawing.Size(39, 23);
-            this.lbl_XoaNgoai.TabIndex = 9;
-            this.lbl_XoaNgoai.Text = "Xoá";
-            // 
-            // lbl_SuaNgoai
-            // 
-            this.lbl_SuaNgoai.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lbl_SuaNgoai.AutoSize = true;
-            this.lbl_SuaNgoai.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbl_SuaNgoai.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_SuaNgoai.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lbl_SuaNgoai.Location = new System.Drawing.Point(166, 32);
-            this.lbl_SuaNgoai.Name = "lbl_SuaNgoai";
-            this.lbl_SuaNgoai.Size = new System.Drawing.Size(39, 23);
-            this.lbl_SuaNgoai.TabIndex = 7;
-            this.lbl_SuaNgoai.Text = "Sửa";
-            this.lbl_SuaNgoai.Click += new System.EventHandler(this.lbl_SuaNgoai_Click);
-            // 
             // QLNS_QuaTrinhCongTac
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -398,9 +398,9 @@
             this.groupBox1.ResumeLayout(false);
             this.tableLP_NgoaiDH.ResumeLayout(false);
             this.tableLP_NgoaiDH.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgv_QTCT_Ngoai)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_QTCT_Ngoai)).EndInit();
             this.ResumeLayout(false);
 
         }

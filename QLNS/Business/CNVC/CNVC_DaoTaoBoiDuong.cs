@@ -180,7 +180,7 @@ namespace Business.CNVC
         {
             int check;
             IDataParameter[] paras = new IDataParameter[1]{
-                new NpgsqlParameter("p_ma_nv",manv)
+                new NpgsqlParameter("p_id",id)
             };
             check = (int)dp.executeScalarProc("sp_delete_cnvc_daotao_va_boiduong", paras);
             if (check > 0)

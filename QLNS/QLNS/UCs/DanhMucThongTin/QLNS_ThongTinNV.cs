@@ -29,6 +29,7 @@ namespace QLNS.UCs.DanhMucThongTin
             dtCNVC = new DataTable();
             dtCMND = new DataTable();
             dtTinhTP = new DataTable();
+            dtQuocGia = new DataTable();
             oTinhTP = new Business.TinhTP();
             oQuocGia = new Business.QuocGia();
             oCMND_HoChieu = new CNVC_CMND_HoChieu();
@@ -66,7 +67,6 @@ namespace QLNS.UCs.DanhMucThongTin
 
         public void FillInfo()
         {    
-  
             if (dtCNVC.Rows.Count > 0)
             {
                 txt_MaHoSo.Text = Convert.ToString(dtCNVC.Rows[0]["ma_ho_so_goc"]);
@@ -274,7 +274,6 @@ namespace QLNS.UCs.DanhMucThongTin
                 oCMND_HoChieu.IsActive = comB_TinhTrang.SelectedItem.ToString() == "Còn hiệu lực" ? true : false;
                 
             }
-           
         }
 
         private void lbl_ThemTinh_Click(object sender, EventArgs e)
