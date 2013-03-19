@@ -14,9 +14,9 @@ namespace QLNS.UCs.DanhMucThongTin
     public partial class QLNS_QuaTrinhCongTac : UserControl
     {
         Business.CNVC.CNVC_QTr_CongTac_NonOU_GD oQtrCtac_NonOU_GD;
-        DataTable dtCtac_NonOU_GD;
+        public DataTable dtCtac_NonOU_GD;
         Business.CNVC.CNVC_QTr_CongTac_NonOU_NonGD oQtrCtac_NonOU_NonGD;
-        DataTable dtCtac_NonOU_NonGD;
+        public DataTable dtCtac_NonOU_NonGD;
         Business.CNVC.CNVC_QTr_CongTac_OU oQtrCtac_OU;
         DataTable dtCtac_OU;
 
@@ -26,6 +26,10 @@ namespace QLNS.UCs.DanhMucThongTin
         public QLNS_QuaTrinhCongTac()
         {
             InitializeComponent();
+            dtCtac_NonOU_GD = new DataTable();
+            dtCtac_NonOU_NonGD = new DataTable();
+            oQtrCtac_NonOU_GD = new Business.CNVC.CNVC_QTr_CongTac_NonOU_GD();
+            oQtrCtac_NonOU_NonGD = new Business.CNVC.CNVC_QTr_CongTac_NonOU_NonGD();
         }
 
         public QLNS_QuaTrinhCongTac(string p_ma_nv)
@@ -130,8 +134,8 @@ namespace QLNS.UCs.DanhMucThongTin
 
         private void Load_Qtr_Ctac_NonOU()
         {
-            dtCtac_NonOU_GD = new DataTable();
-            dtCtac_NonOU_NonGD = new DataTable();
+            //dtCtac_NonOU_GD = new DataTable();
+            //dtCtac_NonOU_NonGD = new DataTable();
 
             oQtrCtac_NonOU_GD.MaNV = m_ma_nv;
             dtCtac_NonOU_GD = oQtrCtac_NonOU_GD.GetData();

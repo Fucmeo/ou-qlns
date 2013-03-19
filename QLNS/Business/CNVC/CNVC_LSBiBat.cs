@@ -81,9 +81,8 @@ namespace Business.CNVC
         public bool Update()
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[8]{
+            IDataParameter[] paras = new IDataParameter[7]{
                 new NpgsqlParameter("p_id",id),
-                new NpgsqlParameter("p_ma_nv",manv), 
                 new NpgsqlParameter("p_bi_bat_bi_tu",BiTu), 
                 new NpgsqlParameter("p_tu_thoi_gian",TuThoiGian), 
                 new NpgsqlParameter("p_den_thoi_gian",DenThoiGian),

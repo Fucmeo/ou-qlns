@@ -487,7 +487,10 @@ namespace QLNS.UCs.DanhMucThongTin
         private void GetTrinhDoInputData()
         {
             oCNVC_TrinhDoPhoThong.MaNV = Program.selected_ma_nv;
-            oCNVC_TrinhDoPhoThong.ID = Convert.ToInt32(dtgv_TrinhDo.SelectedRows[0].Cells["id"].Value);
+
+            if(bAddTrinhDoFlag == false)
+                oCNVC_TrinhDoPhoThong.ID = Convert.ToInt32(dtgv_TrinhDo.SelectedRows[0].Cells["id"].Value);
+
             oCNVC_TrinhDoPhoThong.CapHoc = comB_CapDo.SelectedIndex == 0 ? 1 : comB_CapDo.SelectedIndex == 1 ? 2 : 3;
             oCNVC_TrinhDoPhoThong.TenTruong = txt_TenTruong.Text;
             oCNVC_TrinhDoPhoThong.Phuong = txt_PhuongXa.Text;

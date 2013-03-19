@@ -56,15 +56,9 @@ namespace QLNS.UCs.DanhMucThongTin
             if (comB_QuocGia.Items.Count > 0)
                 comB_QuocGia.SelectedIndex = 0;
 
-            var dt = dtTinhTP.AsEnumerable().Where(a => a.Field<int>("quoc_gia_id") == Convert.ToInt32(comB_QuocGia.SelectedValue));
-            if (dt != null && dt.Count() > 0)
-            {
-                LoadTinhData(dt.CopyToDataTable());
-            }
-            else
-            {
-                LoadTinhData(null);
-            }
+            
+             LoadTinhData(dtTinhTP.Copy());
+            
 
             //Init_dtgv_CMNDHoChieu();
         }
@@ -73,15 +67,21 @@ namespace QLNS.UCs.DanhMucThongTin
         {
             if (dtLSBiBat.Rows.Count > 0)
             {
-                txt_TaiNoi.Text = Convert.ToString(dtLSBiBat.Rows[0]["ma_ho_so_goc"]);
+                DataTable dt = dtLSBiBat.Copy();
+                dtgv_TienAn.Columns.Clear();
+                dtgv_TienAn.DataSource = dt;
+                Setup_dtgv_TienAn();
             }
         }
 
         public void FillQHToChucInfo()
         {
-            if (dtQHToChuc.Rows.Count  > 0)
+            if (dtQHToChuc.Rows.Count > 0)
             {
-                
+                DataTable dt = dtQHToChuc.Copy();
+                dtgv_QHToChuc.Columns.Clear();
+                dtgv_QHToChuc.DataSource = dt;
+                Setup_dtgv_QHToChuc();
             }
         }
         #region Xu ly tinh / quoc gia
@@ -220,27 +220,75 @@ namespace QLNS.UCs.DanhMucThongTin
             }
         }
 
-        
+
         #endregion
-
-        private void GetLSBiBatInfo()
-        {
-
-        }
-
-        private void GetQHToChucInfo()
-        {
-
-        }
 
         private void GetLSBiBatInputData()
         {
+            if(bAddLSBiBatFlag == false)     // dang sua moi get id
+                oCNVC_LSBiBat.ID = Convert.ToInt32(dtgv_TienAn.SelectedRows[0].Cells["id"].Value);
 
+            oCNVC_LSBiBat.MaNV = Program.selected_ma_nv;
+            oCNVC_LSBiBat.BiTu = comB_HinhThuc.SelectedIndex == 0 ? true : false;
+            oCNVC_LSBiBat.TaiNoi = txt_TaiNoi.Text;
+            oCNVC_LSBiBat.NguoiKhaiBao = txt_NguoiKhaiBao.Text;
+            oCNVC_LSBiBat.NoiDung = rTB_NoiDung.Text;
+
+            if (dTP_TuNgay.Checked)
+            {
+                oCNVC_LSBiBat.TuThoiGian = dTP_TuNgay.Value;
+            }
+            else
+            {
+                oCNVC_LSBiBat.TuThoiGian = null;
+            }
+
+            if (dTP_DenNgay.Checked)
+            {
+                oCNVC_LSBiBat.DenThoiGian = dTP_DenNgay.Value;
+            }
+            else
+            {
+                oCNVC_LSBiBat.DenThoiGian = null;
+            }
         }
 
         private void GetQHToChucInputData()
         {
+            if(bAddQHToChucFlag == false)     // dang sua moi get id
+                oCNVC_QuanHeToChuc.ID = Convert.ToInt32(dtgv_QHToChuc.SelectedRows[0].Cells["id"].Value);
 
+            oCNVC_QuanHeToChuc.MaNV = Program.selected_ma_nv;
+            oCNVC_QuanHeToChuc.TenToChuc = txt_TenToChuc.Text;
+            oCNVC_QuanHeToChuc.NuocNgoai = cb_NuocNgoai.Checked;
+            oCNVC_QuanHeToChuc.ChucDanh = txt_ChucDanh.Text;
+            oCNVC_QuanHeToChuc.ChucVu = txt_ChucVu.Text;
+            oCNVC_QuanHeToChuc.PhuongXa = txt_PhuongXa.Text;
+            oCNVC_QuanHeToChuc.QuanHuyen = txt_QuanHuyen.Text;
+
+            if (dTP_TuThoiGian.Checked)
+            {
+                oCNVC_QuanHeToChuc.TuThoiGian = dTP_TuThoiGian.Value;
+            }
+            else
+            {
+                oCNVC_QuanHeToChuc.TuThoiGian = null;
+            }
+
+            if (dTP_DenThoiGian.Checked)
+            {
+                oCNVC_QuanHeToChuc.DenThoiGian = dTP_DenThoiGian.Value;
+            }
+            else
+            {
+                oCNVC_QuanHeToChuc.DenThoiGian = null;
+            }
+
+            if (Convert.ToInt32(comB_Tinh.SelectedValue) == -1) oCNVC_QuanHeToChuc.TinhTP = null;
+            else oCNVC_QuanHeToChuc.TinhTP = Convert.ToInt32(comB_Tinh.SelectedValue);
+
+            if (Convert.ToInt32(comB_QuocGia.SelectedValue) == -1) oCNVC_QuanHeToChuc.QuocGia = null;
+            else oCNVC_QuanHeToChuc.QuocGia = Convert.ToInt32(comB_QuocGia.SelectedValue);
         }
 
         private void lbl_ThemTienAn_Click(object sender, EventArgs e)
@@ -604,14 +652,14 @@ namespace QLNS.UCs.DanhMucThongTin
             dtgv_TienAn.Columns["bi_bat_bi_tu"].Width = 150;
 
             dtgv_TienAn.Columns["ma_nv"].Visible = dtgv_TienAn.Columns["id"].Visible = false; // id va ma nv
-           
+
             dtgv_TienAn.Columns["tai_noi"].HeaderText = "Tại nơi";
             dtgv_TienAn.Columns["tai_noi"].Width = 300;
             dtgv_TienAn.Columns["tu_thoi_gian"].HeaderText = "Từ ngày";
             dtgv_TienAn.Columns["tu_thoi_gian"].Width = 100;
             dtgv_TienAn.Columns["den_thoi_gian"].HeaderText = "Đến ngày";
             dtgv_TienAn.Columns["den_thoi_gian"].Width = 100;
-            
+
             dtgv_TienAn.Columns["nguoi_khai_bao"].HeaderText = "Người khai báo";
             dtgv_TienAn.Columns["nguoi_khai_bao"].Width = 200;
             dtgv_TienAn.Columns["noi_dung"].HeaderText = "Nội dung";
@@ -656,7 +704,7 @@ namespace QLNS.UCs.DanhMucThongTin
             {
                 lbl_SuaTienAn.Text = "Huỷ";
                 lbl_ThemTienAn.Text = "Lưu";
-                txt_TaiNoi.Enabled = txt_NguoiKhaiBao.Enabled = dTP_TuNgay.Enabled  = dTP_DenNgay.Enabled
+                txt_TaiNoi.Enabled = txt_NguoiKhaiBao.Enabled = dTP_TuNgay.Enabled = dTP_DenNgay.Enabled
                     = comB_HinhThuc.Enabled = rTB_NoiDung.Enabled = true;
                 dtgv_TienAn.Enabled = lbl_XoaTienAn.Enabled = false;
             }
@@ -673,7 +721,7 @@ namespace QLNS.UCs.DanhMucThongTin
 
         private void ClearLSBiBatData()
         {
-            txt_TaiNoi.Text = txt_NguoiKhaiBao.Text = rTB_NoiDung.Text  = "";
+            txt_TaiNoi.Text = txt_NguoiKhaiBao.Text = rTB_NoiDung.Text = "";
             comB_HinhThuc.SelectedIndex = 0;
             dTP_TuNgay.Checked = dTP_DenNgay.Checked = false;
         }
@@ -685,7 +733,7 @@ namespace QLNS.UCs.DanhMucThongTin
             {
                 lbl_SuaQH.Text = "Huỷ";
                 lbl_ThemQH.Text = "Lưu";
-                txt_TenToChuc.Enabled = txt_ChucVu.Enabled = cb_NuocNgoai.Enabled = dTP_TuThoiGian.Enabled 
+                txt_TenToChuc.Enabled = txt_ChucVu.Enabled = cb_NuocNgoai.Enabled = dTP_TuThoiGian.Enabled
                     = dTP_DenThoiGian.Enabled = txt_ChucDanh.Enabled = txt_PhuongXa.Enabled
                     = txt_QuanHuyen.Enabled = tableLP_Tinh.Enabled = tableLP_QuocGia.Enabled = true;
                 dtgv_QHToChuc.Enabled = lbl_XoaQH.Enabled = false;

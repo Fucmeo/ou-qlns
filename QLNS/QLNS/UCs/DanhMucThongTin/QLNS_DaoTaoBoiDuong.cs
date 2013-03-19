@@ -555,7 +555,9 @@ namespace QLNS.UCs.DanhMucThongTin
 
         private void GetDaoTaoInputData()
         {
-            oCNVC_DaoTaoBoiDuong.ID = Convert.ToInt32(dtgv_DaoTao.SelectedRows[0].Cells["id"].Value);
+            if(bAddDaoTaoFlag == false)
+                oCNVC_DaoTaoBoiDuong.ID = Convert.ToInt32(dtgv_DaoTao.SelectedRows[0].Cells["id"].Value);
+
             oCNVC_DaoTaoBoiDuong.MaNV = Program.selected_ma_nv;
             oCNVC_DaoTaoBoiDuong.TenTruong = txt_TenTruong_DaoTao.Text;
             oCNVC_DaoTaoBoiDuong.ChuyenNganhDaoTao = txt_ChuyenNganh_DaoTao.Text;
@@ -592,7 +594,9 @@ namespace QLNS.UCs.DanhMucThongTin
 
         private void GetBoiDuongInputData()
         {
-            oCNVC_DaoTaoBoiDuong.ID = Convert.ToInt32(dtgv_BoiDuong.SelectedRows[0].Cells["id"].Value);
+            if(bAddBoiDuongFlag == false)
+                oCNVC_DaoTaoBoiDuong.ID = Convert.ToInt32(dtgv_BoiDuong.SelectedRows[0].Cells["id"].Value);
+
             oCNVC_DaoTaoBoiDuong.MaNV = Program.selected_ma_nv;
             oCNVC_DaoTaoBoiDuong.TenTruong = txt_TenTruong_BoiDuong.Text;
             oCNVC_DaoTaoBoiDuong.ChuyenNganhDaoTao = txt_ChuyenNganh_BoiDuong.Text;
