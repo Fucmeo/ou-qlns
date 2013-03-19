@@ -63,6 +63,7 @@
     <Compile Include="CNVC\CNVC_ThongTinTuyenDung.cs" />
     <Compile Include="CNVC\CNVC_TrinhDoPhoThong.cs" />
     <Compile Include="DonVi.cs" />
+    <Compile Include="FTP.cs" />
     <Compile Include="HDQD\CNVC_HopDong.cs" />
     <Compile Include="HDQD\KiemNhiem.cs" />
     <Compile Include="HDQD\LoaiHopDong.cs" />
