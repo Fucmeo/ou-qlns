@@ -1580,6 +1580,12 @@ namespace QLNS.UCs
 
                     case "Quá trình công tác":
                         tableLP_DanhMucThongTin.Controls.Add(oQLNS_QuaTrinhCongTac, 0, 1);
+                        if (oQLNS_DonVi_CNVC1.TreeV_CNVC.SelectedNode != null &&
+                                oQLNS_QuaTrinhCongTac.dtCtac_NonOU_GD.AsEnumerable().Where(a => a.Field<string>("ma_nv") == Program.selected_ma_nv).Count() <= 0)
+                        {
+                            //oQLNS_QuaTrinhCongTac.get(Program.selected_ma_nv);
+                            //oQLNS_ThongTinNV_Phu.FillInfo();
+                        }
                         break;
 
                     case "Hợp đồng tuyển dụng":
@@ -1648,6 +1654,14 @@ namespace QLNS.UCs
                             oQLNS_LichSuBanThan.Dock = DockStyle.Fill;
                         }
                         tableLP_DanhMucThongTin.Controls.Add(oQLNS_LichSuBanThan, 0, 1);
+                        if (oQLNS_DonVi_CNVC1.TreeV_CNVC.SelectedNode != null &&
+                                oQLNS_LichSuBanThan.dtLSBiBat.AsEnumerable().Where(a => a.Field<string>("ma_nv") == Program.selected_ma_nv).Count() <= 0)
+                        {
+                            oQLNS_LichSuBanThan.GetLSBiBatInfo(Program.selected_ma_nv);
+                            oQLNS_LichSuBanThan.FillLSBiBatInfo();
+                            oQLNS_LichSuBanThan.GetQHToChuc(Program.selected_ma_nv);
+                            oQLNS_LichSuBanThan.FillQHToChucInfo();
+                        }
                         break;
                     case "Diến biến sức khỏe":
                         if (oQLNS_DienBienSK == null)

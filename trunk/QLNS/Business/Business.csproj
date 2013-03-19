@@ -51,13 +51,14 @@
     <Compile Include="CNVC\CNVC_File.cs" />
     <Compile Include="CNVC\CNVC_ChinhTri.cs" />
     <Compile Include="CNVC\CNVC_CMND_HoChieu.cs" />
-    <Compile Include="CNVC\CNVC_DacDiemLSBanThan.cs" />
+    <Compile Include="CNVC\CNVC_LSBiBat.cs" />
     <Compile Include="CNVC\CNVC_DienBienSK.cs" />
     <Compile Include="CNVC\CNVC_HopDong.cs" />
     <Compile Include="CNVC\CNVC_QHGiaDinh.cs" />
     <Compile Include="CNVC\CNVC_QTr_CongTac_NonOU_GD.cs" />
     <Compile Include="CNVC\CNVC_QTr_CongTac_NonOU_NonGD.cs" />
     <Compile Include="CNVC\CNVC_QTr_CongTac_OU.cs" />
+    <Compile Include="CNVC\CNVC_QuanHeToChuc.cs" />
     <Compile Include="CNVC\CNVC_ThongTinPhu.cs" />
     <Compile Include="CNVC\CNVC_ThongTinTuyenDung.cs" />
     <Compile Include="CNVC\CNVC_TrinhDoPhoThong.cs" />

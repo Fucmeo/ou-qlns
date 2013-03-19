@@ -261,8 +261,11 @@ namespace QLNS.UCs.DanhMucThongTin
         {
             if (VerifyCMNDData())
             {
+                if(bAddCMNDFlag == false)
+                    oCMND_HoChieu.ID = Convert.ToInt32(dtgv_CMNDHoChieu.SelectedRows[0].Cells[6].Value);
+
                 oCMND_HoChieu.MaNV = Program.selected_ma_nv;
-                oCMND_HoChieu.ID = Convert.ToInt32(dtgv_CMNDHoChieu.SelectedRows[0].Cells[6].Value);
+                
                 oCMND_HoChieu.CMNDHoChieu = comB_CMND_HoChieu.SelectedItem.ToString() == "CMND" ? true : false;
                 oCMND_HoChieu.MaSo = txt_MaSo.Text;
                 if (dTP_NgayCap.Checked)

@@ -82,19 +82,19 @@ namespace Business.CNVC
         public bool Update()
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[12]{
+            IDataParameter[] paras = new IDataParameter[11]{
                 new NpgsqlParameter("p_id",ID),
-                new NpgsqlParameter("p_ma_nv",MaNV),
                 new NpgsqlParameter("p_o_nuoc_ngoai",NuocNgoai),
                 new NpgsqlParameter("p_ten_to_chuc",TenToChuc),
-                new NpgsqlParameter("p_phuong_xa",PhuongXa),
-                new NpgsqlParameter("p_quan_huyen",QuanHuyen),
-                new NpgsqlParameter("p_tinh_thanhpho",TinhTP),
-                new NpgsqlParameter("p_quoc_gia",QuocGia),
                 new NpgsqlParameter("p_chuc_danh",ChucDanh),
                 new NpgsqlParameter("p_chuc_vu",ChucVu),
                 new NpgsqlParameter("p_tu_thoi_gian",TuThoiGian),
-                new NpgsqlParameter("p_den_thoi_gian",DenThoiGian)
+                new NpgsqlParameter("p_den_thoi_gian",DenThoiGian),
+                new NpgsqlParameter("p_phuong_xa",PhuongXa),
+                new NpgsqlParameter("p_quan_huyen",QuanHuyen),
+                new NpgsqlParameter("p_tinh_thanhpho",TinhTP),
+                new NpgsqlParameter("p_quoc_gia",QuocGia)
+                
             };
             check = (int)dp.executeScalarProc("sp_update_cnvc_ls_quan_he", paras);
             if (check > 0)
