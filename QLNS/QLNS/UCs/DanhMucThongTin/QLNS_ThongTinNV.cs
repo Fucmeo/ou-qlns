@@ -50,16 +50,9 @@ namespace QLNS.UCs.DanhMucThongTin
             if (comB_QuocGia.Items.Count > 0)
                 comB_QuocGia.SelectedIndex = 0;
 
-            var dt = dtTinhTP.AsEnumerable().Where(a => a.Field<int>("quoc_gia_id") == Convert.ToInt32(comB_QuocGia.SelectedValue));
-            if (dt != null && dt.Count() > 0)
-            {
-                LoadTinhData(dt.CopyToDataTable());
-            }
-            else
-            {
-                LoadTinhData(null);
-            }
-
+            
+                LoadTinhData(dtTinhTP.Copy());
+            
             comB_CMND_HoChieu.SelectedIndex = comB_TinhTrang.SelectedIndex = 0;
             Init_dtgv_CMNDHoChieu();
 

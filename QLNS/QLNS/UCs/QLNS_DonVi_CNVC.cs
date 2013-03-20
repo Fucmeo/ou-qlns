@@ -68,11 +68,10 @@ namespace QLNS.UCs
 
         private void TreeV_CNVC_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            
+            QLNS_HienThiThongTin.bAddFlag = false;
             if (Program.selected_ma_nv != TreeV_CNVC.SelectedNode.Name)
             {
                 Program.selected_ma_nv = TreeV_CNVC.SelectedNode.Name;
-                QLNS_HienThiThongTin.bAddFlag = false;
                 if (oQLNS_HienThiThongTin.comB_DanhMuc.SelectedIndex != 0)
                 {
                     oQLNS_HienThiThongTin.comB_DanhMuc.SelectedIndex = 0;
