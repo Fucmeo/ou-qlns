@@ -233,7 +233,7 @@
             this.comB_Nganh.Items.AddRange(new object[] {
             "Trong ngành giáo dục",
             "Ngoài ngành giáo dục"});
-            this.comB_Nganh.Location = new System.Drawing.Point(151, 316);
+            this.comB_Nganh.Location = new System.Drawing.Point(151, 314);
             this.comB_Nganh.Name = "comB_Nganh";
             this.comB_Nganh.Size = new System.Drawing.Size(269, 29);
             this.comB_Nganh.TabIndex = 42;
@@ -426,11 +426,11 @@
         public System.Windows.Forms.ComboBox comB_Nganh;
         public System.Windows.Forms.DataGridView dtgv_QTCT_Ngoai;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RichTextBox rTB_CongViecChinh;
         public System.Windows.Forms.DataGridView dtgv_QTCT_Trong;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label lbl_ThemNgoai;
         private System.Windows.Forms.Label lbl_XoaNgoai;
         private System.Windows.Forms.Label lbl_SuaNgoai;
+        public System.Windows.Forms.RichTextBox rTB_CongViecChinh;
     }
 }

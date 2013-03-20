@@ -193,7 +193,7 @@
             this.comB_HinhThuc.Items.AddRange(new object[] {
             "Bị bắt",
             "Bị tù"});
-            this.comB_HinhThuc.Location = new System.Drawing.Point(150, 11);
+            this.comB_HinhThuc.Location = new System.Drawing.Point(150, 9);
             this.comB_HinhThuc.Name = "comB_HinhThuc";
             this.comB_HinhThuc.Size = new System.Drawing.Size(263, 29);
             this.comB_HinhThuc.TabIndex = 43;
@@ -655,7 +655,7 @@
             this.comB_QuocGia.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_QuocGia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_QuocGia.FormattingEnabled = true;
-            this.comB_QuocGia.Location = new System.Drawing.Point(3, 5);
+            this.comB_QuocGia.Location = new System.Drawing.Point(3, 7);
             this.comB_QuocGia.Name = "comB_QuocGia";
             this.comB_QuocGia.Size = new System.Drawing.Size(265, 29);
             this.comB_QuocGia.TabIndex = 0;
@@ -718,7 +718,7 @@
             this.comB_Tinh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_Tinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_Tinh.FormattingEnabled = true;
-            this.comB_Tinh.Location = new System.Drawing.Point(3, 5);
+            this.comB_Tinh.Location = new System.Drawing.Point(3, 7);
             this.comB_Tinh.Name = "comB_Tinh";
             this.comB_Tinh.Size = new System.Drawing.Size(265, 29);
             this.comB_Tinh.TabIndex = 0;
