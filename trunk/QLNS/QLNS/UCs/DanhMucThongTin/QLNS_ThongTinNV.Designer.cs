@@ -87,6 +87,7 @@
             this.txt_Ten = new System.Windows.Forms.TextBox();
             this.txt_SoSoBHXH = new System.Windows.Forms.TextBox();
             this.btn_LuuCNVC = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tableLP_ThongTinChinh.SuspendLayout();
             this.groupBox15.SuspendLayout();
             this.tableLP_CMND.SuspendLayout();
@@ -179,7 +180,7 @@
             this.comB_TinhTrang.Items.AddRange(new object[] {
             "Còn hiệu lực",
             "Hết hiệu lực"});
-            this.comB_TinhTrang.Location = new System.Drawing.Point(151, 113);
+            this.comB_TinhTrang.Location = new System.Drawing.Point(151, 111);
             this.comB_TinhTrang.Name = "comB_TinhTrang";
             this.comB_TinhTrang.Size = new System.Drawing.Size(265, 29);
             this.comB_TinhTrang.TabIndex = 4;
@@ -193,7 +194,7 @@
             this.comB_CMND_HoChieu.Items.AddRange(new object[] {
             "CMND",
             "Hộ chiếu"});
-            this.comB_CMND_HoChieu.Location = new System.Drawing.Point(644, 64);
+            this.comB_CMND_HoChieu.Location = new System.Drawing.Point(644, 62);
             this.comB_CMND_HoChieu.Name = "comB_CMND_HoChieu";
             this.comB_CMND_HoChieu.Size = new System.Drawing.Size(269, 29);
             this.comB_CMND_HoChieu.TabIndex = 3;
@@ -551,7 +552,7 @@
             this.comB_Tinh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_Tinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_Tinh.FormattingEnabled = true;
-            this.comB_Tinh.Location = new System.Drawing.Point(3, 10);
+            this.comB_Tinh.Location = new System.Drawing.Point(3, 8);
             this.comB_Tinh.Name = "comB_Tinh";
             this.comB_Tinh.Size = new System.Drawing.Size(265, 29);
             this.comB_Tinh.TabIndex = 0;
@@ -601,7 +602,7 @@
             this.comB_QuocGia.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_QuocGia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_QuocGia.FormattingEnabled = true;
-            this.comB_QuocGia.Location = new System.Drawing.Point(3, 10);
+            this.comB_QuocGia.Location = new System.Drawing.Point(3, 8);
             this.comB_QuocGia.Name = "comB_QuocGia";
             this.comB_QuocGia.Size = new System.Drawing.Size(265, 29);
             this.comB_QuocGia.TabIndex = 0;
@@ -648,6 +649,7 @@
             this.btn_DelAvatar.TabIndex = 3;
             this.btn_DelAvatar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_DelAvatar.UseVisualStyleBackColor = true;
+            this.btn_DelAvatar.Click += new System.EventHandler(this.btn_DelAvatar_Click);
             // 
             // imageList1
             // 
@@ -666,6 +668,7 @@
             this.picB_HinhDaiDien.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picB_HinhDaiDien.TabIndex = 2;
             this.picB_HinhDaiDien.TabStop = false;
+            this.picB_HinhDaiDien.Click += new System.EventHandler(this.picB_HinhDaiDien_Click);
             // 
             // label11
             // 
@@ -686,7 +689,7 @@
             "Nam",
             "Nữ",
             " "});
-            this.comB_GioiTinh.Location = new System.Drawing.Point(644, 115);
+            this.comB_GioiTinh.Location = new System.Drawing.Point(644, 113);
             this.comB_GioiTinh.Name = "comB_GioiTinh";
             this.comB_GioiTinh.Size = new System.Drawing.Size(97, 29);
             this.comB_GioiTinh.TabIndex = 2;
@@ -816,6 +819,12 @@
             this.btn_LuuCNVC.UseVisualStyleBackColor = true;
             this.btn_LuuCNVC.Click += new System.EventHandler(this.btn_LuuCNVC_Click);
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.Filter = "PNG|*.PNG|GIF|*.GIF|JPEG|*.JPEG|JPG|*.JPG|Pictures Format|*.JPEG;*.PNG;*.GIF;*.JP" +
+    "G";
+            this.openFileDialog1.Title = "Chọn hình đại diện";
+            // 
             // QLNS_ThongTinNV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -909,5 +918,6 @@
         private System.Windows.Forms.Label lbl_ThemCMND;
         private System.Windows.Forms.Label lbl_XoaCMND;
         private System.Windows.Forms.Label lbl_SuaCMND;
+        public System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

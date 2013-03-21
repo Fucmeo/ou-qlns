@@ -174,7 +174,7 @@
             "Thông tin gia đình",
             "Lịch sử bản thân",
             "Diến biến sức khỏe"});
-            this.comB_DanhMuc.Location = new System.Drawing.Point(207, 15);
+            this.comB_DanhMuc.Location = new System.Drawing.Point(207, 18);
             this.comB_DanhMuc.Name = "comB_DanhMuc";
             this.comB_DanhMuc.Size = new System.Drawing.Size(238, 30);
             this.comB_DanhMuc.TabIndex = 1;

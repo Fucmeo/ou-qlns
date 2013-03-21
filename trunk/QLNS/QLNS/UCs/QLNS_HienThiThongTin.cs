@@ -1632,6 +1632,9 @@ namespace QLNS.UCs
                         {
                             oQLNS_ThongTinNV.GetCNVCInfo(Program.selected_ma_nv);
                             oQLNS_ThongTinNV.FillInfo();
+                            oQLNS_ThongTinNV.GetAvatar(Program.selected_ma_nv);
+                            if(oQLNS_ThongTinNV.dtAvatar.Rows.Count > 0)
+                                oQLNS_ThongTinNV.FillAvatar();
                         }
                         break;
 
