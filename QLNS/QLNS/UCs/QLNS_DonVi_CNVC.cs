@@ -80,6 +80,9 @@ namespace QLNS.UCs
                 }
                 oQLNS_HienThiThongTin.oQLNS_ThongTinNV.GetCNVCInfo(Program.selected_ma_nv);
                 oQLNS_HienThiThongTin.oQLNS_ThongTinNV.FillInfo();
+                oQLNS_HienThiThongTin.oQLNS_ThongTinNV.GetAvatar(Program.selected_ma_nv);
+                if (oQLNS_HienThiThongTin.oQLNS_ThongTinNV.dtAvatar.Rows.Count > 0)
+                    oQLNS_HienThiThongTin.oQLNS_ThongTinNV.FillAvatar();
             }
         }
 

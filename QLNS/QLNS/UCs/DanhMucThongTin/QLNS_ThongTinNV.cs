@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Business.CNVC;
+using System.IO;
 
 namespace QLNS.UCs.DanhMucThongTin
 {
@@ -14,10 +15,13 @@ namespace QLNS.UCs.DanhMucThongTin
     {
         public CNVC oCNVC ;
         public CNVC_CMND_HoChieu oCMND_HoChieu;
-        public DataTable dtCNVC , dtCMND , dtTinhTP, dtQuocGia;
+        public CNVC_File oFile ;
+        public DataTable dtCNVC , dtCMND , dtTinhTP, dtQuocGia , dtAvatar;
         Business.TinhTP oTinhTP;
         Business.QuocGia oQuocGia;
+        Business.FTP oFTP;
         bool bAddCNVCFlag = false , bAddCMNDFlag = false ;
+        string[] AvatarPath ;
 
         public static int nNewTinhTPID = 0;     // ID cua tinh thanh pho moi them vao
         public static int nNewQuocGiaID = 0;     // ID cua quoc gia moi them vao
@@ -27,12 +31,16 @@ namespace QLNS.UCs.DanhMucThongTin
             InitializeComponent();
             oCNVC = new CNVC();
             dtCNVC = new DataTable();
+            dtAvatar = new DataTable();
             dtCMND = new DataTable();
             dtTinhTP = new DataTable();
             dtQuocGia = new DataTable();
             oTinhTP = new Business.TinhTP();
             oQuocGia = new Business.QuocGia();
             oCMND_HoChieu = new CNVC_CMND_HoChieu();
+            oFile = new CNVC_File();
+            oFTP = new Business.FTP();
+            AvatarPath = new string[1];
         }
 
         public void GetCNVCInfo(string m_MaNV)
@@ -117,11 +125,29 @@ namespace QLNS.UCs.DanhMucThongTin
             }
         }
 
+        public void FillAvatar()
+        {
+            if (AvatarPath[0] != null)
+            {
+                try
+                {
+                    picB_HinhDaiDien.Image = Image.FromFile(AvatarPath[0]);
+                    btn_DelAvatar.Enabled = true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Quá trình nạp hình không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
         private void btn_LuuCNVC_Click(object sender, EventArgs e)
         {
+            #region Thong Tin NV
+            bool Yes = MessageBox.Show("Thêm / cập nhật nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes;
             if (VerifyCNVCData())
             {
-                if ((MessageBox.Show("Thêm / cập nhật nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
+                if (Yes)
                 {
                     try
                     {
@@ -129,7 +155,7 @@ namespace QLNS.UCs.DanhMucThongTin
                         if (QLNS_HienThiThongTin.bAddFlag)
                         {
                             oCNVC.Add();
-                            MessageBox.Show("Thêm nhân viên thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);    
+                            MessageBox.Show("Thêm nhân viên thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
@@ -137,7 +163,7 @@ namespace QLNS.UCs.DanhMucThongTin
 
                             MessageBox.Show("Cập nhật nhân viên thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
-                        
+
                     }
                     catch (Exception)
                     {
@@ -147,8 +173,46 @@ namespace QLNS.UCs.DanhMucThongTin
             }
             else
             {
-                MessageBox.Show("Thông tin không đầy đủ, xin vui lòng xem lại thông tin nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning); 
+                MessageBox.Show("Thông tin không đầy đủ, xin vui lòng xem lại thông tin nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            } 
+            #endregion
+
+            #region Avatar
+
+            if ( Yes && AvatarPath[0] != picB_HinhDaiDien.ImageLocation)
+            {
+                string[] ServerPath = new string[1];
+
+                try
+                {
+                    ServerPath = oFTP.UploadFile(new string[1] { picB_HinhDaiDien.ImageLocation }, 
+                                                new string[1] { picB_HinhDaiDien.ImageLocation.Split('\\').Last() }, oFile.MaNV);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Quá trình tải hình lên server không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                if (Program.selected_ma_nv != "")
+                    oFile.MaNV = Program.selected_ma_nv;
+                else
+                    oFile.MaNV = txt_MaNV.Text.Trim();
+
+                oFile.Path = ServerPath[0];
+                oFile.IsAvatar = true;
+                try
+                {
+                    oFile.Add();
+                    
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Quá trình lưu hình không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                
             }
+
+            #endregion
         }
 
         public void LoadTinhData(DataTable dt)
@@ -268,6 +332,27 @@ namespace QLNS.UCs.DanhMucThongTin
 
                 oCMND_HoChieu.NoiCap = txt_NoiCap.Text;
                 oCMND_HoChieu.IsActive = comB_TinhTrang.SelectedItem.ToString() == "Còn hiệu lực" ? true : false;
+                
+            }
+        }
+
+        public void GetAvatar(string m_MaNV)
+        {
+            oFile.MaNV = m_MaNV;
+            dtAvatar = oFile.GetAvatar();
+            if (dtAvatar != null && dtAvatar.Rows.Count > 0)
+            {
+                // Download 
+                string[] Paths = new string[1];
+                Paths[0] = dtAvatar.Rows[0]["path"].ToString();
+                try
+                {
+                    AvatarPath = oFTP.DownloadFile(Paths);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Quá trình tải hình đại diện không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
                 
             }
         }
@@ -629,6 +714,36 @@ namespace QLNS.UCs.DanhMucThongTin
                 {
                     MessageBox.Show("Xoá không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 }
+            }
+        }
+
+        private void picB_HinhDaiDien_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    picB_HinhDaiDien.Image = Image.FromFile(openFileDialog1.FileName);
+                    picB_HinhDaiDien.ImageLocation = openFileDialog1.FileName;
+                    btn_DelAvatar.Enabled = true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Quá trình nạp hình thất bại" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void btn_DelAvatar_Click(object sender, EventArgs e)
+        {
+            if (picB_HinhDaiDien.Image != null && MessageBox.Show("Bạn muốn xoá hình đại diện này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                //oFile.MaNV = Program.selected_ma_nv;
+                //oFile.DeleteAvatar();
+
+                btn_DelAvatar.Enabled = false;
+                picB_HinhDaiDien.Image = null;
+                openFileDialog1.FileName = null;
             }
         }
     }

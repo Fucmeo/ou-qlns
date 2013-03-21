@@ -74,10 +74,10 @@ namespace Business.CNVC
         {
             int check;
             IDataParameter[] paras = new IDataParameter[4]{
-                new NpgsqlParameter("ma_nv",manv), 
-                new NpgsqlParameter("path",path), 
-                new NpgsqlParameter("mo_ta",mota), 
-                new NpgsqlParameter("is_avatar",isavatar)
+                new NpgsqlParameter("p_ma_nv",manv), 
+                new NpgsqlParameter("p_path",path), 
+                new NpgsqlParameter("p_mo_ta",mota), 
+                new NpgsqlParameter("p_is_avatar",isavatar)
             };
             check = (int)dp.executeScalarProc("sp_insert_cnvc_file", paras);
             if (check > 0)
@@ -157,6 +157,18 @@ namespace Business.CNVC
                  }).ToList();
 
             return listFile;
+        }
+
+        public DataTable GetAvatar()
+        {
+            DataTable dt;
+            IDataParameter[] paras = new IDataParameter[1]{
+                new NpgsqlParameter("p_ma_nv",manv)               
+            };
+
+            dt = dp.getDataTableProc("sp_select_avatar", paras);
+
+            return dt;
         }
 
         #endregion

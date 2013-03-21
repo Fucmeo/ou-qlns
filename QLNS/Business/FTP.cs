@@ -10,9 +10,14 @@ namespace Business
     public class FTP
     {
         public enum FileCate { HinhDaiDien, HopDong, QuyetDinh };
-        string URI = "ftp://123.30.210.98/", globalFolderName;
+        string URI = "ftp://123.30.210.98/", globalFolderName, downloadPath  ;
         string UserName = "Administrator", Password = "QLNS@123qlns";
         FileCate oFileCate = new FileCate();
+
+        public FTP()
+        {
+            downloadPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+        }
 
         /// <summary>
         /// Upload file len VPS
@@ -23,8 +28,12 @@ namespace Business
         /// <returns>Tra ve mang chua duong dan file tren server, dung de luu xuong DB</returns>
         public  string[] UploadFile(string[] FilesPath, string[] FilesName, string m_Ma)
         {
+            // The buffer size is set to 2kb
+            int buffLength = 2048;
+            byte[] buff = new byte[buffLength];
+            int contentLen;
+
             string[] DBPath = new string[FilesName.Length];
-            Stream requestStream = null;
             oFileCate = FileCate.HinhDaiDien;
             switch (oFileCate)
             {
@@ -40,39 +49,52 @@ namespace Business
                     break;
             }
 
+            Stream strm = null;
+            FileStream fs = null;
             for (int i = 0; i < FilesPath.Length; i++)
             {
                 string ServerFileName = MakeFileName(m_Ma, FilesName[i]);
+                FileInfo fileInf = new FileInfo(FilesPath[i]);
 
                 //123.30.210.98
                 FtpWebRequest request = (FtpWebRequest)WebRequest.Create(URI + globalFolderName + "/" + ServerFileName);
                 request.Method = WebRequestMethods.Ftp.UploadFile;
 
                 request.Credentials = new NetworkCredential(UserName, Password);
+                request.UseBinary = true;
+                request.ContentLength = fileInf.Length;
 
+                // Opens a file stream (System.IO.FileStream) to read the file to be uploaded
+                fs = fileInf.OpenRead();
 
-                StreamReader sourceStream = new StreamReader(FilesPath[i]);
-                byte[] fileContents = Encoding.UTF8.GetBytes(sourceStream.ReadToEnd());
-                sourceStream.Close();
-                request.ContentLength = fileContents.Length;
+                // Stream to which the file to be upload is written
+                strm = request.GetRequestStream();
 
-                requestStream = request.GetRequestStream();
-                requestStream.Write(fileContents, 0, fileContents.Length);
+                // Read from the file stream 2kb at a time
+                contentLen = fs.Read(buff, 0, buffLength);
 
+                // Till Stream content ends
+                while (contentLen != 0)
+                {
+                    // Write Content from the file stream to the FTP Upload Stream
+                    strm.Write(buff, 0, contentLen);
+                    contentLen = fs.Read(buff, 0, buffLength);
+                }
+
+                
                 DBPath[i] = globalFolderName + "/" + ServerFileName;
             }
 
+            // Close the file stream and the Request Stream
+            if(strm != null) 
+                strm.Close();
 
-            if (requestStream != null)
-                requestStream.Close();
+            if(fs != null)
+                fs.Close();
+
 
             return DBPath;
 
-            //FtpWebResponse response = (FtpWebResponse)request.GetResponse();
-
-            //Console.WriteLine("Upload File Complete, status {0}", response.StatusDescription);
-
-            //response.Close();
         }
 
         /// <summary>
@@ -145,6 +167,62 @@ namespace Business
             {
                 Console.WriteLine(resp.StatusCode);
             }
+        }
+
+
+        public string[] DownloadFile(string[] FilesPath)
+        {
+            string[] DownloadFiles = new string[FilesPath.Length];
+            string[] FilesName = new string[FilesPath.Length];
+            for (int i = 0; i < FilesPath.Length; i++)
+            {
+                FilesName[i] = FilesPath[i].Split('/').Last();
+            }
+
+            FtpWebRequest reqFTP;
+            try
+            {
+                 FileStream outputStream = null;
+                 FtpWebResponse response = null;
+                 Stream ftpStream = null;
+                //filePath = <<The full path where the file is to be created.>>, 
+                //fileName = <<Name of the file to be created(Need not be the name of the file on FTP server).>>
+                for (int i = 0; i < FilesPath.Length; i++)
+                {
+                    outputStream = new FileStream(downloadPath + "\\" + FilesName[i], FileMode.Create);
+
+                    reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri(URI + "/" + FilesPath[i]));
+                    reqFTP.Method = WebRequestMethods.Ftp.DownloadFile;
+                    reqFTP.UseBinary = true;
+                    reqFTP.Credentials = new NetworkCredential(UserName, Password);
+                    response = (FtpWebResponse)reqFTP.GetResponse();
+                    ftpStream = response.GetResponseStream();
+                    long cl = response.ContentLength;
+                    int bufferSize = 2048;
+                    int readCount;
+                    byte[] buffer = new byte[bufferSize];
+
+                    readCount = ftpStream.Read(buffer, 0, bufferSize);
+                    while (readCount > 0)
+                    {
+                        outputStream.Write(buffer, 0, readCount);
+                        readCount = ftpStream.Read(buffer, 0, bufferSize);
+                    }
+
+                    DownloadFiles[i] = downloadPath + "\\" + FilesName[i];
+                }
+                
+
+                ftpStream.Close();
+                outputStream.Close();
+                response.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            return DownloadFiles;
         }
     }
 }
