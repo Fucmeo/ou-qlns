@@ -114,6 +114,12 @@
     <Compile Include="UCs\QLNS_ChucVu.Designer.cs">
       <DependentUpon>QLNS_ChucVu.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCs\QLNS_ChucVu_ChinhTri.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\QLNS_ChucVu_ChinhTri.Designer.cs">
+      <DependentUpon>QLNS_ChucVu_ChinhTri.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCs\QLNS_DonVi.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -273,6 +279,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\QLNS_ChucVu.resx">
       <DependentUpon>QLNS_ChucVu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\QLNS_ChucVu_ChinhTri.resx">
+      <DependentUpon>QLNS_ChucVu_ChinhTri.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\QLNS_DanhMucThongTin.resx">
       <DependentUpon>QLNS_DanhMucThongTin.cs</DependentUpon>
