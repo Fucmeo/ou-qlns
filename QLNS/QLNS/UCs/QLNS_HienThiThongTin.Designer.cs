@@ -117,9 +117,9 @@
             this.lbl_DongMo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_DongMo.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_DongMo.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lbl_DongMo.Location = new System.Drawing.Point(3, 19);
+            this.lbl_DongMo.Location = new System.Drawing.Point(3, 21);
             this.lbl_DongMo.Name = "lbl_DongMo";
-            this.lbl_DongMo.Size = new System.Drawing.Size(37, 23);
+            this.lbl_DongMo.Size = new System.Drawing.Size(29, 18);
             this.lbl_DongMo.TabIndex = 9;
             this.lbl_DongMo.Text = "<<<";
             this.lbl_DongMo.Click += new System.EventHandler(this.lbl_DongMo_Click);
@@ -152,9 +152,9 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(92, 19);
+            this.label1.Location = new System.Drawing.Point(101, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 23);
+            this.label1.Size = new System.Drawing.Size(69, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Danh mục";
             // 
@@ -174,9 +174,9 @@
             "Thông tin gia đình",
             "Lịch sử bản thân",
             "Diến biến sức khỏe"});
-            this.comB_DanhMuc.Location = new System.Drawing.Point(207, 18);
+            this.comB_DanhMuc.Location = new System.Drawing.Point(207, 20);
             this.comB_DanhMuc.Name = "comB_DanhMuc";
-            this.comB_DanhMuc.Size = new System.Drawing.Size(238, 30);
+            this.comB_DanhMuc.Size = new System.Drawing.Size(238, 25);
             this.comB_DanhMuc.TabIndex = 1;
             this.comB_DanhMuc.DropDown += new System.EventHandler(this.comB_DanhMuc_DropDown);
             this.comB_DanhMuc.SelectionChangeCommitted += new System.EventHandler(this.comB_DanhMuc_SelectionChangeCommitted);
@@ -197,7 +197,7 @@
             // 
             // QLNS_HienThiThongTin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.tableLP_HienThiThongTin);
