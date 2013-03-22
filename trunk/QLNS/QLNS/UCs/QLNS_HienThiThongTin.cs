@@ -175,13 +175,13 @@ namespace QLNS.UCs
             //if (oQLNS_QuaTrinhCongTac != null && (oQLNS_QuaTrinhCongTac.dtCtac_NonOU_GD.Rows.Count > 0 || oQLNS_QuaTrinhCongTac.dtCtac_NonOU_NonGD.Rows.Count > 0))
                 EmptyQTCTContent();
 
-            //EmptyHopDongTTContent();
+            EmptyHopDongTTContent();
 
             //if(oQLNS_DaoTaoBoiDuong != null && (oQLNS_DaoTaoBoiDuong.dtBoiDuong.Rows.Count > 0 || oQLNS_DaoTaoBoiDuong.dtDaoTao.Rows.Count > 0))
                 EmptyDaoTaoBDContent();
 
-            //EmptyGiaDinhContent();
-            //EmptyHoatDongCTContent();
+            EmptyGiaDinhContent();
+            EmptyHoatDongCTContent();
 
             //if(oQLNS_LichSuBanThan != null &&  (oQLNS_LichSuBanThan.dtLSBiBat.Rows.Count > 0 || oQLNS_LichSuBanThan.dtQHToChuc.Rows.Count > 0))
                 EmptyLSBanThanContent();
@@ -1654,8 +1654,8 @@ namespace QLNS.UCs
                         if (oQLNS_DonVi_CNVC1.TreeV_CNVC.SelectedNode != null &&
                                 oQLNS_QuaTrinhCongTac.dtCtac_NonOU_GD.AsEnumerable().Where(a => a.Field<string>("ma_nv") == Program.selected_ma_nv).Count() <= 0)
                         {
-                            //oQLNS_QuaTrinhCongTac.get(Program.selected_ma_nv);
-                            //oQLNS_ThongTinNV_Phu.FillInfo();
+                            oQLNS_QuaTrinhCongTac.Load_Qtr_Ctac_OU(Program.selected_ma_nv);
+                            oQLNS_QuaTrinhCongTac.Load_Qtr_Ctac_NonOU(Program.selected_ma_nv);
                         }
                         break;
 
@@ -1666,6 +1666,12 @@ namespace QLNS.UCs
                             oQLNS_HopDongTuyenDung.Dock = DockStyle.Fill;
                         }
                         tableLP_DanhMucThongTin.Controls.Add(oQLNS_HopDongTuyenDung, 0, 1);
+                        if (oQLNS_DonVi_CNVC1.TreeV_CNVC.SelectedNode != null &&
+                                oQLNS_HopDongTuyenDung.dtTTTuyenDung.AsEnumerable().Where(a => a.Field<string>("ma_nv") == Program.selected_ma_nv).Count() <= 0)
+                        {
+                            oQLNS_HopDongTuyenDung.LoadHopDongTuyenDung(Program.selected_ma_nv);
+                            oQLNS_HopDongTuyenDung.LoadCNVC_HopDong(Program.selected_ma_nv);
+                        }
                         break;
                     
                     case "Đào tạo & bồi dưỡng":
@@ -1717,6 +1723,11 @@ namespace QLNS.UCs
                             oQLNS_ThongTinGiaDinh.Dock = DockStyle.Fill;
                         }
                         tableLP_DanhMucThongTin.Controls.Add(oQLNS_ThongTinGiaDinh, 0, 1);
+                        if (oQLNS_DonVi_CNVC1.TreeV_CNVC.SelectedNode != null &&
+                                oQLNS_ThongTinGiaDinh.dtDSQHeGiaDinh.AsEnumerable().Where(a => a.Field<string>("ma_nv") == Program.selected_ma_nv).Count() <= 0)
+                        {
+                            oQLNS_ThongTinGiaDinh.GetData(Program.selected_ma_nv);
+                        }
                         break;
                     case "Lịch sử bản thân":
                         if (oQLNS_LichSuBanThan == null)
@@ -1737,10 +1748,16 @@ namespace QLNS.UCs
                     case "Diến biến sức khỏe":
                         if (oQLNS_DienBienSK == null)
                         {
-                            oQLNS_DienBienSK = new QLNS_DienBienSK(Program.selected_ma_nv);
+                            oQLNS_DienBienSK = new QLNS_DienBienSK();
                             oQLNS_DienBienSK.Dock = DockStyle.Fill; 
                         }
                         tableLP_DanhMucThongTin.Controls.Add(oQLNS_DienBienSK, 0, 1);
+                        if (oQLNS_DonVi_CNVC1.TreeV_CNVC.SelectedNode != null &&
+                                oQLNS_DienBienSK.dtDienBienSK.AsEnumerable().Where(a => a.Field<string>("ma_nv") == Program.selected_ma_nv).Count() <= 0)
+                        {
+                            oQLNS_DienBienSK.GetData(Program.selected_ma_nv);
+                            
+                        }
                         break;
 
                     default:

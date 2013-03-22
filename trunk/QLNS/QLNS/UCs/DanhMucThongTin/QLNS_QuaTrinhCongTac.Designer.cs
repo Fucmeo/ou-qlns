@@ -233,7 +233,7 @@
             this.comB_Nganh.Items.AddRange(new object[] {
             "Trong ngành giáo dục",
             "Ngoài ngành giáo dục"});
-            this.comB_Nganh.Location = new System.Drawing.Point(151, 314);
+            this.comB_Nganh.Location = new System.Drawing.Point(151, 316);
             this.comB_Nganh.Name = "comB_Nganh";
             this.comB_Nganh.Size = new System.Drawing.Size(269, 29);
             this.comB_Nganh.TabIndex = 42;

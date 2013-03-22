@@ -28,6 +28,7 @@ namespace QLNS.UCs.DanhMucThongTin
             InitializeComponent();
             dtCtac_NonOU_GD = new DataTable();
             dtCtac_NonOU_NonGD = new DataTable();
+            oQtrCtac_OU = new Business.CNVC.CNVC_QTr_CongTac_OU();
             oQtrCtac_NonOU_GD = new Business.CNVC.CNVC_QTr_CongTac_NonOU_GD();
             oQtrCtac_NonOU_NonGD = new Business.CNVC.CNVC_QTr_CongTac_NonOU_NonGD();
         }
@@ -44,13 +45,13 @@ namespace QLNS.UCs.DanhMucThongTin
 
         private void QLNS_QuaTrinhCongTac_Load(object sender, EventArgs e)
         {
-            Load_Qtr_Ctac_NonOU();
-            Load_Qtr_Ctac_OU();
+            //Load_Qtr_Ctac_NonOU();
+            //Load_Qtr_Ctac_OU();
 
             ResetInterface(true);
         }
 
-        private void dtgv_QTCT_Ngoai_SelectionChanged(object sender, EventArgs e)
+        public void dtgv_QTCT_Ngoai_SelectionChanged(object sender, EventArgs e)
         {
             if (dtgv_QTCT_Ngoai.CurrentRow != null)
             {
@@ -59,9 +60,9 @@ namespace QLNS.UCs.DanhMucThongTin
         }
 
         #region Private Methods
-        private void Load_Qtr_Ctac_OU()
+        public void Load_Qtr_Ctac_OU(string p_ma_nv)
         {
-            oQtrCtac_OU.MaNV = m_ma_nv;
+            oQtrCtac_OU.MaNV = p_ma_nv;
             dtCtac_OU = oQtrCtac_OU.GetData();
 
             if ((dtCtac_OU) != null && dtCtac_OU.Rows.Count > 0)
@@ -74,7 +75,8 @@ namespace QLNS.UCs.DanhMucThongTin
         private void PrepareDataSource_Trong()
         {
             BindingSource bs = new BindingSource();
-            bs.DataSource = dtCtac_OU;
+            DataTable dt = dtCtac_OU.Copy();
+            bs.DataSource = dt;
             dtgv_QTCT_Trong.DataSource = bs;
         }
 
@@ -132,15 +134,15 @@ namespace QLNS.UCs.DanhMucThongTin
             }
         }
 
-        private void Load_Qtr_Ctac_NonOU()
+        public void Load_Qtr_Ctac_NonOU(string p_ma_nv)
         {
             //dtCtac_NonOU_GD = new DataTable();
             //dtCtac_NonOU_NonGD = new DataTable();
 
-            oQtrCtac_NonOU_GD.MaNV = m_ma_nv;
+            oQtrCtac_NonOU_GD.MaNV = p_ma_nv;
             dtCtac_NonOU_GD = oQtrCtac_NonOU_GD.GetData();
 
-            oQtrCtac_NonOU_NonGD.MaNV = m_ma_nv;
+            oQtrCtac_NonOU_NonGD.MaNV = p_ma_nv;
             dtCtac_NonOU_NonGD = oQtrCtac_NonOU_NonGD.GetData();
 
             if (((dtCtac_NonOU_GD) != null && dtCtac_NonOU_GD.Rows.Count > 0) || ((dtCtac_NonOU_NonGD) != null && dtCtac_NonOU_NonGD.Rows.Count > 0))
@@ -351,7 +353,7 @@ namespace QLNS.UCs.DanhMucThongTin
                                 if (oQtrCtac_NonOU_NonGD.Add())
                                     MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
-                            Load_Qtr_Ctac_NonOU();
+                            Load_Qtr_Ctac_NonOU(Program.selected_ma_nv);
                             ResetInterface(true);
                         }
                         catch (Exception ex)
@@ -382,7 +384,7 @@ namespace QLNS.UCs.DanhMucThongTin
                                 if (oQtrCtac_NonOU_NonGD.Update())
                                     MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
-                            Load_Qtr_Ctac_NonOU();
+                            Load_Qtr_Ctac_NonOU(Program.selected_ma_nv);
                             ResetInterface(true);
                         }
                         catch (Exception ex)
@@ -436,7 +438,7 @@ namespace QLNS.UCs.DanhMucThongTin
                                 MessageBox.Show("Xóa thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
-                        Load_Qtr_Ctac_NonOU();
+                        Load_Qtr_Ctac_NonOU(Program.selected_ma_nv);
 
                     }
                     catch (Exception ex)

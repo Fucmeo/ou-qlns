@@ -13,14 +13,16 @@ namespace QLNS.UCs.DanhMucThongTin
     public partial class QLNS_DienBienSK : UserControl
     {
         Business.CNVC.CNVC_DienBienSK suckhoe;
+        public DataTable dtDienBienSK;
         bool AddFlag;   // xac dinh thao tac add hay edit
         string ma_nv = "";
 
-        //public QLNS_DienBienSK()
-        //{
-        //    InitializeComponent();
-        //    suckhoe = new Business.CNVC.CNVC_DienBienSK();
-        //}
+        public QLNS_DienBienSK()
+        {
+            InitializeComponent();
+            suckhoe = new Business.CNVC.CNVC_DienBienSK();
+            dtDienBienSK = new DataTable();
+        }
 
         public QLNS_DienBienSK(string p_ma_nv)
         {
@@ -32,18 +34,21 @@ namespace QLNS.UCs.DanhMucThongTin
 
         private void QLNS_DienBienSK_Load(object sender, EventArgs e)
         {
-            //suckhoe.MaNV = "1";
-            DataTable dt = suckhoe.GetData();
-            if (dt != null)
-            {
-                PrepareDataSource(dt);
-                EditDtgInterface();
-            }
-
             ResetInterface(true);
         }
 
         #region Hàm phụ
+
+        public void GetData(string p_ma_nv)
+        {
+            suckhoe.MaNV = p_ma_nv;
+            dtDienBienSK = suckhoe.GetData();
+            if (dtDienBienSK.Rows.Count > 0)
+            {
+                PrepareDataSource(dtDienBienSK.Copy());
+                EditDtgInterface();
+            }
+        }
 
         private void PrepareDataSource(DataTable dt)
         {
@@ -117,8 +122,17 @@ namespace QLNS.UCs.DanhMucThongTin
         {
             if (row != null)
             {
-                DateTime dt = Convert.ToDateTime(row.Cells["thoi_diem"].Value.ToString());
-                dTP_ThoiDiem.Value = dt;
+                if (row.Cells["thoi_diem"].Value.ToString() != "")
+                {
+                    DateTime dt = Convert.ToDateTime(row.Cells["thoi_diem"].Value.ToString());
+                    dTP_ThoiDiem.Value = dt;
+                    dTP_ThoiDiem.Checked = true;
+                }
+                else
+                {
+                    dTP_ThoiDiem.Checked = false;
+                }
+                
                 txt_CanNang.Text = row.Cells["can_nang"].Value.ToString();
                 txt_BoMo.Text = row.Cells["bo_mo"].Value.ToString();
                 txt_SGOT.Text = row.Cells["cngan_sgot"].Value.ToString();
@@ -141,12 +155,12 @@ namespace QLNS.UCs.DanhMucThongTin
 
         private void RefreshDataSource()
         {
-            suckhoe = new Business.CNVC.CNVC_DienBienSK();
-            suckhoe.MaNV = ma_nv;
-            DataTable dt = suckhoe.GetData();
-            if (dt != null)
+            //suckhoe = new Business.CNVC.CNVC_DienBienSK();
+            suckhoe.MaNV = Program.selected_ma_nv;
+            dtDienBienSK = suckhoe.GetData();
+            if (dtDienBienSK.Rows.Count > 0)
             {
-                PrepareDataSource(dt);
+                PrepareDataSource(dtDienBienSK.Copy());
                 EditDtgInterface();
             }
         }
@@ -206,8 +220,7 @@ namespace QLNS.UCs.DanhMucThongTin
             {
                 if (MessageBox.Show("Bạn thực sự muốn thêm diễn biến sức khỏe của nhân viên?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    suckhoe = new Business.CNVC.CNVC_DienBienSK();
-                    suckhoe.MaNV = ma_nv;
+                    suckhoe.MaNV = Program.selected_ma_nv;
                     suckhoe.BoMo = txt_BoMo.Text;
                     suckhoe.CNGAN_SGPT = txt_SGPT.Text;
                     suckhoe.CNGAN_SGOT = txt_SGOT.Text;
@@ -223,7 +236,10 @@ namespace QLNS.UCs.DanhMucThongTin
                     suckhoe.TPTNT = txt_TPTNT.Text;
                     suckhoe.PhanLoai = txt_PhanLoai.Text;
                     suckhoe.CanNang = txt_CanNang.Text;
-                    suckhoe.ThoiDiem = Convert.ToDateTime(dTP_ThoiDiem.Value.ToShortDateString());
+                    if (dTP_ThoiDiem.Checked)
+                        suckhoe.ThoiDiem = Convert.ToDateTime(dTP_ThoiDiem.Value.ToShortDateString());
+                    else
+                        suckhoe.ThoiDiem = null;
                     suckhoe.DeNghi = rtb_DeNghi.Text;
                     suckhoe.KetLuan = rtb_KetLuan.Text;
 
