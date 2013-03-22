@@ -45,7 +45,9 @@
   <ItemGroup>
     <Compile Include="ChucDanh.cs" />
     <Compile Include="ChucVu.cs" />
+    <Compile Include="ChucVu_ChinhTri.cs" />
     <Compile Include="CNVC\CNVC.cs" />
+    <Compile Include="CNVC\CNVC_ChinhTriExt.cs" />
     <Compile Include="CNVC\CNVC_ChuyenMonTongQuat.cs" />
     <Compile Include="CNVC\CNVC_DaoTaoBoiDuong.cs" />
     <Compile Include="CNVC\CNVC_File.cs" />
