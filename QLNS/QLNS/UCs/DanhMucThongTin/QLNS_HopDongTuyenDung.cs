@@ -13,16 +13,20 @@ namespace QLNS.UCs.DanhMucThongTin
     public partial class QLNS_HopDongTuyenDung : UserControl
     {
         Business.CNVC.CNVC_ThongTinTuyenDung oTTTuyenDung;
-        DataTable dtTTTuyenDung;
+        public DataTable dtTTTuyenDung;
 
         Business.CNVC.CNVC_HopDong oHopDong;
-        DataTable dtHopDong;
+        public DataTable dtHopDong;
 
         string m_ma_nv = null;
 
         public QLNS_HopDongTuyenDung()
         {
             InitializeComponent();
+            oTTTuyenDung = new Business.CNVC.CNVC_ThongTinTuyenDung();
+            oHopDong = new Business.CNVC.CNVC_HopDong();
+            dtTTTuyenDung = new DataTable();
+            dtHopDong = new DataTable();
         }
 
         public QLNS_HopDongTuyenDung(string p_ma_nv)
@@ -36,14 +40,14 @@ namespace QLNS.UCs.DanhMucThongTin
 
         private void QLNS_HopDongTuyenDung_Load(object sender, EventArgs e)
         {
-            LoadHopDongTuyenDung();
-            LoadCNVC_HopDong();
+            //LoadHopDongTuyenDung();
+            //LoadCNVC_HopDong();
         }
 
         #region Thông tin tuyển dụng
-        private void LoadHopDongTuyenDung()
+        public void LoadHopDongTuyenDung(string p_ma_nv)
         {
-            oTTTuyenDung.MaNV = m_ma_nv;
+            oTTTuyenDung.MaNV = p_ma_nv;
             dtTTTuyenDung = oTTTuyenDung.GetData();
             if ((dtTTTuyenDung) != null && dtTTTuyenDung.Rows.Count > 0)
             {
@@ -67,17 +71,17 @@ namespace QLNS.UCs.DanhMucThongTin
             dTP_NgayTuyenDung.Checked = false;
             txt_NgheNghiep.Text = "";
             txt_CoQuan.Text = "";
-            dtgv_HopDong.DataSource = null;
+            //dtgv_HopDong.DataSource = null;
         }
         #endregion
 
         #region Hợp đồng
-        private void LoadCNVC_HopDong()
+        public void LoadCNVC_HopDong(string p_ma_nv)
         {
-            oHopDong.MaNV = m_ma_nv;
+            oHopDong.MaNV = p_ma_nv;
             dtHopDong = oHopDong.GetData();
 
-            if ((dtTTTuyenDung) != null && dtTTTuyenDung.Rows.Count > 0)
+            if ((dtHopDong) != null && dtHopDong.Rows.Count > 0)
             {
                 PrepareDataSource();
                 EditDtgInterface();
@@ -87,13 +91,11 @@ namespace QLNS.UCs.DanhMucThongTin
         private void PrepareDataSource()
         {
             BindingSource bs = new BindingSource();
-            bs.DataSource = dtHopDong;
+            DataTable dt = dtHopDong.Copy();
+            bs.DataSource = dt;
             dtgv_HopDong.DataSource = bs;
             //lbl_SoLoaiHD.Text = dtgv_DSLoaiHD.Rows.Count.ToString();
-            if (dtHopDong != null)
-            {
-                //lbl_Sua.Visible = lbl_Xoa.Visible = true;
-            }
+
         }
 
         private void EditDtgInterface()
@@ -161,8 +163,7 @@ namespace QLNS.UCs.DanhMucThongTin
 
         private void btn_Luu_Click(object sender, EventArgs e)
         {
-            oTTTuyenDung = new Business.CNVC.CNVC_ThongTinTuyenDung();
-            oTTTuyenDung.MaNV = m_ma_nv;
+            oTTTuyenDung.MaNV = Program.selected_ma_nv;
             oTTTuyenDung.NgheNghiepTruocDay = txt_NgheNghiep.Text;
             oTTTuyenDung.CoQuanTuyenDung = txt_CoQuan.Text;
             if (dTP_NgayTuyenDung.Checked == true)
@@ -180,7 +181,7 @@ namespace QLNS.UCs.DanhMucThongTin
                         MessageBox.Show("Thao tác lưu thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 MessageBox.Show("Thao tác lưu thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

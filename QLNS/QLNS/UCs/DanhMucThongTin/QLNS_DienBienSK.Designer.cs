@@ -667,10 +667,13 @@
             // 
             // dtgv_DienBienSK
             // 
+            this.dtgv_DienBienSK.AllowUserToAddRows = false;
+            this.dtgv_DienBienSK.AllowUserToDeleteRows = false;
             this.dtgv_DienBienSK.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgv_DienBienSK.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgv_DienBienSK.Location = new System.Drawing.Point(3, 753);
             this.dtgv_DienBienSK.Name = "dtgv_DienBienSK";
+            this.dtgv_DienBienSK.ReadOnly = true;
             this.dtgv_DienBienSK.RowTemplate.Height = 24;
             this.dtgv_DienBienSK.Size = new System.Drawing.Size(1194, 244);
             this.dtgv_DienBienSK.TabIndex = 5;

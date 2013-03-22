@@ -13,20 +13,23 @@ namespace QLNS.UCs.DanhMucThongTin
     public partial class QLNS_ThongTinGiaDinh : UserControl
     {
         bool bAddFlag;
-        Business.CNVC.CNVC_QHGiaDinh oQHeGiaDinh;
+        public Business.CNVC.CNVC_QHGiaDinh oQHeGiaDinh;
         Business.TinhTP oTinhTP;
         Business.QuocGia oQuocGia;
-        DataTable dtDSQHeGiaDinh;
-        DataTable dtDSTinhTP;
-        DataTable dtDSQuocGia;
+        public DataTable dtDSQHeGiaDinh;
+         DataTable dtDSTinhTP;
+         DataTable dtDSQuocGia;
 
         string m_ma_nv = "";
 
-        //public QLNS_ThongTinGiaDinh()
-        //{
-        //    InitializeComponent();
-        //    oQHeGiaDinh = new Business.CNVC.CNVC_QHGiaDinh();
-        //}
+        public QLNS_ThongTinGiaDinh()
+        {
+            InitializeComponent();
+            oQHeGiaDinh = new Business.CNVC.CNVC_QHGiaDinh();
+            oTinhTP = new TinhTP();
+            oQuocGia = new QuocGia();
+            dtDSQHeGiaDinh = new DataTable();
+        }
 
         public QLNS_ThongTinGiaDinh(string p_ma_nv)
         {
@@ -34,25 +37,29 @@ namespace QLNS.UCs.DanhMucThongTin
             oQHeGiaDinh = new Business.CNVC.CNVC_QHGiaDinh();
             oTinhTP = new TinhTP();
             oQuocGia = new QuocGia();
+            dtDSQHeGiaDinh = new DataTable();
 
             m_ma_nv = p_ma_nv;
         }
 
         private void QLNS_ThongTinGiaDinh_Load(object sender, EventArgs e)
         {
-            oQHeGiaDinh.MaNV = m_ma_nv;
-            dtDSQHeGiaDinh = oQHeGiaDinh.GetData();
-            if (dtDSQHeGiaDinh != null)
-            {
-                PrepareDataSource();
-                EditDtgInterface();
-            }
-
             dtDSTinhTP = oTinhTP.GetData();
             LoadDataCboTinhTP(dtDSTinhTP);
 
             dtDSQuocGia = oQuocGia.GetData();
             LoadDataCboQuocGia();
+        }
+
+        public void GetData(string p_ma_nv)
+        {
+            oQHeGiaDinh.MaNV = p_ma_nv;
+            dtDSQHeGiaDinh = oQHeGiaDinh.GetData();
+            if (dtDSQHeGiaDinh != null && dtDSQHeGiaDinh.Rows.Count > 0)
+            {
+                PrepareDataSource();
+                EditDtgInterface();
+            }
         }
 
         
@@ -125,7 +132,7 @@ namespace QLNS.UCs.DanhMucThongTin
             bs.DataSource = dtDSQHeGiaDinh;
             dtgv_QuanHeGiaDinh.DataSource = bs;
             //lbl_SoLoaiHD.Text = dtgv_DSLoaiHD.Rows.Count.ToString();
-            if (dtDSQHeGiaDinh != null)
+            if (dtDSQHeGiaDinh != null && dtDSQHeGiaDinh.Rows.Count > 0)
             {
                 lbl_Sua.Visible = lbl_Xoa.Visible = true;
             }
@@ -199,7 +206,7 @@ namespace QLNS.UCs.DanhMucThongTin
         private void RefreshDataSource()
         {
             Business.CNVC.CNVC_QHGiaDinh qhegiadinh = new Business.CNVC.CNVC_QHGiaDinh();
-            qhegiadinh.MaNV = m_ma_nv;
+            qhegiadinh.MaNV = Program.selected_ma_nv;
             dtDSQHeGiaDinh = qhegiadinh.GetData();
             PrepareDataSource();
         }
@@ -297,7 +304,7 @@ namespace QLNS.UCs.DanhMucThongTin
         {
             if (!string.IsNullOrWhiteSpace(txt_Ten.Text))
             {
-                oQHeGiaDinh.MaNV = m_ma_nv;
+                oQHeGiaDinh.MaNV = Program.selected_ma_nv;
                 oQHeGiaDinh.MoiQuanHe = comB_MoiQH.Text;
                 oQHeGiaDinh.ThanNhanNuocNgoai = cb_ThanNhanNuocNgoai.Checked;
                 oQHeGiaDinh.Ho = txt_Ho.Text;

@@ -127,14 +127,14 @@ namespace QLNS.UCs.DanhMucThongTin
 
         public void FillAvatar()
         {
-            if (AvatarPath[0] != null)
+            if ( AvatarPath[0] != "")
             {
                 try
                 {
                     picB_HinhDaiDien.Image = Image.FromFile(AvatarPath[0]);
                     btn_DelAvatar.Enabled = true;
                 }
-                catch (Exception ex)
+                catch (Exception )
                 {
                     MessageBox.Show("Quá trình nạp hình không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -347,6 +347,7 @@ namespace QLNS.UCs.DanhMucThongTin
                 Paths[0] = dtAvatar.Rows[0]["path"].ToString();
                 try
                 {
+                    RemoveAvatar();
                     AvatarPath = oFTP.DownloadFile(Paths);
                 }
                 catch (Exception)
@@ -355,6 +356,18 @@ namespace QLNS.UCs.DanhMucThongTin
                 }
                 
             }
+            else
+            {
+                RemoveAvatar();
+            }
+        }
+
+        private void RemoveAvatar()
+        {
+            btn_DelAvatar.Enabled = false;
+            if(picB_HinhDaiDien.Image != null)
+                picB_HinhDaiDien.Image.Dispose();
+            openFileDialog1.FileName = null;
         }
 
         private void lbl_ThemTinh_Click(object sender, EventArgs e)
@@ -741,9 +754,7 @@ namespace QLNS.UCs.DanhMucThongTin
                 //oFile.MaNV = Program.selected_ma_nv;
                 //oFile.DeleteAvatar();
 
-                btn_DelAvatar.Enabled = false;
-                picB_HinhDaiDien.Image = null;
-                openFileDialog1.FileName = null;
+                RemoveAvatar();
             }
         }
     }
