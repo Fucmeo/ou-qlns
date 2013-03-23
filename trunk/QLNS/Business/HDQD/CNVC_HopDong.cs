@@ -224,9 +224,10 @@ namespace Business.HDQD
         public bool StopHopDong()
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[2]{
+            IDataParameter[] paras = new IDataParameter[3]{
                 new NpgsqlParameter("p_ma_nv",ma_nv),
-                new NpgsqlParameter("p_ma_hop_dong",ma_hop_dong)
+                new NpgsqlParameter("p_ma_hop_dong",ma_hop_dong),
+                new NpgsqlParameter("p_date_stop", DateTime.Now)
             };
 
             check = (int)dp.executeScalarProc("sp1_update_cnvc_dung_hopdong", paras);

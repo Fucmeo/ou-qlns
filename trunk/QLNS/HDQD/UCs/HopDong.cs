@@ -39,6 +39,7 @@ namespace HDQD.UCs
             oDonvi = new DonVi();
 
             oHopdong = p_HopDong;
+            DisplayInfo();
         }
 
         private void btn_Them_Click(object sender, EventArgs e)
@@ -99,7 +100,6 @@ namespace HDQD.UCs
         private void HopDong_Load(object sender, EventArgs e)
         {
             PreapreDataSource();
-            DisplayInfo();
         }
 
         #region Private Methods
@@ -204,9 +204,9 @@ namespace HDQD.UCs
         private void txt_MaHD_TextChanged(object sender, EventArgs e)
         {
             if (txt_MaHD.TextLength > 0)
-                btn_Them.Enabled = true;
+                btn_Them.Enabled = btn_DungHD.Enabled = btn_NhapFile.Enabled = true;
             else
-                btn_Them.Enabled = false;
+                btn_Them.Enabled = btn_DungHD.Enabled = btn_NhapFile.Enabled = false;
         }
 
         private void comB_LoaiHD_DropDownClosed(object sender, EventArgs e)
@@ -215,6 +215,35 @@ namespace HDQD.UCs
             //{
             //    comB_LoaiHD.Items.Remove(oHopdong.Loai_Hop_Dong);
             //}
+        }
+
+        private void btn_DungHD_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(txt_MaHD.Text) && !String.IsNullOrEmpty(thongTinCNVC1.txt_MaNV.Text))
+            {
+                try
+                {
+                    if (MessageBox.Show("Bạn thực sự muốn dừng hợp đồng của nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        oHopdong.Ma_NV = thongTinCNVC1.txt_MaNV.Text;
+                        oHopdong.Ma_Hop_Dong = txt_MaHD.Text;
+
+                        if (oHopdong.StopHopDong())
+                        {
+                            MessageBox.Show("Thao tác thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ResetInterface();
+                        }
+                        else
+                            MessageBox.Show("Thao tác thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Thao tác thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

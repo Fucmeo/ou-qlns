@@ -42,6 +42,53 @@ namespace Business
             return dt;
         }
 
+        public bool Add()
+        {
+            int check;
+            IDataParameter[] paras = new IDataParameter[2]{
+                new NpgsqlParameter("p_ten_chuc_vu",Ten),
+                new NpgsqlParameter("p_loai_chinh_tri_id",LoaiChinhTri_ID)
+            };
+            check = (int)dp.executeScalarProc("sp_insert_chuc_vu_chinh_tri", paras);
+            if (check > 0)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
+        public bool Update()
+        {
+            int check;
+            IDataParameter[] paras = new IDataParameter[3]{
+                new NpgsqlParameter("p_id",ID), 
+                new NpgsqlParameter("p_ten_chuc_vu",Ten),
+                new NpgsqlParameter("p_loai_chinh_tri_id",LoaiChinhTri_ID)
+            };
+            check = (int)dp.executeScalarProc("sp_update_chuc_vu_chinh_tri", paras);
+            if (check > 0)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
+        public bool Delete()
+        {
+            int check;
+            IDataParameter[] paras = new IDataParameter[1]{
+                new NpgsqlParameter("p_id",ID)
+            };
+            check = (int)dp.executeScalarProc("sp_delete_chuc_vu_chinh_tri", paras);
+            if (check > 0)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
         #endregion
     }
 }
