@@ -127,7 +127,7 @@ namespace QLNS.UCs.DanhMucThongTin
 
         public void FillAvatar()
         {
-            if ( AvatarPath[0] != "")
+            if (AvatarPath[0]!= null && AvatarPath[0] != "")
             {
                 try
                 {
@@ -345,15 +345,19 @@ namespace QLNS.UCs.DanhMucThongTin
                 // Download 
                 string[] Paths = new string[1];
                 Paths[0] = dtAvatar.Rows[0]["path"].ToString();
-                try
+                if (Paths[0].ToString() != "")
                 {
-                    RemoveAvatar();
-                    AvatarPath = oFTP.DownloadFile(Paths);
+                    try
+                    {
+                        RemoveAvatar();
+                        AvatarPath = oFTP.DownloadFile(Paths);
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Quá trình tải hình đại diện không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
-                catch (Exception)
-                {
-                    MessageBox.Show("Quá trình tải hình đại diện không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                
                 
             }
             else

@@ -175,18 +175,26 @@ namespace QLNS.UCs
             //if (oQLNS_QuaTrinhCongTac != null && (oQLNS_QuaTrinhCongTac.dtCtac_NonOU_GD.Rows.Count > 0 || oQLNS_QuaTrinhCongTac.dtCtac_NonOU_NonGD.Rows.Count > 0))
                 EmptyQTCTContent();
 
-            EmptyHopDongTTContent();
+            if(oQLNS_HopDongTuyenDung  != null)
+                EmptyHopDongTTContent();
 
             //if(oQLNS_DaoTaoBoiDuong != null && (oQLNS_DaoTaoBoiDuong.dtBoiDuong.Rows.Count > 0 || oQLNS_DaoTaoBoiDuong.dtDaoTao.Rows.Count > 0))
+            if(oQLNS_DaoTaoBoiDuong != null)
                 EmptyDaoTaoBDContent();
 
-            EmptyGiaDinhContent();
-            EmptyHoatDongCTContent();
+
+            if(oQLNS_ThongTinGiaDinh != null)
+                EmptyGiaDinhContent();
+
+            if(oQLNS_ChinhTri != null)
+                EmptyHoatDongCTContent();
 
             //if(oQLNS_LichSuBanThan != null &&  (oQLNS_LichSuBanThan.dtLSBiBat.Rows.Count > 0 || oQLNS_LichSuBanThan.dtQHToChuc.Rows.Count > 0))
+            if(oQLNS_LichSuBanThan != null)    
                 EmptyLSBanThanContent();
 
             //if(oQLNS_TrinhDo_ChuyenMon != null && (oQLNS_TrinhDo_ChuyenMon.dtChuyenMon.Rows.Count > 0 || oQLNS_TrinhDo_ChuyenMon.dtTrinhDo.Rows.Count>0))
+            if(oQLNS_TrinhDo_ChuyenMon != null)    
                 EmptyTrinhDoChuyenMonContent();
         }
 
@@ -1714,6 +1722,11 @@ namespace QLNS.UCs
                             oQLNS_ChinhTri.Dock = DockStyle.Fill;
                         }
                         tableLP_DanhMucThongTin.Controls.Add(oQLNS_ChinhTri, 0, 1);
+                        if (oQLNS_DonVi_CNVC1.TreeV_CNVC.SelectedNode != null &&
+                                oQLNS_ChinhTri.dtChinhTri.AsEnumerable().Where(a => a.Field<string>("ma_nv") == Program.selected_ma_nv).Count() <= 0)
+                        {
+                            oQLNS_ChinhTri.LoadData(Program.selected_ma_nv);
+                        }
                         break;
 
                     case "Thông tin gia đình":

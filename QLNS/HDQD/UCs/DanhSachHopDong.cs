@@ -245,7 +245,7 @@ namespace HDQD.UCs
         {
             UCs.HopDong hopdong = new HopDong();
             Forms.Popup popup = new Forms.Popup(hopdong, "QUẢN LÝ NHÂN SỰ - HỢP ĐỒNG");
-            popup.Show();
+            popup.ShowDialog();
         }
 
         private void dtgv_DSHD_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

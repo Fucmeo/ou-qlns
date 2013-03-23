@@ -14,11 +14,11 @@ namespace QLNS.UCs.DanhMucThongTin
     public partial class QLNS_ChinhTri : UserControl
     {
         Business.CNVC.CNVC_ChinhTri oChinhTri;
-        DataTable dtChinhTri;
+        public DataTable dtChinhTri;
         Business.CNVC.CNVC_ChinhTriExt oChinhTriExt;
-        DataTable dtChinhTriExt;
+        public DataTable dtChinhTriExt;
         Business.ChucVu_ChinhTri oChucVu_ChinhTri;
-        DataTable dtChucVu_ChinhTri;
+        public DataTable dtChucVu_ChinhTri;
 
         string m_ma_nv;
         int old_select_id;
@@ -28,27 +28,35 @@ namespace QLNS.UCs.DanhMucThongTin
         public QLNS_ChinhTri()
         {
             InitializeComponent();
+            oChinhTri = new Business.CNVC.CNVC_ChinhTri();
+            oChinhTriExt = new Business.CNVC.CNVC_ChinhTriExt();
+            oChucVu_ChinhTri = new ChucVu_ChinhTri();
+            dtChinhTri = new DataTable();
+            dtChinhTriExt = new DataTable();
+            dtChucVu_ChinhTri = new DataTable();
         }
 
         public QLNS_ChinhTri(string p_ma_nv)
         {
             InitializeComponent();
-
             oChinhTri = new Business.CNVC.CNVC_ChinhTri();
             oChinhTriExt = new Business.CNVC.CNVC_ChinhTriExt();
             oChucVu_ChinhTri = new ChucVu_ChinhTri();
-
+            
             m_ma_nv = p_ma_nv;
         }
 
         private void QLNS_ChinhTri_Load(object sender, EventArgs e)
         {
-            Load_Cbo_ChucVu_ChinhTri(); 
-            Load_Chinh_Tri();
-            Load_Chinh_Tri_Ext();
-            ResetInterface(true);
             //dtgv_DoanDang.DataBindingComplete += new DataGridViewBindingCompleteEventHandler(dtgv_DoanDang_DataBindingComplete);
             dtgv_DoanDang.SelectionChanged+=new EventHandler(dtgv_DoanDang_SelectionChanged);
+        }
+
+        public void LoadData(string p_ma_nv)
+        {
+            Load_Cbo_ChucVu_ChinhTri();
+            Load_Chinh_Tri(p_ma_nv);
+            Load_Chinh_Tri_Ext(p_ma_nv);
         }
 
         void dtgv_DoanDang_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -182,9 +190,9 @@ namespace QLNS.UCs.DanhMucThongTin
             }
         }
 
-        private void Load_Chinh_Tri_Ext()
+        private void Load_Chinh_Tri_Ext(string p_ma_nv)
         {
-            oChinhTriExt.Ma_NV = m_ma_nv;
+            oChinhTriExt.Ma_NV = p_ma_nv;
             dtChinhTriExt = oChinhTriExt.GetData();
 
             if (dtChinhTriExt != null && dtChinhTriExt.Rows.Count > 0)
@@ -216,9 +224,9 @@ namespace QLNS.UCs.DanhMucThongTin
             //dtgv_DoanDang.Columns["chuc_vu_id_arr"].Visible = false;
         }
 
-        private void Load_Chinh_Tri()
+        private void Load_Chinh_Tri(string p_ma_nv)
         {
-            oChinhTri.Ma_NV = m_ma_nv;
+            oChinhTri.Ma_NV = p_ma_nv;
             dtChinhTri = oChinhTri.GetData();
 
             if (dtChinhTri != null && dtChinhTri.Rows.Count > 0)
@@ -308,7 +316,7 @@ namespace QLNS.UCs.DanhMucThongTin
         private void btn_Luu_Click(object sender, EventArgs e)
         {
             oChinhTri = new Business.CNVC.CNVC_ChinhTri();
-            oChinhTri.Ma_NV = m_ma_nv;
+            oChinhTri.Ma_NV = Program.selected_ma_nv;
             oChinhTri.Quan_Ham_Cao_Nhat = txt_QuanHam.Text;
             oChinhTri.Danh_Hieu_Cao_Nhat = txt_DanhHieu.Text;
             oChinhTri.Thuong_Binh_Hang = txt_ThuongBinh.Text;
@@ -360,7 +368,7 @@ namespace QLNS.UCs.DanhMucThongTin
             else //chức năng Lưu
             {
                 oChinhTriExt = new Business.CNVC.CNVC_ChinhTriExt();
-                oChinhTriExt.Ma_NV = m_ma_nv;
+                oChinhTriExt.Ma_NV = Program.selected_ma_nv;
                 string loai_ctr = comB_Loai.Text;
                 switch (loai_ctr)
                 {
@@ -416,7 +424,7 @@ namespace QLNS.UCs.DanhMucThongTin
                                 MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             old_select_id = 0;
-                            Load_Chinh_Tri_Ext();
+                            Load_Chinh_Tri_Ext(Program.selected_ma_nv);
                             ResetInterface(true);
                         }
                         catch (Exception ex)
@@ -440,7 +448,7 @@ namespace QLNS.UCs.DanhMucThongTin
                                 MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             old_select_id = 0;
-                            Load_Chinh_Tri_Ext();
+                            Load_Chinh_Tri_Ext(Program.selected_ma_nv);
                             ResetInterface(true);
                         }
                         catch (Exception ex)
@@ -482,7 +490,7 @@ namespace QLNS.UCs.DanhMucThongTin
                             MessageBox.Show("Xóa thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                         old_select_id = 0;
-                        Load_Chinh_Tri_Ext();
+                        Load_Chinh_Tri_Ext(Program.selected_ma_nv);
 
                     }
                     catch (Exception ex)
