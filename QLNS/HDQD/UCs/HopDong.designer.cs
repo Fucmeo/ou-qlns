@@ -162,7 +162,7 @@
             this.comB_ChucDanh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_ChucDanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_ChucDanh.FormattingEnabled = true;
-            this.comB_ChucDanh.Location = new System.Drawing.Point(106, 246);
+            this.comB_ChucDanh.Location = new System.Drawing.Point(106, 244);
             this.comB_ChucDanh.Name = "comB_ChucDanh";
             this.comB_ChucDanh.Size = new System.Drawing.Size(234, 25);
             this.comB_ChucDanh.TabIndex = 34;
@@ -185,7 +185,7 @@
             this.comB_ThuViecChinhThuc.Items.AddRange(new object[] {
             "Chính thức",
             "Thử việc"});
-            this.comB_ThuViecChinhThuc.Location = new System.Drawing.Point(449, 75);
+            this.comB_ThuViecChinhThuc.Location = new System.Drawing.Point(449, 73);
             this.comB_ThuViecChinhThuc.Name = "comB_ThuViecChinhThuc";
             this.comB_ThuViecChinhThuc.Size = new System.Drawing.Size(236, 25);
             this.comB_ThuViecChinhThuc.TabIndex = 22;
@@ -195,7 +195,7 @@
             this.comB_LoaiHD.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_LoaiHD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_LoaiHD.FormattingEnabled = true;
-            this.comB_LoaiHD.Location = new System.Drawing.Point(449, 18);
+            this.comB_LoaiHD.Location = new System.Drawing.Point(449, 16);
             this.comB_LoaiHD.Name = "comB_LoaiHD";
             this.comB_LoaiHD.Size = new System.Drawing.Size(236, 25);
             this.comB_LoaiHD.TabIndex = 21;
@@ -376,7 +376,7 @@
             this.comB_ChucVu.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_ChucVu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_ChucVu.FormattingEnabled = true;
-            this.comB_ChucVu.Location = new System.Drawing.Point(449, 189);
+            this.comB_ChucVu.Location = new System.Drawing.Point(449, 187);
             this.comB_ChucVu.Name = "comB_ChucVu";
             this.comB_ChucVu.Size = new System.Drawing.Size(236, 25);
             this.comB_ChucVu.TabIndex = 24;
@@ -440,7 +440,7 @@
             this.comB_DonVi.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_DonVi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_DonVi.FormattingEnabled = true;
-            this.comB_DonVi.Location = new System.Drawing.Point(106, 189);
+            this.comB_DonVi.Location = new System.Drawing.Point(106, 187);
             this.comB_DonVi.Name = "comB_DonVi";
             this.comB_DonVi.Size = new System.Drawing.Size(234, 25);
             this.comB_DonVi.TabIndex = 23;
@@ -489,6 +489,7 @@
             this.btn_DungHD.Text = "Dừng hợp đồng";
             this.btn_DungHD.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_DungHD.UseVisualStyleBackColor = true;
+            this.btn_DungHD.Click += new System.EventHandler(this.btn_DungHD_Click);
             // 
             // HopDong
             // 

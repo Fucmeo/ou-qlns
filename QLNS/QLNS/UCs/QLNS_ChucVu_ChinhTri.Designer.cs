@@ -31,29 +31,29 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QLNS_ChucVu_ChinhTri));
             this.tableLP_ChucVu_ChinhTri = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.comB_Loai = new System.Windows.Forms.ComboBox();
+            this.txt_Ten = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tableLP_DSVanBang = new System.Windows.Forms.TableLayoutPanel();
+            this.dtgv_DSChucVuDonVi = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLP_ThaoTac = new System.Windows.Forms.TableLayoutPanel();
             this.btn_Sua = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.btn_Xoa = new System.Windows.Forms.Button();
             this.btn_Them = new System.Windows.Forms.Button();
             this.tableLP_LuuHuy = new System.Windows.Forms.TableLayoutPanel();
             this.btn_Huy = new System.Windows.Forms.Button();
             this.btn_Luu = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tableLP_DSVanBang = new System.Windows.Forms.TableLayoutPanel();
-            this.dtgv_DSChucVuDonVi = new System.Windows.Forms.DataGridView();
-            this.txt_Ten = new System.Windows.Forms.TextBox();
-            this.comB_Loai = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.tableLP_ChucVu_ChinhTri.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.tableLP_ThaoTac.SuspendLayout();
-            this.tableLP_LuuHuy.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLP_DSVanBang.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_DSChucVuDonVi)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            this.tableLP_ThaoTac.SuspendLayout();
+            this.tableLP_LuuHuy.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLP_ChucVu_ChinhTri
@@ -81,35 +81,72 @@
             this.tableLP_ChucVu_ChinhTri.Size = new System.Drawing.Size(600, 600);
             this.tableLP_ChucVu_ChinhTri.TabIndex = 0;
             // 
-            // label1
+            // comB_Loai
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 51);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 18);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Tên chức vụ";
+            this.comB_Loai.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.comB_Loai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comB_Loai.FormattingEnabled = true;
+            this.comB_Loai.Items.AddRange(new object[] {
+            "Đoàn viên",
+            "Đảng viên",
+            "Dân quân tự vệ",
+            "Công đoàn viên"});
+            this.comB_Loai.Location = new System.Drawing.Point(393, 49);
+            this.comB_Loai.Name = "comB_Loai";
+            this.comB_Loai.Size = new System.Drawing.Size(204, 26);
+            this.comB_Loai.TabIndex = 8;
             // 
-            // label2
+            // txt_Ten
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(303, 51);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(33, 18);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Loại";
+            this.txt_Ten.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_Ten.Location = new System.Drawing.Point(93, 47);
+            this.txt_Ten.MaxLength = 30;
+            this.txt_Ten.Name = "txt_Ten";
+            this.txt_Ten.Size = new System.Drawing.Size(204, 26);
+            this.txt_Ten.TabIndex = 5;
             // 
-            // imageList1
+            // groupBox1
             // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "Add.png");
-            this.imageList1.Images.SetKeyName(1, "Cancel.png");
-            this.imageList1.Images.SetKeyName(2, "Edit Data.png");
-            this.imageList1.Images.SetKeyName(3, "Garbage.png");
-            this.imageList1.Images.SetKeyName(4, "Save.png");
+            this.tableLP_ChucVu_ChinhTri.SetColumnSpan(this.groupBox1, 4);
+            this.groupBox1.Controls.Add(this.tableLP_DSVanBang);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(3, 363);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(594, 234);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Danh sách chức vụ - chính trị";
+            // 
+            // tableLP_DSVanBang
+            // 
+            this.tableLP_DSVanBang.ColumnCount = 2;
+            this.tableLP_DSVanBang.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.31395F));
+            this.tableLP_DSVanBang.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.68604F));
+            this.tableLP_DSVanBang.Controls.Add(this.dtgv_DSChucVuDonVi, 0, 0);
+            this.tableLP_DSVanBang.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLP_DSVanBang.Location = new System.Drawing.Point(3, 22);
+            this.tableLP_DSVanBang.Name = "tableLP_DSVanBang";
+            this.tableLP_DSVanBang.RowCount = 1;
+            this.tableLP_DSVanBang.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this.tableLP_DSVanBang.Size = new System.Drawing.Size(588, 209);
+            this.tableLP_DSVanBang.TabIndex = 0;
+            // 
+            // dtgv_DSChucVuDonVi
+            // 
+            this.dtgv_DSChucVuDonVi.AllowUserToAddRows = false;
+            this.dtgv_DSChucVuDonVi.AllowUserToDeleteRows = false;
+            this.dtgv_DSChucVuDonVi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tableLP_DSVanBang.SetColumnSpan(this.dtgv_DSChucVuDonVi, 2);
+            this.dtgv_DSChucVuDonVi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgv_DSChucVuDonVi.Location = new System.Drawing.Point(3, 3);
+            this.dtgv_DSChucVuDonVi.MultiSelect = false;
+            this.dtgv_DSChucVuDonVi.Name = "dtgv_DSChucVuDonVi";
+            this.dtgv_DSChucVuDonVi.ReadOnly = true;
+            this.dtgv_DSChucVuDonVi.RowTemplate.Height = 24;
+            this.dtgv_DSChucVuDonVi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgv_DSChucVuDonVi.Size = new System.Drawing.Size(582, 203);
+            this.dtgv_DSChucVuDonVi.TabIndex = 1;
+            this.dtgv_DSChucVuDonVi.SelectionChanged += new System.EventHandler(this.dtgv_DSChucVuDonVi_SelectionChanged);
             // 
             // groupBox2
             // 
@@ -158,6 +195,17 @@
             this.btn_Sua.Text = "Sửa";
             this.btn_Sua.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Sua.UseVisualStyleBackColor = true;
+            this.btn_Sua.Click += new System.EventHandler(this.btn_Sua_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Add.png");
+            this.imageList1.Images.SetKeyName(1, "Cancel.png");
+            this.imageList1.Images.SetKeyName(2, "Edit Data.png");
+            this.imageList1.Images.SetKeyName(3, "Garbage.png");
+            this.imageList1.Images.SetKeyName(4, "Save.png");
             // 
             // btn_Xoa
             // 
@@ -173,6 +221,7 @@
             this.btn_Xoa.Text = "Xoá";
             this.btn_Xoa.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Xoa.UseVisualStyleBackColor = true;
+            this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
             // 
             // btn_Them
             // 
@@ -188,6 +237,7 @@
             this.btn_Them.Text = "Thêm";
             this.btn_Them.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Them.UseVisualStyleBackColor = true;
+            this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
             // 
             // tableLP_LuuHuy
             // 
@@ -218,6 +268,7 @@
             this.btn_Huy.Text = "Huỷ";
             this.btn_Huy.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Huy.UseVisualStyleBackColor = true;
+            this.btn_Huy.Click += new System.EventHandler(this.btn_Huy_Click);
             // 
             // btn_Luu
             // 
@@ -233,67 +284,27 @@
             this.btn_Luu.Text = "Lưu";
             this.btn_Luu.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Luu.UseVisualStyleBackColor = true;
+            this.btn_Luu.Click += new System.EventHandler(this.btn_Luu_Click);
             // 
-            // groupBox1
+            // label1
             // 
-            this.tableLP_ChucVu_ChinhTri.SetColumnSpan(this.groupBox1, 4);
-            this.groupBox1.Controls.Add(this.tableLP_DSVanBang);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(3, 363);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(594, 234);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Danh sách chức vụ - đơn vị";
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 51);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 18);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Tên chức vụ";
             // 
-            // tableLP_DSVanBang
+            // label2
             // 
-            this.tableLP_DSVanBang.ColumnCount = 2;
-            this.tableLP_DSVanBang.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.31395F));
-            this.tableLP_DSVanBang.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.68604F));
-            this.tableLP_DSVanBang.Controls.Add(this.dtgv_DSChucVuDonVi, 0, 0);
-            this.tableLP_DSVanBang.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLP_DSVanBang.Location = new System.Drawing.Point(3, 22);
-            this.tableLP_DSVanBang.Name = "tableLP_DSVanBang";
-            this.tableLP_DSVanBang.RowCount = 1;
-            this.tableLP_DSVanBang.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
-            this.tableLP_DSVanBang.Size = new System.Drawing.Size(588, 209);
-            this.tableLP_DSVanBang.TabIndex = 0;
-            // 
-            // dtgv_DSChucVuDonVi
-            // 
-            this.dtgv_DSChucVuDonVi.AllowUserToAddRows = false;
-            this.dtgv_DSChucVuDonVi.AllowUserToDeleteRows = false;
-            this.dtgv_DSChucVuDonVi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tableLP_DSVanBang.SetColumnSpan(this.dtgv_DSChucVuDonVi, 2);
-            this.dtgv_DSChucVuDonVi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtgv_DSChucVuDonVi.Location = new System.Drawing.Point(3, 3);
-            this.dtgv_DSChucVuDonVi.MultiSelect = false;
-            this.dtgv_DSChucVuDonVi.Name = "dtgv_DSChucVuDonVi";
-            this.dtgv_DSChucVuDonVi.ReadOnly = true;
-            this.dtgv_DSChucVuDonVi.RowTemplate.Height = 24;
-            this.dtgv_DSChucVuDonVi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgv_DSChucVuDonVi.Size = new System.Drawing.Size(582, 203);
-            this.dtgv_DSChucVuDonVi.TabIndex = 1;
-            // 
-            // txt_Ten
-            // 
-            this.txt_Ten.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_Ten.Location = new System.Drawing.Point(93, 47);
-            this.txt_Ten.MaxLength = 30;
-            this.txt_Ten.Name = "txt_Ten";
-            this.txt_Ten.Size = new System.Drawing.Size(204, 26);
-            this.txt_Ten.TabIndex = 5;
-            // 
-            // comB_Loai
-            // 
-            this.comB_Loai.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.comB_Loai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comB_Loai.FormattingEnabled = true;
-            this.comB_Loai.Location = new System.Drawing.Point(393, 47);
-            this.comB_Loai.Name = "comB_Loai";
-            this.comB_Loai.Size = new System.Drawing.Size(204, 26);
-            this.comB_Loai.TabIndex = 8;
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(303, 51);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(33, 18);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Loại";
             // 
             // QLNS_ChucVu_ChinhTri
             // 
@@ -305,14 +316,15 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "QLNS_ChucVu_ChinhTri";
             this.Size = new System.Drawing.Size(600, 600);
+            this.Load += new System.EventHandler(this.QLNS_ChucVu_ChinhTri_Load);
             this.tableLP_ChucVu_ChinhTri.ResumeLayout(false);
             this.tableLP_ChucVu_ChinhTri.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.tableLP_ThaoTac.ResumeLayout(false);
-            this.tableLP_LuuHuy.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.tableLP_DSVanBang.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_DSChucVuDonVi)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.tableLP_ThaoTac.ResumeLayout(false);
+            this.tableLP_LuuHuy.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -22,7 +22,7 @@ namespace QLNS.UCs.DanhMucThongTin
 
         string m_ma_nv;
         int old_select_id;
-        bool is_Modified_Ctri_CVu = true;
+        public static bool is_Modified_Ctri_CVu = true;
         bool bAddFlag;
 
         public QLNS_ChinhTri()
@@ -510,7 +510,20 @@ namespace QLNS.UCs.DanhMucThongTin
             Load_Cbo_ChucVu_ChinhTri();
         }
 
+        private void lbl_ThemChucVuMoi_Click(object sender, EventArgs e)
+        {
+            QLNS.UCs.QLNS_ChucVu_ChinhTri chuc_vu_chtri = new QLNS_ChucVu_ChinhTri();
+            QLNS.Forms.Popup popup = new Forms.Popup("Thêm chức vụ chính trị", chuc_vu_chtri);
+            popup.ShowDialog();
+            if (is_Modified_Ctri_CVu == true)
+                Reload_Combo_ChucVu_ChinhTri();
+        }
 
+        private void Reload_Combo_ChucVu_ChinhTri()
+        {
+            Load_Cbo_ChucVu_ChinhTri();            
+        
+        }
 
     }
 }

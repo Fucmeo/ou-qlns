@@ -581,6 +581,7 @@
             this.lbl_ThemChucVuMoi.Size = new System.Drawing.Size(121, 18);
             this.lbl_ThemChucVuMoi.TabIndex = 10;
             this.lbl_ThemChucVuMoi.Text = "Thêm chức vụ mới";
+            this.lbl_ThemChucVuMoi.Click += new System.EventHandler(this.lbl_ThemChucVuMoi_Click);
             // 
             // label17
             // 
