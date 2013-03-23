@@ -75,7 +75,7 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.btn_Nhap, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btn_Nhap, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 1098);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -87,9 +87,10 @@
             // btn_Nhap
             // 
             this.btn_Nhap.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Nhap.Location = new System.Drawing.Point(689, 27);
+            this.tableLayoutPanel1.SetColumnSpan(this.btn_Nhap, 2);
+            this.btn_Nhap.Location = new System.Drawing.Point(441, 17);
             this.btn_Nhap.Name = "btn_Nhap";
-            this.btn_Nhap.Size = new System.Drawing.Size(112, 44);
+            this.btn_Nhap.Size = new System.Drawing.Size(112, 64);
             this.btn_Nhap.TabIndex = 34;
             this.btn_Nhap.Text = "Nhập";
             this.btn_Nhap.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
