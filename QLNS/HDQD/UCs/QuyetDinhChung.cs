@@ -55,7 +55,11 @@ namespace HDQD.UCs
             dt = oLoaiQD.GetList();
 
             // chi load nhung loai quyet dinh do ng dung them vao
-            dt = dt.AsEnumerable().Where(a => a.Field<int>("id") >= 8).CopyToDataTable();
+
+                var vdt = dt.AsEnumerable().Where(a => a.Field<int>("id") >= 8);
+
+            if(vdt.Count() > 0)
+                dt = vdt.CopyToDataTable();
 
             thongTinQuyetDinh1.comB_Loai.DataSource = dt;
             thongTinQuyetDinh1.comB_Loai.DisplayMember = "ten_loai";

@@ -806,7 +806,7 @@
             // 
             this.btn_LuuCNVC.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tableLP_ThongTinNV.SetColumnSpan(this.btn_LuuCNVC, 4);
-            this.btn_LuuCNVC.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_LuuCNVC.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_LuuCNVC.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_LuuCNVC.ImageKey = "(none)";
             this.btn_LuuCNVC.ImageList = this.imageList1;

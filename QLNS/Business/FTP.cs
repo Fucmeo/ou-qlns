@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Net;
+using System.Runtime.InteropServices;
 
 namespace Business
 {
@@ -16,7 +17,9 @@ namespace Business
 
         public FTP()
         {
-            downloadPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            //downloadPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            downloadPath = Path.GetTempPath();
+            
         }
 
         /// <summary>
@@ -180,16 +183,17 @@ namespace Business
             }
 
             FtpWebRequest reqFTP;
+            FileStream outputStream = null;
+            FtpWebResponse response = null;
+            Stream ftpStream = null;
             try
             {
-                 FileStream outputStream = null;
-                 FtpWebResponse response = null;
-                 Stream ftpStream = null;
+                
                 //filePath = <<The full path where the file is to be created.>>, 
                 //fileName = <<Name of the file to be created(Need not be the name of the file on FTP server).>>
                 for (int i = 0; i < FilesPath.Length; i++)
                 {
-                    outputStream = new FileStream(downloadPath + "\\" + FilesName[i], FileMode.Create);
+                    outputStream = new FileStream(downloadPath + "\\" + FilesName[i], FileMode.OpenOrCreate);
 
                     reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri(URI + "/" + FilesPath[i]));
                     reqFTP.Method = WebRequestMethods.Ftp.DownloadFile;
@@ -211,7 +215,7 @@ namespace Business
 
                     DownloadFiles[i] = downloadPath + "\\" + FilesName[i];
                 }
-                
+
 
                 ftpStream.Close();
                 outputStream.Close();
@@ -219,10 +223,25 @@ namespace Business
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                //throw new Exception(ex.Message);
+                DownloadFiles[0] = downloadPath + "\\" + FilesName[0];
+                return DownloadFiles;
+            }
+            finally
+            {
+                if (outputStream != null)
+                {
+                    outputStream.Close();
+                }
             }
 
             return DownloadFiles;
         }
+
+        //private static bool IsFileLocked(Exception exception)
+        //{
+        //    int errorCode = Marshal.GetHRForException(exception) & ((1 << 16) - 1);
+        //    return errorCode == ERROR_SHARING_VIOLATION || errorCode == ERROR_LOCK_VIOLATION;
+        //}
     }
 }

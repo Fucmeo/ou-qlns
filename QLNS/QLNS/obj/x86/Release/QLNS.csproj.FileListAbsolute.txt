@@ -23,7 +23,6 @@ D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Release\QLNS.Forms.QLNS_ThongTin.resource
 D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Release\QLNS.Properties.Resources.resources
 D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Release\QLNS.UCs.ManHinhChinh.resources
 D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Release\QLNS.UCs.MoHinhDaoTao.resources
-D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Release\QLNS.UCs.QLNS_DienBienSK.resources
 D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Release\QLNS.UCs.QLNS_ChucDanh.resources
 D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Release\QLNS.UCs.QLNS_ChucVu.resources
 D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Release\QLNS.UCs.QLNS_DanhMucThongTin.resources
@@ -43,3 +42,15 @@ D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Release\QLNS.exe
 D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Release\QLNS.pdb
 D:\Job\QLNS\Projects\QLNS\QLNS\bin\Release\HDQD.exe
 D:\Job\QLNS\Projects\QLNS\QLNS\bin\Release\HDQD.pdb
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Release\QLNS.UCs.DanhMucThongTin.QLNS_ChinhTri.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Release\QLNS.UCs.DanhMucThongTin.QLNS_DaoTaoBoiDuong.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Release\QLNS.UCs.DanhMucThongTin.QLNS_DienBienSK.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Release\QLNS.UCs.QLNS_ChucVu_ChinhTri.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Release\QLNS.UCs.DanhMucThongTin.QLNS_HopDongTuyenDung.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Release\QLNS.UCs.DanhMucThongTin.QLNS_LichSuBanThan.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Release\QLNS.UCs.DanhMucThongTin.QLNS_QuaTrinhCongTac.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Release\QLNS.UCs.DanhMucThongTin.QLNS_ThongTinGiaDinh.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Release\QLNS.UCs.DanhMucThongTin.QLNS_ThongTinNV.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Release\QLNS.UCs.DanhMucThongTin.QLNS_ThongTinNV_Phu.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Release\QLNS.UCs.DanhMucThongTin.QLNS_TrinhDo_ChuyenMon.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Release\QLNS.UCs.ThemQuocGia.resources
