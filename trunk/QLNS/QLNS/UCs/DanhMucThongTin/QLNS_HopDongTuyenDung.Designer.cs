@@ -31,6 +31,7 @@
             this.tableLP_HopDong_TuyenDung = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLP_ThongTinTuyenDung = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_Luu = new System.Windows.Forms.Button();
             this.dTP_NgayTuyenDung = new System.Windows.Forms.DateTimePicker();
             this.txt_CoQuan = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
@@ -40,7 +41,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLP_HopDong = new System.Windows.Forms.TableLayoutPanel();
             this.dtgv_HopDong = new System.Windows.Forms.DataGridView();
-            this.btn_Luu = new System.Windows.Forms.Button();
             this.tableLP_HopDong_TuyenDung.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLP_ThongTinTuyenDung.SuspendLayout();
@@ -98,6 +98,22 @@
             this.tableLP_ThongTinTuyenDung.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLP_ThongTinTuyenDung.Size = new System.Drawing.Size(788, 278);
             this.tableLP_ThongTinTuyenDung.TabIndex = 0;
+            // 
+            // btn_Luu
+            // 
+            this.btn_Luu.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tableLP_ThongTinTuyenDung.SetColumnSpan(this.btn_Luu, 4);
+            this.btn_Luu.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_Luu.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Luu.ImageKey = "(none)";
+            this.btn_Luu.Location = new System.Drawing.Point(344, 185);
+            this.btn_Luu.Name = "btn_Luu";
+            this.btn_Luu.Size = new System.Drawing.Size(100, 74);
+            this.btn_Luu.TabIndex = 40;
+            this.btn_Luu.Text = "Lưu";
+            this.btn_Luu.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Luu.UseVisualStyleBackColor = true;
+            this.btn_Luu.Click += new System.EventHandler(this.btn_Luu_Click);
             // 
             // dTP_NgayTuyenDung
             // 
@@ -198,22 +214,6 @@
             this.dtgv_HopDong.Size = new System.Drawing.Size(782, 450);
             this.dtgv_HopDong.TabIndex = 3;
             this.dtgv_HopDong.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_HopDong_CellDoubleClick);
-            // 
-            // btn_Luu
-            // 
-            this.btn_Luu.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tableLP_ThongTinTuyenDung.SetColumnSpan(this.btn_Luu, 4);
-            this.btn_Luu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_Luu.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Luu.ImageKey = "(none)";
-            this.btn_Luu.Location = new System.Drawing.Point(344, 185);
-            this.btn_Luu.Name = "btn_Luu";
-            this.btn_Luu.Size = new System.Drawing.Size(100, 74);
-            this.btn_Luu.TabIndex = 40;
-            this.btn_Luu.Text = "Lưu";
-            this.btn_Luu.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Luu.UseVisualStyleBackColor = true;
-            this.btn_Luu.Click += new System.EventHandler(this.btn_Luu_Click);
             // 
             // QLNS_HopDongTuyenDung
             // 

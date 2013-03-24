@@ -132,12 +132,17 @@ namespace QLNS.UCs.DanhMucThongTin
                 try
                 {
                     picB_HinhDaiDien.Image = Image.FromFile(AvatarPath[0]);
+                    picB_HinhDaiDien.ImageLocation = AvatarPath[0];
                     btn_DelAvatar.Enabled = true;
                 }
                 catch (Exception )
                 {
                     MessageBox.Show("Quá trình nạp hình không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+            }
+            else
+            {
+                RemoveAvatar();
             }
         }
 
@@ -179,7 +184,7 @@ namespace QLNS.UCs.DanhMucThongTin
 
             #region Avatar
 
-            if ( Yes && AvatarPath[0] != picB_HinhDaiDien.ImageLocation)
+            if ( Yes && picB_HinhDaiDien.ImageLocation != ""  && AvatarPath[0] != picB_HinhDaiDien.ImageLocation)
             {
                 string[] ServerPath = new string[1];
 
@@ -210,6 +215,16 @@ namespace QLNS.UCs.DanhMucThongTin
                     MessageBox.Show("Quá trình lưu hình không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 
+            }
+            else if (picB_HinhDaiDien.ImageLocation == "" && AvatarPath[0] != "")
+            {
+                if (Program.selected_ma_nv != "")
+                    oFile.MaNV = Program.selected_ma_nv;
+                else
+                    oFile.MaNV = txt_MaNV.Text.Trim();
+
+                oFile.IsAvatar = true;
+                oFile.DeleteAvatar();
             }
 
             #endregion
@@ -300,6 +315,13 @@ namespace QLNS.UCs.DanhMucThongTin
             oCNVC.Duong = txt_Duong.Text;
             oCNVC.Phuong = txt_PhuongXa.Text;
             oCNVC.Quan = txt_QuanHuyen.Text;
+            if (comB_GioiTinh.SelectedIndex == 0)
+                oCNVC.GioiTinh = true;
+            else if (comB_GioiTinh.SelectedIndex == 1)
+                oCNVC.GioiTinh = false;
+            else if (comB_GioiTinh.SelectedIndex == 2)
+                oCNVC.GioiTinh = null;
+
             int v = Convert.ToInt16(comB_Tinh.SelectedValue);
             if (v <= 0) 
             {
@@ -338,6 +360,7 @@ namespace QLNS.UCs.DanhMucThongTin
 
         public void GetAvatar(string m_MaNV)
         {
+            AvatarPath[0] = null;
             oFile.MaNV = m_MaNV;
             dtAvatar = oFile.GetAvatar();
             if (dtAvatar != null && dtAvatar.Rows.Count > 0)
@@ -352,9 +375,9 @@ namespace QLNS.UCs.DanhMucThongTin
                         RemoveAvatar();
                         AvatarPath = oFTP.DownloadFile(Paths);
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("Quá trình tải hình đại diện không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Quá trình tải hình đại diện không thành công \r\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 
@@ -369,8 +392,14 @@ namespace QLNS.UCs.DanhMucThongTin
         private void RemoveAvatar()
         {
             btn_DelAvatar.Enabled = false;
-            if(picB_HinhDaiDien.Image != null)
+            if (picB_HinhDaiDien.Image != null)
+            {
+                
                 picB_HinhDaiDien.Image.Dispose();
+                picB_HinhDaiDien.Image = null;
+                picB_HinhDaiDien.ImageLocation = "";
+                
+            }
             openFileDialog1.FileName = null;
         }
 
