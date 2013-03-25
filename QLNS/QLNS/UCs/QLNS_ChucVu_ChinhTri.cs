@@ -164,13 +164,15 @@ namespace QLNS.UCs
                         {
                             MessageBox.Show("Xoá thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
+                        else
+                            MessageBox.Show("Xóa thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         QLNS.UCs.DanhMucThongTin.QLNS_ChinhTri.is_Modified_Ctri_CVu = true;
                         RefreshDataSource();
 
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.ToString(), "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Xóa thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
                 }
@@ -215,6 +217,9 @@ namespace QLNS.UCs
                             {
                                 MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
+                            else
+                                MessageBox.Show("Thao tác thêm thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                             QLNS.UCs.DanhMucThongTin.QLNS_ChinhTri.is_Modified_Ctri_CVu = true;
                             RefreshDataSource();
                             ResetInterface(true);
@@ -239,6 +244,9 @@ namespace QLNS.UCs
                             {
                                 MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
+                            else
+                                MessageBox.Show("Thao tác sửa thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                             QLNS.UCs.DanhMucThongTin.QLNS_ChinhTri.is_Modified_Ctri_CVu = true;
                             RefreshDataSource();
                             ResetInterface(true);

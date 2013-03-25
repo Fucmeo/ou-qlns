@@ -175,8 +175,11 @@ namespace QLNS.UCs.DanhMucThongTin
 
         private void btn_Sua_Click(object sender, EventArgs e)
         {
-            AddFlag = false;
-            ResetInterface(false);
+            if (dtgv_DienBienSK.CurrentRow != null && dtgv_DienBienSK.Rows.Count > 0)
+            {
+                AddFlag = false;
+                ResetInterface(false);
+            }
         }
 
         private void btn_Huy_Click(object sender, EventArgs e)
@@ -200,7 +203,10 @@ namespace QLNS.UCs.DanhMucThongTin
                     suckhoe = new Business.CNVC.CNVC_DienBienSK(Convert.ToInt16(dtgv_DienBienSK.CurrentRow.Cells[0].Value.ToString()));
                     try
                     {
-                        suckhoe.Delete();
+                        if (suckhoe.Delete())
+                            MessageBox.Show("Xoá thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else
+                            MessageBox.Show("Xóa thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         RefreshDataSource();
                         MessageBox.Show("Xoá thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -243,11 +249,20 @@ namespace QLNS.UCs.DanhMucThongTin
                     suckhoe.DeNghi = rtb_DeNghi.Text;
                     suckhoe.KetLuan = rtb_KetLuan.Text;
 
-                    suckhoe.Add();
-                    MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    try
+                    {
+                        if (suckhoe.Add())
+                            MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else
+                            MessageBox.Show("Thao tác thêm thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                    ResetInterface(true);
-                    RefreshDataSource();
+                        ResetInterface(true);
+                        RefreshDataSource();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Thao tác thêm thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
 
             }
@@ -279,13 +294,22 @@ namespace QLNS.UCs.DanhMucThongTin
                     suckhoe.DeNghi = rtb_DeNghi.Text;
                     suckhoe.KetLuan = rtb_KetLuan.Text;
 
-                    suckhoe.ID = Convert.ToInt16(dtgv_DienBienSK.CurrentRow.Cells[0].Value.ToString());
-                    suckhoe.Update();
+                    try
+                    {
+                        suckhoe.ID = Convert.ToInt16(dtgv_DienBienSK.CurrentRow.Cells[0].Value.ToString());
+                        
+                        if (suckhoe.Update())
+                            MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else
+                            MessageBox.Show("Thao tác sửa thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                    MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    ResetInterface(true);
-                    RefreshDataSource();
+                        ResetInterface(true);
+                        RefreshDataSource();
+                    }
+                    catch 
+                    {
+                        MessageBox.Show("Thao tác sửa thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
             #endregion
