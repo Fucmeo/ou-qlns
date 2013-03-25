@@ -20,7 +20,7 @@ namespace QLNS.UCs.DanhMucThongTin
          DataTable dtDSTinhTP;
          DataTable dtDSQuocGia;
 
-        string m_ma_nv = "";
+        //string m_ma_nv = "";
 
         public QLNS_ThongTinGiaDinh()
         {
@@ -31,16 +31,16 @@ namespace QLNS.UCs.DanhMucThongTin
             dtDSQHeGiaDinh = new DataTable();
         }
 
-        public QLNS_ThongTinGiaDinh(string p_ma_nv)
-        {
-            InitializeComponent();
-            oQHeGiaDinh = new Business.CNVC.CNVC_QHGiaDinh();
-            oTinhTP = new TinhTP();
-            oQuocGia = new QuocGia();
-            dtDSQHeGiaDinh = new DataTable();
+        //public QLNS_ThongTinGiaDinh(string p_ma_nv)
+        //{
+        //    InitializeComponent();
+        //    oQHeGiaDinh = new Business.CNVC.CNVC_QHGiaDinh();
+        //    oTinhTP = new TinhTP();
+        //    oQuocGia = new QuocGia();
+        //    dtDSQHeGiaDinh = new DataTable();
 
-            m_ma_nv = p_ma_nv;
-        }
+        //    m_ma_nv = p_ma_nv;
+        //}
 
         private void QLNS_ThongTinGiaDinh_Load(object sender, EventArgs e)
         {
@@ -395,12 +395,6 @@ namespace QLNS.UCs.DanhMucThongTin
             }
         }
 
-        private void btn_Luu_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        
 
 
     }

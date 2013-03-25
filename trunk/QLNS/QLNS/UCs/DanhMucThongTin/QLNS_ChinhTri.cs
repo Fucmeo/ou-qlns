@@ -20,7 +20,7 @@ namespace QLNS.UCs.DanhMucThongTin
         Business.ChucVu_ChinhTri oChucVu_ChinhTri;
         public DataTable dtChucVu_ChinhTri;
 
-        string m_ma_nv;
+        //string m_ma_nv;
         int old_select_id;
         public static bool is_Modified_Ctri_CVu = true;
         bool bAddFlag;
@@ -36,15 +36,15 @@ namespace QLNS.UCs.DanhMucThongTin
             dtChucVu_ChinhTri = new DataTable();
         }
 
-        public QLNS_ChinhTri(string p_ma_nv)
-        {
-            InitializeComponent();
-            oChinhTri = new Business.CNVC.CNVC_ChinhTri();
-            oChinhTriExt = new Business.CNVC.CNVC_ChinhTriExt();
-            oChucVu_ChinhTri = new ChucVu_ChinhTri();
+        //public QLNS_ChinhTri(string p_ma_nv)
+        //{
+        //    InitializeComponent();
+        //    oChinhTri = new Business.CNVC.CNVC_ChinhTri();
+        //    oChinhTriExt = new Business.CNVC.CNVC_ChinhTriExt();
+        //    oChucVu_ChinhTri = new ChucVu_ChinhTri();
             
-            m_ma_nv = p_ma_nv;
-        }
+        //    m_ma_nv = p_ma_nv;
+        //}
 
         private void QLNS_ChinhTri_Load(object sender, EventArgs e)
         {

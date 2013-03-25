@@ -20,7 +20,7 @@ namespace QLNS.UCs.DanhMucThongTin
         Business.CNVC.CNVC_QTr_CongTac_OU oQtrCtac_OU;
         DataTable dtCtac_OU;
 
-        string m_ma_nv;
+        //string m_ma_nv;
         bool bAddFlag;
 
         public QLNS_QuaTrinhCongTac()
@@ -33,15 +33,15 @@ namespace QLNS.UCs.DanhMucThongTin
             oQtrCtac_NonOU_NonGD = new Business.CNVC.CNVC_QTr_CongTac_NonOU_NonGD();
         }
 
-        public QLNS_QuaTrinhCongTac(string p_ma_nv)
-        {
-            InitializeComponent();
-            oQtrCtac_NonOU_GD = new Business.CNVC.CNVC_QTr_CongTac_NonOU_GD();
-            oQtrCtac_NonOU_NonGD = new Business.CNVC.CNVC_QTr_CongTac_NonOU_NonGD();
-            oQtrCtac_OU = new Business.CNVC.CNVC_QTr_CongTac_OU();
+        //public QLNS_QuaTrinhCongTac(string p_ma_nv)
+        //{
+        //    InitializeComponent();
+        //    oQtrCtac_NonOU_GD = new Business.CNVC.CNVC_QTr_CongTac_NonOU_GD();
+        //    oQtrCtac_NonOU_NonGD = new Business.CNVC.CNVC_QTr_CongTac_NonOU_NonGD();
+        //    oQtrCtac_OU = new Business.CNVC.CNVC_QTr_CongTac_OU();
 
-            m_ma_nv = p_ma_nv;
-        }
+        //    m_ma_nv = p_ma_nv;
+        //}
 
         private void QLNS_QuaTrinhCongTac_Load(object sender, EventArgs e)
         {
@@ -311,7 +311,7 @@ namespace QLNS.UCs.DanhMucThongTin
                 {
                     is_gd = true;
                     oQtrCtac_NonOU_GD = new Business.CNVC.CNVC_QTr_CongTac_NonOU_GD();
-                    oQtrCtac_NonOU_GD.MaNV = m_ma_nv;
+                    oQtrCtac_NonOU_GD.MaNV = Program.selected_ma_nv;
                     oQtrCtac_NonOU_GD.TenDonVi = txt_TenDV.Text;
                     oQtrCtac_NonOU_GD.ChucDanh = txt_ChucDanh.Text;
                     oQtrCtac_NonOU_GD.ChucVu = txt_ChucVu.Text;
@@ -325,7 +325,7 @@ namespace QLNS.UCs.DanhMucThongTin
                 {
                     is_gd = false;
                     oQtrCtac_NonOU_NonGD = new Business.CNVC.CNVC_QTr_CongTac_NonOU_NonGD();
-                    oQtrCtac_NonOU_NonGD.MaNV = m_ma_nv;
+                    oQtrCtac_NonOU_NonGD.MaNV = Program.selected_ma_nv;
                     oQtrCtac_NonOU_NonGD.TenDonVi = txt_TenDV.Text;
                     oQtrCtac_NonOU_NonGD.ChucDanh = txt_ChucDanh.Text;
                     oQtrCtac_NonOU_NonGD.ChucVu = txt_ChucVu.Text;
