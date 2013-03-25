@@ -164,7 +164,7 @@ namespace QLNS.UCs
 
         #region HAM xoa thong tin
 
-        private void EmptyAllContent()
+        public void EmptyAllContent()
         {
             //if(oQLNS_ThongTinNV.dtCNVC.Rows.Count > 0)
                 EmptyThongTinContent();
@@ -1786,11 +1786,13 @@ namespace QLNS.UCs
             {
                 lbl_DongMo.Text = ">>>";
                 tableLP_HienThiThongTin.ColumnStyles[0].Width = 0;
+                //((Forms.Main)this.Parent.Parent).menuStrip1.Visible = false;
             }
             else
             {
                 lbl_DongMo.Text = "<<<";
                 tableLP_HienThiThongTin.ColumnStyles[0].Width = 30;
+                //((Forms.Main)this.Parent.Parent).menuStrip1.Visible = true;
             }
             
             

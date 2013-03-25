@@ -58,6 +58,7 @@ namespace QLNS.UCs
             if (dtDSCNVC != null && dtDSCNVC.Rows.Count > 0)
             {
                 FillTreeVCNVC();
+                oQLNS_HienThiThongTin.EmptyAllContent();
             }
             else
             {
@@ -124,6 +125,7 @@ namespace QLNS.UCs
                 {
                     TreeNode.BackColor = Color.White;
                     ResetDVTreeViewColor(TreeNode.Nodes);
+
                 }                
             }
         }
@@ -228,6 +230,7 @@ namespace QLNS.UCs
             listDonVi = oDonVi.GetList();
             UpdateTreeVDonVi(listDonVi, null);
             TreeV_DonVi.ExpandAll();
+            oQLNS_HienThiThongTin.EmptyAllContent();
         }
 
         private void TreeV_DonVi_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)

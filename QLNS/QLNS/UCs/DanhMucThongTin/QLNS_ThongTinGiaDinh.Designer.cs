@@ -253,7 +253,7 @@
             this.comB_QuocGia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_QuocGia.Enabled = false;
             this.comB_QuocGia.FormattingEnabled = true;
-            this.comB_QuocGia.Location = new System.Drawing.Point(636, 147);
+            this.comB_QuocGia.Location = new System.Drawing.Point(636, 145);
             this.comB_QuocGia.Name = "comB_QuocGia";
             this.comB_QuocGia.Size = new System.Drawing.Size(263, 29);
             this.comB_QuocGia.TabIndex = 44;
@@ -265,7 +265,7 @@
             this.comB_Tinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_Tinh.Enabled = false;
             this.comB_Tinh.FormattingEnabled = true;
-            this.comB_Tinh.Location = new System.Drawing.Point(149, 147);
+            this.comB_Tinh.Location = new System.Drawing.Point(149, 145);
             this.comB_Tinh.Name = "comB_Tinh";
             this.comB_Tinh.Size = new System.Drawing.Size(263, 29);
             this.comB_Tinh.TabIndex = 43;
@@ -317,9 +317,9 @@
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(3, 85);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(95, 21);
+            this.label16.Size = new System.Drawing.Size(88, 21);
             this.label16.TabIndex = 16;
-            this.label16.Text = "Phường / xã";
+            this.label16.Text = "Phường/xã";
             // 
             // label15
             // 
@@ -327,9 +327,9 @@
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(3, 149);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(127, 21);
+            this.label15.Size = new System.Drawing.Size(64, 21);
             this.label15.TabIndex = 15;
-            this.label15.Text = "Tỉnh / thành phố";
+            this.label15.Text = "Tỉnh/TP";
             // 
             // label12
             // 
@@ -347,9 +347,9 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(490, 85);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(105, 21);
+            this.label13.Size = new System.Drawing.Size(97, 21);
             this.label13.TabIndex = 14;
-            this.label13.Text = "Quận / huyện";
+            this.label13.Text = "Quận/huyện";
             // 
             // label17
             // 
@@ -440,7 +440,7 @@
             "Anh chị em ruột",
             "Anh chị em ruột bên vợ/chồng",
             "Khác"});
-            this.comB_MoiQH.Location = new System.Drawing.Point(149, 15);
+            this.comB_MoiQH.Location = new System.Drawing.Point(149, 13);
             this.comB_MoiQH.Name = "comB_MoiQH";
             this.comB_MoiQH.Size = new System.Drawing.Size(263, 29);
             this.comB_MoiQH.TabIndex = 42;
@@ -532,9 +532,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(3, 17);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 21);
+            this.label2.Size = new System.Drawing.Size(68, 21);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Mối quan hệ";
+            this.label2.Text = "Quan hệ";
             // 
             // label8
             // 

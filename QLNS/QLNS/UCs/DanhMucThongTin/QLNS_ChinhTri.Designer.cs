@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QLNS_ChinhTri));
             this.tableLP_ChinhTri = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLP_ThongTinChung = new System.Windows.Forms.TableLayoutPanel();
@@ -52,6 +54,7 @@
             this.txt_LyLuanChinhTri = new System.Windows.Forms.TextBox();
             this.txt_GiaDinh = new System.Windows.Forms.TextBox();
             this.btn_Luu = new System.Windows.Forms.Button();
+            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLP_DoanDang = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -355,17 +358,24 @@
             // 
             this.btn_Luu.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tableLP_ThongTinChung.SetColumnSpan(this.btn_Luu, 4);
+            this.btn_Luu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Luu.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_Luu.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Luu.ImageKey = "(none)";
-            this.btn_Luu.Location = new System.Drawing.Point(444, 326);
+            this.btn_Luu.ImageKey = "Save.png";
+            this.btn_Luu.ImageList = this.imageList2;
+            this.btn_Luu.Location = new System.Drawing.Point(466, 335);
             this.btn_Luu.Name = "btn_Luu";
-            this.btn_Luu.Size = new System.Drawing.Size(100, 74);
+            this.btn_Luu.Size = new System.Drawing.Size(56, 56);
             this.btn_Luu.TabIndex = 47;
-            this.btn_Luu.Text = "Lưu";
             this.btn_Luu.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Luu.UseVisualStyleBackColor = true;
             this.btn_Luu.Click += new System.EventHandler(this.btn_Luu_Click);
+            // 
+            // imageList2
+            // 
+            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
+            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList2.Images.SetKeyName(0, "Save.png");
             // 
             // groupBox2
             // 
@@ -437,11 +447,11 @@
             this.lbl_ThemDoanDang.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbl_ThemDoanDang.AutoSize = true;
             this.lbl_ThemDoanDang.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbl_ThemDoanDang.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ThemDoanDang.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ThemDoanDang.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lbl_ThemDoanDang.Location = new System.Drawing.Point(3, 24);
+            this.lbl_ThemDoanDang.Location = new System.Drawing.Point(3, 26);
             this.lbl_ThemDoanDang.Name = "lbl_ThemDoanDang";
-            this.lbl_ThemDoanDang.Size = new System.Drawing.Size(53, 23);
+            this.lbl_ThemDoanDang.Size = new System.Drawing.Size(43, 18);
             this.lbl_ThemDoanDang.TabIndex = 8;
             this.lbl_ThemDoanDang.Text = "Thêm";
             this.lbl_ThemDoanDang.Click += new System.EventHandler(this.lbl_ThemDoanDang_Click);
@@ -451,11 +461,11 @@
             this.lbl_XoaDoanDang.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbl_XoaDoanDang.AutoSize = true;
             this.lbl_XoaDoanDang.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbl_XoaDoanDang.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_XoaDoanDang.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_XoaDoanDang.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lbl_XoaDoanDang.Location = new System.Drawing.Point(195, 24);
+            this.lbl_XoaDoanDang.Location = new System.Drawing.Point(195, 26);
             this.lbl_XoaDoanDang.Name = "lbl_XoaDoanDang";
-            this.lbl_XoaDoanDang.Size = new System.Drawing.Size(39, 23);
+            this.lbl_XoaDoanDang.Size = new System.Drawing.Size(31, 18);
             this.lbl_XoaDoanDang.TabIndex = 9;
             this.lbl_XoaDoanDang.Text = "Xoá";
             this.lbl_XoaDoanDang.Click += new System.EventHandler(this.lbl_XoaDoanDang_Click);
@@ -465,11 +475,11 @@
             this.lbl_SuaDoanDang.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbl_SuaDoanDang.AutoSize = true;
             this.lbl_SuaDoanDang.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbl_SuaDoanDang.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_SuaDoanDang.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_SuaDoanDang.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lbl_SuaDoanDang.Location = new System.Drawing.Point(99, 24);
+            this.lbl_SuaDoanDang.Location = new System.Drawing.Point(99, 26);
             this.lbl_SuaDoanDang.Name = "lbl_SuaDoanDang";
-            this.lbl_SuaDoanDang.Size = new System.Drawing.Size(39, 23);
+            this.lbl_SuaDoanDang.Size = new System.Drawing.Size(31, 18);
             this.lbl_SuaDoanDang.TabIndex = 7;
             this.lbl_SuaDoanDang.Text = "Sửa";
             this.lbl_SuaDoanDang.Click += new System.EventHandler(this.lbl_SuaDoanDang_Click);
@@ -574,11 +584,11 @@
             this.lbl_ThemChucVuMoi.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbl_ThemChucVuMoi.AutoSize = true;
             this.lbl_ThemChucVuMoi.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbl_ThemChucVuMoi.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ThemChucVuMoi.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ThemChucVuMoi.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lbl_ThemChucVuMoi.Location = new System.Drawing.Point(3, 92);
+            this.lbl_ThemChucVuMoi.Location = new System.Drawing.Point(3, 106);
             this.lbl_ThemChucVuMoi.Name = "lbl_ThemChucVuMoi";
-            this.lbl_ThemChucVuMoi.Size = new System.Drawing.Size(121, 46);
+            this.lbl_ThemChucVuMoi.Size = new System.Drawing.Size(121, 18);
             this.lbl_ThemChucVuMoi.TabIndex = 10;
             this.lbl_ThemChucVuMoi.Text = "Thêm chức vụ mới";
             this.lbl_ThemChucVuMoi.Click += new System.EventHandler(this.lbl_ThemChucVuMoi_Click);
@@ -625,11 +635,11 @@
             this.lbl_XoaChucVu.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbl_XoaChucVu.AutoSize = true;
             this.lbl_XoaChucVu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbl_XoaChucVu.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_XoaChucVu.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_XoaChucVu.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lbl_XoaChucVu.Location = new System.Drawing.Point(117, 49);
+            this.lbl_XoaChucVu.Location = new System.Drawing.Point(117, 54);
             this.lbl_XoaChucVu.Name = "lbl_XoaChucVu";
-            this.lbl_XoaChucVu.Size = new System.Drawing.Size(88, 46);
+            this.lbl_XoaChucVu.Size = new System.Drawing.Size(98, 36);
             this.lbl_XoaChucVu.TabIndex = 52;
             this.lbl_XoaChucVu.Text = "Xoá khỏi danh sách";
             this.lbl_XoaChucVu.Click += new System.EventHandler(this.lbl_XoaChucVu_Click);
@@ -639,11 +649,11 @@
             this.lbl_ThemChucVu.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbl_ThemChucVu.AutoSize = true;
             this.lbl_ThemChucVu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbl_ThemChucVu.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ThemChucVu.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ThemChucVu.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lbl_ThemChucVu.Location = new System.Drawing.Point(3, 49);
+            this.lbl_ThemChucVu.Location = new System.Drawing.Point(3, 54);
             this.lbl_ThemChucVu.Name = "lbl_ThemChucVu";
-            this.lbl_ThemChucVu.Size = new System.Drawing.Size(89, 46);
+            this.lbl_ThemChucVu.Size = new System.Drawing.Size(105, 36);
             this.lbl_ThemChucVu.TabIndex = 51;
             this.lbl_ThemChucVu.Text = "Thêm vào danh sách";
             this.lbl_ThemChucVu.Click += new System.EventHandler(this.lbl_ThemChucVu_Click);
@@ -831,5 +841,6 @@
         private System.Windows.Forms.Label lbl_SuaDoanDang;
         private System.Windows.Forms.Button btn_Luu;
         public System.Windows.Forms.ListBox listB_DSCV;
+        private System.Windows.Forms.ImageList imageList2;
     }
 }

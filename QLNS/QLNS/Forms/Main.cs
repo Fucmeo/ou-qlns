@@ -164,36 +164,42 @@ namespace QLNS.Forms
         private void tsmi_QLHD_KiemNhiem_Click(object sender, EventArgs e)
         {
             Forms.Popup f = new Popup("Quyết định Bổ nhiệm / Kiệm nhiệm / Điều động", new HDQD.UCs.BoNhiem());
+            f.WindowState = FormWindowState.Maximized;
             f.ShowDialog();
         }
 
         private void tsmi_QLHD_ThoiBoNhiem_Click(object sender, EventArgs e)
         {
             Forms.Popup f = new Popup("Quyết định Thôi nhiệm / Thôi Kiêm nhiệm / Thôi điều động", new HDQD.UCs.ThoiBoNhiem());
+            f.WindowState = FormWindowState.Maximized;
             f.ShowDialog();
         }
 
         private void tsmi_QLHD_DoiThongTInDV_Click(object sender, EventArgs e)
         {
             Forms.Popup f = new Popup("Quyết định đổi thông tin đơn vị", new HDQD.UCs.DoiThongTinDV());
+            f.WindowState = FormWindowState.Maximized;
             f.ShowDialog();
         }
 
         private void tsmi_QLHD_TachDV_Click(object sender, EventArgs e)
         {
             Forms.Popup f = new Popup("Quyết định tách đơn vị", new HDQD.UCs.M_A(true));
+            f.WindowState = FormWindowState.Maximized;
             f.ShowDialog();
         }
 
         private void tsmi_QLHD_QDChung_Click(object sender, EventArgs e)
         {
             Forms.Popup f = new Popup("Quyết định chung", new HDQD.UCs.QuyetDinhChung());
+            f.WindowState = FormWindowState.Maximized;
             f.ShowDialog();
         }
 
         private void tsmi_QLHD_GopDV_Click(object sender, EventArgs e)
         {
             Forms.Popup f = new Popup("Quyết định gộp đơn vị", new HDQD.UCs.M_A(false));
+            f.WindowState = FormWindowState.Maximized;
             f.ShowDialog();
         }
     }

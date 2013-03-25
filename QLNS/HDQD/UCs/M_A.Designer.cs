@@ -28,9 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(M_A));
             this.tableLP_MA = new System.Windows.Forms.TableLayoutPanel();
             this.tableLP_Nut = new System.Windows.Forms.TableLayoutPanel();
             this.btn_Huy = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.btn_Nhap = new System.Windows.Forms.Button();
             this.thongTinQuyetDinh1 = new HDQD.UCs.ThongTinQuyetDinh();
             this.tableLP_ChiTietQD = new System.Windows.Forms.TableLayoutPanel();
@@ -114,21 +117,35 @@
             // btn_Huy
             // 
             this.btn_Huy.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Huy.Location = new System.Drawing.Point(691, 6);
+            this.btn_Huy.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Huy.ImageKey = "Cancel.png";
+            this.btn_Huy.ImageList = this.imageList1;
+            this.btn_Huy.Location = new System.Drawing.Point(717, 19);
             this.btn_Huy.Name = "btn_Huy";
-            this.btn_Huy.Size = new System.Drawing.Size(109, 81);
+            this.btn_Huy.Size = new System.Drawing.Size(56, 56);
             this.btn_Huy.TabIndex = 2;
-            this.btn_Huy.Text = "Huỷ";
             this.btn_Huy.UseVisualStyleBackColor = true;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Add.png");
+            this.imageList1.Images.SetKeyName(1, "Cancel.png");
+            this.imageList1.Images.SetKeyName(2, "Edit Data.png");
+            this.imageList1.Images.SetKeyName(3, "Garbage.png");
+            this.imageList1.Images.SetKeyName(4, "Save.png");
             // 
             // btn_Nhap
             // 
             this.btn_Nhap.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Nhap.Location = new System.Drawing.Point(194, 6);
+            this.btn_Nhap.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Nhap.ImageKey = "Save.png";
+            this.btn_Nhap.ImageList = this.imageList1;
+            this.btn_Nhap.Location = new System.Drawing.Point(220, 19);
             this.btn_Nhap.Name = "btn_Nhap";
-            this.btn_Nhap.Size = new System.Drawing.Size(109, 81);
+            this.btn_Nhap.Size = new System.Drawing.Size(56, 56);
             this.btn_Nhap.TabIndex = 1;
-            this.btn_Nhap.Text = "Nhập";
             this.btn_Nhap.UseVisualStyleBackColor = true;
             this.btn_Nhap.Click += new System.EventHandler(this.btn_Nhap_Click);
             // 
@@ -362,24 +379,28 @@
             // btn_HuyThongTin
             // 
             this.btn_HuyThongTin.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_HuyThongTin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_HuyThongTin.Enabled = false;
-            this.btn_HuyThongTin.Location = new System.Drawing.Point(177, 8);
+            this.btn_HuyThongTin.ImageKey = "Cancel.png";
+            this.btn_HuyThongTin.ImageList = this.imageList1;
+            this.btn_HuyThongTin.Location = new System.Drawing.Point(203, 20);
             this.btn_HuyThongTin.Name = "btn_HuyThongTin";
-            this.btn_HuyThongTin.Size = new System.Drawing.Size(109, 81);
+            this.btn_HuyThongTin.Size = new System.Drawing.Size(56, 56);
             this.btn_HuyThongTin.TabIndex = 5;
-            this.btn_HuyThongTin.Text = "Huỷ";
             this.btn_HuyThongTin.UseVisualStyleBackColor = true;
             this.btn_HuyThongTin.Click += new System.EventHandler(this.btn_HuyThongTin_Click);
             // 
             // btn_LuuThongTin
             // 
             this.btn_LuuThongTin.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_LuuThongTin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_LuuThongTin.Enabled = false;
-            this.btn_LuuThongTin.Location = new System.Drawing.Point(22, 8);
+            this.btn_LuuThongTin.ImageKey = "Save.png";
+            this.btn_LuuThongTin.ImageList = this.imageList1;
+            this.btn_LuuThongTin.Location = new System.Drawing.Point(49, 20);
             this.btn_LuuThongTin.Name = "btn_LuuThongTin";
-            this.btn_LuuThongTin.Size = new System.Drawing.Size(109, 81);
+            this.btn_LuuThongTin.Size = new System.Drawing.Size(56, 56);
             this.btn_LuuThongTin.TabIndex = 4;
-            this.btn_LuuThongTin.Text = "Lưu";
             this.btn_LuuThongTin.UseVisualStyleBackColor = true;
             this.btn_LuuThongTin.Click += new System.EventHandler(this.btn_LuuThongTin_Click);
             // 
@@ -438,22 +459,26 @@
             // btn_XoaSangDV
             // 
             this.btn_XoaSangDV.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_XoaSangDV.Location = new System.Drawing.Point(118, 6);
+            this.btn_XoaSangDV.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_XoaSangDV.ImageKey = "Garbage.png";
+            this.btn_XoaSangDV.ImageList = this.imageList1;
+            this.btn_XoaSangDV.Location = new System.Drawing.Point(144, 19);
             this.btn_XoaSangDV.Name = "btn_XoaSangDV";
-            this.btn_XoaSangDV.Size = new System.Drawing.Size(109, 81);
+            this.btn_XoaSangDV.Size = new System.Drawing.Size(56, 56);
             this.btn_XoaSangDV.TabIndex = 4;
-            this.btn_XoaSangDV.Text = "Xoá";
             this.btn_XoaSangDV.UseVisualStyleBackColor = true;
             this.btn_XoaSangDV.Click += new System.EventHandler(this.btn_XoaSangDV_Click);
             // 
             // btn_ThemSangDV
             // 
             this.btn_ThemSangDV.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_ThemSangDV.Location = new System.Drawing.Point(3, 6);
+            this.btn_ThemSangDV.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_ThemSangDV.ImageKey = "Add.png";
+            this.btn_ThemSangDV.ImageList = this.imageList1;
+            this.btn_ThemSangDV.Location = new System.Drawing.Point(29, 19);
             this.btn_ThemSangDV.Name = "btn_ThemSangDV";
-            this.btn_ThemSangDV.Size = new System.Drawing.Size(109, 81);
+            this.btn_ThemSangDV.Size = new System.Drawing.Size(56, 56);
             this.btn_ThemSangDV.TabIndex = 3;
-            this.btn_ThemSangDV.Text = "Thêm";
             this.btn_ThemSangDV.UseVisualStyleBackColor = true;
             this.btn_ThemSangDV.Click += new System.EventHandler(this.btn_ThemSangDV_Click);
             // 
@@ -499,11 +524,13 @@
             // btn_ThemTuDV
             // 
             this.btn_ThemTuDV.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_ThemTuDV.Location = new System.Drawing.Point(60, 6);
+            this.btn_ThemTuDV.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_ThemTuDV.ImageKey = "Add.png";
+            this.btn_ThemTuDV.ImageList = this.imageList1;
+            this.btn_ThemTuDV.Location = new System.Drawing.Point(87, 19);
             this.btn_ThemTuDV.Name = "btn_ThemTuDV";
-            this.btn_ThemTuDV.Size = new System.Drawing.Size(109, 81);
+            this.btn_ThemTuDV.Size = new System.Drawing.Size(56, 56);
             this.btn_ThemTuDV.TabIndex = 3;
-            this.btn_ThemTuDV.Text = "Thêm";
             this.btn_ThemTuDV.UseVisualStyleBackColor = true;
             this.btn_ThemTuDV.Click += new System.EventHandler(this.btn_ThemTuDV_Click);
             // 
@@ -586,5 +613,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLP_NutThongTinDV;
         private System.Windows.Forms.Button btn_HuyThongTin;
         private System.Windows.Forms.Button btn_LuuThongTin;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }

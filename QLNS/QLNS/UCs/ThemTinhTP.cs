@@ -54,7 +54,12 @@ namespace QLNS.UCs
                             case "QLNS_TrinhDo_ChuyenMon":
                                 QLNS.UCs.DanhMucThongTin.QLNS_TrinhDo_ChuyenMon.nNewTinhTPID = i;
                                 break;
-
+                            case "QLNS_LichSuBanThan":
+                                QLNS.UCs.DanhMucThongTin.QLNS_LichSuBanThan.nNewTinhTPID = i;
+                                break;
+                            case "QLNS_ThongTinNV_Phu":
+                                QLNS.UCs.DanhMucThongTin.QLNS_ThongTinNV_Phu.nNewTinhTPID = i;
+                                break;
                             default:
                                 break;
                         }

@@ -45,11 +45,27 @@ namespace QLNS.UCs.DanhMucThongTin
 
         public void GetCNVCInfo(string m_MaNV)
         {
-            oCNVC.MaNV = m_MaNV;
-            dtCNVC = oCNVC.GetData();
+            try
+            {
+                oCNVC.MaNV = m_MaNV;
+                dtCNVC = oCNVC.GetData();
+            }
+            catch (Exception )
+            {
+                
+            }
 
-            oCMND_HoChieu.MaNV = m_MaNV;
-            dtCMND = oCMND_HoChieu.GetData();
+            try
+            {
+                oCMND_HoChieu.MaNV = m_MaNV;
+                dtCMND = oCMND_HoChieu.GetData();
+            }
+            catch (Exception)
+            {
+                
+            }
+
+            
         }
 
         private void QLNS_ThongTinNV_Load(object sender, EventArgs e)
@@ -114,15 +130,17 @@ namespace QLNS.UCs.DanhMucThongTin
                 
             }
 
-            
+            ClearCMNDData();
+            dtgv_CMNDHoChieu.DataSource = null;
+            dtgv_CMNDHoChieu.Columns.Clear();
             if (dtCMND.Rows.Count > 0)
             {
                 DataTable dt = dtCMND.Copy();
-                dtgv_CMNDHoChieu.Columns.Clear();
                 dtgv_CMNDHoChieu.DataSource = dt;
                 Setup_dtgv_CMNDHoChieu();
                 
             }
+
         }
 
         public void FillAvatar()
@@ -160,6 +178,7 @@ namespace QLNS.UCs.DanhMucThongTin
                         if (QLNS_HienThiThongTin.bAddFlag)
                         {
                             oCNVC.Add();
+                            Program.selected_ma_nv = oCNVC.MaNV;
                             MessageBox.Show("Thêm nhân viên thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
@@ -485,9 +504,17 @@ namespace QLNS.UCs.DanhMucThongTin
                                 oCMND_HoChieu.Add();
 
                                 // load lai dtgv_CMND
-                                dtCMND = oCMND_HoChieu.GetData();
-                                dtgv_CMNDHoChieu.DataSource = dtCMND;
-                                Setup_dtgv_CMNDHoChieu();
+                                try
+                                {
+                                    dtCMND = oCMND_HoChieu.GetData();
+                                    dtgv_CMNDHoChieu.Columns.Clear();
+                                    dtgv_CMNDHoChieu.DataSource = dtCMND;
+                                    Setup_dtgv_CMNDHoChieu();
+                                }
+                                catch (Exception)
+                                {
+                                }
+                                
 
                                 MessageBox.Show("Thêm thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
@@ -507,9 +534,16 @@ namespace QLNS.UCs.DanhMucThongTin
                                 oCMND_HoChieu.Update();
 
                                 // load lai dtgv_CMND
-                                dtCMND = oCMND_HoChieu.GetData();
-                                dtgv_CMNDHoChieu.DataSource = dtCMND;
-                                Setup_dtgv_CMNDHoChieu();
+                                try
+                                {
+                                    dtCMND = oCMND_HoChieu.GetData();
+                                    dtgv_CMNDHoChieu.Columns.Clear();
+                                    dtgv_CMNDHoChieu.DataSource = dtCMND;
+                                    Setup_dtgv_CMNDHoChieu();
+                                }
+                                catch (Exception)
+                                {
+                                }
 
                                 MessageBox.Show("Sửa thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
@@ -538,7 +572,7 @@ namespace QLNS.UCs.DanhMucThongTin
         {
             if (lbl_SuaCMND.Text == "Sửa")  
             {
-                if (dtgv_CMNDHoChieu.Rows.Count > 0 && dtgv_CMNDHoChieu.SelectedRows != null)
+                if (dtgv_CMNDHoChieu.SelectedRows.Count  != 0)
                 {
                     txt_MaSo.Focus();
                     bAddCMNDFlag = false;
@@ -641,6 +675,9 @@ namespace QLNS.UCs.DanhMucThongTin
 
         private void Setup_dtgv_CMNDHoChieu()
         {
+            if (dtgv_CMNDHoChieu.Rows.Count > 0) 
+                dtgv_CMNDHoChieu.Rows[0].Selected = false;
+
             dtgv_CMNDHoChieu.Columns[0].HeaderText = "CMND / Hộ chiếu";
             dtgv_CMNDHoChieu.Columns[0].Width = 150;
 
@@ -740,7 +777,7 @@ namespace QLNS.UCs.DanhMucThongTin
 
         private void lbl_XoaCMND_Click(object sender, EventArgs e)
         {
-            if (dtgv_CMNDHoChieu.SelectedRows != null &&
+            if (dtgv_CMNDHoChieu.SelectedRows.Count != 0 &&
                 (MessageBox.Show("Xoá dòng dữ liệu CMND / Hộ chiếu của nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
             {
                 DataGridViewRow r = dtgv_CMNDHoChieu.SelectedRows[0];
@@ -750,9 +787,11 @@ namespace QLNS.UCs.DanhMucThongTin
                 {
                     oCMND_HoChieu.Delete();
                     // load lai dtgv_CMND
+                    //oCMND_HoChieu.MaNV = Program.selected_ma_nv;
                     dtCMND = oCMND_HoChieu.GetData();
                     dtgv_CMNDHoChieu.DataSource = dtCMND;
                     Setup_dtgv_CMNDHoChieu();
+                    ClearCMNDData();
 
                     MessageBox.Show("Xoá thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 }

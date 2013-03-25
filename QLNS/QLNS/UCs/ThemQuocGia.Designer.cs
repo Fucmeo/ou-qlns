@@ -53,14 +53,14 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(400, 300);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(350, 200);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 64);
+            this.label2.Location = new System.Drawing.Point(3, 39);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(95, 21);
             this.label2.TabIndex = 7;
@@ -69,10 +69,10 @@
             // txt_TenQuocGia
             // 
             this.txt_TenQuocGia.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_TenQuocGia.Location = new System.Drawing.Point(129, 61);
+            this.txt_TenQuocGia.Location = new System.Drawing.Point(113, 36);
             this.txt_TenQuocGia.MaxLength = 30;
             this.txt_TenQuocGia.Name = "txt_TenQuocGia";
-            this.txt_TenQuocGia.Size = new System.Drawing.Size(268, 28);
+            this.txt_TenQuocGia.Size = new System.Drawing.Size(234, 28);
             this.txt_TenQuocGia.TabIndex = 8;
             // 
             // btn_Them
@@ -80,14 +80,12 @@
             this.btn_Them.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tableLayoutPanel1.SetColumnSpan(this.btn_Them, 2);
             this.btn_Them.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_Them.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Them.ImageKey = "Add.png";
             this.btn_Them.ImageList = this.imageList1;
-            this.btn_Them.Location = new System.Drawing.Point(146, 178);
+            this.btn_Them.Location = new System.Drawing.Point(135, 110);
             this.btn_Them.Name = "btn_Them";
-            this.btn_Them.Size = new System.Drawing.Size(108, 94);
+            this.btn_Them.Size = new System.Drawing.Size(80, 80);
             this.btn_Them.TabIndex = 9;
-            this.btn_Them.Text = "Thêm";
             this.btn_Them.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Them.UseVisualStyleBackColor = true;
             this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
@@ -107,7 +105,7 @@
             this.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ThemQuocGia";
-            this.Size = new System.Drawing.Size(400, 300);
+            this.Size = new System.Drawing.Size(350, 200);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

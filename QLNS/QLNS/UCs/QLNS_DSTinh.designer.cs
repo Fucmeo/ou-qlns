@@ -52,7 +52,7 @@
             this.tableLP_TinhTP.RowCount = 2;
             this.tableLP_TinhTP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.tableLP_TinhTP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLP_TinhTP.Size = new System.Drawing.Size(300, 650);
+            this.tableLP_TinhTP.Size = new System.Drawing.Size(150, 650);
             this.tableLP_TinhTP.TabIndex = 0;
             // 
             // cLB_TinhTP
@@ -62,7 +62,7 @@
             this.cLB_TinhTP.FormattingEnabled = true;
             this.cLB_TinhTP.Location = new System.Drawing.Point(3, 3);
             this.cLB_TinhTP.Name = "cLB_TinhTP";
-            this.cLB_TinhTP.Size = new System.Drawing.Size(294, 514);
+            this.cLB_TinhTP.Size = new System.Drawing.Size(144, 514);
             this.cLB_TinhTP.TabIndex = 0;
             // 
             // tableLP_NutThaoTac
@@ -77,21 +77,19 @@
             this.tableLP_NutThaoTac.Name = "tableLP_NutThaoTac";
             this.tableLP_NutThaoTac.RowCount = 1;
             this.tableLP_NutThaoTac.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLP_NutThaoTac.Size = new System.Drawing.Size(294, 124);
+            this.tableLP_NutThaoTac.Size = new System.Drawing.Size(144, 124);
             this.tableLP_NutThaoTac.TabIndex = 1;
             // 
             // btn_ChonTatCa
             // 
             this.btn_ChonTatCa.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_ChonTatCa.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_ChonTatCa.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_ChonTatCa.ImageKey = "Proceed Marked Headers.png";
             this.btn_ChonTatCa.ImageList = this.imageList1;
-            this.btn_ChonTatCa.Location = new System.Drawing.Point(150, 3);
+            this.btn_ChonTatCa.Location = new System.Drawing.Point(80, 34);
             this.btn_ChonTatCa.Name = "btn_ChonTatCa";
-            this.btn_ChonTatCa.Size = new System.Drawing.Size(141, 118);
+            this.btn_ChonTatCa.Size = new System.Drawing.Size(56, 56);
             this.btn_ChonTatCa.TabIndex = 1;
-            this.btn_ChonTatCa.Text = "Chọn / Bỏ chọn";
             this.btn_ChonTatCa.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_ChonTatCa.UseVisualStyleBackColor = true;
             this.btn_ChonTatCa.Click += new System.EventHandler(this.btn_ChonTatCa_Click);
@@ -109,25 +107,24 @@
             this.btn_XacNhan.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_XacNhan.ImageKey = "Check Box.png";
             this.btn_XacNhan.ImageList = this.imageList1;
-            this.btn_XacNhan.Location = new System.Drawing.Point(3, 3);
+            this.btn_XacNhan.Location = new System.Drawing.Point(8, 34);
             this.btn_XacNhan.Name = "btn_XacNhan";
-            this.btn_XacNhan.Size = new System.Drawing.Size(141, 118);
+            this.btn_XacNhan.Size = new System.Drawing.Size(56, 56);
             this.btn_XacNhan.TabIndex = 0;
-            this.btn_XacNhan.Text = "Xác nhận";
             this.btn_XacNhan.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_XacNhan.UseVisualStyleBackColor = true;
             this.btn_XacNhan.Click += new System.EventHandler(this.btn_XacNhan_Click);
             // 
             // QLNS_DSTinh
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.tableLP_TinhTP);
             this.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "QLNS_DSTinh";
-            this.Size = new System.Drawing.Size(300, 650);
+            this.Size = new System.Drawing.Size(150, 650);
             this.Load += new System.EventHandler(this.QLNS_DSTinh_Load);
             this.tableLP_TinhTP.ResumeLayout(false);
             this.tableLP_NutThaoTac.ResumeLayout(false);
