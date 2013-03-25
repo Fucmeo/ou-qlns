@@ -18,7 +18,7 @@ namespace QLNS.UCs.DanhMucThongTin
         Business.CNVC.CNVC_HopDong oHopDong;
         public DataTable dtHopDong;
 
-        string m_ma_nv = null;
+        //string m_ma_nv = null;
 
         public QLNS_HopDongTuyenDung()
         {
@@ -29,14 +29,14 @@ namespace QLNS.UCs.DanhMucThongTin
             dtHopDong = new DataTable();
         }
 
-        public QLNS_HopDongTuyenDung(string p_ma_nv)
-        {
-            InitializeComponent();
-            oTTTuyenDung = new Business.CNVC.CNVC_ThongTinTuyenDung();
-            oHopDong = new Business.CNVC.CNVC_HopDong();
-            m_ma_nv = p_ma_nv;
+        //public QLNS_HopDongTuyenDung(string p_ma_nv)
+        //{
+        //    InitializeComponent();
+        //    oTTTuyenDung = new Business.CNVC.CNVC_ThongTinTuyenDung();
+        //    oHopDong = new Business.CNVC.CNVC_HopDong();
+        //    m_ma_nv = p_ma_nv;
 
-        }
+        //}
 
         private void QLNS_HopDongTuyenDung_Load(object sender, EventArgs e)
         {

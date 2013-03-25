@@ -15,7 +15,7 @@ namespace QLNS.UCs.DanhMucThongTin
         Business.CNVC.CNVC_DienBienSK suckhoe;
         public DataTable dtDienBienSK;
         bool AddFlag;   // xac dinh thao tac add hay edit
-        string ma_nv = "";
+        //string ma_nv = "";
 
         public QLNS_DienBienSK()
         {
@@ -24,13 +24,13 @@ namespace QLNS.UCs.DanhMucThongTin
             dtDienBienSK = new DataTable();
         }
 
-        public QLNS_DienBienSK(string p_ma_nv)
-        {
-            InitializeComponent();
-            suckhoe = new Business.CNVC.CNVC_DienBienSK();
-            ma_nv = p_ma_nv;
-            suckhoe.MaNV = p_ma_nv;
-        }
+        //public QLNS_DienBienSK(string p_ma_nv)
+        //{
+        //    InitializeComponent();
+        //    suckhoe = new Business.CNVC.CNVC_DienBienSK();
+        //    ma_nv = p_ma_nv;
+        //    suckhoe.MaNV = p_ma_nv;
+        //}
 
         private void QLNS_DienBienSK_Load(object sender, EventArgs e)
         {
@@ -274,7 +274,7 @@ namespace QLNS.UCs.DanhMucThongTin
                 if (MessageBox.Show("Bạn thực sự muốn sửa diễn biến sức khỏe này của nhân viên?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     suckhoe = new Business.CNVC.CNVC_DienBienSK();
-                    suckhoe.MaNV = ma_nv;
+                    suckhoe.MaNV = Program.selected_ma_nv;
                     suckhoe.BoMo = txt_BoMo.Text;
                     suckhoe.CNGAN_SGPT = txt_SGPT.Text;
                     suckhoe.CNGAN_SGOT = txt_SGOT.Text;
