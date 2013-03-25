@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QLNS_HopDongTuyenDung));
             this.tableLP_HopDong_TuyenDung = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLP_ThongTinTuyenDung = new System.Windows.Forms.TableLayoutPanel();
             this.btn_Luu = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.dTP_NgayTuyenDung = new System.Windows.Forms.DateTimePicker();
             this.txt_CoQuan = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
@@ -103,17 +106,23 @@
             // 
             this.btn_Luu.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tableLP_ThongTinTuyenDung.SetColumnSpan(this.btn_Luu, 4);
+            this.btn_Luu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Luu.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_Luu.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Luu.ImageKey = "(none)";
-            this.btn_Luu.Location = new System.Drawing.Point(344, 185);
+            this.btn_Luu.ImageKey = "Save.png";
+            this.btn_Luu.ImageList = this.imageList1;
+            this.btn_Luu.Location = new System.Drawing.Point(366, 194);
             this.btn_Luu.Name = "btn_Luu";
-            this.btn_Luu.Size = new System.Drawing.Size(100, 74);
+            this.btn_Luu.Size = new System.Drawing.Size(56, 56);
             this.btn_Luu.TabIndex = 40;
-            this.btn_Luu.Text = "Lưu";
             this.btn_Luu.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Luu.UseVisualStyleBackColor = true;
             this.btn_Luu.Click += new System.EventHandler(this.btn_Luu_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Save.png");
             // 
             // dTP_NgayTuyenDung
             // 
@@ -252,6 +261,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLP_HopDong;
         public System.Windows.Forms.DataGridView dtgv_HopDong;
         private System.Windows.Forms.Button btn_Luu;
+        private System.Windows.Forms.ImageList imageList1;
 
     }
 }

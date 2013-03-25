@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuyetDinhChung));
             this.tableLP_QDChung = new System.Windows.Forms.TableLayoutPanel();
             this.tableLP_Button2 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_Nhap = new System.Windows.Forms.Button();
-            this.btn_NhapFile = new System.Windows.Forms.Button();
             this.thongTinCNVC1 = new HDQD.UCs.ThongTinCNVC();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLP_PhuCap = new System.Windows.Forms.TableLayoutPanel();
@@ -54,6 +55,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dtgv_DSCNVC = new System.Windows.Forms.DataGridView();
             this.thongTinQuyetDinh1 = new HDQD.UCs.ThongTinQuyetDinh();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tableLP_QDChung.SuspendLayout();
             this.tableLP_Button2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -95,8 +97,7 @@
             this.tableLP_QDChung.SetColumnSpan(this.tableLP_Button2, 4);
             this.tableLP_Button2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLP_Button2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLP_Button2.Controls.Add(this.btn_Nhap, 1, 0);
-            this.tableLP_Button2.Controls.Add(this.btn_NhapFile, 0, 0);
+            this.tableLP_Button2.Controls.Add(this.btn_Nhap, 0, 0);
             this.tableLP_Button2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLP_Button2.Location = new System.Drawing.Point(3, 1074);
             this.tableLP_Button2.Name = "tableLP_Button2";
@@ -108,26 +109,16 @@
             // btn_Nhap
             // 
             this.btn_Nhap.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Nhap.Location = new System.Drawing.Point(652, 23);
+            this.tableLP_Button2.SetColumnSpan(this.btn_Nhap, 2);
+            this.btn_Nhap.ImageKey = "Save.png";
+            this.btn_Nhap.ImageList = this.imageList1;
+            this.btn_Nhap.Location = new System.Drawing.Point(444, 33);
             this.btn_Nhap.Name = "btn_Nhap";
-            this.btn_Nhap.Size = new System.Drawing.Size(112, 77);
+            this.btn_Nhap.Size = new System.Drawing.Size(56, 56);
             this.btn_Nhap.TabIndex = 36;
-            this.btn_Nhap.Text = "Nhập";
             this.btn_Nhap.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Nhap.UseVisualStyleBackColor = true;
             this.btn_Nhap.Click += new System.EventHandler(this.btn_Nhap_Click);
-            // 
-            // btn_NhapFile
-            // 
-            this.btn_NhapFile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_NhapFile.Location = new System.Drawing.Point(180, 23);
-            this.btn_NhapFile.Name = "btn_NhapFile";
-            this.btn_NhapFile.Size = new System.Drawing.Size(112, 77);
-            this.btn_NhapFile.TabIndex = 37;
-            this.btn_NhapFile.Text = "Nhập File";
-            this.btn_NhapFile.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_NhapFile.UseVisualStyleBackColor = true;
-            this.btn_NhapFile.Click += new System.EventHandler(this.btn_NhapFile_Click);
             // 
             // thongTinCNVC1
             // 
@@ -341,11 +332,12 @@
             // btn_Them
             // 
             this.btn_Them.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Them.Location = new System.Drawing.Point(652, 37);
+            this.btn_Them.ImageKey = "Add.png";
+            this.btn_Them.ImageList = this.imageList1;
+            this.btn_Them.Location = new System.Drawing.Point(680, 31);
             this.btn_Them.Name = "btn_Them";
-            this.btn_Them.Size = new System.Drawing.Size(112, 44);
+            this.btn_Them.Size = new System.Drawing.Size(56, 56);
             this.btn_Them.TabIndex = 34;
-            this.btn_Them.Text = "Thêm";
             this.btn_Them.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Them.UseVisualStyleBackColor = true;
             this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
@@ -353,11 +345,12 @@
             // btn_Huy
             // 
             this.btn_Huy.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Huy.Location = new System.Drawing.Point(180, 37);
+            this.btn_Huy.ImageKey = "Cancel.png";
+            this.btn_Huy.ImageList = this.imageList1;
+            this.btn_Huy.Location = new System.Drawing.Point(208, 31);
             this.btn_Huy.Name = "btn_Huy";
-            this.btn_Huy.Size = new System.Drawing.Size(112, 44);
+            this.btn_Huy.Size = new System.Drawing.Size(56, 56);
             this.btn_Huy.TabIndex = 33;
-            this.btn_Huy.Text = "Huỷ";
             this.btn_Huy.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Huy.UseVisualStyleBackColor = true;
             // 
@@ -397,6 +390,16 @@
             this.thongTinQuyetDinh1.Size = new System.Drawing.Size(944, 243);
             this.thongTinQuyetDinh1.TabIndex = 4;
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Add.png");
+            this.imageList1.Images.SetKeyName(1, "Cancel.png");
+            this.imageList1.Images.SetKeyName(2, "Edit Data.png");
+            this.imageList1.Images.SetKeyName(3, "Garbage.png");
+            this.imageList1.Images.SetKeyName(4, "Save.png");
+            // 
             // QuyetDinhChung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -433,7 +436,6 @@
         private System.Windows.Forms.DataGridView dtgv_DSCNVC;
         private ThongTinQuyetDinh thongTinQuyetDinh1;
         private System.Windows.Forms.TableLayoutPanel tableLP_Button2;
-        private System.Windows.Forms.Button btn_NhapFile;
         private System.Windows.Forms.Button btn_Nhap;
         public System.Windows.Forms.CheckBox cb_CoPhuCap;
         public System.Windows.Forms.ComboBox comB_LoaiPhuCap;
@@ -448,5 +450,6 @@
         private System.Windows.Forms.Label label8;
         public System.Windows.Forms.TextBox txt_PhuCap;
         public System.Windows.Forms.RichTextBox rTB_GhiChu;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }

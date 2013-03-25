@@ -34,8 +34,8 @@
             this.cLB_TinhTrangHN = new System.Windows.Forms.CheckedListBox();
             this.tableLP_NutThaoTac = new System.Windows.Forms.TableLayoutPanel();
             this.btn_ChonTatCa = new System.Windows.Forms.Button();
-            this.btn_XacNhan = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.btn_XacNhan = new System.Windows.Forms.Button();
             this.tableLP_TinhTrangHN.SuspendLayout();
             this.tableLP_NutThaoTac.SuspendLayout();
             this.SuspendLayout();
@@ -52,7 +52,7 @@
             this.tableLP_TinhTrangHN.RowCount = 2;
             this.tableLP_TinhTrangHN.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 67.25F));
             this.tableLP_TinhTrangHN.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.75F));
-            this.tableLP_TinhTrangHN.Size = new System.Drawing.Size(300, 400);
+            this.tableLP_TinhTrangHN.Size = new System.Drawing.Size(180, 400);
             this.tableLP_TinhTrangHN.TabIndex = 1;
             // 
             // cLB_TinhTrangHN
@@ -64,7 +64,7 @@
             "Ly hôn"});
             this.cLB_TinhTrangHN.Location = new System.Drawing.Point(3, 3);
             this.cLB_TinhTrangHN.Name = "cLB_TinhTrangHN";
-            this.cLB_TinhTrangHN.Size = new System.Drawing.Size(294, 263);
+            this.cLB_TinhTrangHN.Size = new System.Drawing.Size(174, 263);
             this.cLB_TinhTrangHN.TabIndex = 0;
             // 
             // tableLP_NutThaoTac
@@ -79,35 +79,21 @@
             this.tableLP_NutThaoTac.Name = "tableLP_NutThaoTac";
             this.tableLP_NutThaoTac.RowCount = 1;
             this.tableLP_NutThaoTac.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLP_NutThaoTac.Size = new System.Drawing.Size(294, 125);
+            this.tableLP_NutThaoTac.Size = new System.Drawing.Size(174, 125);
             this.tableLP_NutThaoTac.TabIndex = 1;
             // 
             // btn_ChonTatCa
             // 
+            this.btn_ChonTatCa.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_ChonTatCa.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_ChonTatCa.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_ChonTatCa.ImageKey = "Proceed Marked Headers.png";
             this.btn_ChonTatCa.ImageList = this.imageList1;
-            this.btn_ChonTatCa.Location = new System.Drawing.Point(150, 3);
+            this.btn_ChonTatCa.Location = new System.Drawing.Point(102, 34);
             this.btn_ChonTatCa.Name = "btn_ChonTatCa";
-            this.btn_ChonTatCa.Size = new System.Drawing.Size(141, 118);
+            this.btn_ChonTatCa.Size = new System.Drawing.Size(56, 56);
             this.btn_ChonTatCa.TabIndex = 1;
-            this.btn_ChonTatCa.Text = "Chọn / Bỏ";
             this.btn_ChonTatCa.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_ChonTatCa.UseVisualStyleBackColor = true;
-            // 
-            // btn_XacNhan
-            // 
-            this.btn_XacNhan.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_XacNhan.ImageKey = "Check Box.png";
-            this.btn_XacNhan.ImageList = this.imageList1;
-            this.btn_XacNhan.Location = new System.Drawing.Point(3, 3);
-            this.btn_XacNhan.Name = "btn_XacNhan";
-            this.btn_XacNhan.Size = new System.Drawing.Size(141, 118);
-            this.btn_XacNhan.TabIndex = 0;
-            this.btn_XacNhan.Text = "Xác nhận";
-            this.btn_XacNhan.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_XacNhan.UseVisualStyleBackColor = true;
             // 
             // imageList1
             // 
@@ -115,6 +101,19 @@
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "Check Box.png");
             this.imageList1.Images.SetKeyName(1, "Proceed Marked Headers.png");
+            // 
+            // btn_XacNhan
+            // 
+            this.btn_XacNhan.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_XacNhan.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_XacNhan.ImageKey = "Check Box.png";
+            this.btn_XacNhan.ImageList = this.imageList1;
+            this.btn_XacNhan.Location = new System.Drawing.Point(15, 34);
+            this.btn_XacNhan.Name = "btn_XacNhan";
+            this.btn_XacNhan.Size = new System.Drawing.Size(56, 56);
+            this.btn_XacNhan.TabIndex = 0;
+            this.btn_XacNhan.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_XacNhan.UseVisualStyleBackColor = true;
             // 
             // QLNS_DSTinhTrangHN
             // 
@@ -125,7 +124,7 @@
             this.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "QLNS_DSTinhTrangHN";
-            this.Size = new System.Drawing.Size(300, 400);
+            this.Size = new System.Drawing.Size(180, 400);
             this.tableLP_TinhTrangHN.ResumeLayout(false);
             this.tableLP_NutThaoTac.ResumeLayout(false);
             this.ResumeLayout(false);

@@ -92,10 +92,10 @@
             // 
             this.tableLP_DanhMuc.ColumnCount = 5;
             this.tableLP_DanhMuc.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLP_DanhMuc.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLP_DanhMuc.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLP_DanhMuc.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLP_DanhMuc.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLP_DanhMuc.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.30205F));
+            this.tableLP_DanhMuc.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.89443F));
+            this.tableLP_DanhMuc.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.48974F));
+            this.tableLP_DanhMuc.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.92962F));
             this.tableLP_DanhMuc.Controls.Add(this.lbl_DongMo, 0, 0);
             this.tableLP_DanhMuc.Controls.Add(this.btn_Xoa, 4, 0);
             this.tableLP_DanhMuc.Controls.Add(this.label1, 1, 0);
@@ -117,23 +117,22 @@
             this.lbl_DongMo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_DongMo.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_DongMo.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lbl_DongMo.Location = new System.Drawing.Point(3, 21);
+            this.lbl_DongMo.Location = new System.Drawing.Point(3, 19);
             this.lbl_DongMo.Name = "lbl_DongMo";
-            this.lbl_DongMo.Size = new System.Drawing.Size(29, 18);
+            this.lbl_DongMo.Size = new System.Drawing.Size(37, 23);
             this.lbl_DongMo.TabIndex = 9;
             this.lbl_DongMo.Text = "<<<";
             this.lbl_DongMo.Click += new System.EventHandler(this.lbl_DongMo_Click);
             // 
             // btn_Xoa
             // 
-            this.btn_Xoa.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Xoa.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Xoa.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_Xoa.ImageKey = "Garbage.png";
             this.btn_Xoa.ImageList = this.imageList2;
-            this.btn_Xoa.Location = new System.Drawing.Point(590, 3);
-            this.btn_Xoa.MinimumSize = new System.Drawing.Size(80, 80);
+            this.btn_Xoa.Location = new System.Drawing.Point(609, 3);
+            this.btn_Xoa.MinimumSize = new System.Drawing.Size(50, 50);
             this.btn_Xoa.Name = "btn_Xoa";
-            this.btn_Xoa.Size = new System.Drawing.Size(80, 80);
+            this.btn_Xoa.Size = new System.Drawing.Size(50, 50);
             this.btn_Xoa.TabIndex = 3;
             this.btn_Xoa.UseVisualStyleBackColor = true;
             this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
@@ -152,9 +151,9 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(101, 21);
+            this.label1.Location = new System.Drawing.Point(81, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 18);
+            this.label1.Size = new System.Drawing.Size(88, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "Danh mục";
             // 
@@ -174,9 +173,9 @@
             "Thông tin gia đình",
             "Lịch sử bản thân",
             "Diến biến sức khỏe"});
-            this.comB_DanhMuc.Location = new System.Drawing.Point(207, 20);
+            this.comB_DanhMuc.Location = new System.Drawing.Point(187, 18);
             this.comB_DanhMuc.Name = "comB_DanhMuc";
-            this.comB_DanhMuc.Size = new System.Drawing.Size(238, 25);
+            this.comB_DanhMuc.Size = new System.Drawing.Size(305, 30);
             this.comB_DanhMuc.TabIndex = 1;
             this.comB_DanhMuc.DropDown += new System.EventHandler(this.comB_DanhMuc_DropDown);
             this.comB_DanhMuc.SelectionChangeCommitted += new System.EventHandler(this.comB_DanhMuc_SelectionChangeCommitted);
@@ -184,20 +183,19 @@
             // btn_Them
             // 
             this.btn_Them.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_Them.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Them.ImageKey = "Add.png";
             this.btn_Them.ImageList = this.imageList2;
-            this.btn_Them.Location = new System.Drawing.Point(487, 3);
-            this.btn_Them.MinimumSize = new System.Drawing.Size(80, 80);
+            this.btn_Them.Location = new System.Drawing.Point(515, 3);
+            this.btn_Them.MinimumSize = new System.Drawing.Size(50, 50);
             this.btn_Them.Name = "btn_Them";
-            this.btn_Them.Size = new System.Drawing.Size(80, 80);
+            this.btn_Them.Size = new System.Drawing.Size(50, 50);
             this.btn_Them.TabIndex = 2;
             this.btn_Them.UseVisualStyleBackColor = true;
             this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
             // 
             // QLNS_HienThiThongTin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.tableLP_HienThiThongTin);

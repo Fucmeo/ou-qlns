@@ -38,6 +38,12 @@ namespace QLNS.UCs
                             case "QLNS_ThongTinNV":
                                 QLNS.UCs.DanhMucThongTin.QLNS_ThongTinNV.nNewQuocGiaID = i;
                                 break;
+                            case "QLNS_ThongTinNV_Phu":
+                                QLNS.UCs.DanhMucThongTin.QLNS_ThongTinNV_Phu.nNewQuocGiaID = i;
+                                break;
+                            case "QLNS_LichSuBanThan":
+                                QLNS.UCs.DanhMucThongTin.QLNS_LichSuBanThan.nNewQuocGiaID = i;
+                                break;
 
                             default:
                                 break;

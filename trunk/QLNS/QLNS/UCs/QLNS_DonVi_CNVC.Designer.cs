@@ -74,7 +74,7 @@
             this.groupBox2.Size = new System.Drawing.Size(344, 644);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Công nhân viên chức";
+            this.groupBox2.Text = "Nhân viên";
             // 
             // tableLayoutPanel4
             // 
@@ -120,15 +120,13 @@
             // 
             this.btn_TimCNVC.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_TimCNVC.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_TimCNVC.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_TimCNVC.ImageKey = "Business Man Find(1).png";
             this.btn_TimCNVC.ImageList = this.imageList1;
-            this.btn_TimCNVC.Location = new System.Drawing.Point(39, 528);
+            this.btn_TimCNVC.Location = new System.Drawing.Point(59, 544);
             this.btn_TimCNVC.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.btn_TimCNVC.Name = "btn_TimCNVC";
-            this.btn_TimCNVC.Size = new System.Drawing.Size(90, 81);
+            this.btn_TimCNVC.Size = new System.Drawing.Size(50, 50);
             this.btn_TimCNVC.TabIndex = 2;
-            this.btn_TimCNVC.Text = "Tìm";
             this.btn_TimCNVC.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_TimCNVC.UseVisualStyleBackColor = true;
             this.btn_TimCNVC.Click += new System.EventHandler(this.btn_TimCNVC_Click);
@@ -196,15 +194,13 @@
             // 
             this.btn_LamTuoi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_LamTuoi.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_LamTuoi.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_LamTuoi.ImageKey = "Refresh.png";
             this.btn_LamTuoi.ImageList = this.imageList1;
-            this.btn_LamTuoi.Location = new System.Drawing.Point(208, 528);
+            this.btn_LamTuoi.Location = new System.Drawing.Point(228, 544);
             this.btn_LamTuoi.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.btn_LamTuoi.Name = "btn_LamTuoi";
-            this.btn_LamTuoi.Size = new System.Drawing.Size(90, 81);
+            this.btn_LamTuoi.Size = new System.Drawing.Size(50, 50);
             this.btn_LamTuoi.TabIndex = 3;
-            this.btn_LamTuoi.Text = "Làm tươi";
             this.btn_LamTuoi.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_LamTuoi.UseVisualStyleBackColor = true;
             this.btn_LamTuoi.Click += new System.EventHandler(this.btn_LamTuoi_Click);
@@ -213,15 +209,13 @@
             // 
             this.btn_TimDonVi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_TimDonVi.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_TimDonVi.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_TimDonVi.ImageKey = "Business Man Find(1).png";
             this.btn_TimDonVi.ImageList = this.imageList1;
-            this.btn_TimDonVi.Location = new System.Drawing.Point(39, 528);
+            this.btn_TimDonVi.Location = new System.Drawing.Point(59, 544);
             this.btn_TimDonVi.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.btn_TimDonVi.Name = "btn_TimDonVi";
-            this.btn_TimDonVi.Size = new System.Drawing.Size(90, 81);
+            this.btn_TimDonVi.Size = new System.Drawing.Size(50, 50);
             this.btn_TimDonVi.TabIndex = 1;
-            this.btn_TimDonVi.Text = "Tìm";
             this.btn_TimDonVi.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_TimDonVi.UseVisualStyleBackColor = true;
             this.btn_TimDonVi.Click += new System.EventHandler(this.btn_TimDonVi_Click);
