@@ -170,7 +170,7 @@
             this.txt_ThuongBinh.Location = new System.Drawing.Point(167, 79);
             this.txt_ThuongBinh.Name = "txt_ThuongBinh";
             this.txt_ThuongBinh.Size = new System.Drawing.Size(264, 28);
-            this.txt_ThuongBinh.TabIndex = 46;
+            this.txt_ThuongBinh.TabIndex = 2;
             // 
             // txt_DanhHieu
             // 
@@ -178,7 +178,7 @@
             this.txt_DanhHieu.Location = new System.Drawing.Point(660, 17);
             this.txt_DanhHieu.Name = "txt_DanhHieu";
             this.txt_DanhHieu.Size = new System.Drawing.Size(266, 28);
-            this.txt_DanhHieu.TabIndex = 43;
+            this.txt_DanhHieu.TabIndex = 1;
             // 
             // txt_QuanHam
             // 
@@ -186,7 +186,7 @@
             this.txt_QuanHam.Location = new System.Drawing.Point(167, 17);
             this.txt_QuanHam.Name = "txt_QuanHam";
             this.txt_QuanHam.Size = new System.Drawing.Size(264, 28);
-            this.txt_QuanHam.TabIndex = 41;
+            this.txt_QuanHam.TabIndex = 0;
             // 
             // rTB_KyLuat
             // 
@@ -194,7 +194,7 @@
             this.rTB_KyLuat.Location = new System.Drawing.Point(660, 251);
             this.rTB_KyLuat.Name = "rTB_KyLuat";
             this.rTB_KyLuat.Size = new System.Drawing.Size(325, 56);
-            this.rTB_KyLuat.TabIndex = 40;
+            this.rTB_KyLuat.TabIndex = 9;
             this.rTB_KyLuat.Text = "";
             // 
             // rtb_KhenThuong
@@ -203,7 +203,7 @@
             this.rtb_KhenThuong.Location = new System.Drawing.Point(167, 251);
             this.rtb_KhenThuong.Name = "rtb_KhenThuong";
             this.rtb_KhenThuong.Size = new System.Drawing.Size(323, 56);
-            this.rtb_KhenThuong.TabIndex = 39;
+            this.rtb_KhenThuong.TabIndex = 8;
             this.rtb_KhenThuong.Text = "";
             // 
             // label5
@@ -316,7 +316,7 @@
             this.dtp_NgayNhapNgu.Name = "dtp_NgayNhapNgu";
             this.dtp_NgayNhapNgu.ShowCheckBox = true;
             this.dtp_NgayNhapNgu.Size = new System.Drawing.Size(264, 28);
-            this.dtp_NgayNhapNgu.TabIndex = 37;
+            this.dtp_NgayNhapNgu.TabIndex = 4;
             // 
             // dtp_NgayXuatNgu
             // 
@@ -328,7 +328,7 @@
             this.dtp_NgayXuatNgu.Name = "dtp_NgayXuatNgu";
             this.dtp_NgayXuatNgu.ShowCheckBox = true;
             this.dtp_NgayXuatNgu.Size = new System.Drawing.Size(264, 28);
-            this.dtp_NgayXuatNgu.TabIndex = 38;
+            this.dtp_NgayXuatNgu.TabIndex = 5;
             // 
             // txt_QuanLyNhaNuoc
             // 
@@ -336,7 +336,7 @@
             this.txt_QuanLyNhaNuoc.Location = new System.Drawing.Point(660, 203);
             this.txt_QuanLyNhaNuoc.Name = "txt_QuanLyNhaNuoc";
             this.txt_QuanLyNhaNuoc.Size = new System.Drawing.Size(264, 28);
-            this.txt_QuanLyNhaNuoc.TabIndex = 42;
+            this.txt_QuanLyNhaNuoc.TabIndex = 7;
             // 
             // txt_LyLuanChinhTri
             // 
@@ -344,7 +344,7 @@
             this.txt_LyLuanChinhTri.Location = new System.Drawing.Point(167, 203);
             this.txt_LyLuanChinhTri.Name = "txt_LyLuanChinhTri";
             this.txt_LyLuanChinhTri.Size = new System.Drawing.Size(266, 28);
-            this.txt_LyLuanChinhTri.TabIndex = 44;
+            this.txt_LyLuanChinhTri.TabIndex = 6;
             // 
             // txt_GiaDinh
             // 
@@ -352,7 +352,7 @@
             this.txt_GiaDinh.Location = new System.Drawing.Point(660, 79);
             this.txt_GiaDinh.Name = "txt_GiaDinh";
             this.txt_GiaDinh.Size = new System.Drawing.Size(266, 28);
-            this.txt_GiaDinh.TabIndex = 45;
+            this.txt_GiaDinh.TabIndex = 3;
             // 
             // btn_Luu
             // 
@@ -366,7 +366,7 @@
             this.btn_Luu.Location = new System.Drawing.Point(466, 335);
             this.btn_Luu.Name = "btn_Luu";
             this.btn_Luu.Size = new System.Drawing.Size(56, 56);
-            this.btn_Luu.TabIndex = 47;
+            this.btn_Luu.TabIndex = 10;
             this.btn_Luu.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Luu.UseVisualStyleBackColor = true;
             this.btn_Luu.Click += new System.EventHandler(this.btn_Luu_Click);
@@ -452,7 +452,7 @@
             this.lbl_ThemDoanDang.Location = new System.Drawing.Point(3, 26);
             this.lbl_ThemDoanDang.Name = "lbl_ThemDoanDang";
             this.lbl_ThemDoanDang.Size = new System.Drawing.Size(43, 18);
-            this.lbl_ThemDoanDang.TabIndex = 8;
+            this.lbl_ThemDoanDang.TabIndex = 0;
             this.lbl_ThemDoanDang.Text = "Thêm";
             this.lbl_ThemDoanDang.Click += new System.EventHandler(this.lbl_ThemDoanDang_Click);
             // 
@@ -466,7 +466,7 @@
             this.lbl_XoaDoanDang.Location = new System.Drawing.Point(195, 26);
             this.lbl_XoaDoanDang.Name = "lbl_XoaDoanDang";
             this.lbl_XoaDoanDang.Size = new System.Drawing.Size(31, 18);
-            this.lbl_XoaDoanDang.TabIndex = 9;
+            this.lbl_XoaDoanDang.TabIndex = 2;
             this.lbl_XoaDoanDang.Text = "Xoá";
             this.lbl_XoaDoanDang.Click += new System.EventHandler(this.lbl_XoaDoanDang_Click);
             // 
@@ -480,7 +480,7 @@
             this.lbl_SuaDoanDang.Location = new System.Drawing.Point(99, 26);
             this.lbl_SuaDoanDang.Name = "lbl_SuaDoanDang";
             this.lbl_SuaDoanDang.Size = new System.Drawing.Size(31, 18);
-            this.lbl_SuaDoanDang.TabIndex = 7;
+            this.lbl_SuaDoanDang.TabIndex = 1;
             this.lbl_SuaDoanDang.Text = "Sửa";
             this.lbl_SuaDoanDang.Click += new System.EventHandler(this.lbl_SuaDoanDang_Click);
             // 
@@ -490,7 +490,7 @@
             this.txt_TenToChuc.Location = new System.Drawing.Point(396, 24);
             this.txt_TenToChuc.Name = "txt_TenToChuc";
             this.txt_TenToChuc.Size = new System.Drawing.Size(191, 28);
-            this.txt_TenToChuc.TabIndex = 47;
+            this.txt_TenToChuc.TabIndex = 1;
             // 
             // comB_Loai
             // 
@@ -505,7 +505,7 @@
             this.comB_Loai.Location = new System.Drawing.Point(101, 26);
             this.comB_Loai.Name = "comB_Loai";
             this.comB_Loai.Size = new System.Drawing.Size(191, 29);
-            this.comB_Loai.TabIndex = 42;
+            this.comB_Loai.TabIndex = 0;
             this.comB_Loai.SelectedIndexChanged += new System.EventHandler(this.comB_Loai_SelectedIndexChanged);
             this.comB_Loai.SelectionChangeCommitted += new System.EventHandler(this.comB_Loai_SelectionChangeCommitted);
             // 
@@ -532,7 +532,7 @@
             this.dtgv_DoanDang.RowTemplate.Height = 24;
             this.dtgv_DoanDang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgv_DoanDang.Size = new System.Drawing.Size(982, 203);
-            this.dtgv_DoanDang.TabIndex = 1;
+            this.dtgv_DoanDang.TabIndex = 6;
             // 
             // tableLP_ChucVu
             // 
@@ -577,7 +577,7 @@
             this.comB_ChucVu.Location = new System.Drawing.Point(3, 30);
             this.comB_ChucVu.Name = "comB_ChucVu";
             this.comB_ChucVu.Size = new System.Drawing.Size(144, 29);
-            this.comB_ChucVu.TabIndex = 9;
+            this.comB_ChucVu.TabIndex = 0;
             // 
             // lbl_ThemChucVuMoi
             // 
@@ -589,7 +589,7 @@
             this.lbl_ThemChucVuMoi.Location = new System.Drawing.Point(3, 106);
             this.lbl_ThemChucVuMoi.Name = "lbl_ThemChucVuMoi";
             this.lbl_ThemChucVuMoi.Size = new System.Drawing.Size(121, 18);
-            this.lbl_ThemChucVuMoi.TabIndex = 10;
+            this.lbl_ThemChucVuMoi.TabIndex = 1;
             this.lbl_ThemChucVuMoi.Text = "Thêm chức vụ mới";
             this.lbl_ThemChucVuMoi.Click += new System.EventHandler(this.lbl_ThemChucVuMoi_Click);
             // 
@@ -612,7 +612,7 @@
             this.listB_DSCV.Name = "listB_DSCV";
             this.tableLP_ChucVu.SetRowSpan(this.listB_DSCV, 2);
             this.listB_DSCV.Size = new System.Drawing.Size(152, 296);
-            this.listB_DSCV.TabIndex = 44;
+            this.listB_DSCV.TabIndex = 0;
             // 
             // tableLayoutPanel1
             // 
@@ -640,7 +640,7 @@
             this.lbl_XoaChucVu.Location = new System.Drawing.Point(117, 54);
             this.lbl_XoaChucVu.Name = "lbl_XoaChucVu";
             this.lbl_XoaChucVu.Size = new System.Drawing.Size(98, 36);
-            this.lbl_XoaChucVu.TabIndex = 52;
+            this.lbl_XoaChucVu.TabIndex = 1;
             this.lbl_XoaChucVu.Text = "Xoá khỏi danh sách";
             this.lbl_XoaChucVu.Click += new System.EventHandler(this.lbl_XoaChucVu_Click);
             // 
@@ -654,7 +654,7 @@
             this.lbl_ThemChucVu.Location = new System.Drawing.Point(3, 54);
             this.lbl_ThemChucVu.Name = "lbl_ThemChucVu";
             this.lbl_ThemChucVu.Size = new System.Drawing.Size(105, 36);
-            this.lbl_ThemChucVu.TabIndex = 51;
+            this.lbl_ThemChucVu.TabIndex = 0;
             this.lbl_ThemChucVu.Text = "Thêm vào danh sách";
             this.lbl_ThemChucVu.Click += new System.EventHandler(this.lbl_ThemChucVu_Click);
             // 
@@ -718,7 +718,7 @@
             this.dtp_NgayVao.Name = "dtp_NgayVao";
             this.dtp_NgayVao.ShowCheckBox = true;
             this.dtp_NgayVao.Size = new System.Drawing.Size(191, 28);
-            this.dtp_NgayVao.TabIndex = 38;
+            this.dtp_NgayVao.TabIndex = 2;
             // 
             // dtp_NgayRa
             // 
@@ -730,7 +730,7 @@
             this.dtp_NgayRa.Name = "dtp_NgayRa";
             this.dtp_NgayRa.ShowCheckBox = true;
             this.dtp_NgayRa.Size = new System.Drawing.Size(191, 28);
-            this.dtp_NgayRa.TabIndex = 39;
+            this.dtp_NgayRa.TabIndex = 3;
             // 
             // dtp_NgayTaiKetNap
             // 
@@ -742,7 +742,7 @@
             this.dtp_NgayTaiKetNap.Name = "dtp_NgayTaiKetNap";
             this.dtp_NgayTaiKetNap.ShowCheckBox = true;
             this.dtp_NgayTaiKetNap.Size = new System.Drawing.Size(191, 28);
-            this.dtp_NgayTaiKetNap.TabIndex = 40;
+            this.dtp_NgayTaiKetNap.TabIndex = 4;
             // 
             // dtp_NgayChinhThuc
             // 
@@ -754,7 +754,7 @@
             this.dtp_NgayChinhThuc.Name = "dtp_NgayChinhThuc";
             this.dtp_NgayChinhThuc.ShowCheckBox = true;
             this.dtp_NgayChinhThuc.Size = new System.Drawing.Size(191, 28);
-            this.dtp_NgayChinhThuc.TabIndex = 41;
+            this.dtp_NgayChinhThuc.TabIndex = 5;
             // 
             // QLNS_ChinhTri
             // 

@@ -484,86 +484,94 @@ namespace QLNS.UCs.DanhMucThongTin
         {
             #region MyRegion
 
-            if (lbl_ThemCMND.Text == "Thêm")
+            if (Program.selected_ma_nv != "")
             {
-                bAddCMNDFlag = true;
-                ControlCMND(true);
-                ClearCMNDData();
-            }
-            else        // LƯU
-            {
-                if (VerifyCMNDData())
+                if (lbl_ThemCMND.Text == "Thêm")
                 {
-                    if (bAddCMNDFlag)   // Thêm mới
-                    {
-                        if ((MessageBox.Show("Thêm thông tin về CMND / Hộ chiếu của nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
-                        {
-                            try
-                            {
-                                GetCMNDInputData();
-                                oCMND_HoChieu.Add();
-
-                                // load lai dtgv_CMND
-                                try
-                                {
-                                    dtCMND = oCMND_HoChieu.GetData();
-                                    dtgv_CMNDHoChieu.Columns.Clear();
-                                    dtgv_CMNDHoChieu.DataSource = dtCMND;
-                                    Setup_dtgv_CMNDHoChieu();
-                                }
-                                catch (Exception)
-                                {
-                                }
-                                
-
-                                MessageBox.Show("Thêm thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                            catch (Exception)
-                            {
-                                MessageBox.Show("Thông tin không phù hợp, xin vui lòng xem lại thông tin CMND/ Hộ chiếu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            }
-                        }
-                    }
-                    else        // Sửa
-                    {
-                        if ((MessageBox.Show("Sửa thông tin về CMND / Hộ chiếu của nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
-                        {
-                            try
-                            {
-                                GetCMNDInputData();
-                                oCMND_HoChieu.Update();
-
-                                // load lai dtgv_CMND
-                                try
-                                {
-                                    dtCMND = oCMND_HoChieu.GetData();
-                                    dtgv_CMNDHoChieu.Columns.Clear();
-                                    dtgv_CMNDHoChieu.DataSource = dtCMND;
-                                    Setup_dtgv_CMNDHoChieu();
-                                }
-                                catch (Exception)
-                                {
-                                }
-
-                                MessageBox.Show("Sửa thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                            catch (Exception)
-                            {
-                                MessageBox.Show("Thông tin không phù hợp, xin vui lòng xem lại thông tin CMND/ Hộ chiếu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            }
-                        }
-                    }
-
-                    
-
-                    ControlCMND(false);
+                    bAddCMNDFlag = true;
+                    ControlCMND(true);
                     ClearCMNDData();
                 }
-                else
+                else        // LƯU
                 {
-                    MessageBox.Show("Thông tin CMND / Hộ chiếu không phù hợp, xin vui lòng kiểm tra lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            } 
+                    if (VerifyCMNDData())
+                    {
+                        if (bAddCMNDFlag)   // Thêm mới
+                        {
+                            if ((MessageBox.Show("Thêm thông tin về CMND / Hộ chiếu của nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
+                            {
+                                try
+                                {
+                                    GetCMNDInputData();
+                                    oCMND_HoChieu.Add();
+
+                                    // load lai dtgv_CMND
+                                    try
+                                    {
+                                        dtCMND = oCMND_HoChieu.GetData();
+                                        dtgv_CMNDHoChieu.Columns.Clear();
+                                        dtgv_CMNDHoChieu.DataSource = dtCMND;
+                                        Setup_dtgv_CMNDHoChieu();
+                                    }
+                                    catch (Exception)
+                                    {
+                                    }
+
+
+                                    MessageBox.Show("Thêm thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                catch (Exception)
+                                {
+                                    MessageBox.Show("Thông tin không phù hợp, xin vui lòng xem lại thông tin CMND/ Hộ chiếu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }
+                            }
+                        }
+                        else        // Sửa
+                        {
+                            if ((MessageBox.Show("Sửa thông tin về CMND / Hộ chiếu của nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
+                            {
+                                try
+                                {
+                                    GetCMNDInputData();
+                                    oCMND_HoChieu.Update();
+
+                                    // load lai dtgv_CMND
+                                    try
+                                    {
+                                        dtCMND = oCMND_HoChieu.GetData();
+                                        dtgv_CMNDHoChieu.Columns.Clear();
+                                        dtgv_CMNDHoChieu.DataSource = dtCMND;
+                                        Setup_dtgv_CMNDHoChieu();
+                                    }
+                                    catch (Exception)
+                                    {
+                                    }
+
+                                    MessageBox.Show("Sửa thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                catch (Exception)
+                                {
+                                    MessageBox.Show("Thông tin không phù hợp, xin vui lòng xem lại thông tin CMND/ Hộ chiếu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }
+                            }
+                        }
+
+
+
+                        ControlCMND(false);
+                        ClearCMNDData();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thông tin CMND / Hộ chiếu không phù hợp, xin vui lòng kiểm tra lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                } 
+            }
+            else
+            {
+                MessageBox.Show("Chưa có thông tin về nhân viên, xin vui lòng thêm thông tin nhân viên trước hoặc chọn một nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
             #endregion
             
         }

@@ -295,92 +295,109 @@ namespace QLNS.UCs.DanhMucThongTin
         {
             #region MyRegion
 
-            if (lbl_ThemTienAn.Text == "Thêm")
+            if (Program.selected_ma_nv != "")
             {
-                bAddLSBiBatFlag = true;
-                ControlLSBiBat(true);
-                ClearLSBiBatData();
-            }
-            else        // LƯU
-            {
-
-                if (bAddLSBiBatFlag)   // Thêm mới
+                if (lbl_ThemTienAn.Text == "Thêm")
                 {
-                    if ((MessageBox.Show("Thêm thông tin về tiền án / tiền sự của nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
+                    bAddLSBiBatFlag = true;
+                    ControlLSBiBat(true);
+                    ClearLSBiBatData();
+                }
+                else        // LƯU
+                {
+
+                    if (bAddLSBiBatFlag)   // Thêm mới
                     {
-                        try
+                        if ((MessageBox.Show("Thêm thông tin về tiền án / tiền sự của nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
                         {
-                            GetLSBiBatInputData();
-                            oCNVC_LSBiBat.Add();
+                            try
+                            {
+                                GetLSBiBatInputData();
+                                oCNVC_LSBiBat.Add();
 
-                            // load lai dtgv_CMND
-                            dtLSBiBat = oCNVC_LSBiBat.GetData();
-                            dtgv_TienAn.DataSource = dtLSBiBat;
-                            Setup_dtgv_TienAn();
+                                // load lai dtgv_CMND
+                                dtLSBiBat = oCNVC_LSBiBat.GetData();
+                                dtgv_TienAn.DataSource = dtLSBiBat;
+                                Setup_dtgv_TienAn();
 
-                            MessageBox.Show("Thêm thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        catch (Exception)
-                        {
-                            MessageBox.Show("Thông tin không phù hợp, xin vui lòng xem lại thông tin tiền án / tiền sự.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                MessageBox.Show("Thêm thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            catch (Exception)
+                            {
+                                MessageBox.Show("Thông tin không phù hợp, xin vui lòng xem lại thông tin tiền án / tiền sự.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
                         }
                     }
-                }
-                else        // Sửa
-                {
-                    if ((MessageBox.Show("Sửa thông tin về tiền án / tiền sự của nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
+                    else        // Sửa
                     {
-                        try
+                        if ((MessageBox.Show("Sửa thông tin về tiền án / tiền sự của nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
                         {
-                            GetLSBiBatInputData();
-                            oCNVC_LSBiBat.Update();
+                            try
+                            {
+                                GetLSBiBatInputData();
+                                oCNVC_LSBiBat.Update();
 
-                            // load lai dtgv_CMND
-                            dtLSBiBat = oCNVC_LSBiBat.GetData();
-                            dtgv_TienAn.DataSource = dtLSBiBat;
-                            Setup_dtgv_TienAn();
+                                // load lai dtgv_CMND
+                                dtLSBiBat = oCNVC_LSBiBat.GetData();
+                                dtgv_TienAn.DataSource = dtLSBiBat;
+                                Setup_dtgv_TienAn();
 
-                            MessageBox.Show("Sửa thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        catch (Exception)
-                        {
-                            MessageBox.Show("Thông tin không phù hợp, xin vui lòng xem lại thông tin tiền án / tiền sự.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                MessageBox.Show("Sửa thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            catch (Exception)
+                            {
+                                MessageBox.Show("Thông tin không phù hợp, xin vui lòng xem lại thông tin tiền án / tiền sự.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
                         }
                     }
+
+
+
+                    ControlLSBiBat(false);
+                    ClearLSBiBatData();
+
                 }
-
-
-
-                ControlLSBiBat(false);
-                ClearLSBiBatData();
-
             }
+            else
+            {
+                MessageBox.Show("Chưa có thông tin về nhân viên, xin vui lòng thêm thông tin nhân viên trước hoặc chọn một nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
             #endregion
 
         }
 
         private void lbl_SuaTienAn_Click(object sender, EventArgs e)
         {
-            if (lbl_SuaTienAn.Text == "Sửa")
+            if (Program.selected_ma_nv != "")
             {
-                if (dtgv_TienAn.Rows.Count > 0 && dtgv_TienAn.SelectedRows != null)
+                if (lbl_SuaTienAn.Text == "Sửa")
                 {
-                    txt_TaiNoi.Focus();
+                    if (dtgv_TienAn.Rows.Count > 0 && dtgv_TienAn.SelectedRows != null)
+                    {
+                        txt_TaiNoi.Focus();
+                        bAddLSBiBatFlag = false;
+                        ControlLSBiBat(true);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Chưa có thông tin về tiền án / tiền sử", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else        // HUỶ
+                {
                     bAddLSBiBatFlag = false;
-                    ControlLSBiBat(true);
+                    ControlLSBiBat(false);
+                    ClearLSBiBatData();
+
                 }
-                else
-                {
-                    MessageBox.Show("Chưa có thông tin về tiền án / tiền sử", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-            else        // HUỶ
-            {
-                bAddLSBiBatFlag = false;
-                ControlLSBiBat(false);
-                ClearLSBiBatData();
 
             }
+            else
+            {
+                MessageBox.Show("Chưa có thông tin về nhân viên, xin vui lòng thêm thông tin nhân viên trước hoặc chọn một nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
         }
 
         private void dtgv_TienAn_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -424,90 +441,106 @@ namespace QLNS.UCs.DanhMucThongTin
         private void lbl_ThemQH_Click(object sender, EventArgs e)
         {
             #region MyRegion
-
-            if (lbl_ThemQH.Text == "Thêm")
+            if (Program.selected_ma_nv != "")
             {
-                bAddQHToChucFlag = true;
-                ControlQHToChuc(true);
-                ClearQHToChucData();
-            }
-            else        // LƯU
-            {
-
-                if (bAddQHToChucFlag)   // Thêm mới
+                if (lbl_ThemQH.Text == "Thêm")
                 {
-                    if ((MessageBox.Show("Thêm thông tin về quan hệ tổ chức của nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
+                    bAddQHToChucFlag = true;
+                    ControlQHToChuc(true);
+                    ClearQHToChucData();
+                }
+                else        // LƯU
+                {
+
+                    if (bAddQHToChucFlag)   // Thêm mới
                     {
-                        try
+                        if ((MessageBox.Show("Thêm thông tin về quan hệ tổ chức của nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
                         {
-                            GetQHToChucInputData();
-                            oCNVC_QuanHeToChuc.Add();
+                            try
+                            {
+                                GetQHToChucInputData();
+                                oCNVC_QuanHeToChuc.Add();
 
-                            // load lai dtgv_CMND
-                            dtQHToChuc = oCNVC_QuanHeToChuc.GetData();
-                            dtgv_QHToChuc.DataSource = dtQHToChuc;
-                            Setup_dtgv_QHToChuc();
+                                // load lai dtgv_CMND
+                                dtQHToChuc = oCNVC_QuanHeToChuc.GetData();
+                                dtgv_QHToChuc.DataSource = dtQHToChuc;
+                                Setup_dtgv_QHToChuc();
 
-                            MessageBox.Show("Thêm thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        catch (Exception)
-                        {
-                            MessageBox.Show("Thông tin không phù hợp, xin vui lòng xem lại thông tin quan hệ tổ chức.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                MessageBox.Show("Thêm thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            catch (Exception)
+                            {
+                                MessageBox.Show("Thông tin không phù hợp, xin vui lòng xem lại thông tin quan hệ tổ chức.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
                         }
                     }
-                }
-                else        // Sửa
-                {
-                    if ((MessageBox.Show("Sửa thông tin về quan hệ tổ chức của nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
+                    else        // Sửa
                     {
-                        try
+                        if ((MessageBox.Show("Sửa thông tin về quan hệ tổ chức của nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
                         {
-                            GetQHToChucInputData();
-                            oCNVC_QuanHeToChuc.Update();
+                            try
+                            {
+                                GetQHToChucInputData();
+                                oCNVC_QuanHeToChuc.Update();
 
-                            // load lai dtgv_CMND
-                            dtQHToChuc = oCNVC_QuanHeToChuc.GetData();
-                            dtgv_QHToChuc.DataSource = dtQHToChuc;
-                            Setup_dtgv_QHToChuc();
+                                // load lai dtgv_CMND
+                                dtQHToChuc = oCNVC_QuanHeToChuc.GetData();
+                                dtgv_QHToChuc.DataSource = dtQHToChuc;
+                                Setup_dtgv_QHToChuc();
 
-                            MessageBox.Show("Sửa thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        catch (Exception)
-                        {
-                            MessageBox.Show("Thông tin không phù hợp, xin vui lòng xem lại thông tin quan hệ tổ chức.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                MessageBox.Show("Sửa thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            catch (Exception)
+                            {
+                                MessageBox.Show("Thông tin không phù hợp, xin vui lòng xem lại thông tin quan hệ tổ chức.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
                         }
                     }
+
+                    ControlQHToChuc(false);
+                    ClearQHToChucData();
+
                 }
-
-                ControlQHToChuc(false);
-                ClearQHToChucData();
-
             }
+            else
+            {
+                MessageBox.Show("Chưa có thông tin về nhân viên, xin vui lòng thêm thông tin nhân viên trước hoặc chọn một nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            
             #endregion
 
         }
 
         private void lbl_SuaQH_Click(object sender, EventArgs e)
         {
-            if (lbl_SuaQH.Text == "Sửa")
+            if (Program.selected_ma_nv != "")
             {
-                if (dtgv_QHToChuc.Rows.Count > 0 && dtgv_QHToChuc.SelectedRows != null)
+
+                if (lbl_SuaQH.Text == "Sửa")
                 {
-                    txt_TenToChuc.Focus();
-                    bAddQHToChucFlag = false;
-                    ControlQHToChuc(true);
+                    if (dtgv_QHToChuc.Rows.Count > 0 && dtgv_QHToChuc.SelectedRows != null)
+                    {
+                        txt_TenToChuc.Focus();
+                        bAddQHToChucFlag = false;
+                        ControlQHToChuc(true);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Chưa có thông tin về CMND / Hộ chiếu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
-                else
+                else        // HUỶ
                 {
-                    MessageBox.Show("Chưa có thông tin về CMND / Hộ chiếu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    bAddQHToChucFlag = false;
+                    ControlQHToChuc(false);
+                    ClearQHToChucData();
+
                 }
             }
-            else        // HUỶ
+            else
             {
-                bAddQHToChucFlag = false;
-                ControlQHToChuc(false);
-                ClearQHToChucData();
-
+                MessageBox.Show("Chưa có thông tin về nhân viên, xin vui lòng thêm thông tin nhân viên trước hoặc chọn một nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

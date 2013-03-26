@@ -45,6 +45,7 @@
             this.txt_NgoaiNgu = new System.Windows.Forms.TextBox();
             this.comB_MoHinhDaoTao = new System.Windows.Forms.ComboBox();
             this.btn_LuuChuyenMon = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tableLP_TrinhDoPT = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -66,7 +67,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txt_NamHoc = new System.Windows.Forms.TextBox();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tableLP_TrinhDo_ChuyenMon.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.tableLP_ChuyenMonTongQuat.SuspendLayout();
@@ -235,7 +235,7 @@
             this.comB_MoHinhDaoTao.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_MoHinhDaoTao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_MoHinhDaoTao.FormattingEnabled = true;
-            this.comB_MoHinhDaoTao.Location = new System.Drawing.Point(160, 118);
+            this.comB_MoHinhDaoTao.Location = new System.Drawing.Point(160, 120);
             this.comB_MoHinhDaoTao.Name = "comB_MoHinhDaoTao";
             this.comB_MoHinhDaoTao.Size = new System.Drawing.Size(230, 29);
             this.comB_MoHinhDaoTao.TabIndex = 4;
@@ -250,10 +250,16 @@
             this.btn_LuuChuyenMon.Location = new System.Drawing.Point(366, 168);
             this.btn_LuuChuyenMon.Name = "btn_LuuChuyenMon";
             this.btn_LuuChuyenMon.Size = new System.Drawing.Size(56, 56);
-            this.btn_LuuChuyenMon.TabIndex = 41;
+            this.btn_LuuChuyenMon.TabIndex = 6;
             this.btn_LuuChuyenMon.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_LuuChuyenMon.UseVisualStyleBackColor = true;
             this.btn_LuuChuyenMon.Click += new System.EventHandler(this.btn_LuuChuyenMon_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Save.png");
             // 
             // groupBox3
             // 
@@ -328,7 +334,7 @@
             this.lbl_ThemTrinhDoPT.Location = new System.Drawing.Point(3, 23);
             this.lbl_ThemTrinhDoPT.Name = "lbl_ThemTrinhDoPT";
             this.lbl_ThemTrinhDoPT.Size = new System.Drawing.Size(53, 23);
-            this.lbl_ThemTrinhDoPT.TabIndex = 8;
+            this.lbl_ThemTrinhDoPT.TabIndex = 0;
             this.lbl_ThemTrinhDoPT.Text = "Thêm";
             this.lbl_ThemTrinhDoPT.Click += new System.EventHandler(this.lbl_ThemTrinhDoPT_Click);
             // 
@@ -342,7 +348,7 @@
             this.lbl_XoaTrinhDoPT.Location = new System.Drawing.Point(261, 23);
             this.lbl_XoaTrinhDoPT.Name = "lbl_XoaTrinhDoPT";
             this.lbl_XoaTrinhDoPT.Size = new System.Drawing.Size(39, 23);
-            this.lbl_XoaTrinhDoPT.TabIndex = 9;
+            this.lbl_XoaTrinhDoPT.TabIndex = 2;
             this.lbl_XoaTrinhDoPT.Text = "Xoá";
             this.lbl_XoaTrinhDoPT.Click += new System.EventHandler(this.lbl_XoaTrinhDoPT_Click);
             // 
@@ -356,7 +362,7 @@
             this.lbl_SuaTrinhDoPT.Location = new System.Drawing.Point(132, 23);
             this.lbl_SuaTrinhDoPT.Name = "lbl_SuaTrinhDoPT";
             this.lbl_SuaTrinhDoPT.Size = new System.Drawing.Size(39, 23);
-            this.lbl_SuaTrinhDoPT.TabIndex = 7;
+            this.lbl_SuaTrinhDoPT.TabIndex = 1;
             this.lbl_SuaTrinhDoPT.Text = "Sửa";
             this.lbl_SuaTrinhDoPT.Click += new System.EventHandler(this.lbl_SuaTrinhDoPT_Click);
             // 
@@ -381,10 +387,10 @@
             this.comB_Tinh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_Tinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_Tinh.FormattingEnabled = true;
-            this.comB_Tinh.Location = new System.Drawing.Point(3, 5);
+            this.comB_Tinh.Location = new System.Drawing.Point(3, 7);
             this.comB_Tinh.Name = "comB_Tinh";
             this.comB_Tinh.Size = new System.Drawing.Size(263, 29);
-            this.comB_Tinh.TabIndex = 9;
+            this.comB_Tinh.TabIndex = 0;
             // 
             // lbl_ThemTinh
             // 
@@ -417,7 +423,7 @@
             this.txt_QuanHuyen.Location = new System.Drawing.Point(514, 98);
             this.txt_QuanHuyen.Name = "txt_QuanHuyen";
             this.txt_QuanHuyen.Size = new System.Drawing.Size(264, 28);
-            this.txt_QuanHuyen.TabIndex = 49;
+            this.txt_QuanHuyen.TabIndex = 3;
             // 
             // txt_PhuongXa
             // 
@@ -426,7 +432,7 @@
             this.txt_PhuongXa.Location = new System.Drawing.Point(121, 98);
             this.txt_PhuongXa.Name = "txt_PhuongXa";
             this.txt_PhuongXa.Size = new System.Drawing.Size(264, 28);
-            this.txt_PhuongXa.TabIndex = 48;
+            this.txt_PhuongXa.TabIndex = 2;
             // 
             // txt_TenTruong
             // 
@@ -435,7 +441,7 @@
             this.txt_TenTruong.Location = new System.Drawing.Point(514, 23);
             this.txt_TenTruong.Name = "txt_TenTruong";
             this.txt_TenTruong.Size = new System.Drawing.Size(264, 28);
-            this.txt_TenTruong.TabIndex = 47;
+            this.txt_TenTruong.TabIndex = 1;
             // 
             // comB_CapDo
             // 
@@ -447,10 +453,10 @@
             "Tiểu học",
             "Trung học cơ sở",
             "Trung học phổ thông"});
-            this.comB_CapDo.Location = new System.Drawing.Point(121, 23);
+            this.comB_CapDo.Location = new System.Drawing.Point(121, 25);
             this.comB_CapDo.Name = "comB_CapDo";
             this.comB_CapDo.Size = new System.Drawing.Size(264, 29);
-            this.comB_CapDo.TabIndex = 46;
+            this.comB_CapDo.TabIndex = 0;
             // 
             // label5
             // 
@@ -485,7 +491,7 @@
             this.dtgv_TrinhDo.RowTemplate.Height = 24;
             this.dtgv_TrinhDo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgv_TrinhDo.Size = new System.Drawing.Size(782, 194);
-            this.dtgv_TrinhDo.TabIndex = 25;
+            this.dtgv_TrinhDo.TabIndex = 5;
             this.dtgv_TrinhDo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_TrinhDo_CellClick);
             // 
             // label2
@@ -525,13 +531,7 @@
             this.txt_NamHoc.Location = new System.Drawing.Point(514, 173);
             this.txt_NamHoc.Name = "txt_NamHoc";
             this.txt_NamHoc.Size = new System.Drawing.Size(264, 28);
-            this.txt_NamHoc.TabIndex = 51;
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "Save.png");
+            this.txt_NamHoc.TabIndex = 4;
             // 
             // QLNS_TrinhDo_ChuyenMon
             // 

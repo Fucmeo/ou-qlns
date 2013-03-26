@@ -193,10 +193,10 @@
             this.comB_HinhThuc.Items.AddRange(new object[] {
             "Bị bắt",
             "Bị tù"});
-            this.comB_HinhThuc.Location = new System.Drawing.Point(133, 9);
+            this.comB_HinhThuc.Location = new System.Drawing.Point(133, 10);
             this.comB_HinhThuc.Name = "comB_HinhThuc";
             this.comB_HinhThuc.Size = new System.Drawing.Size(234, 26);
-            this.comB_HinhThuc.TabIndex = 43;
+            this.comB_HinhThuc.TabIndex = 0;
             // 
             // txt_NguoiKhaiBao
             // 
@@ -206,7 +206,7 @@
             this.txt_NguoiKhaiBao.MaxLength = 50;
             this.txt_NguoiKhaiBao.Name = "txt_NguoiKhaiBao";
             this.txt_NguoiKhaiBao.Size = new System.Drawing.Size(240, 26);
-            this.txt_NguoiKhaiBao.TabIndex = 41;
+            this.txt_NguoiKhaiBao.TabIndex = 4;
             // 
             // dTP_DenNgay
             // 
@@ -219,7 +219,7 @@
             this.dTP_DenNgay.Name = "dTP_DenNgay";
             this.dTP_DenNgay.ShowCheckBox = true;
             this.dTP_DenNgay.Size = new System.Drawing.Size(235, 26);
-            this.dTP_DenNgay.TabIndex = 40;
+            this.dTP_DenNgay.TabIndex = 3;
             // 
             // dTP_TuNgay
             // 
@@ -232,7 +232,7 @@
             this.dTP_TuNgay.Name = "dTP_TuNgay";
             this.dTP_TuNgay.ShowCheckBox = true;
             this.dTP_TuNgay.Size = new System.Drawing.Size(235, 26);
-            this.dTP_TuNgay.TabIndex = 39;
+            this.dTP_TuNgay.TabIndex = 2;
             // 
             // txt_TaiNoi
             // 
@@ -242,7 +242,7 @@
             this.txt_TaiNoi.MaxLength = 50;
             this.txt_TaiNoi.Name = "txt_TaiNoi";
             this.txt_TaiNoi.Size = new System.Drawing.Size(240, 26);
-            this.txt_TaiNoi.TabIndex = 21;
+            this.txt_TaiNoi.TabIndex = 1;
             // 
             // label34
             // 
@@ -311,7 +311,7 @@
             this.rTB_NoiDung.Location = new System.Drawing.Point(567, 93);
             this.rTB_NoiDung.Name = "rTB_NoiDung";
             this.rTB_NoiDung.Size = new System.Drawing.Size(301, 66);
-            this.rTB_NoiDung.TabIndex = 1;
+            this.rTB_NoiDung.TabIndex = 5;
             this.rTB_NoiDung.Text = "";
             // 
             // tableLayoutPanel1
@@ -342,7 +342,7 @@
             this.lbl_ThemTienAn.Location = new System.Drawing.Point(3, 4);
             this.lbl_ThemTienAn.Name = "lbl_ThemTienAn";
             this.lbl_ThemTienAn.Size = new System.Drawing.Size(43, 18);
-            this.lbl_ThemTienAn.TabIndex = 8;
+            this.lbl_ThemTienAn.TabIndex = 0;
             this.lbl_ThemTienAn.Text = "Thêm";
             this.lbl_ThemTienAn.Click += new System.EventHandler(this.lbl_ThemTienAn_Click);
             // 
@@ -356,7 +356,7 @@
             this.lbl_XoaTienAn.Location = new System.Drawing.Point(289, 4);
             this.lbl_XoaTienAn.Name = "lbl_XoaTienAn";
             this.lbl_XoaTienAn.Size = new System.Drawing.Size(31, 18);
-            this.lbl_XoaTienAn.TabIndex = 9;
+            this.lbl_XoaTienAn.TabIndex = 2;
             this.lbl_XoaTienAn.Text = "Xoá";
             this.lbl_XoaTienAn.Click += new System.EventHandler(this.lbl_XoaTienAn_Click);
             // 
@@ -370,7 +370,7 @@
             this.lbl_SuaTienAn.Location = new System.Drawing.Point(146, 4);
             this.lbl_SuaTienAn.Name = "lbl_SuaTienAn";
             this.lbl_SuaTienAn.Size = new System.Drawing.Size(31, 18);
-            this.lbl_SuaTienAn.TabIndex = 7;
+            this.lbl_SuaTienAn.TabIndex = 1;
             this.lbl_SuaTienAn.Text = "Sửa";
             this.lbl_SuaTienAn.Click += new System.EventHandler(this.lbl_SuaTienAn_Click);
             // 
@@ -467,7 +467,7 @@
             this.lbl_ThemQH.Location = new System.Drawing.Point(3, 11);
             this.lbl_ThemQH.Name = "lbl_ThemQH";
             this.lbl_ThemQH.Size = new System.Drawing.Size(43, 18);
-            this.lbl_ThemQH.TabIndex = 8;
+            this.lbl_ThemQH.TabIndex = 0;
             this.lbl_ThemQH.Text = "Thêm";
             this.lbl_ThemQH.Click += new System.EventHandler(this.lbl_ThemQH_Click);
             // 
@@ -481,7 +481,7 @@
             this.lbl_XoaQH.Location = new System.Drawing.Point(289, 11);
             this.lbl_XoaQH.Name = "lbl_XoaQH";
             this.lbl_XoaQH.Size = new System.Drawing.Size(31, 18);
-            this.lbl_XoaQH.TabIndex = 9;
+            this.lbl_XoaQH.TabIndex = 2;
             this.lbl_XoaQH.Text = "Xoá";
             this.lbl_XoaQH.Click += new System.EventHandler(this.lbl_XoaQH_Click);
             // 
@@ -495,7 +495,7 @@
             this.lbl_SuaQH.Location = new System.Drawing.Point(146, 11);
             this.lbl_SuaQH.Name = "lbl_SuaQH";
             this.lbl_SuaQH.Size = new System.Drawing.Size(31, 18);
-            this.lbl_SuaQH.TabIndex = 7;
+            this.lbl_SuaQH.TabIndex = 1;
             this.lbl_SuaQH.Text = "Sửa";
             this.lbl_SuaQH.Click += new System.EventHandler(this.lbl_SuaQH_Click);
             // 
@@ -512,7 +512,7 @@
             this.dtgv_QHToChuc.RowTemplate.Height = 24;
             this.dtgv_QHToChuc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgv_QHToChuc.Size = new System.Drawing.Size(865, 138);
-            this.dtgv_QHToChuc.TabIndex = 53;
+            this.dtgv_QHToChuc.TabIndex = 8;
             this.dtgv_QHToChuc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_QHToChuc_CellClick);
             // 
             // txt_ChucDanh
@@ -523,7 +523,7 @@
             this.txt_ChucDanh.MaxLength = 50;
             this.txt_ChucDanh.Name = "txt_ChucDanh";
             this.txt_ChucDanh.Size = new System.Drawing.Size(240, 26);
-            this.txt_ChucDanh.TabIndex = 23;
+            this.txt_ChucDanh.TabIndex = 3;
             // 
             // txt_TenToChuc
             // 
@@ -533,7 +533,7 @@
             this.txt_TenToChuc.MaxLength = 50;
             this.txt_TenToChuc.Name = "txt_TenToChuc";
             this.txt_TenToChuc.Size = new System.Drawing.Size(240, 26);
-            this.txt_TenToChuc.TabIndex = 21;
+            this.txt_TenToChuc.TabIndex = 0;
             // 
             // label1
             // 
@@ -564,7 +564,7 @@
             this.cb_NuocNgoai.Location = new System.Drawing.Point(437, 14);
             this.cb_NuocNgoai.Name = "cb_NuocNgoai";
             this.cb_NuocNgoai.Size = new System.Drawing.Size(112, 22);
-            this.cb_NuocNgoai.TabIndex = 18;
+            this.cb_NuocNgoai.TabIndex = 1;
             this.cb_NuocNgoai.Text = "Ở nước ngoài";
             this.cb_NuocNgoai.UseVisualStyleBackColor = true;
             // 
@@ -586,7 +586,7 @@
             this.txt_ChucVu.MaxLength = 50;
             this.txt_ChucVu.Name = "txt_ChucVu";
             this.txt_ChucVu.Size = new System.Drawing.Size(240, 26);
-            this.txt_ChucVu.TabIndex = 24;
+            this.txt_ChucVu.TabIndex = 2;
             // 
             // label7
             // 
@@ -609,7 +609,7 @@
             this.dTP_TuThoiGian.Name = "dTP_TuThoiGian";
             this.dTP_TuThoiGian.ShowCheckBox = true;
             this.dTP_TuThoiGian.Size = new System.Drawing.Size(235, 26);
-            this.dTP_TuThoiGian.TabIndex = 41;
+            this.dTP_TuThoiGian.TabIndex = 4;
             // 
             // label12
             // 
@@ -632,7 +632,7 @@
             this.dTP_DenThoiGian.Name = "dTP_DenThoiGian";
             this.dTP_DenThoiGian.ShowCheckBox = true;
             this.dTP_DenThoiGian.Size = new System.Drawing.Size(235, 26);
-            this.dTP_DenThoiGian.TabIndex = 42;
+            this.dTP_DenThoiGian.TabIndex = 5;
             // 
             // tableLP_QuocGia
             // 
@@ -755,7 +755,7 @@
             this.txt_QuanHuyen.Location = new System.Drawing.Point(567, 165);
             this.txt_QuanHuyen.Name = "txt_QuanHuyen";
             this.txt_QuanHuyen.Size = new System.Drawing.Size(240, 26);
-            this.txt_QuanHuyen.TabIndex = 60;
+            this.txt_QuanHuyen.TabIndex = 7;
             // 
             // txt_PhuongXa
             // 
@@ -764,7 +764,7 @@
             this.txt_PhuongXa.Location = new System.Drawing.Point(133, 165);
             this.txt_PhuongXa.Name = "txt_PhuongXa";
             this.txt_PhuongXa.Size = new System.Drawing.Size(240, 26);
-            this.txt_PhuongXa.TabIndex = 59;
+            this.txt_PhuongXa.TabIndex = 6;
             // 
             // QLNS_LichSuBanThan
             // 

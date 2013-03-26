@@ -165,10 +165,10 @@
             this.comB_ChucDanh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_ChucDanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_ChucDanh.FormattingEnabled = true;
-            this.comB_ChucDanh.Location = new System.Drawing.Point(106, 242);
+            this.comB_ChucDanh.Location = new System.Drawing.Point(106, 244);
             this.comB_ChucDanh.Name = "comB_ChucDanh";
             this.comB_ChucDanh.Size = new System.Drawing.Size(234, 29);
-            this.comB_ChucDanh.TabIndex = 34;
+            this.comB_ChucDanh.TabIndex = 8;
             // 
             // label14
             // 
@@ -188,20 +188,20 @@
             this.comB_ThuViecChinhThuc.Items.AddRange(new object[] {
             "Chính thức",
             "Thử việc"});
-            this.comB_ThuViecChinhThuc.Location = new System.Drawing.Point(449, 71);
+            this.comB_ThuViecChinhThuc.Location = new System.Drawing.Point(449, 73);
             this.comB_ThuViecChinhThuc.Name = "comB_ThuViecChinhThuc";
             this.comB_ThuViecChinhThuc.Size = new System.Drawing.Size(236, 29);
-            this.comB_ThuViecChinhThuc.TabIndex = 22;
+            this.comB_ThuViecChinhThuc.TabIndex = 3;
             // 
             // comB_LoaiHD
             // 
             this.comB_LoaiHD.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_LoaiHD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_LoaiHD.FormattingEnabled = true;
-            this.comB_LoaiHD.Location = new System.Drawing.Point(449, 14);
+            this.comB_LoaiHD.Location = new System.Drawing.Point(449, 16);
             this.comB_LoaiHD.Name = "comB_LoaiHD";
             this.comB_LoaiHD.Size = new System.Drawing.Size(236, 29);
-            this.comB_LoaiHD.TabIndex = 21;
+            this.comB_LoaiHD.TabIndex = 1;
             this.comB_LoaiHD.DropDownClosed += new System.EventHandler(this.comB_LoaiHD_DropDownClosed);
             // 
             // txt_MaHD
@@ -210,7 +210,7 @@
             this.txt_MaHD.Location = new System.Drawing.Point(106, 14);
             this.txt_MaHD.Name = "txt_MaHD";
             this.txt_MaHD.Size = new System.Drawing.Size(234, 28);
-            this.txt_MaHD.TabIndex = 16;
+            this.txt_MaHD.TabIndex = 0;
             this.txt_MaHD.TextChanged += new System.EventHandler(this.txt_MaHD_TextChanged);
             // 
             // label8
@@ -263,7 +263,7 @@
             this.dTP_NgayKy.Name = "dTP_NgayKy";
             this.dTP_NgayKy.ShowCheckBox = true;
             this.dTP_NgayKy.Size = new System.Drawing.Size(234, 28);
-            this.dTP_NgayKy.TabIndex = 18;
+            this.dTP_NgayKy.TabIndex = 2;
             // 
             // label2
             // 
@@ -282,7 +282,7 @@
             this.rTB_GhiChu.Location = new System.Drawing.Point(106, 402);
             this.rTB_GhiChu.Name = "rTB_GhiChu";
             this.rTB_GhiChu.Size = new System.Drawing.Size(579, 116);
-            this.rTB_GhiChu.TabIndex = 15;
+            this.rTB_GhiChu.TabIndex = 9;
             this.rTB_GhiChu.Text = "";
             // 
             // groupBox2
@@ -336,7 +336,7 @@
             this.txt_NgachBac.Location = new System.Drawing.Point(104, 6);
             this.txt_NgachBac.Name = "txt_NgachBac";
             this.txt_NgachBac.Size = new System.Drawing.Size(230, 28);
-            this.txt_NgachBac.TabIndex = 28;
+            this.txt_NgachBac.TabIndex = 0;
             // 
             // label5
             // 
@@ -354,7 +354,7 @@
             this.txt_HeSoLuong.Location = new System.Drawing.Point(441, 6);
             this.txt_HeSoLuong.Name = "txt_HeSoLuong";
             this.txt_HeSoLuong.Size = new System.Drawing.Size(232, 28);
-            this.txt_HeSoLuong.TabIndex = 29;
+            this.txt_HeSoLuong.TabIndex = 1;
             // 
             // txt_PhanTram
             // 
@@ -362,7 +362,7 @@
             this.txt_PhanTram.Location = new System.Drawing.Point(104, 46);
             this.txt_PhanTram.Name = "txt_PhanTram";
             this.txt_PhanTram.Size = new System.Drawing.Size(230, 28);
-            this.txt_PhanTram.TabIndex = 30;
+            this.txt_PhanTram.TabIndex = 2;
             // 
             // label9
             // 
@@ -379,10 +379,10 @@
             this.comB_ChucVu.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_ChucVu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_ChucVu.FormattingEnabled = true;
-            this.comB_ChucVu.Location = new System.Drawing.Point(449, 185);
+            this.comB_ChucVu.Location = new System.Drawing.Point(449, 187);
             this.comB_ChucVu.Name = "comB_ChucVu";
             this.comB_ChucVu.Size = new System.Drawing.Size(236, 29);
-            this.comB_ChucVu.TabIndex = 24;
+            this.comB_ChucVu.TabIndex = 7;
             // 
             // dtp_DenNgay
             // 
@@ -394,7 +394,7 @@
             this.dtp_DenNgay.Name = "dtp_DenNgay";
             this.dtp_DenNgay.ShowCheckBox = true;
             this.dtp_DenNgay.Size = new System.Drawing.Size(234, 28);
-            this.dtp_DenNgay.TabIndex = 20;
+            this.dtp_DenNgay.TabIndex = 5;
             // 
             // label12
             // 
@@ -416,7 +416,7 @@
             this.dtp_TuNgay.Name = "dtp_TuNgay";
             this.dtp_TuNgay.ShowCheckBox = true;
             this.dtp_TuNgay.Size = new System.Drawing.Size(234, 28);
-            this.dtp_TuNgay.TabIndex = 19;
+            this.dtp_TuNgay.TabIndex = 4;
             // 
             // label10
             // 
@@ -443,10 +443,10 @@
             this.comB_DonVi.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_DonVi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_DonVi.FormattingEnabled = true;
-            this.comB_DonVi.Location = new System.Drawing.Point(106, 185);
+            this.comB_DonVi.Location = new System.Drawing.Point(106, 187);
             this.comB_DonVi.Name = "comB_DonVi";
             this.comB_DonVi.Size = new System.Drawing.Size(234, 29);
-            this.comB_DonVi.TabIndex = 23;
+            this.comB_DonVi.TabIndex = 6;
             // 
             // label11
             // 
@@ -468,7 +468,7 @@
             this.btn_Them.Location = new System.Drawing.Point(346, 556);
             this.btn_Them.Name = "btn_Them";
             this.btn_Them.Size = new System.Drawing.Size(56, 56);
-            this.btn_Them.TabIndex = 31;
+            this.btn_Them.TabIndex = 11;
             this.btn_Them.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Them.UseVisualStyleBackColor = true;
             this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
@@ -490,7 +490,7 @@
             this.btn_NhapFile.Location = new System.Drawing.Point(195, 556);
             this.btn_NhapFile.Name = "btn_NhapFile";
             this.btn_NhapFile.Size = new System.Drawing.Size(56, 56);
-            this.btn_NhapFile.TabIndex = 36;
+            this.btn_NhapFile.TabIndex = 10;
             this.btn_NhapFile.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_NhapFile.UseVisualStyleBackColor = true;
             // 
@@ -503,7 +503,7 @@
             this.btn_DungHD.Location = new System.Drawing.Point(539, 556);
             this.btn_DungHD.Name = "btn_DungHD";
             this.btn_DungHD.Size = new System.Drawing.Size(56, 56);
-            this.btn_DungHD.TabIndex = 37;
+            this.btn_DungHD.TabIndex = 12;
             this.btn_DungHD.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_DungHD.UseVisualStyleBackColor = true;
             this.btn_DungHD.Click += new System.EventHandler(this.btn_DungHD_Click);

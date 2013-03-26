@@ -91,7 +91,7 @@
             this.tableLP_ThayDoiCV.RowCount = 1;
             this.tableLP_ThayDoiCV.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLP_ThayDoiCV.Size = new System.Drawing.Size(1194, 194);
-            this.tableLP_ThayDoiCV.TabIndex = 8;
+            this.tableLP_ThayDoiCV.TabIndex = 4;
             // 
             // tableLP_Nut
             // 
@@ -194,7 +194,7 @@
             this.cb_ThayDoiChucVu.Location = new System.Drawing.Point(3, 561);
             this.cb_ThayDoiChucVu.Name = "cb_ThayDoiChucVu";
             this.cb_ThayDoiChucVu.Size = new System.Drawing.Size(149, 25);
-            this.cb_ThayDoiChucVu.TabIndex = 2;
+            this.cb_ThayDoiChucVu.TabIndex = 3;
             this.cb_ThayDoiChucVu.Text = "Thay đổi chức vụ";
             this.cb_ThayDoiChucVu.UseVisualStyleBackColor = true;
             this.cb_ThayDoiChucVu.CheckedChanged += new System.EventHandler(this.cb_ThayDoi_CheckedChanged);
@@ -206,7 +206,7 @@
             this.cb_ThayDoiCapBac.Location = new System.Drawing.Point(3, 811);
             this.cb_ThayDoiCapBac.Name = "cb_ThayDoiCapBac";
             this.cb_ThayDoiCapBac.Size = new System.Drawing.Size(147, 25);
-            this.cb_ThayDoiCapBac.TabIndex = 3;
+            this.cb_ThayDoiCapBac.TabIndex = 5;
             this.cb_ThayDoiCapBac.Text = "Thay đổi cấp bậc";
             this.cb_ThayDoiCapBac.UseVisualStyleBackColor = true;
             this.cb_ThayDoiCapBac.CheckedChanged += new System.EventHandler(this.cb_ThayDoi_CheckedChanged);
@@ -228,7 +228,7 @@
             this.tableLP_ThayDoiTen.RowCount = 1;
             this.tableLP_ThayDoiTen.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLP_ThayDoiTen.Size = new System.Drawing.Size(1194, 194);
-            this.tableLP_ThayDoiTen.TabIndex = 4;
+            this.tableLP_ThayDoiTen.TabIndex = 2;
             // 
             // DoiThongTinDV
             // 

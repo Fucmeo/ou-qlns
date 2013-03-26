@@ -426,94 +426,111 @@ namespace QLNS.UCs.DanhMucThongTin
         {
             #region MyRegion
 
-            if (lbl_ThemDaoTao.Text == "Thêm")
+            if (Program.selected_ma_nv != "")
             {
-                bAddDaoTaoFlag = true;
-                ControlDaoTao(true);
-                ClearDaoTaoData();
-            }
-            else        // LƯU
-            {
-                if (VerifyDaoTaoData())
+                if (lbl_ThemDaoTao.Text == "Thêm")
                 {
-                    if (bAddDaoTaoFlag)   // Thêm mới
-                    {
-                        if ((MessageBox.Show("Thêm thông tin đào tạo của nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
-                        {
-                            try
-                            {
-                                GetDaoTaoInputData();
-                                oCNVC_DaoTaoBoiDuong.Add();
-
-                                // load lai dtgv_CMND
-                                GetDaoTaoBoiDuongInfo(Program.selected_ma_nv);
-                                dtgv_DaoTao.DataSource = dtDaoTao;
-                                Setup_dtgv_DaoTao();
-
-                                MessageBox.Show("Thêm thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                            catch (Exception)
-                            {
-                                MessageBox.Show("Thông tin không phù hợp, xin vui lòng xem lại thông tin đào tạo.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            }
-                        }
-                    }
-                    else        // Sửa
-                    {
-                        if ((MessageBox.Show("Sửa thông tin đào tạo của nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
-                        {
-                            try
-                            {
-                                GetDaoTaoInputData();
-                                oCNVC_DaoTaoBoiDuong.Update();
-
-                                // load lai dtgv_CMND
-                                GetDaoTaoBoiDuongInfo(Program.selected_ma_nv);
-                                dtgv_DaoTao.DataSource = dtDaoTao;
-                                Setup_dtgv_DaoTao();
-
-                                MessageBox.Show("Sửa thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                            catch (Exception)
-                            {
-                                MessageBox.Show("Thông tin không phù hợp, xin vui lòng xem lại thông tin đào tạo.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            }
-                        }
-                    }
-
-                    ControlDaoTao(false);
+                    bAddDaoTaoFlag = true;
+                    ControlDaoTao(true);
                     ClearDaoTaoData();
                 }
-                else
+                else        // LƯU
                 {
-                    MessageBox.Show("Thông tin đào tạo không phù hợp, xin vui lòng kiểm tra lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    if (VerifyDaoTaoData())
+                    {
+                        if (bAddDaoTaoFlag)   // Thêm mới
+                        {
+                            if ((MessageBox.Show("Thêm thông tin đào tạo của nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
+                            {
+                                try
+                                {
+                                    GetDaoTaoInputData();
+                                    oCNVC_DaoTaoBoiDuong.Add();
+
+                                    // load lai dtgv_CMND
+                                    GetDaoTaoBoiDuongInfo(Program.selected_ma_nv);
+                                    dtgv_DaoTao.DataSource = dtDaoTao;
+                                    Setup_dtgv_DaoTao();
+
+                                    MessageBox.Show("Thêm thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                catch (Exception)
+                                {
+                                    MessageBox.Show("Thông tin không phù hợp, xin vui lòng xem lại thông tin đào tạo.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }
+                            }
+                        }
+                        else        // Sửa
+                        {
+                            if ((MessageBox.Show("Sửa thông tin đào tạo của nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
+                            {
+                                try
+                                {
+                                    GetDaoTaoInputData();
+                                    oCNVC_DaoTaoBoiDuong.Update();
+
+                                    // load lai dtgv_CMND
+                                    GetDaoTaoBoiDuongInfo(Program.selected_ma_nv);
+                                    dtgv_DaoTao.DataSource = dtDaoTao;
+                                    Setup_dtgv_DaoTao();
+
+                                    MessageBox.Show("Sửa thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                catch (Exception)
+                                {
+                                    MessageBox.Show("Thông tin không phù hợp, xin vui lòng xem lại thông tin đào tạo.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }
+                            }
+                        }
+
+                        ControlDaoTao(false);
+                        ClearDaoTaoData();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thông tin đào tạo không phù hợp, xin vui lòng kiểm tra lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
             }
+            else
+            {
+                MessageBox.Show("Chưa có thông tin về nhân viên, xin vui lòng thêm thông tin nhân viên trước hoặc chọn một nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            
             #endregion
         }
 
         private void lbl_SuaDaoTao_Click(object sender, EventArgs e)
         {
-            if (lbl_SuaDaoTao.Text == "Sửa")
+            if (Program.selected_ma_nv != "")
             {
-                if (dtgv_DaoTao.Rows.Count > 0 && dtgv_DaoTao.SelectedRows != null)
+                if (lbl_SuaDaoTao.Text == "Sửa")
                 {
-                    txt_TenTruong_DaoTao.Focus();
+                    if (dtgv_DaoTao.Rows.Count > 0 && dtgv_DaoTao.SelectedRows != null)
+                    {
+                        txt_TenTruong_DaoTao.Focus();
+                        bAddDaoTaoFlag = false;
+                        ControlDaoTao(true);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Chưa có thông tin về trình độ phổ thông của nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else        // HUỶ
+                {
                     bAddDaoTaoFlag = false;
-                    ControlDaoTao(true);
-                }
-                else
-                {
-                    MessageBox.Show("Chưa có thông tin về trình độ phổ thông của nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-            else        // HUỶ
-            {
-                bAddDaoTaoFlag = false;
-                ControlDaoTao(false);
-                ClearDaoTaoData();
+                    ControlDaoTao(false);
+                    ClearDaoTaoData();
 
+                }
             }
+            else
+            {
+                MessageBox.Show("Chưa có thông tin về nhân viên, xin vui lòng thêm thông tin nhân viên trước hoặc chọn một nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
         }
 
         private void lbl_XoaDaoTao_Click(object sender, EventArgs e)
@@ -652,94 +669,110 @@ namespace QLNS.UCs.DanhMucThongTin
         {
             #region MyRegion
 
-            if (lbl_ThemBoiDuong.Text == "Thêm")
+            if (Program.selected_ma_nv != "")
             {
-                bAddBoiDuongFlag = true;
-                ControlBoiDuong(true);
-                ClearBoiDuongData();
-            }
-            else        // LƯU
-            {
-                if (VerifyBoiDuongData())
+                if (lbl_ThemBoiDuong.Text == "Thêm")
                 {
-                    if (bAddBoiDuongFlag)   // Thêm mới
-                    {
-                        if ((MessageBox.Show("Thêm thông tin bồi dưỡng của nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
-                        {
-                            try
-                            {
-                                GetBoiDuongInputData();
-                                oCNVC_DaoTaoBoiDuong.Add();
-
-                                // load lai dtgv_CMND
-                                GetDaoTaoBoiDuongInfo(Program.selected_ma_nv);
-                                dtgv_BoiDuong.DataSource = dtBoiDuong;
-                                Setup_dtgv_BoiDuong();
-
-                                MessageBox.Show("Thêm thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                            catch (Exception)
-                            {
-                                MessageBox.Show("Thông tin không phù hợp, xin vui lòng xem lại thông tin bồi dưỡng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            }
-                        }
-                    }
-                    else        // Sửa
-                    {
-                        if ((MessageBox.Show("Sửa thông tin bồi dưỡng của nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
-                        {
-                            try
-                            {
-                                GetBoiDuongInputData();
-                                oCNVC_DaoTaoBoiDuong.Update();
-
-                                // load lai dtgv_CMND
-                                GetDaoTaoBoiDuongInfo(Program.selected_ma_nv);
-                                dtgv_BoiDuong.DataSource = dtBoiDuong;
-                                Setup_dtgv_BoiDuong();
-
-                                MessageBox.Show("Sửa thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                            catch (Exception)
-                            {
-                                MessageBox.Show("Thông tin không phù hợp, xin vui lòng xem lại thông tin bồi dưỡng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            }
-                        }
-                    }
-
-                    ControlBoiDuong(false);
+                    bAddBoiDuongFlag = true;
+                    ControlBoiDuong(true);
                     ClearBoiDuongData();
                 }
-                else
+                else        // LƯU
                 {
-                    MessageBox.Show("Thông tin bồi dưỡng không phù hợp, xin vui lòng kiểm tra lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                    if (VerifyBoiDuongData())
+                    {
+                        if (bAddBoiDuongFlag)   // Thêm mới
+                        {
+                            if ((MessageBox.Show("Thêm thông tin bồi dưỡng của nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
+                            {
+                                try
+                                {
+                                    GetBoiDuongInputData();
+                                    oCNVC_DaoTaoBoiDuong.Add();
+
+                                    // load lai dtgv_CMND
+                                    GetDaoTaoBoiDuongInfo(Program.selected_ma_nv);
+                                    dtgv_BoiDuong.DataSource = dtBoiDuong;
+                                    Setup_dtgv_BoiDuong();
+
+                                    MessageBox.Show("Thêm thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                catch (Exception)
+                                {
+                                    MessageBox.Show("Thông tin không phù hợp, xin vui lòng xem lại thông tin bồi dưỡng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }
+                            }
+                        }
+                        else        // Sửa
+                        {
+                            if ((MessageBox.Show("Sửa thông tin bồi dưỡng của nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
+                            {
+                                try
+                                {
+                                    GetBoiDuongInputData();
+                                    oCNVC_DaoTaoBoiDuong.Update();
+
+                                    // load lai dtgv_CMND
+                                    GetDaoTaoBoiDuongInfo(Program.selected_ma_nv);
+                                    dtgv_BoiDuong.DataSource = dtBoiDuong;
+                                    Setup_dtgv_BoiDuong();
+
+                                    MessageBox.Show("Sửa thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                catch (Exception)
+                                {
+                                    MessageBox.Show("Thông tin không phù hợp, xin vui lòng xem lại thông tin bồi dưỡng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }
+                            }
+                        }
+
+                        ControlBoiDuong(false);
+                        ClearBoiDuongData();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thông tin bồi dưỡng không phù hợp, xin vui lòng kiểm tra lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                } 
             }
+            else
+            {
+                MessageBox.Show("Chưa có thông tin về nhân viên, xin vui lòng thêm thông tin nhân viên trước hoặc chọn một nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
             #endregion
         }
 
         private void lbl_SuaBoiDuong_Click(object sender, EventArgs e)
         {
-            if (lbl_SuaBoiDuong.Text == "Sửa")
+            if (Program.selected_ma_nv != "")
             {
-                if (dtgv_BoiDuong.Rows.Count > 0 && dtgv_BoiDuong.SelectedRows != null)
+                if (lbl_SuaBoiDuong.Text == "Sửa")
                 {
-                    txt_TenTruong_BoiDuong.Focus();
+                    if (dtgv_BoiDuong.Rows.Count > 0 && dtgv_BoiDuong.SelectedRows != null)
+                    {
+                        txt_TenTruong_BoiDuong.Focus();
+                        bAddBoiDuongFlag = false;
+                        ControlBoiDuong(true);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Chưa có thông tin về trình độ phổ thông của nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else        // HUỶ
+                {
                     bAddBoiDuongFlag = false;
-                    ControlBoiDuong(true);
-                }
-                else
-                {
-                    MessageBox.Show("Chưa có thông tin về trình độ phổ thông của nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-            else        // HUỶ
-            {
-                bAddBoiDuongFlag = false;
-                ControlBoiDuong(false);
-                ClearBoiDuongData();
+                    ControlBoiDuong(false);
+                    ClearBoiDuongData();
 
+                }
             }
+            else
+            {
+                MessageBox.Show("Chưa có thông tin về nhân viên, xin vui lòng thêm thông tin nhân viên trước hoặc chọn một nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
         }
 
         private void lbl_XoaBoiDuong_Click(object sender, EventArgs e)

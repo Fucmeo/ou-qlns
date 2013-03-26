@@ -33,6 +33,7 @@
             this.tableLP_QDChung = new System.Windows.Forms.TableLayoutPanel();
             this.tableLP_Button2 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_Nhap = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.thongTinCNVC1 = new HDQD.UCs.ThongTinCNVC();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLP_PhuCap = new System.Windows.Forms.TableLayoutPanel();
@@ -55,7 +56,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dtgv_DSCNVC = new System.Windows.Forms.DataGridView();
             this.thongTinQuyetDinh1 = new HDQD.UCs.ThongTinQuyetDinh();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tableLP_QDChung.SuspendLayout();
             this.tableLP_Button2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -115,10 +115,20 @@
             this.btn_Nhap.Location = new System.Drawing.Point(444, 33);
             this.btn_Nhap.Name = "btn_Nhap";
             this.btn_Nhap.Size = new System.Drawing.Size(56, 56);
-            this.btn_Nhap.TabIndex = 36;
+            this.btn_Nhap.TabIndex = 0;
             this.btn_Nhap.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Nhap.UseVisualStyleBackColor = true;
             this.btn_Nhap.Click += new System.EventHandler(this.btn_Nhap_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Add.png");
+            this.imageList1.Images.SetKeyName(1, "Cancel.png");
+            this.imageList1.Images.SetKeyName(2, "Edit Data.png");
+            this.imageList1.Images.SetKeyName(3, "Garbage.png");
+            this.imageList1.Images.SetKeyName(4, "Save.png");
             // 
             // thongTinCNVC1
             // 
@@ -183,7 +193,7 @@
             this.rTB_GhiChu.Location = new System.Drawing.Point(143, 177);
             this.rTB_GhiChu.Name = "rTB_GhiChu";
             this.rTB_GhiChu.Size = new System.Drawing.Size(792, 54);
-            this.rTB_GhiChu.TabIndex = 46;
+            this.rTB_GhiChu.TabIndex = 6;
             this.rTB_GhiChu.Text = "";
             // 
             // label6
@@ -214,7 +224,7 @@
             this.cb_CoPhuCap.Location = new System.Drawing.Point(3, 16);
             this.cb_CoPhuCap.Name = "cb_CoPhuCap";
             this.cb_CoPhuCap.Size = new System.Drawing.Size(155, 25);
-            this.cb_CoPhuCap.TabIndex = 33;
+            this.cb_CoPhuCap.TabIndex = 0;
             this.cb_CoPhuCap.Text = "Không có phụ cấp";
             this.cb_CoPhuCap.UseVisualStyleBackColor = true;
             this.cb_CoPhuCap.CheckedChanged += new System.EventHandler(this.cb_CoPhuCap_CheckedChanged);
@@ -224,10 +234,10 @@
             this.comB_LoaiPhuCap.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_LoaiPhuCap.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_LoaiPhuCap.FormattingEnabled = true;
-            this.comB_LoaiPhuCap.Location = new System.Drawing.Point(611, 14);
+            this.comB_LoaiPhuCap.Location = new System.Drawing.Point(611, 16);
             this.comB_LoaiPhuCap.Name = "comB_LoaiPhuCap";
             this.comB_LoaiPhuCap.Size = new System.Drawing.Size(289, 29);
-            this.comB_LoaiPhuCap.TabIndex = 34;
+            this.comB_LoaiPhuCap.TabIndex = 1;
             // 
             // txt_PhuCap
             // 
@@ -235,7 +245,7 @@
             this.txt_PhuCap.Location = new System.Drawing.Point(143, 73);
             this.txt_PhuCap.Name = "txt_PhuCap";
             this.txt_PhuCap.Size = new System.Drawing.Size(287, 28);
-            this.txt_PhuCap.TabIndex = 45;
+            this.txt_PhuCap.TabIndex = 2;
             // 
             // comB_HeSoTienMat
             // 
@@ -245,10 +255,10 @@
             this.comB_HeSoTienMat.Items.AddRange(new object[] {
             "Hệ số",
             "Tiền mặt"});
-            this.comB_HeSoTienMat.Location = new System.Drawing.Point(611, 72);
+            this.comB_HeSoTienMat.Location = new System.Drawing.Point(611, 74);
             this.comB_HeSoTienMat.Name = "comB_HeSoTienMat";
             this.comB_HeSoTienMat.Size = new System.Drawing.Size(289, 29);
-            this.comB_HeSoTienMat.TabIndex = 41;
+            this.comB_HeSoTienMat.TabIndex = 3;
             // 
             // label7
             // 
@@ -280,7 +290,7 @@
             this.dTP_NgayHetHan.Name = "dTP_NgayHetHan";
             this.dTP_NgayHetHan.ShowCheckBox = true;
             this.dTP_NgayHetHan.Size = new System.Drawing.Size(289, 28);
-            this.dTP_NgayHetHan.TabIndex = 43;
+            this.dTP_NgayHetHan.TabIndex = 5;
             // 
             // dTP_NgayBatDau
             // 
@@ -291,7 +301,7 @@
             this.dTP_NgayBatDau.Location = new System.Drawing.Point(143, 131);
             this.dTP_NgayBatDau.Name = "dTP_NgayBatDau";
             this.dTP_NgayBatDau.Size = new System.Drawing.Size(287, 28);
-            this.dTP_NgayBatDau.TabIndex = 42;
+            this.dTP_NgayBatDau.TabIndex = 4;
             // 
             // label8
             // 
@@ -337,7 +347,7 @@
             this.btn_Them.Location = new System.Drawing.Point(680, 31);
             this.btn_Them.Name = "btn_Them";
             this.btn_Them.Size = new System.Drawing.Size(56, 56);
-            this.btn_Them.TabIndex = 34;
+            this.btn_Them.TabIndex = 1;
             this.btn_Them.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Them.UseVisualStyleBackColor = true;
             this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
@@ -350,7 +360,7 @@
             this.btn_Huy.Location = new System.Drawing.Point(208, 31);
             this.btn_Huy.Name = "btn_Huy";
             this.btn_Huy.Size = new System.Drawing.Size(56, 56);
-            this.btn_Huy.TabIndex = 33;
+            this.btn_Huy.TabIndex = 0;
             this.btn_Huy.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Huy.UseVisualStyleBackColor = true;
             // 
@@ -388,17 +398,7 @@
             this.thongTinQuyetDinh1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.thongTinQuyetDinh1.Name = "thongTinQuyetDinh1";
             this.thongTinQuyetDinh1.Size = new System.Drawing.Size(944, 243);
-            this.thongTinQuyetDinh1.TabIndex = 4;
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "Add.png");
-            this.imageList1.Images.SetKeyName(1, "Cancel.png");
-            this.imageList1.Images.SetKeyName(2, "Edit Data.png");
-            this.imageList1.Images.SetKeyName(3, "Garbage.png");
-            this.imageList1.Images.SetKeyName(4, "Save.png");
+            this.thongTinQuyetDinh1.TabIndex = 1;
             // 
             // QuyetDinhChung
             // 

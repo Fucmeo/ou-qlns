@@ -215,7 +215,7 @@
             this.lbl_Them.Location = new System.Drawing.Point(3, 18);
             this.lbl_Them.Name = "lbl_Them";
             this.lbl_Them.Size = new System.Drawing.Size(53, 23);
-            this.lbl_Them.TabIndex = 8;
+            this.lbl_Them.TabIndex = 0;
             this.lbl_Them.Text = "Thêm";
             this.lbl_Them.Click += new System.EventHandler(this.lbl_Them_Click);
             // 
@@ -229,7 +229,7 @@
             this.lbl_Xoa.Location = new System.Drawing.Point(325, 18);
             this.lbl_Xoa.Name = "lbl_Xoa";
             this.lbl_Xoa.Size = new System.Drawing.Size(39, 23);
-            this.lbl_Xoa.TabIndex = 9;
+            this.lbl_Xoa.TabIndex = 2;
             this.lbl_Xoa.Text = "Xoá";
             this.lbl_Xoa.Click += new System.EventHandler(this.lbl_Xoa_Click);
             // 
@@ -243,7 +243,7 @@
             this.lbl_Sua.Location = new System.Drawing.Point(164, 18);
             this.lbl_Sua.Name = "lbl_Sua";
             this.lbl_Sua.Size = new System.Drawing.Size(39, 23);
-            this.lbl_Sua.TabIndex = 7;
+            this.lbl_Sua.TabIndex = 1;
             this.lbl_Sua.Text = "Sửa";
             this.lbl_Sua.Click += new System.EventHandler(this.lbl_Sua_Click);
             // 
@@ -253,10 +253,10 @@
             this.comB_QuocGia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_QuocGia.Enabled = false;
             this.comB_QuocGia.FormattingEnabled = true;
-            this.comB_QuocGia.Location = new System.Drawing.Point(636, 145);
+            this.comB_QuocGia.Location = new System.Drawing.Point(636, 147);
             this.comB_QuocGia.Name = "comB_QuocGia";
             this.comB_QuocGia.Size = new System.Drawing.Size(263, 29);
-            this.comB_QuocGia.TabIndex = 44;
+            this.comB_QuocGia.TabIndex = 5;
             this.comB_QuocGia.SelectionChangeCommitted += new System.EventHandler(this.comB_QuocGia_SelectionChangeCommitted);
             // 
             // comB_Tinh
@@ -265,10 +265,10 @@
             this.comB_Tinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_Tinh.Enabled = false;
             this.comB_Tinh.FormattingEnabled = true;
-            this.comB_Tinh.Location = new System.Drawing.Point(149, 145);
+            this.comB_Tinh.Location = new System.Drawing.Point(149, 147);
             this.comB_Tinh.Name = "comB_Tinh";
             this.comB_Tinh.Size = new System.Drawing.Size(263, 29);
-            this.comB_Tinh.TabIndex = 43;
+            this.comB_Tinh.TabIndex = 4;
             this.comB_Tinh.SelectionChangeCommitted += new System.EventHandler(this.comB_Tinh_SelectionChangeCommitted);
             // 
             // txt_Quan
@@ -279,7 +279,7 @@
             this.txt_Quan.MaxLength = 100;
             this.txt_Quan.Name = "txt_Quan";
             this.txt_Quan.Size = new System.Drawing.Size(269, 28);
-            this.txt_Quan.TabIndex = 28;
+            this.txt_Quan.TabIndex = 3;
             // 
             // txt_Phuong
             // 
@@ -289,7 +289,7 @@
             this.txt_Phuong.MaxLength = 100;
             this.txt_Phuong.Name = "txt_Phuong";
             this.txt_Phuong.Size = new System.Drawing.Size(269, 28);
-            this.txt_Phuong.TabIndex = 27;
+            this.txt_Phuong.TabIndex = 2;
             // 
             // txt_Duong
             // 
@@ -299,7 +299,7 @@
             this.txt_Duong.MaxLength = 100;
             this.txt_Duong.Name = "txt_Duong";
             this.txt_Duong.Size = new System.Drawing.Size(269, 28);
-            this.txt_Duong.TabIndex = 26;
+            this.txt_Duong.TabIndex = 1;
             // 
             // label1
             // 
@@ -369,7 +369,7 @@
             this.txt_SoNha.MaxLength = 100;
             this.txt_SoNha.Name = "txt_SoNha";
             this.txt_SoNha.Size = new System.Drawing.Size(269, 28);
-            this.txt_SoNha.TabIndex = 25;
+            this.txt_SoNha.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -440,10 +440,10 @@
             "Anh chị em ruột",
             "Anh chị em ruột bên vợ/chồng",
             "Khác"});
-            this.comB_MoiQH.Location = new System.Drawing.Point(149, 13);
+            this.comB_MoiQH.Location = new System.Drawing.Point(149, 15);
             this.comB_MoiQH.Name = "comB_MoiQH";
             this.comB_MoiQH.Size = new System.Drawing.Size(263, 29);
-            this.comB_MoiQH.TabIndex = 42;
+            this.comB_MoiQH.TabIndex = 0;
             // 
             // rTB_ThanhVienToChuc
             // 
@@ -453,7 +453,7 @@
             this.rTB_ThanhVienToChuc.MaxLength = 100;
             this.rTB_ThanhVienToChuc.Name = "rTB_ThanhVienToChuc";
             this.rTB_ThanhVienToChuc.Size = new System.Drawing.Size(335, 116);
-            this.rTB_ThanhVienToChuc.TabIndex = 40;
+            this.rTB_ThanhVienToChuc.TabIndex = 10;
             this.rTB_ThanhVienToChuc.Text = "";
             // 
             // txt_Ho
@@ -464,7 +464,7 @@
             this.txt_Ho.MaxLength = 50;
             this.txt_Ho.Name = "txt_Ho";
             this.txt_Ho.Size = new System.Drawing.Size(269, 28);
-            this.txt_Ho.TabIndex = 19;
+            this.txt_Ho.TabIndex = 2;
             // 
             // label4
             // 
@@ -585,7 +585,7 @@
             this.cb_ThanNhanNuocNgoai.Location = new System.Drawing.Point(490, 15);
             this.cb_ThanNhanNuocNgoai.Name = "cb_ThanNhanNuocNgoai";
             this.cb_ThanNhanNuocNgoai.Size = new System.Drawing.Size(187, 25);
-            this.cb_ThanNhanNuocNgoai.TabIndex = 17;
+            this.cb_ThanNhanNuocNgoai.TabIndex = 1;
             this.cb_ThanNhanNuocNgoai.Text = "Thân nhân nước ngoài";
             this.cb_ThanNhanNuocNgoai.UseVisualStyleBackColor = true;
             // 
@@ -597,7 +597,7 @@
             this.txt_NamSinh.MaxLength = 4;
             this.txt_NamSinh.Name = "txt_NamSinh";
             this.txt_NamSinh.Size = new System.Drawing.Size(269, 28);
-            this.txt_NamSinh.TabIndex = 20;
+            this.txt_NamSinh.TabIndex = 4;
             // 
             // txt_Ten
             // 
@@ -607,7 +607,7 @@
             this.txt_Ten.MaxLength = 10;
             this.txt_Ten.Name = "txt_Ten";
             this.txt_Ten.Size = new System.Drawing.Size(269, 28);
-            this.txt_Ten.TabIndex = 18;
+            this.txt_Ten.TabIndex = 3;
             // 
             // txt_NgheNghiep
             // 
@@ -617,7 +617,7 @@
             this.txt_NgheNghiep.MaxLength = 100;
             this.txt_NgheNghiep.Name = "txt_NgheNghiep";
             this.txt_NgheNghiep.Size = new System.Drawing.Size(269, 28);
-            this.txt_NgheNghiep.TabIndex = 21;
+            this.txt_NgheNghiep.TabIndex = 6;
             // 
             // txt_QueQuan
             // 
@@ -627,7 +627,7 @@
             this.txt_QueQuan.MaxLength = 50;
             this.txt_QueQuan.Name = "txt_QueQuan";
             this.txt_QueQuan.Size = new System.Drawing.Size(269, 28);
-            this.txt_QueQuan.TabIndex = 22;
+            this.txt_QueQuan.TabIndex = 5;
             // 
             // txt_ChucDanh
             // 
@@ -637,7 +637,7 @@
             this.txt_ChucDanh.MaxLength = 100;
             this.txt_ChucDanh.Name = "txt_ChucDanh";
             this.txt_ChucDanh.Size = new System.Drawing.Size(269, 28);
-            this.txt_ChucDanh.TabIndex = 23;
+            this.txt_ChucDanh.TabIndex = 7;
             // 
             // txt_DVCongTac
             // 
@@ -647,7 +647,7 @@
             this.txt_DVCongTac.MaxLength = 100;
             this.txt_DVCongTac.Name = "txt_DVCongTac";
             this.txt_DVCongTac.Size = new System.Drawing.Size(269, 28);
-            this.txt_DVCongTac.TabIndex = 24;
+            this.txt_DVCongTac.TabIndex = 8;
             // 
             // txt_HocTap
             // 
@@ -657,7 +657,7 @@
             this.txt_HocTap.MaxLength = 50;
             this.txt_HocTap.Name = "txt_HocTap";
             this.txt_HocTap.Size = new System.Drawing.Size(269, 28);
-            this.txt_HocTap.TabIndex = 25;
+            this.txt_HocTap.TabIndex = 9;
             // 
             // rTB_GhiChu
             // 
@@ -667,7 +667,7 @@
             this.rTB_GhiChu.MaxLength = 200;
             this.rTB_GhiChu.Name = "rTB_GhiChu";
             this.rTB_GhiChu.Size = new System.Drawing.Size(337, 116);
-            this.rTB_GhiChu.TabIndex = 41;
+            this.rTB_GhiChu.TabIndex = 11;
             this.rTB_GhiChu.Text = "";
             // 
             // QLNS_ThongTinGiaDinh

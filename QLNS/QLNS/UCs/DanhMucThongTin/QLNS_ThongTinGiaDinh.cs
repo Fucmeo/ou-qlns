@@ -296,102 +296,118 @@ namespace QLNS.UCs.DanhMucThongTin
 
         private void lbl_Them_Click(object sender, EventArgs e)
         {
-            if (lbl_Them.Text == "Thêm")
+            if (Program.selected_ma_nv != "")
             {
-                bAddFlag = true;
-                ResetInterface(false);
-            }
-            else //chức năng Lưu
-            {
-                if (!string.IsNullOrWhiteSpace(txt_Ten.Text))
+
+                if (lbl_Them.Text == "Thêm")
                 {
-                    oQHeGiaDinh.MaNV = Program.selected_ma_nv;
-                    oQHeGiaDinh.MoiQuanHe = comB_MoiQH.Text;
-                    oQHeGiaDinh.ThanNhanNuocNgoai = cb_ThanNhanNuocNgoai.Checked;
-                    oQHeGiaDinh.Ho = txt_Ho.Text;
-                    oQHeGiaDinh.Ten = txt_Ten.Text;
-                    oQHeGiaDinh.NamSinh = txt_NamSinh.Text;
-                    oQHeGiaDinh.QueQuan = txt_QueQuan.Text;
-                    oQHeGiaDinh.NgheNghiep = txt_NgheNghiep.Text;
-                    oQHeGiaDinh.ChucDanh = txt_ChucDanh.Text;
-                    oQHeGiaDinh.DVCongTac = txt_DVCongTac.Text;
-                    oQHeGiaDinh.HocTap = txt_HocTap.Text;
-                    oQHeGiaDinh.ThanhVienToChucXH = rTB_ThanhVienToChuc.Text;
-                    oQHeGiaDinh.GhiChu = rTB_GhiChu.Text;
-                    oQHeGiaDinh.So_Nha = txt_SoNha.Text;
-                    oQHeGiaDinh.Duong = txt_Duong.Text;
-                    oQHeGiaDinh.Phuong_Xa = txt_Phuong.Text;
-                    oQHeGiaDinh.Quan_Huyen = txt_Quan.Text;
-                    if (comB_Tinh.Text != "")
-                        oQHeGiaDinh.Tinh_ThanhPho = Convert.ToInt32(comB_Tinh.SelectedValue);
-                    if (comB_QuocGia.Text != "")
-                        oQHeGiaDinh.Quoc_Gia = Convert.ToInt32(comB_QuocGia.SelectedValue);
-
-                    #region thao tac them
-
-                    if (bAddFlag)
-                    {
-                        if (MessageBox.Show("Bạn thực sự muốn thêm thông tin quan hệ gia đình này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                        {
-                            try
-                            {
-                                if (oQHeGiaDinh.Add())
-                                {
-                                    MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-
-                                RefreshDataSource();
-                                ResetInterface(true);
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show("Thao tác thêm thất bại.\n" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                        }
-                    }
-                    #endregion
-                    #region thao tac sua
-                    else
-                    {
-                        if (MessageBox.Show("Bạn thực sự muốn thông tin quan hệ gia đình này ?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                        {
-                            oQHeGiaDinh.ID = Convert.ToInt32(dtgv_QuanHeGiaDinh.CurrentRow.Cells["id"].Value.ToString());
-                            try
-                            {
-                                if (oQHeGiaDinh.Update())
-                                {
-                                    MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-
-                                RefreshDataSource();
-                                ResetInterface(true);
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show("Thao tác sửa thất bại.\n" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-
-                        }
-
-                    }
-                    #endregion
+                    bAddFlag = true;
+                    ResetInterface(false);
                 }
-                else
-                    MessageBox.Show("Vui lòng cung cấp đầy đủ thông tin.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        
+                else //chức năng Lưu
+                {
+                    if (!string.IsNullOrWhiteSpace(txt_Ten.Text))
+                    {
+                        oQHeGiaDinh.MaNV = Program.selected_ma_nv;
+                        oQHeGiaDinh.MoiQuanHe = comB_MoiQH.Text;
+                        oQHeGiaDinh.ThanNhanNuocNgoai = cb_ThanNhanNuocNgoai.Checked;
+                        oQHeGiaDinh.Ho = txt_Ho.Text;
+                        oQHeGiaDinh.Ten = txt_Ten.Text;
+                        oQHeGiaDinh.NamSinh = txt_NamSinh.Text;
+                        oQHeGiaDinh.QueQuan = txt_QueQuan.Text;
+                        oQHeGiaDinh.NgheNghiep = txt_NgheNghiep.Text;
+                        oQHeGiaDinh.ChucDanh = txt_ChucDanh.Text;
+                        oQHeGiaDinh.DVCongTac = txt_DVCongTac.Text;
+                        oQHeGiaDinh.HocTap = txt_HocTap.Text;
+                        oQHeGiaDinh.ThanhVienToChucXH = rTB_ThanhVienToChuc.Text;
+                        oQHeGiaDinh.GhiChu = rTB_GhiChu.Text;
+                        oQHeGiaDinh.So_Nha = txt_SoNha.Text;
+                        oQHeGiaDinh.Duong = txt_Duong.Text;
+                        oQHeGiaDinh.Phuong_Xa = txt_Phuong.Text;
+                        oQHeGiaDinh.Quan_Huyen = txt_Quan.Text;
+                        if (comB_Tinh.Text != "")
+                            oQHeGiaDinh.Tinh_ThanhPho = Convert.ToInt32(comB_Tinh.SelectedValue);
+                        if (comB_QuocGia.Text != "")
+                            oQHeGiaDinh.Quoc_Gia = Convert.ToInt32(comB_QuocGia.SelectedValue);
+
+                        #region thao tac them
+
+                        if (bAddFlag)
+                        {
+                            if (MessageBox.Show("Bạn thực sự muốn thêm thông tin quan hệ gia đình này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                            {
+                                try
+                                {
+                                    if (oQHeGiaDinh.Add())
+                                    {
+                                        MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    }
+
+                                    RefreshDataSource();
+                                    ResetInterface(true);
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show("Thao tác thêm thất bại.\n" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                            }
+                        }
+                        #endregion
+                        #region thao tac sua
+                        else
+                        {
+                            if (MessageBox.Show("Bạn thực sự muốn thông tin quan hệ gia đình này ?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                            {
+                                oQHeGiaDinh.ID = Convert.ToInt32(dtgv_QuanHeGiaDinh.CurrentRow.Cells["id"].Value.ToString());
+                                try
+                                {
+                                    if (oQHeGiaDinh.Update())
+                                    {
+                                        MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    }
+
+                                    RefreshDataSource();
+                                    ResetInterface(true);
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show("Thao tác sửa thất bại.\n" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+
+                            }
+
+                        }
+                        #endregion
+                    }
+                    else
+                        MessageBox.Show("Vui lòng cung cấp đầy đủ thông tin.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Chưa có thông tin về nhân viên, xin vui lòng thêm thông tin nhân viên trước hoặc chọn một nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         private void lbl_Sua_Click(object sender, EventArgs e)
         {
-            if (lbl_Sua.Text == "Sửa")
+            if (Program.selected_ma_nv != "")
             {
-                bAddFlag = false;
-                ResetInterface(false);
+
+                if (lbl_Sua.Text == "Sửa")
+                {
+                    bAddFlag = false;
+                    ResetInterface(false);
+                }
+                else if (lbl_Sua.Text == "Hủy")
+                {
+                    ResetInterface(true);
+                }
             }
-            else if (lbl_Sua.Text == "Hủy")
+            else
             {
-                ResetInterface(true);
+                MessageBox.Show("Chưa có thông tin về nhân viên, xin vui lòng thêm thông tin nhân viên trước hoặc chọn một nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

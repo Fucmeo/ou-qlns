@@ -163,27 +163,35 @@ namespace QLNS.UCs.DanhMucThongTin
 
         private void btn_Luu_Click(object sender, EventArgs e)
         {
-            oTTTuyenDung.MaNV = Program.selected_ma_nv;
-            oTTTuyenDung.NgheNghiepTruocDay = txt_NgheNghiep.Text;
-            oTTTuyenDung.CoQuanTuyenDung = txt_CoQuan.Text;
-            if (dTP_NgayTuyenDung.Checked == true)
-                oTTTuyenDung.NgayTuyenDung = dTP_NgayTuyenDung.Value;
-
-            try
+            if (Program.selected_ma_nv != "")
             {
-                if (MessageBox.Show("Bạn thực sự muốn lưu thông tin tuyển dụng cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+
+                oTTTuyenDung.MaNV = Program.selected_ma_nv;
+                oTTTuyenDung.NgheNghiepTruocDay = txt_NgheNghiep.Text;
+                oTTTuyenDung.CoQuanTuyenDung = txt_CoQuan.Text;
+                if (dTP_NgayTuyenDung.Checked == true)
+                    oTTTuyenDung.NgayTuyenDung = dTP_NgayTuyenDung.Value;
+
+                try
                 {
-                    if (oTTTuyenDung.Update())
+                    if (MessageBox.Show("Bạn thực sự muốn lưu thông tin tuyển dụng cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        MessageBox.Show("Lưu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (oTTTuyenDung.Update())
+                        {
+                            MessageBox.Show("Lưu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                            MessageBox.Show("Thao tác lưu thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    else
-                        MessageBox.Show("Thao tác lưu thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Thao tác lưu thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            catch (Exception )
+            else
             {
-                MessageBox.Show("Thao tác lưu thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Chưa có thông tin về nhân viên, xin vui lòng thêm thông tin nhân viên trước hoặc chọn một nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

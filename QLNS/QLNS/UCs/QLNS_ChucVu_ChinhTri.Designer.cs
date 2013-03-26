@@ -37,15 +37,15 @@
             this.tableLP_DSVanBang = new System.Windows.Forms.TableLayoutPanel();
             this.dtgv_DSChucVuDonVi = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.tableLP_ThaoTac = new System.Windows.Forms.TableLayoutPanel();
             this.btn_Huy = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.btn_Them = new System.Windows.Forms.Button();
             this.btn_Luu = new System.Windows.Forms.Button();
             this.btn_Xoa = new System.Windows.Forms.Button();
             this.btn_Sua = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.tableLP_ChucVu_ChinhTri.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLP_DSVanBang.SuspendLayout();
@@ -89,10 +89,10 @@
             "Đảng viên",
             "Dân quân tự vệ",
             "Công đoàn viên"});
-            this.comB_Loai.Location = new System.Drawing.Point(402, 51);
+            this.comB_Loai.Location = new System.Drawing.Point(402, 48);
             this.comB_Loai.Name = "comB_Loai";
             this.comB_Loai.Size = new System.Drawing.Size(195, 31);
-            this.comB_Loai.TabIndex = 8;
+            this.comB_Loai.TabIndex = 1;
             // 
             // txt_Ten
             // 
@@ -101,7 +101,7 @@
             this.txt_Ten.MaxLength = 30;
             this.txt_Ten.Name = "txt_Ten";
             this.txt_Ten.Size = new System.Drawing.Size(198, 30);
-            this.txt_Ten.TabIndex = 5;
+            this.txt_Ten.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -143,7 +143,7 @@
             this.dtgv_DSChucVuDonVi.RowTemplate.Height = 24;
             this.dtgv_DSChucVuDonVi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgv_DSChucVuDonVi.Size = new System.Drawing.Size(582, 160);
-            this.dtgv_DSChucVuDonVi.TabIndex = 1;
+            this.dtgv_DSChucVuDonVi.TabIndex = 0;
             this.dtgv_DSChucVuDonVi.SelectionChanged += new System.EventHandler(this.dtgv_DSChucVuDonVi_SelectionChanged);
             // 
             // groupBox2
@@ -159,36 +159,6 @@
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thao tác";
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "Add.png");
-            this.imageList1.Images.SetKeyName(1, "Cancel.png");
-            this.imageList1.Images.SetKeyName(2, "Edit Data.png");
-            this.imageList1.Images.SetKeyName(3, "Garbage.png");
-            this.imageList1.Images.SetKeyName(4, "Save.png");
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 52);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 23);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Tên chức vụ";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(329, 52);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 23);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Loại";
             // 
             // tableLP_ThaoTac
             // 
@@ -220,11 +190,21 @@
             this.btn_Huy.Location = new System.Drawing.Point(381, 38);
             this.btn_Huy.Name = "btn_Huy";
             this.btn_Huy.Size = new System.Drawing.Size(56, 56);
-            this.btn_Huy.TabIndex = 5;
+            this.btn_Huy.TabIndex = 3;
             this.btn_Huy.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Huy.UseVisualStyleBackColor = true;
             this.btn_Huy.Visible = false;
             this.btn_Huy.Click += new System.EventHandler(this.btn_Huy_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Add.png");
+            this.imageList1.Images.SetKeyName(1, "Cancel.png");
+            this.imageList1.Images.SetKeyName(2, "Edit Data.png");
+            this.imageList1.Images.SetKeyName(3, "Garbage.png");
+            this.imageList1.Images.SetKeyName(4, "Save.png");
             // 
             // btn_Them
             // 
@@ -249,7 +229,7 @@
             this.btn_Luu.Location = new System.Drawing.Point(264, 38);
             this.btn_Luu.Name = "btn_Luu";
             this.btn_Luu.Size = new System.Drawing.Size(56, 56);
-            this.btn_Luu.TabIndex = 4;
+            this.btn_Luu.TabIndex = 2;
             this.btn_Luu.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Luu.UseVisualStyleBackColor = true;
             this.btn_Luu.Visible = false;
@@ -264,7 +244,7 @@
             this.btn_Xoa.Location = new System.Drawing.Point(500, 38);
             this.btn_Xoa.Name = "btn_Xoa";
             this.btn_Xoa.Size = new System.Drawing.Size(56, 56);
-            this.btn_Xoa.TabIndex = 2;
+            this.btn_Xoa.TabIndex = 4;
             this.btn_Xoa.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Xoa.UseVisualStyleBackColor = true;
             this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
@@ -278,10 +258,30 @@
             this.btn_Sua.Location = new System.Drawing.Point(147, 38);
             this.btn_Sua.Name = "btn_Sua";
             this.btn_Sua.Size = new System.Drawing.Size(56, 56);
-            this.btn_Sua.TabIndex = 3;
+            this.btn_Sua.TabIndex = 1;
             this.btn_Sua.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Sua.UseVisualStyleBackColor = true;
             this.btn_Sua.Click += new System.EventHandler(this.btn_Sua_Click);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 52);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 23);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Tên chức vụ";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(329, 52);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 23);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Loại";
             // 
             // QLNS_ChucVu_ChinhTri
             // 

@@ -102,7 +102,7 @@
             this.rTB_MoTa.Location = new System.Drawing.Point(77, 75);
             this.rTB_MoTa.Name = "rTB_MoTa";
             this.rTB_MoTa.Size = new System.Drawing.Size(280, 45);
-            this.rTB_MoTa.TabIndex = 21;
+            this.rTB_MoTa.TabIndex = 6;
             this.rTB_MoTa.Text = "";
             // 
             // txt_TenQD
@@ -139,7 +139,7 @@
             this.txt_MaQD.Location = new System.Drawing.Point(77, 4);
             this.txt_MaQD.Name = "txt_MaQD";
             this.txt_MaQD.Size = new System.Drawing.Size(162, 28);
-            this.txt_MaQD.TabIndex = 0;
+            this.txt_MaQD.TabIndex = 1;
             // 
             // comB_Loai
             // 
@@ -150,7 +150,7 @@
             "Bổ nhiệm",
             "Kiêm nhiệm",
             "Điều động"});
-            this.comB_Loai.Location = new System.Drawing.Point(627, 5);
+            this.comB_Loai.Location = new System.Drawing.Point(627, 3);
             this.comB_Loai.Name = "comB_Loai";
             this.comB_Loai.Size = new System.Drawing.Size(164, 29);
             this.comB_Loai.TabIndex = 2;
@@ -248,7 +248,7 @@
             this.lb_ChonTapTin.Location = new System.Drawing.Point(363, 87);
             this.lb_ChonTapTin.Name = "lb_ChonTapTin";
             this.lb_ChonTapTin.Size = new System.Drawing.Size(96, 21);
-            this.lb_ChonTapTin.TabIndex = 20;
+            this.lb_ChonTapTin.TabIndex = 7;
             this.lb_ChonTapTin.Text = "Chọn tập tin";
             this.lb_ChonTapTin.Click += new System.EventHandler(this.lb_ChonTapTin_Click);
             // 

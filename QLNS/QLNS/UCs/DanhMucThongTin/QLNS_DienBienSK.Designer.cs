@@ -175,7 +175,7 @@
             this.btn_Sua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Sua.Name = "btn_Sua";
             this.btn_Sua.Size = new System.Drawing.Size(56, 56);
-            this.btn_Sua.TabIndex = 3;
+            this.btn_Sua.TabIndex = 1;
             this.btn_Sua.UseVisualStyleBackColor = true;
             this.btn_Sua.Click += new System.EventHandler(this.btn_Sua_Click);
             // 
@@ -190,7 +190,7 @@
             this.btn_Xoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Xoa.Name = "btn_Xoa";
             this.btn_Xoa.Size = new System.Drawing.Size(56, 56);
-            this.btn_Xoa.TabIndex = 2;
+            this.btn_Xoa.TabIndex = 4;
             this.btn_Xoa.UseVisualStyleBackColor = true;
             this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
             // 
@@ -205,7 +205,7 @@
             this.btn_Huy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Huy.Name = "btn_Huy";
             this.btn_Huy.Size = new System.Drawing.Size(56, 56);
-            this.btn_Huy.TabIndex = 5;
+            this.btn_Huy.TabIndex = 3;
             this.btn_Huy.UseVisualStyleBackColor = true;
             this.btn_Huy.Click += new System.EventHandler(this.btn_Huy_Click);
             // 
@@ -220,7 +220,7 @@
             this.btn_Luu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Luu.Name = "btn_Luu";
             this.btn_Luu.Size = new System.Drawing.Size(56, 56);
-            this.btn_Luu.TabIndex = 4;
+            this.btn_Luu.TabIndex = 2;
             this.btn_Luu.UseVisualStyleBackColor = true;
             this.btn_Luu.Click += new System.EventHandler(this.btn_Luu_Click);
             // 
@@ -262,7 +262,7 @@
             this.txt_PhanLoai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_PhanLoai.Name = "txt_PhanLoai";
             this.txt_PhanLoai.Size = new System.Drawing.Size(210, 26);
-            this.txt_PhanLoai.TabIndex = 29;
+            this.txt_PhanLoai.TabIndex = 0;
             // 
             // txt_CanNang
             // 
@@ -271,7 +271,7 @@
             this.txt_CanNang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_CanNang.Name = "txt_CanNang";
             this.txt_CanNang.Size = new System.Drawing.Size(210, 26);
-            this.txt_CanNang.TabIndex = 63;
+            this.txt_CanNang.TabIndex = 1;
             // 
             // label17
             // 
@@ -363,7 +363,7 @@
             this.txt_TPTNT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_TPTNT.Name = "txt_TPTNT";
             this.txt_TPTNT.Size = new System.Drawing.Size(210, 26);
-            this.txt_TPTNT.TabIndex = 28;
+            this.txt_TPTNT.TabIndex = 12;
             // 
             // txt_HPDinhLuong
             // 
@@ -372,7 +372,7 @@
             this.txt_HPDinhLuong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_HPDinhLuong.Name = "txt_HPDinhLuong";
             this.txt_HPDinhLuong.Size = new System.Drawing.Size(210, 26);
-            this.txt_HPDinhLuong.TabIndex = 27;
+            this.txt_HPDinhLuong.TabIndex = 11;
             // 
             // txt_PSA
             // 
@@ -381,7 +381,7 @@
             this.txt_PSA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_PSA.Name = "txt_PSA";
             this.txt_PSA.Size = new System.Drawing.Size(210, 26);
-            this.txt_PSA.TabIndex = 26;
+            this.txt_PSA.TabIndex = 10;
             // 
             // txt_CEA
             // 
@@ -390,7 +390,7 @@
             this.txt_CEA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_CEA.Name = "txt_CEA";
             this.txt_CEA.Size = new System.Drawing.Size(210, 26);
-            this.txt_CEA.TabIndex = 25;
+            this.txt_CEA.TabIndex = 9;
             // 
             // txt_AFP
             // 
@@ -399,7 +399,7 @@
             this.txt_AFP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_AFP.Name = "txt_AFP";
             this.txt_AFP.Size = new System.Drawing.Size(210, 26);
-            this.txt_AFP.TabIndex = 24;
+            this.txt_AFP.TabIndex = 8;
             // 
             // txt_FT4
             // 
@@ -408,7 +408,7 @@
             this.txt_FT4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_FT4.Name = "txt_FT4";
             this.txt_FT4.Size = new System.Drawing.Size(210, 26);
-            this.txt_FT4.TabIndex = 23;
+            this.txt_FT4.TabIndex = 7;
             // 
             // txt_TSH
             // 
@@ -417,7 +417,7 @@
             this.txt_TSH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_TSH.Name = "txt_TSH";
             this.txt_TSH.Size = new System.Drawing.Size(210, 26);
-            this.txt_TSH.TabIndex = 22;
+            this.txt_TSH.TabIndex = 6;
             // 
             // txt_HCVAb
             // 
@@ -426,7 +426,7 @@
             this.txt_HCVAb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_HCVAb.Name = "txt_HCVAb";
             this.txt_HCVAb.Size = new System.Drawing.Size(210, 26);
-            this.txt_HCVAb.TabIndex = 21;
+            this.txt_HCVAb.TabIndex = 5;
             // 
             // txt_HbsAb
             // 
@@ -435,7 +435,7 @@
             this.txt_HbsAb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_HbsAb.Name = "txt_HbsAb";
             this.txt_HbsAb.Size = new System.Drawing.Size(210, 26);
-            this.txt_HbsAb.TabIndex = 20;
+            this.txt_HbsAb.TabIndex = 4;
             // 
             // txt_HBsAG
             // 
@@ -444,7 +444,7 @@
             this.txt_HBsAG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_HBsAG.Name = "txt_HBsAG";
             this.txt_HBsAG.Size = new System.Drawing.Size(210, 26);
-            this.txt_HBsAG.TabIndex = 19;
+            this.txt_HBsAG.TabIndex = 3;
             // 
             // txt_SGPT
             // 
@@ -453,7 +453,7 @@
             this.txt_SGPT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_SGPT.Name = "txt_SGPT";
             this.txt_SGPT.Size = new System.Drawing.Size(210, 26);
-            this.txt_SGPT.TabIndex = 18;
+            this.txt_SGPT.TabIndex = 2;
             // 
             // txt_SGOT
             // 
@@ -462,7 +462,7 @@
             this.txt_SGOT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_SGOT.Name = "txt_SGOT";
             this.txt_SGOT.Size = new System.Drawing.Size(210, 26);
-            this.txt_SGOT.TabIndex = 17;
+            this.txt_SGOT.TabIndex = 1;
             // 
             // txt_BoMo
             // 
@@ -471,7 +471,7 @@
             this.txt_BoMo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_BoMo.Name = "txt_BoMo";
             this.txt_BoMo.Size = new System.Drawing.Size(210, 26);
-            this.txt_BoMo.TabIndex = 16;
+            this.txt_BoMo.TabIndex = 0;
             // 
             // label6
             // 
@@ -620,7 +620,7 @@
             this.rtb_DeNghi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rtb_DeNghi.Name = "rtb_DeNghi";
             this.rtb_DeNghi.Size = new System.Drawing.Size(365, 61);
-            this.rtb_DeNghi.TabIndex = 59;
+            this.rtb_DeNghi.TabIndex = 4;
             this.rtb_DeNghi.Text = "";
             // 
             // rtb_KetLuan
@@ -630,7 +630,7 @@
             this.rtb_KetLuan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rtb_KetLuan.Name = "rtb_KetLuan";
             this.rtb_KetLuan.Size = new System.Drawing.Size(366, 65);
-            this.rtb_KetLuan.TabIndex = 60;
+            this.rtb_KetLuan.TabIndex = 3;
             this.rtb_KetLuan.Text = "";
             // 
             // label2
@@ -663,7 +663,7 @@
             this.dTP_ThoiDiem.Name = "dTP_ThoiDiem";
             this.dTP_ThoiDiem.ShowCheckBox = true;
             this.dTP_ThoiDiem.Size = new System.Drawing.Size(178, 26);
-            this.dTP_ThoiDiem.TabIndex = 64;
+            this.dTP_ThoiDiem.TabIndex = 2;
             // 
             // dtgv_DienBienSK
             // 
@@ -677,7 +677,7 @@
             this.dtgv_DienBienSK.ReadOnly = true;
             this.dtgv_DienBienSK.RowTemplate.Height = 24;
             this.dtgv_DienBienSK.Size = new System.Drawing.Size(1061, 114);
-            this.dtgv_DienBienSK.TabIndex = 5;
+            this.dtgv_DienBienSK.TabIndex = 0;
             this.dtgv_DienBienSK.SelectionChanged += new System.EventHandler(this.dtgv_DienBienSK_SelectionChanged);
             // 
             // QLNS_DienBienSK
