@@ -124,7 +124,7 @@
             this.btn_Huy.Location = new System.Drawing.Point(451, 30);
             this.btn_Huy.Name = "btn_Huy";
             this.btn_Huy.Size = new System.Drawing.Size(56, 56);
-            this.btn_Huy.TabIndex = 5;
+            this.btn_Huy.TabIndex = 3;
             this.btn_Huy.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Huy.UseVisualStyleBackColor = true;
             this.btn_Huy.Visible = false;
@@ -165,7 +165,7 @@
             this.btn_Luu.Location = new System.Drawing.Point(314, 30);
             this.btn_Luu.Name = "btn_Luu";
             this.btn_Luu.Size = new System.Drawing.Size(56, 56);
-            this.btn_Luu.TabIndex = 4;
+            this.btn_Luu.TabIndex = 2;
             this.btn_Luu.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Luu.UseVisualStyleBackColor = true;
             this.btn_Luu.Visible = false;
@@ -181,7 +181,7 @@
             this.btn_Xoa.Location = new System.Drawing.Point(590, 30);
             this.btn_Xoa.Name = "btn_Xoa";
             this.btn_Xoa.Size = new System.Drawing.Size(56, 56);
-            this.btn_Xoa.TabIndex = 2;
+            this.btn_Xoa.TabIndex = 4;
             this.btn_Xoa.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Xoa.UseVisualStyleBackColor = true;
             this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
@@ -196,7 +196,7 @@
             this.btn_Sua.Location = new System.Drawing.Point(177, 30);
             this.btn_Sua.Name = "btn_Sua";
             this.btn_Sua.Size = new System.Drawing.Size(56, 56);
-            this.btn_Sua.TabIndex = 3;
+            this.btn_Sua.TabIndex = 1;
             this.btn_Sua.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Sua.UseVisualStyleBackColor = true;
             this.btn_Sua.Click += new System.EventHandler(this.btn_Sua_Click);
@@ -255,7 +255,7 @@
             this.dtgv_DSLoaiHD.RowTemplate.Height = 24;
             this.dtgv_DSLoaiHD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgv_DSLoaiHD.Size = new System.Drawing.Size(682, 192);
-            this.dtgv_DSLoaiHD.TabIndex = 1;
+            this.dtgv_DSLoaiHD.TabIndex = 0;
             this.dtgv_DSLoaiHD.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dtgv_DSLoaiHD_CellFormatting);
             this.dtgv_DSLoaiHD.SelectionChanged += new System.EventHandler(this.dtgv_DSLoaiHD_SelectionChanged);
             // 
@@ -306,10 +306,10 @@
             this.comB_Loai.Items.AddRange(new object[] {
             "Biên chế",
             "Hợp đồng"});
-            this.comB_Loai.Location = new System.Drawing.Point(453, 34);
+            this.comB_Loai.Location = new System.Drawing.Point(453, 32);
             this.comB_Loai.Name = "comB_Loai";
             this.comB_Loai.Size = new System.Drawing.Size(238, 29);
-            this.comB_Loai.TabIndex = 33;
+            this.comB_Loai.TabIndex = 1;
             // 
             // label1
             // 
@@ -328,7 +328,7 @@
             this.txt_Ten.MaxLength = 20;
             this.txt_Ten.Name = "txt_Ten";
             this.txt_Ten.Size = new System.Drawing.Size(236, 28);
-            this.txt_Ten.TabIndex = 3;
+            this.txt_Ten.TabIndex = 0;
             // 
             // label3
             // 
@@ -358,7 +358,7 @@
             this.rTB_MoTa.MaxLength = 50;
             this.rTB_MoTa.Name = "rTB_MoTa";
             this.rTB_MoTa.Size = new System.Drawing.Size(340, 88);
-            this.rTB_MoTa.TabIndex = 32;
+            this.rTB_MoTa.TabIndex = 2;
             this.rTB_MoTa.Text = "";
             // 
             // cb_ThoiHan
@@ -368,7 +368,7 @@
             this.cb_ThoiHan.Location = new System.Drawing.Point(515, 127);
             this.cb_ThoiHan.Name = "cb_ThoiHan";
             this.cb_ThoiHan.Size = new System.Drawing.Size(113, 25);
-            this.cb_ThoiHan.TabIndex = 34;
+            this.cb_ThoiHan.TabIndex = 3;
             this.cb_ThoiHan.Text = "Có thời hạn";
             this.cb_ThoiHan.UseVisualStyleBackColor = true;
             // 

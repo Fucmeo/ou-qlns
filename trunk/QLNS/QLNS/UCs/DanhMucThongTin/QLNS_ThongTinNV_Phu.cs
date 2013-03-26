@@ -43,28 +43,36 @@ namespace QLNS.UCs.DanhMucThongTin
         private void btn_Luu_Click(object sender, EventArgs e)
         {
 
-            if ((MessageBox.Show("Thêm / cập nhật thông tin nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
+            if (Program.selected_ma_nv != "")
             {
-                try
+                if ((MessageBox.Show("Thêm / cập nhật thông tin nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
                 {
-                    GetUserInputDat();
-                    if (QLNS_HienThiThongTin.bAddFlag)
+                    try
                     {
-                        oCNVC_ThongTinPhu.Add();
+                        GetUserInputDat();
+                        if (QLNS_HienThiThongTin.bAddFlag)
+                        {
+                            oCNVC_ThongTinPhu.Add();
+                        }
+                        else
+                        {
+                            oCNVC_ThongTinPhu.Update();
+                        }
+                        MessageBox.Show("Thêm / cập nhật thông tin nhân viên thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    else
+                    catch (Exception)
                     {
-                        oCNVC_ThongTinPhu.Update();
+                        MessageBox.Show("Thêm / cập nhật thông tin nhân viên không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        throw;
                     }
-                    MessageBox.Show("Thêm / cập nhật thông tin nhân viên thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Thêm / cập nhật thông tin nhân viên không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    throw;
-                }
 
+                }
             }
+            else
+            {
+                MessageBox.Show("Chưa có thông tin về nhân viên, xin vui lòng thêm thông tin nhân viên trước hoặc chọn một nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
             
             
         }

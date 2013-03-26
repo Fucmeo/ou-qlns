@@ -124,7 +124,7 @@
             this.btn_TaiFile.Location = new System.Drawing.Point(554, 6);
             this.btn_TaiFile.Name = "btn_TaiFile";
             this.btn_TaiFile.Size = new System.Drawing.Size(48, 48);
-            this.btn_TaiFile.TabIndex = 37;
+            this.btn_TaiFile.TabIndex = 2;
             this.btn_TaiFile.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_TaiFile.UseVisualStyleBackColor = true;
             this.btn_TaiFile.Visible = false;
@@ -147,7 +147,7 @@
             this.btn_Xoa.Location = new System.Drawing.Point(322, 6);
             this.btn_Xoa.Name = "btn_Xoa";
             this.btn_Xoa.Size = new System.Drawing.Size(48, 48);
-            this.btn_Xoa.TabIndex = 36;
+            this.btn_Xoa.TabIndex = 1;
             this.btn_Xoa.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Xoa.UseVisualStyleBackColor = true;
             this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
@@ -161,7 +161,7 @@
             this.btn_Them.Location = new System.Drawing.Point(91, 6);
             this.btn_Them.Name = "btn_Them";
             this.btn_Them.Size = new System.Drawing.Size(48, 48);
-            this.btn_Them.TabIndex = 35;
+            this.btn_Them.TabIndex = 0;
             this.btn_Them.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Them.UseVisualStyleBackColor = true;
             this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
@@ -393,7 +393,7 @@
             this.txt_Ten.Location = new System.Drawing.Point(449, 4);
             this.txt_Ten.Name = "txt_Ten";
             this.txt_Ten.Size = new System.Drawing.Size(234, 28);
-            this.txt_Ten.TabIndex = 33;
+            this.txt_Ten.TabIndex = 1;
             // 
             // txt_Ma
             // 
@@ -401,7 +401,7 @@
             this.txt_Ma.Location = new System.Drawing.Point(106, 4);
             this.txt_Ma.Name = "txt_Ma";
             this.txt_Ma.Size = new System.Drawing.Size(234, 28);
-            this.txt_Ma.TabIndex = 32;
+            this.txt_Ma.TabIndex = 0;
             // 
             // label1
             // 
@@ -493,7 +493,7 @@
             this.dTP_TuNgay.Name = "dTP_TuNgay";
             this.dTP_TuNgay.ShowCheckBox = true;
             this.dTP_TuNgay.Size = new System.Drawing.Size(196, 28);
-            this.dTP_TuNgay.TabIndex = 30;
+            this.dTP_TuNgay.TabIndex = 0;
             this.dTP_TuNgay.ValueChanged += new System.EventHandler(this.dTP_TuNgay_ValueChanged);
             // 
             // dTP_DenNgay
@@ -506,7 +506,7 @@
             this.dTP_DenNgay.Location = new System.Drawing.Point(377, 4);
             this.dTP_DenNgay.Name = "dTP_DenNgay";
             this.dTP_DenNgay.Size = new System.Drawing.Size(196, 28);
-            this.dTP_DenNgay.TabIndex = 31;
+            this.dTP_DenNgay.TabIndex = 1;
             // 
             // comB_Loai
             // 
@@ -517,10 +517,10 @@
             "Bổ nhiệm",
             "Kiêm nhiệm",
             "Điều động"});
-            this.comB_Loai.Location = new System.Drawing.Point(106, 47);
+            this.comB_Loai.Location = new System.Drawing.Point(106, 45);
             this.comB_Loai.Name = "comB_Loai";
             this.comB_Loai.Size = new System.Drawing.Size(234, 29);
-            this.comB_Loai.TabIndex = 25;
+            this.comB_Loai.TabIndex = 2;
             // 
             // btn_Tim
             // 
@@ -531,7 +531,7 @@
             this.btn_Tim.Location = new System.Drawing.Point(199, 130);
             this.btn_Tim.Name = "btn_Tim";
             this.btn_Tim.Size = new System.Drawing.Size(48, 48);
-            this.btn_Tim.TabIndex = 34;
+            this.btn_Tim.TabIndex = 3;
             this.btn_Tim.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Tim.UseVisualStyleBackColor = true;
             this.btn_Tim.Click += new System.EventHandler(this.btn_Tim_Click);

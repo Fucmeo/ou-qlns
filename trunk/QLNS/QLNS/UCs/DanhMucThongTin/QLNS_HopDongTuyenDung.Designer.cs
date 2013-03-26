@@ -113,7 +113,7 @@
             this.btn_Luu.Location = new System.Drawing.Point(366, 194);
             this.btn_Luu.Name = "btn_Luu";
             this.btn_Luu.Size = new System.Drawing.Size(56, 56);
-            this.btn_Luu.TabIndex = 40;
+            this.btn_Luu.TabIndex = 3;
             this.btn_Luu.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Luu.UseVisualStyleBackColor = true;
             this.btn_Luu.Click += new System.EventHandler(this.btn_Luu_Click);
@@ -221,7 +221,7 @@
             this.dtgv_HopDong.RowTemplate.Height = 24;
             this.dtgv_HopDong.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgv_HopDong.Size = new System.Drawing.Size(782, 450);
-            this.dtgv_HopDong.TabIndex = 3;
+            this.dtgv_HopDong.TabIndex = 0;
             this.dtgv_HopDong.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_HopDong_CellDoubleClick);
             // 
             // QLNS_HopDongTuyenDung

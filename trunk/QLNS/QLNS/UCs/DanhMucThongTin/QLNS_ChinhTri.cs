@@ -315,37 +315,45 @@ namespace QLNS.UCs.DanhMucThongTin
 
         private void btn_Luu_Click(object sender, EventArgs e)
         {
-            oChinhTri = new Business.CNVC.CNVC_ChinhTri();
-            oChinhTri.Ma_NV = Program.selected_ma_nv;
-            oChinhTri.Quan_Ham_Cao_Nhat = txt_QuanHam.Text;
-            oChinhTri.Danh_Hieu_Cao_Nhat = txt_DanhHieu.Text;
-            oChinhTri.Thuong_Binh_Hang = txt_ThuongBinh.Text;
-            oChinhTri.Gia_Dinh_Chinh_Sach = txt_GiaDinh.Text;
-            oChinhTri.Ly_Luan_Chinh_Tri = txt_LyLuanChinhTri.Text;
-            oChinhTri.Quan_Ly_Nha_Nuoc = txt_QuanLyNhaNuoc.Text;
-            oChinhTri.Khen_Thuong = rtb_KhenThuong.Text;
-            oChinhTri.Ky_Luat = rTB_KyLuat.Text;
-            if (dtp_NgayNhapNgu.Checked == true)
-                oChinhTri.Ngay_Nhap_Ngu = dtp_NgayNhapNgu.Value;
-            if (dtp_NgayXuatNgu.Checked == true)
-                oChinhTri.Ngay_Xuat_Ngu = dtp_NgayXuatNgu.Value;
-
-            try
+            if (Program.selected_ma_nv != "")
             {
-                if (MessageBox.Show("Bạn thực sự muốn lưu thông tin chính trị chung cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                oChinhTri = new Business.CNVC.CNVC_ChinhTri();
+                oChinhTri.Ma_NV = Program.selected_ma_nv;
+                oChinhTri.Quan_Ham_Cao_Nhat = txt_QuanHam.Text;
+                oChinhTri.Danh_Hieu_Cao_Nhat = txt_DanhHieu.Text;
+                oChinhTri.Thuong_Binh_Hang = txt_ThuongBinh.Text;
+                oChinhTri.Gia_Dinh_Chinh_Sach = txt_GiaDinh.Text;
+                oChinhTri.Ly_Luan_Chinh_Tri = txt_LyLuanChinhTri.Text;
+                oChinhTri.Quan_Ly_Nha_Nuoc = txt_QuanLyNhaNuoc.Text;
+                oChinhTri.Khen_Thuong = rtb_KhenThuong.Text;
+                oChinhTri.Ky_Luat = rTB_KyLuat.Text;
+                if (dtp_NgayNhapNgu.Checked == true)
+                    oChinhTri.Ngay_Nhap_Ngu = dtp_NgayNhapNgu.Value;
+                if (dtp_NgayXuatNgu.Checked == true)
+                    oChinhTri.Ngay_Xuat_Ngu = dtp_NgayXuatNgu.Value;
+
+                try
                 {
-                    if (oChinhTri.Save())
+                    if (MessageBox.Show("Bạn thực sự muốn lưu thông tin chính trị chung cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        MessageBox.Show("Lưu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (oChinhTri.Save())
+                        {
+                            MessageBox.Show("Lưu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                            MessageBox.Show("Thao tác lưu thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    else
-                        MessageBox.Show("Thao tác lưu thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Thao tác lưu thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Thao tác lưu thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Chưa có thông tin về nhân viên, xin vui lòng thêm thông tin nhân viên trước hoặc chọn một nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            
         }
 
         
@@ -359,119 +367,134 @@ namespace QLNS.UCs.DanhMucThongTin
 
         private void lbl_ThemDoanDang_Click(object sender, EventArgs e)
         {
-            if (lbl_ThemDoanDang.Text == "Thêm")
+            if (Program.selected_ma_nv != "")
             {
-                bAddFlag = true;
-                ResetInterface(false);
-                old_select_id = 0;
+
+                if (lbl_ThemDoanDang.Text == "Thêm")
+                {
+                    bAddFlag = true;
+                    ResetInterface(false);
+                    old_select_id = 0;
+                }
+                else //chức năng Lưu
+                {
+                    oChinhTriExt = new Business.CNVC.CNVC_ChinhTriExt();
+                    oChinhTriExt.Ma_NV = Program.selected_ma_nv;
+                    string loai_ctr = comB_Loai.Text;
+                    switch (loai_ctr)
+                    {
+                        case "Đoàn viên":
+                            oChinhTriExt.Loai_Chinh_tri_ID = 1;
+                            break;
+                        case "Đảng viên":
+                            oChinhTriExt.Loai_Chinh_tri_ID = 2;
+                            break;
+                        case "Dân quân tự vệ":
+                            oChinhTriExt.Loai_Chinh_tri_ID = 3;
+                            break;
+                        case "Công đoàn viên":
+                            oChinhTriExt.Loai_Chinh_tri_ID = 4;
+                            break;
+                        default:
+                            break;
+                    }
+
+                    if (dtp_NgayVao.Checked == true)
+                        oChinhTriExt.Ngay_Vao = dtp_NgayVao.Value;
+                    if (dtp_NgayRa.Checked == true)
+                        oChinhTriExt.Ngay_Ra = dtp_NgayRa.Value;
+                    if (dtp_NgayTaiKetNap.Checked == true)
+                        oChinhTriExt.Ngay_Tai_Ket_Nap = dtp_NgayTaiKetNap.Value;
+                    if (dtp_NgayChinhThuc.Checked == true)
+                        oChinhTriExt.Ngay_Chinh_Thuc = dtp_NgayChinhThuc.Value;
+
+                    try
+                    {
+                        int[] chuc_vu_id = new int[listB_DSCV.Items.Count];
+                        for (int i = 0; i < listB_DSCV.Items.Count; i++)
+                        {
+                            string chuc_vu = listB_DSCV.Items[i].ToString();
+                            var result = from c in dtChucVu_ChinhTri.AsEnumerable()
+                                         where c.Field<string>("ten_chuc_vu") == chuc_vu
+                                         select c.Field<int>("id");
+                            chuc_vu_id[i] = Convert.ToInt16(result.ElementAt(0).ToString());
+                        }
+                        oChinhTriExt.Chuc_Vu_ID = chuc_vu_id;
+                    }
+                    catch { }
+                    oChinhTriExt.Ten_To_Chuc = txt_TenToChuc.Text;
+
+                    #region thao tac them
+                    if (bAddFlag)
+                    {
+                        if (MessageBox.Show("Bạn thực sự muốn thêm hoạt động chính trị của nhân viên?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            try
+                            {
+                                if (oChinhTriExt.Add())
+                                    MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                old_select_id = 0;
+                                Load_Chinh_Tri_Ext(Program.selected_ma_nv);
+                                ResetInterface(true);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Thao tác thêm thất bại.\n" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+
+                    }
+                    #endregion
+
+                    #region thao tac sua
+                    else                // thao tac sua
+                    {
+                        if (MessageBox.Show("Bạn thực sự muốn sửa hoạt động chính trị này của nhân viên?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            try
+                            {
+                                oChinhTriExt.ID = Convert.ToInt32(dtgv_DoanDang.CurrentRow.Cells["id"].Value.ToString());
+                                if (oChinhTriExt.Update())
+                                    MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                old_select_id = 0;
+                                Load_Chinh_Tri_Ext(Program.selected_ma_nv);
+                                ResetInterface(true);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Thao tác sửa thất bại.\n" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
+                    #endregion
+                }
             }
-            else //chức năng Lưu
+            else
             {
-                oChinhTriExt = new Business.CNVC.CNVC_ChinhTriExt();
-                oChinhTriExt.Ma_NV = Program.selected_ma_nv;
-                string loai_ctr = comB_Loai.Text;
-                switch (loai_ctr)
-                {
-                    case "Đoàn viên":
-                        oChinhTriExt.Loai_Chinh_tri_ID = 1;
-                        break;
-                    case "Đảng viên":
-                        oChinhTriExt.Loai_Chinh_tri_ID = 2;
-                        break;
-                    case "Dân quân tự vệ":
-                        oChinhTriExt.Loai_Chinh_tri_ID = 3;
-                        break;
-                    case "Công đoàn viên":
-                        oChinhTriExt.Loai_Chinh_tri_ID = 4;
-                        break;
-                    default:
-                        break;
-                }
-
-                if (dtp_NgayVao.Checked == true)
-                    oChinhTriExt.Ngay_Vao = dtp_NgayVao.Value;
-                if (dtp_NgayRa.Checked == true)
-                    oChinhTriExt.Ngay_Ra = dtp_NgayRa.Value;
-                if (dtp_NgayTaiKetNap.Checked == true)
-                    oChinhTriExt.Ngay_Tai_Ket_Nap = dtp_NgayTaiKetNap.Value;
-                if (dtp_NgayChinhThuc.Checked == true)
-                    oChinhTriExt.Ngay_Chinh_Thuc = dtp_NgayChinhThuc.Value;
-
-                try
-                {
-                    int[] chuc_vu_id = new int[listB_DSCV.Items.Count];
-                    for (int i = 0; i < listB_DSCV.Items.Count; i++)
-                    {
-                        string chuc_vu = listB_DSCV.Items[i].ToString();
-                        var result = from c in dtChucVu_ChinhTri.AsEnumerable()
-                                     where c.Field<string>("ten_chuc_vu") == chuc_vu
-                                     select c.Field<int>("id");
-                        chuc_vu_id[i] = Convert.ToInt16(result.ElementAt(0).ToString());
-                    }
-                    oChinhTriExt.Chuc_Vu_ID = chuc_vu_id;
-                }
-                catch { }
-                oChinhTriExt.Ten_To_Chuc = txt_TenToChuc.Text;
-
-                #region thao tac them
-                if (bAddFlag)
-                {
-                    if (MessageBox.Show("Bạn thực sự muốn thêm hoạt động chính trị của nhân viên?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        try
-                        {
-                            if (oChinhTriExt.Add())
-                                MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                            old_select_id = 0;
-                            Load_Chinh_Tri_Ext(Program.selected_ma_nv);
-                            ResetInterface(true);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Thao tác thêm thất bại.\n" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-
-                }
-                #endregion
-
-                #region thao tac sua
-                else                // thao tac sua
-                {
-                    if (MessageBox.Show("Bạn thực sự muốn sửa hoạt động chính trị này của nhân viên?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        try
-                        {
-                            oChinhTriExt.ID = Convert.ToInt32(dtgv_DoanDang.CurrentRow.Cells["id"].Value.ToString());
-                            if (oChinhTriExt.Update())
-                                MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                            old_select_id = 0;
-                            Load_Chinh_Tri_Ext(Program.selected_ma_nv);
-                            ResetInterface(true);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Thao tác sửa thất bại.\n" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                }
-                #endregion
+                MessageBox.Show("Chưa có thông tin về nhân viên, xin vui lòng thêm thông tin nhân viên trước hoặc chọn một nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         private void lbl_SuaDoanDang_Click(object sender, EventArgs e)
         {
-            if (lbl_SuaDoanDang.Text == "Sửa")
+            if (Program.selected_ma_nv != "")
             {
-                bAddFlag = false;
-                ResetInterface(false);
-                old_select_id = 0;
+                if (lbl_SuaDoanDang.Text == "Sửa")
+                {
+                    bAddFlag = false;
+                    ResetInterface(false);
+                    old_select_id = 0;
+                }
+                else if (lbl_SuaDoanDang.Text == "Hủy")
+                {
+                    ResetInterface(true);
+                }
             }
-            else if (lbl_SuaDoanDang.Text == "Hủy")
+            else
             {
-                ResetInterface(true);
+                MessageBox.Show("Chưa có thông tin về nhân viên, xin vui lòng thêm thông tin nhân viên trước hoặc chọn một nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

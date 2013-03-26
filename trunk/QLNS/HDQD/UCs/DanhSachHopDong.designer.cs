@@ -126,7 +126,7 @@
             this.btn_Xoa.Location = new System.Drawing.Point(283, 4);
             this.btn_Xoa.Name = "btn_Xoa";
             this.btn_Xoa.Size = new System.Drawing.Size(48, 48);
-            this.btn_Xoa.TabIndex = 36;
+            this.btn_Xoa.TabIndex = 1;
             this.btn_Xoa.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Xoa.UseVisualStyleBackColor = true;
             this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
@@ -148,7 +148,7 @@
             this.btn_Them.Location = new System.Drawing.Point(78, 4);
             this.btn_Them.Name = "btn_Them";
             this.btn_Them.Size = new System.Drawing.Size(48, 48);
-            this.btn_Them.TabIndex = 35;
+            this.btn_Them.TabIndex = 0;
             this.btn_Them.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Them.UseVisualStyleBackColor = true;
             this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
@@ -201,7 +201,7 @@
             this.txt_NgayHetHan.Name = "txt_NgayHetHan";
             this.txt_NgayHetHan.ReadOnly = true;
             this.txt_NgayHetHan.Size = new System.Drawing.Size(208, 26);
-            this.txt_NgayHetHan.TabIndex = 38;
+            this.txt_NgayHetHan.TabIndex = 5;
             // 
             // txt_NgayHieuLuc
             // 
@@ -210,7 +210,7 @@
             this.txt_NgayHieuLuc.Name = "txt_NgayHieuLuc";
             this.txt_NgayHieuLuc.ReadOnly = true;
             this.txt_NgayHieuLuc.Size = new System.Drawing.Size(207, 26);
-            this.txt_NgayHieuLuc.TabIndex = 37;
+            this.txt_NgayHieuLuc.TabIndex = 4;
             // 
             // txt_NgayKy
             // 
@@ -219,7 +219,7 @@
             this.txt_NgayKy.Name = "txt_NgayKy";
             this.txt_NgayKy.ReadOnly = true;
             this.txt_NgayKy.Size = new System.Drawing.Size(208, 26);
-            this.txt_NgayKy.TabIndex = 36;
+            this.txt_NgayKy.TabIndex = 3;
             // 
             // txt_Loai
             // 
@@ -228,7 +228,7 @@
             this.txt_Loai.Name = "txt_Loai";
             this.txt_Loai.ReadOnly = true;
             this.txt_Loai.Size = new System.Drawing.Size(207, 26);
-            this.txt_Loai.TabIndex = 35;
+            this.txt_Loai.TabIndex = 2;
             // 
             // txt_MaHD2
             // 
@@ -237,7 +237,7 @@
             this.txt_MaHD2.Name = "txt_MaHD2";
             this.txt_MaHD2.ReadOnly = true;
             this.txt_MaHD2.Size = new System.Drawing.Size(208, 26);
-            this.txt_MaHD2.TabIndex = 34;
+            this.txt_MaHD2.TabIndex = 1;
             // 
             // txt_MaNV2
             // 
@@ -246,7 +246,7 @@
             this.txt_MaNV2.Name = "txt_MaNV2";
             this.txt_MaNV2.ReadOnly = true;
             this.txt_MaNV2.Size = new System.Drawing.Size(207, 26);
-            this.txt_MaNV2.TabIndex = 33;
+            this.txt_MaNV2.TabIndex = 0;
             // 
             // label7
             // 
@@ -388,7 +388,7 @@
             this.comB_ThuviecChinhthuc.Location = new System.Drawing.Point(398, 45);
             this.comB_ThuviecChinhthuc.Name = "comB_ThuviecChinhthuc";
             this.comB_ThuviecChinhthuc.Size = new System.Drawing.Size(208, 26);
-            this.comB_ThuviecChinhthuc.TabIndex = 36;
+            this.comB_ThuviecChinhthuc.TabIndex = 3;
             // 
             // label13
             // 
@@ -406,7 +406,7 @@
             this.txt_MaHD.Location = new System.Drawing.Point(398, 4);
             this.txt_MaHD.Name = "txt_MaHD";
             this.txt_MaHD.Size = new System.Drawing.Size(208, 26);
-            this.txt_MaHD.TabIndex = 33;
+            this.txt_MaHD.TabIndex = 1;
             // 
             // txt_MaNV
             // 
@@ -414,7 +414,7 @@
             this.txt_MaNV.Location = new System.Drawing.Point(94, 4);
             this.txt_MaNV.Name = "txt_MaNV";
             this.txt_MaNV.Size = new System.Drawing.Size(207, 26);
-            this.txt_MaNV.TabIndex = 32;
+            this.txt_MaNV.TabIndex = 0;
             // 
             // label1
             // 
@@ -506,7 +506,7 @@
             this.dTP_TuNgay.Name = "dTP_TuNgay";
             this.dTP_TuNgay.ShowCheckBox = true;
             this.dTP_TuNgay.Size = new System.Drawing.Size(173, 26);
-            this.dTP_TuNgay.TabIndex = 30;
+            this.dTP_TuNgay.TabIndex = 0;
             this.dTP_TuNgay.ValueChanged += new System.EventHandler(this.dTP_TuNgay_ValueChanged);
             // 
             // dTP_DenNgay
@@ -519,7 +519,7 @@
             this.dTP_DenNgay.Location = new System.Drawing.Point(334, 3);
             this.dTP_DenNgay.Name = "dTP_DenNgay";
             this.dTP_DenNgay.Size = new System.Drawing.Size(175, 26);
-            this.dTP_DenNgay.TabIndex = 31;
+            this.dTP_DenNgay.TabIndex = 1;
             // 
             // comB_Loai
             // 
@@ -533,7 +533,7 @@
             this.comB_Loai.Location = new System.Drawing.Point(94, 45);
             this.comB_Loai.Name = "comB_Loai";
             this.comB_Loai.Size = new System.Drawing.Size(207, 26);
-            this.comB_Loai.TabIndex = 25;
+            this.comB_Loai.TabIndex = 2;
             // 
             // btn_Tim
             // 
@@ -544,7 +544,7 @@
             this.btn_Tim.Location = new System.Drawing.Point(173, 118);
             this.btn_Tim.Name = "btn_Tim";
             this.btn_Tim.Size = new System.Drawing.Size(48, 48);
-            this.btn_Tim.TabIndex = 34;
+            this.btn_Tim.TabIndex = 4;
             this.btn_Tim.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Tim.UseVisualStyleBackColor = true;
             this.btn_Tim.Click += new System.EventHandler(this.btn_Tim_Click);

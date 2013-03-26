@@ -178,7 +178,7 @@
             this.comB_DonVi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_DonVi.Enabled = false;
             this.comB_DonVi.FormattingEnabled = true;
-            this.comB_DonVi.Location = new System.Drawing.Point(122, 48);
+            this.comB_DonVi.Location = new System.Drawing.Point(122, 46);
             this.comB_DonVi.Name = "comB_DonVi";
             this.comB_DonVi.Size = new System.Drawing.Size(203, 29);
             this.comB_DonVi.TabIndex = 3;
@@ -200,7 +200,7 @@
             this.comB_ChucVu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_ChucVu.Enabled = false;
             this.comB_ChucVu.FormattingEnabled = true;
-            this.comB_ChucVu.Location = new System.Drawing.Point(450, 48);
+            this.comB_ChucVu.Location = new System.Drawing.Point(450, 46);
             this.comB_ChucVu.Name = "comB_ChucVu";
             this.comB_ChucVu.Size = new System.Drawing.Size(203, 29);
             this.comB_ChucVu.TabIndex = 4;
@@ -214,7 +214,7 @@
             this.btn_Tim.Location = new System.Drawing.Point(691, 37);
             this.btn_Tim.Name = "btn_Tim";
             this.btn_Tim.Size = new System.Drawing.Size(48, 47);
-            this.btn_Tim.TabIndex = 11;
+            this.btn_Tim.TabIndex = 5;
             this.btn_Tim.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Tim.UseVisualStyleBackColor = true;
             this.btn_Tim.Click += new System.EventHandler(this.btn_Tim_Click);

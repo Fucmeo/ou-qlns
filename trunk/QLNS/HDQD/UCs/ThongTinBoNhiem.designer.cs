@@ -145,7 +145,7 @@
             this.rTB_GhiChu.Location = new System.Drawing.Point(122, 101);
             this.rTB_GhiChu.Name = "rTB_GhiChu";
             this.rTB_GhiChu.Size = new System.Drawing.Size(529, 45);
-            this.rTB_GhiChu.TabIndex = 30;
+            this.rTB_GhiChu.TabIndex = 6;
             this.rTB_GhiChu.Text = "";
             // 
             // comB_LoaiPhuCap
@@ -153,10 +153,10 @@
             this.comB_LoaiPhuCap.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_LoaiPhuCap.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_LoaiPhuCap.FormattingEnabled = true;
-            this.comB_LoaiPhuCap.Location = new System.Drawing.Point(449, 12);
+            this.comB_LoaiPhuCap.Location = new System.Drawing.Point(449, 10);
             this.comB_LoaiPhuCap.Name = "comB_LoaiPhuCap";
             this.comB_LoaiPhuCap.Size = new System.Drawing.Size(202, 29);
-            this.comB_LoaiPhuCap.TabIndex = 26;
+            this.comB_LoaiPhuCap.TabIndex = 1;
             // 
             // label4
             // 
@@ -176,7 +176,7 @@
             this.cb_CoPhuCap.Location = new System.Drawing.Point(3, 12);
             this.cb_CoPhuCap.Name = "cb_CoPhuCap";
             this.cb_CoPhuCap.Size = new System.Drawing.Size(155, 25);
-            this.cb_CoPhuCap.TabIndex = 32;
+            this.cb_CoPhuCap.TabIndex = 0;
             this.cb_CoPhuCap.Text = "Không có phụ cấp";
             this.cb_CoPhuCap.UseVisualStyleBackColor = true;
             this.cb_CoPhuCap.CheckedChanged += new System.EventHandler(this.cb_CoPhuCap_CheckedChanged);
@@ -197,7 +197,7 @@
             this.txt_PhuCap.Location = new System.Drawing.Point(776, 10);
             this.txt_PhuCap.Name = "txt_PhuCap";
             this.txt_PhuCap.Size = new System.Drawing.Size(203, 28);
-            this.txt_PhuCap.TabIndex = 31;
+            this.txt_PhuCap.TabIndex = 2;
             // 
             // label8
             // 
@@ -217,10 +217,10 @@
             this.comB_HeSoTienMat.Items.AddRange(new object[] {
             "Hệ số",
             "Tiền mặt"});
-            this.comB_HeSoTienMat.Location = new System.Drawing.Point(122, 61);
+            this.comB_HeSoTienMat.Location = new System.Drawing.Point(122, 59);
             this.comB_HeSoTienMat.Name = "comB_HeSoTienMat";
             this.comB_HeSoTienMat.Size = new System.Drawing.Size(202, 29);
-            this.comB_HeSoTienMat.TabIndex = 27;
+            this.comB_HeSoTienMat.TabIndex = 3;
             // 
             // label5
             // 
@@ -241,7 +241,7 @@
             this.dTP_NgayBatDau.Location = new System.Drawing.Point(449, 59);
             this.dTP_NgayBatDau.Name = "dTP_NgayBatDau";
             this.dTP_NgayBatDau.Size = new System.Drawing.Size(202, 28);
-            this.dTP_NgayBatDau.TabIndex = 28;
+            this.dTP_NgayBatDau.TabIndex = 4;
             // 
             // label7
             // 
@@ -263,7 +263,7 @@
             this.dTP_NgayHetHan.Name = "dTP_NgayHetHan";
             this.dTP_NgayHetHan.ShowCheckBox = true;
             this.dTP_NgayHetHan.Size = new System.Drawing.Size(203, 28);
-            this.dTP_NgayHetHan.TabIndex = 29;
+            this.dTP_NgayHetHan.TabIndex = 5;
             // 
             // label9
             // 
@@ -290,10 +290,10 @@
             this.comB_DonVi.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_DonVi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_DonVi.FormattingEnabled = true;
-            this.comB_DonVi.Location = new System.Drawing.Point(123, 6);
+            this.comB_DonVi.Location = new System.Drawing.Point(123, 8);
             this.comB_DonVi.Name = "comB_DonVi";
             this.comB_DonVi.Size = new System.Drawing.Size(204, 29);
-            this.comB_DonVi.TabIndex = 25;
+            this.comB_DonVi.TabIndex = 0;
             // 
             // label2
             // 
@@ -310,10 +310,10 @@
             this.comB_ChucVu.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_ChucVu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_ChucVu.FormattingEnabled = true;
-            this.comB_ChucVu.Location = new System.Drawing.Point(453, 6);
+            this.comB_ChucVu.Location = new System.Drawing.Point(453, 8);
             this.comB_ChucVu.Name = "comB_ChucVu";
             this.comB_ChucVu.Size = new System.Drawing.Size(204, 29);
-            this.comB_ChucVu.TabIndex = 26;
+            this.comB_ChucVu.TabIndex = 1;
             // 
             // ThongTinBoNhiem
             // 

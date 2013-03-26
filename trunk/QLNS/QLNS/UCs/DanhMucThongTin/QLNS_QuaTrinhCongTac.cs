@@ -299,115 +299,131 @@ namespace QLNS.UCs.DanhMucThongTin
 
         private void lbl_ThemNgoai_Click(object sender, EventArgs e)
         {
-            if (lbl_ThemNgoai.Text == "Thêm")
+            if (Program.selected_ma_nv != "")
             {
-                bAddFlag = true;
-                ResetInterface(false);
+
+                if (lbl_ThemNgoai.Text == "Thêm")
+                {
+                    bAddFlag = true;
+                    ResetInterface(false);
+                }
+                else //chức năng Lưu
+                {
+                    bool is_gd;
+                    if (comB_Nganh.Text == "Trong ngành giáo dục")
+                    {
+                        is_gd = true;
+                        oQtrCtac_NonOU_GD = new Business.CNVC.CNVC_QTr_CongTac_NonOU_GD();
+                        oQtrCtac_NonOU_GD.MaNV = Program.selected_ma_nv;
+                        oQtrCtac_NonOU_GD.TenDonVi = txt_TenDV.Text;
+                        oQtrCtac_NonOU_GD.ChucDanh = txt_ChucDanh.Text;
+                        oQtrCtac_NonOU_GD.ChucVu = txt_ChucVu.Text;
+                        oQtrCtac_NonOU_GD.CongViecChinh = rTB_CongViecChinh.Text;
+                        if (dTP_TuNgay.Checked == true)
+                            oQtrCtac_NonOU_GD.TuNgay = dTP_TuNgay.Value;
+                        if (dTP_DenNgay.Checked == true)
+                            oQtrCtac_NonOU_GD.DenNgay = dTP_DenNgay.Value;
+                    }
+                    else
+                    {
+                        is_gd = false;
+                        oQtrCtac_NonOU_NonGD = new Business.CNVC.CNVC_QTr_CongTac_NonOU_NonGD();
+                        oQtrCtac_NonOU_NonGD.MaNV = Program.selected_ma_nv;
+                        oQtrCtac_NonOU_NonGD.TenDonVi = txt_TenDV.Text;
+                        oQtrCtac_NonOU_NonGD.ChucDanh = txt_ChucDanh.Text;
+                        oQtrCtac_NonOU_NonGD.ChucVu = txt_ChucVu.Text;
+                        oQtrCtac_NonOU_NonGD.CongViecChinh = rTB_CongViecChinh.Text;
+                        if (dTP_TuNgay.Checked == true)
+                            oQtrCtac_NonOU_NonGD.TuNgay = dTP_TuNgay.Value;
+                        if (dTP_DenNgay.Checked == true)
+                            oQtrCtac_NonOU_NonGD.DenNgay = dTP_DenNgay.Value;
+                    }
+
+                    #region thao tac them
+                    if (bAddFlag)
+                    {
+                        if (MessageBox.Show("Bạn thực sự muốn thêm quá trình công tác của nhân viên?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            try
+                            {
+                                if (is_gd == true) // trong ngành giáo dục
+                                {
+                                    if (oQtrCtac_NonOU_GD.Add())
+                                        MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                else
+                                {
+                                    if (oQtrCtac_NonOU_NonGD.Add())
+                                        MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                Load_Qtr_Ctac_NonOU(Program.selected_ma_nv);
+                                ResetInterface(true);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Thao tác thêm thất bại.\n" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+
+                    }
+                    #endregion
+
+                    #region thao tac sua
+                    else                // thao tac sua
+                    {
+                        if (MessageBox.Show("Bạn thực sự muốn sửa quá trình công tác này của nhân viên?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            try
+                            {
+                                if (is_gd == true) // trong ngành giáo dục
+                                {
+                                    oQtrCtac_NonOU_GD.ID = Convert.ToInt32(dtgv_QTCT_Ngoai.CurrentRow.Cells["id"].Value.ToString());
+                                    if (oQtrCtac_NonOU_GD.Update())
+                                        MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                else
+                                {
+                                    oQtrCtac_NonOU_NonGD.ID = Convert.ToInt32(dtgv_QTCT_Ngoai.CurrentRow.Cells["id"].Value.ToString());
+                                    if (oQtrCtac_NonOU_NonGD.Update())
+                                        MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                Load_Qtr_Ctac_NonOU(Program.selected_ma_nv);
+                                ResetInterface(true);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Thao tác sửa thất bại.\n" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
+                    #endregion
+                }
             }
-            else //chức năng Lưu
+            else
             {
-                bool is_gd;
-                if (comB_Nganh.Text == "Trong ngành giáo dục")
-                {
-                    is_gd = true;
-                    oQtrCtac_NonOU_GD = new Business.CNVC.CNVC_QTr_CongTac_NonOU_GD();
-                    oQtrCtac_NonOU_GD.MaNV = Program.selected_ma_nv;
-                    oQtrCtac_NonOU_GD.TenDonVi = txt_TenDV.Text;
-                    oQtrCtac_NonOU_GD.ChucDanh = txt_ChucDanh.Text;
-                    oQtrCtac_NonOU_GD.ChucVu = txt_ChucVu.Text;
-                    oQtrCtac_NonOU_GD.CongViecChinh = rTB_CongViecChinh.Text;
-                    if (dTP_TuNgay.Checked == true)
-                        oQtrCtac_NonOU_GD.TuNgay = dTP_TuNgay.Value;
-                    if (dTP_DenNgay.Checked == true)
-                        oQtrCtac_NonOU_GD.DenNgay = dTP_DenNgay.Value;
-                }
-                else
-                {
-                    is_gd = false;
-                    oQtrCtac_NonOU_NonGD = new Business.CNVC.CNVC_QTr_CongTac_NonOU_NonGD();
-                    oQtrCtac_NonOU_NonGD.MaNV = Program.selected_ma_nv;
-                    oQtrCtac_NonOU_NonGD.TenDonVi = txt_TenDV.Text;
-                    oQtrCtac_NonOU_NonGD.ChucDanh = txt_ChucDanh.Text;
-                    oQtrCtac_NonOU_NonGD.ChucVu = txt_ChucVu.Text;
-                    oQtrCtac_NonOU_NonGD.CongViecChinh = rTB_CongViecChinh.Text;
-                    if (dTP_TuNgay.Checked == true)
-                        oQtrCtac_NonOU_NonGD.TuNgay = dTP_TuNgay.Value;
-                    if (dTP_DenNgay.Checked == true)
-                        oQtrCtac_NonOU_NonGD.DenNgay = dTP_DenNgay.Value;
-                }
-
-                #region thao tac them
-                if (bAddFlag)
-                {
-                    if (MessageBox.Show("Bạn thực sự muốn thêm quá trình công tác của nhân viên?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        try
-                        {
-                            if (is_gd == true) // trong ngành giáo dục
-                            {
-                                if (oQtrCtac_NonOU_GD.Add())
-                                    MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                            else
-                            { 
-                                if (oQtrCtac_NonOU_NonGD.Add())
-                                    MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                            Load_Qtr_Ctac_NonOU(Program.selected_ma_nv);
-                            ResetInterface(true);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Thao tác thêm thất bại.\n" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-
-                }
-                #endregion
-
-                #region thao tac sua
-                else                // thao tac sua
-                {
-                    if (MessageBox.Show("Bạn thực sự muốn sửa quá trình công tác này của nhân viên?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        try
-                        {
-                            if (is_gd == true) // trong ngành giáo dục
-                            {
-                                oQtrCtac_NonOU_GD.ID = Convert.ToInt32(dtgv_QTCT_Ngoai.CurrentRow.Cells["id"].Value.ToString());
-                                if (oQtrCtac_NonOU_GD.Update())
-                                    MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                            else
-                            {
-                                oQtrCtac_NonOU_NonGD.ID = Convert.ToInt32(dtgv_QTCT_Ngoai.CurrentRow.Cells["id"].Value.ToString());
-                                if (oQtrCtac_NonOU_NonGD.Update())
-                                    MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                            Load_Qtr_Ctac_NonOU(Program.selected_ma_nv);
-                            ResetInterface(true);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Thao tác sửa thất bại.\n" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                }
-                #endregion
+                MessageBox.Show("Chưa có thông tin về nhân viên, xin vui lòng thêm thông tin nhân viên trước hoặc chọn một nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             
         }
 
         private void lbl_SuaNgoai_Click(object sender, EventArgs e)
         {
-            if (lbl_SuaNgoai.Text == "Sửa")
+            if (Program.selected_ma_nv != "")
             {
-                bAddFlag = false;
-                ResetInterface(false);
+
+                if (lbl_SuaNgoai.Text == "Sửa")
+                {
+                    bAddFlag = false;
+                    ResetInterface(false);
+                }
+                else if (lbl_SuaNgoai.Text == "Hủy")
+                {
+                    ResetInterface(true);
+                }
             }
-            else if (lbl_SuaNgoai.Text == "Hủy")
+            else
             {
-                ResetInterface(true);
+                MessageBox.Show("Chưa có thông tin về nhân viên, xin vui lòng thêm thông tin nhân viên trước hoặc chọn một nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

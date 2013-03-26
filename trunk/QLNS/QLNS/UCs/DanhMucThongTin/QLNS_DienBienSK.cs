@@ -169,8 +169,16 @@ namespace QLNS.UCs.DanhMucThongTin
 
         private void btn_Them_Click(object sender, EventArgs e)
         {
-            AddFlag = true;
-            ResetInterface(false);
+            if (Program.selected_ma_nv != "")
+            {
+
+                AddFlag = true;
+                ResetInterface(false);
+            }
+            else
+            {
+                MessageBox.Show("Chưa có thông tin về nhân viên, xin vui lòng thêm thông tin nhân viên trước hoặc chọn một nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btn_Sua_Click(object sender, EventArgs e)

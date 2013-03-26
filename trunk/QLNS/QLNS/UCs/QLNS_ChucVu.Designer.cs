@@ -127,7 +127,7 @@
             this.dtgv_DSChucVu.RowTemplate.Height = 24;
             this.dtgv_DSChucVu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgv_DSChucVu.Size = new System.Drawing.Size(532, 208);
-            this.dtgv_DSChucVu.TabIndex = 1;
+            this.dtgv_DSChucVu.TabIndex = 0;
             this.dtgv_DSChucVu.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // lbl_SoChucVu
@@ -194,7 +194,7 @@
             this.btn_Huy.Location = new System.Drawing.Point(346, 24);
             this.btn_Huy.Name = "btn_Huy";
             this.btn_Huy.Size = new System.Drawing.Size(56, 56);
-            this.btn_Huy.TabIndex = 5;
+            this.btn_Huy.TabIndex = 3;
             this.btn_Huy.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Huy.UseVisualStyleBackColor = true;
             this.btn_Huy.Visible = false;
@@ -233,7 +233,7 @@
             this.btn_Luu.Location = new System.Drawing.Point(239, 24);
             this.btn_Luu.Name = "btn_Luu";
             this.btn_Luu.Size = new System.Drawing.Size(56, 56);
-            this.btn_Luu.TabIndex = 4;
+            this.btn_Luu.TabIndex = 2;
             this.btn_Luu.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Luu.UseVisualStyleBackColor = true;
             this.btn_Luu.Visible = false;
@@ -248,7 +248,7 @@
             this.btn_Xoa.Location = new System.Drawing.Point(455, 24);
             this.btn_Xoa.Name = "btn_Xoa";
             this.btn_Xoa.Size = new System.Drawing.Size(56, 56);
-            this.btn_Xoa.TabIndex = 2;
+            this.btn_Xoa.TabIndex = 4;
             this.btn_Xoa.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Xoa.UseVisualStyleBackColor = true;
             this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
@@ -262,7 +262,7 @@
             this.btn_Sua.Location = new System.Drawing.Point(132, 24);
             this.btn_Sua.Name = "btn_Sua";
             this.btn_Sua.Size = new System.Drawing.Size(56, 56);
-            this.btn_Sua.TabIndex = 3;
+            this.btn_Sua.TabIndex = 1;
             this.btn_Sua.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Sua.UseVisualStyleBackColor = true;
             this.btn_Sua.Click += new System.EventHandler(this.btn_Sua_Click);
@@ -285,7 +285,7 @@
             this.txt_ChucVu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_ChucVu.Name = "txt_ChucVu";
             this.txt_ChucVu.Size = new System.Drawing.Size(320, 29);
-            this.txt_ChucVu.TabIndex = 3;
+            this.txt_ChucVu.TabIndex = 0;
             // 
             // QLNS_ChucVu
             // 

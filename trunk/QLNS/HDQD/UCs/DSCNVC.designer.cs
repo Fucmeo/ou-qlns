@@ -75,9 +75,10 @@
             this.btn_ChonTatCa.Location = new System.Drawing.Point(77, 207);
             this.btn_ChonTatCa.Name = "btn_ChonTatCa";
             this.btn_ChonTatCa.Size = new System.Drawing.Size(109, 63);
-            this.btn_ChonTatCa.TabIndex = 7;
+            this.btn_ChonTatCa.TabIndex = 2;
             this.btn_ChonTatCa.Text = "Chọn tất cả";
             this.btn_ChonTatCa.UseVisualStyleBackColor = true;
+            this.btn_ChonTatCa.Visible = false;
             // 
             // btn_HuyTatCa
             // 
@@ -88,6 +89,7 @@
             this.btn_HuyTatCa.TabIndex = 6;
             this.btn_HuyTatCa.Text = "Huỷ tất cả";
             this.btn_HuyTatCa.UseVisualStyleBackColor = true;
+            this.btn_HuyTatCa.Visible = false;
             // 
             // btn_Chon
             // 
@@ -95,7 +97,7 @@
             this.btn_Chon.Location = new System.Drawing.Point(341, 207);
             this.btn_Chon.Name = "btn_Chon";
             this.btn_Chon.Size = new System.Drawing.Size(109, 63);
-            this.btn_Chon.TabIndex = 4;
+            this.btn_Chon.TabIndex = 1;
             this.btn_Chon.Text = "Chọn";
             this.btn_Chon.UseVisualStyleBackColor = true;
             this.btn_Chon.Click += new System.EventHandler(this.btn_Chon_Click);
@@ -113,7 +115,7 @@
             this.dtgv_DSCNVC.RowTemplate.Height = 24;
             this.dtgv_DSCNVC.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgv_DSCNVC.Size = new System.Drawing.Size(788, 198);
-            this.dtgv_DSCNVC.TabIndex = 1;
+            this.dtgv_DSCNVC.TabIndex = 0;
             this.dtgv_DSCNVC.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtgv_DSCNVC_CellMouseDoubleClick);
             // 
             // DSCNVC

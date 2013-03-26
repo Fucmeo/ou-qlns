@@ -33,6 +33,7 @@
             this.tableLP_ThanhLapDV = new System.Windows.Forms.TableLayoutPanel();
             this.tableLP_Nut = new System.Windows.Forms.TableLayoutPanel();
             this.btn_Nhap = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.thongTinQuyetDinh1 = new HDQD.UCs.ThongTinQuyetDinh();
             this.tableLP_DonVi = new System.Windows.Forms.TableLayoutPanel();
             this.gb_ThongTinDV = new System.Windows.Forms.GroupBox();
@@ -56,7 +57,6 @@
             this.tableLP_Nut2 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_Xoa = new System.Windows.Forms.Button();
             this.btn_Them = new System.Windows.Forms.Button();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tableLP_ThanhLapDV.SuspendLayout();
             this.tableLP_Nut.SuspendLayout();
             this.tableLP_DonVi.SuspendLayout();
@@ -109,10 +109,20 @@
             this.btn_Nhap.Location = new System.Drawing.Point(419, 59);
             this.btn_Nhap.Name = "btn_Nhap";
             this.btn_Nhap.Size = new System.Drawing.Size(56, 56);
-            this.btn_Nhap.TabIndex = 34;
+            this.btn_Nhap.TabIndex = 0;
             this.btn_Nhap.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Nhap.UseVisualStyleBackColor = true;
             this.btn_Nhap.Click += new System.EventHandler(this.btn_Nhap_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Add.png");
+            this.imageList1.Images.SetKeyName(1, "Cancel.png");
+            this.imageList1.Images.SetKeyName(2, "Edit Data.png");
+            this.imageList1.Images.SetKeyName(3, "Garbage.png");
+            this.imageList1.Images.SetKeyName(4, "Save.png");
             // 
             // thongTinQuyetDinh1
             // 
@@ -187,7 +197,7 @@
             this.txt_TenDVTat.Location = new System.Drawing.Point(195, 79);
             this.txt_TenDVTat.Name = "txt_TenDVTat";
             this.txt_TenDVTat.Size = new System.Drawing.Size(310, 28);
-            this.txt_TenDVTat.TabIndex = 7;
+            this.txt_TenDVTat.TabIndex = 1;
             // 
             // label1
             // 
@@ -245,17 +255,17 @@
             this.txt_TenDV.Location = new System.Drawing.Point(195, 17);
             this.txt_TenDV.Name = "txt_TenDV";
             this.txt_TenDV.Size = new System.Drawing.Size(310, 28);
-            this.txt_TenDV.TabIndex = 6;
+            this.txt_TenDV.TabIndex = 0;
             // 
             // comb_DVTrucThuoc
             // 
             this.comb_DVTrucThuoc.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comb_DVTrucThuoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comb_DVTrucThuoc.FormattingEnabled = true;
-            this.comb_DVTrucThuoc.Location = new System.Drawing.Point(195, 140);
+            this.comb_DVTrucThuoc.Location = new System.Drawing.Point(195, 142);
             this.comb_DVTrucThuoc.Name = "comb_DVTrucThuoc";
             this.comb_DVTrucThuoc.Size = new System.Drawing.Size(310, 29);
-            this.comb_DVTrucThuoc.TabIndex = 8;
+            this.comb_DVTrucThuoc.TabIndex = 2;
             // 
             // rTB_GhiChu
             // 
@@ -263,7 +273,7 @@
             this.rTB_GhiChu.Location = new System.Drawing.Point(134, 251);
             this.rTB_GhiChu.Name = "rTB_GhiChu";
             this.rTB_GhiChu.Size = new System.Drawing.Size(433, 242);
-            this.rTB_GhiChu.TabIndex = 10;
+            this.rTB_GhiChu.TabIndex = 4;
             this.rTB_GhiChu.Text = "";
             // 
             // dTP_NgayHieuLuc
@@ -276,7 +286,7 @@
             this.dTP_NgayHieuLuc.Name = "dTP_NgayHieuLuc";
             this.dTP_NgayHieuLuc.ShowCheckBox = true;
             this.dTP_NgayHieuLuc.Size = new System.Drawing.Size(306, 28);
-            this.dTP_NgayHieuLuc.TabIndex = 31;
+            this.dTP_NgayHieuLuc.TabIndex = 3;
             // 
             // tableLP_NutThongTinDV
             // 
@@ -302,7 +312,7 @@
             this.btn_LuuThongTin.Location = new System.Drawing.Point(113, 31);
             this.btn_LuuThongTin.Name = "btn_LuuThongTin";
             this.btn_LuuThongTin.Size = new System.Drawing.Size(56, 56);
-            this.btn_LuuThongTin.TabIndex = 4;
+            this.btn_LuuThongTin.TabIndex = 0;
             this.btn_LuuThongTin.UseVisualStyleBackColor = true;
             this.btn_LuuThongTin.Click += new System.EventHandler(this.btn_LuuThongTin_Click);
             // 
@@ -314,7 +324,7 @@
             this.btn_HuyThongTin.Location = new System.Drawing.Point(395, 31);
             this.btn_HuyThongTin.Name = "btn_HuyThongTin";
             this.btn_HuyThongTin.Size = new System.Drawing.Size(56, 56);
-            this.btn_HuyThongTin.TabIndex = 5;
+            this.btn_HuyThongTin.TabIndex = 1;
             this.btn_HuyThongTin.UseVisualStyleBackColor = true;
             this.btn_HuyThongTin.Click += new System.EventHandler(this.btn_HuyThongTin_Click);
             // 
@@ -352,7 +362,7 @@
             this.lstb_DSDV.Location = new System.Drawing.Point(3, 3);
             this.lstb_DSDV.Name = "lstb_DSDV";
             this.lstb_DSDV.Size = new System.Drawing.Size(294, 488);
-            this.lstb_DSDV.TabIndex = 40;
+            this.lstb_DSDV.TabIndex = 0;
             this.lstb_DSDV.SelectedIndexChanged += new System.EventHandler(this.lstb_DSDV_SelectedIndexChanged);
             // 
             // tableLP_Nut2
@@ -378,7 +388,7 @@
             this.btn_Xoa.Location = new System.Drawing.Point(192, 32);
             this.btn_Xoa.Name = "btn_Xoa";
             this.btn_Xoa.Size = new System.Drawing.Size(56, 56);
-            this.btn_Xoa.TabIndex = 5;
+            this.btn_Xoa.TabIndex = 1;
             this.btn_Xoa.UseVisualStyleBackColor = true;
             this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
             // 
@@ -390,19 +400,9 @@
             this.btn_Them.Location = new System.Drawing.Point(45, 32);
             this.btn_Them.Name = "btn_Them";
             this.btn_Them.Size = new System.Drawing.Size(56, 56);
-            this.btn_Them.TabIndex = 4;
+            this.btn_Them.TabIndex = 0;
             this.btn_Them.UseVisualStyleBackColor = true;
             this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "Add.png");
-            this.imageList1.Images.SetKeyName(1, "Cancel.png");
-            this.imageList1.Images.SetKeyName(2, "Edit Data.png");
-            this.imageList1.Images.SetKeyName(3, "Garbage.png");
-            this.imageList1.Images.SetKeyName(4, "Save.png");
             // 
             // ThanhLapDonVi
             // 

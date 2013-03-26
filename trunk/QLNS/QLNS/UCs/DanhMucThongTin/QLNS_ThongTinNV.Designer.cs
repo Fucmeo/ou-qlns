@@ -82,12 +82,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txt_Ten = new System.Windows.Forms.TextBox();
             this.btn_LuuCNVC = new System.Windows.Forms.Button();
+            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.label11 = new System.Windows.Forms.Label();
             this.txt_MaNV = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.comB_GioiTinh = new System.Windows.Forms.ComboBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.tableLP_ThongTinChinh.SuspendLayout();
             this.groupBox15.SuspendLayout();
             this.tableLP_CMND.SuspendLayout();
@@ -193,7 +193,7 @@
             this.comB_CMND_HoChieu.Items.AddRange(new object[] {
             "CMND",
             "Hộ chiếu"});
-            this.comB_CMND_HoChieu.Location = new System.Drawing.Point(571, 54);
+            this.comB_CMND_HoChieu.Location = new System.Drawing.Point(571, 55);
             this.comB_CMND_HoChieu.Name = "comB_CMND_HoChieu";
             this.comB_CMND_HoChieu.Size = new System.Drawing.Size(240, 26);
             this.comB_CMND_HoChieu.TabIndex = 3;
@@ -243,7 +243,7 @@
             this.dtgv_CMNDHoChieu.RowTemplate.Height = 24;
             this.dtgv_CMNDHoChieu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgv_CMNDHoChieu.Size = new System.Drawing.Size(871, 159);
-            this.dtgv_CMNDHoChieu.TabIndex = 9;
+            this.dtgv_CMNDHoChieu.TabIndex = 5;
             this.dtgv_CMNDHoChieu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_CMNDHoChieu_CellClick);
             // 
             // label14
@@ -323,7 +323,7 @@
             this.lbl_ThemCMND.Location = new System.Drawing.Point(3, 8);
             this.lbl_ThemCMND.Name = "lbl_ThemCMND";
             this.lbl_ThemCMND.Size = new System.Drawing.Size(43, 18);
-            this.lbl_ThemCMND.TabIndex = 8;
+            this.lbl_ThemCMND.TabIndex = 0;
             this.lbl_ThemCMND.Text = "Thêm";
             this.lbl_ThemCMND.Click += new System.EventHandler(this.lbl_ThemCMND_Click);
             // 
@@ -337,7 +337,7 @@
             this.lbl_XoaCMND.Location = new System.Drawing.Point(291, 8);
             this.lbl_XoaCMND.Name = "lbl_XoaCMND";
             this.lbl_XoaCMND.Size = new System.Drawing.Size(31, 18);
-            this.lbl_XoaCMND.TabIndex = 9;
+            this.lbl_XoaCMND.TabIndex = 2;
             this.lbl_XoaCMND.Text = "Xoá";
             this.lbl_XoaCMND.Click += new System.EventHandler(this.lbl_XoaCMND_Click);
             // 
@@ -351,7 +351,7 @@
             this.lbl_SuaCMND.Location = new System.Drawing.Point(147, 8);
             this.lbl_SuaCMND.Name = "lbl_SuaCMND";
             this.lbl_SuaCMND.Size = new System.Drawing.Size(31, 18);
-            this.lbl_SuaCMND.TabIndex = 7;
+            this.lbl_SuaCMND.TabIndex = 1;
             this.lbl_SuaCMND.Text = "Sửa";
             this.lbl_SuaCMND.Click += new System.EventHandler(this.lbl_SuaCMND_Click);
             // 
@@ -425,7 +425,7 @@
             this.comB_QuocGia.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_QuocGia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_QuocGia.FormattingEnabled = true;
-            this.comB_QuocGia.Location = new System.Drawing.Point(3, 6);
+            this.comB_QuocGia.Location = new System.Drawing.Point(3, 5);
             this.comB_QuocGia.Name = "comB_QuocGia";
             this.comB_QuocGia.Size = new System.Drawing.Size(236, 26);
             this.comB_QuocGia.TabIndex = 0;
@@ -508,7 +508,7 @@
             this.comB_Tinh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_Tinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_Tinh.FormattingEnabled = true;
-            this.comB_Tinh.Location = new System.Drawing.Point(3, 11);
+            this.comB_Tinh.Location = new System.Drawing.Point(3, 12);
             this.comB_Tinh.Name = "comB_Tinh";
             this.comB_Tinh.Size = new System.Drawing.Size(236, 26);
             this.comB_Tinh.TabIndex = 0;
@@ -564,7 +564,7 @@
             this.txt_QuanHuyen.Location = new System.Drawing.Point(133, 135);
             this.txt_QuanHuyen.Name = "txt_QuanHuyen";
             this.txt_QuanHuyen.Size = new System.Drawing.Size(240, 26);
-            this.txt_QuanHuyen.TabIndex = 3;
+            this.txt_QuanHuyen.TabIndex = 4;
             // 
             // txt_PhuongXa
             // 
@@ -572,7 +572,7 @@
             this.txt_PhuongXa.Location = new System.Drawing.Point(567, 66);
             this.txt_PhuongXa.Name = "txt_PhuongXa";
             this.txt_PhuongXa.Size = new System.Drawing.Size(240, 26);
-            this.txt_PhuongXa.TabIndex = 2;
+            this.txt_PhuongXa.TabIndex = 3;
             // 
             // label5
             // 
@@ -600,7 +600,7 @@
             this.txt_Duong.Location = new System.Drawing.Point(133, 66);
             this.txt_Duong.Name = "txt_Duong";
             this.txt_Duong.Size = new System.Drawing.Size(240, 26);
-            this.txt_Duong.TabIndex = 1;
+            this.txt_Duong.TabIndex = 2;
             // 
             // txt_SoNha
             // 
@@ -608,7 +608,7 @@
             this.txt_SoNha.Location = new System.Drawing.Point(567, 14);
             this.txt_SoNha.Name = "txt_SoNha";
             this.txt_SoNha.Size = new System.Drawing.Size(240, 26);
-            this.txt_SoNha.TabIndex = 0;
+            this.txt_SoNha.TabIndex = 1;
             // 
             // label4
             // 
@@ -626,7 +626,7 @@
             this.txt_SoSoBHXH.Location = new System.Drawing.Point(133, 14);
             this.txt_SoSoBHXH.Name = "txt_SoSoBHXH";
             this.txt_SoSoBHXH.Size = new System.Drawing.Size(240, 26);
-            this.txt_SoSoBHXH.TabIndex = 5;
+            this.txt_SoSoBHXH.TabIndex = 0;
             // 
             // tableLayoutPanel1
             // 
@@ -684,7 +684,7 @@
             this.txt_MaSoThue.Location = new System.Drawing.Point(571, 196);
             this.txt_MaSoThue.Name = "txt_MaSoThue";
             this.txt_MaSoThue.Size = new System.Drawing.Size(240, 26);
-            this.txt_MaSoThue.TabIndex = 6;
+            this.txt_MaSoThue.TabIndex = 5;
             // 
             // label9
             // 
@@ -702,7 +702,7 @@
             this.txt_MaHoSo.Location = new System.Drawing.Point(571, 36);
             this.txt_MaHoSo.Name = "txt_MaHoSo";
             this.txt_MaHoSo.Size = new System.Drawing.Size(240, 26);
-            this.txt_MaHoSo.TabIndex = 22;
+            this.txt_MaHoSo.TabIndex = 0;
             // 
             // label1
             // 
@@ -720,7 +720,7 @@
             this.txt_Ho.Location = new System.Drawing.Point(134, 152);
             this.txt_Ho.Name = "txt_Ho";
             this.txt_Ho.Size = new System.Drawing.Size(240, 26);
-            this.txt_Ho.TabIndex = 3;
+            this.txt_Ho.TabIndex = 2;
             // 
             // label2
             // 
@@ -748,7 +748,7 @@
             this.txt_Ten.Location = new System.Drawing.Point(571, 152);
             this.txt_Ten.Name = "txt_Ten";
             this.txt_Ten.Size = new System.Drawing.Size(240, 26);
-            this.txt_Ten.TabIndex = 4;
+            this.txt_Ten.TabIndex = 3;
             // 
             // btn_LuuCNVC
             // 
@@ -762,10 +762,16 @@
             this.btn_LuuCNVC.MinimumSize = new System.Drawing.Size(48, 48);
             this.btn_LuuCNVC.Name = "btn_LuuCNVC";
             this.btn_LuuCNVC.Size = new System.Drawing.Size(48, 48);
-            this.btn_LuuCNVC.TabIndex = 44;
+            this.btn_LuuCNVC.TabIndex = 6;
             this.btn_LuuCNVC.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_LuuCNVC.UseVisualStyleBackColor = true;
             this.btn_LuuCNVC.Click += new System.EventHandler(this.btn_LuuCNVC_Click);
+            // 
+            // imageList2
+            // 
+            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
+            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList2.Images.SetKeyName(0, "Save.png");
             // 
             // label11
             // 
@@ -807,19 +813,13 @@
             this.comB_GioiTinh.Location = new System.Drawing.Point(134, 196);
             this.comB_GioiTinh.Name = "comB_GioiTinh";
             this.comB_GioiTinh.Size = new System.Drawing.Size(87, 26);
-            this.comB_GioiTinh.TabIndex = 2;
+            this.comB_GioiTinh.TabIndex = 4;
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.Filter = "PNG|*.PNG|GIF|*.GIF|JPEG|*.JPEG|JPG|*.JPG|Pictures Format|*.JPEG;*.PNG;*.GIF;*.JP" +
     "G";
             this.openFileDialog1.Title = "Chọn hình đại diện";
-            // 
-            // imageList2
-            // 
-            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
-            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList2.Images.SetKeyName(0, "Save.png");
             // 
             // QLNS_ThongTinNV
             // 

@@ -77,7 +77,7 @@
             this.btn_Nhap.Location = new System.Drawing.Point(472, 818);
             this.btn_Nhap.Name = "btn_Nhap";
             this.btn_Nhap.Size = new System.Drawing.Size(56, 56);
-            this.btn_Nhap.TabIndex = 32;
+            this.btn_Nhap.TabIndex = 2;
             this.btn_Nhap.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Nhap.UseVisualStyleBackColor = true;
             this.btn_Nhap.Click += new System.EventHandler(this.btn_Nhap_Click);
@@ -127,7 +127,7 @@
             this.btn_Them.Location = new System.Drawing.Point(717, 21);
             this.btn_Them.Name = "btn_Them";
             this.btn_Them.Size = new System.Drawing.Size(56, 56);
-            this.btn_Them.TabIndex = 33;
+            this.btn_Them.TabIndex = 1;
             this.btn_Them.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Them.UseVisualStyleBackColor = true;
             this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
@@ -141,7 +141,7 @@
             this.btn_Huy.Location = new System.Drawing.Point(220, 21);
             this.btn_Huy.Name = "btn_Huy";
             this.btn_Huy.Size = new System.Drawing.Size(56, 56);
-            this.btn_Huy.TabIndex = 32;
+            this.btn_Huy.TabIndex = 0;
             this.btn_Huy.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Huy.UseVisualStyleBackColor = true;
             // 
@@ -167,7 +167,7 @@
             this.dtgv_DS.RowTemplate.Height = 24;
             this.dtgv_DS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgv_DS.Size = new System.Drawing.Size(988, 123);
-            this.dtgv_DS.TabIndex = 4;
+            this.dtgv_DS.TabIndex = 0;
             // 
             // thongTinQuyetDinh1
             // 
@@ -178,7 +178,7 @@
             this.thongTinQuyetDinh1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.thongTinQuyetDinh1.Name = "thongTinQuyetDinh1";
             this.thongTinQuyetDinh1.Size = new System.Drawing.Size(994, 303);
-            this.thongTinQuyetDinh1.TabIndex = 33;
+            this.thongTinQuyetDinh1.TabIndex = 1;
             this.thongTinQuyetDinh1.Load += new System.EventHandler(this.thongTinQuyetDinh1_Load);
             // 
             // ThoiBoNhiem

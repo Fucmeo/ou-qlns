@@ -129,7 +129,7 @@
             this.btn_Huy.Location = new System.Drawing.Point(486, 28);
             this.btn_Huy.Name = "btn_Huy";
             this.btn_Huy.Size = new System.Drawing.Size(56, 56);
-            this.btn_Huy.TabIndex = 5;
+            this.btn_Huy.TabIndex = 3;
             this.btn_Huy.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Huy.UseVisualStyleBackColor = true;
             this.btn_Huy.Visible = false;
@@ -168,7 +168,7 @@
             this.btn_Luu.Location = new System.Drawing.Point(339, 28);
             this.btn_Luu.Name = "btn_Luu";
             this.btn_Luu.Size = new System.Drawing.Size(56, 56);
-            this.btn_Luu.TabIndex = 4;
+            this.btn_Luu.TabIndex = 2;
             this.btn_Luu.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Luu.UseVisualStyleBackColor = true;
             this.btn_Luu.Visible = false;
@@ -183,7 +183,7 @@
             this.btn_Xoa.Location = new System.Drawing.Point(635, 28);
             this.btn_Xoa.Name = "btn_Xoa";
             this.btn_Xoa.Size = new System.Drawing.Size(56, 56);
-            this.btn_Xoa.TabIndex = 2;
+            this.btn_Xoa.TabIndex = 4;
             this.btn_Xoa.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Xoa.UseVisualStyleBackColor = true;
             this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
@@ -197,7 +197,7 @@
             this.btn_Sua.Location = new System.Drawing.Point(192, 28);
             this.btn_Sua.Name = "btn_Sua";
             this.btn_Sua.Size = new System.Drawing.Size(56, 56);
-            this.btn_Sua.TabIndex = 3;
+            this.btn_Sua.TabIndex = 1;
             this.btn_Sua.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Sua.UseVisualStyleBackColor = true;
             this.btn_Sua.Click += new System.EventHandler(this.btn_Sua_Click);
@@ -255,7 +255,7 @@
             this.dtgv_DSDonVi.RowTemplate.Height = 24;
             this.dtgv_DSDonVi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgv_DSDonVi.Size = new System.Drawing.Size(732, 233);
-            this.dtgv_DSDonVi.TabIndex = 1;
+            this.dtgv_DSDonVi.TabIndex = 0;
             this.dtgv_DSDonVi.SelectionChanged += new System.EventHandler(this.dtgv_DSDonVi_SelectionChanged);
             // 
             // label2
@@ -309,7 +309,7 @@
             this.txt_TenVietTat.MaxLength = 10;
             this.txt_TenVietTat.Name = "txt_TenVietTat";
             this.txt_TenVietTat.Size = new System.Drawing.Size(151, 29);
-            this.txt_TenVietTat.TabIndex = 8;
+            this.txt_TenVietTat.TabIndex = 1;
             // 
             // label1
             // 
@@ -328,7 +328,7 @@
             this.txt_Ten.MaxLength = 30;
             this.txt_Ten.Name = "txt_Ten";
             this.txt_Ten.Size = new System.Drawing.Size(151, 29);
-            this.txt_Ten.TabIndex = 3;
+            this.txt_Ten.TabIndex = 0;
             // 
             // label3
             // 
@@ -348,7 +348,7 @@
             this.rTB_GhiChu.MaxLength = 200;
             this.rTB_GhiChu.Name = "rTB_GhiChu";
             this.rTB_GhiChu.Size = new System.Drawing.Size(398, 92);
-            this.rTB_GhiChu.TabIndex = 32;
+            this.rTB_GhiChu.TabIndex = 6;
             this.rTB_GhiChu.Text = "";
             // 
             // label4
@@ -366,10 +366,10 @@
             this.comB_TrucThuoc.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_TrucThuoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_TrucThuoc.FormattingEnabled = true;
-            this.comB_TrucThuoc.Location = new System.Drawing.Point(587, 34);
+            this.comB_TrucThuoc.Location = new System.Drawing.Point(587, 36);
             this.comB_TrucThuoc.Name = "comB_TrucThuoc";
             this.comB_TrucThuoc.Size = new System.Drawing.Size(154, 30);
-            this.comB_TrucThuoc.TabIndex = 7;
+            this.comB_TrucThuoc.TabIndex = 2;
             // 
             // label7
             // 
@@ -390,7 +390,7 @@
             this.dTP_TuNgay.Name = "dTP_TuNgay";
             this.dTP_TuNgay.ShowCheckBox = true;
             this.dTP_TuNgay.Size = new System.Drawing.Size(151, 29);
-            this.dTP_TuNgay.TabIndex = 33;
+            this.dTP_TuNgay.TabIndex = 3;
             // 
             // label6
             // 
@@ -423,7 +423,7 @@
             this.dTP_DenNgay.Name = "dTP_DenNgay";
             this.dTP_DenNgay.ShowCheckBox = true;
             this.dTP_DenNgay.Size = new System.Drawing.Size(151, 29);
-            this.dTP_DenNgay.TabIndex = 34;
+            this.dTP_DenNgay.TabIndex = 4;
             // 
             // label8
             // 

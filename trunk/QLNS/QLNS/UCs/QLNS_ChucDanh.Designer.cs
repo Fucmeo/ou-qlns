@@ -41,12 +41,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLP_ThaoTac = new System.Windows.Forms.TableLayoutPanel();
-            this.btn_Sua = new System.Windows.Forms.Button();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.btn_Xoa = new System.Windows.Forms.Button();
-            this.btn_Them = new System.Windows.Forms.Button();
             this.btn_Huy = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.btn_Them = new System.Windows.Forms.Button();
             this.btn_Luu = new System.Windows.Forms.Button();
+            this.btn_Xoa = new System.Windows.Forms.Button();
+            this.btn_Sua = new System.Windows.Forms.Button();
             this.tableLP_ChucDanh.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLP_DSChucDanh.SuspendLayout();
@@ -124,7 +124,7 @@
             this.dtgv_DSChucDanh.RowTemplate.Height = 24;
             this.dtgv_DSChucDanh.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgv_DSChucDanh.Size = new System.Drawing.Size(532, 177);
-            this.dtgv_DSChucDanh.TabIndex = 1;
+            this.dtgv_DSChucDanh.TabIndex = 0;
             this.dtgv_DSChucDanh.SelectionChanged += new System.EventHandler(this.dtgv_DSChucDanh_SelectionChanged);
             // 
             // label1
@@ -164,7 +164,7 @@
             this.txt_ChucDanh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_ChucDanh.Name = "txt_ChucDanh";
             this.txt_ChucDanh.Size = new System.Drawing.Size(320, 29);
-            this.txt_ChucDanh.TabIndex = 4;
+            this.txt_ChucDanh.TabIndex = 0;
             // 
             // label2
             // 
@@ -211,19 +211,20 @@
             this.tableLP_ThaoTac.Size = new System.Drawing.Size(532, 132);
             this.tableLP_ThaoTac.TabIndex = 0;
             // 
-            // btn_Sua
+            // btn_Huy
             // 
-            this.btn_Sua.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Sua.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_Sua.ImageKey = "Edit Data.png";
-            this.btn_Sua.ImageList = this.imageList1;
-            this.btn_Sua.Location = new System.Drawing.Point(131, 38);
-            this.btn_Sua.Name = "btn_Sua";
-            this.btn_Sua.Size = new System.Drawing.Size(56, 56);
-            this.btn_Sua.TabIndex = 3;
-            this.btn_Sua.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Sua.UseVisualStyleBackColor = true;
-            this.btn_Sua.Click += new System.EventHandler(this.btn_Sua_Click);
+            this.btn_Huy.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Huy.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_Huy.ImageKey = "Cancel.png";
+            this.btn_Huy.ImageList = this.imageList1;
+            this.btn_Huy.Location = new System.Drawing.Point(343, 38);
+            this.btn_Huy.Name = "btn_Huy";
+            this.btn_Huy.Size = new System.Drawing.Size(56, 56);
+            this.btn_Huy.TabIndex = 3;
+            this.btn_Huy.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Huy.UseVisualStyleBackColor = true;
+            this.btn_Huy.Visible = false;
+            this.btn_Huy.Click += new System.EventHandler(this.btn_Huy_Click);
             // 
             // imageList1
             // 
@@ -234,20 +235,6 @@
             this.imageList1.Images.SetKeyName(2, "Edit Data.png");
             this.imageList1.Images.SetKeyName(3, "Garbage.png");
             this.imageList1.Images.SetKeyName(4, "Save.png");
-            // 
-            // btn_Xoa
-            // 
-            this.btn_Xoa.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Xoa.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_Xoa.ImageKey = "Garbage.png";
-            this.btn_Xoa.ImageList = this.imageList1;
-            this.btn_Xoa.Location = new System.Drawing.Point(450, 38);
-            this.btn_Xoa.Name = "btn_Xoa";
-            this.btn_Xoa.Size = new System.Drawing.Size(56, 56);
-            this.btn_Xoa.TabIndex = 2;
-            this.btn_Xoa.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Xoa.UseVisualStyleBackColor = true;
-            this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
             // 
             // btn_Them
             // 
@@ -263,21 +250,6 @@
             this.btn_Them.UseVisualStyleBackColor = true;
             this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
             // 
-            // btn_Huy
-            // 
-            this.btn_Huy.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Huy.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_Huy.ImageKey = "Cancel.png";
-            this.btn_Huy.ImageList = this.imageList1;
-            this.btn_Huy.Location = new System.Drawing.Point(343, 38);
-            this.btn_Huy.Name = "btn_Huy";
-            this.btn_Huy.Size = new System.Drawing.Size(56, 56);
-            this.btn_Huy.TabIndex = 5;
-            this.btn_Huy.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Huy.UseVisualStyleBackColor = true;
-            this.btn_Huy.Visible = false;
-            this.btn_Huy.Click += new System.EventHandler(this.btn_Huy_Click);
-            // 
             // btn_Luu
             // 
             this.btn_Luu.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -287,11 +259,39 @@
             this.btn_Luu.Location = new System.Drawing.Point(237, 38);
             this.btn_Luu.Name = "btn_Luu";
             this.btn_Luu.Size = new System.Drawing.Size(56, 56);
-            this.btn_Luu.TabIndex = 4;
+            this.btn_Luu.TabIndex = 2;
             this.btn_Luu.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Luu.UseVisualStyleBackColor = true;
             this.btn_Luu.Visible = false;
             this.btn_Luu.Click += new System.EventHandler(this.btn_Luu_Click);
+            // 
+            // btn_Xoa
+            // 
+            this.btn_Xoa.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Xoa.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_Xoa.ImageKey = "Garbage.png";
+            this.btn_Xoa.ImageList = this.imageList1;
+            this.btn_Xoa.Location = new System.Drawing.Point(450, 38);
+            this.btn_Xoa.Name = "btn_Xoa";
+            this.btn_Xoa.Size = new System.Drawing.Size(56, 56);
+            this.btn_Xoa.TabIndex = 4;
+            this.btn_Xoa.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Xoa.UseVisualStyleBackColor = true;
+            this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
+            // 
+            // btn_Sua
+            // 
+            this.btn_Sua.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Sua.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_Sua.ImageKey = "Edit Data.png";
+            this.btn_Sua.ImageList = this.imageList1;
+            this.btn_Sua.Location = new System.Drawing.Point(131, 38);
+            this.btn_Sua.Name = "btn_Sua";
+            this.btn_Sua.Size = new System.Drawing.Size(56, 56);
+            this.btn_Sua.TabIndex = 1;
+            this.btn_Sua.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Sua.UseVisualStyleBackColor = true;
+            this.btn_Sua.Click += new System.EventHandler(this.btn_Sua_Click);
             // 
             // QLNS_ChucDanh
             // 

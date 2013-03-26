@@ -225,6 +225,7 @@ namespace QLNS.UCs
 
         private void btn_LamTuoi_Click(object sender, EventArgs e)
         {
+            Program.selected_ma_nv = "";
             TreeV_DonVi.Nodes.Clear();
             TreeV_CNVC.Nodes.Clear();
             listDonVi = oDonVi.GetList();

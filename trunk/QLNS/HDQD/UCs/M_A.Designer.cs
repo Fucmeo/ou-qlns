@@ -123,7 +123,7 @@
             this.btn_Huy.Location = new System.Drawing.Point(717, 19);
             this.btn_Huy.Name = "btn_Huy";
             this.btn_Huy.Size = new System.Drawing.Size(56, 56);
-            this.btn_Huy.TabIndex = 2;
+            this.btn_Huy.TabIndex = 1;
             this.btn_Huy.UseVisualStyleBackColor = true;
             // 
             // imageList1
@@ -145,7 +145,7 @@
             this.btn_Nhap.Location = new System.Drawing.Point(220, 19);
             this.btn_Nhap.Name = "btn_Nhap";
             this.btn_Nhap.Size = new System.Drawing.Size(56, 56);
-            this.btn_Nhap.TabIndex = 1;
+            this.btn_Nhap.TabIndex = 0;
             this.btn_Nhap.UseVisualStyleBackColor = true;
             this.btn_Nhap.Click += new System.EventHandler(this.btn_Nhap_Click);
             // 
@@ -227,7 +227,7 @@
             this.txt_TenDVTat.Location = new System.Drawing.Point(75, 62);
             this.txt_TenDVTat.Name = "txt_TenDVTat";
             this.txt_TenDVTat.Size = new System.Drawing.Size(237, 28);
-            this.txt_TenDVTat.TabIndex = 7;
+            this.txt_TenDVTat.TabIndex = 1;
             // 
             // label1
             // 
@@ -301,7 +301,7 @@
             this.txt_TenDV.Location = new System.Drawing.Point(75, 11);
             this.txt_TenDV.Name = "txt_TenDV";
             this.txt_TenDV.Size = new System.Drawing.Size(237, 28);
-            this.txt_TenDV.TabIndex = 6;
+            this.txt_TenDV.TabIndex = 0;
             // 
             // comb_DVTrucThuoc
             // 
@@ -309,10 +309,10 @@
             this.comb_DVTrucThuoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comb_DVTrucThuoc.Enabled = false;
             this.comb_DVTrucThuoc.FormattingEnabled = true;
-            this.comb_DVTrucThuoc.Location = new System.Drawing.Point(75, 115);
+            this.comb_DVTrucThuoc.Location = new System.Drawing.Point(75, 113);
             this.comb_DVTrucThuoc.Name = "comb_DVTrucThuoc";
             this.comb_DVTrucThuoc.Size = new System.Drawing.Size(237, 29);
-            this.comb_DVTrucThuoc.TabIndex = 8;
+            this.comb_DVTrucThuoc.TabIndex = 2;
             // 
             // rTB_GhiChu
             // 
@@ -321,7 +321,7 @@
             this.rTB_GhiChu.Location = new System.Drawing.Point(75, 207);
             this.rTB_GhiChu.Name = "rTB_GhiChu";
             this.rTB_GhiChu.Size = new System.Drawing.Size(237, 198);
-            this.rTB_GhiChu.TabIndex = 10;
+            this.rTB_GhiChu.TabIndex = 4;
             this.rTB_GhiChu.Text = "";
             // 
             // dTP_NgayHieuLuc
@@ -335,7 +335,7 @@
             this.dTP_NgayHieuLuc.Name = "dTP_NgayHieuLuc";
             this.dTP_NgayHieuLuc.ShowCheckBox = true;
             this.dTP_NgayHieuLuc.Size = new System.Drawing.Size(237, 28);
-            this.dTP_NgayHieuLuc.TabIndex = 31;
+            this.dTP_NgayHieuLuc.TabIndex = 3;
             // 
             // groupBox4
             // 
@@ -358,7 +358,7 @@
             this.listB_DSNV.Location = new System.Drawing.Point(3, 24);
             this.listB_DSNV.Name = "listB_DSNV";
             this.listB_DSNV.Size = new System.Drawing.Size(159, 427);
-            this.listB_DSNV.TabIndex = 33;
+            this.listB_DSNV.TabIndex = 0;
             // 
             // tableLP_NutThongTinDV
             // 
@@ -386,7 +386,7 @@
             this.btn_HuyThongTin.Location = new System.Drawing.Point(203, 20);
             this.btn_HuyThongTin.Name = "btn_HuyThongTin";
             this.btn_HuyThongTin.Size = new System.Drawing.Size(56, 56);
-            this.btn_HuyThongTin.TabIndex = 5;
+            this.btn_HuyThongTin.TabIndex = 1;
             this.btn_HuyThongTin.UseVisualStyleBackColor = true;
             this.btn_HuyThongTin.Click += new System.EventHandler(this.btn_HuyThongTin_Click);
             // 
@@ -400,7 +400,7 @@
             this.btn_LuuThongTin.Location = new System.Drawing.Point(49, 20);
             this.btn_LuuThongTin.Name = "btn_LuuThongTin";
             this.btn_LuuThongTin.Size = new System.Drawing.Size(56, 56);
-            this.btn_LuuThongTin.TabIndex = 4;
+            this.btn_LuuThongTin.TabIndex = 0;
             this.btn_LuuThongTin.UseVisualStyleBackColor = true;
             this.btn_LuuThongTin.Click += new System.EventHandler(this.btn_LuuThongTin_Click);
             // 
@@ -465,7 +465,7 @@
             this.btn_XoaSangDV.Location = new System.Drawing.Point(144, 19);
             this.btn_XoaSangDV.Name = "btn_XoaSangDV";
             this.btn_XoaSangDV.Size = new System.Drawing.Size(56, 56);
-            this.btn_XoaSangDV.TabIndex = 4;
+            this.btn_XoaSangDV.TabIndex = 1;
             this.btn_XoaSangDV.UseVisualStyleBackColor = true;
             this.btn_XoaSangDV.Click += new System.EventHandler(this.btn_XoaSangDV_Click);
             // 
@@ -478,7 +478,7 @@
             this.btn_ThemSangDV.Location = new System.Drawing.Point(29, 19);
             this.btn_ThemSangDV.Name = "btn_ThemSangDV";
             this.btn_ThemSangDV.Size = new System.Drawing.Size(56, 56);
-            this.btn_ThemSangDV.TabIndex = 3;
+            this.btn_ThemSangDV.TabIndex = 0;
             this.btn_ThemSangDV.UseVisualStyleBackColor = true;
             this.btn_ThemSangDV.Click += new System.EventHandler(this.btn_ThemSangDV_Click);
             // 
@@ -530,7 +530,7 @@
             this.btn_ThemTuDV.Location = new System.Drawing.Point(87, 19);
             this.btn_ThemTuDV.Name = "btn_ThemTuDV";
             this.btn_ThemTuDV.Size = new System.Drawing.Size(56, 56);
-            this.btn_ThemTuDV.TabIndex = 3;
+            this.btn_ThemTuDV.TabIndex = 0;
             this.btn_ThemTuDV.UseVisualStyleBackColor = true;
             this.btn_ThemTuDV.Click += new System.EventHandler(this.btn_ThemTuDV_Click);
             // 
@@ -545,7 +545,7 @@
             this.tableLP_ComboTuDV.RowCount = 1;
             this.tableLP_ComboTuDV.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 409F));
             this.tableLP_ComboTuDV.Size = new System.Drawing.Size(230, 405);
-            this.tableLP_ComboTuDV.TabIndex = 3;
+            this.tableLP_ComboTuDV.TabIndex = 0;
             // 
             // M_A
             // 

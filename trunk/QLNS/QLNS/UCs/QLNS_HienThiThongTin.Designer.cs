@@ -120,7 +120,7 @@
             this.lbl_DongMo.Location = new System.Drawing.Point(3, 19);
             this.lbl_DongMo.Name = "lbl_DongMo";
             this.lbl_DongMo.Size = new System.Drawing.Size(37, 23);
-            this.lbl_DongMo.TabIndex = 9;
+            this.lbl_DongMo.TabIndex = 3;
             this.lbl_DongMo.Text = "<<<";
             this.lbl_DongMo.Click += new System.EventHandler(this.lbl_DongMo_Click);
             // 
@@ -133,7 +133,7 @@
             this.btn_Xoa.MinimumSize = new System.Drawing.Size(50, 50);
             this.btn_Xoa.Name = "btn_Xoa";
             this.btn_Xoa.Size = new System.Drawing.Size(50, 50);
-            this.btn_Xoa.TabIndex = 3;
+            this.btn_Xoa.TabIndex = 2;
             this.btn_Xoa.UseVisualStyleBackColor = true;
             this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
             // 
@@ -173,10 +173,10 @@
             "Thông tin gia đình",
             "Lịch sử bản thân",
             "Diến biến sức khỏe"});
-            this.comB_DanhMuc.Location = new System.Drawing.Point(187, 18);
+            this.comB_DanhMuc.Location = new System.Drawing.Point(187, 15);
             this.comB_DanhMuc.Name = "comB_DanhMuc";
             this.comB_DanhMuc.Size = new System.Drawing.Size(305, 30);
-            this.comB_DanhMuc.TabIndex = 1;
+            this.comB_DanhMuc.TabIndex = 0;
             this.comB_DanhMuc.DropDown += new System.EventHandler(this.comB_DanhMuc_DropDown);
             this.comB_DanhMuc.SelectionChangeCommitted += new System.EventHandler(this.comB_DanhMuc_SelectionChangeCommitted);
             // 
@@ -189,7 +189,7 @@
             this.btn_Them.MinimumSize = new System.Drawing.Size(50, 50);
             this.btn_Them.Name = "btn_Them";
             this.btn_Them.Size = new System.Drawing.Size(50, 50);
-            this.btn_Them.TabIndex = 2;
+            this.btn_Them.TabIndex = 1;
             this.btn_Them.UseVisualStyleBackColor = true;
             this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
             // 
