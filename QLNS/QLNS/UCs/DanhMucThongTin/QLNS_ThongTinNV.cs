@@ -167,6 +167,7 @@ namespace QLNS.UCs.DanhMucThongTin
         private void btn_LuuCNVC_Click(object sender, EventArgs e)
         {
             #region Thong Tin NV
+            bool bUploadInfoSuccess = true;
             bool Yes = MessageBox.Show("Thêm / cập nhật nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes;
             if (VerifyCNVCData())
             {
@@ -184,16 +185,22 @@ namespace QLNS.UCs.DanhMucThongTin
                         else
                         {
                             oCNVC.Update(Program.selected_ma_nv);
-
                             MessageBox.Show("Cập nhật nhân viên thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
+                        bUploadInfoSuccess = true;
 
                     }
                     catch (Exception)
                     {
                         MessageBox.Show("Thông tin nhân viên không phù hợp, xin vui lòng xem lại thông tin nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
+
+                    if (bUploadInfoSuccess)
+                    {
+                        UploadAvatar();
+                    }
                 }
+                bUploadInfoSuccess = false;
             }
             else
             {
@@ -201,53 +208,61 @@ namespace QLNS.UCs.DanhMucThongTin
             } 
             #endregion
 
+            
+        }
+
+        private void UploadAvatar()
+        {
             #region Avatar
 
-            if ( Yes && picB_HinhDaiDien.ImageLocation != ""  && AvatarPath[0] != picB_HinhDaiDien.ImageLocation)
-            {
-                string[] ServerPath = new string[1];
-
-                try
+                if (picB_HinhDaiDien.ImageLocation != "" && AvatarPath[0] != picB_HinhDaiDien.ImageLocation)
                 {
-                    ServerPath = oFTP.UploadFile(new string[1] { picB_HinhDaiDien.ImageLocation }, 
-                                                new string[1] { picB_HinhDaiDien.ImageLocation.Split('\\').Last() }, oFile.MaNV);
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Quá trình tải hình lên server không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                    string[] ServerPath = new string[1];
 
-                if (Program.selected_ma_nv != "")
-                    oFile.MaNV = Program.selected_ma_nv;
-                else
-                    oFile.MaNV = txt_MaNV.Text.Trim();
+                    try
+                    {
+                        ServerPath = oFTP.UploadFile(new string[1] { picB_HinhDaiDien.ImageLocation },
+                                                    new string[1] { picB_HinhDaiDien.ImageLocation.Split('\\').Last() }, oFile.MaNV);
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Quá trình tải hình lên server không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
 
-                oFile.Path = ServerPath[0];
-                oFile.IsAvatar = true;
-                try
-                {
-                    oFile.Add();
-                    
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Quá trình lưu hình không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                
-            }
-            else if (picB_HinhDaiDien.ImageLocation == "" && AvatarPath[0] != "")
-            {
-                if (Program.selected_ma_nv != "")
-                    oFile.MaNV = Program.selected_ma_nv;
-                else
-                    oFile.MaNV = txt_MaNV.Text.Trim();
+                    if (Program.selected_ma_nv != "")
+                        oFile.MaNV = Program.selected_ma_nv;
+                    else
+                        oFile.MaNV = txt_MaNV.Text.Trim();
 
-                oFile.IsAvatar = true;
-                oFile.DeleteAvatar();
-            }
+                    oFile.Path = ServerPath[0];
+                    oFile.IsAvatar = true;
+                    try
+                    {
+                        oFile.Add();
+
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Quá trình lưu hình không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                }
+                else if (picB_HinhDaiDien.ImageLocation == "" && AvatarPath[0] != "")
+                {
+                    if (Program.selected_ma_nv != "")
+                        oFile.MaNV = Program.selected_ma_nv;
+                    else
+                        oFile.MaNV = txt_MaNV.Text.Trim();
+
+                    oFile.IsAvatar = true;
+                    oFile.DeleteAvatar();
+                }
+            
+
 
             #endregion
         }
+
 
         public void LoadTinhData(DataTable dt)
         {
@@ -814,16 +829,24 @@ namespace QLNS.UCs.DanhMucThongTin
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                try
+                if (oFTP.ChecFileSize(new string[]{openFileDialog1.FileName}))
                 {
-                    picB_HinhDaiDien.Image = Image.FromFile(openFileDialog1.FileName);
-                    picB_HinhDaiDien.ImageLocation = openFileDialog1.FileName;
-                    btn_DelAvatar.Enabled = true;
+                    try
+                    {
+                        picB_HinhDaiDien.Image = Image.FromFile(openFileDialog1.FileName);
+                        picB_HinhDaiDien.ImageLocation = openFileDialog1.FileName;
+                        btn_DelAvatar.Enabled = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Quá trình nạp hình thất bại" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("Quá trình nạp hình thất bại" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Tập tin không được lớn hơn 2,5 MB.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                
             }
         }
 

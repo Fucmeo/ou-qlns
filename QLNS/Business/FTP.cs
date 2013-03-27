@@ -14,7 +14,7 @@ namespace Business
         string URI = "ftp://123.30.210.98/", globalFolderName, downloadPath  ;
         string UserName = "Administrator", Password = "QLNS@123qlns";
         FileCate oFileCate = new FileCate();
-
+        long lFileSizeLimit = 2621440;  // 2 mb
         public FTP()
         {
             //downloadPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
@@ -25,39 +25,39 @@ namespace Business
         /// <summary>
         /// Upload file len VPS
         /// </summary>
-        /// <param name="FilesPath">Mang chua duong dan file o may client</param>
-        /// <param name="FilesName">Mang chua ten file (Name + Extension) o may client</param>
+        /// <param name="ServerFilesPath">Mang chua duong dan file o may client</param>
+        /// <param name="ServerFilesName">Mang chua ten file (Name + Extension) o may client</param>
         /// <param name="m_Ma">Ma nv hoac ma qd hoac ma hd - dung de dat ten file tren server</param>
         /// <returns>Tra ve mang chua duong dan file tren server, dung de luu xuong DB</returns>
-        public  string[] UploadFile(string[] FilesPath, string[] FilesName, string m_Ma)
+        public  string[] UploadFile(string[] ServerFilesPath, string[] ServerFilesName, string m_Ma)
         {
             // The buffer size is set to 2kb
             int buffLength = 2048;
             byte[] buff = new byte[buffLength];
             int contentLen;
 
-            string[] DBPath = new string[FilesName.Length];
-            oFileCate = FileCate.HinhDaiDien;
-            switch (oFileCate)
-            {
-                case FileCate.HinhDaiDien:
-                    CreateFTPFolderIfNotExists("hinh_dai_dien");
-                    globalFolderName = "hinh_dai_dien";
-                    break;
-                case FileCate.HopDong:
-                    break;
-                case FileCate.QuyetDinh:
-                    break;
-                default:
-                    break;
-            }
+            string[] DBPath = new string[ServerFilesName.Length];
+            //oFileCate = FileCate.HinhDaiDien;
+            //switch (oFileCate)
+            //{
+            //    case FileCate.HinhDaiDien:
+            //        CreateFTPFolderIfNotExists("hinh_dai_dien");
+            //        globalFolderName = "hinh_dai_dien";
+            //        break;
+            //    case FileCate.HopDong:
+            //        break;
+            //    case FileCate.QuyetDinh:
+            //        break;
+            //    default:
+            //        break;
+            //}
 
             Stream strm = null;
             FileStream fs = null;
-            for (int i = 0; i < FilesPath.Length; i++)
+            for (int i = 0; i < ServerFilesPath.Length; i++)
             {
-                string ServerFileName = MakeFileName(m_Ma, FilesName[i]);
-                FileInfo fileInf = new FileInfo(FilesPath[i]);
+                string ServerFileName = MakeFileName(m_Ma, ServerFilesName[i]);
+                FileInfo fileInf = new FileInfo(ServerFilesPath[i]);
 
                 //123.30.210.98
                 FtpWebRequest request = (FtpWebRequest)WebRequest.Create(URI + globalFolderName + "/" + ServerFileName);
@@ -122,6 +122,19 @@ namespace Business
             return s;
         }
 
+        public bool ChecFileSize(string[] Paths)
+        {
+            for (int i = 0; i < Paths.Length; i++)
+            {
+                FileInfo fi = new FileInfo(Paths[i]);
+                if (fi.Length >= lFileSizeLimit)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
         /// <summary>
         /// KT Folder co ton tai tren server chua, neu chua se goi ham tao folder
         /// </summary>
@@ -173,69 +186,97 @@ namespace Business
         }
 
 
-        public string[] DownloadFile(string[] FilesPath)
+        public string[] DownloadFile(string[] ServerFilesPath)
         {
-            string[] DownloadFiles = new string[FilesPath.Length];
-            string[] FilesName = new string[FilesPath.Length];
-            for (int i = 0; i < FilesPath.Length; i++)
+            string[] ClientFilesPath = new string[ServerFilesPath.Length];
+            string[] ServerFilesName = new string[ServerFilesPath.Length];
+            for (int i = 0; i < ServerFilesPath.Length; i++)
             {
-                FilesName[i] = FilesPath[i].Split('/').Last();
+                ServerFilesName[i] = ServerFilesPath[i].Split('/').Last();
             }
 
-            FtpWebRequest reqFTP;
-            FileStream outputStream = null;
-            FtpWebResponse response = null;
-            Stream ftpStream = null;
-            try
+            // check xem file da co tren may client chua
+            GetFilesIfExists(ref ClientFilesPath, ref ServerFilesName, ref ServerFilesPath);
+
+            if (ServerFilesPath.Length > 0) // co file chua co tren client
             {
-                
-                //filePath = <<The full path where the file is to be created.>>, 
-                //fileName = <<Name of the file to be created(Need not be the name of the file on FTP server).>>
-                for (int i = 0; i < FilesPath.Length; i++)
+                FtpWebRequest reqFTP;
+                FileStream outputStream = null;
+                FtpWebResponse response = null;
+                Stream ftpStream = null;
+                try
                 {
-                    outputStream = new FileStream(downloadPath + "\\" + FilesName[i], FileMode.OpenOrCreate);
 
-                    reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri(URI + "/" + FilesPath[i]));
-                    reqFTP.Method = WebRequestMethods.Ftp.DownloadFile;
-                    reqFTP.UseBinary = true;
-                    reqFTP.Credentials = new NetworkCredential(UserName, Password);
-                    response = (FtpWebResponse)reqFTP.GetResponse();
-                    ftpStream = response.GetResponseStream();
-                    long cl = response.ContentLength;
-                    int bufferSize = 2048;
-                    int readCount;
-                    byte[] buffer = new byte[bufferSize];
-
-                    readCount = ftpStream.Read(buffer, 0, bufferSize);
-                    while (readCount > 0)
+                    //filePath = <<The full path where the file is to be created.>>, 
+                    //fileName = <<Name of the file to be created(Need not be the name of the file on FTP server).>>
+                    for (int i = 0; i < ServerFilesPath.Length; i++)
                     {
-                        outputStream.Write(buffer, 0, readCount);
+                        outputStream = new FileStream(downloadPath + "\\" + ServerFilesName[i], FileMode.OpenOrCreate);
+
+                        reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri(URI + "/" + ServerFilesPath[i]));
+                        reqFTP.Method = WebRequestMethods.Ftp.DownloadFile;
+                        reqFTP.UseBinary = true;
+                        reqFTP.Credentials = new NetworkCredential(UserName, Password);
+                        response = (FtpWebResponse)reqFTP.GetResponse();
+                        ftpStream = response.GetResponseStream();
+                        long cl = response.ContentLength;
+                        int bufferSize = 2048;
+                        int readCount;
+                        byte[] buffer = new byte[bufferSize];
+
                         readCount = ftpStream.Read(buffer, 0, bufferSize);
+                        while (readCount > 0)
+                        {
+                            outputStream.Write(buffer, 0, readCount);
+                            readCount = ftpStream.Read(buffer, 0, bufferSize);
+                        }
+
+                        ClientFilesPath[i] = downloadPath + "\\" + ServerFilesName[i];
                     }
 
-                    DownloadFiles[i] = downloadPath + "\\" + FilesName[i];
-                }
 
-
-                ftpStream.Close();
-                outputStream.Close();
-                response.Close();
-            }
-            catch (Exception ex)
-            {
-                //throw new Exception(ex.Message);
-                DownloadFiles[0] = downloadPath + "\\" + FilesName[0];
-                return DownloadFiles;
-            }
-            finally
-            {
-                if (outputStream != null)
-                {
+                    ftpStream.Close();
                     outputStream.Close();
+                    response.Close();
+                }
+                catch (Exception)
+                {
+                    //throw new Exception(ex.Message);
+                    ClientFilesPath[0] = downloadPath + "\\" + ServerFilesName[0];
+                    return ClientFilesPath;
+                }
+                finally
+                {
+                    if (outputStream != null)
+                    {
+                        outputStream.Close();
+                    }
+                }
+            }
+            
+
+            return ClientFilesPath;
+        }
+
+        /// <summary>
+        /// kiem tra xem hinh can download co tren client o, neu co thi add path vao ClientFilesPath va exclude file do ra khoi ServerFilesPath
+        /// </summary>
+        /// <param name="ClientFilesPath">mang path cua file tra len cho giao dien</param>
+        /// <param name="ServerFilesName">ten cua file luu o db</param>
+        /// <param name="ServerFilesPath"></param>
+        private void GetFilesIfExists(ref string[] ClientFilesPath, ref string[] ServerFilesName, ref string[] ServerFilesPath)
+        {
+            List<string> LstServerFilesPath = new List<string>(ServerFilesPath);
+            for (int i = 0; i < ServerFilesPath.Length; i++)
+            {
+                if (File.Exists(downloadPath + "\\" + ServerFilesName[i]))
+                {
+                    ClientFilesPath[i] = downloadPath + "\\" + ServerFilesName[i];
+                    LstServerFilesPath.RemoveAt(i);
                 }
             }
 
-            return DownloadFiles;
+            ServerFilesPath = LstServerFilesPath.ToArray();
         }
 
         //private static bool IsFileLocked(Exception exception)
