@@ -206,11 +206,11 @@
             // 
             this.label32.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(396, 58);
+            this.label32.Location = new System.Drawing.Point(396, 69);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(125, 42);
+            this.label32.Size = new System.Drawing.Size(126, 21);
             this.label32.TabIndex = 3;
-            this.label32.Text = "Trình độ chuyên môn";
+            this.label32.Text = "Trình độ văn hoá";
             // 
             // label33
             // 
@@ -452,7 +452,8 @@
             this.comB_CapDo.Items.AddRange(new object[] {
             "Tiểu học",
             "Trung học cơ sở",
-            "Trung học phổ thông"});
+            "Trung học phổ thông",
+            "Trung học chuyên nghiệp"});
             this.comB_CapDo.Location = new System.Drawing.Point(121, 25);
             this.comB_CapDo.Name = "comB_CapDo";
             this.comB_CapDo.Size = new System.Drawing.Size(264, 29);

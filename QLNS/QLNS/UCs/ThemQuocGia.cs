@@ -44,7 +44,9 @@ namespace QLNS.UCs
                             case "QLNS_LichSuBanThan":
                                 QLNS.UCs.DanhMucThongTin.QLNS_LichSuBanThan.nNewQuocGiaID = i;
                                 break;
-
+                            case "QLNS_DaoTaoBoiDuong":
+                                QLNS.UCs.DanhMucThongTin.QLNS_DaoTaoBoiDuong.nNewQuocGiaID = i;
+                                break;
                             default:
                                 break;
                         }

@@ -114,7 +114,7 @@
             System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("Ngoại ngữ");
             System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("Tin học");
             System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("Sở trường công tác");
-            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("Trình độ chuyên môn");
+            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("Trình độ văn hoá");
             System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("Chuyên môn tổng quát", new System.Windows.Forms.TreeNode[] {
             treeNode43,
             treeNode44,
@@ -1800,7 +1800,7 @@
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(136, 18);
             this.label32.TabIndex = 3;
-            this.label32.Text = "Trình độ chuyên môn";
+            this.label32.Text = "Trình độ văn hoá";
             // 
             // label33
             // 
@@ -3256,7 +3256,7 @@
             treeNode45.Name = "cnvc_chuyen_mon_tong_quat.so_truong_cong_tac";
             treeNode45.Text = "Sở trường công tác";
             treeNode46.Name = "cnvc_chuyen_mon_tong_quat.trinh_do_chuyen_mon";
-            treeNode46.Text = "Trình độ chuyên môn";
+            treeNode46.Text = "Trình độ văn hoá";
             treeNode47.Name = "cnvc_chuyen_mon_tong_quat";
             treeNode47.StateImageIndex = 0;
             treeNode47.Text = "Chuyên môn tổng quát";

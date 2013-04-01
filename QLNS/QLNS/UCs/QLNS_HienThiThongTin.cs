@@ -16,7 +16,7 @@ namespace QLNS.UCs
     //Quá trình công tác
     //Hợp đồng tuyển dụng    
     //Đào tạo & bồi dưỡng
-    //Trình độ chuyên môn
+    //Trình độ văn hoá
     //Hoạt động chính trị
     //Thông tin gia đình
     //Lịch sử bản thân
@@ -1698,7 +1698,7 @@ namespace QLNS.UCs
                         }
                         break;
 
-                    case "Trình độ chuyên môn":
+                    case "Trình độ văn hoá":
                         if (oQLNS_TrinhDo_ChuyenMon == null)
                         {
                             oQLNS_TrinhDo_ChuyenMon = new QLNS_TrinhDo_ChuyenMon();

@@ -60,6 +60,9 @@ namespace QLNS.UCs
                             case "QLNS_ThongTinNV_Phu":
                                 QLNS.UCs.DanhMucThongTin.QLNS_ThongTinNV_Phu.nNewTinhTPID = i;
                                 break;
+                            case "QLNS_DaoTaoBoiDuong":
+                                QLNS.UCs.DanhMucThongTin.QLNS_DaoTaoBoiDuong.nNewTinhTPID = i;
+                                break;
                             default:
                                 break;
                         }
