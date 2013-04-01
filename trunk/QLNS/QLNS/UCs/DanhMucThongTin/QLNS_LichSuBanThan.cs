@@ -681,6 +681,10 @@ namespace QLNS.UCs.DanhMucThongTin
 
         private void Setup_dtgv_TienAn()
         {
+            if (dtgv_TienAn.Rows.Count > 0)
+            {
+                dtgv_TienAn.SelectedRows[0].Selected = false;
+            }
             dtgv_TienAn.Columns["bi_bat_bi_tu"].HeaderText = "Bị bắt / bị tù";
             dtgv_TienAn.Columns["bi_bat_bi_tu"].Width = 150;
 
@@ -703,6 +707,11 @@ namespace QLNS.UCs.DanhMucThongTin
 
         private void Setup_dtgv_QHToChuc()
         {
+            if (dtgv_QHToChuc.Rows.Count > 0)
+            {
+                dtgv_QHToChuc.SelectedRows[0].Selected = false;
+            }
+
             dtgv_QHToChuc.Columns["ten_to_chuc"].HeaderText = "Tên tổ chức";
             dtgv_QHToChuc.Columns["ten_to_chuc"].Width = 250;
 

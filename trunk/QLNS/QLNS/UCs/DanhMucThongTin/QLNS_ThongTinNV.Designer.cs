@@ -193,7 +193,7 @@
             this.comB_CMND_HoChieu.Items.AddRange(new object[] {
             "CMND",
             "Hộ chiếu"});
-            this.comB_CMND_HoChieu.Location = new System.Drawing.Point(571, 55);
+            this.comB_CMND_HoChieu.Location = new System.Drawing.Point(571, 54);
             this.comB_CMND_HoChieu.Name = "comB_CMND_HoChieu";
             this.comB_CMND_HoChieu.Size = new System.Drawing.Size(240, 26);
             this.comB_CMND_HoChieu.TabIndex = 3;
@@ -425,7 +425,7 @@
             this.comB_QuocGia.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_QuocGia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_QuocGia.FormattingEnabled = true;
-            this.comB_QuocGia.Location = new System.Drawing.Point(3, 5);
+            this.comB_QuocGia.Location = new System.Drawing.Point(3, 6);
             this.comB_QuocGia.Name = "comB_QuocGia";
             this.comB_QuocGia.Size = new System.Drawing.Size(236, 26);
             this.comB_QuocGia.TabIndex = 0;
@@ -508,7 +508,7 @@
             this.comB_Tinh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_Tinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_Tinh.FormattingEnabled = true;
-            this.comB_Tinh.Location = new System.Drawing.Point(3, 12);
+            this.comB_Tinh.Location = new System.Drawing.Point(3, 11);
             this.comB_Tinh.Name = "comB_Tinh";
             this.comB_Tinh.Size = new System.Drawing.Size(236, 26);
             this.comB_Tinh.TabIndex = 0;

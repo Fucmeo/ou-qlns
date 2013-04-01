@@ -1368,7 +1368,7 @@
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(105, 46);
             this.label32.TabIndex = 3;
-            this.label32.Text = "Trình độ chuyên môn";
+            this.label32.Text = "Trình độ văn hoá";
             // 
             // label33
             // 

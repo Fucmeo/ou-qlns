@@ -168,12 +168,12 @@
             "Quá trình công tác",
             "Hợp đồng tuyển dụng",
             "Đào tạo & bồi dưỡng",
-            "Trình độ chuyên môn",
+            "Trình độ văn hoá",
             "Hoạt động chính trị",
             "Thông tin gia đình",
             "Lịch sử bản thân",
             "Diến biến sức khỏe"});
-            this.comB_DanhMuc.Location = new System.Drawing.Point(187, 15);
+            this.comB_DanhMuc.Location = new System.Drawing.Point(187, 18);
             this.comB_DanhMuc.Name = "comB_DanhMuc";
             this.comB_DanhMuc.Size = new System.Drawing.Size(305, 30);
             this.comB_DanhMuc.TabIndex = 0;

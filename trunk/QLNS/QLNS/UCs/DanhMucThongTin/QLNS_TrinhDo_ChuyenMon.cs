@@ -131,6 +131,9 @@ namespace QLNS.UCs.DanhMucThongTin
 
         private void Setup_dtgv_TrinhDo()
         {
+            if (dtgv_TrinhDo.Rows.Count > 0)
+                dtgv_TrinhDo.Rows[0].Selected = false;
+
             dtgv_TrinhDo.Columns["id"].Visible = dtgv_TrinhDo.Columns["ma_nv"].Visible =
                 dtgv_TrinhDo.Columns["tinh_thanhpho_id"].Visible = false; // id , id tinh va ma nv
 
@@ -515,7 +518,9 @@ namespace QLNS.UCs.DanhMucThongTin
             if(bAddTrinhDoFlag == false)
                 oCNVC_TrinhDoPhoThong.ID = Convert.ToInt32(dtgv_TrinhDo.SelectedRows[0].Cells["id"].Value);
 
-            oCNVC_TrinhDoPhoThong.CapHoc = comB_CapDo.SelectedIndex == 0 ? 1 : comB_CapDo.SelectedIndex == 1 ? 2 : 3;
+            oCNVC_TrinhDoPhoThong.CapHoc = comB_CapDo.SelectedIndex == 0 ? 1 : comB_CapDo.SelectedIndex == 1 ? 2 : 
+                                            comB_CapDo.SelectedIndex == 2 ? 3 : 4;
+            
             oCNVC_TrinhDoPhoThong.TenTruong = txt_TenTruong.Text;
             oCNVC_TrinhDoPhoThong.Phuong = txt_PhuongXa.Text;
             oCNVC_TrinhDoPhoThong.Quan = txt_QuanHuyen.Text;
