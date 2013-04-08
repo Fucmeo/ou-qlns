@@ -35,13 +35,13 @@ namespace QLNS.UCs
 
         private void btn_Xoa_Click(object sender, EventArgs e)
         {
-            if (dtgv_DSChucDanh.CurrentRow != null)
+            if (dtgv_DSNhomNgach.CurrentRow != null)
             {
                 if (MessageBox.Show("Bạn thực sự muốn xoá chức danh này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     try
                     {
-                        oChucDanh.ID = Convert.ToInt16(dtgv_DSChucDanh.CurrentRow.Cells[0].Value.ToString());
+                        oChucDanh.ID = Convert.ToInt16(dtgv_DSNhomNgach.CurrentRow.Cells[0].Value.ToString());
                         if (oChucDanh.Delete())
                         {
                             MessageBox.Show("Xoá thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -60,7 +60,7 @@ namespace QLNS.UCs
 
         private void btn_Sua_Click(object sender, EventArgs e)
         {
-            if (dtgv_DSChucDanh.Rows.Count > 0)
+            if (dtgv_DSNhomNgach.Rows.Count > 0)
             {
                 bAddFlag = false;
                 ResetInterface(false);
@@ -100,7 +100,7 @@ namespace QLNS.UCs
                 {
                     if (MessageBox.Show("Bạn thực sự muốn sửa chức danh này ?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        oChucDanh.ID = Convert.ToInt16(dtgv_DSChucDanh.CurrentRow.Cells[0].Value.ToString());
+                        oChucDanh.ID = Convert.ToInt16(dtgv_DSNhomNgach.CurrentRow.Cells[0].Value.ToString());
                         oChucDanh.TenChucDanh = txt_ChucDanh.Text.Trim();
                         try
                         {
@@ -146,9 +146,9 @@ namespace QLNS.UCs
 
         private void dtgv_DSChucDanh_SelectionChanged(object sender, EventArgs e)
         {
-            if (dtgv_DSChucDanh.CurrentRow != null)
+            if (dtgv_DSNhomNgach.CurrentRow != null)
             {
-                DisplayInfo(dtgv_DSChucDanh.CurrentRow);
+                DisplayInfo(dtgv_DSNhomNgach.CurrentRow);
             }
         }
 
@@ -163,10 +163,10 @@ namespace QLNS.UCs
                 btn_Them.Visible = btn_Xoa.Visible = btn_Sua.Visible = true;
                 btn_Huy.Visible = btn_Luu.Visible = false;
                 txt_ChucDanh.Enabled = false;
-                dtgv_DSChucDanh.Enabled = true;
-                if (dtgv_DSChucDanh.CurrentRow != null)
+                dtgv_DSNhomNgach.Enabled = true;
+                if (dtgv_DSNhomNgach.CurrentRow != null)
                 {
-                    DisplayInfo(dtgv_DSChucDanh.CurrentRow);
+                    DisplayInfo(dtgv_DSNhomNgach.CurrentRow);
                 }
             }
             else
@@ -174,7 +174,7 @@ namespace QLNS.UCs
                 btn_Them.Visible = btn_Xoa.Visible = btn_Sua.Visible = false;
                 btn_Huy.Visible = btn_Luu.Visible = true;
                 txt_ChucDanh.Enabled = true;
-                dtgv_DSChucDanh.Enabled = false;
+                dtgv_DSNhomNgach.Enabled = false;
 
                 if (bAddFlag) // thao tac them moi xoa rong cac field
                 {
@@ -216,8 +216,8 @@ namespace QLNS.UCs
         {
             BindingSource bs = new BindingSource();
             bs.DataSource = dtDSChucDanh;
-            dtgv_DSChucDanh.DataSource = bs;
-            lbl_SoChucDanh.Text = dtgv_DSChucDanh.Rows.Count.ToString();
+            dtgv_DSNhomNgach.DataSource = bs;
+            lbl_SoChucDanh.Text = dtgv_DSNhomNgach.Rows.Count.ToString();
             if (dtDSChucDanh != null)
             {
                 btn_Sua.Visible = btn_Xoa.Visible = true;
@@ -230,10 +230,10 @@ namespace QLNS.UCs
         private void EditDtgInterface()
         {
             // Dat ten cho cac cot
-            dtgv_DSChucDanh.Columns[1].HeaderText = "Tên chức danh";
-            dtgv_DSChucDanh.Columns[1].Width = 250;
+            dtgv_DSNhomNgach.Columns[1].HeaderText = "Tên chức danh";
+            dtgv_DSNhomNgach.Columns[1].Width = 250;
             // An cot ID
-            dtgv_DSChucDanh.Columns[0].Visible = false;         
+            dtgv_DSNhomNgach.Columns[0].Visible = false;         
         }
 
         #endregion

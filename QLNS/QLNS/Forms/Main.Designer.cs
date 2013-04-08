@@ -64,6 +64,10 @@
             this.ImageL_MenuStrip = new System.Windows.Forms.ImageList(this.components);
             this.tableLP_Main = new System.Windows.Forms.TableLayoutPanel();
             this.ImageL_MenuStripItem = new System.Windows.Forms.ImageList(this.components);
+            this.tsmi_NhomNgach = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_Ngach = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_BacHeSo = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_LuongToiThieu = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -278,7 +282,11 @@
             this.tsmi_ChucVu,
             this.tsmi_HinhThucDaoTao,
             this.tsmi_MoHinhDaoTao,
-            this.tsmi_VanBangChinhQuy});
+            this.tsmi_VanBangChinhQuy,
+            this.tsmi_NhomNgach,
+            this.tsmi_Ngach,
+            this.tsmi_BacHeSo,
+            this.tsmi_LuongToiThieu});
             this.tsmi_QLDT.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tsmi_QLDT.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.tsmi_QLDT.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -470,6 +478,38 @@
             this.ImageL_MenuStripItem.Images.SetKeyName(14, "Decision.png");
             this.ImageL_MenuStripItem.Images.SetKeyName(15, "Document-Add.png");
             // 
+            // tsmi_NhomNgach
+            // 
+            this.tsmi_NhomNgach.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(55)))), ((int)(((byte)(78)))));
+            this.tsmi_NhomNgach.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tsmi_NhomNgach.Name = "tsmi_NhomNgach";
+            this.tsmi_NhomNgach.Size = new System.Drawing.Size(216, 26);
+            this.tsmi_NhomNgach.Text = "Nhóm ngạch";
+            // 
+            // tsmi_Ngach
+            // 
+            this.tsmi_Ngach.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(55)))), ((int)(((byte)(78)))));
+            this.tsmi_Ngach.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tsmi_Ngach.Name = "tsmi_Ngach";
+            this.tsmi_Ngach.Size = new System.Drawing.Size(216, 26);
+            this.tsmi_Ngach.Text = "Ngạch";
+            // 
+            // tsmi_BacHeSo
+            // 
+            this.tsmi_BacHeSo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(55)))), ((int)(((byte)(78)))));
+            this.tsmi_BacHeSo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tsmi_BacHeSo.Name = "tsmi_BacHeSo";
+            this.tsmi_BacHeSo.Size = new System.Drawing.Size(216, 26);
+            this.tsmi_BacHeSo.Text = "Bậc / hệ số";
+            // 
+            // tsmi_LuongToiThieu
+            // 
+            this.tsmi_LuongToiThieu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(55)))), ((int)(((byte)(78)))));
+            this.tsmi_LuongToiThieu.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tsmi_LuongToiThieu.Name = "tsmi_LuongToiThieu";
+            this.tsmi_LuongToiThieu.Size = new System.Drawing.Size(216, 26);
+            this.tsmi_LuongToiThieu.Text = "Lương tối thiểu";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 24F);
@@ -530,6 +570,10 @@
         private System.Windows.Forms.ToolStripMenuItem tsmi_QLHD_GopDV;
         private System.Windows.Forms.ToolStripMenuItem tsmi_QLHD_QDChung;
         public System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_NhomNgach;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_Ngach;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_BacHeSo;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_LuongToiThieu;
 
 
 
