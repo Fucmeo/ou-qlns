@@ -12,6 +12,8 @@ namespace HDQD.UCs
 {
     public partial class BoNhiem : UserControl
     {
+        Business.FTP oFTP;
+        Business.HDQD.QuyetDinh_File oFile;
         DonVi oDonVi;
         ChucVu oChucVu;
         Business.HDQD.KiemNhiem oKiemNhiem;
@@ -23,7 +25,9 @@ namespace HDQD.UCs
             InitializeComponent();
             oDonVi = new DonVi();
             oChucVu = new ChucVu();
+            oFile = new Business.HDQD.QuyetDinh_File();
             oKiemNhiem = new Business.HDQD.KiemNhiem();
+            oFTP = new Business.FTP();
         }
 
         private bool CompareCNVCInfo()
@@ -197,6 +201,7 @@ namespace HDQD.UCs
             {
 
                 GetBoNhiemContent();
+                bool bUploadInfoSuccess = true;
                 try
                 {
                     // danh sach nhan vien
@@ -214,17 +219,63 @@ namespace HDQD.UCs
 
                     MessageBox.Show("Thao tác nhập thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     //ResetInterface();
+                    bUploadInfoSuccess = true;
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Thao tác nhập không thành công.\r\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);   
                 }
-                
+
+                if (bUploadInfoSuccess && ThongTinQuyetDinh.Paths.Count() > 0)
+                {
+                    UploadFile();
+                }
+
+                bUploadInfoSuccess = false;
             }
             else
             {
                 MessageBox.Show("Xin vui lòng điền thông tin quyết định và thông tin nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void UploadFile()
+        {
+            #region Avatar
+            oFile.MaQD = oKiemNhiem.MaQuyetDinh;
+            int FileCount = ThongTinQuyetDinh.Paths.Count();
+
+            string[] ServerPath = new string[FileCount];
+            string[] ServerFileName = new string[FileCount];
+            ServerFileName = ThongTinQuyetDinh.Paths.Select(s => s.Split('\\').Last()).ToArray();
+            try
+            {
+                oFTP.oFileCate = FTP.FileCate.HDQD;
+                ServerPath = oFTP.UploadFile(ThongTinQuyetDinh.Paths,
+                                            ServerFileName, oFile.MaQD);
+
+                oFile.Path = ServerPath;
+                oFile.MoTa = ThongTinQuyetDinh.Desc;
+                try
+                {
+                    oFile.Add();
+
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Quá trình lưu hình không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Quá trình tải hình lên server không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+
+
+            
+
+            #endregion
         }
 
         /// <summary>

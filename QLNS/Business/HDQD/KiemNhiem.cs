@@ -230,13 +230,11 @@ namespace Business.HDQD
         {
             int check;
 
-            IDataParameter[] paras = new IDataParameter[20]{
+            IDataParameter[] paras = new IDataParameter[18]{
                 new NpgsqlParameter("ma_nv",manv),
                 new NpgsqlParameter("ma_quyet_dinh",maquyetdinh),
                 new NpgsqlParameter("ten",ten),
                 new NpgsqlParameter("loai_quyet_dinh_id",loaiquyetdinh),
-                new NpgsqlParameter("path",path),
-                new NpgsqlParameter("path_mo_ta",pathmota),
                 new NpgsqlParameter("mo_ta",mota),
                 new NpgsqlParameter("ngay_hieu_luc_qd", ngayhieulucqd),
                 new NpgsqlParameter("ngay_het_han_qd",ngayhethanqd),

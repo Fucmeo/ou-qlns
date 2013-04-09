@@ -183,7 +183,7 @@ namespace HDQD.UCs
                         RefreshDataSource();
 
                     }
-                    catch (Exception ex)
+                    catch (Exception )
                     {
                         MessageBox.Show("Xóa thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }

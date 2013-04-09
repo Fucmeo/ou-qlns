@@ -10,11 +10,11 @@ namespace Business
 {
     public class FTP
     {
-        public enum FileCate { HinhDaiDien, HopDong, QuyetDinh };
+        public enum FileCate { HinhDaiDien, HDQD };
         string URI = "ftp://123.30.210.98/", globalFolderName, downloadPath  ;
         string UserName = "Administrator", Password = "QLNS@123qlns";
-        FileCate oFileCate = new FileCate();
-        long lFileSizeLimit = 2621440;  // 2 mb
+        public FileCate oFileCate = new FileCate();
+        long lFileSizeLimit = 2621440;  // 2,5 mb
         public FTP()
         {
             //downloadPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
@@ -38,19 +38,19 @@ namespace Business
 
             string[] DBPath = new string[ServerFilesName.Length];
             //oFileCate = FileCate.HinhDaiDien;
-            //switch (oFileCate)
-            //{
-            //    case FileCate.HinhDaiDien:
-            //        CreateFTPFolderIfNotExists("hinh_dai_dien");
-            //        globalFolderName = "hinh_dai_dien";
-            //        break;
-            //    case FileCate.HopDong:
-            //        break;
-            //    case FileCate.QuyetDinh:
-            //        break;
-            //    default:
-            //        break;
-            //}
+            switch (oFileCate)
+            {
+                case FileCate.HinhDaiDien:
+                    //CreateFTPFolderIfNotExists("hinh_dai_dien");
+                    globalFolderName = "hinh_dai_dien";
+                    break;
+                case FileCate.HDQD:
+                    globalFolderName = "hinh_quyet_dinh";
+                    break;
+                default:
+                    globalFolderName = "hinh_dai_dien";
+                    break;
+            }
 
             Stream strm = null;
             FileStream fs = null;

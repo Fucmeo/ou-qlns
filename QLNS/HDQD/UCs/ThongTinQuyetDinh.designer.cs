@@ -150,7 +150,7 @@
             "Bổ nhiệm",
             "Kiêm nhiệm",
             "Điều động"});
-            this.comB_Loai.Location = new System.Drawing.Point(627, 3);
+            this.comB_Loai.Location = new System.Drawing.Point(627, 5);
             this.comB_Loai.Name = "comB_Loai";
             this.comB_Loai.Size = new System.Drawing.Size(164, 29);
             this.comB_Loai.TabIndex = 2;
@@ -243,6 +243,7 @@
             // 
             this.lb_ChonTapTin.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lb_ChonTapTin.AutoSize = true;
+            this.lb_ChonTapTin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lb_ChonTapTin.Font = new System.Drawing.Font("Calibri", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_ChonTapTin.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lb_ChonTapTin.Location = new System.Drawing.Point(363, 87);
