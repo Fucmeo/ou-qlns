@@ -11,6 +11,9 @@ namespace HDQD.UCs
 {
     public partial class ThongTinQuyetDinh : UserControl
     {
+        public static string[] Paths;
+        public static string Desc;
+
         public ThongTinQuyetDinh()
         {
             InitializeComponent();
