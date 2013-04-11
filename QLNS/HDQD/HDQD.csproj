@@ -114,30 +114,6 @@
     <Compile Include="UCs\LoaiQuyetDinh.Designer.cs">
       <DependentUpon>LoaiQuyetDinh.cs</DependentUpon>
     </Compile>
-    <Compile Include="UCs\Luong\BacHeSo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UCs\Luong\BacHeSo.Designer.cs">
-      <DependentUpon>BacHeSo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UCs\Luong\LuongToiThieu.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UCs\Luong\LuongToiThieu.Designer.cs">
-      <DependentUpon>LuongToiThieu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UCs\Luong\Ngach.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UCs\Luong\Ngach.Designer.cs">
-      <DependentUpon>Ngach.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UCs\Luong\NhomNgach.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UCs\Luong\NhomNgach.Designer.cs">
-      <DependentUpon>NhomNgach.cs</DependentUpon>
-    </Compile>
     <Compile Include="UCs\M_A.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -221,18 +197,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\LoaiQuyetDinh.resx">
       <DependentUpon>LoaiQuyetDinh.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UCs\Luong\BacHeSo.resx">
-      <DependentUpon>BacHeSo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UCs\Luong\LuongToiThieu.resx">
-      <DependentUpon>LuongToiThieu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UCs\Luong\Ngach.resx">
-      <DependentUpon>Ngach.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UCs\Luong\NhomNgach.resx">
-      <DependentUpon>NhomNgach.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\M_A.resx">
       <DependentUpon>M_A.cs</DependentUpon>

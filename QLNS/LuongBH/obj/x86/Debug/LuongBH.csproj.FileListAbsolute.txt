@@ -1,0 +1,15 @@
+D:\Job\QLNS\Projects\QLNS\LuongBH\bin\Debug\LuongBH.exe
+D:\Job\QLNS\Projects\QLNS\LuongBH\bin\Debug\LuongBH.pdb
+D:\Job\QLNS\Projects\QLNS\LuongBH\obj\x86\Debug\LuongBH.Properties.Resources.resources
+D:\Job\QLNS\Projects\QLNS\LuongBH\obj\x86\Debug\LuongBH.csproj.GenerateResource.Cache
+D:\Job\QLNS\Projects\QLNS\LuongBH\obj\x86\Debug\LuongBH.exe
+D:\Job\QLNS\Projects\QLNS\LuongBH\obj\x86\Debug\LuongBH.pdb
+D:\Job\QLNS\Projects\QLNS\LuongBH\obj\x86\Debug\HDQD.UCs.Luong.Ngach.resources
+D:\Job\QLNS\Projects\QLNS\LuongBH\obj\x86\Debug\LuongBH.UCs.Luong.Ngach_NhomNgach.resources
+D:\Job\QLNS\Projects\QLNS\LuongBH\bin\Debug\SplitButton.dll
+D:\Job\QLNS\Projects\QLNS\LuongBH\bin\Debug\SplitButton.pdb
+D:\Job\QLNS\Projects\QLNS\LuongBH\obj\x86\Debug\LuongBH.csprojResolveAssemblyReference.cache
+D:\Job\QLNS\Projects\QLNS\LuongBH\obj\x86\Debug\LuongBH.Form1.resources
+D:\Job\QLNS\Projects\QLNS\LuongBH\obj\x86\Debug\LuongBH.UCs.Luong.BacHeSo.resources
+D:\Job\QLNS\Projects\QLNS\LuongBH\obj\x86\Debug\LuongBH.UCs.Luong.LuongToiThieu.resources
+D:\Job\QLNS\Projects\QLNS\LuongBH\obj\x86\Debug\LuongBH.UCs.Luong.NhomNgach.resources
