@@ -117,21 +117,21 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(287, 7);
+            this.label6.Location = new System.Drawing.Point(281, 7);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(33, 21);
+            this.label6.Size = new System.Drawing.Size(45, 21);
             this.label6.TabIndex = 14;
-            this.label6.Text = "Tên";
+            this.label6.Text = "Tên *";
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 7);
+            this.label1.Location = new System.Drawing.Point(14, 7);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 21);
+            this.label1.Size = new System.Drawing.Size(45, 21);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Mã";
+            this.label1.Text = "Mã *";
             // 
             // txt_MaQD
             // 
@@ -159,11 +159,11 @@
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(557, 7);
+            this.label8.Location = new System.Drawing.Point(551, 7);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(38, 21);
+            this.label8.Size = new System.Drawing.Size(50, 21);
             this.label8.TabIndex = 18;
-            this.label8.Text = "Loại";
+            this.label8.Text = "Loại *";
             // 
             // label3
             // 
@@ -190,11 +190,11 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(252, 43);
+            this.label4.Location = new System.Drawing.Point(252, 36);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(104, 21);
+            this.label4.Size = new System.Drawing.Size(104, 36);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Ngày hiệu lực";
+            this.label4.Text = "Ngày hiệu lực *";
             // 
             // dTP_NgayHieuLuc
             // 

@@ -190,7 +190,7 @@
             this.comB_QuocGia_BoiDuong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_QuocGia_BoiDuong.Enabled = false;
             this.comB_QuocGia_BoiDuong.FormattingEnabled = true;
-            this.comB_QuocGia_BoiDuong.Location = new System.Drawing.Point(3, 8);
+            this.comB_QuocGia_BoiDuong.Location = new System.Drawing.Point(3, 9);
             this.comB_QuocGia_BoiDuong.Name = "comB_QuocGia_BoiDuong";
             this.comB_QuocGia_BoiDuong.Size = new System.Drawing.Size(223, 26);
             this.comB_QuocGia_BoiDuong.TabIndex = 0;
@@ -243,7 +243,7 @@
             this.comB_Tinh_BoiDuong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_Tinh_BoiDuong.Enabled = false;
             this.comB_Tinh_BoiDuong.FormattingEnabled = true;
-            this.comB_Tinh_BoiDuong.Location = new System.Drawing.Point(3, 9);
+            this.comB_Tinh_BoiDuong.Location = new System.Drawing.Point(3, 8);
             this.comB_Tinh_BoiDuong.Name = "comB_Tinh_BoiDuong";
             this.comB_Tinh_BoiDuong.Size = new System.Drawing.Size(220, 26);
             this.comB_Tinh_BoiDuong.TabIndex = 0;
@@ -559,7 +559,7 @@
             this.comB_QuocGia_DaoTao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_QuocGia_DaoTao.Enabled = false;
             this.comB_QuocGia_DaoTao.FormattingEnabled = true;
-            this.comB_QuocGia_DaoTao.Location = new System.Drawing.Point(3, 9);
+            this.comB_QuocGia_DaoTao.Location = new System.Drawing.Point(3, 8);
             this.comB_QuocGia_DaoTao.Name = "comB_QuocGia_DaoTao";
             this.comB_QuocGia_DaoTao.Size = new System.Drawing.Size(223, 26);
             this.comB_QuocGia_DaoTao.TabIndex = 0;
@@ -602,7 +602,7 @@
             this.comB_Tinh_DaoTao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_Tinh_DaoTao.Enabled = false;
             this.comB_Tinh_DaoTao.FormattingEnabled = true;
-            this.comB_Tinh_DaoTao.Location = new System.Drawing.Point(3, 8);
+            this.comB_Tinh_DaoTao.Location = new System.Drawing.Point(3, 9);
             this.comB_Tinh_DaoTao.Name = "comB_Tinh_DaoTao";
             this.comB_Tinh_DaoTao.Size = new System.Drawing.Size(220, 26);
             this.comB_Tinh_DaoTao.TabIndex = 0;
@@ -846,7 +846,7 @@
             this.comB_HinhThuc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_HinhThuc.Enabled = false;
             this.comB_HinhThuc.FormattingEnabled = true;
-            this.comB_HinhThuc.Location = new System.Drawing.Point(119, 85);
+            this.comB_HinhThuc.Location = new System.Drawing.Point(119, 84);
             this.comB_HinhThuc.Name = "comB_HinhThuc";
             this.comB_HinhThuc.Size = new System.Drawing.Size(226, 26);
             this.comB_HinhThuc.TabIndex = 4;
@@ -857,7 +857,7 @@
             this.comB_VanBang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_VanBang.Enabled = false;
             this.comB_VanBang.FormattingEnabled = true;
-            this.comB_VanBang.Location = new System.Drawing.Point(119, 124);
+            this.comB_VanBang.Location = new System.Drawing.Point(119, 123);
             this.comB_VanBang.Name = "comB_VanBang";
             this.comB_VanBang.Size = new System.Drawing.Size(226, 26);
             this.comB_VanBang.TabIndex = 6;
