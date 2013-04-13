@@ -165,7 +165,7 @@
             this.comB_ChucDanh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_ChucDanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_ChucDanh.FormattingEnabled = true;
-            this.comB_ChucDanh.Location = new System.Drawing.Point(128, 242);
+            this.comB_ChucDanh.Location = new System.Drawing.Point(128, 244);
             this.comB_ChucDanh.Name = "comB_ChucDanh";
             this.comB_ChucDanh.Size = new System.Drawing.Size(234, 29);
             this.comB_ChucDanh.TabIndex = 8;
@@ -188,7 +188,7 @@
             this.comB_ThuViecChinhThuc.Items.AddRange(new object[] {
             "Chính thức",
             "Thử việc"});
-            this.comB_ThuViecChinhThuc.Location = new System.Drawing.Point(546, 71);
+            this.comB_ThuViecChinhThuc.Location = new System.Drawing.Point(546, 73);
             this.comB_ThuViecChinhThuc.Name = "comB_ThuViecChinhThuc";
             this.comB_ThuViecChinhThuc.Size = new System.Drawing.Size(236, 29);
             this.comB_ThuViecChinhThuc.TabIndex = 3;
@@ -198,7 +198,7 @@
             this.comB_LoaiHD.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_LoaiHD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_LoaiHD.FormattingEnabled = true;
-            this.comB_LoaiHD.Location = new System.Drawing.Point(546, 14);
+            this.comB_LoaiHD.Location = new System.Drawing.Point(546, 16);
             this.comB_LoaiHD.Name = "comB_LoaiHD";
             this.comB_LoaiHD.Size = new System.Drawing.Size(236, 29);
             this.comB_LoaiHD.TabIndex = 1;
@@ -219,9 +219,9 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(421, 64);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(86, 42);
+            this.label8.Size = new System.Drawing.Size(98, 42);
             this.label8.TabIndex = 9;
-            this.label8.Text = "Thử việc / Chính thức";
+            this.label8.Text = "Thử việc / Chính thức *";
             // 
             // label6
             // 
@@ -237,11 +237,11 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(421, 18);
+            this.label4.Location = new System.Drawing.Point(421, 7);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(109, 21);
+            this.label4.Size = new System.Drawing.Size(113, 42);
             this.label4.TabIndex = 5;
-            this.label4.Text = "Loại hợp đồng";
+            this.label4.Text = "Loại hợp đồng *";
             // 
             // label1
             // 
@@ -249,9 +249,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 21);
+            this.label1.Size = new System.Drawing.Size(116, 21);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Mã hợp đồng";
+            this.label1.Text = "Mã hợp đồng *";
             // 
             // dTP_NgayKy
             // 
@@ -379,7 +379,7 @@
             this.comB_ChucVu.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_ChucVu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_ChucVu.FormattingEnabled = true;
-            this.comB_ChucVu.Location = new System.Drawing.Point(546, 185);
+            this.comB_ChucVu.Location = new System.Drawing.Point(546, 187);
             this.comB_ChucVu.Name = "comB_ChucVu";
             this.comB_ChucVu.Size = new System.Drawing.Size(236, 29);
             this.comB_ChucVu.TabIndex = 7;
@@ -424,9 +424,9 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(3, 132);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(64, 21);
+            this.label10.Size = new System.Drawing.Size(76, 21);
             this.label10.TabIndex = 11;
-            this.label10.Text = "Từ ngày";
+            this.label10.Text = "Từ ngày *";
             // 
             // label13
             // 
@@ -443,7 +443,7 @@
             this.comB_DonVi.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_DonVi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_DonVi.FormattingEnabled = true;
-            this.comB_DonVi.Location = new System.Drawing.Point(128, 185);
+            this.comB_DonVi.Location = new System.Drawing.Point(128, 187);
             this.comB_DonVi.Name = "comB_DonVi";
             this.comB_DonVi.Size = new System.Drawing.Size(234, 29);
             this.comB_DonVi.TabIndex = 6;

@@ -154,6 +154,7 @@ namespace DataProvider
         {
             try
             {
+                cmd = new NpgsqlCommand();
                 return getData(_command).Tables[0];
             }
             catch (Exception ex)

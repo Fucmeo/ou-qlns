@@ -226,9 +226,9 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(3, 13);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(44, 18);
+            this.label13.Size = new System.Drawing.Size(54, 18);
             this.label13.TabIndex = 30;
-            this.label13.Text = "Mã số";
+            this.label13.Text = "Mã số *";
             // 
             // dtgv_CMNDHoChieu
             // 
@@ -710,9 +710,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 156);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(25, 18);
+            this.label1.Size = new System.Drawing.Size(35, 18);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Họ";
+            this.label1.Text = "Họ *";
             // 
             // txt_Ho
             // 
@@ -728,9 +728,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(440, 156);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(30, 18);
+            this.label2.Size = new System.Drawing.Size(40, 18);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Tên";
+            this.label2.Text = "Tên *";
             // 
             // label3
             // 
@@ -738,9 +738,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(440, 40);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 18);
+            this.label3.Size = new System.Drawing.Size(74, 18);
             this.label3.TabIndex = 41;
-            this.label3.Text = "Mã hồ sơ";
+            this.label3.Text = "Mã hồ sơ *";
             // 
             // txt_Ten
             // 
@@ -779,9 +779,9 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(440, 112);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(91, 18);
+            this.label11.Size = new System.Drawing.Size(101, 18);
             this.label11.TabIndex = 21;
-            this.label11.Text = "Mã nhân viên";
+            this.label11.Text = "Mã nhân viên *";
             // 
             // txt_MaNV
             // 
