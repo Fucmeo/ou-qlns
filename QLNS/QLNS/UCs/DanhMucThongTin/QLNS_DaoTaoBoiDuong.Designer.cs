@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.tableLP_DaoTaoBoiDuong = new System.Windows.Forms.TableLayoutPanel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupb_BoiDuong = new System.Windows.Forms.GroupBox();
             this.tableLP_BoiDuong = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.comB_QuocGia_BoiDuong = new System.Windows.Forms.ComboBox();
@@ -56,7 +56,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.txt_XepLoai_BoiDuong = new System.Windows.Forms.TextBox();
             this.txt_TenChungChi = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupb_DaoTao = new System.Windows.Forms.GroupBox();
             this.tableLP_DaoTao = new System.Windows.Forms.TableLayoutPanel();
             this.label18 = new System.Windows.Forms.Label();
             this.tableLP_QuocGia = new System.Windows.Forms.TableLayoutPanel();
@@ -90,13 +90,13 @@
             this.label16 = new System.Windows.Forms.Label();
             this.txt_HoiDong = new System.Windows.Forms.TextBox();
             this.tableLP_DaoTaoBoiDuong.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.groupb_BoiDuong.SuspendLayout();
             this.tableLP_BoiDuong.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_BoiDuong)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.groupb_DaoTao.SuspendLayout();
             this.tableLP_DaoTao.SuspendLayout();
             this.tableLP_QuocGia.SuspendLayout();
             this.tableLP_Tinh.SuspendLayout();
@@ -108,8 +108,8 @@
             // 
             this.tableLP_DaoTaoBoiDuong.ColumnCount = 1;
             this.tableLP_DaoTaoBoiDuong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLP_DaoTaoBoiDuong.Controls.Add(this.groupBox2, 0, 1);
-            this.tableLP_DaoTaoBoiDuong.Controls.Add(this.groupBox1, 0, 0);
+            this.tableLP_DaoTaoBoiDuong.Controls.Add(this.groupb_BoiDuong, 0, 1);
+            this.tableLP_DaoTaoBoiDuong.Controls.Add(this.groupb_DaoTao, 0, 0);
             this.tableLP_DaoTaoBoiDuong.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLP_DaoTaoBoiDuong.Location = new System.Drawing.Point(0, 0);
             this.tableLP_DaoTaoBoiDuong.Name = "tableLP_DaoTaoBoiDuong";
@@ -119,16 +119,16 @@
             this.tableLP_DaoTaoBoiDuong.Size = new System.Drawing.Size(711, 857);
             this.tableLP_DaoTaoBoiDuong.TabIndex = 0;
             // 
-            // groupBox2
+            // groupb_BoiDuong
             // 
-            this.groupBox2.Controls.Add(this.tableLP_BoiDuong);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(3, 431);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(705, 423);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Bồi dưỡng";
+            this.groupb_BoiDuong.Controls.Add(this.tableLP_BoiDuong);
+            this.groupb_BoiDuong.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupb_BoiDuong.Location = new System.Drawing.Point(3, 431);
+            this.groupb_BoiDuong.Name = "groupb_BoiDuong";
+            this.groupb_BoiDuong.Size = new System.Drawing.Size(705, 423);
+            this.groupb_BoiDuong.TabIndex = 1;
+            this.groupb_BoiDuong.TabStop = false;
+            this.groupb_BoiDuong.Text = "Bồi dưỡng";
             // 
             // tableLP_BoiDuong
             // 
@@ -188,9 +188,8 @@
             // 
             this.comB_QuocGia_BoiDuong.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_QuocGia_BoiDuong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comB_QuocGia_BoiDuong.Enabled = false;
             this.comB_QuocGia_BoiDuong.FormattingEnabled = true;
-            this.comB_QuocGia_BoiDuong.Location = new System.Drawing.Point(3, 9);
+            this.comB_QuocGia_BoiDuong.Location = new System.Drawing.Point(3, 8);
             this.comB_QuocGia_BoiDuong.Name = "comB_QuocGia_BoiDuong";
             this.comB_QuocGia_BoiDuong.Size = new System.Drawing.Size(223, 26);
             this.comB_QuocGia_BoiDuong.TabIndex = 0;
@@ -241,9 +240,8 @@
             // 
             this.comB_Tinh_BoiDuong.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_Tinh_BoiDuong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comB_Tinh_BoiDuong.Enabled = false;
             this.comB_Tinh_BoiDuong.FormattingEnabled = true;
-            this.comB_Tinh_BoiDuong.Location = new System.Drawing.Point(3, 8);
+            this.comB_Tinh_BoiDuong.Location = new System.Drawing.Point(3, 9);
             this.comB_Tinh_BoiDuong.Name = "comB_Tinh_BoiDuong";
             this.comB_Tinh_BoiDuong.Size = new System.Drawing.Size(220, 26);
             this.comB_Tinh_BoiDuong.TabIndex = 0;
@@ -338,7 +336,6 @@
             this.dTP_DenNgay_BoiDuong.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dTP_DenNgay_BoiDuong.Checked = false;
             this.dTP_DenNgay_BoiDuong.CustomFormat = "dd/MM/yyyy";
-            this.dTP_DenNgay_BoiDuong.Enabled = false;
             this.dTP_DenNgay_BoiDuong.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dTP_DenNgay_BoiDuong.Location = new System.Drawing.Point(455, 45);
             this.dTP_DenNgay_BoiDuong.Name = "dTP_DenNgay_BoiDuong";
@@ -351,7 +348,6 @@
             this.dTP_TuNgay_BoiDuong.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dTP_TuNgay_BoiDuong.Checked = false;
             this.dTP_TuNgay_BoiDuong.CustomFormat = "dd/MM/yyyy";
-            this.dTP_TuNgay_BoiDuong.Enabled = false;
             this.dTP_TuNgay_BoiDuong.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dTP_TuNgay_BoiDuong.Location = new System.Drawing.Point(107, 45);
             this.dTP_TuNgay_BoiDuong.Name = "dTP_TuNgay_BoiDuong";
@@ -362,7 +358,6 @@
             // txt_ChuyenNganh_BoiDuong
             // 
             this.txt_ChuyenNganh_BoiDuong.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_ChuyenNganh_BoiDuong.Enabled = false;
             this.txt_ChuyenNganh_BoiDuong.Location = new System.Drawing.Point(455, 6);
             this.txt_ChuyenNganh_BoiDuong.Name = "txt_ChuyenNganh_BoiDuong";
             this.txt_ChuyenNganh_BoiDuong.Size = new System.Drawing.Size(235, 26);
@@ -371,11 +366,11 @@
             // txt_TenTruong_BoiDuong
             // 
             this.txt_TenTruong_BoiDuong.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_TenTruong_BoiDuong.Enabled = false;
             this.txt_TenTruong_BoiDuong.Location = new System.Drawing.Point(107, 6);
             this.txt_TenTruong_BoiDuong.Name = "txt_TenTruong_BoiDuong";
             this.txt_TenTruong_BoiDuong.Size = new System.Drawing.Size(235, 26);
             this.txt_TenTruong_BoiDuong.TabIndex = 0;
+            this.txt_TenTruong_BoiDuong.TextChanged += new System.EventHandler(this.txt_TenTruong_BoiDuong_TextChanged);
             // 
             // dtgv_BoiDuong
             // 
@@ -456,7 +451,6 @@
             // txt_XepLoai_BoiDuong
             // 
             this.txt_XepLoai_BoiDuong.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_XepLoai_BoiDuong.Enabled = false;
             this.txt_XepLoai_BoiDuong.Location = new System.Drawing.Point(107, 84);
             this.txt_XepLoai_BoiDuong.Name = "txt_XepLoai_BoiDuong";
             this.txt_XepLoai_BoiDuong.Size = new System.Drawing.Size(235, 26);
@@ -465,22 +459,21 @@
             // txt_TenChungChi
             // 
             this.txt_TenChungChi.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_TenChungChi.Enabled = false;
             this.txt_TenChungChi.Location = new System.Drawing.Point(455, 84);
             this.txt_TenChungChi.Name = "txt_TenChungChi";
             this.txt_TenChungChi.Size = new System.Drawing.Size(235, 26);
             this.txt_TenChungChi.TabIndex = 5;
             // 
-            // groupBox1
+            // groupb_DaoTao
             // 
-            this.groupBox1.Controls.Add(this.tableLP_DaoTao);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(705, 422);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Đào tạo";
+            this.groupb_DaoTao.Controls.Add(this.tableLP_DaoTao);
+            this.groupb_DaoTao.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupb_DaoTao.Location = new System.Drawing.Point(3, 3);
+            this.groupb_DaoTao.Name = "groupb_DaoTao";
+            this.groupb_DaoTao.Size = new System.Drawing.Size(705, 422);
+            this.groupb_DaoTao.TabIndex = 0;
+            this.groupb_DaoTao.TabStop = false;
+            this.groupb_DaoTao.Text = "Đào tạo";
             // 
             // tableLP_DaoTao
             // 
@@ -557,9 +550,8 @@
             // 
             this.comB_QuocGia_DaoTao.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_QuocGia_DaoTao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comB_QuocGia_DaoTao.Enabled = false;
             this.comB_QuocGia_DaoTao.FormattingEnabled = true;
-            this.comB_QuocGia_DaoTao.Location = new System.Drawing.Point(3, 8);
+            this.comB_QuocGia_DaoTao.Location = new System.Drawing.Point(3, 9);
             this.comB_QuocGia_DaoTao.Name = "comB_QuocGia_DaoTao";
             this.comB_QuocGia_DaoTao.Size = new System.Drawing.Size(223, 26);
             this.comB_QuocGia_DaoTao.TabIndex = 0;
@@ -600,9 +592,8 @@
             // 
             this.comB_Tinh_DaoTao.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_Tinh_DaoTao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comB_Tinh_DaoTao.Enabled = false;
             this.comB_Tinh_DaoTao.FormattingEnabled = true;
-            this.comB_Tinh_DaoTao.Location = new System.Drawing.Point(3, 9);
+            this.comB_Tinh_DaoTao.Location = new System.Drawing.Point(3, 8);
             this.comB_Tinh_DaoTao.Name = "comB_Tinh_DaoTao";
             this.comB_Tinh_DaoTao.Size = new System.Drawing.Size(220, 26);
             this.comB_Tinh_DaoTao.TabIndex = 0;
@@ -687,7 +678,6 @@
             this.dTP_DenNgay_DaoTao.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dTP_DenNgay_DaoTao.Checked = false;
             this.dTP_DenNgay_DaoTao.CustomFormat = "dd/MM/yyyy";
-            this.dTP_DenNgay_DaoTao.Enabled = false;
             this.dTP_DenNgay_DaoTao.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dTP_DenNgay_DaoTao.Location = new System.Drawing.Point(467, 45);
             this.dTP_DenNgay_DaoTao.Name = "dTP_DenNgay_DaoTao";
@@ -700,7 +690,6 @@
             this.dTP_TuNgay_DaoTao.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dTP_TuNgay_DaoTao.Checked = false;
             this.dTP_TuNgay_DaoTao.CustomFormat = "dd/MM/yyyy";
-            this.dTP_TuNgay_DaoTao.Enabled = false;
             this.dTP_TuNgay_DaoTao.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dTP_TuNgay_DaoTao.Location = new System.Drawing.Point(119, 45);
             this.dTP_TuNgay_DaoTao.Name = "dTP_TuNgay_DaoTao";
@@ -711,7 +700,6 @@
             // txt_ChuyenNganh_DaoTao
             // 
             this.txt_ChuyenNganh_DaoTao.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_ChuyenNganh_DaoTao.Enabled = false;
             this.txt_ChuyenNganh_DaoTao.Location = new System.Drawing.Point(467, 6);
             this.txt_ChuyenNganh_DaoTao.Name = "txt_ChuyenNganh_DaoTao";
             this.txt_ChuyenNganh_DaoTao.Size = new System.Drawing.Size(229, 26);
@@ -720,7 +708,6 @@
             // txt_TenTruong_DaoTao
             // 
             this.txt_TenTruong_DaoTao.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_TenTruong_DaoTao.Enabled = false;
             this.txt_TenTruong_DaoTao.Location = new System.Drawing.Point(119, 6);
             this.txt_TenTruong_DaoTao.Name = "txt_TenTruong_DaoTao";
             this.txt_TenTruong_DaoTao.Size = new System.Drawing.Size(226, 26);
@@ -825,7 +812,6 @@
             // txt_XepLoai_DaoTao
             // 
             this.txt_XepLoai_DaoTao.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_XepLoai_DaoTao.Enabled = false;
             this.txt_XepLoai_DaoTao.Location = new System.Drawing.Point(467, 84);
             this.txt_XepLoai_DaoTao.Name = "txt_XepLoai_DaoTao";
             this.txt_XepLoai_DaoTao.Size = new System.Drawing.Size(229, 26);
@@ -834,7 +820,6 @@
             // txt_TenLuanVan
             // 
             this.txt_TenLuanVan.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_TenLuanVan.Enabled = false;
             this.txt_TenLuanVan.Location = new System.Drawing.Point(467, 123);
             this.txt_TenLuanVan.Name = "txt_TenLuanVan";
             this.txt_TenLuanVan.Size = new System.Drawing.Size(229, 26);
@@ -844,9 +829,8 @@
             // 
             this.comB_HinhThuc.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_HinhThuc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comB_HinhThuc.Enabled = false;
             this.comB_HinhThuc.FormattingEnabled = true;
-            this.comB_HinhThuc.Location = new System.Drawing.Point(119, 84);
+            this.comB_HinhThuc.Location = new System.Drawing.Point(119, 85);
             this.comB_HinhThuc.Name = "comB_HinhThuc";
             this.comB_HinhThuc.Size = new System.Drawing.Size(226, 26);
             this.comB_HinhThuc.TabIndex = 4;
@@ -855,9 +839,8 @@
             // 
             this.comB_VanBang.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_VanBang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comB_VanBang.Enabled = false;
             this.comB_VanBang.FormattingEnabled = true;
-            this.comB_VanBang.Location = new System.Drawing.Point(119, 123);
+            this.comB_VanBang.Location = new System.Drawing.Point(119, 124);
             this.comB_VanBang.Name = "comB_VanBang";
             this.comB_VanBang.Size = new System.Drawing.Size(226, 26);
             this.comB_VanBang.TabIndex = 6;
@@ -885,7 +868,6 @@
             // txt_HoiDong
             // 
             this.txt_HoiDong.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_HoiDong.Enabled = false;
             this.txt_HoiDong.Location = new System.Drawing.Point(119, 241);
             this.txt_HoiDong.Name = "txt_HoiDong";
             this.txt_HoiDong.Size = new System.Drawing.Size(226, 26);
@@ -897,12 +879,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.tableLP_DaoTaoBoiDuong);
+            this.Enabled = false;
             this.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "QLNS_DaoTaoBoiDuong";
             this.Size = new System.Drawing.Size(711, 857);
             this.Load += new System.EventHandler(this.QLNS_DaoTaoBoiDuong_Load);
             this.tableLP_DaoTaoBoiDuong.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
+            this.groupb_BoiDuong.ResumeLayout(false);
             this.tableLP_BoiDuong.ResumeLayout(false);
             this.tableLP_BoiDuong.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
@@ -912,7 +895,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_BoiDuong)).EndInit();
-            this.groupBox1.ResumeLayout(false);
+            this.groupb_DaoTao.ResumeLayout(false);
             this.tableLP_DaoTao.ResumeLayout(false);
             this.tableLP_DaoTao.PerformLayout();
             this.tableLP_QuocGia.ResumeLayout(false);
@@ -929,8 +912,6 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLP_DaoTaoBoiDuong;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TableLayoutPanel tableLP_DaoTao;
         private System.Windows.Forms.TableLayoutPanel tableLP_BoiDuong;
         private System.Windows.Forms.Label label8;
@@ -989,5 +970,7 @@
         public System.Windows.Forms.ComboBox comB_Tinh_BoiDuong;
         private System.Windows.Forms.Label lbl_ThemTinh_BoiDuong;
         private System.Windows.Forms.Label label17;
+        public System.Windows.Forms.GroupBox groupb_BoiDuong;
+        public System.Windows.Forms.GroupBox groupb_DaoTao;
     }
 }

@@ -235,7 +235,7 @@
             this.comB_MoHinhDaoTao.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_MoHinhDaoTao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_MoHinhDaoTao.FormattingEnabled = true;
-            this.comB_MoHinhDaoTao.Location = new System.Drawing.Point(160, 120);
+            this.comB_MoHinhDaoTao.Location = new System.Drawing.Point(160, 118);
             this.comB_MoHinhDaoTao.Name = "comB_MoHinhDaoTao";
             this.comB_MoHinhDaoTao.Size = new System.Drawing.Size(230, 29);
             this.comB_MoHinhDaoTao.TabIndex = 4;
@@ -373,7 +373,6 @@
             this.tableLP_Tinh.Controls.Add(this.comB_Tinh, 0, 0);
             this.tableLP_Tinh.Controls.Add(this.lbl_ThemTinh, 0, 1);
             this.tableLP_Tinh.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLP_Tinh.Enabled = false;
             this.tableLP_Tinh.Location = new System.Drawing.Point(121, 153);
             this.tableLP_Tinh.Name = "tableLP_Tinh";
             this.tableLP_Tinh.RowCount = 2;
@@ -387,7 +386,7 @@
             this.comB_Tinh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_Tinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_Tinh.FormattingEnabled = true;
-            this.comB_Tinh.Location = new System.Drawing.Point(3, 7);
+            this.comB_Tinh.Location = new System.Drawing.Point(3, 5);
             this.comB_Tinh.Name = "comB_Tinh";
             this.comB_Tinh.Size = new System.Drawing.Size(263, 29);
             this.comB_Tinh.TabIndex = 0;
@@ -419,7 +418,6 @@
             // txt_QuanHuyen
             // 
             this.txt_QuanHuyen.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_QuanHuyen.Enabled = false;
             this.txt_QuanHuyen.Location = new System.Drawing.Point(514, 98);
             this.txt_QuanHuyen.Name = "txt_QuanHuyen";
             this.txt_QuanHuyen.Size = new System.Drawing.Size(264, 28);
@@ -428,7 +426,6 @@
             // txt_PhuongXa
             // 
             this.txt_PhuongXa.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_PhuongXa.Enabled = false;
             this.txt_PhuongXa.Location = new System.Drawing.Point(121, 98);
             this.txt_PhuongXa.Name = "txt_PhuongXa";
             this.txt_PhuongXa.Size = new System.Drawing.Size(264, 28);
@@ -437,7 +434,6 @@
             // txt_TenTruong
             // 
             this.txt_TenTruong.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_TenTruong.Enabled = false;
             this.txt_TenTruong.Location = new System.Drawing.Point(514, 23);
             this.txt_TenTruong.Name = "txt_TenTruong";
             this.txt_TenTruong.Size = new System.Drawing.Size(264, 28);
@@ -447,14 +443,13 @@
             // 
             this.comB_CapDo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_CapDo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comB_CapDo.Enabled = false;
             this.comB_CapDo.FormattingEnabled = true;
             this.comB_CapDo.Items.AddRange(new object[] {
             "Tiểu học",
             "Trung học cơ sở",
             "Trung học phổ thông",
             "Trung học chuyên nghiệp"});
-            this.comB_CapDo.Location = new System.Drawing.Point(121, 25);
+            this.comB_CapDo.Location = new System.Drawing.Point(121, 23);
             this.comB_CapDo.Name = "comB_CapDo";
             this.comB_CapDo.Size = new System.Drawing.Size(264, 29);
             this.comB_CapDo.TabIndex = 0;
@@ -528,7 +523,6 @@
             // txt_NamHoc
             // 
             this.txt_NamHoc.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_NamHoc.Enabled = false;
             this.txt_NamHoc.Location = new System.Drawing.Point(514, 173);
             this.txt_NamHoc.Name = "txt_NamHoc";
             this.txt_NamHoc.Size = new System.Drawing.Size(264, 28);
@@ -540,6 +534,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.tableLP_TrinhDo_ChuyenMon);
+            this.Enabled = false;
             this.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "QLNS_TrinhDo_ChuyenMon";

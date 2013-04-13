@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QLNS_ChinhTri));
             this.tableLP_ChinhTri = new System.Windows.Forms.TableLayoutPanel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupb_ThongTinChung = new System.Windows.Forms.GroupBox();
             this.tableLP_ThongTinChung = new System.Windows.Forms.TableLayoutPanel();
             this.txt_ThuongBinh = new System.Windows.Forms.TextBox();
             this.txt_DanhHieu = new System.Windows.Forms.TextBox();
@@ -55,7 +55,7 @@
             this.txt_GiaDinh = new System.Windows.Forms.TextBox();
             this.btn_Luu = new System.Windows.Forms.Button();
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupb_ThongTinDoan = new System.Windows.Forms.GroupBox();
             this.tableLP_DoanDang = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lbl_ThemDoanDang = new System.Windows.Forms.Label();
@@ -84,9 +84,9 @@
             this.dtp_NgayTaiKetNap = new System.Windows.Forms.DateTimePicker();
             this.dtp_NgayChinhThuc = new System.Windows.Forms.DateTimePicker();
             this.tableLP_ChinhTri.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.groupb_ThongTinChung.SuspendLayout();
             this.tableLP_ThongTinChung.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.groupb_ThongTinDoan.SuspendLayout();
             this.tableLP_DoanDang.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_DoanDang)).BeginInit();
@@ -99,8 +99,8 @@
             // 
             this.tableLP_ChinhTri.ColumnCount = 1;
             this.tableLP_ChinhTri.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLP_ChinhTri.Controls.Add(this.groupBox1, 0, 0);
-            this.tableLP_ChinhTri.Controls.Add(this.groupBox2, 0, 1);
+            this.tableLP_ChinhTri.Controls.Add(this.groupb_ThongTinChung, 0, 0);
+            this.tableLP_ChinhTri.Controls.Add(this.groupb_ThongTinDoan, 0, 1);
             this.tableLP_ChinhTri.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLP_ChinhTri.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLP_ChinhTri.Location = new System.Drawing.Point(0, 0);
@@ -111,16 +111,16 @@
             this.tableLP_ChinhTri.Size = new System.Drawing.Size(1000, 1000);
             this.tableLP_ChinhTri.TabIndex = 0;
             // 
-            // groupBox1
+            // groupb_ThongTinChung
             // 
-            this.groupBox1.Controls.Add(this.tableLP_ThongTinChung);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(994, 444);
-            this.groupBox1.TabIndex = 43;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Thông tin chung";
+            this.groupb_ThongTinChung.Controls.Add(this.tableLP_ThongTinChung);
+            this.groupb_ThongTinChung.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupb_ThongTinChung.Location = new System.Drawing.Point(3, 3);
+            this.groupb_ThongTinChung.Name = "groupb_ThongTinChung";
+            this.groupb_ThongTinChung.Size = new System.Drawing.Size(994, 444);
+            this.groupb_ThongTinChung.TabIndex = 43;
+            this.groupb_ThongTinChung.TabStop = false;
+            this.groupb_ThongTinChung.Text = "Thông tin chung";
             // 
             // tableLP_ThongTinChung
             // 
@@ -377,16 +377,16 @@
             this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList2.Images.SetKeyName(0, "Save.png");
             // 
-            // groupBox2
+            // groupb_ThongTinDoan
             // 
-            this.groupBox2.Controls.Add(this.tableLP_DoanDang);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(3, 453);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(994, 544);
-            this.groupBox2.TabIndex = 44;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Đoàn / Đảng / Dân quân / Công đoàn";
+            this.groupb_ThongTinDoan.Controls.Add(this.tableLP_DoanDang);
+            this.groupb_ThongTinDoan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupb_ThongTinDoan.Location = new System.Drawing.Point(3, 453);
+            this.groupb_ThongTinDoan.Name = "groupb_ThongTinDoan";
+            this.groupb_ThongTinDoan.Size = new System.Drawing.Size(994, 544);
+            this.groupb_ThongTinDoan.TabIndex = 44;
+            this.groupb_ThongTinDoan.TabStop = false;
+            this.groupb_ThongTinDoan.Text = "Đoàn / Đảng / Dân quân / Công đoàn";
             // 
             // tableLP_DoanDang
             // 
@@ -762,16 +762,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.tableLP_ChinhTri);
+            this.Enabled = false;
             this.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "QLNS_ChinhTri";
             this.Size = new System.Drawing.Size(1000, 1000);
             this.Load += new System.EventHandler(this.QLNS_ChinhTri_Load);
             this.tableLP_ChinhTri.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
+            this.groupb_ThongTinChung.ResumeLayout(false);
             this.tableLP_ThongTinChung.ResumeLayout(false);
             this.tableLP_ThongTinChung.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
+            this.groupb_ThongTinDoan.ResumeLayout(false);
             this.tableLP_DoanDang.ResumeLayout(false);
             this.tableLP_DoanDang.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -790,8 +791,6 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLP_ChinhTri;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TableLayoutPanel tableLP_ThongTinChung;
         private System.Windows.Forms.TableLayoutPanel tableLP_DoanDang;
         private System.Windows.Forms.Label label5;
@@ -842,5 +841,7 @@
         private System.Windows.Forms.Button btn_Luu;
         public System.Windows.Forms.ListBox listB_DSCV;
         private System.Windows.Forms.ImageList imageList2;
+        public System.Windows.Forms.GroupBox groupb_ThongTinChung;
+        public System.Windows.Forms.GroupBox groupb_ThongTinDoan;
     }
 }

@@ -48,7 +48,7 @@ namespace QLNS.UCs.DanhMucThongTin
             //Load_Qtr_Ctac_NonOU();
             //Load_Qtr_Ctac_OU();
 
-            ResetInterface(true);
+            //ResetInterface(true);
         }
 
         public void dtgv_QTCT_Ngoai_SelectionChanged(object sender, EventArgs e)

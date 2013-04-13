@@ -222,7 +222,7 @@
             this.comB_NhomNgach.Items.AddRange(new object[] {
             "Biên chế",
             "Hợp đồng"});
-            this.comB_NhomNgach.Location = new System.Drawing.Point(97, 180);
+            this.comB_NhomNgach.Location = new System.Drawing.Point(97, 182);
             this.comB_NhomNgach.Name = "comB_NhomNgach";
             this.comB_NhomNgach.Size = new System.Drawing.Size(278, 29);
             this.comB_NhomNgach.TabIndex = 7;
