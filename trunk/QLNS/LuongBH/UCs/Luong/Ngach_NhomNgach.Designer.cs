@@ -34,22 +34,22 @@
             this.TSMI_ThemNhomNgach = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMI_ThemNgach = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLP_Ngach_NhomNgach = new System.Windows.Forms.TableLayoutPanel();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.TreeV_Ngach_NhomNgach = new System.Windows.Forms.TreeView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLP_ThongTin = new System.Windows.Forms.TableLayoutPanel();
+            this.txt_TenNgach = new System.Windows.Forms.TextBox();
+            this.txt_MaNgach = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comB_NhomNgach = new System.Windows.Forms.ComboBox();
             this.btn_Sua = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.btn_Xoa = new System.Windows.Forms.Button();
             this.btn_Luu = new System.Windows.Forms.Button();
             this.btn_Huy = new System.Windows.Forms.Button();
-            this.splitButton1 = new wyDay.Controls.SplitButton();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comB_NhomNgach = new System.Windows.Forms.ComboBox();
-            this.txt_MaNgach = new System.Windows.Forms.TextBox();
-            this.txt_TenNgach = new System.Windows.Forms.TextBox();
+            this.btn_Them = new wyDay.Controls.SplitButton();
             this.contextMenuStrip1.SuspendLayout();
             this.tableLP_Ngach_NhomNgach.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -70,12 +70,14 @@
             this.TSMI_ThemNhomNgach.Name = "TSMI_ThemNhomNgach";
             this.TSMI_ThemNhomNgach.Size = new System.Drawing.Size(201, 24);
             this.TSMI_ThemNhomNgach.Text = "Thêm nhóm ngạch";
+            this.TSMI_ThemNhomNgach.Click += new System.EventHandler(this.TSMI_ThemNhomNgach_Click);
             // 
             // TSMI_ThemNgach
             // 
             this.TSMI_ThemNgach.Name = "TSMI_ThemNgach";
             this.TSMI_ThemNgach.Size = new System.Drawing.Size(201, 24);
             this.TSMI_ThemNgach.Text = "Thêm ngạch";
+            this.TSMI_ThemNgach.Click += new System.EventHandler(this.TSMI_ThemNgach_Click);
             // 
             // tableLP_Ngach_NhomNgach
             // 
@@ -90,7 +92,7 @@
             this.tableLP_Ngach_NhomNgach.Controls.Add(this.btn_Xoa, 3, 3);
             this.tableLP_Ngach_NhomNgach.Controls.Add(this.btn_Luu, 1, 4);
             this.tableLP_Ngach_NhomNgach.Controls.Add(this.btn_Huy, 3, 4);
-            this.tableLP_Ngach_NhomNgach.Controls.Add(this.splitButton1, 1, 3);
+            this.tableLP_Ngach_NhomNgach.Controls.Add(this.btn_Them, 1, 3);
             this.tableLP_Ngach_NhomNgach.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLP_Ngach_NhomNgach.Location = new System.Drawing.Point(0, 0);
             this.tableLP_Ngach_NhomNgach.Name = "tableLP_Ngach_NhomNgach";
@@ -103,16 +105,6 @@
             this.tableLP_Ngach_NhomNgach.Size = new System.Drawing.Size(650, 600);
             this.tableLP_Ngach_NhomNgach.TabIndex = 3;
             // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "Add.png");
-            this.imageList1.Images.SetKeyName(1, "Cancel.png");
-            this.imageList1.Images.SetKeyName(2, "Edit Data.png");
-            this.imageList1.Images.SetKeyName(3, "Garbage.png");
-            this.imageList1.Images.SetKeyName(4, "Save.png");
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.TreeV_Ngach_NhomNgach);
@@ -123,7 +115,7 @@
             this.groupBox1.Size = new System.Drawing.Size(254, 594);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Ngạch - Nhóm ngạch";
+            this.groupBox1.Text = "Nhóm ngạch - Ngạch";
             // 
             // TreeV_Ngach_NhomNgach
             // 
@@ -132,6 +124,7 @@
             this.TreeV_Ngach_NhomNgach.Name = "TreeV_Ngach_NhomNgach";
             this.TreeV_Ngach_NhomNgach.Size = new System.Drawing.Size(248, 567);
             this.TreeV_Ngach_NhomNgach.TabIndex = 1;
+            this.TreeV_Ngach_NhomNgach.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.TreeV_Ngach_NhomNgach_NodeMouseDoubleClick);
             // 
             // groupBox2
             // 
@@ -170,73 +163,35 @@
             this.tableLP_ThongTin.Size = new System.Drawing.Size(378, 234);
             this.tableLP_ThongTin.TabIndex = 0;
             // 
-            // btn_Sua
+            // txt_TenNgach
             // 
-            this.btn_Sua.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Sua.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_Sua.ImageKey = "Edit Data.png";
-            this.btn_Sua.ImageList = this.imageList1;
-            this.btn_Sua.Location = new System.Drawing.Point(423, 317);
-            this.btn_Sua.Name = "btn_Sua";
-            this.btn_Sua.Size = new System.Drawing.Size(63, 65);
-            this.btn_Sua.TabIndex = 4;
-            this.btn_Sua.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Sua.UseVisualStyleBackColor = true;
+            this.txt_TenNgach.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_TenNgach.Enabled = false;
+            this.txt_TenNgach.Location = new System.Drawing.Point(97, 103);
+            this.txt_TenNgach.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txt_TenNgach.Name = "txt_TenNgach";
+            this.txt_TenNgach.Size = new System.Drawing.Size(278, 28);
+            this.txt_TenNgach.TabIndex = 9;
             // 
-            // btn_Xoa
+            // txt_MaNgach
             // 
-            this.btn_Xoa.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Xoa.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_Xoa.ImageKey = "Garbage.png";
-            this.btn_Xoa.ImageList = this.imageList1;
-            this.btn_Xoa.Location = new System.Drawing.Point(553, 317);
-            this.btn_Xoa.Name = "btn_Xoa";
-            this.btn_Xoa.Size = new System.Drawing.Size(63, 65);
-            this.btn_Xoa.TabIndex = 7;
-            this.btn_Xoa.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Xoa.UseVisualStyleBackColor = true;
+            this.txt_MaNgach.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_MaNgach.Enabled = false;
+            this.txt_MaNgach.Location = new System.Drawing.Point(97, 25);
+            this.txt_MaNgach.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txt_MaNgach.Name = "txt_MaNgach";
+            this.txt_MaNgach.Size = new System.Drawing.Size(278, 28);
+            this.txt_MaNgach.TabIndex = 8;
             // 
-            // btn_Luu
+            // label3
             // 
-            this.btn_Luu.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btn_Luu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_Luu.ImageKey = "Save.png";
-            this.btn_Luu.ImageList = this.imageList1;
-            this.btn_Luu.Location = new System.Drawing.Point(324, 483);
-            this.btn_Luu.Name = "btn_Luu";
-            this.btn_Luu.Size = new System.Drawing.Size(63, 65);
-            this.btn_Luu.TabIndex = 5;
-            this.btn_Luu.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Luu.UseVisualStyleBackColor = true;
-            this.btn_Luu.Visible = false;
-            // 
-            // btn_Huy
-            // 
-            this.btn_Huy.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btn_Huy.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_Huy.ImageKey = "Cancel.png";
-            this.btn_Huy.ImageList = this.imageList1;
-            this.btn_Huy.Location = new System.Drawing.Point(523, 483);
-            this.btn_Huy.Name = "btn_Huy";
-            this.btn_Huy.Size = new System.Drawing.Size(63, 65);
-            this.btn_Huy.TabIndex = 6;
-            this.btn_Huy.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Huy.UseVisualStyleBackColor = true;
-            this.btn_Huy.Visible = false;
-            // 
-            // splitButton1
-            // 
-            this.splitButton1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.splitButton1.AutoSize = true;
-            this.splitButton1.ContextMenuStrip = this.contextMenuStrip1;
-            this.splitButton1.ImageKey = "Add.png";
-            this.splitButton1.ImageList = this.imageList1;
-            this.splitButton1.Location = new System.Drawing.Point(285, 318);
-            this.splitButton1.Name = "splitButton1";
-            this.splitButton1.Size = new System.Drawing.Size(80, 62);
-            this.splitButton1.SplitMenuStrip = this.contextMenuStrip1;
-            this.splitButton1.TabIndex = 8;
-            this.splitButton1.UseVisualStyleBackColor = true;
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 174);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(57, 42);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Nhóm ngạch";
             // 
             // label2
             // 
@@ -258,16 +213,6 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Tên";
             // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 174);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 42);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Nhóm ngạch";
-            // 
             // comB_NhomNgach
             // 
             this.comB_NhomNgach.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -279,28 +224,91 @@
             "Hợp đồng"});
             this.comB_NhomNgach.Location = new System.Drawing.Point(97, 180);
             this.comB_NhomNgach.Name = "comB_NhomNgach";
-            this.comB_NhomNgach.Size = new System.Drawing.Size(219, 29);
+            this.comB_NhomNgach.Size = new System.Drawing.Size(278, 29);
             this.comB_NhomNgach.TabIndex = 7;
             // 
-            // txt_MaNgach
+            // btn_Sua
             // 
-            this.txt_MaNgach.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_MaNgach.Enabled = false;
-            this.txt_MaNgach.Location = new System.Drawing.Point(97, 25);
-            this.txt_MaNgach.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.txt_MaNgach.Name = "txt_MaNgach";
-            this.txt_MaNgach.Size = new System.Drawing.Size(219, 28);
-            this.txt_MaNgach.TabIndex = 8;
+            this.btn_Sua.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Sua.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_Sua.ImageKey = "Edit Data.png";
+            this.btn_Sua.ImageList = this.imageList1;
+            this.btn_Sua.Location = new System.Drawing.Point(423, 317);
+            this.btn_Sua.Name = "btn_Sua";
+            this.btn_Sua.Size = new System.Drawing.Size(63, 65);
+            this.btn_Sua.TabIndex = 4;
+            this.btn_Sua.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Sua.UseVisualStyleBackColor = true;
+            this.btn_Sua.Click += new System.EventHandler(this.btn_Sua_Click);
             // 
-            // txt_TenNgach
+            // imageList1
             // 
-            this.txt_TenNgach.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_TenNgach.Enabled = false;
-            this.txt_TenNgach.Location = new System.Drawing.Point(97, 103);
-            this.txt_TenNgach.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.txt_TenNgach.Name = "txt_TenNgach";
-            this.txt_TenNgach.Size = new System.Drawing.Size(208, 28);
-            this.txt_TenNgach.TabIndex = 9;
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Add.png");
+            this.imageList1.Images.SetKeyName(1, "Cancel.png");
+            this.imageList1.Images.SetKeyName(2, "Edit Data.png");
+            this.imageList1.Images.SetKeyName(3, "Garbage.png");
+            this.imageList1.Images.SetKeyName(4, "Save.png");
+            // 
+            // btn_Xoa
+            // 
+            this.btn_Xoa.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Xoa.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_Xoa.ImageKey = "Garbage.png";
+            this.btn_Xoa.ImageList = this.imageList1;
+            this.btn_Xoa.Location = new System.Drawing.Point(553, 317);
+            this.btn_Xoa.Name = "btn_Xoa";
+            this.btn_Xoa.Size = new System.Drawing.Size(63, 65);
+            this.btn_Xoa.TabIndex = 7;
+            this.btn_Xoa.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Xoa.UseVisualStyleBackColor = true;
+            this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
+            // 
+            // btn_Luu
+            // 
+            this.btn_Luu.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btn_Luu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_Luu.ImageKey = "Save.png";
+            this.btn_Luu.ImageList = this.imageList1;
+            this.btn_Luu.Location = new System.Drawing.Point(324, 483);
+            this.btn_Luu.Name = "btn_Luu";
+            this.btn_Luu.Size = new System.Drawing.Size(63, 65);
+            this.btn_Luu.TabIndex = 5;
+            this.btn_Luu.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Luu.UseVisualStyleBackColor = true;
+            this.btn_Luu.Visible = false;
+            this.btn_Luu.Click += new System.EventHandler(this.btn_Luu_Click);
+            // 
+            // btn_Huy
+            // 
+            this.btn_Huy.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btn_Huy.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_Huy.ImageKey = "Cancel.png";
+            this.btn_Huy.ImageList = this.imageList1;
+            this.btn_Huy.Location = new System.Drawing.Point(523, 483);
+            this.btn_Huy.Name = "btn_Huy";
+            this.btn_Huy.Size = new System.Drawing.Size(63, 65);
+            this.btn_Huy.TabIndex = 6;
+            this.btn_Huy.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Huy.UseVisualStyleBackColor = true;
+            this.btn_Huy.Visible = false;
+            this.btn_Huy.Click += new System.EventHandler(this.btn_Huy_Click);
+            // 
+            // btn_Them
+            // 
+            this.btn_Them.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Them.AutoSize = true;
+            this.btn_Them.ContextMenuStrip = this.contextMenuStrip1;
+            this.btn_Them.ImageKey = "Add.png";
+            this.btn_Them.ImageList = this.imageList1;
+            this.btn_Them.Location = new System.Drawing.Point(285, 318);
+            this.btn_Them.Name = "btn_Them";
+            this.btn_Them.Size = new System.Drawing.Size(80, 62);
+            this.btn_Them.SplitMenuStrip = this.contextMenuStrip1;
+            this.btn_Them.TabIndex = 8;
+            this.btn_Them.UseVisualStyleBackColor = true;
+            this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
             // 
             // Ngach_NhomNgach
             // 
@@ -312,6 +320,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Ngach_NhomNgach";
             this.Size = new System.Drawing.Size(650, 600);
+            this.Load += new System.EventHandler(this.Ngach_NhomNgach_Load);
             this.contextMenuStrip1.ResumeLayout(false);
             this.tableLP_Ngach_NhomNgach.ResumeLayout(false);
             this.tableLP_Ngach_NhomNgach.PerformLayout();
@@ -338,7 +347,7 @@
         private System.Windows.Forms.Button btn_Sua;
         private System.Windows.Forms.Button btn_Xoa;
         private System.Windows.Forms.Button btn_Huy;
-        private wyDay.Controls.SplitButton splitButton1;
+        private wyDay.Controls.SplitButton btn_Them;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
