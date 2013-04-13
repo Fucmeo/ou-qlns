@@ -188,12 +188,11 @@
             // 
             this.comB_HinhThuc.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_HinhThuc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comB_HinhThuc.Enabled = false;
             this.comB_HinhThuc.FormattingEnabled = true;
             this.comB_HinhThuc.Items.AddRange(new object[] {
             "Bị bắt",
             "Bị tù"});
-            this.comB_HinhThuc.Location = new System.Drawing.Point(133, 10);
+            this.comB_HinhThuc.Location = new System.Drawing.Point(133, 9);
             this.comB_HinhThuc.Name = "comB_HinhThuc";
             this.comB_HinhThuc.Size = new System.Drawing.Size(234, 26);
             this.comB_HinhThuc.TabIndex = 0;
@@ -201,7 +200,6 @@
             // txt_NguoiKhaiBao
             // 
             this.txt_NguoiKhaiBao.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_NguoiKhaiBao.Enabled = false;
             this.txt_NguoiKhaiBao.Location = new System.Drawing.Point(133, 113);
             this.txt_NguoiKhaiBao.MaxLength = 50;
             this.txt_NguoiKhaiBao.Name = "txt_NguoiKhaiBao";
@@ -213,7 +211,6 @@
             this.dTP_DenNgay.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dTP_DenNgay.Checked = false;
             this.dTP_DenNgay.CustomFormat = "dd/MM/yyyy";
-            this.dTP_DenNgay.Enabled = false;
             this.dTP_DenNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dTP_DenNgay.Location = new System.Drawing.Point(567, 54);
             this.dTP_DenNgay.Name = "dTP_DenNgay";
@@ -226,7 +223,6 @@
             this.dTP_TuNgay.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dTP_TuNgay.Checked = false;
             this.dTP_TuNgay.CustomFormat = "dd/MM/yyyy";
-            this.dTP_TuNgay.Enabled = false;
             this.dTP_TuNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dTP_TuNgay.Location = new System.Drawing.Point(133, 54);
             this.dTP_TuNgay.Name = "dTP_TuNgay";
@@ -237,7 +233,6 @@
             // txt_TaiNoi
             // 
             this.txt_TaiNoi.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_TaiNoi.Enabled = false;
             this.txt_TaiNoi.Location = new System.Drawing.Point(567, 9);
             this.txt_TaiNoi.MaxLength = 50;
             this.txt_TaiNoi.Name = "txt_TaiNoi";
@@ -307,7 +302,6 @@
             // rTB_NoiDung
             // 
             this.rTB_NoiDung.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rTB_NoiDung.Enabled = false;
             this.rTB_NoiDung.Location = new System.Drawing.Point(567, 93);
             this.rTB_NoiDung.Name = "rTB_NoiDung";
             this.rTB_NoiDung.Size = new System.Drawing.Size(301, 66);
@@ -518,7 +512,6 @@
             // txt_ChucDanh
             // 
             this.txt_ChucDanh.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_ChucDanh.Enabled = false;
             this.txt_ChucDanh.Location = new System.Drawing.Point(567, 63);
             this.txt_ChucDanh.MaxLength = 50;
             this.txt_ChucDanh.Name = "txt_ChucDanh";
@@ -528,7 +521,6 @@
             // txt_TenToChuc
             // 
             this.txt_TenToChuc.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_TenToChuc.Enabled = false;
             this.txt_TenToChuc.Location = new System.Drawing.Point(133, 12);
             this.txt_TenToChuc.MaxLength = 50;
             this.txt_TenToChuc.Name = "txt_TenToChuc";
@@ -560,7 +552,6 @@
             this.cb_NuocNgoai.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cb_NuocNgoai.AutoSize = true;
             this.tableLP_QuanHeToChuc.SetColumnSpan(this.cb_NuocNgoai, 2);
-            this.cb_NuocNgoai.Enabled = false;
             this.cb_NuocNgoai.Location = new System.Drawing.Point(437, 14);
             this.cb_NuocNgoai.Name = "cb_NuocNgoai";
             this.cb_NuocNgoai.Size = new System.Drawing.Size(112, 22);
@@ -581,7 +572,6 @@
             // txt_ChucVu
             // 
             this.txt_ChucVu.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_ChucVu.Enabled = false;
             this.txt_ChucVu.Location = new System.Drawing.Point(133, 63);
             this.txt_ChucVu.MaxLength = 50;
             this.txt_ChucVu.Name = "txt_ChucVu";
@@ -603,7 +593,6 @@
             this.dTP_TuThoiGian.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dTP_TuThoiGian.Checked = false;
             this.dTP_TuThoiGian.CustomFormat = "dd/MM/yyyy";
-            this.dTP_TuThoiGian.Enabled = false;
             this.dTP_TuThoiGian.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dTP_TuThoiGian.Location = new System.Drawing.Point(133, 114);
             this.dTP_TuThoiGian.Name = "dTP_TuThoiGian";
@@ -626,7 +615,6 @@
             this.dTP_DenThoiGian.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dTP_DenThoiGian.Checked = false;
             this.dTP_DenThoiGian.CustomFormat = "dd/MM/yyyy";
-            this.dTP_DenThoiGian.Enabled = false;
             this.dTP_DenThoiGian.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dTP_DenThoiGian.Location = new System.Drawing.Point(567, 114);
             this.dTP_DenThoiGian.Name = "dTP_DenThoiGian";
@@ -641,7 +629,6 @@
             this.tableLP_QuocGia.Controls.Add(this.comB_QuocGia, 0, 0);
             this.tableLP_QuocGia.Controls.Add(this.lbl_ThemQuocGia, 0, 1);
             this.tableLP_QuocGia.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLP_QuocGia.Enabled = false;
             this.tableLP_QuocGia.Location = new System.Drawing.Point(567, 207);
             this.tableLP_QuocGia.Name = "tableLP_QuocGia";
             this.tableLP_QuocGia.RowCount = 2;
@@ -704,7 +691,6 @@
             this.tableLP_Tinh.Controls.Add(this.comB_Tinh, 0, 0);
             this.tableLP_Tinh.Controls.Add(this.lbl_ThemTinh, 0, 1);
             this.tableLP_Tinh.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLP_Tinh.Enabled = false;
             this.tableLP_Tinh.Location = new System.Drawing.Point(133, 207);
             this.tableLP_Tinh.Name = "tableLP_Tinh";
             this.tableLP_Tinh.RowCount = 2;
@@ -751,7 +737,6 @@
             // txt_QuanHuyen
             // 
             this.txt_QuanHuyen.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_QuanHuyen.Enabled = false;
             this.txt_QuanHuyen.Location = new System.Drawing.Point(567, 165);
             this.txt_QuanHuyen.Name = "txt_QuanHuyen";
             this.txt_QuanHuyen.Size = new System.Drawing.Size(240, 26);
@@ -760,7 +745,6 @@
             // txt_PhuongXa
             // 
             this.txt_PhuongXa.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_PhuongXa.Enabled = false;
             this.txt_PhuongXa.Location = new System.Drawing.Point(133, 165);
             this.txt_PhuongXa.Name = "txt_PhuongXa";
             this.txt_PhuongXa.Size = new System.Drawing.Size(240, 26);
@@ -772,6 +756,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.groupBox10);
+            this.Enabled = false;
             this.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "QLNS_LichSuBanThan";
             this.Size = new System.Drawing.Size(889, 857);

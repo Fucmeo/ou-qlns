@@ -251,7 +251,6 @@
             // 
             this.comB_QuocGia.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_QuocGia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comB_QuocGia.Enabled = false;
             this.comB_QuocGia.FormattingEnabled = true;
             this.comB_QuocGia.Location = new System.Drawing.Point(636, 147);
             this.comB_QuocGia.Name = "comB_QuocGia";
@@ -263,7 +262,6 @@
             // 
             this.comB_Tinh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_Tinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comB_Tinh.Enabled = false;
             this.comB_Tinh.FormattingEnabled = true;
             this.comB_Tinh.Location = new System.Drawing.Point(149, 147);
             this.comB_Tinh.Name = "comB_Tinh";
@@ -274,7 +272,6 @@
             // txt_Quan
             // 
             this.txt_Quan.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_Quan.Enabled = false;
             this.txt_Quan.Location = new System.Drawing.Point(636, 82);
             this.txt_Quan.MaxLength = 100;
             this.txt_Quan.Name = "txt_Quan";
@@ -284,7 +281,6 @@
             // txt_Phuong
             // 
             this.txt_Phuong.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_Phuong.Enabled = false;
             this.txt_Phuong.Location = new System.Drawing.Point(149, 82);
             this.txt_Phuong.MaxLength = 100;
             this.txt_Phuong.Name = "txt_Phuong";
@@ -294,7 +290,6 @@
             // txt_Duong
             // 
             this.txt_Duong.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_Duong.Enabled = false;
             this.txt_Duong.Location = new System.Drawing.Point(636, 18);
             this.txt_Duong.MaxLength = 100;
             this.txt_Duong.Name = "txt_Duong";
@@ -364,7 +359,6 @@
             // txt_SoNha
             // 
             this.txt_SoNha.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_SoNha.Enabled = false;
             this.txt_SoNha.Location = new System.Drawing.Point(149, 18);
             this.txt_SoNha.MaxLength = 100;
             this.txt_SoNha.Name = "txt_SoNha";
@@ -430,7 +424,6 @@
             // 
             this.comB_MoiQH.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_MoiQH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comB_MoiQH.Enabled = false;
             this.comB_MoiQH.FormattingEnabled = true;
             this.comB_MoiQH.Items.AddRange(new object[] {
             "Ba, mẹ ruột",
@@ -448,7 +441,6 @@
             // rTB_ThanhVienToChuc
             // 
             this.rTB_ThanhVienToChuc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rTB_ThanhVienToChuc.Enabled = false;
             this.rTB_ThanhVienToChuc.Location = new System.Drawing.Point(149, 283);
             this.rTB_ThanhVienToChuc.MaxLength = 100;
             this.rTB_ThanhVienToChuc.Name = "rTB_ThanhVienToChuc";
@@ -459,7 +451,6 @@
             // txt_Ho
             // 
             this.txt_Ho.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_Ho.Enabled = false;
             this.txt_Ho.Location = new System.Drawing.Point(149, 70);
             this.txt_Ho.MaxLength = 50;
             this.txt_Ho.Name = "txt_Ho";
@@ -581,7 +572,6 @@
             this.cb_ThanNhanNuocNgoai.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cb_ThanNhanNuocNgoai.AutoSize = true;
             this.tableLP_ThongTinCaNhan.SetColumnSpan(this.cb_ThanNhanNuocNgoai, 2);
-            this.cb_ThanNhanNuocNgoai.Enabled = false;
             this.cb_ThanNhanNuocNgoai.Location = new System.Drawing.Point(490, 15);
             this.cb_ThanNhanNuocNgoai.Name = "cb_ThanNhanNuocNgoai";
             this.cb_ThanNhanNuocNgoai.Size = new System.Drawing.Size(187, 25);
@@ -592,7 +582,6 @@
             // txt_NamSinh
             // 
             this.txt_NamSinh.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_NamSinh.Enabled = false;
             this.txt_NamSinh.Location = new System.Drawing.Point(149, 126);
             this.txt_NamSinh.MaxLength = 4;
             this.txt_NamSinh.Name = "txt_NamSinh";
@@ -602,7 +591,6 @@
             // txt_Ten
             // 
             this.txt_Ten.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_Ten.Enabled = false;
             this.txt_Ten.Location = new System.Drawing.Point(636, 70);
             this.txt_Ten.MaxLength = 10;
             this.txt_Ten.Name = "txt_Ten";
@@ -612,7 +600,6 @@
             // txt_NgheNghiep
             // 
             this.txt_NgheNghiep.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_NgheNghiep.Enabled = false;
             this.txt_NgheNghiep.Location = new System.Drawing.Point(149, 182);
             this.txt_NgheNghiep.MaxLength = 100;
             this.txt_NgheNghiep.Name = "txt_NgheNghiep";
@@ -622,7 +609,6 @@
             // txt_QueQuan
             // 
             this.txt_QueQuan.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_QueQuan.Enabled = false;
             this.txt_QueQuan.Location = new System.Drawing.Point(636, 126);
             this.txt_QueQuan.MaxLength = 50;
             this.txt_QueQuan.Name = "txt_QueQuan";
@@ -632,7 +618,6 @@
             // txt_ChucDanh
             // 
             this.txt_ChucDanh.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_ChucDanh.Enabled = false;
             this.txt_ChucDanh.Location = new System.Drawing.Point(636, 182);
             this.txt_ChucDanh.MaxLength = 100;
             this.txt_ChucDanh.Name = "txt_ChucDanh";
@@ -642,7 +627,6 @@
             // txt_DVCongTac
             // 
             this.txt_DVCongTac.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_DVCongTac.Enabled = false;
             this.txt_DVCongTac.Location = new System.Drawing.Point(149, 238);
             this.txt_DVCongTac.MaxLength = 100;
             this.txt_DVCongTac.Name = "txt_DVCongTac";
@@ -652,7 +636,6 @@
             // txt_HocTap
             // 
             this.txt_HocTap.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_HocTap.Enabled = false;
             this.txt_HocTap.Location = new System.Drawing.Point(636, 238);
             this.txt_HocTap.MaxLength = 50;
             this.txt_HocTap.Name = "txt_HocTap";
@@ -662,7 +645,6 @@
             // rTB_GhiChu
             // 
             this.rTB_GhiChu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rTB_GhiChu.Enabled = false;
             this.rTB_GhiChu.Location = new System.Drawing.Point(636, 283);
             this.rTB_GhiChu.MaxLength = 200;
             this.rTB_GhiChu.Name = "rTB_GhiChu";
@@ -676,6 +658,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.tableLP_GiaDinh_BanThan);
+            this.Enabled = false;
             this.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "QLNS_ThongTinGiaDinh";

@@ -34,7 +34,7 @@ namespace QLNS.UCs.DanhMucThongTin
 
         private void QLNS_DienBienSK_Load(object sender, EventArgs e)
         {
-            ResetInterface(true);
+            //ResetInterface(true);
         }
 
         #region Hàm phụ

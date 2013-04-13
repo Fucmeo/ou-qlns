@@ -63,11 +63,17 @@ namespace LuongBH.UCs.Luong
                 //JoinNgach_NhomNgach();
                 UpdateTreeVDonVi();
                 TreeV_Ngach_NhomNgach.ExpandAll();
-                comB_NhomNgach.DataSource = lstNhomNgach;
-                comB_NhomNgach.ValueMember = "ID";
-                comB_NhomNgach.DisplayMember = "TenNhomNgach";
+                FillNhomNgachCombo();
             }
             comB_NhomNgach.SelectedIndex = -1;
+        }
+
+        private void FillNhomNgachCombo()
+        {
+
+            comB_NhomNgach.DataSource = lstNhomNgach;
+            comB_NhomNgach.ValueMember = "ID";
+            comB_NhomNgach.DisplayMember = "TenNhomNgach";
         }
 
         private void GetNgach_NhomNgach()
@@ -113,7 +119,7 @@ namespace LuongBH.UCs.Luong
                      newNode = new TreeNode();
                      newNode.Name = lstNgachCon[y].MaNgach;
                      newNode.Text = lstNgachCon[y].TenNgach;
-                     TreeV_Ngach_NhomNgach.Nodes[lstNgach[i].NhomNgachID.ToString()].Nodes.Add(newNode);
+                     TreeV_Ngach_NhomNgach.Nodes[lstNhomNgach[i].ID.ToString()].Nodes.Add(newNode);
                  }
 
 
@@ -136,7 +142,8 @@ namespace LuongBH.UCs.Luong
 
         private void btn_Xoa_Click(object sender, EventArgs e)
         {
-            if (SelectedNode != null)
+            if (SelectedNode != null &&
+                        MessageBox.Show("Bạn muốn xoá ngạch / nhóm ngạch này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (SelectedNode.Level == 0) 
                 {
@@ -147,6 +154,8 @@ namespace LuongBH.UCs.Luong
                         GetNgach_NhomNgach();
                         UpdateTreeVDonVi();
                         MessageBox.Show("Xoá nhóm ngạch thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txt_MaNgach.Text = txt_TenNgach.Text = "";
+                        comB_NhomNgach.SelectedIndex = -1;
                     }
                     catch (Exception)
                     {
@@ -187,6 +196,7 @@ namespace LuongBH.UCs.Luong
                             oNhomNgach.Add();
                             GetNgach_NhomNgach();
                             UpdateTreeVDonVi();
+                            FillNhomNgachCombo();
                             MessageBox.Show("Thêm nhóm ngạch thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             ResetInterface(true);
                         }
@@ -213,6 +223,7 @@ namespace LuongBH.UCs.Luong
                             oNgach.Add();
                             GetNgach_NhomNgach();
                             UpdateTreeVDonVi();
+                            FillNhomNgachCombo();
                             MessageBox.Show("Thêm ngạch thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             ResetInterface(true);
                         }
@@ -290,7 +301,7 @@ namespace LuongBH.UCs.Luong
             #endregion
 
             txt_MaNgach.Text = txt_TenNgach.Text = "";
-            if (lstNhomNgach.Count > 0)
+            if (lstNhomNgach.Count > 0 && !bAddFlag)
             {
                 comB_NhomNgach.SelectedIndex = -1;
             }
@@ -357,6 +368,7 @@ namespace LuongBH.UCs.Luong
                     txt_MaNgach.Text = "";
                     txt_TenNgach.Text = SelectedNode.Text;
                     comB_NhomNgach.SelectedIndex = -1;
+                    SelectedNode.ExpandAll();
                 }
                 else
                 {

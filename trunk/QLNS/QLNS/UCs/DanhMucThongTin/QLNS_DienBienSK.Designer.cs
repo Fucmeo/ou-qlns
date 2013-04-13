@@ -44,7 +44,7 @@
             this.txt_CanNang = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupb_XetNghiem = new System.Windows.Forms.GroupBox();
             this.tableLP_XetNghiem = new System.Windows.Forms.TableLayoutPanel();
             this.txt_TPTNT = new System.Windows.Forms.TextBox();
             this.txt_HPDinhLuong = new System.Windows.Forms.TextBox();
@@ -83,7 +83,7 @@
             this.groupBox2.SuspendLayout();
             this.tableLP_ThaoTac.SuspendLayout();
             this.tableLP_ChiTietSK.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.groupb_XetNghiem.SuspendLayout();
             this.tableLP_XetNghiem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_DienBienSK)).BeginInit();
             this.SuspendLayout();
@@ -235,7 +235,7 @@
             this.tableLP_ChiTietSK.Controls.Add(this.txt_CanNang, 3, 1);
             this.tableLP_ChiTietSK.Controls.Add(this.label17, 2, 1);
             this.tableLP_ChiTietSK.Controls.Add(this.label1, 0, 1);
-            this.tableLP_ChiTietSK.Controls.Add(this.groupBox1, 0, 0);
+            this.tableLP_ChiTietSK.Controls.Add(this.groupb_XetNghiem, 0, 0);
             this.tableLP_ChiTietSK.Controls.Add(this.label3, 0, 3);
             this.tableLP_ChiTietSK.Controls.Add(this.rtb_DeNghi, 1, 3);
             this.tableLP_ChiTietSK.Controls.Add(this.rtb_KetLuan, 3, 2);
@@ -293,19 +293,19 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Phân loại";
             // 
-            // groupBox1
+            // groupb_XetNghiem
             // 
-            this.tableLP_ChiTietSK.SetColumnSpan(this.groupBox1, 4);
-            this.groupBox1.Controls.Add(this.tableLP_XetNghiem);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(3, 2);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(1055, 373);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Xét nghiệm";
+            this.tableLP_ChiTietSK.SetColumnSpan(this.groupb_XetNghiem, 4);
+            this.groupb_XetNghiem.Controls.Add(this.tableLP_XetNghiem);
+            this.groupb_XetNghiem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupb_XetNghiem.Location = new System.Drawing.Point(3, 2);
+            this.groupb_XetNghiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupb_XetNghiem.Name = "groupb_XetNghiem";
+            this.groupb_XetNghiem.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupb_XetNghiem.Size = new System.Drawing.Size(1055, 373);
+            this.groupb_XetNghiem.TabIndex = 0;
+            this.groupb_XetNghiem.TabStop = false;
+            this.groupb_XetNghiem.Text = "Xét nghiệm";
             // 
             // tableLP_XetNghiem
             // 
@@ -686,6 +686,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.tableLP_DienBienSK);
+            this.Enabled = false;
             this.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "QLNS_DienBienSK";
             this.Size = new System.Drawing.Size(1067, 818);
@@ -695,7 +696,7 @@
             this.tableLP_ThaoTac.ResumeLayout(false);
             this.tableLP_ChiTietSK.ResumeLayout(false);
             this.tableLP_ChiTietSK.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
+            this.groupb_XetNghiem.ResumeLayout(false);
             this.tableLP_XetNghiem.ResumeLayout(false);
             this.tableLP_XetNghiem.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_DienBienSK)).EndInit();
@@ -713,8 +714,7 @@
         private System.Windows.Forms.Button btn_Them;
         private System.Windows.Forms.Button btn_Huy;
         private System.Windows.Forms.Button btn_Luu;
-        private System.Windows.Forms.TableLayoutPanel tableLP_ChiTietSK;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupb_XetNghiem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
@@ -754,5 +754,6 @@
         public System.Windows.Forms.DateTimePicker dTP_ThoiDiem;
         public System.Windows.Forms.TextBox txt_PhanLoai;
         public System.Windows.Forms.TableLayoutPanel tableLP_XetNghiem;
+        public System.Windows.Forms.TableLayoutPanel tableLP_ChiTietSK;
     }
 }

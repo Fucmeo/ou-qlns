@@ -1139,6 +1139,11 @@ namespace QLNS.UCs.DanhMucThongTin
                 }
             }
         }
+
+        private void txt_TenTruong_BoiDuong_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

@@ -174,7 +174,6 @@
             // 
             this.comB_TinhTrang.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_TinhTrang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comB_TinhTrang.Enabled = false;
             this.comB_TinhTrang.FormattingEnabled = true;
             this.comB_TinhTrang.Items.AddRange(new object[] {
             "Còn hiệu lực",
@@ -188,7 +187,6 @@
             // 
             this.comB_CMND_HoChieu.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_CMND_HoChieu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comB_CMND_HoChieu.Enabled = false;
             this.comB_CMND_HoChieu.FormattingEnabled = true;
             this.comB_CMND_HoChieu.Items.AddRange(new object[] {
             "CMND",
@@ -203,7 +201,6 @@
             this.dTP_NgayCap.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dTP_NgayCap.Checked = false;
             this.dTP_NgayCap.CustomFormat = "dd/MM/yyyy";
-            this.dTP_NgayCap.Enabled = false;
             this.dTP_NgayCap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dTP_NgayCap.Location = new System.Drawing.Point(571, 9);
             this.dTP_NgayCap.Name = "dTP_NgayCap";
@@ -214,7 +211,6 @@
             // txt_MaSo
             // 
             this.txt_MaSo.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_MaSo.Enabled = false;
             this.txt_MaSo.Location = new System.Drawing.Point(134, 9);
             this.txt_MaSo.Name = "txt_MaSo";
             this.txt_MaSo.Size = new System.Drawing.Size(240, 26);
@@ -289,7 +285,6 @@
             // txt_NoiCap
             // 
             this.txt_NoiCap.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_NoiCap.Enabled = false;
             this.txt_NoiCap.Location = new System.Drawing.Point(134, 54);
             this.txt_NoiCap.Name = "txt_NoiCap";
             this.txt_NoiCap.Size = new System.Drawing.Size(240, 26);
@@ -360,6 +355,7 @@
             this.tableLP_ThongTinChinh.SetColumnSpan(this.groupBox2, 4);
             this.groupBox2.Controls.Add(this.tableLP_ThongTinNV);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Enabled = false;
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
             this.tableLP_ThongTinChinh.SetRowSpan(this.groupBox2, 4);
@@ -867,7 +863,6 @@
         public System.Windows.Forms.TextBox txt_MaSoThue;
         private System.Windows.Forms.Label label10;
         public System.Windows.Forms.ComboBox comB_GioiTinh;
-        private System.Windows.Forms.GroupBox groupBox15;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.TableLayoutPanel tableLP_CMND;
         public System.Windows.Forms.DataGridView dtgv_CMNDHoChieu;
@@ -883,7 +878,6 @@
         public System.Windows.Forms.DateTimePicker dTP_NgayCap;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TableLayoutPanel tableLP_ThongTinNV;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         public System.Windows.Forms.Button btn_DelAvatar;
@@ -913,5 +907,7 @@
         private System.Windows.Forms.Label lbl_ThemQuocGia;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.ImageList imageList2;
+        public System.Windows.Forms.GroupBox groupBox15;
+        public System.Windows.Forms.GroupBox groupBox2;
     }
 }
