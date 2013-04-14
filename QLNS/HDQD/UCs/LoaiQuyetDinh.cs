@@ -190,9 +190,6 @@ namespace HDQD.UCs
                             {
                                 MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
-
-                            RefreshDataSource();
-                            ResetInterface(true);
                         }
                         catch (Exception ex)
                         {
@@ -218,8 +215,6 @@ namespace HDQD.UCs
                             }
 
 
-                            RefreshDataSource();
-                            ResetInterface(true);
                         }
                         catch (Exception ex)
                         {
@@ -229,6 +224,9 @@ namespace HDQD.UCs
                     }
 
                 }
+
+                RefreshDataSource();
+                ResetInterface(true);
                 #endregion
             }
             else

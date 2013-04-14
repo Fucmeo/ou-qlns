@@ -101,6 +101,15 @@ namespace Business.Luong
 
             return listDonVi;
         }
+
+        public DataTable GetList_WithoutNullItem()
+        {
+            DataTable dt = new DataTable();
+            
+            dt = dp.getDataTable("select * from v_ngach");
+            
+            return dt;
+        }
         
         #endregion
     }
