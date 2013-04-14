@@ -77,7 +77,6 @@ D:\Download\QLNS\Business\bin\Debug\zh-CN\Npgsql.resources.dll
 D:\Download\QLNS\Business\obj\Debug\ResolveAssemblyReference.cache
 D:\Download\QLNS\Business\obj\Debug\Business.dll
 D:\Download\QLNS\Business\obj\Debug\Business.pdb
-D:\Business\Project\QLNS\Business\bin\Debug\Mono.Security.dll
 D:\Business\Project\QLNS\Business\bin\Debug\Npgsql.pdb
 D:\Business\Project\QLNS\Business\bin\Debug\Npgsql.xml
 D:\Business\Project\QLNS\Business\bin\Debug\de\Npgsql.resources.dll
