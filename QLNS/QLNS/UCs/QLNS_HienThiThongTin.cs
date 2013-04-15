@@ -126,7 +126,7 @@ namespace QLNS.UCs
                     }
                     catch (Exception)
                     {
-                        MessageBox.Show("Thao tác xoá không thành công.\r\n Lý do có thể là vẫn còn nhân viên" , "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Thao tác xoá không thành công." , "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
             }

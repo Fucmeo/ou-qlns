@@ -5,7 +5,6 @@ D:\Job\QLNS\Projects\QLNS\LuongBH\obj\x86\Debug\LuongBH.csproj.GenerateResource.
 D:\Job\QLNS\Projects\QLNS\LuongBH\obj\x86\Debug\LuongBH.exe
 D:\Job\QLNS\Projects\QLNS\LuongBH\obj\x86\Debug\LuongBH.pdb
 D:\Job\QLNS\Projects\QLNS\LuongBH\obj\x86\Debug\HDQD.UCs.Luong.Ngach.resources
-D:\Job\QLNS\Projects\QLNS\LuongBH\obj\x86\Debug\LuongBH.UCs.Luong.Ngach_NhomNgach.resources
 D:\Job\QLNS\Projects\QLNS\LuongBH\bin\Debug\SplitButton.dll
 D:\Job\QLNS\Projects\QLNS\LuongBH\bin\Debug\SplitButton.pdb
 D:\Job\QLNS\Projects\QLNS\LuongBH\obj\x86\Debug\LuongBH.Form1.resources
@@ -57,3 +56,4 @@ D:\Business\Project\QLNS\LuongBH\bin\Debug\fi\Npgsql.resources.dll
 D:\Business\Project\QLNS\LuongBH\bin\Debug\fr\Npgsql.resources.dll
 D:\Business\Project\QLNS\LuongBH\bin\Debug\ja\Npgsql.resources.dll
 D:\Business\Project\QLNS\LuongBH\bin\Debug\zh-CN\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS\LuongBH\obj\x86\Debug\LuongBH.UCs.Luong.Ngach_NhomNgach.resources
