@@ -163,16 +163,16 @@
             this.comB_DanhMuc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_DanhMuc.FormattingEnabled = true;
             this.comB_DanhMuc.Items.AddRange(new object[] {
-            "Thông tin nhân viên",
-            "Thông tin nhân viên bổ sung",
-            "Quá trình công tác",
-            "Hợp đồng tuyển dụng",
-            "Đào tạo & bồi dưỡng",
-            "Trình độ văn hoá",
-            "Hoạt động chính trị",
-            "Thông tin gia đình",
-            "Lịch sử bản thân",
-            "Diến biến sức khỏe"});
+            "1. Thông tin nhân viên",
+            "2. Thông tin nhân viên bổ sung",
+            "3. Quá trình công tác",
+            "4. Hợp đồng tuyển dụng",
+            "5. Trình độ văn hoá",
+            "6. Đào tạo & bồi dưỡng",
+            "7. Hoạt động chính trị",
+            "8. Thông tin gia đình",
+            "9. Lịch sử bản thân",
+            "10. Diến biến sức khỏe"});
             this.comB_DanhMuc.Location = new System.Drawing.Point(187, 18);
             this.comB_DanhMuc.Name = "comB_DanhMuc";
             this.comB_DanhMuc.Size = new System.Drawing.Size(305, 30);

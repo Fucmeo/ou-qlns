@@ -46,10 +46,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.txt_Ten = new System.Windows.Forms.TextBox();
             this.rtb_MoTa = new System.Windows.Forms.RichTextBox();
             this.cb_SauDH = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.comB_TrinhDo = new System.Windows.Forms.ComboBox();
             this.tableLP_VanBang.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tableLP_ThaoTac.SuspendLayout();
@@ -269,16 +271,21 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.txt_Ten, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.rtb_MoTa, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.rtb_MoTa, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.cb_SauDH, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.comB_TrinhDo, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(544, 120);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
@@ -286,26 +293,16 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 18);
+            this.label1.Location = new System.Drawing.Point(3, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(36, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên";
             // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 78);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 23);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Mô tả";
-            // 
             // txt_Ten
             // 
             this.txt_Ten.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_Ten.Location = new System.Drawing.Point(84, 15);
+            this.txt_Ten.Location = new System.Drawing.Point(84, 3);
             this.txt_Ten.MaxLength = 20;
             this.txt_Ten.Name = "txt_Ten";
             this.txt_Ten.Size = new System.Drawing.Size(184, 29);
@@ -315,10 +312,10 @@
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.rtb_MoTa, 3);
             this.rtb_MoTa.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtb_MoTa.Location = new System.Drawing.Point(84, 63);
+            this.rtb_MoTa.Location = new System.Drawing.Point(84, 75);
             this.rtb_MoTa.MaxLength = 100;
             this.rtb_MoTa.Name = "rtb_MoTa";
-            this.rtb_MoTa.Size = new System.Drawing.Size(457, 54);
+            this.rtb_MoTa.Size = new System.Drawing.Size(457, 42);
             this.rtb_MoTa.TabIndex = 2;
             this.rtb_MoTa.Text = "";
             // 
@@ -326,12 +323,42 @@
             // 
             this.cb_SauDH.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cb_SauDH.AutoSize = true;
-            this.cb_SauDH.Location = new System.Drawing.Point(355, 16);
+            this.cb_SauDH.Location = new System.Drawing.Point(355, 4);
             this.cb_SauDH.Name = "cb_SauDH";
             this.cb_SauDH.Size = new System.Drawing.Size(119, 27);
             this.cb_SauDH.TabIndex = 1;
             this.cb_SauDH.Text = "Sau đại học";
             this.cb_SauDH.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 84);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(55, 23);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Mô tả";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 42);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(73, 23);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Trình độ";
+            // 
+            // comB_TrinhDo
+            // 
+            this.comB_TrinhDo.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.comB_TrinhDo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comB_TrinhDo.FormattingEnabled = true;
+            this.comB_TrinhDo.Location = new System.Drawing.Point(84, 41);
+            this.comB_TrinhDo.Name = "comB_TrinhDo";
+            this.comB_TrinhDo.Size = new System.Drawing.Size(184, 30);
+            this.comB_TrinhDo.TabIndex = 4;
             // 
             // QLNS_VanBang
             // 
@@ -379,5 +406,7 @@
         private System.Windows.Forms.Button btn_Luu;
         private System.Windows.Forms.Button btn_Xoa;
         private System.Windows.Forms.Button btn_Sua;
+        private System.Windows.Forms.Label label4;
+        public System.Windows.Forms.ComboBox comB_TrinhDo;
     }
 }

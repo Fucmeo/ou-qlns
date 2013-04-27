@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using HDQD;
+using LuongBH;
 
 namespace QLNS.Forms
 {
@@ -58,6 +59,11 @@ namespace QLNS.Forms
             tsmi_ChucDanh.Image = ImageL_MenuStripItem.Images["Text Edit.png"];
             tsmi_ChucVu.Image = ImageL_MenuStripItem.Images["Handle With Care.png"];
             tsmi_DonVi.Image = ImageL_MenuStripItem.Images["Myspace.png"];
+
+            tsmi_BacHeSo.Image = ImageL_MenuStripItem.Images["He so.png"];
+            tsmi_NhomNgach.Image = ImageL_MenuStripItem.Images["Cap bac.png"];
+            tsmi_TrinhDo.Image = ImageL_MenuStripItem.Images["Trinh do.png"];
+            tsmi_LuongToiThieu.Image = ImageL_MenuStripItem.Images["Luong Toi Thieu.png"];
             
         }
 
@@ -200,6 +206,87 @@ namespace QLNS.Forms
         {
             Forms.Popup f = new Popup("Quyết định gộp đơn vị", new HDQD.UCs.M_A(false));
             f.WindowState = FormWindowState.Maximized;
+            f.ShowDialog();
+        }
+
+
+        private void Main_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (UC.Name == "QLNS_HienThiThongTin" && e.Alt)
+            {
+                ComboBox combo_DanhMuc = new ComboBox();
+                TableLayoutPanel TLP = (TableLayoutPanel)(UC.Controls["tableLP_HienThiThongTin"]);
+                TableLayoutPanel TLP_tableLP_DanhMucThongTin = (TableLayoutPanel)TLP.Controls["tableLP_DanhMucThongTin"];
+                GroupBox GP = (GroupBox)TLP_tableLP_DanhMucThongTin.Controls["groupBox1"];
+                TableLayoutPanel TLP_DanhMuc = (TableLayoutPanel)GP.Controls["tableLP_DanhMuc"];
+                combo_DanhMuc = (ComboBox)TLP_DanhMuc.Controls["comB_DanhMuc"];
+
+                UCs.QLNS_HienThiThongTin.nPreDanhMucIndex = combo_DanhMuc.SelectedIndex;
+                switch (e.KeyCode)
+                {
+                    case Keys.D1:
+                        combo_DanhMuc.SelectedIndex = 0;
+                        break;
+                    case Keys.D2:
+                        combo_DanhMuc.SelectedIndex = 1;
+                        break;
+                    case Keys.D3:
+                        combo_DanhMuc.SelectedIndex = 2;
+                        break;
+                    case Keys.D4:
+                        combo_DanhMuc.SelectedIndex = 3;
+                        break;
+                    case Keys.D5:
+                        combo_DanhMuc.SelectedIndex = 4;
+                        break;
+                    case Keys.D6:
+                        combo_DanhMuc.SelectedIndex = 5;
+                        break;
+                    case Keys.D7:
+                        combo_DanhMuc.SelectedIndex = 6;
+                        break;
+                    case Keys.D8:
+                        combo_DanhMuc.SelectedIndex = 7;
+                        break;
+                    case Keys.D9:
+                        combo_DanhMuc.SelectedIndex = 8;
+                        break;
+                    case Keys.D0:
+                        combo_DanhMuc.SelectedIndex = 9;
+                        break;
+
+                    default:
+                        break;
+                }
+                ((QLNS.UCs.QLNS_HienThiThongTin)(UC)).ChangeDanhMuc();
+            }
+        }
+
+        private void tsmi_TrinhDo_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Quản lý trình độ", new QLNS.UCs.QLNS_TrinhDo());
+            //f.WindowState = FormWindowState.Maximized;
+            f.ShowDialog();
+        }
+
+        private void tsmi_NhomNgach_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Quản lý ngạch / nhóm ngạch", new LuongBH.UCs.Luong.Ngach_NhomNgach());
+            //f.WindowState = FormWindowState.Maximized;
+            f.ShowDialog();
+        }
+
+        private void tsmi_BacHeSo_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Quản lý bậc / hệ số", new LuongBH.UCs.Luong.BacHeSo());
+            //f.WindowState = FormWindowState.Maximized;
+            f.ShowDialog();
+        }
+
+        private void tsmi_LuongToiThieu_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Quản lý lương tối thiểu", new LuongBH.UCs.Luong.LuongToiThieu());
+            //f.WindowState = FormWindowState.Maximized;
             f.ShowDialog();
         }
     }

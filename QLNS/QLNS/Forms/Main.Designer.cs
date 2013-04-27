@@ -51,9 +51,13 @@
             this.tsmi_DonVi = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_ChucDanh = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_ChucVu = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_TrinhDo = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_HinhThucDaoTao = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_MoHinhDaoTao = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_VanBangChinhQuy = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_NhomNgach = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_BacHeSo = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_LuongToiThieu = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_BaoCao = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_ThongTinTK = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_ThongTin = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,10 +68,6 @@
             this.ImageL_MenuStrip = new System.Windows.Forms.ImageList(this.components);
             this.tableLP_Main = new System.Windows.Forms.TableLayoutPanel();
             this.ImageL_MenuStripItem = new System.Windows.Forms.ImageList(this.components);
-            this.tsmi_NhomNgach = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_Ngach = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_BacHeSo = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_LuongToiThieu = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -280,11 +280,11 @@
             this.tsmi_DonVi,
             this.tsmi_ChucDanh,
             this.tsmi_ChucVu,
+            this.tsmi_TrinhDo,
             this.tsmi_HinhThucDaoTao,
             this.tsmi_MoHinhDaoTao,
             this.tsmi_VanBangChinhQuy,
             this.tsmi_NhomNgach,
-            this.tsmi_Ngach,
             this.tsmi_BacHeSo,
             this.tsmi_LuongToiThieu});
             this.tsmi_QLDT.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -302,7 +302,7 @@
             this.tsmi_DonVi.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.tsmi_DonVi.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmi_DonVi.Name = "tsmi_DonVi";
-            this.tsmi_DonVi.Size = new System.Drawing.Size(216, 26);
+            this.tsmi_DonVi.Size = new System.Drawing.Size(226, 26);
             this.tsmi_DonVi.Text = "Đơn vị";
             this.tsmi_DonVi.Click += new System.EventHandler(this.tsmi_DonVi_Click);
             // 
@@ -312,7 +312,7 @@
             this.tsmi_ChucDanh.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.tsmi_ChucDanh.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmi_ChucDanh.Name = "tsmi_ChucDanh";
-            this.tsmi_ChucDanh.Size = new System.Drawing.Size(216, 26);
+            this.tsmi_ChucDanh.Size = new System.Drawing.Size(226, 26);
             this.tsmi_ChucDanh.Text = "Chức danh";
             this.tsmi_ChucDanh.Click += new System.EventHandler(this.tsmi_ChucDanh_Click);
             // 
@@ -322,9 +322,18 @@
             this.tsmi_ChucVu.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.tsmi_ChucVu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmi_ChucVu.Name = "tsmi_ChucVu";
-            this.tsmi_ChucVu.Size = new System.Drawing.Size(216, 26);
+            this.tsmi_ChucVu.Size = new System.Drawing.Size(226, 26);
             this.tsmi_ChucVu.Text = "Chức vụ";
             this.tsmi_ChucVu.Click += new System.EventHandler(this.tsmi_ChucVu_Click);
+            // 
+            // tsmi_TrinhDo
+            // 
+            this.tsmi_TrinhDo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(55)))), ((int)(((byte)(78)))));
+            this.tsmi_TrinhDo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tsmi_TrinhDo.Name = "tsmi_TrinhDo";
+            this.tsmi_TrinhDo.Size = new System.Drawing.Size(226, 26);
+            this.tsmi_TrinhDo.Text = "Trình độ";
+            this.tsmi_TrinhDo.Click += new System.EventHandler(this.tsmi_TrinhDo_Click);
             // 
             // tsmi_HinhThucDaoTao
             // 
@@ -332,7 +341,7 @@
             this.tsmi_HinhThucDaoTao.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.tsmi_HinhThucDaoTao.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmi_HinhThucDaoTao.Name = "tsmi_HinhThucDaoTao";
-            this.tsmi_HinhThucDaoTao.Size = new System.Drawing.Size(216, 26);
+            this.tsmi_HinhThucDaoTao.Size = new System.Drawing.Size(226, 26);
             this.tsmi_HinhThucDaoTao.Text = "Hình thức đào tạo";
             this.tsmi_HinhThucDaoTao.Click += new System.EventHandler(this.tsmi_HinhThucDaoTao_Click);
             // 
@@ -342,7 +351,7 @@
             this.tsmi_MoHinhDaoTao.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.tsmi_MoHinhDaoTao.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmi_MoHinhDaoTao.Name = "tsmi_MoHinhDaoTao";
-            this.tsmi_MoHinhDaoTao.Size = new System.Drawing.Size(216, 26);
+            this.tsmi_MoHinhDaoTao.Size = new System.Drawing.Size(226, 26);
             this.tsmi_MoHinhDaoTao.Text = "Mô hình đào tạo";
             this.tsmi_MoHinhDaoTao.Click += new System.EventHandler(this.tsmi_MoHinhDaoTao_Click);
             // 
@@ -352,9 +361,36 @@
             this.tsmi_VanBangChinhQuy.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.tsmi_VanBangChinhQuy.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmi_VanBangChinhQuy.Name = "tsmi_VanBangChinhQuy";
-            this.tsmi_VanBangChinhQuy.Size = new System.Drawing.Size(216, 26);
-            this.tsmi_VanBangChinhQuy.Text = "Văn bằng chính quy";
+            this.tsmi_VanBangChinhQuy.Size = new System.Drawing.Size(226, 26);
+            this.tsmi_VanBangChinhQuy.Text = "Văn bằng - Học vị";
             this.tsmi_VanBangChinhQuy.Click += new System.EventHandler(this.tsmi_VanBangChinhQuy_Click);
+            // 
+            // tsmi_NhomNgach
+            // 
+            this.tsmi_NhomNgach.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(55)))), ((int)(((byte)(78)))));
+            this.tsmi_NhomNgach.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tsmi_NhomNgach.Name = "tsmi_NhomNgach";
+            this.tsmi_NhomNgach.Size = new System.Drawing.Size(226, 26);
+            this.tsmi_NhomNgach.Text = "Ngạch / Nhóm ngạch";
+            this.tsmi_NhomNgach.Click += new System.EventHandler(this.tsmi_NhomNgach_Click);
+            // 
+            // tsmi_BacHeSo
+            // 
+            this.tsmi_BacHeSo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(55)))), ((int)(((byte)(78)))));
+            this.tsmi_BacHeSo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tsmi_BacHeSo.Name = "tsmi_BacHeSo";
+            this.tsmi_BacHeSo.Size = new System.Drawing.Size(226, 26);
+            this.tsmi_BacHeSo.Text = "Bậc / hệ số";
+            this.tsmi_BacHeSo.Click += new System.EventHandler(this.tsmi_BacHeSo_Click);
+            // 
+            // tsmi_LuongToiThieu
+            // 
+            this.tsmi_LuongToiThieu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(55)))), ((int)(((byte)(78)))));
+            this.tsmi_LuongToiThieu.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tsmi_LuongToiThieu.Name = "tsmi_LuongToiThieu";
+            this.tsmi_LuongToiThieu.Size = new System.Drawing.Size(226, 26);
+            this.tsmi_LuongToiThieu.Text = "Lương tối thiểu";
+            this.tsmi_LuongToiThieu.Click += new System.EventHandler(this.tsmi_LuongToiThieu_Click);
             // 
             // tsmi_BaoCao
             // 
@@ -445,15 +481,17 @@
             // 
             // tableLP_Main
             // 
+            this.tableLP_Main.AutoScroll = true;
             this.tableLP_Main.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tableLP_Main.ColumnCount = 1;
             this.tableLP_Main.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLP_Main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLP_Main.Location = new System.Drawing.Point(163, 0);
+            this.tableLP_Main.MinimumSize = new System.Drawing.Size(1, 1);
             this.tableLP_Main.Name = "tableLP_Main";
             this.tableLP_Main.RowCount = 1;
             this.tableLP_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 95F));
-            this.tableLP_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 733F));
+            this.tableLP_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1000F));
             this.tableLP_Main.Size = new System.Drawing.Size(855, 733);
             this.tableLP_Main.TabIndex = 3;
             // 
@@ -477,38 +515,11 @@
             this.ImageL_MenuStripItem.Images.SetKeyName(13, "Contract.png");
             this.ImageL_MenuStripItem.Images.SetKeyName(14, "Decision.png");
             this.ImageL_MenuStripItem.Images.SetKeyName(15, "Document-Add.png");
-            // 
-            // tsmi_NhomNgach
-            // 
-            this.tsmi_NhomNgach.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(55)))), ((int)(((byte)(78)))));
-            this.tsmi_NhomNgach.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.tsmi_NhomNgach.Name = "tsmi_NhomNgach";
-            this.tsmi_NhomNgach.Size = new System.Drawing.Size(216, 26);
-            this.tsmi_NhomNgach.Text = "Nhóm ngạch";
-            // 
-            // tsmi_Ngach
-            // 
-            this.tsmi_Ngach.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(55)))), ((int)(((byte)(78)))));
-            this.tsmi_Ngach.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.tsmi_Ngach.Name = "tsmi_Ngach";
-            this.tsmi_Ngach.Size = new System.Drawing.Size(216, 26);
-            this.tsmi_Ngach.Text = "Ngạch";
-            // 
-            // tsmi_BacHeSo
-            // 
-            this.tsmi_BacHeSo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(55)))), ((int)(((byte)(78)))));
-            this.tsmi_BacHeSo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.tsmi_BacHeSo.Name = "tsmi_BacHeSo";
-            this.tsmi_BacHeSo.Size = new System.Drawing.Size(216, 26);
-            this.tsmi_BacHeSo.Text = "Bậc / hệ số";
-            // 
-            // tsmi_LuongToiThieu
-            // 
-            this.tsmi_LuongToiThieu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(55)))), ((int)(((byte)(78)))));
-            this.tsmi_LuongToiThieu.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.tsmi_LuongToiThieu.Name = "tsmi_LuongToiThieu";
-            this.tsmi_LuongToiThieu.Size = new System.Drawing.Size(216, 26);
-            this.tsmi_LuongToiThieu.Text = "Lương tối thiểu";
+            this.ImageL_MenuStripItem.Images.SetKeyName(16, "Cap bac.png");
+            this.ImageL_MenuStripItem.Images.SetKeyName(17, "Handle With Care.png");
+            this.ImageL_MenuStripItem.Images.SetKeyName(18, "He so.png");
+            this.ImageL_MenuStripItem.Images.SetKeyName(19, "Trinh do.png");
+            this.ImageL_MenuStripItem.Images.SetKeyName(20, "Luong Toi Thieu.png");
             // 
             // Main
             // 
@@ -520,6 +531,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.MinimumSize = new System.Drawing.Size(944, 766);
             this.Name = "Main";
@@ -527,6 +539,7 @@
             this.Text = "QUẢN LÝ NHÂN SỰ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Main_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Main_KeyUp);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -571,9 +584,9 @@
         private System.Windows.Forms.ToolStripMenuItem tsmi_QLHD_QDChung;
         public System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem tsmi_NhomNgach;
-        private System.Windows.Forms.ToolStripMenuItem tsmi_Ngach;
         private System.Windows.Forms.ToolStripMenuItem tsmi_BacHeSo;
         private System.Windows.Forms.ToolStripMenuItem tsmi_LuongToiThieu;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_TrinhDo;
 
 
 

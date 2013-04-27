@@ -92,11 +92,11 @@ namespace QLNS.UCs.DanhMucThongTin
             //}
 
             // comb
-            comB_MoHinhDaoTao.DataSource = dt;
-            comB_MoHinhDaoTao.DisplayMember = "ten_mo_hinh";
-            comB_MoHinhDaoTao.ValueMember = "id";
+            //comB_MoHinhDaoTao.DataSource = dt;
+            //comB_MoHinhDaoTao.DisplayMember = "ten_mo_hinh";
+            //comB_MoHinhDaoTao.ValueMember = "id";
 
-            comB_MoHinhDaoTao.SelectedIndex = 0;
+            //comB_MoHinhDaoTao.SelectedIndex = 0;
         }
 
         public void FillInfo()
@@ -104,10 +104,10 @@ namespace QLNS.UCs.DanhMucThongTin
 
             if (dtChuyenMon.Rows.Count > 0)
             {
-                txt_NgoaiNgu.Text = Convert.ToString(dtChuyenMon.Rows[0]["ngoai_ngu"]);
-                txt_TinHoc.Text = Convert.ToString(dtChuyenMon.Rows[0]["tin_hoc"]);
-                txt_SoTruong.Text = Convert.ToString(dtChuyenMon.Rows[0]["so_truong_cong_tac"]);
-                txt_TrinhDoChuyenMon.Text = Convert.ToString(dtChuyenMon.Rows[0]["trinh_do_chuyen_mon"]);
+                //txt_NgoaiNgu.Text = Convert.ToString(dtChuyenMon.Rows[0]["ngoai_ngu"]);
+                //txt_TinHoc.Text = Convert.ToString(dtChuyenMon.Rows[0]["tin_hoc"]);
+                //txt_SoTruong.Text = Convert.ToString(dtChuyenMon.Rows[0]["so_truong_cong_tac"]);
+                //txt_TrinhDoChuyenMon.Text = Convert.ToString(dtChuyenMon.Rows[0]["trinh_do_chuyen_mon"]);
 
                 if (dtChuyenMon.Rows[0]["mo_hinh_dao_tao_id"].ToString() != "")
                 {
@@ -272,29 +272,29 @@ namespace QLNS.UCs.DanhMucThongTin
 
         private void lbl_ThemMoHinh_Click(object sender, EventArgs e)
         {
-            UCs.ThemMoHinhDT oThemMoHinhDT = new ThemMoHinhDT("QLNS_TrinhDo_ChuyenMon");
-            oThemMoHinhDT.Dock = DockStyle.Fill;
-            Forms.Popup fPopup = new Forms.Popup("Thêm mô hình đào tạo", oThemMoHinhDT);
-            fPopup.ShowDialog();
-            if (nNewMoHinhID > 0)
-            {
-                int? x = null;
+            //UCs.ThemMoHinhDT oThemMoHinhDT = new ThemMoHinhDT("QLNS_TrinhDo_ChuyenMon");
+            //oThemMoHinhDT.Dock = DockStyle.Fill;
+            //Forms.Popup fPopup = new Forms.Popup("Thêm mô hình đào tạo", oThemMoHinhDT);
+            //fPopup.ShowDialog();
+            //if (nNewMoHinhID > 0)
+            //{
+            //    int? x = null;
 
-                if (comB_MoHinhDaoTao.SelectedValue != Convert.DBNull && comB_MoHinhDaoTao.SelectedValue != null)
-                    x = Convert.ToInt16(comB_MoHinhDaoTao.SelectedValue);
+            //    if (comB_MoHinhDaoTao.SelectedValue != Convert.DBNull && comB_MoHinhDaoTao.SelectedValue != null)
+            //        x = Convert.ToInt16(comB_MoHinhDaoTao.SelectedValue);
 
-                dtMoHinh = oTinhTP.GetData();
+            //    dtMoHinh = oTinhTP.GetData();
 
-                comB_MoHinhDaoTao.DataSource = dtMoHinh;
-                comB_MoHinhDaoTao.DisplayMember = "ten_mo_hinh";
-                comB_MoHinhDaoTao.ValueMember = "id";
+            //    comB_MoHinhDaoTao.DataSource = dtMoHinh;
+            //    comB_MoHinhDaoTao.DisplayMember = "ten_mo_hinh";
+            //    comB_MoHinhDaoTao.ValueMember = "id";
 
-                if (x != null)
-                {
-                    comB_MoHinhDaoTao.SelectedValue = x;
-                }
-                nNewMoHinhID = 0;
-            }
+            //    if (x != null)
+            //    {
+            //        comB_MoHinhDaoTao.SelectedValue = x;
+            //    }
+            //    nNewMoHinhID = 0;
+            //}
         }
 
         private void lbl_ThemTrinhDoPT_Click(object sender, EventArgs e)
@@ -539,11 +539,11 @@ namespace QLNS.UCs.DanhMucThongTin
         private void GetChuyenMonInputData()
         {
             oCNVC_ChuyenMonTongQuat.MaNV = Program.selected_ma_nv;
-            oCNVC_ChuyenMonTongQuat.NgoaiNgu = txt_NgoaiNgu.Text;
-            oCNVC_ChuyenMonTongQuat.TinHoc = txt_TinHoc.Text;
-            oCNVC_ChuyenMonTongQuat.SoTruongCTac = txt_SoTruong.Text;
-            oCNVC_ChuyenMonTongQuat.TrinhDoChuyenMon = txt_TrinhDoChuyenMon.Text;
-            oCNVC_ChuyenMonTongQuat.MoHinhDaoTaoID = Convert.ToInt32(comB_MoHinhDaoTao.SelectedValue);
+            //oCNVC_ChuyenMonTongQuat.NgoaiNgu = txt_NgoaiNgu.Text;
+            //oCNVC_ChuyenMonTongQuat.TinHoc = txt_TinHoc.Text;
+            //oCNVC_ChuyenMonTongQuat.SoTruongCTac = txt_SoTruong.Text;
+            //oCNVC_ChuyenMonTongQuat.TrinhDoChuyenMon = txt_TrinhDoChuyenMon.Text;
+            //oCNVC_ChuyenMonTongQuat.MoHinhDaoTaoID = Convert.ToInt32(comB_MoHinhDaoTao.SelectedValue);
 
         }
 
