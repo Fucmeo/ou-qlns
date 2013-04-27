@@ -49,6 +49,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\DataSourceManager.cs" />
+    <Compile Include="Class\OutlookGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Class\OutlookGrid.designer.cs">
+      <DependentUpon>OutlookGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\OutlookGridGroup.cs" />
+    <Compile Include="Class\OutlookGridRow.cs" />
     <Compile Include="Class\TriStateTreeView.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -216,6 +225,12 @@
     <Compile Include="UCs\DanhMucThongTin\QLNS_TrinhDo_ChuyenMon.Designer.cs">
       <DependentUpon>QLNS_TrinhDo_ChuyenMon.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCs\QLNS_TrinhDo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\QLNS_TrinhDo.Designer.cs">
+      <DependentUpon>QLNS_TrinhDo.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCs\QLNS_VanBang.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -331,6 +346,9 @@
     <EmbeddedResource Include="UCs\DanhMucThongTin\QLNS_TrinhDo_ChuyenMon.resx">
       <DependentUpon>QLNS_TrinhDo_ChuyenMon.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UCs\QLNS_TrinhDo.resx">
+      <DependentUpon>QLNS_TrinhDo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UCs\QLNS_VanBang.resx">
       <DependentUpon>QLNS_VanBang.cs</DependentUpon>
     </EmbeddedResource>
@@ -365,6 +383,10 @@
     <ProjectReference Include="..\HDQD\HDQD.csproj">
       <Project>{7B751014-E742-455D-8DD8-6E1E9E5D9156}</Project>
       <Name>HDQD</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LuongBH\LuongBH.csproj">
+      <Project>{FA72629F-A340-453A-9258-AE430CCD6176}</Project>
+      <Name>LuongBH</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

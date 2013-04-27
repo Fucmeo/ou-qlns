@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemConfig", "SystemConfi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HDQD", "HDQD\HDQD.csproj", "{7B751014-E742-455D-8DD8-6E1E9E5D9156}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupProject", "SetupProject\SetupProject.vdproj", "{1F81EAB0-F74E-42E5-920D-D12E6E67E2C9}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuongBH", "LuongBH\LuongBH.csproj", "{FA72629F-A340-453A-9258-AE430CCD6176}"
 EndProject
 Global
@@ -75,12 +73,6 @@ Global
 		{7B751014-E742-455D-8DD8-6E1E9E5D9156}.Release|Mixed Platforms.Build.0 = Release|x86
 		{7B751014-E742-455D-8DD8-6E1E9E5D9156}.Release|x86.ActiveCfg = Release|x86
 		{7B751014-E742-455D-8DD8-6E1E9E5D9156}.Release|x86.Build.0 = Release|x86
-		{1F81EAB0-F74E-42E5-920D-D12E6E67E2C9}.Debug|Any CPU.ActiveCfg = Debug
-		{1F81EAB0-F74E-42E5-920D-D12E6E67E2C9}.Debug|Mixed Platforms.ActiveCfg = Debug
-		{1F81EAB0-F74E-42E5-920D-D12E6E67E2C9}.Debug|x86.ActiveCfg = Debug
-		{1F81EAB0-F74E-42E5-920D-D12E6E67E2C9}.Release|Any CPU.ActiveCfg = Release
-		{1F81EAB0-F74E-42E5-920D-D12E6E67E2C9}.Release|Mixed Platforms.ActiveCfg = Release
-		{1F81EAB0-F74E-42E5-920D-D12E6E67E2C9}.Release|x86.ActiveCfg = Release
 		{FA72629F-A340-453A-9258-AE430CCD6176}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{FA72629F-A340-453A-9258-AE430CCD6176}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
 		{FA72629F-A340-453A-9258-AE430CCD6176}.Debug|Mixed Platforms.Build.0 = Debug|x86

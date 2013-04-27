@@ -75,6 +75,7 @@
             this.txt_DVCongTac = new System.Windows.Forms.TextBox();
             this.txt_HocTap = new System.Windows.Forms.TextBox();
             this.rTB_GhiChu = new System.Windows.Forms.RichTextBox();
+            this.cb_LaDangVien = new System.Windows.Forms.CheckBox();
             this.tableLP_GiaDinh_BanThan.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.tableLP_QuanHeGD.SuspendLayout();
@@ -252,7 +253,7 @@
             this.comB_QuocGia.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_QuocGia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_QuocGia.FormattingEnabled = true;
-            this.comB_QuocGia.Location = new System.Drawing.Point(636, 147);
+            this.comB_QuocGia.Location = new System.Drawing.Point(636, 145);
             this.comB_QuocGia.Name = "comB_QuocGia";
             this.comB_QuocGia.Size = new System.Drawing.Size(263, 29);
             this.comB_QuocGia.TabIndex = 5;
@@ -263,7 +264,7 @@
             this.comB_Tinh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_Tinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_Tinh.FormattingEnabled = true;
-            this.comB_Tinh.Location = new System.Drawing.Point(149, 147);
+            this.comB_Tinh.Location = new System.Drawing.Point(149, 145);
             this.comB_Tinh.Name = "comB_Tinh";
             this.comB_Tinh.Size = new System.Drawing.Size(263, 29);
             this.comB_Tinh.TabIndex = 4;
@@ -383,6 +384,7 @@
             this.tableLP_ThongTinCaNhan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tableLP_ThongTinCaNhan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLP_ThongTinCaNhan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.tableLP_ThongTinCaNhan.Controls.Add(this.cb_LaDangVien, 3, 0);
             this.tableLP_ThongTinCaNhan.Controls.Add(this.comB_MoiQH, 1, 0);
             this.tableLP_ThongTinCaNhan.Controls.Add(this.rTB_ThanhVienToChuc, 1, 5);
             this.tableLP_ThongTinCaNhan.Controls.Add(this.txt_Ho, 1, 1);
@@ -433,7 +435,7 @@
             "Anh chị em ruột",
             "Anh chị em ruột bên vợ/chồng",
             "Khác"});
-            this.comB_MoiQH.Location = new System.Drawing.Point(149, 15);
+            this.comB_MoiQH.Location = new System.Drawing.Point(149, 13);
             this.comB_MoiQH.Name = "comB_MoiQH";
             this.comB_MoiQH.Size = new System.Drawing.Size(263, 29);
             this.comB_MoiQH.TabIndex = 0;
@@ -571,10 +573,9 @@
             // 
             this.cb_ThanNhanNuocNgoai.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cb_ThanNhanNuocNgoai.AutoSize = true;
-            this.tableLP_ThongTinCaNhan.SetColumnSpan(this.cb_ThanNhanNuocNgoai, 2);
             this.cb_ThanNhanNuocNgoai.Location = new System.Drawing.Point(490, 15);
             this.cb_ThanNhanNuocNgoai.Name = "cb_ThanNhanNuocNgoai";
-            this.cb_ThanNhanNuocNgoai.Size = new System.Drawing.Size(187, 25);
+            this.cb_ThanNhanNuocNgoai.Size = new System.Drawing.Size(140, 25);
             this.cb_ThanNhanNuocNgoai.TabIndex = 1;
             this.cb_ThanNhanNuocNgoai.Text = "Thân nhân nước ngoài";
             this.cb_ThanNhanNuocNgoai.UseVisualStyleBackColor = true;
@@ -651,6 +652,17 @@
             this.rTB_GhiChu.Size = new System.Drawing.Size(337, 116);
             this.rTB_GhiChu.TabIndex = 11;
             this.rTB_GhiChu.Text = "";
+            // 
+            // cb_LaDangVien
+            // 
+            this.cb_LaDangVien.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cb_LaDangVien.AutoSize = true;
+            this.cb_LaDangVien.Location = new System.Drawing.Point(636, 15);
+            this.cb_LaDangVien.Name = "cb_LaDangVien";
+            this.cb_LaDangVien.Size = new System.Drawing.Size(120, 25);
+            this.cb_LaDangVien.TabIndex = 17;
+            this.cb_LaDangVien.Text = "Là Đảng viên";
+            this.cb_LaDangVien.UseVisualStyleBackColor = true;
             // 
             // QLNS_ThongTinGiaDinh
             // 
@@ -729,5 +741,6 @@
         private System.Windows.Forms.Label lbl_Them;
         private System.Windows.Forms.Label lbl_Xoa;
         private System.Windows.Forms.Label lbl_Sua;
+        public System.Windows.Forms.CheckBox cb_LaDangVien;
     }
 }

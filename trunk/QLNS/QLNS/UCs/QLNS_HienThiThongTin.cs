@@ -45,7 +45,7 @@ namespace QLNS.UCs
 
         const string strImagePath = "D:\\avatar\\";  // noi chua hinh
 
-        int nPreDanhMucIndex;   // giu lai index cu cua combo Danh Muc, de khong phai load lai
+        public static int nPreDanhMucIndex;   // giu lai index cu cua combo Danh Muc, de khong phai load lai
 
         #endregion
 
@@ -291,21 +291,21 @@ namespace QLNS.UCs
 
         private void EmptyHoatDongCTContent()
         {
-            oQLNS_ChinhTri.txt_QuanHam.Text =
-                oQLNS_ChinhTri.txt_QuanLyNhaNuoc.Text =
-                oQLNS_ChinhTri.txt_DanhHieu.Text =
-                oQLNS_ChinhTri.txt_LyLuanChinhTri.Text =
-                oQLNS_ChinhTri.txt_ThuongBinh.Text =
-                oQLNS_ChinhTri.txt_GiaDinh.Text =
-                oQLNS_ChinhTri.rtb_KhenThuong.Text = oQLNS_ChinhTri.rTB_KyLuat.Text = "";
+            //oQLNS_ChinhTri.txt_QuanHam.Text =
+            //    //oQLNS_ChinhTri.txt_QuanLyNhaNuoc.Text =
+            //    oQLNS_ChinhTri.txt_DanhHieu.Text =
+            //    //oQLNS_ChinhTri.txt_LyLuanChinhTri.Text =
+            //    oQLNS_ChinhTri.txt_ThuongBinh.Text =
+            //    oQLNS_ChinhTri.txt_GiaDinh.Text =
+            //    oQLNS_ChinhTri.rtb_KhenThuong.Text = oQLNS_ChinhTri.rTB_KyLuat.Text = "";
 
-            oQLNS_ChinhTri.txt_TenToChuc.Text = "";
-            oQLNS_ChinhTri.dtp_NgayChinhThuc.Checked = oQLNS_ChinhTri.dtp_NgayNhapNgu.Checked =
-                oQLNS_ChinhTri.dtp_NgayRa.Checked = oQLNS_ChinhTri.dtp_NgayTaiKetNap.Checked =
-                oQLNS_ChinhTri.dtp_NgayVao.Checked = oQLNS_ChinhTri.dtp_NgayXuatNgu.Checked = false;
+            //oQLNS_ChinhTri.txt_TenToChuc.Text = "";
+            //oQLNS_ChinhTri.dtp_NgayChinhThuc.Checked = oQLNS_ChinhTri.dtp_NgayNhapNgu.Checked =
+            //    oQLNS_ChinhTri.dtp_NgayRa.Checked = oQLNS_ChinhTri.dtp_NgayTaiKetNap.Checked =
+            //    oQLNS_ChinhTri.dtp_NgayVao.Checked = oQLNS_ChinhTri.dtp_NgayXuatNgu.Checked = false;
 
-            oQLNS_ChinhTri.dtgv_DoanDang.DataSource = null;
-            oQLNS_ChinhTri.listB_DSCV.Items.Clear();
+            //oQLNS_ChinhTri.dtgv_DoanDang.BindData(null, null);
+            //oQLNS_ChinhTri.listB_DSCV.Items.Clear();
         }
 
         private void EmptyLSBanThanContent()
@@ -324,10 +324,9 @@ namespace QLNS.UCs
 
         private void EmptyTrinhDoChuyenMonContent()
         {
-            oQLNS_TrinhDo_ChuyenMon.txt_NamHoc.Text = oQLNS_TrinhDo_ChuyenMon.txt_NgoaiNgu.Text =
+            oQLNS_TrinhDo_ChuyenMon.txt_NamHoc.Text = //oQLNS_TrinhDo_ChuyenMon.txt_NgoaiNgu.Text =
                 oQLNS_TrinhDo_ChuyenMon.txt_PhuongXa.Text = oQLNS_TrinhDo_ChuyenMon.txt_QuanHuyen.Text =
-                oQLNS_TrinhDo_ChuyenMon.txt_SoTruong.Text = oQLNS_TrinhDo_ChuyenMon.txt_TenTruong.Text =
-                oQLNS_TrinhDo_ChuyenMon.txt_TinHoc.Text = oQLNS_TrinhDo_ChuyenMon.txt_TrinhDoChuyenMon.Text = "";
+               oQLNS_TrinhDo_ChuyenMon.txt_TenTruong.Text = "";
 
             oQLNS_TrinhDo_ChuyenMon.dtgv_TrinhDo.DataSource = null;
         }
@@ -1631,32 +1630,38 @@ namespace QLNS.UCs
 
         private void comB_DanhMuc_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            ChangeDanhMuc();
+            
+        }
+
+        public void ChangeDanhMuc()
+        {
             if (nPreDanhMucIndex != comB_DanhMuc.SelectedIndex)
             {
                 tableLP_DanhMucThongTin.Controls.RemoveAt(1);
                 switch (comB_DanhMuc.SelectedItem.ToString())
                 {
-                    case "Thông tin nhân viên":
+                    case "1. Thông tin nhân viên":
                         tableLP_DanhMucThongTin.Controls.Add(oQLNS_ThongTinNV, 0, 1);
-                        if (Program.selected_ma_nv != "") 
+                        if (Program.selected_ma_nv != "")
                             oQLNS_ThongTinNV.Enabled = true;
-                        if (oQLNS_DonVi_CNVC1.TreeV_CNVC.SelectedNode != null && 
+                        if (oQLNS_DonVi_CNVC1.TreeV_CNVC.SelectedNode != null &&
                             oQLNS_ThongTinNV.dtCNVC.AsEnumerable().Where(a => a.Field<string>("ma_nv") == Program.selected_ma_nv).Count() <= 0)
                         {
                             oQLNS_ThongTinNV.GetCNVCInfo(Program.selected_ma_nv);
                             oQLNS_ThongTinNV.FillInfo();
                             oQLNS_ThongTinNV.GetAvatar(Program.selected_ma_nv);
-                            if(oQLNS_ThongTinNV.dtAvatar.Rows.Count > 0)
+                            if (oQLNS_ThongTinNV.dtAvatar.Rows.Count > 0)
                                 oQLNS_ThongTinNV.FillAvatar();
                         }
                         break;
 
-                    case "Thông tin nhân viên bổ sung":
+                    case "2. Thông tin nhân viên bổ sung":
                         tableLP_DanhMucThongTin.Controls.Add(oQLNS_ThongTinNV_Phu, 0, 1);
-                        if(Program.selected_ma_nv != "") 
+                        if (Program.selected_ma_nv != "")
                             oQLNS_ThongTinNV_Phu.Enabled = true;
                         // co chon nv va nv chon khac voi nv hien tai moi get lai thong tin nv
-                        if (oQLNS_DonVi_CNVC1.TreeV_CNVC.SelectedNode != null && 
+                        if (oQLNS_DonVi_CNVC1.TreeV_CNVC.SelectedNode != null &&
                                 oQLNS_ThongTinNV_Phu.dtCNVC_InfoPhu.AsEnumerable().Where(a => a.Field<string>("ma_nv") == Program.selected_ma_nv).Count() <= 0)
                         {
                             oQLNS_ThongTinNV_Phu.GetCNVCInfo_Phu(Program.selected_ma_nv);
@@ -1664,7 +1669,7 @@ namespace QLNS.UCs
                         }
                         break;
 
-                    case "Quá trình công tác":
+                    case "3. Quá trình công tác":
                         tableLP_DanhMucThongTin.Controls.Add(oQLNS_QuaTrinhCongTac, 0, 1);
                         if (Program.selected_ma_nv != "")
                             oQLNS_QuaTrinhCongTac.Enabled = true;
@@ -1677,7 +1682,7 @@ namespace QLNS.UCs
                         }
                         break;
 
-                    case "Hợp đồng tuyển dụng":
+                    case "4. Hợp đồng tuyển dụng":
                         if (oQLNS_HopDongTuyenDung == null)
                         {
                             oQLNS_HopDongTuyenDung = new QLNS_HopDongTuyenDung();
@@ -1693,8 +1698,8 @@ namespace QLNS.UCs
                             oQLNS_HopDongTuyenDung.LoadCNVC_HopDong(Program.selected_ma_nv);
                         }
                         break;
-                    
-                    case "Đào tạo & bồi dưỡng":
+
+                    case "6. Đào tạo & bồi dưỡng":
                         if (oQLNS_DaoTaoBoiDuong == null)
                         {
                             oQLNS_DaoTaoBoiDuong = new QLNS_DaoTaoBoiDuong();
@@ -1702,7 +1707,7 @@ namespace QLNS.UCs
                         }
                         tableLP_DanhMucThongTin.Controls.Add(oQLNS_DaoTaoBoiDuong, 0, 1);
                         if (Program.selected_ma_nv != "")
-                            oQLNS_DaoTaoBoiDuong.Enabled  = true;
+                            oQLNS_DaoTaoBoiDuong.Enabled = true;
                         if (oQLNS_DonVi_CNVC1.TreeV_CNVC.SelectedNode != null &&
                                 oQLNS_DaoTaoBoiDuong.dtDaoTaoBoiDuong.AsEnumerable().Where(a => a.Field<string>("ma_nv") == Program.selected_ma_nv).Count() <= 0)
                         {
@@ -1712,7 +1717,7 @@ namespace QLNS.UCs
                         }
                         break;
 
-                    case "Trình độ văn hoá":
+                    case "5. Trình độ văn hoá":
                         if (oQLNS_TrinhDo_ChuyenMon == null)
                         {
                             oQLNS_TrinhDo_ChuyenMon = new QLNS_TrinhDo_ChuyenMon();
@@ -1731,7 +1736,7 @@ namespace QLNS.UCs
                         }
                         break;
 
-                    case "Hoạt động chính trị":
+                    case "7. Hoạt động chính trị":
                         if (oQLNS_ChinhTri == null)
                         {
                             oQLNS_ChinhTri = new QLNS_ChinhTri();
@@ -1741,13 +1746,13 @@ namespace QLNS.UCs
                         if (Program.selected_ma_nv != "")
                             oQLNS_ChinhTri.Enabled = true;
                         if (oQLNS_DonVi_CNVC1.TreeV_CNVC.SelectedNode != null &&
-                                oQLNS_ChinhTri.dtChinhTri.AsEnumerable().Where(a => a.Field<string>("ma_nv") == Program.selected_ma_nv).Count() <= 0)
+                                oQLNS_ChinhTri.dtChinhTriExt.AsEnumerable().Where(a => a.Field<string>("ma_nv") == Program.selected_ma_nv).Count() <= 0)
                         {
                             oQLNS_ChinhTri.LoadData(Program.selected_ma_nv);
                         }
                         break;
 
-                    case "Thông tin gia đình":
+                    case "8. Thông tin gia đình":
                         if (oQLNS_ThongTinGiaDinh == null)
                         {
                             oQLNS_ThongTinGiaDinh = new QLNS_ThongTinGiaDinh();
@@ -1762,7 +1767,7 @@ namespace QLNS.UCs
                             oQLNS_ThongTinGiaDinh.GetData(Program.selected_ma_nv);
                         }
                         break;
-                    case "Lịch sử bản thân":
+                    case "9. Lịch sử bản thân":
                         if (oQLNS_LichSuBanThan == null)
                         {
                             oQLNS_LichSuBanThan = new QLNS_LichSuBanThan();
@@ -1780,11 +1785,11 @@ namespace QLNS.UCs
                             oQLNS_LichSuBanThan.FillQHToChucInfo();
                         }
                         break;
-                    case "Diến biến sức khỏe":
+                    case "10. Diến biến sức khỏe":
                         if (oQLNS_DienBienSK == null)
                         {
                             oQLNS_DienBienSK = new QLNS_DienBienSK();
-                            oQLNS_DienBienSK.Dock = DockStyle.Fill; 
+                            oQLNS_DienBienSK.Dock = DockStyle.Fill;
                         }
                         tableLP_DanhMucThongTin.Controls.Add(oQLNS_DienBienSK, 0, 1);
                         if (Program.selected_ma_nv != "")
@@ -1793,7 +1798,7 @@ namespace QLNS.UCs
                                 oQLNS_DienBienSK.dtDienBienSK.AsEnumerable().Where(a => a.Field<string>("ma_nv") == Program.selected_ma_nv).Count() <= 0)
                         {
                             oQLNS_DienBienSK.GetData(Program.selected_ma_nv);
-                            
+
                         }
                         break;
 
@@ -1801,7 +1806,6 @@ namespace QLNS.UCs
                         break;
                 }
             }
-            
         }
 
         private void lbl_DongMo_Click(object sender, EventArgs e)
