@@ -207,7 +207,8 @@ namespace QLNS.UCs
                 oQLNS_ThongTinNV.txt_MaSoThue.Text = oQLNS_ThongTinNV.txt_SoSoBHXH.Text = oQLNS_ThongTinNV.txt_Ten.Text = "";
 
             oQLNS_ThongTinNV.txt_SoNha.Text = oQLNS_ThongTinNV.txt_Duong.Text = oQLNS_ThongTinNV.txt_PhuongXa.Text
-                = oQLNS_ThongTinNV.txt_QuanHuyen.Text = "";
+                = oQLNS_ThongTinNV.txt_QuanHuyen.Text = oQLNS_ThongTinNV.txt_DTDD.Text = oQLNS_ThongTinNV.txt_DTNha.Text
+               = oQLNS_ThongTinNV.txt_Email.Text = "";
 
             oQLNS_ThongTinNV.txt_MaSo.Text = oQLNS_ThongTinNV.txt_NoiCap.Text = "";
             oQLNS_ThongTinNV.dTP_NgayCap.Checked = false;
