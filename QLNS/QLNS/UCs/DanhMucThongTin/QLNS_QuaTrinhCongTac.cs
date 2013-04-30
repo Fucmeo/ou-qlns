@@ -106,10 +106,12 @@ namespace QLNS.UCs.DanhMucThongTin
         {
             if (row != null)
             {
+                txt_CoQuan.Text = row.Cells["ten_co_quan"].Value.ToString();
                 txt_TenDV.Text = row.Cells["ten_don_vi"].Value.ToString();
                 txt_ChucDanh.Text = row.Cells["chuc_danh"].Value.ToString();
                 txt_ChucVu.Text = row.Cells["chuc_vu"].Value.ToString();
                 rTB_CongViecChinh.Text = row.Cells["cong_viec"].Value.ToString();
+                rtb_GhiChu.Text = row.Cells["ghi_chu"].Value.ToString();
 
                 if (row.Cells["tu_ngay"].Value.ToString() != "")
                 {
@@ -158,6 +160,8 @@ namespace QLNS.UCs.DanhMucThongTin
             dtgv_QTCT_Ngoai.Columns["is_gd"].Width = 170;
             dtgv_QTCT_Ngoai.Columns["ten_don_vi"].HeaderText = "Tên đơn vị";
             dtgv_QTCT_Ngoai.Columns["ten_don_vi"].Width = 150;
+            dtgv_QTCT_Ngoai.Columns["ten_co_quan"].HeaderText = "Tên cơ quan";
+            dtgv_QTCT_Ngoai.Columns["ten_co_quan"].Width = 150;
             dtgv_QTCT_Ngoai.Columns["chuc_danh"].HeaderText = "Chức danh";
             dtgv_QTCT_Ngoai.Columns["chuc_vu"].HeaderText = "Chức vụ";
             dtgv_QTCT_Ngoai.Columns["tu_ngay"].HeaderText = "Từ ngày";
@@ -167,6 +171,7 @@ namespace QLNS.UCs.DanhMucThongTin
             
             dtgv_QTCT_Ngoai.Columns["id"].Visible = false;
             dtgv_QTCT_Ngoai.Columns["ma_nv"].Visible = false;
+            dtgv_QTCT_Ngoai.Columns["ghi_chu"].Visible = false;
         }
 
         private void PrepareDataSource_Ngoai()
@@ -177,12 +182,14 @@ namespace QLNS.UCs.DanhMucThongTin
                                is_gd = "Trong ngành giáo dục",
                                id = c.Field<int>("id"),
                                ma_nv = c.Field<string>("ma_nv"),
+                               ten_co_quan = c.Field<string>("ten_co_quan"),
                                ten_don_vi = c.Field<string>("ten_don_vi"),
                                chuc_danh = c.Field<string>("chuc_danh"),
                                chuc_vu = c.Field<string>("chuc_vu"),
                                tu_ngay = c.Field<DateTime?>("tu_ngay"),
                                den_ngay = c.Field<DateTime?>("den_ngay"),
-                               cong_viec = c.Field<string>("cong_viec_chinh")
+                               cong_viec = c.Field<string>("cong_viec_chinh"),
+                               ghi_chu = c.Field<string>("ghi_chu")
                            }
                                   ).Union(
                                 from d in dtCtac_NonOU_NonGD.AsEnumerable()
@@ -191,12 +198,14 @@ namespace QLNS.UCs.DanhMucThongTin
                                     is_gd = "Ngoài ngành giáo dục",
                                     id = d.Field<int>("id"),
                                     ma_nv = d.Field<string>("ma_nv"),
+                                    ten_co_quan = d.Field<string>("ten_co_quan"),
                                     ten_don_vi = d.Field<string>("ten_don_vi"),
                                     chuc_danh = d.Field<string>("chuc_danh"),
                                     chuc_vu = d.Field<string>("chuc_vu"),
                                     tu_ngay = d.Field<DateTime?>("tu_ngay"),
                                     den_ngay = d.Field<DateTime?>("den_ngay"),
-                                    cong_viec = d.Field<string>("cong_viec_chinh")
+                                    cong_viec = d.Field<string>("cong_viec_chinh"),
+                                    ghi_chu = d.Field<string>("ghi_chu")
                                 })).ToList();
 
             DataTable dt = ToDataTable(result);
@@ -215,7 +224,8 @@ namespace QLNS.UCs.DanhMucThongTin
         {
             if (init)
             {
-                txt_ChucDanh.Enabled = txt_ChucVu.Enabled = txt_TenDV.Enabled = comB_Nganh.Enabled = dTP_DenNgay.Enabled = dTP_TuNgay.Enabled = rTB_CongViecChinh.Enabled = false;
+                txt_ChucDanh.Enabled = txt_ChucVu.Enabled = txt_TenDV.Enabled = comB_Nganh.Enabled = dTP_DenNgay.Enabled = dTP_TuNgay.Enabled =
+                    txt_CoQuan.Enabled = rtb_GhiChu.Enabled = rTB_CongViecChinh.Enabled = false;
 
                 dtgv_QTCT_Ngoai.Enabled = true;
                 if (dtgv_QTCT_Ngoai.CurrentRow != null)
@@ -229,12 +239,13 @@ namespace QLNS.UCs.DanhMucThongTin
             }
             else
             {
-                txt_ChucDanh.Enabled = txt_ChucVu.Enabled = txt_TenDV.Enabled = dTP_DenNgay.Enabled = dTP_TuNgay.Enabled = rTB_CongViecChinh.Enabled = true;
+                txt_ChucDanh.Enabled = txt_ChucVu.Enabled = txt_TenDV.Enabled = dTP_DenNgay.Enabled = dTP_TuNgay.Enabled = 
+                        txt_CoQuan.Enabled = rtb_GhiChu.Enabled = rTB_CongViecChinh.Enabled = true;
                 dtgv_QTCT_Ngoai.Enabled = comB_Nganh.Enabled = false;
 
                 if (bAddFlag) // thao tac them moi xoa rong cac field
                 {
-                    txt_ChucDanh.Text = txt_ChucVu.Text = txt_TenDV.Text = rTB_CongViecChinh.Text = "";
+                    txt_ChucDanh.Text = txt_ChucVu.Text = txt_TenDV.Text = txt_CoQuan.Text = rtb_GhiChu.Text = rTB_CongViecChinh.Text = "";
                     comB_Nganh.Enabled = true;
                 }
 
@@ -323,6 +334,8 @@ namespace QLNS.UCs.DanhMucThongTin
                             oQtrCtac_NonOU_GD.TuNgay = dTP_TuNgay.Value;
                         if (dTP_DenNgay.Checked == true)
                             oQtrCtac_NonOU_GD.DenNgay = dTP_DenNgay.Value;
+                        oQtrCtac_NonOU_GD.TenCoQuan = txt_CoQuan.Text;
+                        oQtrCtac_NonOU_GD.GhiChu = rtb_GhiChu.Text;
                     }
                     else
                     {
@@ -337,6 +350,8 @@ namespace QLNS.UCs.DanhMucThongTin
                             oQtrCtac_NonOU_NonGD.TuNgay = dTP_TuNgay.Value;
                         if (dTP_DenNgay.Checked == true)
                             oQtrCtac_NonOU_NonGD.DenNgay = dTP_DenNgay.Value;
+                        oQtrCtac_NonOU_NonGD.TenCoQuan = txt_CoQuan.Text;
+                        oQtrCtac_NonOU_NonGD.GhiChu = rtb_GhiChu.Text;
                     }
 
                     #region thao tac them
