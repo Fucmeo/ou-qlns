@@ -125,6 +125,16 @@ namespace Business.CNVC
 
         public int? QuocGia { get; set; }
 
+        public Double? Diem { get; set; }
+
+        public DateTime? NgayCapBang { get; set; }
+
+        public string GhiChu { get; set; }
+
+        public int? PhuongThucDaoTaoID { get; set; }
+
+        public int? TrinhDoID { get; set; }
+
         #endregion
 
         #region Methods
@@ -132,7 +142,7 @@ namespace Business.CNVC
         public bool Add()
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[13]{
+            IDataParameter[] paras = new IDataParameter[18]{
                 new NpgsqlParameter("ma_nv",manv),
                 new NpgsqlParameter("ten_truong",tentruong),
                 new NpgsqlParameter("chuyen_nganh_dao_tao",chuyennganhdaotao),
@@ -145,7 +155,12 @@ namespace Business.CNVC
                 new NpgsqlParameter("cq_ten_luan_van",cq_tenluanvan),
                 new NpgsqlParameter("cq_hoi_dong_cham",cq_hoidongcham),
                 new NpgsqlParameter("tinh_thanhpho",TinhTP),
-                new NpgsqlParameter("quoc_gia",QuocGia)
+                new NpgsqlParameter("quoc_gia",QuocGia),
+                new NpgsqlParameter("diem",Diem),
+                new NpgsqlParameter("ngay_cap_bang",NgayCapBang),
+                new NpgsqlParameter("ghi_chu",GhiChu),
+                new NpgsqlParameter("cq_trinh_do_id",TrinhDoID),
+                new NpgsqlParameter("cq_phuong_thuc_dao_tao_id",PhuongThucDaoTaoID)
             };
             check = (int)dp.executeScalarProc("sp_insert_cnvc_daotao_va_boiduong", paras);
             if (check > 0)
@@ -159,7 +174,7 @@ namespace Business.CNVC
         public bool Update()
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[14]{
+            IDataParameter[] paras = new IDataParameter[19]{
                 new NpgsqlParameter("p_id",id),
                 new NpgsqlParameter("p_ma_nv",manv),
                 new NpgsqlParameter("p_ten_truong",tentruong),
@@ -173,7 +188,12 @@ namespace Business.CNVC
                 new NpgsqlParameter("p_cq_ten_luan_van",cq_tenluanvan),
                 new NpgsqlParameter("p_cq_hoi_dong_cham",cq_hoidongcham),
                 new NpgsqlParameter("p_tinh_thanhpho",TinhTP),
-                new NpgsqlParameter("p_quoc_gia",QuocGia)
+                new NpgsqlParameter("p_quoc_gia",QuocGia),
+                new NpgsqlParameter("diem",Diem),
+                new NpgsqlParameter("ngay_cap_bang",NgayCapBang),
+                new NpgsqlParameter("ghi_chu",GhiChu),
+                new NpgsqlParameter("cq_trinh_do_id",TrinhDoID),
+                new NpgsqlParameter("cq_phuong_thuc_dao_tao_id",PhuongThucDaoTaoID)
             };
             check = (int)dp.executeScalarProc("sp_update_cnvc_daotao_va_boiduong", paras);
             if (check > 0)
