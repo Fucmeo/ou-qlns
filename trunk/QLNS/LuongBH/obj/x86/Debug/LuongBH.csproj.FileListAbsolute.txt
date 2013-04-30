@@ -57,3 +57,5 @@ D:\Job\QLNS\Projects\QLNS\LuongBH\obj\x86\Debug\LuongBH.UCs.Luong.NhomNgach.reso
 D:\Job\QLNS\Projects\QLNS\LuongBH\obj\x86\Debug\LuongBH.csproj.GenerateResource.Cache
 D:\Job\QLNS\Projects\QLNS\LuongBH\obj\x86\Debug\LuongBH.exe
 D:\Job\QLNS\Projects\QLNS\LuongBH\obj\x86\Debug\LuongBH.pdb
+D:\Business\Project\QLNS\LuongBH\bin\Debug\SplitButton.pdb
+D:\Business\Project\QLNS\LuongBH\obj\x86\Debug\LuongBH.UCs.Luong.Ngach_NhomNgach.resources

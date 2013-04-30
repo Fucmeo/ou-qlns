@@ -149,7 +149,9 @@ namespace Business.CNVC
             get { return ghichu; }
             set { ghichu = value; }
         }
-        
+
+        public bool Is_Dang_vien { get; set; }
+      
 
         #endregion
 
@@ -158,7 +160,7 @@ namespace Business.CNVC
         public bool Add()
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[19]{
+            IDataParameter[] paras = new IDataParameter[20]{
                 new NpgsqlParameter("ma_nv",manv), 
                 new NpgsqlParameter("moi_quan_he",moiquanhe), 
                 new NpgsqlParameter("than_nhan_nuoc_ngoai", ThanNhanNuocNgoai),
@@ -177,7 +179,8 @@ namespace Business.CNVC
                 new NpgsqlParameter("quoc_gia",Quoc_Gia),
                 new NpgsqlParameter("thanh_vien_to_chuc_ctr_xh",thanhvientochucxh),
                 new NpgsqlParameter("hoc_tap",hoctap),
-                new NpgsqlParameter("ghi_chu",ghichu)
+                new NpgsqlParameter("ghi_chu",ghichu),
+                new NpgsqlParameter("is_dang_vien",Is_Dang_vien),
             };
             check = (int)dp.executeScalarProc("sp_insert_cnvc_gia_dinh", paras);
             if (check > 0)
@@ -191,7 +194,7 @@ namespace Business.CNVC
         public bool Update()
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[19]{
+            IDataParameter[] paras = new IDataParameter[20]{
                 new NpgsqlParameter("p_id",id),
                 //new NpgsqlParameter("ma_nv",manv), 
                 new NpgsqlParameter("p_moi_quan_he",moiquanhe), 
@@ -211,7 +214,8 @@ namespace Business.CNVC
                 new NpgsqlParameter("p_thanh_vien_to_chuc_ctr_xh",thanhvientochucxh),
                 new NpgsqlParameter("p_hoc_tap",hoctap),
                 new NpgsqlParameter("p_ghi_chu",ghichu),
-                new NpgsqlParameter("p_quoc_gia",Quoc_Gia)
+                new NpgsqlParameter("p_quoc_gia",Quoc_Gia),
+                new NpgsqlParameter("p_is_dang_vien",Is_Dang_vien),
             };
 
             check = (int)dp.executeScalarProc("sp_update_cnvc_gia_dinh", paras);

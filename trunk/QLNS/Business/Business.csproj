@@ -90,6 +90,7 @@
     <Compile Include="QuocGia.cs" />
     <Compile Include="TinhTP.cs" />
     <Compile Include="TinhTrangHonNhan.cs" />
+    <Compile Include="TrinhDo.cs" />
     <Compile Include="VanBangChinhQuy.cs" />
   </ItemGroup>
   <ItemGroup>
