@@ -600,6 +600,11 @@ namespace QLNS.UCs.DanhMucThongTin
 
         }
 
+        private void label28_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 
     #region Comparers - used to sort CustomerInfo objects and DataRows of a DataTable

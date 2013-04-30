@@ -222,7 +222,7 @@ namespace QLNS.UCs.DanhMucThongTin
             {
                 //lbl_Them.Visible = lbl_Xoa.Visible = lbl_Sua.Visible = true;
                 //btn_Huy.Visible = 
-                comB_MoiQH.Enabled = cb_ThanNhanNuocNgoai.Enabled = txt_Ho.Enabled = txt_Ten.Enabled = txt_NamSinh.Enabled =
+                comB_MoiQH.Enabled = cb_ThanNhanNuocNgoai.Enabled = cb_LaDangVien.Enabled = txt_Ho.Enabled = txt_Ten.Enabled = txt_NamSinh.Enabled =
                     txt_QueQuan.Enabled = txt_NgheNghiep.Enabled = txt_ChucDanh.Enabled = txt_DVCongTac.Enabled = 
                     txt_HocTap.Enabled = rTB_ThanhVienToChuc.Enabled = rTB_GhiChu.Enabled = txt_SoNha.Enabled = txt_Duong.Enabled = 
                     txt_Phuong.Enabled = txt_Quan.Enabled = comB_Tinh.Enabled = comB_QuocGia.Enabled = false;
@@ -241,7 +241,7 @@ namespace QLNS.UCs.DanhMucThongTin
             {
                 //lbl_Them.Visible = lbl_Xoa.Visible = lbl_Sua.Visible = false;
                 //btn_Huy.Visible = 
-                comB_MoiQH.Enabled = cb_ThanNhanNuocNgoai.Enabled = txt_Ho.Enabled = txt_Ten.Enabled = txt_NamSinh.Enabled =
+                comB_MoiQH.Enabled = cb_ThanNhanNuocNgoai.Enabled = cb_LaDangVien.Enabled = txt_Ho.Enabled = txt_Ten.Enabled = txt_NamSinh.Enabled =
                     txt_QueQuan.Enabled = txt_NgheNghiep.Enabled = txt_ChucDanh.Enabled = txt_DVCongTac.Enabled =
                     txt_HocTap.Enabled = rTB_ThanhVienToChuc.Enabled = rTB_GhiChu.Enabled = txt_SoNha.Enabled = txt_Duong.Enabled =
                     txt_Phuong.Enabled = txt_Quan.Enabled = comB_Tinh.Enabled = comB_QuocGia.Enabled = true;
@@ -253,7 +253,7 @@ namespace QLNS.UCs.DanhMucThongTin
                     txt_HocTap.Text = rTB_ThanhVienToChuc.Text = rTB_GhiChu.Text = txt_SoNha.Text = txt_Duong.Text =
                     txt_Phuong.Text = txt_Quan.Text = "";
 
-                    cb_ThanNhanNuocNgoai.Checked = false;
+                    cb_ThanNhanNuocNgoai.Checked = cb_LaDangVien.Checked = false;
                 }
 
                 lbl_Them.Text = "Lưu";

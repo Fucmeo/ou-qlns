@@ -88,7 +88,10 @@ namespace Business.CNVC
             get { return congviecchinh; }
             set { congviecchinh = value; }
         }
-        
+
+        public string TenCoQuan { get; set; }
+
+        public string GhiChu { get; set; }
         
         #endregion
 
@@ -97,14 +100,16 @@ namespace Business.CNVC
         public bool Add()
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[7]{
+            IDataParameter[] paras = new IDataParameter[9]{
                 new NpgsqlParameter("ma_nv",manv), 
                 new NpgsqlParameter("ten_don_vi",tendonvi), 
                 new NpgsqlParameter("chuc_danh",chucdanh), 
                 new NpgsqlParameter("chuc_vu",chucvu), 
                 new NpgsqlParameter("tu_ngay",tungay), 
                 new NpgsqlParameter("den_ngay",denngay), 
-                new NpgsqlParameter("cong_viec_chinh",congviecchinh)
+                new NpgsqlParameter("cong_viec_chinh",congviecchinh),
+                new NpgsqlParameter("ten_co_quan",TenCoQuan), 
+                new NpgsqlParameter("ghi_chu",GhiChu)
             };
             check = (int)dp.executeScalarProc("sp_insert_cnvc_nonou_nongd", paras);
             if (check > 0)
@@ -134,14 +139,16 @@ namespace Business.CNVC
         public bool Update()
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[7]{
+            IDataParameter[] paras = new IDataParameter[9]{
                 new NpgsqlParameter("p_id",id), 
                 new NpgsqlParameter("p_ten_don_vi",tendonvi), 
                 new NpgsqlParameter("p_chuc_danh",chucdanh), 
                 new NpgsqlParameter("p_chuc_vu",chucvu), 
                 new NpgsqlParameter("p_tu_ngay",tungay), 
                 new NpgsqlParameter("p_den_ngay",denngay), 
-                new NpgsqlParameter("p_cong_viec_chinh",congviecchinh)
+                new NpgsqlParameter("p_cong_viec_chinh",congviecchinh),
+                new NpgsqlParameter("p_ten_co_quan",TenCoQuan), 
+                new NpgsqlParameter("p_ghi_chu",GhiChu)
             };
             check = (int)dp.executeScalarProc("sp_update_cnvc_nonou_nongd", paras);
             if (check > 0)
@@ -160,7 +167,7 @@ namespace Business.CNVC
                 new NpgsqlParameter("p_ma_nv",manv)               
             };
 
-            dt = dp.getDataTableProc("sp_select_nonou_nongd", paras);
+            dt = dp.getDataTableProc("sp_select_cnvc_nonou_nongd", paras);
 
             return dt;
         }
