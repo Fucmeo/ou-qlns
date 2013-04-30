@@ -171,6 +171,7 @@ namespace QLNS.UCs.DanhMucThongTin
             dtgv_QuanHeGiaDinh.Columns["quan_huyen"].Visible = false;
             dtgv_QuanHeGiaDinh.Columns["ten_tinh_tp"].Visible = false;
             dtgv_QuanHeGiaDinh.Columns["ten_quoc_gia"].Visible = false;
+            dtgv_QuanHeGiaDinh.Columns["is_dang_vien"].Visible = false;
         }
 
         private void DisplayInfo(DataGridViewRow row)
@@ -180,7 +181,8 @@ namespace QLNS.UCs.DanhMucThongTin
                 string moi_quan_he = row.Cells["moi_quan_he"].Value.ToString();
                 comB_MoiQH.Text = moi_quan_he;
 
-                cb_ThanNhanNuocNgoai.Checked = Convert.ToBoolean(row.Cells["than_nhan_nuoc_ngoai"].Value.ToString());
+                if (row.Cells["than_nhan_nuoc_ngoai"].Value.ToString() != "")
+                    cb_ThanNhanNuocNgoai.Checked = Convert.ToBoolean(row.Cells["than_nhan_nuoc_ngoai"].Value.ToString());
                 txt_Ho.Text = row.Cells["ho"].Value.ToString();
                 txt_Ten.Text = row.Cells["ten"].Value.ToString();
                 txt_NamSinh.Text = row.Cells["nam_sinh"].Value.ToString();
@@ -200,6 +202,9 @@ namespace QLNS.UCs.DanhMucThongTin
                     comB_Tinh.SelectedValue = Convert.ToInt32(row.Cells["tinh_thanhpho"].Value.ToString());
                 if (row.Cells["quoc_gia"].Value.ToString() != "")
                     comB_QuocGia.SelectedValue = Convert.ToInt32(row.Cells["quoc_gia"].Value.ToString());
+
+                if (row.Cells["is_dang_vien"].Value.ToString() != "")
+                    cb_LaDangVien.Checked = Convert.ToBoolean(row.Cells["is_dang_vien"].Value.ToString());
             }
         }
 
@@ -329,6 +334,7 @@ namespace QLNS.UCs.DanhMucThongTin
                             oQHeGiaDinh.Tinh_ThanhPho = Convert.ToInt32(comB_Tinh.SelectedValue);
                         if (comB_QuocGia.Text != "")
                             oQHeGiaDinh.Quoc_Gia = Convert.ToInt32(comB_QuocGia.SelectedValue);
+                        oQHeGiaDinh.Is_Dang_vien = cb_LaDangVien.Checked;
 
                         #region thao tac them
 
