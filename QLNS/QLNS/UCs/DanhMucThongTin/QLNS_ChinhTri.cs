@@ -352,46 +352,54 @@ namespace QLNS.UCs.DanhMucThongTin
 
         #endregion
 
-        private void btn_Luu_Click(object sender, EventArgs e)
+        private void btn_Luu_ThongTinChung_Click(object sender, EventArgs e)
         {
-            if (Program.selected_ma_nv != "")
+            if (btn_Luu_ThongTinChung.ImageKey == "Edit Data.png")
             {
-                oChinhTri = new Business.CNVC.CNVC_ChinhTri();
-                oChinhTri.Ma_NV = Program.selected_ma_nv;
-                oChinhTri.Quan_Ham_Cao_Nhat = txt_QuanHam.Text;
-                oChinhTri.Danh_Hieu_Cao_Nhat = txt_DanhHieu.Text;
-                oChinhTri.Thuong_Binh_Hang = txt_ThuongBinh.Text;
-                oChinhTri.Gia_Dinh_Chinh_Sach = txt_GiaDinh.Text;
-                //oChinhTri.Ly_Luan_Chinh_Tri = txt_LyLuanChinhTri.Text;
-                //oChinhTri.Quan_Ly_Nha_Nuoc = txt_QuanLyNhaNuoc.Text;
-                oChinhTri.Khen_Thuong = rtb_KhenThuong.Text;
-                oChinhTri.Ky_Luat = rTB_KyLuat.Text;
-                if (dtp_NgayNhapNgu.Checked == true)
-                    oChinhTri.Ngay_Nhap_Ngu = dtp_NgayNhapNgu.Value;
-                if (dtp_NgayXuatNgu.Checked == true)
-                    oChinhTri.Ngay_Xuat_Ngu = dtp_NgayXuatNgu.Value;
-
-                try
-                {
-                    if (MessageBox.Show("Bạn thực sự muốn lưu thông tin chính trị chung cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        if (oChinhTri.Save())
-                        {
-                            MessageBox.Show("Lưu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        else
-                            MessageBox.Show("Thao tác lưu thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Thao tác lưu thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                btn_Luu_ThongTinChung.ImageKey = "Save.png";
             }
             else
             {
-                MessageBox.Show("Chưa có thông tin về nhân viên, xin vui lòng thêm thông tin nhân viên trước hoặc chọn một nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (Program.selected_ma_nv != "")
+                {
+                    oChinhTri = new Business.CNVC.CNVC_ChinhTri();
+                    oChinhTri.Ma_NV = Program.selected_ma_nv;
+                    oChinhTri.Quan_Ham_Cao_Nhat = txt_QuanHam.Text;
+                    oChinhTri.Danh_Hieu_Cao_Nhat = txt_DanhHieu.Text;
+                    oChinhTri.Thuong_Binh_Hang = txt_ThuongBinh.Text;
+                    oChinhTri.Gia_Dinh_Chinh_Sach = txt_GiaDinh.Text;
+                    //oChinhTri.Ly_Luan_Chinh_Tri = txt_LyLuanChinhTri.Text;
+                    //oChinhTri.Quan_Ly_Nha_Nuoc = txt_QuanLyNhaNuoc.Text;
+                    oChinhTri.Khen_Thuong = rtb_KhenThuong.Text;
+                    oChinhTri.Ky_Luat = rTB_KyLuat.Text;
+                    if (dtp_NgayNhapNgu.Checked == true)
+                        oChinhTri.Ngay_Nhap_Ngu = dtp_NgayNhapNgu.Value;
+                    if (dtp_NgayXuatNgu.Checked == true)
+                        oChinhTri.Ngay_Xuat_Ngu = dtp_NgayXuatNgu.Value;
+
+                    try
+                    {
+                        if (MessageBox.Show("Bạn thực sự muốn lưu thông tin chính trị chung cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            if (oChinhTri.Save())
+                            {
+                                MessageBox.Show("Lưu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                                MessageBox.Show("Thao tác lưu thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Thao tác lưu thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Chưa có thông tin về nhân viên, xin vui lòng thêm thông tin nhân viên trước hoặc chọn một nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
+            
             
         }
 
@@ -613,6 +621,18 @@ namespace QLNS.UCs.DanhMucThongTin
         private void tableLP_ChinhTri_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btn_Luu_HoiCB_Click(object sender, EventArgs e)
+        {
+            if (btn_Luu_HoiCB.ImageKey == "Edit Data.png")
+            {
+                btn_Luu_HoiCB.ImageKey = "Save.png";
+            }
+            else
+            {
+                btn_Luu_HoiCB.ImageKey = "Edit Data.png";
+            }
         }
 
     }
