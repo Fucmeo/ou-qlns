@@ -48,7 +48,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txt_Ten = new System.Windows.Forms.TextBox();
             this.rtb_MoTa = new System.Windows.Forms.RichTextBox();
-            this.cb_SauDH = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.comB_TrinhDo = new System.Windows.Forms.ComboBox();
@@ -273,7 +272,6 @@
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.txt_Ten, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.rtb_MoTa, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.cb_SauDH, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.comB_TrinhDo, 1, 1);
@@ -319,17 +317,6 @@
             this.rtb_MoTa.TabIndex = 2;
             this.rtb_MoTa.Text = "";
             // 
-            // cb_SauDH
-            // 
-            this.cb_SauDH.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.cb_SauDH.AutoSize = true;
-            this.cb_SauDH.Location = new System.Drawing.Point(355, 7);
-            this.cb_SauDH.Name = "cb_SauDH";
-            this.cb_SauDH.Size = new System.Drawing.Size(96, 22);
-            this.cb_SauDH.TabIndex = 1;
-            this.cb_SauDH.Text = "Sau đại học";
-            this.cb_SauDH.UseVisualStyleBackColor = true;
-            // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -355,7 +342,7 @@
             this.comB_TrinhDo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_TrinhDo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_TrinhDo.FormattingEnabled = true;
-            this.comB_TrinhDo.Location = new System.Drawing.Point(84, 43);
+            this.comB_TrinhDo.Location = new System.Drawing.Point(84, 41);
             this.comB_TrinhDo.Name = "comB_TrinhDo";
             this.comB_TrinhDo.Size = new System.Drawing.Size(184, 25);
             this.comB_TrinhDo.TabIndex = 4;
@@ -398,7 +385,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txt_Ten;
         private System.Windows.Forms.RichTextBox rtb_MoTa;
-        private System.Windows.Forms.CheckBox cb_SauDH;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.TableLayoutPanel tableLP_ThaoTac;
         private System.Windows.Forms.Button btn_Huy;

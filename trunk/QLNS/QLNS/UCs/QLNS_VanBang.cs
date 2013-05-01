@@ -13,6 +13,7 @@ namespace QLNS.UCs
     public partial class QLNS_VanBang : UserControl
     {
         Business.VanBangChinhQuy vanbang;
+        Business.TrinhDo trinhdo;
 
         bool AddFlag;   // xac dinh thao tac add hay edit
 
@@ -20,6 +21,7 @@ namespace QLNS.UCs
         {
             InitializeComponent();
             vanbang = new VanBangChinhQuy();
+            trinhdo = new TrinhDo();
 
         }
 
@@ -31,11 +33,26 @@ namespace QLNS.UCs
                 PrepareDataSource(dt);
                 EditDtgInterface();
             }
+            LoadCboTrinhDo();
 
             ResetInterface(true);
         }
 
         #region Ham phu
+        private void LoadCboTrinhDo()
+        {
+            DataTable dt = trinhdo.GetTrinhDoList();
+            DataRow dr = dt.NewRow();
+            dr["ten"] = "";
+            dr["mo_ta"] = "";
+            dr["id"] = -1;
+            dt.Rows.InsertAt(dr, 0);
+
+            comB_TrinhDo.DataSource = dt;
+            comB_TrinhDo.DisplayMember = "ten";
+            comB_TrinhDo.ValueMember = "id";
+        }
+
         private void PrepareDataSource(DataTable dt)
         {
             BindingSource bs = new BindingSource();
@@ -46,29 +63,29 @@ namespace QLNS.UCs
         private void EditDtgInterface()
         {
             // Dat ten cho cac cot
-            dtgv_DSVanBang.Columns[1].HeaderText = "Tên văn bằng";
-            dtgv_DSVanBang.Columns[1].Width = 150;
-            dtgv_DSVanBang.Columns[2].HeaderText = "Sau đại học?";
-            dtgv_DSVanBang.Columns[3].HeaderText = "Mô tả";
-            dtgv_DSVanBang.Columns[3].Width = 200;
+            dtgv_DSVanBang.Columns["ten_van_bang"].HeaderText = "Tên văn bằng";
+            dtgv_DSVanBang.Columns["ten_van_bang"].Width = 150;
+            
+            dtgv_DSVanBang.Columns["mo_ta"].HeaderText = "Mô tả";
+            dtgv_DSVanBang.Columns["mo_ta"].Width = 200;
+
+            dtgv_DSVanBang.Columns["ten"].HeaderText = "Trình độ";
+            dtgv_DSVanBang.Columns["ten"].Width = 150;
 
             // An cac cot ID
-            dtgv_DSVanBang.Columns[0].Visible = false;
+            dtgv_DSVanBang.Columns["id"].Visible = false;
+            dtgv_DSVanBang.Columns["trinh_do_id"].Visible = false;
         }
 
         private void DisplayInfo(DataGridViewRow row)
         {
             if (row != null)
             {
-                txt_Ten.Text = row.Cells[1].Value.ToString();
-                rtb_MoTa.Text = row.Cells[3].Value.ToString();
+                txt_Ten.Text = row.Cells["ten_van_bang"].Value.ToString();
+                rtb_MoTa.Text = row.Cells["mo_ta"].Value.ToString();
 
-                if (Convert.ToBoolean(row.Cells[2].Value) == true)
-                    cb_SauDH.Checked = true;
-                else
-                    cb_SauDH.Checked = false;
-
-                //txt_Department.Enabled = false;  // khong hieu sao no tu dong true???, nen phai set cho no false
+                //Xử lý combo Trình độ
+                comB_TrinhDo.SelectedValue = dtgv_DSVanBang.CurrentRow.Cells["trinh_do_id"].Value;
             }
         }
 
@@ -77,21 +94,20 @@ namespace QLNS.UCs
             if (init)
             {
                 Program.DkButton(new Button[] { btn_Them, btn_Sua, btn_Xoa }, new Button[] { btn_Luu, btn_Huy });
-                Program.DkControl(new Object[] { txt_Ten, rtb_MoTa, cb_SauDH }, false, "Enable");
+                Program.DkControl(new Object[] { txt_Ten, rtb_MoTa, comB_TrinhDo }, false, "Enable");
                 dtgv_DSVanBang.Enabled = true;
                 if (dtgv_DSVanBang.CurrentRow != null)
                     DisplayInfo(dtgv_DSVanBang.CurrentRow);
             }
             else
             {
-                Program.DkControl(new Object[] { txt_Ten, rtb_MoTa, cb_SauDH }, true, "Enable");
+                Program.DkControl(new Object[] { txt_Ten, rtb_MoTa, comB_TrinhDo }, true, "Enable");
                 Program.DkButton(new Button[] { btn_Luu, btn_Huy }, new Button[] { btn_Them, btn_Sua, btn_Xoa });
                 txt_Ten.Focus();
                 dtgv_DSVanBang.Enabled = false;
                 if (AddFlag) // thao tac them moi xoa rong cac field
                 {
                     txt_Ten.Text = rtb_MoTa.Text = "";
-                    cb_SauDH.Checked = false;
                 }
             }
         }
@@ -139,7 +155,7 @@ namespace QLNS.UCs
                 if (MessageBox.Show("Bạn thực sự muốn xoá văn bằng này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     //vanbang = ToDepartmentObject(dtg_DepartmentList.CurrentRow);
-                    vanbang = new VanBangChinhQuy(Convert.ToInt16(dtgv_DSVanBang.CurrentRow.Cells[0].Value.ToString()));
+                    vanbang = new VanBangChinhQuy(Convert.ToInt16(dtgv_DSVanBang.CurrentRow.Cells["id"].Value.ToString()));
                     try
                     {
                         vanbang.Delete();
@@ -166,12 +182,13 @@ namespace QLNS.UCs
                     {
                         //Department = ToDepartmentObject();
                         int? id = null;
-                        bool saudh = false;
-                        if (cb_SauDH.Checked == true)
-                            saudh = true;
-                        vanbang = new VanBangChinhQuy(id, txt_Ten.Text, saudh, rtb_MoTa.Text);
+                        int? trinhdoid = null;
+                        if (comB_TrinhDo.Text != "")
+                            trinhdoid = Convert.ToInt32(comB_TrinhDo.SelectedValue.ToString());
+                        
                         try
                         {
+                            vanbang = new VanBangChinhQuy(id, txt_Ten.Text, trinhdoid, rtb_MoTa.Text);
                             vanbang.Add();
                             MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -194,13 +211,14 @@ namespace QLNS.UCs
                 {
                     if (MessageBox.Show("Bạn thực sự muốn sửa văn bằng này ?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        int id = Convert.ToInt16(dtgv_DSVanBang.CurrentRow.Cells[0].Value.ToString());
-                        bool saudh = false;
-                        if (cb_SauDH.Checked == true)
-                            saudh = true;
-                        vanbang = new VanBangChinhQuy(id, txt_Ten.Text, saudh, rtb_MoTa.Text);
+                        int id = Convert.ToInt16(dtgv_DSVanBang.CurrentRow.Cells["id"].Value.ToString());
+                        int? trinhdoid = null;
+                        if (comB_TrinhDo.Text != "")
+                            trinhdoid = Convert.ToInt32(comB_TrinhDo.SelectedValue.ToString());
+                        
                         try
                         {
+                            vanbang = new VanBangChinhQuy(id, txt_Ten.Text, trinhdoid, rtb_MoTa.Text);
                             vanbang.Update();
                             MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
