@@ -20,11 +20,11 @@ namespace Business
             dp = new DataProvider.DataProvider();
         }
 
-        public VanBangChinhQuy(int? p_id, string p_tenvb, bool? p_saudh, string p_mota)
+        public VanBangChinhQuy(int? p_id, string p_tenvb, int? p_trinhdoid, string p_mota)
         {
             id = p_id;
             tenvanbang = p_tenvb;
-            saudaihoc = p_saudh;
+            TrinhDoID = p_trinhdoid;
             mota = p_mota;
             dp = new DataProvider.DataProvider();
         }
@@ -55,14 +55,6 @@ namespace Business
             set { tenvanbang = value; }
         }
 
-        private bool? saudaihoc;
-
-        public bool? SauDaiHoc
-        {
-            get { return saudaihoc; }
-            set { saudaihoc = value; }
-        }
-
         private string mota;
 
         public string MoTa
@@ -70,6 +62,8 @@ namespace Business
             get { return mota; }
             set { mota = value; }
         }
+
+        public int? TrinhDoID { get; set; }
 
         #endregion
 
@@ -80,7 +74,7 @@ namespace Business
             int check;
             IDataParameter[] paras = new IDataParameter[3]{
                 new NpgsqlParameter("ten_van_bang",tenvanbang), 
-                new NpgsqlParameter("sau_dai_hoc",saudaihoc),
+                new NpgsqlParameter("trinh_do_id",TrinhDoID),
                 new NpgsqlParameter("mo_ta",mota)
             };
             check = (int)dp.executeScalarProc("sp_insert_van_bang_chinh_quy", paras);
@@ -96,10 +90,10 @@ namespace Business
         {
             int check;
             IDataParameter[] paras = new IDataParameter[4]{
-                new NpgsqlParameter("id",id), 
-                new NpgsqlParameter("ten_van_bang",tenvanbang), 
-                new NpgsqlParameter("sau_dai_hoc",saudaihoc),
-                new NpgsqlParameter("mo_ta",mota)
+                new NpgsqlParameter("p_id",id), 
+                new NpgsqlParameter("p_ten_van_bang",tenvanbang), 
+                new NpgsqlParameter("p_trinh_do_id",TrinhDoID),
+                new NpgsqlParameter("p_mo_ta",mota)
             };
             check = (int)dp.executeScalarProc("sp_update_van_bang_chinh_quy", paras);
             if (check > 0)
