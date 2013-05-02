@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using Business.CNVC;
 using System.IO;
+using System.Text.RegularExpressions;
+using System.Net.Mail;
 
 namespace QLNS.UCs.DanhMucThongTin
 {
@@ -96,6 +98,9 @@ namespace QLNS.UCs.DanhMucThongTin
                 txt_Duong.Text = Convert.ToString(dtCNVC.Rows[0]["duong"]);
                 txt_PhuongXa.Text = Convert.ToString(dtCNVC.Rows[0]["phuong_xa"]);
                 txt_QuanHuyen.Text = Convert.ToString(dtCNVC.Rows[0]["quan_huyen"]);
+                txt_DTDD.Text = Convert.ToString(dtCNVC.Rows[0]["p_dt_di_dong"]);
+                txt_DTNha.Text = Convert.ToString(dtCNVC.Rows[0]["p_dt_nha_rieng"]);
+                txt_Email.Text = Convert.ToString(dtCNVC.Rows[0]["p_email"]); 
                 string gioitinh = dtCNVC.Rows[0]["gioi_tinh"].ToString();
                 switch (gioitinh)
                 {
@@ -204,7 +209,7 @@ namespace QLNS.UCs.DanhMucThongTin
             }
             else
             {
-                MessageBox.Show("Thông tin không đầy đủ, xin vui lòng xem lại thông tin nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Thông tin không đầy đủ hoặc chưa chính xác, xin vui lòng xem lại thông tin nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             } 
             #endregion
 
@@ -329,10 +334,24 @@ namespace QLNS.UCs.DanhMucThongTin
 
         private bool VerifyCNVCData()
         {
-            if (string.IsNullOrWhiteSpace(txt_MaHoSo.Text) || string.IsNullOrWhiteSpace(txt_MaNV.Text) || string.IsNullOrWhiteSpace(txt_MaHoSo.Text))
+            if (string.IsNullOrWhiteSpace(txt_MaHoSo.Text) || string.IsNullOrWhiteSpace(txt_MaNV.Text)
+                || string.IsNullOrWhiteSpace(txt_Ho.Text) || string.IsNullOrWhiteSpace(txt_Ten.Text))
             {
                 return false;
             }
+
+            Regex reg = new Regex(@"^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$"); ///Object initialization for Regex 
+            if (!reg.IsMatch(txt_Email.Text.Trim()))
+                return false;
+
+            //try
+            //{
+            //     MailAddress ma = new MailAddress(txt_Email.Text.Trim());
+            //}
+            //catch (Exception)
+            //{
+            //    return false;
+            //}
 
             return true;
         }
@@ -349,6 +368,9 @@ namespace QLNS.UCs.DanhMucThongTin
             oCNVC.Duong = txt_Duong.Text;
             oCNVC.Phuong = txt_PhuongXa.Text;
             oCNVC.Quan = txt_QuanHuyen.Text;
+            oCNVC.DTBan = txt_DTNha.Text;
+            oCNVC.DTDD = txt_DTDD.Text;
+            oCNVC.Email = txt_Email.Text;
             if (comB_GioiTinh.SelectedIndex == 0)
                 oCNVC.GioiTinh = true;
             else if (comB_GioiTinh.SelectedIndex == 1)
@@ -858,6 +880,14 @@ namespace QLNS.UCs.DanhMucThongTin
                 //oFile.DeleteAvatar();
 
                 RemoveAvatar();
+            }
+        }
+
+        private void txt_DTDD_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
             }
         }
     }

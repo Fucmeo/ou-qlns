@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -144,6 +144,12 @@ namespace Business.CNVC
             get { return gioitinh; }
             set { gioitinh = value; }
         }
+
+        public string Email { get; set; }
+
+        public string DTDD { get; set; }
+
+        public string DTBan { get; set; }
         
 
         #endregion
@@ -153,7 +159,7 @@ namespace Business.CNVC
         public bool Add()
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[14]{
+            IDataParameter[] paras = new IDataParameter[17]{
                 new NpgsqlParameter("p_ma_nv",manv), 
                 new NpgsqlParameter("p_ho",ho), 
                 new NpgsqlParameter("p_ten",ten), 
@@ -167,7 +173,10 @@ namespace Business.CNVC
                 new NpgsqlParameter("p_phuong_xa",phuong), 
                 new NpgsqlParameter("p_quan_huyen",quan),
                 new NpgsqlParameter("p_tinh_thanhpho",tinh),
-                new NpgsqlParameter("p_quoc_gia",quocgia)
+                new NpgsqlParameter("p_quoc_gia",quocgia),
+                new NpgsqlParameter("p_dt_di_dong",DTDD),
+                new NpgsqlParameter("p_dt_nha_rieng",DTBan),
+                new NpgsqlParameter("p_email",Email)
             };
             check = (int)dp.executeScalarProc("sp_insert_cnvc", paras);
             if (check > 0)
@@ -196,7 +205,7 @@ namespace Business.CNVC
         public bool Update(string ma_nv_old)
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[14]{
+            IDataParameter[] paras = new IDataParameter[17]{
                 new NpgsqlParameter("p_ma_nv_old",ma_nv_old), 
                 new NpgsqlParameter("p_ma_nv",manv), 
                 new NpgsqlParameter("p_ho",ho), 
@@ -210,7 +219,10 @@ namespace Business.CNVC
                 new NpgsqlParameter("p_phuong_xa",phuong), 
                 new NpgsqlParameter("p_quan_huyen",quan),
                 new NpgsqlParameter("p_tinh_thanhpho",tinh),
-                new NpgsqlParameter("p_quoc_gia",quocgia)
+                new NpgsqlParameter("p_quoc_gia",quocgia),
+                new NpgsqlParameter("p_dt_di_dong",DTDD),
+                new NpgsqlParameter("p_dt_nha_rieng",DTBan),
+                new NpgsqlParameter("p_email",Email)
             };
             check = (int)dp.executeScalarProc("sp_update_cnvc", paras);
             if (check > 0)
