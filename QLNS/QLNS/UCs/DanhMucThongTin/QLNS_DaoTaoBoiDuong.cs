@@ -16,9 +16,10 @@ namespace QLNS.UCs.DanhMucThongTin
         public CNVC_DaoTaoBoiDuong oCNVC_DaoTaoBoiDuong;
         public Business.HinhThucDaoTao oHinhThucDaoTao;
         public Business.VanBangChinhQuy oVanBangChinhQuy;
+        public Business.MoHinhDaoTao oMoHinh;
         Business.TinhTP oTinhTP;
         Business.QuocGia oQuocGia;
-        public DataTable dtTinhTP, dtQuocGia, dtDaoTaoBoiDuong, dtDaoTao, dtBoiDuong, dtHinhThuc, dtVanBang;
+        public DataTable dtTinhTP, dtQuocGia, dtDaoTaoBoiDuong, dtDaoTao, dtBoiDuong, dtHinhThuc, dtVanBang , dtMoHinh;
 
         bool bAddDaoTaoFlag = false;
         bool bAddBoiDuongFlag = false;
@@ -32,6 +33,7 @@ namespace QLNS.UCs.DanhMucThongTin
             oCNVC_DaoTaoBoiDuong = new CNVC_DaoTaoBoiDuong();
             oHinhThucDaoTao = new Business.HinhThucDaoTao();
             oVanBangChinhQuy = new Business.VanBangChinhQuy();
+            oMoHinh = new Business.MoHinhDaoTao();
             dtDaoTaoBoiDuong = new DataTable();
             dtHinhThuc = new DataTable();
             dtDaoTao = new DataTable();
@@ -39,6 +41,7 @@ namespace QLNS.UCs.DanhMucThongTin
             dtVanBang = new DataTable();
             dtTinhTP = new DataTable();
             dtQuocGia = new DataTable();
+            dtMoHinh = new DataTable();
             oTinhTP = new Business.TinhTP();
             oQuocGia = new Business.QuocGia();
         }
@@ -71,7 +74,7 @@ namespace QLNS.UCs.DanhMucThongTin
 
             LoadHinhThucData();
             LoadVanBangData();
-
+            LoadMoHinhData();
 
         }
 
@@ -375,6 +378,28 @@ namespace QLNS.UCs.DanhMucThongTin
             comB_VanBang.ValueMember = "id";
 
             comB_VanBang.SelectedIndex = 0;
+        }
+
+        private void LoadMoHinhData()
+        {
+            dtMoHinh = oMoHinh.GetData();
+
+            DataTable dt = dtMoHinh.Copy();
+
+            if (dt.AsEnumerable().Where(a => a.Field<int>("id") == -1).Count() <= 0)
+            {
+                DataRow dr = dt.NewRow();
+                dr["ten_mo_hinh"] = "";
+                dr["id"] = -1;
+                dt.Rows.InsertAt(dr, 0);
+            }
+
+            // comb
+            comB_PhuongThucDT.DataSource = dt;
+            comB_PhuongThucDT.DisplayMember = "ten_mo_hinh";
+            comB_PhuongThucDT.ValueMember = "id";
+
+            comB_PhuongThucDT.SelectedIndex = 0;
         }
 
         public void FillDaoTaoData()
@@ -749,60 +774,48 @@ namespace QLNS.UCs.DanhMucThongTin
         private void ControlDaoTao(bool Add)
         {
 
+            txt_TenTruong_DaoTao.Enabled = txt_ChuyenNganh_DaoTao.Enabled = txt_XepLoai_DaoTao.Enabled
+                    = txt_TenLuanVan.Enabled = txt_HoiDong.Enabled = dTP_DenNgay_DaoTao.Enabled =
+                    dTP_TuNgay_DaoTao.Enabled = comB_HinhThuc.Enabled = comB_PhuongThucDT.Enabled =
+                     txt_Diem_DaoTao.Enabled = rtb_GhiChu_DaoTao.Enabled =
+                    comB_VanBang.Enabled = comB_QuocGia_DaoTao.Enabled = comB_Tinh_DaoTao.Enabled
+                    = dtp_NgayCapBang_DaoTao.Enabled = tableLP_DaoTao_QG.Enabled = tableLP_DaoTao_Tinh.Enabled = Add;
+
+            dtgv_DaoTao.Enabled = lbl_XoaDaoTao.Enabled = !Add;
+
             if (Add)
             {
                 lbl_SuaDaoTao.Text = "Huỷ";
                 lbl_ThemDaoTao.Text = "Lưu";
-                txt_TenTruong_DaoTao.Enabled = txt_ChuyenNganh_DaoTao.Enabled = txt_XepLoai_DaoTao.Enabled
-                    = txt_TenLuanVan.Enabled = txt_HoiDong.Enabled = dTP_DenNgay_DaoTao.Enabled =
-                    dTP_TuNgay_DaoTao.Enabled = comB_HinhThuc.Enabled = comB_PhuongThucDT.Enabled = 
-                    txt_TrinhDo.Enabled = txt_Diem_DaoTao.Enabled = rtb_GhiChu_DaoTao.Enabled =
-                    comB_VanBang.Enabled = comB_QuocGia_DaoTao.Enabled = comB_Tinh_DaoTao.Enabled
-                    = dtp_NgayCapBang_DaoTao.Enabled  = true;
-
-                dtgv_DaoTao.Enabled = lbl_XoaDaoTao.Enabled = false;
+                
             }
             else
             {
                 lbl_SuaDaoTao.Text = "Sửa";
                 lbl_ThemDaoTao.Text = "Thêm";
-                txt_TenTruong_DaoTao.Enabled = txt_ChuyenNganh_DaoTao.Enabled = txt_XepLoai_DaoTao.Enabled
-                    = txt_TenLuanVan.Enabled = txt_HoiDong.Enabled = dTP_DenNgay_DaoTao.Enabled =
-                    dTP_TuNgay_DaoTao.Enabled = comB_HinhThuc.Enabled = comB_PhuongThucDT.Enabled =
-                    txt_TrinhDo.Enabled = txt_Diem_DaoTao.Enabled = rtb_GhiChu_DaoTao.Enabled =
-                    comB_VanBang.Enabled = comB_QuocGia_DaoTao.Enabled = comB_Tinh_DaoTao.Enabled
-                    = dtp_NgayCapBang_DaoTao.Enabled = false;
                 
-                dtgv_DaoTao.Enabled = lbl_XoaDaoTao.Enabled = true;
-
             }
         }
 
         private void ControlBoiDuong(bool Add)
         {
+            txt_TenTruong_BoiDuong.Enabled = txt_ChuyenNganh_BoiDuong.Enabled = txt_XepLoai_BoiDuong.Enabled
+                    = txt_TenChungChi.Enabled = dTP_DenNgay_BoiDuong.Enabled =
+                    dTP_TuNgay_BoiDuong.Enabled = comB_QuocGia_BoiDuong.Enabled =
+                    txt_Diem_BoiDuong.Enabled = rtb_GhiChu_BoiDuong.Enabled =
+                    comB_Tinh_BoiDuong.Enabled = tableLP_BoiDuong_Tinh.Enabled = tableLP_BoiDuong_QG.Enabled = Add;
+            dtgv_BoiDuong.Enabled = lbl_XoaBoiDuong.Enabled = !Add;
 
             if (Add)
             {
                 lbl_SuaBoiDuong.Text = "Huỷ";
                 lbl_ThemBoiDuong.Text = "Lưu";
-                txt_TenTruong_BoiDuong.Enabled = txt_ChuyenNganh_BoiDuong.Enabled = txt_XepLoai_BoiDuong.Enabled
-                    = txt_TenChungChi.Enabled = dTP_DenNgay_BoiDuong.Enabled =
-                    dTP_TuNgay_BoiDuong.Enabled = comB_QuocGia_BoiDuong.Enabled = 
-                    txt_Diem_BoiDuong.Enabled = rtb_GhiChu_BoiDuong.Enabled =
-                    comB_Tinh_BoiDuong.Enabled = true;
                 
-                dtgv_BoiDuong.Enabled = lbl_XoaBoiDuong.Enabled = false;
             }
             else
             {
                 lbl_SuaBoiDuong.Text = "Sửa";
                 lbl_ThemBoiDuong.Text = "Thêm";
-                txt_TenTruong_BoiDuong.Enabled = txt_ChuyenNganh_BoiDuong.Enabled = txt_XepLoai_BoiDuong.Enabled
-                    = txt_TenChungChi.Enabled = dTP_DenNgay_BoiDuong.Enabled =
-                    dTP_TuNgay_BoiDuong.Enabled = comB_QuocGia_BoiDuong.Enabled =
-                    txt_Diem_BoiDuong.Enabled = rtb_GhiChu_BoiDuong.Enabled 
-                    = comB_Tinh_BoiDuong.Enabled = false;
-                dtgv_BoiDuong.Enabled = lbl_XoaBoiDuong.Enabled = true;
             }
         }
 
@@ -835,6 +848,8 @@ namespace QLNS.UCs.DanhMucThongTin
                                     GetDaoTaoBoiDuongInfo(Program.selected_ma_nv);
                                     dtgv_DaoTao.DataSource = dtDaoTao;
                                     Setup_dtgv_DaoTao();
+                                    ControlDaoTao(false);
+                                    ClearDaoTaoData();
 
                                     MessageBox.Show("Thêm thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 }
@@ -857,6 +872,8 @@ namespace QLNS.UCs.DanhMucThongTin
                                     GetDaoTaoBoiDuongInfo(Program.selected_ma_nv);
                                     dtgv_DaoTao.DataSource = dtDaoTao;
                                     Setup_dtgv_DaoTao();
+                                    ControlDaoTao(false);
+                                    ClearDaoTaoData();
 
                                     MessageBox.Show("Sửa thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 }
@@ -867,8 +884,7 @@ namespace QLNS.UCs.DanhMucThongTin
                             }
                         }
 
-                        ControlDaoTao(false);
-                        ClearDaoTaoData();
+                        
                     }
                     else
                     {
@@ -967,13 +983,13 @@ namespace QLNS.UCs.DanhMucThongTin
             oCNVC_DaoTaoBoiDuong.CQ_HoiDongCham = txt_HoiDong.Text;
             oCNVC_DaoTaoBoiDuong.BD_TenChungChi = "";
             oCNVC_DaoTaoBoiDuong.GhiChu = rtb_GhiChu_DaoTao.Text;
-            if (comB_PhuongThucDT.SelectedIndex == 0)
+            if (Convert.ToInt16(comB_PhuongThucDT.SelectedValue) == -1)
             {
                 oCNVC_DaoTaoBoiDuong.PhuongThucDaoTaoID = null;
             }
             else
             {
-                oCNVC_DaoTaoBoiDuong.PhuongThucDaoTaoID = comB_PhuongThucDT.SelectedIndex;
+                oCNVC_DaoTaoBoiDuong.PhuongThucDaoTaoID = Convert.ToInt16(comB_PhuongThucDT.SelectedValue);
             }
             
             if (Convert.ToInt16(comB_VanBang.SelectedValue) == -1)
@@ -991,11 +1007,13 @@ namespace QLNS.UCs.DanhMucThongTin
             }
             else
             {
-                int nTrinhDoID = dtVanBang.AsEnumerable().Where(a => a.Field<int>("id") == Convert.ToInt16(comB_VanBang.SelectedValue)).Select(b => b.Field<int>("trinh_do_id")).First();
+                
+
+                int? nTrinhDoID = dtVanBang.AsEnumerable().Where(a => a.Field<int>("id") == Convert.ToInt16(comB_VanBang.SelectedValue)).Select(b => b.Field<int?>("trinh_do_id")).First();
                 oCNVC_DaoTaoBoiDuong.TrinhDoID = nTrinhDoID;
             }
 
-            if (txt_Diem_DaoTao.Text == "")
+            if (txt_Diem_DaoTao.Text != "")
             {
                 try
                 {
@@ -1061,6 +1079,21 @@ namespace QLNS.UCs.DanhMucThongTin
             oCNVC_DaoTaoBoiDuong.XepLoai = txt_XepLoai_BoiDuong.Text;
             oCNVC_DaoTaoBoiDuong.BD_TenChungChi = txt_TenChungChi.Text;
             oCNVC_DaoTaoBoiDuong.CQ_TenLuanVan = txt_TenLuanVan.Text;
+            oCNVC_DaoTaoBoiDuong.GhiChu = rtb_GhiChu_BoiDuong.Text;
+            if (txt_Diem_BoiDuong.Text != "")
+            {
+                try
+                {
+                    oCNVC_DaoTaoBoiDuong.Diem = Convert.ToDouble(txt_Diem_BoiDuong.Text);
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+            }
+            else
+                oCNVC_DaoTaoBoiDuong.Diem = null;
 
             if (dTP_TuNgay_BoiDuong.Checked)
             {
@@ -1208,9 +1241,9 @@ namespace QLNS.UCs.DanhMucThongTin
         {
             if (Program.selected_ma_nv != "")
             {
-                if (lbl_SuaBoiDuong.Text == "Sửa")
+                if (lbl_SuaBoiDuong.Text == "Sửa" )
                 {
-                    if (dtgv_BoiDuong.Rows.Count > 0 && dtgv_BoiDuong.SelectedRows != null)
+                    if ( dtgv_BoiDuong.SelectedRows.Count > 0)
                     {
                         txt_TenTruong_BoiDuong.Focus();
                         bAddBoiDuongFlag = false;
@@ -1218,7 +1251,7 @@ namespace QLNS.UCs.DanhMucThongTin
                     }
                     else
                     {
-                        MessageBox.Show("Chưa có thông tin về trình độ phổ thông của nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Chưa có thông tin hoặc chưa chọn thông tin về trình độ phổ thông của nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
                 else        // HUỶ

@@ -72,10 +72,10 @@
             this.tableLP_VanBang.Location = new System.Drawing.Point(0, 0);
             this.tableLP_VanBang.Name = "tableLP_VanBang";
             this.tableLP_VanBang.RowCount = 3;
-            this.tableLP_VanBang.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.21127F));
-            this.tableLP_VanBang.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.64789F));
+            this.tableLP_VanBang.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLP_VanBang.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLP_VanBang.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLP_VanBang.Size = new System.Drawing.Size(550, 500);
+            this.tableLP_VanBang.Size = new System.Drawing.Size(550, 600);
             this.tableLP_VanBang.TabIndex = 1;
             // 
             // groupBox2
@@ -83,11 +83,11 @@
             this.tableLP_VanBang.SetColumnSpan(this.groupBox2, 2);
             this.groupBox2.Controls.Add(this.tableLP_ThaoTac);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(3, 130);
+            this.groupBox2.Location = new System.Drawing.Point(3, 184);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Size = new System.Drawing.Size(544, 115);
+            this.groupBox2.Size = new System.Drawing.Size(544, 112);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thao tác";
@@ -106,11 +106,11 @@
             this.tableLP_ThaoTac.Controls.Add(this.btn_Xoa, 4, 0);
             this.tableLP_ThaoTac.Controls.Add(this.btn_Sua, 1, 0);
             this.tableLP_ThaoTac.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLP_ThaoTac.Location = new System.Drawing.Point(3, 22);
+            this.tableLP_ThaoTac.Location = new System.Drawing.Point(3, 26);
             this.tableLP_ThaoTac.Name = "tableLP_ThaoTac";
             this.tableLP_ThaoTac.RowCount = 1;
             this.tableLP_ThaoTac.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLP_ThaoTac.Size = new System.Drawing.Size(538, 89);
+            this.tableLP_ThaoTac.Size = new System.Drawing.Size(538, 82);
             this.tableLP_ThaoTac.TabIndex = 1;
             // 
             // btn_Huy
@@ -119,7 +119,7 @@
             this.btn_Huy.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_Huy.ImageKey = "Cancel.png";
             this.btn_Huy.ImageList = this.imageList1;
-            this.btn_Huy.Location = new System.Drawing.Point(346, 16);
+            this.btn_Huy.Location = new System.Drawing.Point(346, 13);
             this.btn_Huy.Name = "btn_Huy";
             this.btn_Huy.Size = new System.Drawing.Size(56, 56);
             this.btn_Huy.TabIndex = 3;
@@ -144,7 +144,7 @@
             this.btn_Them.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_Them.ImageKey = "Add.png";
             this.btn_Them.ImageList = this.imageList1;
-            this.btn_Them.Location = new System.Drawing.Point(25, 16);
+            this.btn_Them.Location = new System.Drawing.Point(25, 13);
             this.btn_Them.Name = "btn_Them";
             this.btn_Them.Size = new System.Drawing.Size(56, 56);
             this.btn_Them.TabIndex = 0;
@@ -158,7 +158,7 @@
             this.btn_Luu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_Luu.ImageKey = "Save.png";
             this.btn_Luu.ImageList = this.imageList1;
-            this.btn_Luu.Location = new System.Drawing.Point(239, 16);
+            this.btn_Luu.Location = new System.Drawing.Point(239, 13);
             this.btn_Luu.Name = "btn_Luu";
             this.btn_Luu.Size = new System.Drawing.Size(56, 56);
             this.btn_Luu.TabIndex = 2;
@@ -173,7 +173,7 @@
             this.btn_Xoa.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_Xoa.ImageKey = "Garbage.png";
             this.btn_Xoa.ImageList = this.imageList1;
-            this.btn_Xoa.Location = new System.Drawing.Point(455, 16);
+            this.btn_Xoa.Location = new System.Drawing.Point(455, 13);
             this.btn_Xoa.Name = "btn_Xoa";
             this.btn_Xoa.Size = new System.Drawing.Size(56, 56);
             this.btn_Xoa.TabIndex = 4;
@@ -187,7 +187,7 @@
             this.btn_Sua.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_Sua.ImageKey = "Edit Data.png";
             this.btn_Sua.ImageList = this.imageList1;
-            this.btn_Sua.Location = new System.Drawing.Point(132, 16);
+            this.btn_Sua.Location = new System.Drawing.Point(132, 13);
             this.btn_Sua.Name = "btn_Sua";
             this.btn_Sua.Size = new System.Drawing.Size(56, 56);
             this.btn_Sua.TabIndex = 1;
@@ -200,9 +200,9 @@
             this.tableLP_VanBang.SetColumnSpan(this.groupBox1, 2);
             this.groupBox1.Controls.Add(this.tableLP_DSVanBang);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(3, 252);
+            this.groupBox1.Location = new System.Drawing.Point(3, 303);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(544, 245);
+            this.groupBox1.Size = new System.Drawing.Size(544, 294);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh sách văn bằng";
@@ -216,23 +216,24 @@
             this.tableLP_DSVanBang.Controls.Add(this.dtgv_DSVanBang, 0, 0);
             this.tableLP_DSVanBang.Controls.Add(this.label2, 0, 1);
             this.tableLP_DSVanBang.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLP_DSVanBang.Location = new System.Drawing.Point(3, 21);
+            this.tableLP_DSVanBang.Location = new System.Drawing.Point(3, 25);
             this.tableLP_DSVanBang.Name = "tableLP_DSVanBang";
             this.tableLP_DSVanBang.RowCount = 2;
             this.tableLP_DSVanBang.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
             this.tableLP_DSVanBang.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLP_DSVanBang.Size = new System.Drawing.Size(538, 221);
+            this.tableLP_DSVanBang.Size = new System.Drawing.Size(538, 266);
             this.tableLP_DSVanBang.TabIndex = 0;
             // 
             // lbl_SoVanBang
             // 
             this.lbl_SoVanBang.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbl_SoVanBang.AutoSize = true;
-            this.lbl_SoVanBang.Location = new System.Drawing.Point(142, 200);
+            this.lbl_SoVanBang.Location = new System.Drawing.Point(142, 241);
             this.lbl_SoVanBang.Name = "lbl_SoVanBang";
-            this.lbl_SoVanBang.Size = new System.Drawing.Size(46, 18);
+            this.lbl_SoVanBang.Size = new System.Drawing.Size(56, 23);
             this.lbl_SoVanBang.TabIndex = 3;
             this.lbl_SoVanBang.Text = "label4";
+            this.lbl_SoVanBang.Visible = false;
             // 
             // dtgv_DSVanBang
             // 
@@ -247,7 +248,7 @@
             this.dtgv_DSVanBang.ReadOnly = true;
             this.dtgv_DSVanBang.RowTemplate.Height = 24;
             this.dtgv_DSVanBang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgv_DSVanBang.Size = new System.Drawing.Size(532, 192);
+            this.dtgv_DSVanBang.Size = new System.Drawing.Size(532, 233);
             this.dtgv_DSVanBang.TabIndex = 0;
             this.dtgv_DSVanBang.SelectionChanged += new System.EventHandler(this.dtgv_DSVanBang_SelectionChanged);
             // 
@@ -255,18 +256,17 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 200);
+            this.label2.Location = new System.Drawing.Point(3, 241);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 18);
+            this.label2.Size = new System.Drawing.Size(103, 23);
             this.label2.TabIndex = 2;
             this.label2.Text = "Số văn bằng";
+            this.label2.Visible = false;
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLP_VanBang.SetColumnSpan(this.tableLayoutPanel1, 2);
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
@@ -284,36 +284,35 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(544, 120);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(544, 174);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 9);
+            this.label1.Location = new System.Drawing.Point(3, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(30, 18);
+            this.label1.Size = new System.Drawing.Size(36, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên";
             // 
             // txt_Ten
             // 
             this.txt_Ten.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_Ten.Location = new System.Drawing.Point(84, 5);
+            this.txt_Ten.Location = new System.Drawing.Point(166, 11);
             this.txt_Ten.MaxLength = 20;
             this.txt_Ten.Name = "txt_Ten";
-            this.txt_Ten.Size = new System.Drawing.Size(184, 25);
+            this.txt_Ten.Size = new System.Drawing.Size(184, 29);
             this.txt_Ten.TabIndex = 0;
             // 
             // rtb_MoTa
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.rtb_MoTa, 3);
             this.rtb_MoTa.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtb_MoTa.Location = new System.Drawing.Point(84, 75);
+            this.rtb_MoTa.Location = new System.Drawing.Point(166, 107);
             this.rtb_MoTa.MaxLength = 100;
             this.rtb_MoTa.Name = "rtb_MoTa";
-            this.rtb_MoTa.Size = new System.Drawing.Size(457, 42);
+            this.rtb_MoTa.Size = new System.Drawing.Size(375, 64);
             this.rtb_MoTa.TabIndex = 2;
             this.rtb_MoTa.Text = "";
             // 
@@ -321,9 +320,9 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 87);
+            this.label3.Location = new System.Drawing.Point(3, 127);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 18);
+            this.label3.Size = new System.Drawing.Size(55, 23);
             this.label3.TabIndex = 2;
             this.label3.Text = "Mô tả";
             // 
@@ -331,9 +330,9 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 45);
+            this.label4.Location = new System.Drawing.Point(3, 66);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 18);
+            this.label4.Size = new System.Drawing.Size(73, 23);
             this.label4.TabIndex = 3;
             this.label4.Text = "Trình độ";
             // 
@@ -342,21 +341,21 @@
             this.comB_TrinhDo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_TrinhDo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_TrinhDo.FormattingEnabled = true;
-            this.comB_TrinhDo.Location = new System.Drawing.Point(84, 41);
+            this.comB_TrinhDo.Location = new System.Drawing.Point(166, 63);
             this.comB_TrinhDo.Name = "comB_TrinhDo";
-            this.comB_TrinhDo.Size = new System.Drawing.Size(184, 25);
+            this.comB_TrinhDo.Size = new System.Drawing.Size(184, 30);
             this.comB_TrinhDo.TabIndex = 4;
             // 
             // QLNS_VanBang
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.tableLP_VanBang);
             this.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "QLNS_VanBang";
-            this.Size = new System.Drawing.Size(550, 500);
+            this.Size = new System.Drawing.Size(550, 600);
             this.Load += new System.EventHandler(this.QLNS_VanBang_Load);
             this.tableLP_VanBang.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
