@@ -96,6 +96,7 @@
             this.txt_DTNha = new System.Windows.Forms.TextBox();
             this.txt_DTDD = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.btn_Huy = new System.Windows.Forms.Button();
             this.tableLP_ThongTinChinh.SuspendLayout();
             this.groupBox15.SuspendLayout();
             this.tableLP_CMND.SuspendLayout();
@@ -182,6 +183,7 @@
             // 
             this.comB_TinhTrang.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_TinhTrang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comB_TinhTrang.Enabled = false;
             this.comB_TinhTrang.FormattingEnabled = true;
             this.comB_TinhTrang.Items.AddRange(new object[] {
             "Còn hiệu lực",
@@ -195,11 +197,12 @@
             // 
             this.comB_CMND_HoChieu.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_CMND_HoChieu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comB_CMND_HoChieu.Enabled = false;
             this.comB_CMND_HoChieu.FormattingEnabled = true;
             this.comB_CMND_HoChieu.Items.AddRange(new object[] {
             "CMND",
             "Hộ chiếu"});
-            this.comB_CMND_HoChieu.Location = new System.Drawing.Point(571, 54);
+            this.comB_CMND_HoChieu.Location = new System.Drawing.Point(571, 55);
             this.comB_CMND_HoChieu.Name = "comB_CMND_HoChieu";
             this.comB_CMND_HoChieu.Size = new System.Drawing.Size(240, 26);
             this.comB_CMND_HoChieu.TabIndex = 3;
@@ -209,6 +212,7 @@
             this.dTP_NgayCap.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dTP_NgayCap.Checked = false;
             this.dTP_NgayCap.CustomFormat = "dd/MM/yyyy";
+            this.dTP_NgayCap.Enabled = false;
             this.dTP_NgayCap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dTP_NgayCap.Location = new System.Drawing.Point(571, 9);
             this.dTP_NgayCap.Name = "dTP_NgayCap";
@@ -219,6 +223,7 @@
             // txt_MaSo
             // 
             this.txt_MaSo.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_MaSo.Enabled = false;
             this.txt_MaSo.Location = new System.Drawing.Point(134, 9);
             this.txt_MaSo.Name = "txt_MaSo";
             this.txt_MaSo.Size = new System.Drawing.Size(240, 26);
@@ -293,6 +298,7 @@
             // txt_NoiCap
             // 
             this.txt_NoiCap.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_NoiCap.Enabled = false;
             this.txt_NoiCap.Location = new System.Drawing.Point(134, 54);
             this.txt_NoiCap.Name = "txt_NoiCap";
             this.txt_NoiCap.Size = new System.Drawing.Size(240, 26);
@@ -379,6 +385,7 @@
             this.tableLP_ThongTinNV.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tableLP_ThongTinNV.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLP_ThongTinNV.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.tableLP_ThongTinNV.Controls.Add(this.btn_Huy, 3, 7);
             this.tableLP_ThongTinNV.Controls.Add(this.dTP_NgaySinh, 1, 3);
             this.tableLP_ThongTinNV.Controls.Add(this.label19, 0, 3);
             this.tableLP_ThongTinNV.Controls.Add(this.tableLP_QuocGia, 0, 7);
@@ -425,6 +432,7 @@
             this.dTP_NgaySinh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dTP_NgaySinh.Checked = false;
             this.dTP_NgaySinh.CustomFormat = "dd/MM/yyyy";
+            this.dTP_NgaySinh.Enabled = false;
             this.dTP_NgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dTP_NgaySinh.Location = new System.Drawing.Point(134, 178);
             this.dTP_NgaySinh.Name = "dTP_NgaySinh";
@@ -449,6 +457,7 @@
             this.tableLP_QuocGia.Controls.Add(this.comB_QuocGia, 0, 0);
             this.tableLP_QuocGia.Controls.Add(this.lbl_ThemQuocGia, 0, 1);
             this.tableLP_QuocGia.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLP_QuocGia.Enabled = false;
             this.tableLP_QuocGia.Location = new System.Drawing.Point(134, 438);
             this.tableLP_QuocGia.Name = "tableLP_QuocGia";
             this.tableLP_QuocGia.RowCount = 2;
@@ -513,6 +522,7 @@
             this.tableLP_DiaChi.Controls.Add(this.label4, 2, 0);
             this.tableLP_DiaChi.Controls.Add(this.txt_SoSoBHXH, 1, 0);
             this.tableLP_DiaChi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLP_DiaChi.Enabled = false;
             this.tableLP_DiaChi.Location = new System.Drawing.Point(3, 292);
             this.tableLP_DiaChi.Name = "tableLP_DiaChi";
             this.tableLP_DiaChi.RowCount = 3;
@@ -707,6 +717,7 @@
             this.picB_HinhDaiDien.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.picB_HinhDaiDien.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picB_HinhDaiDien.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picB_HinhDaiDien.Enabled = false;
             this.picB_HinhDaiDien.Location = new System.Drawing.Point(135, 3);
             this.picB_HinhDaiDien.Name = "picB_HinhDaiDien";
             this.picB_HinhDaiDien.Size = new System.Drawing.Size(100, 120);
@@ -718,6 +729,7 @@
             // txt_MaSoThue
             // 
             this.txt_MaSoThue.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_MaSoThue.Enabled = false;
             this.txt_MaSoThue.Location = new System.Drawing.Point(571, 256);
             this.txt_MaSoThue.Name = "txt_MaSoThue";
             this.txt_MaSoThue.Size = new System.Drawing.Size(240, 26);
@@ -736,6 +748,7 @@
             // txt_MaHoSo
             // 
             this.txt_MaHoSo.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_MaHoSo.Enabled = false;
             this.txt_MaHoSo.Location = new System.Drawing.Point(571, 34);
             this.txt_MaHoSo.Name = "txt_MaHoSo";
             this.txt_MaHoSo.Size = new System.Drawing.Size(240, 26);
@@ -754,12 +767,11 @@
             // btn_LuuCNVC
             // 
             this.btn_LuuCNVC.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tableLP_ThongTinNV.SetColumnSpan(this.btn_LuuCNVC, 2);
             this.btn_LuuCNVC.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_LuuCNVC.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_LuuCNVC.ImageKey = "Save.png";
+            this.btn_LuuCNVC.ImageKey = "Edit Data.png";
             this.btn_LuuCNVC.ImageList = this.imageList2;
-            this.btn_LuuCNVC.Location = new System.Drawing.Point(633, 443);
+            this.btn_LuuCNVC.Location = new System.Drawing.Point(478, 443);
             this.btn_LuuCNVC.MinimumSize = new System.Drawing.Size(48, 48);
             this.btn_LuuCNVC.Name = "btn_LuuCNVC";
             this.btn_LuuCNVC.Size = new System.Drawing.Size(48, 48);
@@ -773,6 +785,8 @@
             this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
             this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList2.Images.SetKeyName(0, "Save.png");
+            this.imageList2.Images.SetKeyName(1, "Cancel.png");
+            this.imageList2.Images.SetKeyName(2, "Edit Data.png");
             // 
             // label11
             // 
@@ -787,6 +801,7 @@
             // txt_MaNV
             // 
             this.txt_MaNV.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_MaNV.Enabled = false;
             this.txt_MaNV.Location = new System.Drawing.Point(571, 100);
             this.txt_MaNV.Name = "txt_MaNV";
             this.txt_MaNV.Size = new System.Drawing.Size(240, 26);
@@ -806,12 +821,13 @@
             // 
             this.comB_GioiTinh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_GioiTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comB_GioiTinh.Enabled = false;
             this.comB_GioiTinh.FormattingEnabled = true;
             this.comB_GioiTinh.Items.AddRange(new object[] {
             "Nam",
             "Nữ",
             " "});
-            this.comB_GioiTinh.Location = new System.Drawing.Point(134, 257);
+            this.comB_GioiTinh.Location = new System.Drawing.Point(134, 256);
             this.comB_GioiTinh.Name = "comB_GioiTinh";
             this.comB_GioiTinh.Size = new System.Drawing.Size(87, 26);
             this.comB_GioiTinh.TabIndex = 4;
@@ -829,6 +845,7 @@
             // txt_Ho
             // 
             this.txt_Ho.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_Ho.Enabled = false;
             this.txt_Ho.Location = new System.Drawing.Point(134, 139);
             this.txt_Ho.Name = "txt_Ho";
             this.txt_Ho.Size = new System.Drawing.Size(240, 26);
@@ -847,6 +864,7 @@
             // txt_Ten
             // 
             this.txt_Ten.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_Ten.Enabled = false;
             this.txt_Ten.Location = new System.Drawing.Point(571, 139);
             this.txt_Ten.Name = "txt_Ten";
             this.txt_Ten.Size = new System.Drawing.Size(240, 26);
@@ -885,6 +903,7 @@
             // txt_Email
             // 
             this.txt_Email.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_Email.Enabled = false;
             this.txt_Email.Location = new System.Drawing.Point(571, 178);
             this.txt_Email.Name = "txt_Email";
             this.txt_Email.Size = new System.Drawing.Size(240, 26);
@@ -893,6 +912,7 @@
             // txt_DTNha
             // 
             this.txt_DTNha.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_DTNha.Enabled = false;
             this.txt_DTNha.Location = new System.Drawing.Point(134, 217);
             this.txt_DTNha.Name = "txt_DTNha";
             this.txt_DTNha.Size = new System.Drawing.Size(240, 26);
@@ -902,6 +922,7 @@
             // txt_DTDD
             // 
             this.txt_DTDD.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_DTDD.Enabled = false;
             this.txt_DTDD.Location = new System.Drawing.Point(571, 217);
             this.txt_DTDD.Name = "txt_DTDD";
             this.txt_DTDD.Size = new System.Drawing.Size(240, 26);
@@ -913,6 +934,22 @@
             this.openFileDialog1.Filter = "PNG|*.PNG|GIF|*.GIF|JPEG|*.JPEG|JPG|*.JPG|Pictures Format|*.JPEG;*.PNG;*.GIF;*.JP" +
     "G";
             this.openFileDialog1.Title = "Chọn hình đại diện";
+            // 
+            // btn_Huy
+            // 
+            this.btn_Huy.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btn_Huy.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Huy.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_Huy.ImageKey = "Cancel.png";
+            this.btn_Huy.ImageList = this.imageList2;
+            this.btn_Huy.Location = new System.Drawing.Point(571, 439);
+            this.btn_Huy.Name = "btn_Huy";
+            this.btn_Huy.Size = new System.Drawing.Size(56, 56);
+            this.btn_Huy.TabIndex = 56;
+            this.btn_Huy.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Huy.UseVisualStyleBackColor = true;
+            this.btn_Huy.Visible = false;
+            this.btn_Huy.Click += new System.EventHandler(this.btn_Huy_Click);
             // 
             // QLNS_ThongTinNV
             // 
@@ -1014,5 +1051,6 @@
         public System.Windows.Forms.TextBox txt_DTNha;
         public System.Windows.Forms.TextBox txt_DTDD;
         public System.Windows.Forms.DateTimePicker dTP_NgaySinh;
+        private System.Windows.Forms.Button btn_Huy;
     }
 }

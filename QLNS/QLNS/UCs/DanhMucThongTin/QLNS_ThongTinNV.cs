@@ -45,18 +45,10 @@ namespace QLNS.UCs.DanhMucThongTin
             AvatarPath = new string[1];
         }
 
-        public void GetCNVCInfo(string m_MaNV)
+        public void GetCNVC_CMNDInfo(string m_MaNV)
         {
-            try
-            {
-                oCNVC.MaNV = m_MaNV;
-                dtCNVC = oCNVC.GetData();
-            }
-            catch (Exception )
-            {
-                
-            }
 
+            Get_CNVC_Info(m_MaNV);
             try
             {
                 oCMND_HoChieu.MaNV = m_MaNV;
@@ -66,8 +58,19 @@ namespace QLNS.UCs.DanhMucThongTin
             {
                 
             }
+        }
 
-            
+        private void Get_CNVC_Info(string m_MaNV)
+        {
+            try
+            {
+                oCNVC.MaNV = m_MaNV;
+                dtCNVC = oCNVC.GetData();
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         private void QLNS_ThongTinNV_Load(object sender, EventArgs e)
@@ -85,12 +88,29 @@ namespace QLNS.UCs.DanhMucThongTin
         }
 
         public void FillInfo()
-        {    
+        {
+            Fill_CNVC_Info();
+
+            ClearCMNDData();
+            dtgv_CMNDHoChieu.DataSource = null;
+            dtgv_CMNDHoChieu.Columns.Clear();
+            if (dtCMND.Rows.Count > 0)
+            {
+                DataTable dt = dtCMND.Copy();
+                dtgv_CMNDHoChieu.DataSource = dt;
+                Setup_dtgv_CMNDHoChieu();
+                
+            }
+
+        }
+
+        private void Fill_CNVC_Info()
+        {
             if (dtCNVC.Rows.Count > 0)
             {
                 txt_MaHoSo.Text = Convert.ToString(dtCNVC.Rows[0]["ma_ho_so_goc"]);
                 txt_MaNV.Text = Convert.ToString(dtCNVC.Rows[0]["ma_nv"]);
-                txt_Ho.Text =  Convert.ToString(dtCNVC.Rows[0]["ho"]);
+                txt_Ho.Text = Convert.ToString(dtCNVC.Rows[0]["ho"]);
                 txt_Ten.Text = Convert.ToString(dtCNVC.Rows[0]["ten"]);
                 txt_SoSoBHXH.Text = Convert.ToString(dtCNVC.Rows[0]["so_so_bhxh"]);
                 txt_MaSoThue.Text = Convert.ToString(dtCNVC.Rows[0]["ma_so_thue"]);
@@ -100,7 +120,7 @@ namespace QLNS.UCs.DanhMucThongTin
                 txt_QuanHuyen.Text = Convert.ToString(dtCNVC.Rows[0]["quan_huyen"]);
                 txt_DTDD.Text = Convert.ToString(dtCNVC.Rows[0]["p_dt_di_dong"]);
                 txt_DTNha.Text = Convert.ToString(dtCNVC.Rows[0]["p_dt_nha_rieng"]);
-                txt_Email.Text = Convert.ToString(dtCNVC.Rows[0]["p_email"]); 
+                txt_Email.Text = Convert.ToString(dtCNVC.Rows[0]["p_email"]);
                 string gioitinh = dtCNVC.Rows[0]["gioi_tinh"].ToString();
                 switch (gioitinh)
                 {
@@ -132,20 +152,8 @@ namespace QLNS.UCs.DanhMucThongTin
                     ChangeTinhCombByQuocGia();  // neu data cua nv o co tinh tp, thi chi do ~ tp thuoc quoc gia
                     comB_Tinh.SelectedValue = -1;
                 }
-                
-            }
 
-            ClearCMNDData();
-            dtgv_CMNDHoChieu.DataSource = null;
-            dtgv_CMNDHoChieu.Columns.Clear();
-            if (dtCMND.Rows.Count > 0)
-            {
-                DataTable dt = dtCMND.Copy();
-                dtgv_CMNDHoChieu.DataSource = dt;
-                Setup_dtgv_CMNDHoChieu();
-                
             }
-
         }
 
         public void FillAvatar()
@@ -172,45 +180,56 @@ namespace QLNS.UCs.DanhMucThongTin
         private void btn_LuuCNVC_Click(object sender, EventArgs e)
         {
             #region Thong Tin NV
-            bool bUploadInfoSuccess = true;
-            bool Yes = MessageBox.Show("Thêm / cập nhật nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes;
-            if (VerifyCNVCData())
+
+            if (btn_LuuCNVC.ImageKey == "Edit Data.png")
             {
-                if (Yes)
-                {
-                    try
-                    {
-                        GetCNVCInfoData();
-                        if (QLNS_HienThiThongTin.bAddFlag)
-                        {
-                            oCNVC.Add();
-                            Program.selected_ma_nv = oCNVC.MaNV;
-                            MessageBox.Show("Thêm nhân viên thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        else
-                        {
-                            oCNVC.Update(Program.selected_ma_nv);
-                            MessageBox.Show("Cập nhật nhân viên thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        bUploadInfoSuccess = true;
-
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("Thông tin nhân viên không phù hợp, xin vui lòng xem lại thông tin nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-
-                    if (bUploadInfoSuccess)
-                    {
-                        UploadAvatar();
-                    }
-                }
-                bUploadInfoSuccess = false;
+                EnableCNVCControl(true);
             }
             else
             {
-                MessageBox.Show("Thông tin không đầy đủ hoặc chưa chính xác, xin vui lòng xem lại thông tin nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            } 
+                bool bUploadInfoSuccess = true;
+                bool Yes = MessageBox.Show("Thêm / cập nhật nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes;
+                if (VerifyCNVCData())
+                {
+                    if (Yes)
+                    {
+                        try
+                        {
+                            GetCNVCInfoData();
+                            if (QLNS_HienThiThongTin.bAddFlag)
+                            {
+                                oCNVC.Add();
+                                Program.selected_ma_nv = oCNVC.MaNV;
+                                MessageBox.Show("Thêm nhân viên thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                oCNVC.Update(Program.selected_ma_nv);
+                                MessageBox.Show("Cập nhật nhân viên thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            bUploadInfoSuccess = true;
+                            EnableCNVCControl(false);
+                            Get_CNVC_Info(Program.selected_ma_nv);
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Thông tin nhân viên không phù hợp, xin vui lòng xem lại thông tin nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+
+                        if (bUploadInfoSuccess)
+                        {
+                            UploadAvatar();
+                        }
+                    }
+                    bUploadInfoSuccess = false;
+                }
+                else
+                {
+                    MessageBox.Show("Thông tin không đầy đủ hoặc chưa chính xác, xin vui lòng xem lại thông tin nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                } 
+            }
+
+            
             #endregion
 
             
@@ -340,9 +359,13 @@ namespace QLNS.UCs.DanhMucThongTin
                 return false;
             }
 
-            Regex reg = new Regex(@"^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$"); ///Object initialization for Regex 
-            if (!reg.IsMatch(txt_Email.Text.Trim()))
-                return false;
+            if (!string.IsNullOrWhiteSpace(txt_Email.Text.Trim()))
+            {
+                Regex reg = new Regex(@"^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$"); ///Object initialization for Regex 
+                if (!reg.IsMatch(txt_Email.Text.Trim()))
+                    return false;
+            }
+            
 
             //try
             //{
@@ -631,9 +654,9 @@ namespace QLNS.UCs.DanhMucThongTin
             else        // HUỶ
             {
                 bAddCMNDFlag = false;
-                    ControlCMND(false);
-                    ClearCMNDData();
-             
+                ControlCMND(false);
+                ClearCMNDData();
+                if (dtgv_CMNDHoChieu.SelectedRows.Count > 0) dtgv_CMNDHoChieu.SelectedRows[0].Selected = false;
             }
         }
 
@@ -646,21 +669,37 @@ namespace QLNS.UCs.DanhMucThongTin
 
         private void ControlCMND(bool Add)
         {
-            
+            txt_NoiCap.Enabled = txt_MaSo.Enabled = dTP_NgayCap.Enabled = comB_CMND_HoChieu.Enabled = comB_TinhTrang.Enabled = Add;
+            dtgv_CMNDHoChieu.Enabled = lbl_XoaCMND.Enabled = !Add;
+
             if (Add)
             {
                 lbl_SuaCMND.Text = "Huỷ";
                 lbl_ThemCMND.Text = "Lưu";
-                txt_NoiCap.Enabled = txt_MaSo.Enabled = dTP_NgayCap.Enabled = comB_CMND_HoChieu.Enabled = comB_TinhTrang.Enabled = true;
-                dtgv_CMNDHoChieu.Enabled = lbl_XoaCMND.Enabled = false;
+                
             }
             else
             {
                 lbl_SuaCMND.Text = "Sửa";
                 lbl_ThemCMND.Text = "Thêm";
-                txt_NoiCap.Enabled = txt_MaSo.Enabled = dTP_NgayCap.Enabled = comB_CMND_HoChieu.Enabled = comB_TinhTrang.Enabled = false;
-                dtgv_CMNDHoChieu.Enabled = lbl_XoaCMND.Enabled = true;
-                
+            }
+        }
+
+        private void EnableCNVCControl(bool bEnable)
+        {
+            picB_HinhDaiDien.Enabled = txt_DTDD.Enabled = txt_DTNha.Enabled = txt_MaHoSo.Enabled
+                = txt_MaNV.Enabled = txt_Ho.Enabled = txt_Ten.Enabled = txt_Email.Enabled
+                = txt_MaSoThue.Enabled = dTP_NgaySinh.Enabled = comB_GioiTinh.Enabled
+                = tableLP_DiaChi.Enabled = tableLP_QuocGia.Enabled  = bEnable;
+            btn_Huy.Visible = bEnable;
+
+            if (bEnable)
+            {
+                btn_LuuCNVC.ImageKey = "Save.png";
+            }
+            else
+            {
+                btn_LuuCNVC.ImageKey = "Edit Data.png";
             }
         }
 
@@ -889,6 +928,12 @@ namespace QLNS.UCs.DanhMucThongTin
             {
                 e.Handled = true;
             }
+        }
+
+        private void btn_Huy_Click(object sender, EventArgs e)
+        {
+            EnableCNVCControl(false);
+            Fill_CNVC_Info();
         }
     }
 }

@@ -47,10 +47,26 @@ namespace QLNS.UCs.DanhMucThongTin
         #region Thông tin tuyển dụng
         public void LoadHopDongTuyenDung(string p_ma_nv)
         {
-            oTTTuyenDung.MaNV = p_ma_nv;
-            dtTTTuyenDung = oTTTuyenDung.GetData();
+            GetHopDongTuyenDung(p_ma_nv);
             if ((dtTTTuyenDung) != null && dtTTTuyenDung.Rows.Count > 0)
             {
+                FillTTTuyenDung();
+            }
+            else
+            {
+                EmptyHopDongTTContent();
+            }
+        }
+
+        private void GetHopDongTuyenDung(string p_ma_nv)
+        {
+            oTTTuyenDung.MaNV = p_ma_nv;
+            dtTTTuyenDung = oTTTuyenDung.GetData();
+        }
+
+        private void FillTTTuyenDung()
+        {
+
                 txt_NgheNghiep.Text = dtTTTuyenDung.Rows[0]["nghe_nghiep_trc_day"].ToString();
                 txt_CoQuan.Text = dtTTTuyenDung.Rows[0]["co_quan_tuyen_dung"].ToString();
                 string dt = dtTTTuyenDung.Rows[0]["ngay_tuyen_dung"].ToString();
@@ -58,11 +74,7 @@ namespace QLNS.UCs.DanhMucThongTin
                     dTP_NgayTuyenDung.Value = Convert.ToDateTime(dt);
                 else
                     dTP_NgayTuyenDung.Checked = false;
-            }
-            else
-            {
-                EmptyHopDongTTContent();
-            }
+            
         }
 
         public void EmptyHopDongTTContent()
@@ -163,36 +175,67 @@ namespace QLNS.UCs.DanhMucThongTin
 
         private void btn_Luu_Click(object sender, EventArgs e)
         {
-            if (Program.selected_ma_nv != "")
+            if (btn_Luu.ImageKey == "Edit Data.png")
             {
-
-                oTTTuyenDung.MaNV = Program.selected_ma_nv;
-                oTTTuyenDung.NgheNghiepTruocDay = txt_NgheNghiep.Text;
-                oTTTuyenDung.CoQuanTuyenDung = txt_CoQuan.Text;
-                if (dTP_NgayTuyenDung.Checked == true)
-                    oTTTuyenDung.NgayTuyenDung = dTP_NgayTuyenDung.Value;
-
-                try
-                {
-                    if (MessageBox.Show("Bạn thực sự muốn lưu thông tin tuyển dụng cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        if (oTTTuyenDung.Update())
-                        {
-                            MessageBox.Show("Lưu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        else
-                            MessageBox.Show("Thao tác lưu thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Thao tác lưu thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                EnableControls(true);
             }
             else
             {
-                MessageBox.Show("Chưa có thông tin về nhân viên, xin vui lòng thêm thông tin nhân viên trước hoặc chọn một nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (Program.selected_ma_nv != "")
+                {
+
+                    oTTTuyenDung.MaNV = Program.selected_ma_nv;
+                    oTTTuyenDung.NgheNghiepTruocDay = txt_NgheNghiep.Text;
+                    oTTTuyenDung.CoQuanTuyenDung = txt_CoQuan.Text;
+                    if (dTP_NgayTuyenDung.Checked == true)
+                        oTTTuyenDung.NgayTuyenDung = dTP_NgayTuyenDung.Value;
+
+                    try
+                    {
+                        if (MessageBox.Show("Bạn thực sự muốn lưu thông tin tuyển dụng cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            if (oTTTuyenDung.Update())
+                            {
+                                MessageBox.Show("Lưu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                EnableControls(false);
+                                GetHopDongTuyenDung(Program.selected_ma_nv);
+                            }
+                            else
+                                MessageBox.Show("Thao tác lưu thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Thao tác lưu thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Chưa có thông tin về nhân viên, xin vui lòng thêm thông tin nhân viên trước hoặc chọn một nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
+
+            
+        }
+
+        private void EnableControls(bool bEnable)
+        {
+            txt_CoQuan.Enabled = txt_NgheNghiep.Enabled = dTP_NgayTuyenDung.Enabled = bEnable;
+            btn_Huy.Visible = bEnable;
+            if (bEnable)
+            {
+                btn_Luu.ImageKey = "Save.png";
+            }
+            else
+            {
+                btn_Luu.ImageKey = "Edit Data.png";
+            }
+        }
+
+        private void btn_Huy_Click(object sender, EventArgs e)
+        {
+            EnableControls(false);
+            FillTTTuyenDung();
         }
 
     }

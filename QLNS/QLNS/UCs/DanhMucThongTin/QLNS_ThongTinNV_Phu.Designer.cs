@@ -89,6 +89,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btn_Luu = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.btn_Huy = new System.Windows.Forms.Button();
             this.tableLP_ThongTinBoSung.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -128,7 +129,8 @@
             this.tableLP_ThongTinBoSung.Controls.Add(this.txt_NhomMau, 3, 2);
             this.tableLP_ThongTinBoSung.Controls.Add(this.groupBox1, 0, 4);
             this.tableLP_ThongTinBoSung.Controls.Add(this.label1, 0, 3);
-            this.tableLP_ThongTinBoSung.Controls.Add(this.btn_Luu, 0, 10);
+            this.tableLP_ThongTinBoSung.Controls.Add(this.btn_Luu, 1, 10);
+            this.tableLP_ThongTinBoSung.Controls.Add(this.btn_Huy, 2, 10);
             this.tableLP_ThongTinBoSung.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLP_ThongTinBoSung.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLP_ThongTinBoSung.Location = new System.Drawing.Point(0, 0);
@@ -152,6 +154,7 @@
             // 
             this.comB_QuocTich.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_QuocTich.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comB_QuocTich.Enabled = false;
             this.comB_QuocTich.FormattingEnabled = true;
             this.comB_QuocTich.Location = new System.Drawing.Point(153, 183);
             this.comB_QuocTich.Name = "comB_QuocTich";
@@ -163,6 +166,7 @@
             this.tableLP_ThongTinBoSung.SetColumnSpan(this.groupBox3, 4);
             this.groupBox3.Controls.Add(this.tableLayoutPanel1);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox3.Enabled = false;
             this.groupBox3.Location = new System.Drawing.Point(3, 679);
             this.groupBox3.Name = "groupBox3";
             this.tableLP_ThongTinBoSung.SetRowSpan(this.groupBox3, 2);
@@ -337,6 +341,7 @@
             this.tableLP_ThongTinBoSung.SetColumnSpan(this.groupBox2, 4);
             this.groupBox2.Controls.Add(this.tableLP_NoiSinh);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Enabled = false;
             this.groupBox2.Location = new System.Drawing.Point(3, 453);
             this.groupBox2.Name = "groupBox2";
             this.tableLP_ThongTinBoSung.SetRowSpan(this.groupBox2, 2);
@@ -519,6 +524,7 @@
             // txt_TenGoiKhac
             // 
             this.txt_TenGoiKhac.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_TenGoiKhac.Enabled = false;
             this.txt_TenGoiKhac.Location = new System.Drawing.Point(153, 14);
             this.txt_TenGoiKhac.Name = "txt_TenGoiKhac";
             this.txt_TenGoiKhac.Size = new System.Drawing.Size(269, 28);
@@ -538,6 +544,7 @@
             // 
             this.comB_TinhTrangHonNhan.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_TinhTrangHonNhan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comB_TinhTrangHonNhan.Enabled = false;
             this.comB_TinhTrangHonNhan.FormattingEnabled = true;
             this.comB_TinhTrangHonNhan.Location = new System.Drawing.Point(653, 15);
             this.comB_TinhTrangHonNhan.Name = "comB_TinhTrangHonNhan";
@@ -557,6 +564,7 @@
             // txt_DanToc
             // 
             this.txt_DanToc.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_DanToc.Enabled = false;
             this.txt_DanToc.Location = new System.Drawing.Point(153, 70);
             this.txt_DanToc.Name = "txt_DanToc";
             this.txt_DanToc.Size = new System.Drawing.Size(269, 28);
@@ -575,6 +583,7 @@
             // txt_TonGiao
             // 
             this.txt_TonGiao.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_TonGiao.Enabled = false;
             this.txt_TonGiao.Location = new System.Drawing.Point(653, 70);
             this.txt_TonGiao.Name = "txt_TonGiao";
             this.txt_TonGiao.Size = new System.Drawing.Size(269, 28);
@@ -603,6 +612,7 @@
             // txt_ChieuCao
             // 
             this.txt_ChieuCao.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_ChieuCao.Enabled = false;
             this.txt_ChieuCao.Location = new System.Drawing.Point(153, 126);
             this.txt_ChieuCao.Name = "txt_ChieuCao";
             this.txt_ChieuCao.Size = new System.Drawing.Size(269, 28);
@@ -611,6 +621,7 @@
             // txt_NhomMau
             // 
             this.txt_NhomMau.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_NhomMau.Enabled = false;
             this.txt_NhomMau.Location = new System.Drawing.Point(653, 126);
             this.txt_NhomMau.Name = "txt_NhomMau";
             this.txt_NhomMau.Size = new System.Drawing.Size(269, 28);
@@ -621,6 +632,7 @@
             this.tableLP_ThongTinBoSung.SetColumnSpan(this.groupBox1, 4);
             this.groupBox1.Controls.Add(this.tableLP_QueQuan);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Enabled = false;
             this.groupBox1.Location = new System.Drawing.Point(3, 227);
             this.groupBox1.Name = "groupBox1";
             this.tableLP_ThongTinBoSung.SetRowSpan(this.groupBox1, 2);
@@ -803,11 +815,10 @@
             // btn_Luu
             // 
             this.btn_Luu.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tableLP_ThongTinBoSung.SetColumnSpan(this.btn_Luu, 4);
             this.btn_Luu.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_Luu.ImageKey = "Save.png";
+            this.btn_Luu.ImageKey = "Edit Data.png";
             this.btn_Luu.ImageList = this.imageList1;
-            this.btn_Luu.Location = new System.Drawing.Point(472, 923);
+            this.btn_Luu.Location = new System.Drawing.Point(297, 923);
             this.btn_Luu.Name = "btn_Luu";
             this.btn_Luu.Size = new System.Drawing.Size(56, 56);
             this.btn_Luu.TabIndex = 7;
@@ -820,6 +831,24 @@
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "Save.png");
+            this.imageList1.Images.SetKeyName(1, "Cancel.png");
+            this.imageList1.Images.SetKeyName(2, "Edit Data.png");
+            // 
+            // btn_Huy
+            // 
+            this.btn_Huy.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btn_Huy.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Huy.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_Huy.ImageKey = "Cancel.png";
+            this.btn_Huy.ImageList = this.imageList1;
+            this.btn_Huy.Location = new System.Drawing.Point(503, 926);
+            this.btn_Huy.Name = "btn_Huy";
+            this.btn_Huy.Size = new System.Drawing.Size(56, 50);
+            this.btn_Huy.TabIndex = 39;
+            this.btn_Huy.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Huy.UseVisualStyleBackColor = true;
+            this.btn_Huy.Visible = false;
+            this.btn_Huy.Click += new System.EventHandler(this.btn_Huy_Click);
             // 
             // QLNS_ThongTinNV_Phu
             // 
@@ -921,5 +950,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.Button btn_Huy;
     }
 }

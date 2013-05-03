@@ -205,7 +205,7 @@ namespace Business.CNVC
         public bool Update(string ma_nv_old)
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[17]{
+            IDataParameter[] paras = new IDataParameter[18]{
                 new NpgsqlParameter("p_ma_nv_old",ma_nv_old), 
                 new NpgsqlParameter("p_ma_nv",manv), 
                 new NpgsqlParameter("p_ho",ho), 
@@ -213,6 +213,7 @@ namespace Business.CNVC
                 new NpgsqlParameter("p_ma_ho_so_goc",mahoso), 
                 new NpgsqlParameter("p_so_so_bhxh",sobhxh), 
                 new NpgsqlParameter("p_ma_so_thue",masothue), 
+                new NpgsqlParameter("p_ngay_sinh",ngaysinh), 
                 new NpgsqlParameter("p_gioi_tinh",gioitinh),
                 new NpgsqlParameter("p_so_nha",sonha), 
                 new NpgsqlParameter("p_duong",duong), 
