@@ -44,6 +44,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLP_HopDong = new System.Windows.Forms.TableLayoutPanel();
             this.dtgv_HopDong = new System.Windows.Forms.DataGridView();
+            this.btn_Huy = new System.Windows.Forms.Button();
             this.tableLP_HopDong_TuyenDung.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLP_ThongTinTuyenDung.SuspendLayout();
@@ -85,14 +86,16 @@
             this.tableLP_ThongTinTuyenDung.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tableLP_ThongTinTuyenDung.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLP_ThongTinTuyenDung.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
-            this.tableLP_ThongTinTuyenDung.Controls.Add(this.btn_Luu, 0, 2);
             this.tableLP_ThongTinTuyenDung.Controls.Add(this.dTP_NgayTuyenDung, 1, 1);
             this.tableLP_ThongTinTuyenDung.Controls.Add(this.txt_CoQuan, 3, 0);
             this.tableLP_ThongTinTuyenDung.Controls.Add(this.label26, 2, 0);
             this.tableLP_ThongTinTuyenDung.Controls.Add(this.label24, 0, 0);
             this.tableLP_ThongTinTuyenDung.Controls.Add(this.label25, 0, 1);
             this.tableLP_ThongTinTuyenDung.Controls.Add(this.txt_NgheNghiep, 1, 0);
+            this.tableLP_ThongTinTuyenDung.Controls.Add(this.btn_Huy, 2, 2);
+            this.tableLP_ThongTinTuyenDung.Controls.Add(this.btn_Luu, 1, 2);
             this.tableLP_ThongTinTuyenDung.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLP_ThongTinTuyenDung.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLP_ThongTinTuyenDung.Location = new System.Drawing.Point(3, 24);
             this.tableLP_ThongTinTuyenDung.Name = "tableLP_ThongTinTuyenDung";
             this.tableLP_ThongTinTuyenDung.RowCount = 3;
@@ -105,12 +108,11 @@
             // btn_Luu
             // 
             this.btn_Luu.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tableLP_ThongTinTuyenDung.SetColumnSpan(this.btn_Luu, 4);
             this.btn_Luu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Luu.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_Luu.ImageKey = "Save.png";
+            this.btn_Luu.ImageKey = "Edit Data.png";
             this.btn_Luu.ImageList = this.imageList1;
-            this.btn_Luu.Location = new System.Drawing.Point(366, 194);
+            this.btn_Luu.Location = new System.Drawing.Point(227, 194);
             this.btn_Luu.Name = "btn_Luu";
             this.btn_Luu.Size = new System.Drawing.Size(56, 56);
             this.btn_Luu.TabIndex = 3;
@@ -123,12 +125,15 @@
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "Save.png");
+            this.imageList1.Images.SetKeyName(1, "Edit Data.png");
+            this.imageList1.Images.SetKeyName(2, "Cancel.png");
             // 
             // dTP_NgayTuyenDung
             // 
             this.dTP_NgayTuyenDung.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dTP_NgayTuyenDung.Checked = false;
             this.dTP_NgayTuyenDung.CustomFormat = "dd/MM/yyyy";
+            this.dTP_NgayTuyenDung.Enabled = false;
             this.dTP_NgayTuyenDung.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dTP_NgayTuyenDung.Location = new System.Drawing.Point(121, 110);
             this.dTP_NgayTuyenDung.Name = "dTP_NgayTuyenDung";
@@ -139,6 +144,7 @@
             // txt_CoQuan
             // 
             this.txt_CoQuan.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_CoQuan.Enabled = false;
             this.txt_CoQuan.Location = new System.Drawing.Point(514, 27);
             this.txt_CoQuan.Name = "txt_CoQuan";
             this.txt_CoQuan.Size = new System.Drawing.Size(266, 28);
@@ -177,6 +183,7 @@
             // txt_NgheNghiep
             // 
             this.txt_NgheNghiep.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_NgheNghiep.Enabled = false;
             this.txt_NgheNghiep.Location = new System.Drawing.Point(121, 27);
             this.txt_NgheNghiep.Name = "txt_NgheNghiep";
             this.txt_NgheNghiep.Size = new System.Drawing.Size(264, 28);
@@ -224,6 +231,23 @@
             this.dtgv_HopDong.TabIndex = 0;
             this.dtgv_HopDong.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_HopDong_CellDoubleClick);
             // 
+            // btn_Huy
+            // 
+            this.btn_Huy.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tableLP_ThongTinTuyenDung.SetColumnSpan(this.btn_Huy, 2);
+            this.btn_Huy.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Huy.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_Huy.ImageKey = "Cancel.png";
+            this.btn_Huy.ImageList = this.imageList1;
+            this.btn_Huy.Location = new System.Drawing.Point(396, 194);
+            this.btn_Huy.Name = "btn_Huy";
+            this.btn_Huy.Size = new System.Drawing.Size(56, 56);
+            this.btn_Huy.TabIndex = 4;
+            this.btn_Huy.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Huy.UseVisualStyleBackColor = true;
+            this.btn_Huy.Visible = false;
+            this.btn_Huy.Click += new System.EventHandler(this.btn_Huy_Click);
+            // 
             // QLNS_HopDongTuyenDung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -263,6 +287,7 @@
         public System.Windows.Forms.DataGridView dtgv_HopDong;
         private System.Windows.Forms.Button btn_Luu;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.Button btn_Huy;
 
     }
 }

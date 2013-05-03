@@ -42,39 +42,44 @@ namespace QLNS.UCs.DanhMucThongTin
 
         private void btn_Luu_Click(object sender, EventArgs e)
         {
-
-            if (Program.selected_ma_nv != "")
+            if (btn_Luu.ImageKey == "Edit Data.png")
             {
-                if ((MessageBox.Show("Thêm / cập nhật thông tin nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
-                {
-                    try
-                    {
-                        GetUserInputDat();
-                        if (QLNS_HienThiThongTin.bAddFlag)
-                        {
-                            oCNVC_ThongTinPhu.Add();
-                        }
-                        else
-                        {
-                            oCNVC_ThongTinPhu.Update();
-                        }
-                        MessageBox.Show("Thêm / cập nhật thông tin nhân viên thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("Thêm / cập nhật thông tin nhân viên không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        throw;
-                    }
-
-                }
+                EnableControls(true);
             }
             else
             {
-                MessageBox.Show("Chưa có thông tin về nhân viên, xin vui lòng thêm thông tin nhân viên trước hoặc chọn một nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (Program.selected_ma_nv != "")
+                {
+                    if ((MessageBox.Show("Thêm / cập nhật thông tin nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
+                    {
+                        try
+                        {
+                            GetUserInputDat();
+                            if (dtCNVC_InfoPhu.Rows.Count <=0)
+                            {
+                                oCNVC_ThongTinPhu.Add();
+                            }
+                            else
+                            {
+                                oCNVC_ThongTinPhu.Update();
+                            }
+                            MessageBox.Show("Thêm / cập nhật thông tin nhân viên thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            GetCNVCInfo_Phu(Program.selected_ma_nv);
+                            EnableControls(false);
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Thêm / cập nhật thông tin nhân viên không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Chưa có thông tin về nhân viên, xin vui lòng thêm thông tin nhân viên trước hoặc chọn một nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            
-            
-            
+
         }
 
         private void GetUserInputDat()
@@ -275,6 +280,23 @@ namespace QLNS.UCs.DanhMucThongTin
             comB_QueTinh.DisplayMember = "ten_tinh_tp";
             comB_QueTinh.ValueMember = "id";
             #endregion
+        }
+
+        private void EnableControls(bool bEnable)
+        {
+            groupBox1.Enabled = groupBox2.Enabled = groupBox3.Enabled
+                = txt_TenGoiKhac.Enabled = txt_DanToc.Enabled = txt_TonGiao.Enabled
+                = txt_ChieuCao.Enabled = txt_NhomMau.Enabled = comB_QuocTich.Enabled
+                = comB_TinhTrangHonNhan.Enabled = bEnable;
+            btn_Huy.Visible = bEnable;
+            if (bEnable)
+            {
+                btn_Luu.ImageKey = "Save.png";
+            }
+            else
+            {
+                btn_Luu.ImageKey = "Edit Data.png";
+            }
         }
 
         private void comB_QuocGia_SelectionChangeCommitted(object sender, EventArgs e)
@@ -487,6 +509,12 @@ namespace QLNS.UCs.DanhMucThongTin
                 }
                 nNewQuocGiaID = 0;
             }
+        }
+
+        private void btn_Huy_Click(object sender, EventArgs e)
+        {
+            EnableControls(false);
+            FillInfo();
         }
 
 

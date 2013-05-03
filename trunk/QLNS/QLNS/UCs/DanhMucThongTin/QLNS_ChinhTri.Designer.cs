@@ -33,7 +33,6 @@
             this.tableLP_ChinhTri = new System.Windows.Forms.TableLayoutPanel();
             this.tableLP_LoaiCT = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.dtgv_DoanDang = new OutlookStyleControls.OutlookGrid();
             this.gb_HoiCuuChienBinh = new System.Windows.Forms.GroupBox();
             this.tableLP_HoiCuuChienBinh = new System.Windows.Forms.TableLayoutPanel();
             this.btn_Luu_HoiCB = new System.Windows.Forms.Button();
@@ -134,10 +133,12 @@
             this.txt_GiaDinh = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.dtgv_DoanDang = new OutlookStyleControls.OutlookGrid();
+            this.btn_Huy_ThongTinChung = new System.Windows.Forms.Button();
+            this.btn_Huy_HoiCB = new System.Windows.Forms.Button();
             this.tableLP_ChinhTri.SuspendLayout();
             this.tableLP_LoaiCT.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgv_DoanDang)).BeginInit();
             this.gb_HoiCuuChienBinh.SuspendLayout();
             this.tableLP_HoiCuuChienBinh.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -160,6 +161,7 @@
             this.tableLayoutPanel7.SuspendLayout();
             this.groupb_ThongTinChung.SuspendLayout();
             this.tableLP_ThongTinChung.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_DoanDang)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLP_ChinhTri
@@ -217,21 +219,6 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Quá trình hoạt động chính trị";
             // 
-            // dtgv_DoanDang
-            // 
-            this.dtgv_DoanDang.AllowUserToAddRows = false;
-            this.dtgv_DoanDang.AllowUserToDeleteRows = false;
-            this.dtgv_DoanDang.CollapseIcon = null;
-            this.dtgv_DoanDang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgv_DoanDang.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtgv_DoanDang.ExpandIcon = null;
-            this.dtgv_DoanDang.Location = new System.Drawing.Point(3, 24);
-            this.dtgv_DoanDang.Name = "dtgv_DoanDang";
-            this.dtgv_DoanDang.ReadOnly = true;
-            this.dtgv_DoanDang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgv_DoanDang.Size = new System.Drawing.Size(732, 209);
-            this.dtgv_DoanDang.TabIndex = 60;
-            // 
             // gb_HoiCuuChienBinh
             // 
             this.gb_HoiCuuChienBinh.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -252,6 +239,7 @@
             this.tableLP_HoiCuuChienBinh.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tableLP_HoiCuuChienBinh.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLP_HoiCuuChienBinh.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.tableLP_HoiCuuChienBinh.Controls.Add(this.btn_Huy_HoiCB, 2, 3);
             this.tableLP_HoiCuuChienBinh.Controls.Add(this.btn_Luu_HoiCB, 1, 3);
             this.tableLP_HoiCuuChienBinh.Controls.Add(this.rtb_KhenThuong_TrungDoan, 3, 1);
             this.tableLP_HoiCuuChienBinh.Controls.Add(this.label6, 2, 1);
@@ -280,12 +268,12 @@
             // 
             // btn_Luu_HoiCB
             // 
-            this.btn_Luu_HoiCB.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btn_Luu_HoiCB.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Luu_HoiCB.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Luu_HoiCB.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_Luu_HoiCB.ImageKey = "Edit Data.png";
             this.btn_Luu_HoiCB.ImageList = this.imageList2;
-            this.btn_Luu_HoiCB.Location = new System.Drawing.Point(306, 159);
+            this.btn_Luu_HoiCB.Location = new System.Drawing.Point(209, 159);
             this.btn_Luu_HoiCB.Name = "btn_Luu_HoiCB";
             this.btn_Luu_HoiCB.Size = new System.Drawing.Size(56, 48);
             this.btn_Luu_HoiCB.TabIndex = 36;
@@ -299,6 +287,7 @@
             this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList2.Images.SetKeyName(0, "Save.png");
             this.imageList2.Images.SetKeyName(1, "Edit Data.png");
+            this.imageList2.Images.SetKeyName(2, "Cancel.png");
             // 
             // rtb_KhenThuong_TrungDoan
             // 
@@ -1068,7 +1057,7 @@
             "Đảng viên",
             "Dân quân tự vệ",
             "Công đoàn viên"});
-            this.comB_LoaiHinhCT_ToChuc.Location = new System.Drawing.Point(112, 29);
+            this.comB_LoaiHinhCT_ToChuc.Location = new System.Drawing.Point(112, 27);
             this.comB_LoaiHinhCT_ToChuc.Name = "comB_LoaiHinhCT_ToChuc";
             this.comB_LoaiHinhCT_ToChuc.Size = new System.Drawing.Size(191, 29);
             this.comB_LoaiHinhCT_ToChuc.TabIndex = 61;
@@ -1233,7 +1222,7 @@
             this.comboBox3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(3, 6);
+            this.comboBox3.Location = new System.Drawing.Point(3, 4);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(192, 29);
             this.comboBox3.TabIndex = 0;
@@ -1272,7 +1261,7 @@
             "Đảng viên",
             "Dân quân tự vệ",
             "Công đoàn viên"});
-            this.comB_TenToChuc.Location = new System.Drawing.Point(477, 22);
+            this.comB_TenToChuc.Location = new System.Drawing.Point(477, 20);
             this.comB_TenToChuc.Name = "comB_TenToChuc";
             this.comB_TenToChuc.Size = new System.Drawing.Size(191, 29);
             this.comB_TenToChuc.TabIndex = 65;
@@ -1314,7 +1303,7 @@
             "Đảng viên",
             "Dân quân tự vệ",
             "Công đoàn viên"});
-            this.comB_LoaiHinhCT_ChucVu.Location = new System.Drawing.Point(112, 22);
+            this.comB_LoaiHinhCT_ChucVu.Location = new System.Drawing.Point(112, 20);
             this.comB_LoaiHinhCT_ChucVu.Name = "comB_LoaiHinhCT_ChucVu";
             this.comB_LoaiHinhCT_ChucVu.Size = new System.Drawing.Size(191, 29);
             this.comB_LoaiHinhCT_ChucVu.TabIndex = 61;
@@ -1334,7 +1323,7 @@
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 67F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
             this.tableLayoutPanel7.Size = new System.Drawing.Size(361, 65);
             this.tableLayoutPanel7.TabIndex = 60;
             // 
@@ -1437,11 +1426,12 @@
             this.tableLP_ThongTinChung.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLP_ThongTinChung.Controls.Add(this.rTB_KyLuat, 3, 1);
             this.tableLP_ThongTinChung.Controls.Add(this.rtb_KhenThuong, 1, 1);
-            this.tableLP_ThongTinChung.Controls.Add(this.btn_Luu_ThongTinChung, 0, 2);
             this.tableLP_ThongTinChung.Controls.Add(this.label8, 0, 0);
             this.tableLP_ThongTinChung.Controls.Add(this.txt_GiaDinh, 1, 0);
             this.tableLP_ThongTinChung.Controls.Add(this.label2, 0, 1);
             this.tableLP_ThongTinChung.Controls.Add(this.label10, 2, 1);
+            this.tableLP_ThongTinChung.Controls.Add(this.btn_Huy_ThongTinChung, 2, 2);
+            this.tableLP_ThongTinChung.Controls.Add(this.btn_Luu_ThongTinChung, 1, 2);
             this.tableLP_ThongTinChung.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLP_ThongTinChung.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLP_ThongTinChung.Location = new System.Drawing.Point(3, 24);
@@ -1476,12 +1466,11 @@
             // btn_Luu_ThongTinChung
             // 
             this.btn_Luu_ThongTinChung.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tableLP_ThongTinChung.SetColumnSpan(this.btn_Luu_ThongTinChung, 4);
             this.btn_Luu_ThongTinChung.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Luu_ThongTinChung.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_Luu_ThongTinChung.ImageKey = "Edit Data.png";
             this.btn_Luu_ThongTinChung.ImageList = this.imageList2;
-            this.btn_Luu_ThongTinChung.Location = new System.Drawing.Point(341, 101);
+            this.btn_Luu_ThongTinChung.Location = new System.Drawing.Point(217, 101);
             this.btn_Luu_ThongTinChung.Name = "btn_Luu_ThongTinChung";
             this.btn_Luu_ThongTinChung.Size = new System.Drawing.Size(56, 43);
             this.btn_Luu_ThongTinChung.TabIndex = 10;
@@ -1528,6 +1517,51 @@
             this.label10.TabIndex = 36;
             this.label10.Text = "Kỷ luật";
             // 
+            // dtgv_DoanDang
+            // 
+            this.dtgv_DoanDang.AllowUserToAddRows = false;
+            this.dtgv_DoanDang.AllowUserToDeleteRows = false;
+            this.dtgv_DoanDang.CollapseIcon = null;
+            this.dtgv_DoanDang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgv_DoanDang.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgv_DoanDang.ExpandIcon = null;
+            this.dtgv_DoanDang.Location = new System.Drawing.Point(3, 24);
+            this.dtgv_DoanDang.Name = "dtgv_DoanDang";
+            this.dtgv_DoanDang.ReadOnly = true;
+            this.dtgv_DoanDang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgv_DoanDang.Size = new System.Drawing.Size(732, 209);
+            this.dtgv_DoanDang.TabIndex = 60;
+            // 
+            // btn_Huy_ThongTinChung
+            // 
+            this.btn_Huy_ThongTinChung.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btn_Huy_ThongTinChung.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Huy_ThongTinChung.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_Huy_ThongTinChung.ImageKey = "Cancel.png";
+            this.btn_Huy_ThongTinChung.ImageList = this.imageList2;
+            this.btn_Huy_ThongTinChung.Location = new System.Drawing.Point(371, 101);
+            this.btn_Huy_ThongTinChung.Name = "btn_Huy_ThongTinChung";
+            this.btn_Huy_ThongTinChung.Size = new System.Drawing.Size(56, 43);
+            this.btn_Huy_ThongTinChung.TabIndex = 37;
+            this.btn_Huy_ThongTinChung.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Huy_ThongTinChung.UseVisualStyleBackColor = true;
+            this.btn_Huy_ThongTinChung.Visible = false;
+            // 
+            // btn_Huy_HoiCB
+            // 
+            this.btn_Huy_HoiCB.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btn_Huy_HoiCB.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Huy_HoiCB.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_Huy_HoiCB.ImageKey = "Cancel.png";
+            this.btn_Huy_HoiCB.ImageList = this.imageList2;
+            this.btn_Huy_HoiCB.Location = new System.Drawing.Point(368, 161);
+            this.btn_Huy_HoiCB.Name = "btn_Huy_HoiCB";
+            this.btn_Huy_HoiCB.Size = new System.Drawing.Size(56, 43);
+            this.btn_Huy_HoiCB.TabIndex = 38;
+            this.btn_Huy_HoiCB.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Huy_HoiCB.UseVisualStyleBackColor = true;
+            this.btn_Huy_HoiCB.Visible = false;
+            // 
             // QLNS_ChinhTri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -1542,7 +1576,6 @@
             this.tableLP_ChinhTri.ResumeLayout(false);
             this.tableLP_LoaiCT.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgv_DoanDang)).EndInit();
             this.gb_HoiCuuChienBinh.ResumeLayout(false);
             this.tableLP_HoiCuuChienBinh.ResumeLayout(false);
             this.tableLP_HoiCuuChienBinh.PerformLayout();
@@ -1577,6 +1610,7 @@
             this.groupb_ThongTinChung.ResumeLayout(false);
             this.tableLP_ThongTinChung.ResumeLayout(false);
             this.tableLP_ThongTinChung.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_DoanDang)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1687,5 +1721,7 @@
         private System.Windows.Forms.CheckBox cb_ChienDau;
         private System.Windows.Forms.GroupBox groupBox5;
         public OutlookStyleControls.OutlookGrid dtgv_DoanDang;
+        private System.Windows.Forms.Button btn_Huy_ThongTinChung;
+        private System.Windows.Forms.Button btn_Huy_HoiCB;
     }
 }

@@ -646,6 +646,7 @@ namespace QLNS.UCs.DanhMucThongTin
                 txt_HoiDong.Text = r.Cells["cq_hoi_dong_cham"].Value.ToString();
                 txt_Diem_DaoTao.Text = r.Cells["diem"].Value.ToString();
                 rtb_GhiChu_DaoTao.Text = r.Cells["ghi_chu"].Value.ToString();
+                txt_TrinhDo.Text = r.Cells["ten"].Value.ToString();
 
                 if (r.Cells["cq_van_bang_id"].Value.ToString() == "")
                 {

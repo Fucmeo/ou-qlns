@@ -80,7 +80,7 @@ namespace QLNS.UCs
                 }
                 oQLNS_HienThiThongTin.oQLNS_ThongTinNV.groupBox15.Enabled = 
                     oQLNS_HienThiThongTin.oQLNS_ThongTinNV.groupBox2.Enabled = true;
-                oQLNS_HienThiThongTin.oQLNS_ThongTinNV.GetCNVCInfo(Program.selected_ma_nv);
+                oQLNS_HienThiThongTin.oQLNS_ThongTinNV.GetCNVC_CMNDInfo(Program.selected_ma_nv);
                 oQLNS_HienThiThongTin.oQLNS_ThongTinNV.FillInfo();
                 oQLNS_HienThiThongTin.oQLNS_ThongTinNV.GetAvatar(Program.selected_ma_nv);
                 if (oQLNS_HienThiThongTin.oQLNS_ThongTinNV.dtAvatar.Rows.Count > 0)

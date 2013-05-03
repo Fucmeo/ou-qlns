@@ -1649,7 +1649,7 @@ namespace QLNS.UCs
                         if (oQLNS_DonVi_CNVC1.TreeV_CNVC.SelectedNode != null &&
                             oQLNS_ThongTinNV.dtCNVC.AsEnumerable().Where(a => a.Field<string>("ma_nv") == Program.selected_ma_nv).Count() <= 0)
                         {
-                            oQLNS_ThongTinNV.GetCNVCInfo(Program.selected_ma_nv);
+                            oQLNS_ThongTinNV.GetCNVC_CMNDInfo(Program.selected_ma_nv);
                             oQLNS_ThongTinNV.FillInfo();
                             oQLNS_ThongTinNV.GetAvatar(Program.selected_ma_nv);
                             if (oQLNS_ThongTinNV.dtAvatar.Rows.Count > 0)
