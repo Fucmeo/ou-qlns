@@ -226,7 +226,7 @@ namespace HDQD.UCs
                     MessageBox.Show("Thao tác nhập không thành công.\r\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);   
                 }
 
-                if (bUploadInfoSuccess && ThongTinQuyetDinh.Paths.Count() > 0)
+                if (bUploadInfoSuccess && ThongTinQuyetDinh.Paths != null && ThongTinQuyetDinh.Paths.Count() > 0)
                 {
                     UploadFile();
                 }
