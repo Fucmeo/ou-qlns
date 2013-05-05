@@ -1746,8 +1746,8 @@ namespace QLNS.UCs
                         tableLP_DanhMucThongTin.Controls.Add(oQLNS_ChinhTri, 0, 1);
                         if (Program.selected_ma_nv != "")
                             oQLNS_ChinhTri.Enabled = true;
-                        if (oQLNS_DonVi_CNVC1.TreeV_CNVC.SelectedNode != null &&
-                                oQLNS_ChinhTri.dtChinhTriExt.AsEnumerable().Where(a => a.Field<string>("ma_nv") == Program.selected_ma_nv).Count() <= 0)
+                        if (oQLNS_DonVi_CNVC1.TreeV_CNVC.SelectedNode != null )
+                            //&& oQLNS_ChinhTri.dtChinhTriExt.AsEnumerable().Where(a => a.Field<string>("ma_nv") == Program.selected_ma_nv).Count() <= 0)
                         {
                             oQLNS_ChinhTri.LoadData(Program.selected_ma_nv);
                         }
