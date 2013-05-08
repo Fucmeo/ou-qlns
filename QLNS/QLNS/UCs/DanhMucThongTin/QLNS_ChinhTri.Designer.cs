@@ -110,17 +110,17 @@
             this.gb_ChucVu = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comB_ChucVu = new System.Windows.Forms.ComboBox();
             this.lbl_ThemChucVu = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.comB_TenToChuc = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.dtp_ChucVu_NgayRa = new System.Windows.Forms.DateTimePicker();
+            this.dtp_ChucVu_NgayVao = new System.Windows.Forms.DateTimePicker();
             this.comB_LoaiHinhCT_ChucVu = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
+            this.lbl_Them_Chuc_Vu = new System.Windows.Forms.Label();
+            this.lbl_Xoa_Chuc_Vu = new System.Windows.Forms.Label();
+            this.lbl_Sua_Chuc_Vu = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
@@ -1096,7 +1096,7 @@
             "Đảng viên",
             "Dân quân tự vệ",
             "Công đoàn viên"});
-            this.comB_LoaiHinhCT_ToChuc.Location = new System.Drawing.Point(112, 30);
+            this.comB_LoaiHinhCT_ToChuc.Location = new System.Drawing.Point(112, 32);
             this.comB_LoaiHinhCT_ToChuc.Name = "comB_LoaiHinhCT_ToChuc";
             this.comB_LoaiHinhCT_ToChuc.Size = new System.Drawing.Size(191, 25);
             this.comB_LoaiHinhCT_ToChuc.TabIndex = 61;
@@ -1225,8 +1225,8 @@
             this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel8, 1, 2);
             this.tableLayoutPanel5.Controls.Add(this.label39, 0, 2);
             this.tableLayoutPanel5.Controls.Add(this.comB_TenToChuc, 3, 0);
-            this.tableLayoutPanel5.Controls.Add(this.dateTimePicker1, 3, 1);
-            this.tableLayoutPanel5.Controls.Add(this.dateTimePicker3, 1, 1);
+            this.tableLayoutPanel5.Controls.Add(this.dtp_ChucVu_NgayRa, 3, 1);
+            this.tableLayoutPanel5.Controls.Add(this.dtp_ChucVu_NgayVao, 1, 1);
             this.tableLayoutPanel5.Controls.Add(this.comB_LoaiHinhCT_ChucVu, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel7, 2, 2);
             this.tableLayoutPanel5.Controls.Add(this.label35, 0, 0);
@@ -1249,10 +1249,9 @@
             // 
             this.tableLayoutPanel8.ColumnCount = 1;
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.Controls.Add(this.comboBox3, 0, 0);
+            this.tableLayoutPanel8.Controls.Add(this.comB_ChucVu, 0, 0);
             this.tableLayoutPanel8.Controls.Add(this.lbl_ThemChucVu, 0, 1);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Enabled = false;
             this.tableLayoutPanel8.Location = new System.Drawing.Point(76, 145);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 2;
@@ -1261,15 +1260,16 @@
             this.tableLayoutPanel8.Size = new System.Drawing.Size(213, 65);
             this.tableLayoutPanel8.TabIndex = 67;
             // 
-            // comboBox3
+            // comB_ChucVu
             // 
-            this.comboBox3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(3, 6);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(192, 25);
-            this.comboBox3.TabIndex = 0;
+            this.comB_ChucVu.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.comB_ChucVu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comB_ChucVu.Enabled = false;
+            this.comB_ChucVu.FormattingEnabled = true;
+            this.comB_ChucVu.Location = new System.Drawing.Point(3, 8);
+            this.comB_ChucVu.Name = "comB_ChucVu";
+            this.comB_ChucVu.Size = new System.Drawing.Size(192, 25);
+            this.comB_ChucVu.TabIndex = 0;
             // 
             // lbl_ThemChucVu
             // 
@@ -1283,6 +1283,7 @@
             this.lbl_ThemChucVu.Size = new System.Drawing.Size(103, 14);
             this.lbl_ThemChucVu.TabIndex = 1;
             this.lbl_ThemChucVu.Text = "Thêm chức vụ mới";
+            this.lbl_ThemChucVu.Click += new System.EventHandler(this.lbl_ThemChucVu_Click_1);
             // 
             // label39
             // 
@@ -1305,36 +1306,36 @@
             "Đảng viên",
             "Dân quân tự vệ",
             "Công đoàn viên"});
-            this.comB_TenToChuc.Location = new System.Drawing.Point(368, 23);
+            this.comB_TenToChuc.Location = new System.Drawing.Point(368, 25);
             this.comB_TenToChuc.Name = "comB_TenToChuc";
             this.comB_TenToChuc.Size = new System.Drawing.Size(191, 25);
             this.comB_TenToChuc.TabIndex = 65;
             // 
-            // dateTimePicker1
+            // dtp_ChucVu_NgayRa
             // 
-            this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.dateTimePicker1.Checked = false;
-            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker1.Enabled = false;
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(368, 94);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.ShowCheckBox = true;
-            this.dateTimePicker1.Size = new System.Drawing.Size(191, 24);
-            this.dateTimePicker1.TabIndex = 64;
+            this.dtp_ChucVu_NgayRa.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.dtp_ChucVu_NgayRa.Checked = false;
+            this.dtp_ChucVu_NgayRa.CustomFormat = "dd/MM/yyyy";
+            this.dtp_ChucVu_NgayRa.Enabled = false;
+            this.dtp_ChucVu_NgayRa.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_ChucVu_NgayRa.Location = new System.Drawing.Point(368, 94);
+            this.dtp_ChucVu_NgayRa.Name = "dtp_ChucVu_NgayRa";
+            this.dtp_ChucVu_NgayRa.ShowCheckBox = true;
+            this.dtp_ChucVu_NgayRa.Size = new System.Drawing.Size(191, 24);
+            this.dtp_ChucVu_NgayRa.TabIndex = 64;
             // 
-            // dateTimePicker3
+            // dtp_ChucVu_NgayVao
             // 
-            this.dateTimePicker3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.dateTimePicker3.Checked = false;
-            this.dateTimePicker3.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker3.Enabled = false;
-            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker3.Location = new System.Drawing.Point(76, 94);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.ShowCheckBox = true;
-            this.dateTimePicker3.Size = new System.Drawing.Size(191, 24);
-            this.dateTimePicker3.TabIndex = 63;
+            this.dtp_ChucVu_NgayVao.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.dtp_ChucVu_NgayVao.Checked = false;
+            this.dtp_ChucVu_NgayVao.CustomFormat = "dd/MM/yyyy";
+            this.dtp_ChucVu_NgayVao.Enabled = false;
+            this.dtp_ChucVu_NgayVao.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_ChucVu_NgayVao.Location = new System.Drawing.Point(76, 94);
+            this.dtp_ChucVu_NgayVao.Name = "dtp_ChucVu_NgayVao";
+            this.dtp_ChucVu_NgayVao.ShowCheckBox = true;
+            this.dtp_ChucVu_NgayVao.Size = new System.Drawing.Size(191, 24);
+            this.dtp_ChucVu_NgayVao.TabIndex = 63;
             // 
             // comB_LoaiHinhCT_ChucVu
             // 
@@ -1347,10 +1348,11 @@
             "Đảng viên",
             "Dân quân tự vệ",
             "Công đoàn viên"});
-            this.comB_LoaiHinhCT_ChucVu.Location = new System.Drawing.Point(76, 23);
+            this.comB_LoaiHinhCT_ChucVu.Location = new System.Drawing.Point(76, 25);
             this.comB_LoaiHinhCT_ChucVu.Name = "comB_LoaiHinhCT_ChucVu";
             this.comB_LoaiHinhCT_ChucVu.Size = new System.Drawing.Size(191, 25);
             this.comB_LoaiHinhCT_ChucVu.TabIndex = 61;
+            this.comB_LoaiHinhCT_ChucVu.SelectionChangeCommitted += new System.EventHandler(this.comB_LoaiHinhCT_ChucVu_SelectionChangeCommitted);
             // 
             // tableLayoutPanel7
             // 
@@ -1359,9 +1361,9 @@
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel7.Controls.Add(this.label28, 0, 0);
-            this.tableLayoutPanel7.Controls.Add(this.label29, 2, 0);
-            this.tableLayoutPanel7.Controls.Add(this.label30, 1, 0);
+            this.tableLayoutPanel7.Controls.Add(this.lbl_Them_Chuc_Vu, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.lbl_Xoa_Chuc_Vu, 2, 0);
+            this.tableLayoutPanel7.Controls.Add(this.lbl_Sua_Chuc_Vu, 1, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(295, 145);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
@@ -1371,44 +1373,47 @@
             this.tableLayoutPanel7.Size = new System.Drawing.Size(286, 65);
             this.tableLayoutPanel7.TabIndex = 60;
             // 
-            // label28
+            // lbl_Them_Chuc_Vu
             // 
-            this.label28.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label28.AutoSize = true;
-            this.label28.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label28.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label28.Location = new System.Drawing.Point(55, 25);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(37, 14);
-            this.label28.TabIndex = 0;
-            this.label28.Text = "Thêm";
+            this.lbl_Them_Chuc_Vu.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lbl_Them_Chuc_Vu.AutoSize = true;
+            this.lbl_Them_Chuc_Vu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_Them_Chuc_Vu.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Them_Chuc_Vu.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lbl_Them_Chuc_Vu.Location = new System.Drawing.Point(55, 25);
+            this.lbl_Them_Chuc_Vu.Name = "lbl_Them_Chuc_Vu";
+            this.lbl_Them_Chuc_Vu.Size = new System.Drawing.Size(37, 14);
+            this.lbl_Them_Chuc_Vu.TabIndex = 0;
+            this.lbl_Them_Chuc_Vu.Text = "Thêm";
+            this.lbl_Them_Chuc_Vu.Click += new System.EventHandler(this.lbl_Them_Chuc_Vu_Click);
             // 
-            // label29
+            // lbl_Xoa_Chuc_Vu
             // 
-            this.label29.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label29.AutoSize = true;
-            this.label29.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label29.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label29.Location = new System.Drawing.Point(193, 25);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(27, 14);
-            this.label29.TabIndex = 2;
-            this.label29.Text = "Xoá";
+            this.lbl_Xoa_Chuc_Vu.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbl_Xoa_Chuc_Vu.AutoSize = true;
+            this.lbl_Xoa_Chuc_Vu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_Xoa_Chuc_Vu.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Xoa_Chuc_Vu.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lbl_Xoa_Chuc_Vu.Location = new System.Drawing.Point(193, 25);
+            this.lbl_Xoa_Chuc_Vu.Name = "lbl_Xoa_Chuc_Vu";
+            this.lbl_Xoa_Chuc_Vu.Size = new System.Drawing.Size(27, 14);
+            this.lbl_Xoa_Chuc_Vu.TabIndex = 2;
+            this.lbl_Xoa_Chuc_Vu.Text = "Xoá";
+            this.lbl_Xoa_Chuc_Vu.Click += new System.EventHandler(this.lbl_Xoa_Chuc_Vu_Click);
             // 
-            // label30
+            // lbl_Sua_Chuc_Vu
             // 
-            this.label30.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label30.AutoSize = true;
-            this.label30.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label30.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label30.Location = new System.Drawing.Point(129, 25);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(27, 14);
-            this.label30.TabIndex = 1;
-            this.label30.Text = "Sửa";
+            this.lbl_Sua_Chuc_Vu.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbl_Sua_Chuc_Vu.AutoSize = true;
+            this.lbl_Sua_Chuc_Vu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_Sua_Chuc_Vu.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Sua_Chuc_Vu.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lbl_Sua_Chuc_Vu.Location = new System.Drawing.Point(129, 25);
+            this.lbl_Sua_Chuc_Vu.Name = "lbl_Sua_Chuc_Vu";
+            this.lbl_Sua_Chuc_Vu.Size = new System.Drawing.Size(27, 14);
+            this.lbl_Sua_Chuc_Vu.TabIndex = 1;
+            this.lbl_Sua_Chuc_Vu.Text = "Sửa";
+            this.lbl_Sua_Chuc_Vu.Click += new System.EventHandler(this.lbl_Sua_Chuc_Vu_Click);
             // 
             // label35
             // 
@@ -1466,13 +1471,13 @@
             // listb_DSChucVu
             // 
             this.listb_DSChucVu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listb_DSChucVu.Enabled = false;
             this.listb_DSChucVu.FormattingEnabled = true;
             this.listb_DSChucVu.ItemHeight = 14;
             this.listb_DSChucVu.Location = new System.Drawing.Point(3, 18);
             this.listb_DSChucVu.Name = "listb_DSChucVu";
             this.listb_DSChucVu.Size = new System.Drawing.Size(136, 186);
             this.listb_DSChucVu.TabIndex = 0;
+            this.listb_DSChucVu.SelectedIndexChanged += new System.EventHandler(this.listb_DSChucVu_SelectedIndexChanged);
             // 
             // groupb_ThongTinChung
             // 
@@ -1720,13 +1725,13 @@
         public System.Windows.Forms.TextBox txt_TenToChuc;
         public System.Windows.Forms.ComboBox comB_LoaiHinhCT_ToChuc;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        public System.Windows.Forms.DateTimePicker dateTimePicker1;
-        public System.Windows.Forms.DateTimePicker dateTimePicker3;
+        public System.Windows.Forms.DateTimePicker dtp_ChucVu_NgayRa;
+        public System.Windows.Forms.DateTimePicker dtp_ChucVu_NgayVao;
         public System.Windows.Forms.ComboBox comB_LoaiHinhCT_ChucVu;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label lbl_Them_Chuc_Vu;
+        private System.Windows.Forms.Label lbl_Xoa_Chuc_Vu;
+        private System.Windows.Forms.Label lbl_Sua_Chuc_Vu;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label37;
@@ -1734,7 +1739,7 @@
         private System.Windows.Forms.Label label39;
         public System.Windows.Forms.ComboBox comB_TenToChuc;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
-        public System.Windows.Forms.ComboBox comboBox3;
+        public System.Windows.Forms.ComboBox comB_ChucVu;
         private System.Windows.Forms.Label lbl_ThemChucVu;
         private System.Windows.Forms.Label label11;
         public System.Windows.Forms.DateTimePicker dtp_DangVien_NgayRa;

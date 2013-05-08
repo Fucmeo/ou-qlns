@@ -27,6 +27,9 @@ namespace QLNS.UCs.DanhMucThongTin
         Business.CNVC.CNVC_ChinhTri oCtr_ToChuc;
         public DataTable dtCTrToChuc;
 
+        Business.CNVC.CNVC_ChinhTri oCtr_ChucVu;
+        public DataTable dtCTrChucVu;
+
         Business.CNVC.CNVC_ChinhTriExt oChinhTriExt;
         public DataTable dtChinhTriExt;
         Business.ChucVu_ChinhTri oChucVu_ChinhTri;
@@ -36,6 +39,7 @@ namespace QLNS.UCs.DanhMucThongTin
         int old_select_id;
         public static bool is_Modified_Ctri_CVu = true;
         bool bAddFlag_ToChuc;
+        bool bAddFlag_ChucVu;
 
         public QLNS_ChinhTri()
         {
@@ -51,6 +55,12 @@ namespace QLNS.UCs.DanhMucThongTin
 
             oCtr_ToChuc = new Business.CNVC.CNVC_ChinhTri();
             dtCTrToChuc = new DataTable();
+
+            oChucVu_ChinhTri = new ChucVu_ChinhTri();
+            dtChucVu_ChinhTri = new DataTable();
+
+            oCtr_ChucVu = new Business.CNVC.CNVC_ChinhTri();
+            dtCTrChucVu = new DataTable();
 
             //oChinhTriExt = new Business.CNVC.CNVC_ChinhTriExt();
             //oChucVu_ChinhTri = new ChucVu_ChinhTri();
@@ -88,12 +98,13 @@ namespace QLNS.UCs.DanhMucThongTin
 
         public void LoadData(string p_ma_nv)
         {
-            Load_Cbo_ChucVu_ChinhTri();
+            //Load_Cbo_ChucVu_ChinhTri();
             Load_Chinh_Tri(p_ma_nv);
             Load_Chinh_Tri_Ext(p_ma_nv);
             Load_Chinh_Tri_HCCB(p_ma_nv);
             Load_Loai_Chinh_Tri_Basic(p_ma_nv);
             Load_To_Chuc(p_ma_nv);
+            GetDataChucVu(p_ma_nv);
         }
 
         void dtgv_DoanDang_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -115,7 +126,7 @@ namespace QLNS.UCs.DanhMucThongTin
             if (init)
             {
                 comB_LoaiHinhCT_ToChuc.Enabled = txt_TenToChuc.Enabled = dtp_ToChuc_NgayVao.Enabled = dtp_ToChuc_NgayRa.Enabled = false;
-                dtgv_DoanDang.Enabled = true;
+                dtgv_DoanDang.Enabled = listb_DSChucVu.Enabled = true;
                 if (dtgv_DoanDang.CurrentRow != null)
                 {
                     DisplayInfo(dtgv_DoanDang.CurrentRow);
@@ -128,7 +139,7 @@ namespace QLNS.UCs.DanhMucThongTin
             else
             {
                 comB_LoaiHinhCT_ToChuc.Enabled = txt_TenToChuc.Enabled = dtp_ToChuc_NgayVao.Enabled = dtp_ToChuc_NgayRa.Enabled = true;
-                dtgv_DoanDang.Enabled = false;
+                dtgv_DoanDang.Enabled = listb_DSChucVu.Enabled = false;
                 if (bAddFlag_ToChuc) // thao tac them moi xoa rong cac field
                 {
                     txt_TenToChuc.Text = "";
@@ -137,6 +148,26 @@ namespace QLNS.UCs.DanhMucThongTin
                 lb_Them_ToChuc.Text = "Lưu";
                 lb_Sua__ToChuc.Text = "Hủy";
                 lb_Xoa_ToChuc.Visible = false;
+            }
+        }
+
+        private void ResetInterface_CTri_Chuc_Vu(bool init)
+        {
+            if (init)
+            {
+                comB_LoaiHinhCT_ChucVu.Enabled = comB_TenToChuc.Enabled = comB_ChucVu.Enabled = dtp_ChucVu_NgayVao.Enabled = dtp_ChucVu_NgayRa.Enabled = false;
+                lbl_Them_Chuc_Vu.Text = "Thêm";
+                lbl_Sua_Chuc_Vu.Text = "Sửa";
+                lbl_Xoa_Chuc_Vu.Visible = true;
+                listb_DSChucVu.Enabled = dtgv_DoanDang.Enabled = true;
+            }
+            else
+            {
+                comB_LoaiHinhCT_ChucVu.Enabled = comB_TenToChuc.Enabled = comB_ChucVu.Enabled = dtp_ChucVu_NgayVao.Enabled = dtp_ChucVu_NgayRa.Enabled = true;
+                lbl_Them_Chuc_Vu.Text = "Lưu";
+                lbl_Sua_Chuc_Vu.Text = "Hủy";
+                lbl_Xoa_Chuc_Vu.Visible = false;
+                listb_DSChucVu.Enabled = dtgv_DoanDang.Enabled = false;
             }
         }
 
@@ -206,7 +237,23 @@ namespace QLNS.UCs.DanhMucThongTin
 
         private void Load_Cbo_ChucVu_ChinhTri()
         {
-            
+            if (is_Modified_Ctri_CVu == true)
+            {
+                dtChucVu_ChinhTri = oChucVu_ChinhTri.GetData();
+                is_Modified_Ctri_CVu = false;
+            }
+            string selection = comB_LoaiHinhCT_ChucVu.Text;
+            if (selection != "")
+            {
+                var result = (from c in dtChucVu_ChinhTri.AsEnumerable()
+                              where c.Field<string>("ten_loai_chinh_tri") == selection
+                              select new { id = c.Field<int>("id"), ten_chuc_vu = c.Field<string>("ten_chuc_vu") }).ToList();
+
+                DataTable dt = ToDataTable(result);
+                comB_ChucVu.DataSource = dt;
+                comB_ChucVu.DisplayMember = "ten_chuc_vu";
+                comB_ChucVu.ValueMember = "id";
+            }
         }
 
         private void Load_Chinh_Tri_Ext(string p_ma_nv)
@@ -418,6 +465,85 @@ namespace QLNS.UCs.DanhMucThongTin
                 PrepareDataSource();
                 EditDtgInterface();
             }
+        }
+
+        private void Load_Cbo_ToChuc_ChucVu()
+        {
+            DataTable dtToChuc = dtCTrToChuc.Copy();
+            string selection = comB_LoaiHinhCT_ChucVu.Text;
+            if (selection != "")
+            {
+                var result = (from c in dtToChuc.AsEnumerable()
+                              where c.Field<string>("ten_loai_ctr") == selection
+                              select new { id = c.Field<int>("id"), ten_to_chuc = c.Field<string>("ten_to_chuc") }).ToList();
+
+                DataTable dt = ToDataTable(result);
+                comB_TenToChuc.DataSource = dt;
+                comB_TenToChuc.DisplayMember = "ten_to_chuc";
+                comB_TenToChuc.ValueMember = "id";
+            }
+        }
+
+        private void GetDataChucVu(string p_ma_nv)
+        {
+            oCtr_ChucVu.MaNV = p_ma_nv;
+            dtCTrChucVu = oCtr_ChucVu.Get_Chinh_Tri_Chuc_Vu();
+        }
+
+        private void Load_Listbox_ChucVu(int p_to_chuc_id)
+        {
+            try
+            {
+                var result = (from c in dtCTrChucVu.AsEnumerable()
+                              where c.Field<int>("to_chuc_id") == p_to_chuc_id
+                              select new { id = c.Field<int>("id"), ten_cv_ctr = c.Field<string>("ten_cv_ctr") }).ToList();
+
+                DataTable dt = ToDataTable(result);
+                listb_DSChucVu.DataSource = dt;
+                listb_DSChucVu.DisplayMember = "ten_cv_ctr";
+                listb_DSChucVu.ValueMember = "id";
+            }
+            catch { }
+        
+        }
+
+        private void DisplayInfo_ChucVu(int p_id_tbl_chucvu)
+        {
+            try
+            {
+                var result = (from c in dtCTrChucVu.AsEnumerable()
+                              where c.Field<int>("id") == p_id_tbl_chucvu
+                              select new { id = c.Field<int>("id"), 
+                                            to_chuc_id = c.Field<int>("to_chuc_id"),
+                                            ten_to_chuc = c.Field<string>("ten_to_chuc"), 
+                                            loai_ctr_id = c.Field<int>("loai_ctr_id"),
+                                            ten_loai_ctr = c.Field<string>("ten_loai_ctr"),
+                                            tu_ngay = c.Field<DateTime?>("tu_ngay"),
+                                            den_ngay = c.Field<DateTime?>("den_ngay"),
+                                            chuc_vu_id = c.Field<int>("chuc_vu_id"),
+                                            ten_cv_ctr = c.Field<string>("ten_cv_ctr") }).ToList();
+
+
+                DataTable dt = ToDataTable(result);
+                
+                comB_LoaiHinhCT_ChucVu.Text = dt.Rows[0]["ten_loai_ctr"].ToString();
+
+                Load_Cbo_ChucVu_ChinhTri();
+                Load_Cbo_ToChuc_ChucVu();
+
+                comB_TenToChuc.SelectedValue = Convert.ToInt32(dt.Rows[0]["to_chuc_id"].ToString());
+                comB_ChucVu.SelectedValue = Convert.ToInt32(dt.Rows[0]["chuc_vu_id"].ToString());
+                
+                if (dt.Rows[0]["tu_ngay"].ToString() != "")
+                    dtp_ChucVu_NgayVao.Value = Convert.ToDateTime(dt.Rows[0]["tu_ngay"].ToString());
+                else
+                    dtp_ChucVu_NgayVao.Checked = false;
+                if (dt.Rows[0]["den_ngay"].ToString() != "")
+                    dtp_ChucVu_NgayRa.Value = Convert.ToDateTime(dt.Rows[0]["den_ngay"].ToString());
+                else
+                    dtp_ChucVu_NgayRa.Checked = false;
+            }
+            catch { }
         }
 
         private void PrepareDataSource()
@@ -1010,15 +1136,166 @@ namespace QLNS.UCs.DanhMucThongTin
 
         private void dtgv_DoanDang_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dtgv_DoanDang.SelectedRows != null && dtgv_DoanDang.SelectedRows.Count > 0)
+            try
             {
-                DisplayInfo(dtgv_DoanDang.CurrentRow);
+                if (dtgv_DoanDang.SelectedRows != null && dtgv_DoanDang.SelectedRows.Count > 0)
+                {
+                    DisplayInfo(dtgv_DoanDang.CurrentRow);
+                    Load_Listbox_ChucVu(Convert.ToInt32(dtgv_DoanDang.CurrentRow.Cells["id"].Value.ToString()));
+                }
             }
+            catch { }
         }
 
         private void dtgv_DoanDang_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void lbl_ThemChucVu_Click_1(object sender, EventArgs e)
+        {
+            QLNS.UCs.QLNS_ChucVu_ChinhTri chuc_vu_chtri = new QLNS_ChucVu_ChinhTri();
+            QLNS.Forms.Popup popup = new Forms.Popup("Thêm chức vụ chính trị", chuc_vu_chtri);
+            popup.ShowDialog();
+            if (is_Modified_Ctri_CVu == true)
+                Reload_Combo_ChucVu_ChinhTri();
+        }
+
+        private void comB_LoaiHinhCT_ChucVu_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            Load_Cbo_ChucVu_ChinhTri();
+            Load_Cbo_ToChuc_ChucVu();
+        }
+
+        private void lbl_Them_Chuc_Vu_Click(object sender, EventArgs e)
+        {
+            if (Program.selected_ma_nv != "")
+            {
+
+                if (lbl_Them_Chuc_Vu.Text == "Thêm")
+                {
+                    bAddFlag_ChucVu = true;
+                    ResetInterface_CTri_Chuc_Vu(false);
+                    //old_select_id = 0;
+                }
+                else //chức năng Lưu
+                {
+                    oCtr_ChucVu = new Business.CNVC.CNVC_ChinhTri();
+                    oCtr_ChucVu.ToChuc_ID = Convert.ToInt32(comB_TenToChuc.SelectedValue.ToString());
+                    if (dtp_ChucVu_NgayVao.Checked == true)
+                        oCtr_ChucVu.TuNgay = dtp_ChucVu_NgayVao.Value;
+                    if (dtp_ChucVu_NgayRa.Checked == true)
+                        oCtr_ChucVu.DenNgay = dtp_ChucVu_NgayRa.Value;
+                    oCtr_ChucVu.ChucVuID = Convert.ToInt32(comB_ChucVu.SelectedValue.ToString());
+                    #region thao tac them
+                    if (bAddFlag_ChucVu)
+                    {
+                        if (MessageBox.Show("Bạn thực sự muốn thêm chức vụ chính trị của nhân viên?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            try
+                            {
+                                if (oCtr_ChucVu.Add_Chuc_Vu())
+                                    MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                //old_select_id = 0;
+                                
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Thao tác thêm thất bại.\n" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+
+                    }
+                    #endregion
+
+                    #region thao tac sua
+                    else                // thao tac sua
+                    {
+                        if (MessageBox.Show("Bạn thực sự muốn sửa chức vụ chính trị này của nhân viên?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            try
+                            {
+                                oCtr_ChucVu.ID_TblChucVu = Convert.ToInt32(listb_DSChucVu.SelectedValue.ToString());
+                                if (oCtr_ChucVu.Update_Chuc_Vu())
+                                    MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                //old_select_id = 0;
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Thao tác sửa thất bại.\n" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
+                    #endregion
+
+                    //Load_Chinh_Tri_Ext(Program.selected_ma_nv);
+                    GetDataChucVu(Program.selected_ma_nv);
+                    ResetInterface_CTri_Chuc_Vu(true);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Chưa có thông tin về nhân viên, xin vui lòng thêm thông tin nhân viên trước hoặc chọn một nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void lbl_Sua_Chuc_Vu_Click(object sender, EventArgs e)
+        {
+            if (Program.selected_ma_nv != "")
+            {
+                if (lbl_Sua_Chuc_Vu.Text == "Sửa")
+                {
+                    bAddFlag_ChucVu = false;
+                    ResetInterface_CTri_Chuc_Vu(false);
+                    //old_select_id = 0;
+                }
+                else if (lbl_Sua_Chuc_Vu.Text == "Hủy")
+                {
+                    ResetInterface_CTri_Chuc_Vu(true);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Chưa có thông tin về nhân viên, xin vui lòng thêm thông tin nhân viên trước hoặc chọn một nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void listb_DSChucVu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                DisplayInfo_ChucVu(Convert.ToInt32(listb_DSChucVu.SelectedValue.ToString()));
+            }
+            catch { }
+        }
+
+        private void lbl_Xoa_Chuc_Vu_Click(object sender, EventArgs e)
+        {
+            if (listb_DSChucVu.SelectedValue.ToString() != "")
+            {
+                if (MessageBox.Show("Bạn thực sự muốn xoá chức vụ chính trị này của nhân viên?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    try
+                    {
+                        oCtr_ChucVu.ID_TblChucVu = Convert.ToInt32(listb_DSChucVu.SelectedValue.ToString());
+                        if (oCtr_ChucVu.Delete_Chuc_Vu())
+                            MessageBox.Show("Xoá thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else
+                            MessageBox.Show("Xóa thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        //old_select_id = 0;                       
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Xóa thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                    GetDataChucVu(Program.selected_ma_nv);
+                    ResetInterface_CTri_Chuc_Vu(true);
+                }
+            }
         }
 
 
