@@ -211,7 +211,7 @@
             this.comB_TenNgach.Items.AddRange(new object[] {
             "Biên chế",
             "Hợp đồng"});
-            this.comB_TenNgach.Location = new System.Drawing.Point(99, 53);
+            this.comB_TenNgach.Location = new System.Drawing.Point(99, 55);
             this.comB_TenNgach.Name = "comB_TenNgach";
             this.comB_TenNgach.Size = new System.Drawing.Size(208, 25);
             this.comB_TenNgach.TabIndex = 2;
