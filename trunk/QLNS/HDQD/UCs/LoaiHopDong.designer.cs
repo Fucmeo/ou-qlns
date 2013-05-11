@@ -51,7 +51,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.rTB_MoTa = new System.Windows.Forms.RichTextBox();
-            this.cb_ThoiHan = new System.Windows.Forms.CheckBox();
             this.tableLP_LoaiHD.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tableLP_ThaoTac.SuspendLayout();
@@ -284,7 +283,6 @@
             this.tableLP_ChiTietLoaiHD.Controls.Add(this.label3, 2, 0);
             this.tableLP_ChiTietLoaiHD.Controls.Add(this.label8, 0, 1);
             this.tableLP_ChiTietLoaiHD.Controls.Add(this.rTB_MoTa, 1, 1);
-            this.tableLP_ChiTietLoaiHD.Controls.Add(this.cb_ThoiHan, 3, 1);
             this.tableLP_ChiTietLoaiHD.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLP_ChiTietLoaiHD.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLP_ChiTietLoaiHD.Location = new System.Drawing.Point(3, 3);
@@ -361,17 +359,6 @@
             this.rTB_MoTa.TabIndex = 2;
             this.rTB_MoTa.Text = "";
             // 
-            // cb_ThoiHan
-            // 
-            this.cb_ThoiHan.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cb_ThoiHan.AutoSize = true;
-            this.cb_ThoiHan.Location = new System.Drawing.Point(515, 127);
-            this.cb_ThoiHan.Name = "cb_ThoiHan";
-            this.cb_ThoiHan.Size = new System.Drawing.Size(113, 25);
-            this.cb_ThoiHan.TabIndex = 3;
-            this.cb_ThoiHan.Text = "Có thời hạn";
-            this.cb_ThoiHan.UseVisualStyleBackColor = true;
-            // 
             // LoaiHopDong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -412,7 +399,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.RichTextBox rTB_MoTa;
         private System.Windows.Forms.ComboBox comB_Loai;
-        private System.Windows.Forms.CheckBox cb_ThoiHan;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.TableLayoutPanel tableLP_ThaoTac;
         private System.Windows.Forms.Button btn_Huy;

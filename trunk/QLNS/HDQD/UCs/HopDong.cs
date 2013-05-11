@@ -18,6 +18,12 @@ namespace HDQD.UCs
         Business.ChucVu oChucvu;
         Business.DonVi oDonvi;
         Business.CNVC.CNVC cnvc;
+        Business.FTP oFTP;
+        public Business.CNVC.CNVC_File oFile;
+
+        // KHANG - UPLOAD FILE
+        public static string[] Paths;
+        public static string Desc;
 
         public HopDong()
         {
@@ -27,6 +33,9 @@ namespace HDQD.UCs
             oChucdanh = new ChucDanh();
             oChucvu = new ChucVu();
             oDonvi = new DonVi();
+            oFTP = new Business.FTP();
+            oFTP.oFileCate = FTP.FileCate.HDQD;
+            oFile = new Business.CNVC.CNVC_File();
         }
 
         public HopDong(Business.HDQD.CNVC_HopDong p_HopDong)
@@ -46,14 +55,16 @@ namespace HDQD.UCs
         {
             if (CheckInputData())
             {
+                bool bUploadInfoSuccess = false;    // KHANG : dung de biet upload info thanh cong 
+                                                    // neu thanh cong moi upload file
                 oHopdong.Ma_NV = thongTinCNVC1.txt_MaNV.Text;
 
                 oHopdong.Ma_Hop_Dong = txt_MaHD.Text;
                 oHopdong.Ma_Loai_HD = Convert.ToInt16(comB_LoaiHD.SelectedValue);
-                if (comB_ThuViecChinhThuc.Text == "Thử việc")
-                    oHopdong.ThuViec_ChinhThuc = false;
-                else if (comB_ThuViecChinhThuc.Text == "Chính thức")
-                    oHopdong.ThuViec_ChinhThuc = true;
+                //if (comB_ThuViecChinhThuc.Text == "Thử việc")
+                //    oHopdong.ThuViec_ChinhThuc = false;
+                //else if (comB_ThuViecChinhThuc.Text == "Chính thức")
+                //    oHopdong.ThuViec_ChinhThuc = true;
 
                 if (dTP_NgayKy.Checked == true)
                     oHopdong.Ngay_Ky = dTP_NgayKy.Value;
@@ -82,10 +93,16 @@ namespace HDQD.UCs
                         if (oHopdong.Add())
                         {
                             MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            bUploadInfoSuccess = true;
                             ResetInterface();
                         }
                         else
                             MessageBox.Show("Thao tác thêm thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        if (Paths != null && Paths.Length > 0 && bUploadInfoSuccess)
+                        {
+                            UploadFile();
+                        }
                     }
                 }
                 catch (Exception )
@@ -177,10 +194,11 @@ namespace HDQD.UCs
                 comB_DonVi.SelectedValue = oHopdong.Don_Vi_ID;
             if (oHopdong.Ma_Loai_HD != null)
                 comB_LoaiHD.SelectedValue = oHopdong.Ma_Loai_HD;
-            if (oHopdong.ThuViec_ChinhThuc == true) //chính thức
-                comB_ThuViecChinhThuc.Text = "Chính thức";
-            else
-                comB_ThuViecChinhThuc.Text = "Thử việc";
+            //if (oHopdong.ThuViec_ChinhThuc == true) //chính thức
+            //    comB_ThuViecChinhThuc.Text = "Chính thức";
+            //else
+            //    comB_ThuViecChinhThuc.Text = "Thử việc";
+
             //try
             //{
             //    comB_ChucDanh.SelectedValue = oHopdong.Chuc_Danh_ID;
@@ -244,6 +262,46 @@ namespace HDQD.UCs
             }
             else
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btn_NhapFile_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Forms.Popup(new UCs.DSTapTin(), "QUẢN LÝ NHÂN SỰ - DANH SÁCH TẬP TIN");
+            UCs.DSTapTin.bHopDong = true;
+            f.ShowDialog();
+            }
+
+        private void UploadFile()
+        {
+            #region Avatar
+
+            string[] ServerPath = new string[1];
+            try
+            {
+                ServerPath = oFTP.UploadFile(Paths, Paths.Select(b => b.Split('\\').Last()).ToArray(),
+                                            oHopdong.Ma_Hop_Dong);
+
+                oFile.MaNV = oHopdong.Ma_NV;
+
+                oFile.IsAvatar = false;
+                try
+                {
+                    oFile.AddFileArray(ServerPath);
+
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Quá trình lưu hình không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Quá trình tải hình lên server không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            
+
+            #endregion
         }
     }
 }

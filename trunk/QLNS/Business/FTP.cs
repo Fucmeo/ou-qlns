@@ -70,20 +70,34 @@ namespace Business
                 // Opens a file stream (System.IO.FileStream) to read the file to be uploaded
                 fs = fileInf.OpenRead();
 
-                // Stream to which the file to be upload is written
-                strm = request.GetRequestStream();
-
-                // Read from the file stream 2kb at a time
-                contentLen = fs.Read(buff, 0, buffLength);
-
-                // Till Stream content ends
-                while (contentLen != 0)
+                try
                 {
-                    // Write Content from the file stream to the FTP Upload Stream
-                    strm.Write(buff, 0, contentLen);
-                    contentLen = fs.Read(buff, 0, buffLength);
-                }
+                    // Stream to which the file to be upload is written
+                    strm = request.GetRequestStream();
 
+                    // Read from the file stream 2kb at a time
+                    contentLen = fs.Read(buff, 0, buffLength);
+
+                    // Till Stream content ends
+                    while (contentLen != 0)
+                    {
+                        // Write Content from the file stream to the FTP Upload Stream
+                        strm.Write(buff, 0, contentLen);
+                        contentLen = fs.Read(buff, 0, buffLength);
+                    }
+
+                }
+                catch (Exception)
+                {
+                    if (strm != null)
+                        strm.Close();
+
+                    if (fs != null)
+                        fs.Close();
+
+                    throw;
+                }
+                
                 
                 DBPath[i] = globalFolderName + "/" + ServerFileName;
             }

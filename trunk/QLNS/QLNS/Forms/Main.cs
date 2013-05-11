@@ -49,6 +49,7 @@ namespace QLNS.Forms
             tsmi_TaiLieuHD.Image = ImageL_MenuStripItem.Images["Document-Zoom-In.png"];
             tsmi_QLHD_DSHD.Image = ImageL_MenuStripItem.Images["Contract.png"];
             tsmi_QLHD_DSQD.Image = ImageL_MenuStripItem.Images["Decision.png"];
+            tsmi_QLHD_ThemHD.Image = ImageL_MenuStripItem.Images["Contract Add.png"];            
             tsmi_QLHD_ThemQD.Image = ImageL_MenuStripItem.Images["Document-Add.png"];
 
             // QL doi tuong
@@ -64,6 +65,8 @@ namespace QLNS.Forms
             tsmi_NhomNgach.Image = ImageL_MenuStripItem.Images["Cap bac.png"];
             tsmi_TrinhDo.Image = ImageL_MenuStripItem.Images["Trinh do.png"];
             tsmi_LuongToiThieu.Image = ImageL_MenuStripItem.Images["Luong Toi Thieu.png"];
+            tsmi_LoaiHD.Image = ImageL_MenuStripItem.Images["Contract Type.png"];
+
             
         }
 
@@ -287,6 +290,18 @@ namespace QLNS.Forms
         {
             Forms.Popup f = new Popup("Quản lý lương tối thiểu", new LuongBH.UCs.Luong.LuongToiThieu());
             //f.WindowState = FormWindowState.Maximized;
+            f.ShowDialog();
+        }
+
+        private void tsmi_QLHD_ThemHD_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Thêm hợp đồng", new HDQD.UCs.HopDong());            
+            f.ShowDialog();
+        }
+
+        private void tsmi_LoaiHD_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Quản lý loại hợp đồng", new HDQD.UCs.LoaiHopDong());
             f.ShowDialog();
         }
     }

@@ -187,7 +187,7 @@ namespace QLNS.UCs.DanhMucThongTin
             }
             else
             {
-                bool bUploadInfoSuccess = true;
+                bool bUploadInfoSuccess = false;
                 bool Yes = MessageBox.Show("Thêm / cập nhật nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes;
                 if (VerifyCNVCData())
                 {
@@ -685,7 +685,7 @@ namespace QLNS.UCs.DanhMucThongTin
             }
         }
 
-        private void EnableCNVCControl(bool bEnable)
+        public void EnableCNVCControl(bool bEnable)
         {
             picB_HinhDaiDien.Enabled = txt_DTDD.Enabled = txt_DTNha.Enabled = txt_MaHoSo.Enabled
                 = txt_MaNV.Enabled = txt_Ho.Enabled = txt_Ten.Enabled = txt_Email.Enabled
