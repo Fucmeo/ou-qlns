@@ -88,6 +88,23 @@ namespace Business.CNVC
                 return false;
         }
 
+        public bool AddFileArray(string[] FilesPath)
+        {
+            int check;
+            IDataParameter[] paras = new IDataParameter[3]{
+                new NpgsqlParameter("p_ma_nv",manv), 
+                new NpgsqlParameter("p_path",FilesPath), 
+                new NpgsqlParameter("p_mo_ta",mota)
+            };
+            check = (int)dp.executeScalarProc("sp_insert_cnvc_file_array", paras);
+            if (check > 0)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
         public bool Update()
         {
             int check;

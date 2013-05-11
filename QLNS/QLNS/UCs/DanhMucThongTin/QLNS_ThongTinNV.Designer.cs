@@ -50,6 +50,8 @@
             this.lbl_SuaCMND = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLP_ThongTinNV = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_Huy = new System.Windows.Forms.Button();
+            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.dTP_NgaySinh = new System.Windows.Forms.DateTimePicker();
             this.label19 = new System.Windows.Forms.Label();
             this.tableLP_QuocGia = new System.Windows.Forms.TableLayoutPanel();
@@ -80,7 +82,6 @@
             this.txt_MaHoSo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_LuuCNVC = new System.Windows.Forms.Button();
-            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.label11 = new System.Windows.Forms.Label();
             this.txt_MaNV = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -96,7 +97,6 @@
             this.txt_DTNha = new System.Windows.Forms.TextBox();
             this.txt_DTDD = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.btn_Huy = new System.Windows.Forms.Button();
             this.tableLP_ThongTinChinh.SuspendLayout();
             this.groupBox15.SuspendLayout();
             this.tableLP_CMND.SuspendLayout();
@@ -369,7 +369,6 @@
             this.tableLP_ThongTinChinh.SetColumnSpan(this.groupBox2, 4);
             this.groupBox2.Controls.Add(this.tableLP_ThongTinNV);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Enabled = false;
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
             this.tableLP_ThongTinChinh.SetRowSpan(this.groupBox2, 4);
@@ -426,6 +425,30 @@
             this.tableLP_ThongTinNV.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.36917F));
             this.tableLP_ThongTinNV.Size = new System.Drawing.Size(877, 499);
             this.tableLP_ThongTinNV.TabIndex = 0;
+            // 
+            // btn_Huy
+            // 
+            this.btn_Huy.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btn_Huy.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Huy.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_Huy.ImageKey = "Cancel.png";
+            this.btn_Huy.ImageList = this.imageList2;
+            this.btn_Huy.Location = new System.Drawing.Point(571, 439);
+            this.btn_Huy.Name = "btn_Huy";
+            this.btn_Huy.Size = new System.Drawing.Size(56, 56);
+            this.btn_Huy.TabIndex = 56;
+            this.btn_Huy.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Huy.UseVisualStyleBackColor = true;
+            this.btn_Huy.Visible = false;
+            this.btn_Huy.Click += new System.EventHandler(this.btn_Huy_Click);
+            // 
+            // imageList2
+            // 
+            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
+            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList2.Images.SetKeyName(0, "Save.png");
+            this.imageList2.Images.SetKeyName(1, "Cancel.png");
+            this.imageList2.Images.SetKeyName(2, "Edit Data.png");
             // 
             // dTP_NgaySinh
             // 
@@ -780,14 +803,6 @@
             this.btn_LuuCNVC.UseVisualStyleBackColor = true;
             this.btn_LuuCNVC.Click += new System.EventHandler(this.btn_LuuCNVC_Click);
             // 
-            // imageList2
-            // 
-            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
-            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList2.Images.SetKeyName(0, "Save.png");
-            this.imageList2.Images.SetKeyName(1, "Cancel.png");
-            this.imageList2.Images.SetKeyName(2, "Edit Data.png");
-            // 
             // label11
             // 
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -934,22 +949,6 @@
             this.openFileDialog1.Filter = "PNG|*.PNG|GIF|*.GIF|JPEG|*.JPEG|JPG|*.JPG|Pictures Format|*.JPEG;*.PNG;*.GIF;*.JP" +
     "G";
             this.openFileDialog1.Title = "Chọn hình đại diện";
-            // 
-            // btn_Huy
-            // 
-            this.btn_Huy.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btn_Huy.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Huy.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_Huy.ImageKey = "Cancel.png";
-            this.btn_Huy.ImageList = this.imageList2;
-            this.btn_Huy.Location = new System.Drawing.Point(571, 439);
-            this.btn_Huy.Name = "btn_Huy";
-            this.btn_Huy.Size = new System.Drawing.Size(56, 56);
-            this.btn_Huy.TabIndex = 56;
-            this.btn_Huy.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Huy.UseVisualStyleBackColor = true;
-            this.btn_Huy.Visible = false;
-            this.btn_Huy.Click += new System.EventHandler(this.btn_Huy_Click);
             // 
             // QLNS_ThongTinNV
             // 

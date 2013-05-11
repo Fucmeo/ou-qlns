@@ -33,11 +33,11 @@ namespace HDQD.UCs
                 EditDtgInterface();
             }
 
-            foreach (DataGridViewRow row in dtgv_DSLoaiHD.Rows)
-            {
-                if (row.Cells[3].Value.ToString() == "False")
-                    row.Cells[3].Value = "Bien che";
-            }
+            //foreach (DataGridViewRow row in dtgv_DSLoaiHD.Rows)
+            //{
+            //    if (row.Cells[3].Value.ToString() == "False")
+            //        row.Cells[3].Value = "Bien che";
+            //}
         }
 
         #region Private methods
@@ -94,7 +94,7 @@ namespace HDQD.UCs
                     comB_Loai.Text = "Hợp đồng";
 
                 bool co_thoihan = Convert.ToBoolean(row.Cells[4].Value);
-                cb_ThoiHan.Checked = co_thoihan;
+                //cb_ThoiHan.Checked = co_thoihan;
 
             }
         }
@@ -109,7 +109,9 @@ namespace HDQD.UCs
             {
                 btn_Them.Visible = btn_Xoa.Visible = btn_Sua.Visible = true;
                 btn_Huy.Visible = btn_Luu.Visible = false;
-                txt_Ten.Enabled = comB_Loai.Enabled = cb_ThoiHan.Enabled = rTB_MoTa.Enabled = false;
+                txt_Ten.Enabled = comB_Loai.Enabled 
+                    //= cb_ThoiHan.Enabled 
+                    = rTB_MoTa.Enabled = false;
                 dtgv_DSLoaiHD.Enabled = true;
                 if (dtgv_DSLoaiHD.CurrentRow != null)
                 {
@@ -120,13 +122,15 @@ namespace HDQD.UCs
             {
                 btn_Them.Visible = btn_Xoa.Visible = btn_Sua.Visible = false;
                 btn_Huy.Visible = btn_Luu.Visible = true;
-                txt_Ten.Enabled = comB_Loai.Enabled = cb_ThoiHan.Enabled = rTB_MoTa.Enabled = true;
+                txt_Ten.Enabled = comB_Loai.Enabled 
+                    //= cb_ThoiHan.Enabled 
+                    = rTB_MoTa.Enabled = true;
                 dtgv_DSLoaiHD.Enabled = false;
 
                 if (bAddFlag) // thao tac them moi xoa rong cac field
                 {
                     txt_Ten.Text = rTB_MoTa.Text = "";
-                    cb_ThoiHan.Checked = false;
+                    //cb_ThoiHan.Checked = false;
                 }
             }
         }
@@ -213,7 +217,7 @@ namespace HDQD.UCs
                         else if (comB_Loai.Text == "")
                             MessageBox.Show("Phải chọn hình thức biên chế hoặc hợp đồng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                        oLoaiHopDong.Co_Thoi_Han = cb_ThoiHan.Checked;
+                        //oLoaiHopDong.Co_Thoi_Han = cb_ThoiHan.Checked;
                         try
                         {
                             if (oLoaiHopDong.Add())
@@ -246,7 +250,7 @@ namespace HDQD.UCs
                         else if (comB_Loai.Text == "")
                             MessageBox.Show("Phải chọn hình thức biên chế hoặc hợp đồng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                        oLoaiHopDong.Co_Thoi_Han = cb_ThoiHan.Checked;
+                        //oLoaiHopDong.Co_Thoi_Han = cb_ThoiHan.Checked;
                         try
                         {
                             if (oLoaiHopDong.Update())
@@ -282,6 +286,11 @@ namespace HDQD.UCs
                 //e.Value = (bool)e.Value ? "Biên chế" : "Hợp đồng";
                 //e.FormattingApplied = true;
             }
+        }
+
+        private void cb_ThoiHan_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

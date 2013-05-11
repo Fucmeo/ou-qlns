@@ -13,7 +13,7 @@ namespace HDQD.UCs
     {
         const int nTLPControls = 6;
         Business.FTP oFTP;
-
+        public static bool bHopDong = false;
         public DSTapTin()
         {
             InitializeComponent();
@@ -45,10 +45,23 @@ namespace HDQD.UCs
         {
             if (lsb_DSFile.Items.Count > 0)
             {
-                ThongTinQuyetDinh.Paths = new string[lsb_DSFile.Items.Count];
-                lsb_DSFile.Items.CopyTo(ThongTinQuyetDinh.Paths, 0);
-                ThongTinQuyetDinh.Desc = rtb_MoTa.Text;
-                ((Form)this.Parent).Close();
+                if (!bHopDong)
+                {
+                    ThongTinQuyetDinh.Paths = new string[lsb_DSFile.Items.Count];
+                    lsb_DSFile.Items.CopyTo(ThongTinQuyetDinh.Paths, 0);
+                    ThongTinQuyetDinh.Desc = rtb_MoTa.Text;
+                    ((Form)this.Parent).Close();
+                }
+                else
+                {
+                    HopDong.Paths = new string[lsb_DSFile.Items.Count];
+                    lsb_DSFile.Items.CopyTo(HopDong.Paths, 0);
+                    HopDong.Desc = rtb_MoTa.Text;
+
+                    
+
+                    ((Form)this.Parent).Close();
+                }
             }
         }
 

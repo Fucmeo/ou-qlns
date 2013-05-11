@@ -68,6 +68,8 @@
             this.ImageL_MenuStrip = new System.Windows.Forms.ImageList(this.components);
             this.tableLP_Main = new System.Windows.Forms.TableLayoutPanel();
             this.ImageL_MenuStripItem = new System.Windows.Forms.ImageList(this.components);
+            this.tsmi_QLHD_ThemHD = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_LoaiHD = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -152,6 +154,7 @@
             this.tsmi_QLHD.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmi_QLHD_DSHD,
             this.tsmi_QLHD_DSQD,
+            this.tsmi_QLHD_ThemHD,
             this.tsmi_QLHD_ThemQD});
             this.tsmi_QLHD.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tsmi_QLHD.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -286,7 +289,8 @@
             this.tsmi_VanBangChinhQuy,
             this.tsmi_NhomNgach,
             this.tsmi_BacHeSo,
-            this.tsmi_LuongToiThieu});
+            this.tsmi_LuongToiThieu,
+            this.tsmi_LoaiHD});
             this.tsmi_QLDT.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tsmi_QLDT.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.tsmi_QLDT.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -491,7 +495,7 @@
             this.tableLP_Main.Name = "tableLP_Main";
             this.tableLP_Main.RowCount = 1;
             this.tableLP_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 95F));
-            this.tableLP_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1000F));
+            this.tableLP_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 733F));
             this.tableLP_Main.Size = new System.Drawing.Size(855, 733);
             this.tableLP_Main.TabIndex = 3;
             // 
@@ -520,6 +524,26 @@
             this.ImageL_MenuStripItem.Images.SetKeyName(18, "He so.png");
             this.ImageL_MenuStripItem.Images.SetKeyName(19, "Trinh do.png");
             this.ImageL_MenuStripItem.Images.SetKeyName(20, "Luong Toi Thieu.png");
+            this.ImageL_MenuStripItem.Images.SetKeyName(21, "Contract Add.png");
+            this.ImageL_MenuStripItem.Images.SetKeyName(22, "Contract Type.png");
+            // 
+            // tsmi_QLHD_ThemHD
+            // 
+            this.tsmi_QLHD_ThemHD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(55)))), ((int)(((byte)(78)))));
+            this.tsmi_QLHD_ThemHD.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tsmi_QLHD_ThemHD.Name = "tsmi_QLHD_ThemHD";
+            this.tsmi_QLHD_ThemHD.Size = new System.Drawing.Size(233, 26);
+            this.tsmi_QLHD_ThemHD.Text = "Thêm hợp đồng";
+            this.tsmi_QLHD_ThemHD.Click += new System.EventHandler(this.tsmi_QLHD_ThemHD_Click);
+            // 
+            // tsmi_LoaiHD
+            // 
+            this.tsmi_LoaiHD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(55)))), ((int)(((byte)(78)))));
+            this.tsmi_LoaiHD.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tsmi_LoaiHD.Name = "tsmi_LoaiHD";
+            this.tsmi_LoaiHD.Size = new System.Drawing.Size(226, 26);
+            this.tsmi_LoaiHD.Text = "Loại hợp đồng";
+            this.tsmi_LoaiHD.Click += new System.EventHandler(this.tsmi_LoaiHD_Click);
             // 
             // Main
             // 
@@ -587,6 +611,8 @@
         private System.Windows.Forms.ToolStripMenuItem tsmi_BacHeSo;
         private System.Windows.Forms.ToolStripMenuItem tsmi_LuongToiThieu;
         private System.Windows.Forms.ToolStripMenuItem tsmi_TrinhDo;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_QLHD_ThemHD;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_LoaiHD;
 
 
 

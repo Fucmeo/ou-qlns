@@ -88,9 +88,9 @@ namespace QLNS.UCs
                 comB_DanhMuc.SelectedIndex = 0;
                 tableLP_DanhMucThongTin.Controls.RemoveAt(1);
                 tableLP_DanhMucThongTin.Controls.Add(oQLNS_ThongTinNV, 0, 1);
-                
             }
             oQLNS_ThongTinNV.groupBox15.Enabled = oQLNS_ThongTinNV.groupBox2.Enabled = true;
+            oQLNS_ThongTinNV.EnableCNVCControl(true);
            bAddFlag = true;
            Program.selected_ma_nv = "";
         }
@@ -115,7 +115,6 @@ namespace QLNS.UCs
                 {
                     try
                     { 
-
                         oQLNS_ThongTinNV.oCNVC.MaNV = Program.selected_ma_nv;
                         oQLNS_ThongTinNV.oCNVC.Delete();
                         MessageBox.Show("Thao tác xoá thành công.\r\n", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

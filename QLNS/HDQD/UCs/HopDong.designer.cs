@@ -34,12 +34,11 @@
             this.thongTinCNVC1 = new HDQD.UCs.ThongTinCNVC();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLP_ChiTietHopDong = new System.Windows.Forms.TableLayoutPanel();
+            this.cb_ThoiHan = new System.Windows.Forms.CheckBox();
             this.comB_ChucDanh = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.comB_ThuViecChinhThuc = new System.Windows.Forms.ComboBox();
             this.comB_LoaiHD = new System.Windows.Forms.ComboBox();
             this.txt_MaHD = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -118,12 +117,11 @@
             this.tableLP_ChiTietHopDong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tableLP_ChiTietHopDong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLP_ChiTietHopDong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.tableLP_ChiTietHopDong.Controls.Add(this.cb_ThoiHan, 2, 1);
             this.tableLP_ChiTietHopDong.Controls.Add(this.comB_ChucDanh, 1, 4);
             this.tableLP_ChiTietHopDong.Controls.Add(this.label14, 0, 4);
-            this.tableLP_ChiTietHopDong.Controls.Add(this.comB_ThuViecChinhThuc, 3, 1);
             this.tableLP_ChiTietHopDong.Controls.Add(this.comB_LoaiHD, 3, 0);
             this.tableLP_ChiTietHopDong.Controls.Add(this.txt_MaHD, 1, 0);
-            this.tableLP_ChiTietHopDong.Controls.Add(this.label8, 2, 1);
             this.tableLP_ChiTietHopDong.Controls.Add(this.label6, 0, 1);
             this.tableLP_ChiTietHopDong.Controls.Add(this.label4, 2, 0);
             this.tableLP_ChiTietHopDong.Controls.Add(this.label1, 0, 0);
@@ -160,6 +158,17 @@
             this.tableLP_ChiTietHopDong.Size = new System.Drawing.Size(838, 647);
             this.tableLP_ChiTietHopDong.TabIndex = 0;
             // 
+            // cb_ThoiHan
+            // 
+            this.cb_ThoiHan.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cb_ThoiHan.AutoSize = true;
+            this.cb_ThoiHan.Location = new System.Drawing.Point(424, 73);
+            this.cb_ThoiHan.Name = "cb_ThoiHan";
+            this.cb_ThoiHan.Size = new System.Drawing.Size(113, 25);
+            this.cb_ThoiHan.TabIndex = 34;
+            this.cb_ThoiHan.Text = "Có thời hạn";
+            this.cb_ThoiHan.UseVisualStyleBackColor = true;
+            // 
             // comB_ChucDanh
             // 
             this.comB_ChucDanh.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -180,19 +189,6 @@
             this.label14.TabIndex = 33;
             this.label14.Text = "Chức danh";
             // 
-            // comB_ThuViecChinhThuc
-            // 
-            this.comB_ThuViecChinhThuc.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.comB_ThuViecChinhThuc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comB_ThuViecChinhThuc.FormattingEnabled = true;
-            this.comB_ThuViecChinhThuc.Items.AddRange(new object[] {
-            "Chính thức",
-            "Thử việc"});
-            this.comB_ThuViecChinhThuc.Location = new System.Drawing.Point(546, 73);
-            this.comB_ThuViecChinhThuc.Name = "comB_ThuViecChinhThuc";
-            this.comB_ThuViecChinhThuc.Size = new System.Drawing.Size(236, 29);
-            this.comB_ThuViecChinhThuc.TabIndex = 3;
-            // 
             // comB_LoaiHD
             // 
             this.comB_LoaiHD.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -212,16 +208,6 @@
             this.txt_MaHD.Size = new System.Drawing.Size(234, 28);
             this.txt_MaHD.TabIndex = 0;
             this.txt_MaHD.TextChanged += new System.EventHandler(this.txt_MaHD_TextChanged);
-            // 
-            // label8
-            // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(421, 64);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(98, 42);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "Thử việc / Chính thức *";
             // 
             // label6
             // 
@@ -493,6 +479,7 @@
             this.btn_NhapFile.TabIndex = 10;
             this.btn_NhapFile.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_NhapFile.UseVisualStyleBackColor = true;
+            this.btn_NhapFile.Click += new System.EventHandler(this.btn_NhapFile_Click);
             // 
             // btn_DungHD
             // 
@@ -540,7 +527,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label11;
@@ -552,7 +538,6 @@
         public System.Windows.Forms.DateTimePicker dtp_DenNgay;
         private System.Windows.Forms.ComboBox comB_ChucVu;
         private System.Windows.Forms.ComboBox comB_DonVi;
-        private System.Windows.Forms.ComboBox comB_ThuViecChinhThuc;
         private System.Windows.Forms.ComboBox comB_LoaiHD;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
@@ -568,5 +553,6 @@
         private System.Windows.Forms.Button btn_NhapFile;
         private System.Windows.Forms.Button btn_DungHD;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.CheckBox cb_ThoiHan;
     }
 }
