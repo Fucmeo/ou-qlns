@@ -258,6 +258,7 @@
             // txt_PhanLoai
             // 
             this.txt_PhanLoai.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_PhanLoai.Enabled = false;
             this.txt_PhanLoai.Location = new System.Drawing.Point(162, 398);
             this.txt_PhanLoai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_PhanLoai.Name = "txt_PhanLoai";
@@ -267,6 +268,7 @@
             // txt_CanNang
             // 
             this.txt_CanNang.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_CanNang.Enabled = false;
             this.txt_CanNang.Location = new System.Drawing.Point(692, 398);
             this.txt_CanNang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_CanNang.Name = "txt_CanNang";
@@ -359,6 +361,7 @@
             // txt_TPTNT
             // 
             this.txt_TPTNT.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_TPTNT.Enabled = false;
             this.txt_TPTNT.Location = new System.Drawing.Point(160, 309);
             this.txt_TPTNT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_TPTNT.Name = "txt_TPTNT";
@@ -368,6 +371,7 @@
             // txt_HPDinhLuong
             // 
             this.txt_HPDinhLuong.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_HPDinhLuong.Enabled = false;
             this.txt_HPDinhLuong.Location = new System.Drawing.Point(684, 256);
             this.txt_HPDinhLuong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_HPDinhLuong.Name = "txt_HPDinhLuong";
@@ -377,6 +381,7 @@
             // txt_PSA
             // 
             this.txt_PSA.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_PSA.Enabled = false;
             this.txt_PSA.Location = new System.Drawing.Point(160, 256);
             this.txt_PSA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_PSA.Name = "txt_PSA";
@@ -386,6 +391,7 @@
             // txt_CEA
             // 
             this.txt_CEA.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_CEA.Enabled = false;
             this.txt_CEA.Location = new System.Drawing.Point(684, 207);
             this.txt_CEA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_CEA.Name = "txt_CEA";
@@ -395,6 +401,7 @@
             // txt_AFP
             // 
             this.txt_AFP.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_AFP.Enabled = false;
             this.txt_AFP.Location = new System.Drawing.Point(160, 207);
             this.txt_AFP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_AFP.Name = "txt_AFP";
@@ -404,6 +411,7 @@
             // txt_FT4
             // 
             this.txt_FT4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_FT4.Enabled = false;
             this.txt_FT4.Location = new System.Drawing.Point(684, 158);
             this.txt_FT4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_FT4.Name = "txt_FT4";
@@ -413,6 +421,7 @@
             // txt_TSH
             // 
             this.txt_TSH.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_TSH.Enabled = false;
             this.txt_TSH.Location = new System.Drawing.Point(160, 158);
             this.txt_TSH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_TSH.Name = "txt_TSH";
@@ -422,6 +431,7 @@
             // txt_HCVAb
             // 
             this.txt_HCVAb.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_HCVAb.Enabled = false;
             this.txt_HCVAb.Location = new System.Drawing.Point(684, 109);
             this.txt_HCVAb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_HCVAb.Name = "txt_HCVAb";
@@ -431,6 +441,7 @@
             // txt_HbsAb
             // 
             this.txt_HbsAb.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_HbsAb.Enabled = false;
             this.txt_HbsAb.Location = new System.Drawing.Point(160, 109);
             this.txt_HbsAb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_HbsAb.Name = "txt_HbsAb";
@@ -440,6 +451,7 @@
             // txt_HBsAG
             // 
             this.txt_HBsAG.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_HBsAG.Enabled = false;
             this.txt_HBsAG.Location = new System.Drawing.Point(684, 60);
             this.txt_HBsAG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_HBsAG.Name = "txt_HBsAG";
@@ -449,6 +461,7 @@
             // txt_SGPT
             // 
             this.txt_SGPT.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_SGPT.Enabled = false;
             this.txt_SGPT.Location = new System.Drawing.Point(160, 60);
             this.txt_SGPT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_SGPT.Name = "txt_SGPT";
@@ -458,6 +471,7 @@
             // txt_SGOT
             // 
             this.txt_SGOT.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_SGOT.Enabled = false;
             this.txt_SGOT.Location = new System.Drawing.Point(684, 11);
             this.txt_SGOT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_SGOT.Name = "txt_SGOT";
@@ -467,6 +481,7 @@
             // txt_BoMo
             // 
             this.txt_BoMo.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_BoMo.Enabled = false;
             this.txt_BoMo.Location = new System.Drawing.Point(160, 11);
             this.txt_BoMo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_BoMo.Name = "txt_BoMo";
@@ -616,6 +631,7 @@
             // rtb_DeNghi
             // 
             this.rtb_DeNghi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtb_DeNghi.Enabled = false;
             this.rtb_DeNghi.Location = new System.Drawing.Point(162, 517);
             this.rtb_DeNghi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rtb_DeNghi.Name = "rtb_DeNghi";
@@ -626,6 +642,7 @@
             // rtb_KetLuan
             // 
             this.rtb_KetLuan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtb_KetLuan.Enabled = false;
             this.rtb_KetLuan.Location = new System.Drawing.Point(692, 448);
             this.rtb_KetLuan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rtb_KetLuan.Name = "rtb_KetLuan";
@@ -657,6 +674,7 @@
             // 
             this.dTP_ThoiDiem.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dTP_ThoiDiem.CustomFormat = "dd/MM/yyyy";
+            this.dTP_ThoiDiem.Enabled = false;
             this.dTP_ThoiDiem.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dTP_ThoiDiem.Location = new System.Drawing.Point(162, 467);
             this.dTP_ThoiDiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -686,7 +704,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.tableLP_DienBienSK);
-            this.Enabled = false;
             this.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "QLNS_DienBienSK";
             this.Size = new System.Drawing.Size(1067, 818);

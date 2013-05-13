@@ -66,7 +66,8 @@ namespace QLNS.UCs.DanhMucThongTin
 
         private void FillTTTuyenDung()
         {
-
+            if (dtTTTuyenDung.Rows.Count > 0)
+            {
                 txt_NgheNghiep.Text = dtTTTuyenDung.Rows[0]["nghe_nghiep_trc_day"].ToString();
                 txt_CoQuan.Text = dtTTTuyenDung.Rows[0]["co_quan_tuyen_dung"].ToString();
                 string dt = dtTTTuyenDung.Rows[0]["ngay_tuyen_dung"].ToString();
@@ -75,6 +76,8 @@ namespace QLNS.UCs.DanhMucThongTin
                 else
                     dTP_NgayTuyenDung.Checked = false;
             
+            }
+               
         }
 
         public void EmptyHopDongTTContent()
