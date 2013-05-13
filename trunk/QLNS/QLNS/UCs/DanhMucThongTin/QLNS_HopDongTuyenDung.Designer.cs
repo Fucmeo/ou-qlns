@@ -33,18 +33,18 @@
             this.tableLP_HopDong_TuyenDung = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLP_ThongTinTuyenDung = new System.Windows.Forms.TableLayoutPanel();
-            this.btn_Luu = new System.Windows.Forms.Button();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.dTP_NgayTuyenDung = new System.Windows.Forms.DateTimePicker();
             this.txt_CoQuan = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.txt_NgheNghiep = new System.Windows.Forms.TextBox();
+            this.btn_Huy = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.btn_Luu = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLP_HopDong = new System.Windows.Forms.TableLayoutPanel();
             this.dtgv_HopDong = new System.Windows.Forms.DataGridView();
-            this.btn_Huy = new System.Windows.Forms.Button();
             this.tableLP_HopDong_TuyenDung.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLP_ThongTinTuyenDung.SuspendLayout();
@@ -104,29 +104,6 @@
             this.tableLP_ThongTinTuyenDung.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLP_ThongTinTuyenDung.Size = new System.Drawing.Size(788, 278);
             this.tableLP_ThongTinTuyenDung.TabIndex = 0;
-            // 
-            // btn_Luu
-            // 
-            this.btn_Luu.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Luu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Luu.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_Luu.ImageKey = "Edit Data.png";
-            this.btn_Luu.ImageList = this.imageList1;
-            this.btn_Luu.Location = new System.Drawing.Point(227, 194);
-            this.btn_Luu.Name = "btn_Luu";
-            this.btn_Luu.Size = new System.Drawing.Size(56, 56);
-            this.btn_Luu.TabIndex = 3;
-            this.btn_Luu.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Luu.UseVisualStyleBackColor = true;
-            this.btn_Luu.Click += new System.EventHandler(this.btn_Luu_Click);
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "Save.png");
-            this.imageList1.Images.SetKeyName(1, "Edit Data.png");
-            this.imageList1.Images.SetKeyName(2, "Cancel.png");
             // 
             // dTP_NgayTuyenDung
             // 
@@ -189,6 +166,46 @@
             this.txt_NgheNghiep.Size = new System.Drawing.Size(264, 28);
             this.txt_NgheNghiep.TabIndex = 0;
             // 
+            // btn_Huy
+            // 
+            this.btn_Huy.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tableLP_ThongTinTuyenDung.SetColumnSpan(this.btn_Huy, 2);
+            this.btn_Huy.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Huy.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_Huy.ImageKey = "Cancel.png";
+            this.btn_Huy.ImageList = this.imageList1;
+            this.btn_Huy.Location = new System.Drawing.Point(396, 194);
+            this.btn_Huy.Name = "btn_Huy";
+            this.btn_Huy.Size = new System.Drawing.Size(56, 56);
+            this.btn_Huy.TabIndex = 4;
+            this.btn_Huy.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Huy.UseVisualStyleBackColor = true;
+            this.btn_Huy.Visible = false;
+            this.btn_Huy.Click += new System.EventHandler(this.btn_Huy_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Save.png");
+            this.imageList1.Images.SetKeyName(1, "Edit Data.png");
+            this.imageList1.Images.SetKeyName(2, "Cancel.png");
+            // 
+            // btn_Luu
+            // 
+            this.btn_Luu.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Luu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Luu.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_Luu.ImageKey = "Edit Data.png";
+            this.btn_Luu.ImageList = this.imageList1;
+            this.btn_Luu.Location = new System.Drawing.Point(227, 194);
+            this.btn_Luu.Name = "btn_Luu";
+            this.btn_Luu.Size = new System.Drawing.Size(56, 56);
+            this.btn_Luu.TabIndex = 3;
+            this.btn_Luu.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Luu.UseVisualStyleBackColor = true;
+            this.btn_Luu.Click += new System.EventHandler(this.btn_Luu_Click);
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.tableLP_HopDong);
@@ -231,30 +248,12 @@
             this.dtgv_HopDong.TabIndex = 0;
             this.dtgv_HopDong.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_HopDong_CellDoubleClick);
             // 
-            // btn_Huy
-            // 
-            this.btn_Huy.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tableLP_ThongTinTuyenDung.SetColumnSpan(this.btn_Huy, 2);
-            this.btn_Huy.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Huy.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_Huy.ImageKey = "Cancel.png";
-            this.btn_Huy.ImageList = this.imageList1;
-            this.btn_Huy.Location = new System.Drawing.Point(396, 194);
-            this.btn_Huy.Name = "btn_Huy";
-            this.btn_Huy.Size = new System.Drawing.Size(56, 56);
-            this.btn_Huy.TabIndex = 4;
-            this.btn_Huy.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Huy.UseVisualStyleBackColor = true;
-            this.btn_Huy.Visible = false;
-            this.btn_Huy.Click += new System.EventHandler(this.btn_Huy_Click);
-            // 
             // QLNS_HopDongTuyenDung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.tableLP_HopDong_TuyenDung);
-            this.Enabled = false;
             this.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "QLNS_HopDongTuyenDung";

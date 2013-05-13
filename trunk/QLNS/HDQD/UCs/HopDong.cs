@@ -117,6 +117,8 @@ namespace HDQD.UCs
         private void HopDong_Load(object sender, EventArgs e)
         {
             PreapreDataSource();
+
+            comb_Luong.SelectedIndex = 0;
         }
 
         #region Private Methods
@@ -133,7 +135,9 @@ namespace HDQD.UCs
             thongTinCNVC1.txt_MaNV.Text = "";
             thongTinCNVC1.txt_Ho.Text = thongTinCNVC1.txt_Ten.Text = thongTinCNVC1.comB_ChucVu.Text = thongTinCNVC1.comB_DonVi.Text = "";
             
-            txt_MaHD.Text = txt_NgachBac.Text = txt_HeSoLuong.Text = txt_PhanTram.Text = rTB_GhiChu.Text = "";
+            txt_MaHD.Text = txt_HeSo.Text 
+                //= txt_HeSoLuong.Text = txt_PhanTram.Text 
+                = rTB_GhiChu.Text = "";
             dtp_DenNgay.Checked = dTP_NgayKy.Checked = dtp_TuNgay.Checked = false;
         }
 
@@ -302,6 +306,20 @@ namespace HDQD.UCs
             
 
             #endregion
+        }
+
+        private void comb_Luong_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comb_Luong.SelectedIndex == 0)      // he so
+            {
+                comb_Ngach.Enabled = txt_HeSo.Enabled = nup_PhanTram.Enabled = comb_Bac.Enabled = true;
+                txt_Tien.Enabled = false;
+            }
+            else
+            {
+                comb_Ngach.Enabled = txt_HeSo.Enabled = nup_PhanTram.Enabled = comb_Bac.Enabled = false;
+                txt_Tien.Enabled = true;
+            }
         }
     }
 }
