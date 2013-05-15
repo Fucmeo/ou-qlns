@@ -33,13 +33,13 @@ namespace HDQD.UCs
             if (comB_Loai.Text != "")
                 ma_loai_hd = Convert.ToInt16(comB_Loai.SelectedValue);
 
-            bool? thuviec_chinhthuc = null;
-            if (comB_ThuviecChinhthuc.Text == "Chính thức")
-                thuviec_chinhthuc = true;
-            else if (comB_ThuviecChinhthuc.Text == "Thử việc")
-                thuviec_chinhthuc = false;
+            bool? co_thoi_han = null;
+            if (comB_CoThoiHan.Text == "Có thời hạn")
+                co_thoi_han = true;
+            else if (comB_CoThoiHan.Text == "Không thời hạn")
+                co_thoi_han = false;
             else
-                thuviec_chinhthuc = null;
+                co_thoi_han = null;
             
             DateTime? ngay_ky_tu = null;
             DateTime? ngay_ky_den = null;
@@ -51,7 +51,8 @@ namespace HDQD.UCs
 
             try
             {
-                dtDSHopDong = oHopDong.Search_HD(ma_nv, ma_hd, ma_loai_hd, thuviec_chinhthuc, ngay_ky_tu, ngay_ky_den);
+                dtDSHopDong = oHopDong.Search_HD(ma_nv, ma_hd, ma_loai_hd, co_thoi_han, ngay_ky_tu, ngay_ky_den);
+                //dtDSHopDong = oHopDong.Search_HD(ma_nv, ma_hd, ma_loai_hd, ngay_ky_tu, ngay_ky_den);
                 if (dtDSHopDong != null)
                 {
                     PrepareDataSource();
@@ -110,7 +111,7 @@ namespace HDQD.UCs
             dtgv_DSHD.Columns[3].HeaderText = "Mã loại Hợp đồng";
             dtgv_DSHD.Columns[4].HeaderText = "Loại hợp đồng";
             dtgv_DSHD.Columns[4].Width = 200;
-            dtgv_DSHD.Columns[5].HeaderText = "Thử việc/Chính thức";
+            dtgv_DSHD.Columns[5].HeaderText = "Có thời hạn";
             dtgv_DSHD.Columns[5].Width = 100;
             dtgv_DSHD.Columns[6].HeaderText = "Ngày ký";
             dtgv_DSHD.Columns[6].Width = 100;
@@ -177,13 +178,13 @@ namespace HDQD.UCs
             if (comB_Loai.Text != "")
                 ma_loai_hd = Convert.ToInt16(comB_Loai.SelectedValue);
 
-            bool? thuviec_chinhthuc = null;
-            if (comB_ThuviecChinhthuc.Text == "Chính thức")
-                thuviec_chinhthuc = true;
-            else if (comB_ThuviecChinhthuc.Text == "Thử việc")
-                thuviec_chinhthuc = false;
+            bool? co_thoi_han = null;
+            if (comB_CoThoiHan.Text == "Có thời hạn")
+                co_thoi_han = true;
+            else if (comB_CoThoiHan.Text == "Không thời hạn")
+                co_thoi_han = false;
             else
-                thuviec_chinhthuc = null;
+                co_thoi_han = null;
             
             DateTime? ngay_ky_tu = null;
             DateTime? ngay_ky_den = null;
@@ -193,7 +194,8 @@ namespace HDQD.UCs
                 ngay_ky_den = dTP_DenNgay.Value;
             }
 
-            dtDSHopDong = hopdong.Search_HD(ma_nv, ma_hd, ma_loai_hd, thuviec_chinhthuc, ngay_ky_tu, ngay_ky_den);
+            dtDSHopDong = hopdong.Search_HD(ma_nv, ma_hd, ma_loai_hd, co_thoi_han, ngay_ky_tu, ngay_ky_den);
+            //dtDSHopDong = hopdong.Search_HD(ma_nv, ma_hd, ma_loai_hd, ngay_ky_tu, ngay_ky_den);
             PrepareDataSource();
 
         }
@@ -259,7 +261,7 @@ namespace HDQD.UCs
                 oHopDong.Ma_Hop_Dong = row.Cells[2].Value.ToString();
                 oHopDong.Ma_Loai_HD = Convert.ToInt16(row.Cells[3].Value.ToString());
                 oHopDong.Loai_Hop_Dong = row.Cells[4].Value.ToString();
-                oHopDong.ThuViec_ChinhThuc = Convert.ToBoolean(row.Cells[5].Value.ToString());
+                oHopDong.Co_Thoi_Han = Convert.ToBoolean(row.Cells[5].Value.ToString());
                 if (row.Cells[6].Value.ToString() != "")
                     oHopDong.Ngay_Ky = Convert.ToDateTime(row.Cells[6].Value.ToString());
                 if (row.Cells[7].Value.ToString() != "")

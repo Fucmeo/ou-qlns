@@ -54,12 +54,12 @@ namespace Business.HDQD
             set { loai_hd = value; }
         }
 
-        private bool? thuviec_chinhthuc;
+        private bool? co_thoi_han;
 
-        public bool? ThuViec_ChinhThuc
+        public bool? Co_Thoi_Han
         {
-            get { return thuviec_chinhthuc; }
-            set { thuviec_chinhthuc = value; }
+            get { return co_thoi_han; }
+            set { co_thoi_han = value; }
         }
 
         private DateTime? ngay_ky;
@@ -165,6 +165,15 @@ namespace Business.HDQD
             get { return ma_hop_dong; }
             set { ma_hop_dong = value; }
         }
+
+        public bool? Khoan_or_HeSo { get; set; }
+
+        public double? Luong_Khoan { get; set; }
+
+        public int? BacHeSo_ID { get; set; }
+
+        public double? PhanTramHuong { get; set; }
+
         #endregion
 
         #region Methods
@@ -174,7 +183,7 @@ namespace Business.HDQD
             IDataParameter[] paras = new IDataParameter[11]{
                 new NpgsqlParameter("p_ma_nv",ma_nv),
                 new NpgsqlParameter("p_ma_loai_hd",ma_loai_hd),
-                new NpgsqlParameter("p_thuviec_chinhthuc",thuviec_chinhthuc),
+                new NpgsqlParameter("p_co_thoi_han",co_thoi_han),
                 new NpgsqlParameter("p_ngay_ky",ngay_ky),
                 new NpgsqlParameter("p_ngay_hieu_luc",ngay_hieu_luc),
                 new NpgsqlParameter("p_ngay_het_han",ngay_het_han),
@@ -183,6 +192,35 @@ namespace Business.HDQD
                 new NpgsqlParameter("p_ghi_chu",ghi_chu),
                 new NpgsqlParameter("p_ma_hop_dong",ma_hop_dong),
                 new NpgsqlParameter("p_chuc_danh_chinh_id",chuc_danh_id)
+            };
+            check = (int)dp.executeScalarProc("sp1_insert_cnvc_hop_dong", paras);
+            if (check > 0)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
+        public bool Add_wLuong()
+        {
+            int check;
+            IDataParameter[] paras = new IDataParameter[15]{
+                new NpgsqlParameter("p_ma_nv",ma_nv),
+                new NpgsqlParameter("p_ma_loai_hd",ma_loai_hd),
+                new NpgsqlParameter("p_co_thoi_han",co_thoi_han),
+                new NpgsqlParameter("p_ngay_ky",ngay_ky),
+                new NpgsqlParameter("p_ngay_hieu_luc",ngay_hieu_luc),
+                new NpgsqlParameter("p_ngay_het_han",ngay_het_han),
+                new NpgsqlParameter("p_chuc_vu_chinh_id",chuc_vu_id),
+                new NpgsqlParameter("p_don_vi_chinh_id",don_vi_id),
+                new NpgsqlParameter("p_ghi_chu",ghi_chu),
+                new NpgsqlParameter("p_ma_hop_dong",ma_hop_dong),
+                new NpgsqlParameter("p_chuc_danh_chinh_id",chuc_danh_id),
+                new NpgsqlParameter("p_khoan_or_heso",Khoan_or_HeSo),
+                new NpgsqlParameter("p_luong_khoan",Luong_Khoan),
+                new NpgsqlParameter("p_ngach_bac_heso_id",BacHeSo_ID),
+                new NpgsqlParameter("p_phan_tram_huong",PhanTramHuong),
             };
             check = (int)dp.executeScalarProc("sp1_insert_cnvc_hop_dong", paras);
             if (check > 0)
@@ -239,7 +277,7 @@ namespace Business.HDQD
                 return false;
         }
 
-        public DataTable Search_HD(string p_ma_nv, string p_ma_hop_dong, int? p_ma_loai_hd, bool? p_thuviec_chinhthuc, DateTime? p_ngay_ky_tu, DateTime? p_ngay_ky_den)
+        public DataTable Search_HD(string p_ma_nv, string p_ma_hop_dong, int? p_ma_loai_hd, bool? p_co_thoi_han, DateTime? p_ngay_ky_tu, DateTime? p_ngay_ky_den)
         {
             DataTable dt;
 
@@ -247,7 +285,7 @@ namespace Business.HDQD
                 new NpgsqlParameter("p_ma_nv",p_ma_nv),
                 new NpgsqlParameter("p_ma_hd",p_ma_hop_dong),
                 new NpgsqlParameter("p_loai_hd",p_ma_loai_hd),
-                new NpgsqlParameter("p_thuviec_chinhthuc",p_thuviec_chinhthuc),
+                new NpgsqlParameter("p_co_thoi_han",p_co_thoi_han),
                 new NpgsqlParameter("p_ngay_ky_tu",p_ngay_ky_tu),
                 new NpgsqlParameter("p_ngay_ky_den",p_ngay_ky_den)
             };

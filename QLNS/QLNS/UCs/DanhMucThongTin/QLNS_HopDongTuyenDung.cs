@@ -117,7 +117,7 @@ namespace QLNS.UCs.DanhMucThongTin
         {
             dtgv_HopDong.Columns["ma_hop_dong"].HeaderText = "Mã hợp đồng";
             dtgv_HopDong.Columns["loai_hop_dong"].HeaderText = "Loại hợp đồng";
-            dtgv_HopDong.Columns["thuviec_chinhthuc_txt"].HeaderText = "Thử việc/Chính thức";
+            dtgv_HopDong.Columns["co_thoi_han"].HeaderText = "Có thời hạn";
             dtgv_HopDong.Columns["ngay_ky"].HeaderText = "Ngày ký";
             dtgv_HopDong.Columns["ngay_hieu_luc"].HeaderText = "Ngày hiệu lực";
             dtgv_HopDong.Columns["ngay_het_han"].HeaderText = "Ngày hết hạn";
@@ -133,7 +133,7 @@ namespace QLNS.UCs.DanhMucThongTin
             dtgv_HopDong.Columns["chuc_vu_chinh_id"].Visible = false;
             dtgv_HopDong.Columns["chuc_danh_chinh_id"].Visible = false;
             dtgv_HopDong.Columns["don_vi_chinh_id"].Visible = false;
-            dtgv_HopDong.Columns["thuviec_chinhthuc"].Visible = false;
+            //dtgv_HopDong.Columns["thuviec_chinhthuc"].Visible = false;
             dtgv_HopDong.Columns["tinh_trang"].Visible = false;
         }
         
@@ -150,7 +150,7 @@ namespace QLNS.UCs.DanhMucThongTin
                 m_oHopDong.Ma_Hop_Dong = row.Cells["ma_hop_dong"].Value.ToString();
                 m_oHopDong.Ma_Loai_HD = Convert.ToInt16(row.Cells["ma_loai_hd"].Value.ToString());
                 m_oHopDong.Loai_Hop_Dong = row.Cells["loai_hop_dong"].Value.ToString();
-                m_oHopDong.ThuViec_ChinhThuc = Convert.ToBoolean(row.Cells["thuviec_chinhthuc"].Value.ToString());
+                m_oHopDong.Co_Thoi_Han = Convert.ToBoolean(row.Cells["co_thoi_han"].Value.ToString());
                 if (row.Cells["ngay_ky"].Value.ToString() != "")
                     m_oHopDong.Ngay_Ky = Convert.ToDateTime(row.Cells["ngay_ky"].Value.ToString());
                 if (row.Cells["ngay_hieu_luc"].Value.ToString() != "")

@@ -69,8 +69,8 @@ namespace HDQD.UCs
             dtgv_DSLoaiHD.Columns[3].Name = "BC_HD";
             dtgv_DSLoaiHD.Columns[3].HeaderText = "Biên chế hoặc hợp đồng?";
             //dtgv_DSLoaiHD.Columns[3].Width = 100;
-            dtgv_DSLoaiHD.Columns[4].Name = "Co_Thoi_Han";
-            dtgv_DSLoaiHD.Columns[4].HeaderText = "Có thời hạn?";
+            //dtgv_DSLoaiHD.Columns[4].Name = "Co_Thoi_Han";
+            //dtgv_DSLoaiHD.Columns[4].HeaderText = "Có thời hạn?";
             // An cot ID
             dtgv_DSLoaiHD.Columns[0].Name = "ID";
             dtgv_DSLoaiHD.Columns[0].Visible = false;
@@ -93,7 +93,7 @@ namespace HDQD.UCs
                 else
                     comB_Loai.Text = "Hợp đồng";
 
-                bool co_thoihan = Convert.ToBoolean(row.Cells[4].Value);
+                //bool co_thoihan = Convert.ToBoolean(row.Cells[4].Value);
                 //cb_ThoiHan.Checked = co_thoihan;
 
             }
