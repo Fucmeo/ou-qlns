@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Business;
+using System.Reflection;
 
 namespace HDQD.UCs
 {
@@ -20,6 +21,9 @@ namespace HDQD.UCs
         Business.CNVC.CNVC cnvc;
         Business.FTP oFTP;
         public Business.CNVC.CNVC_File oFile;
+
+        Business.Luong.BacHeSo oBacHeSo;
+        DataTable dtBacHeSo;
 
         // KHANG - UPLOAD FILE
         public static string[] Paths;
@@ -36,6 +40,9 @@ namespace HDQD.UCs
             oFTP = new Business.FTP();
             oFTP.oFileCate = FTP.FileCate.HDQD;
             oFile = new Business.CNVC.CNVC_File();
+
+            oBacHeSo = new Business.Luong.BacHeSo();
+            dtBacHeSo = new DataTable();
         }
 
         public HopDong(Business.HDQD.CNVC_HopDong p_HopDong)
@@ -46,6 +53,9 @@ namespace HDQD.UCs
             oChucdanh = new ChucDanh();
             oChucvu = new ChucVu();
             oDonvi = new DonVi();
+
+            oBacHeSo = new Business.Luong.BacHeSo();
+            dtBacHeSo = new DataTable();
 
             oHopdong = p_HopDong;
             DisplayInfo();
@@ -65,6 +75,8 @@ namespace HDQD.UCs
                 //    oHopdong.ThuViec_ChinhThuc = false;
                 //else if (comB_ThuViecChinhThuc.Text == "Chính thức")
                 //    oHopdong.ThuViec_ChinhThuc = true;
+
+                oHopdong.Co_Thoi_Han = cb_ThoiHan.Checked;
 
                 if (dTP_NgayKy.Checked == true)
                     oHopdong.Ngay_Ky = dTP_NgayKy.Value;
@@ -86,11 +98,30 @@ namespace HDQD.UCs
                 oHopdong.Chuc_Vu_ID = Convert.ToInt16(comB_ChucVu.SelectedValue);
                 oHopdong.Ghi_Chu = rTB_GhiChu.Text;
 
+                #region Lương Info
+                if (comb_Luong.SelectedIndex == 0)      // he so
+                {
+                    oHopdong.Khoan_or_HeSo = true;
+                    oHopdong.Luong_Khoan = null;
+                    oHopdong.BacHeSo_ID = Convert.ToInt32(comb_Bac.SelectedValue.ToString());
+                    oHopdong.PhanTramHuong = Convert.ToDouble(nup_PhanTram.Value);
+                }
+                else
+                {
+                    oHopdong.Khoan_or_HeSo = false;
+                    oHopdong.Luong_Khoan = Convert.ToDouble(txt_Tien.Text);
+                    oHopdong.BacHeSo_ID = null;
+                    oHopdong.PhanTramHuong = Convert.ToDouble(nup_PhanTram.Value);
+                }
+
+                #endregion
+
                 try
                 {
                     if (MessageBox.Show("Bạn thực sự muốn thêm hợp đồng cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        if (oHopdong.Add())
+                        //if (oHopdong.Add())
+                        if (oHopdong.Add_wLuong())
                         {
                             MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             bUploadInfoSuccess = true;
@@ -117,12 +148,88 @@ namespace HDQD.UCs
         private void HopDong_Load(object sender, EventArgs e)
         {
             PreapreDataSource();
+            Prepare_Data_BacHeSo();
 
             comb_Luong.SelectedIndex = 0;
         }
 
         #region Private Methods
-        
+
+        #region Convert List to Data Table
+        private DataTable ToDataTable<T>(List<T> items)
+        {
+            var table = new DataTable(typeof(T).Name);
+
+            PropertyInfo[] props = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
+
+            foreach (PropertyInfo prop in props)
+            {
+                Type t = GetCoreType(prop.PropertyType);
+                table.Columns.Add(prop.Name, t);
+            }
+
+            foreach (T item in items)
+            {
+                var values = new object[props.Length];
+
+                for (int i = 0; i < props.Length; i++)
+                {
+                    values[i] = props[i].GetValue(item, null);
+                }
+
+                table.Rows.Add(values);
+            }
+
+            return table;
+        }
+        public static Type GetCoreType(Type t)
+        {
+            if (t != null && IsNullable(t))
+            {
+                if (!t.IsValueType)
+                {
+                    return t;
+                }
+                else
+                {
+                    return Nullable.GetUnderlyingType(t);
+                }
+            }
+            else
+            {
+                return t;
+            }
+        }
+        public static bool IsNullable(Type t)
+        {
+            return !t.IsValueType || (t.IsGenericType && t.GetGenericTypeDefinition() == typeof(Nullable<>));
+        }
+        #endregion
+
+
+        private void Prepare_Data_BacHeSo()
+        {
+            dtBacHeSo = oBacHeSo.GetData();
+            Load_Data_Cbo_Ngach();
+        }
+
+        private void Load_Data_Cbo_Ngach()
+        {
+            try
+            {
+                var result = (from c in dtBacHeSo.AsEnumerable()
+                              select new { ma_ngach = c.Field<string>("ma_ngach"), ten_ngach = c.Field<string>("ten_ngach") }
+                              ).Distinct().ToList();
+
+                DataTable dt = ToDataTable(result);
+
+                comb_Ngach.DataSource = dt;
+                comb_Ngach.DisplayMember = "ten_ngach";
+                comb_Ngach.ValueMember = "ma_ngach";
+            }
+            catch { }
+        }
+
         private bool CheckInputData()
         {
             if (thongTinCNVC1.txt_MaNV.Text != "" && txt_MaHD.Text != "" && dtp_TuNgay.Checked == true)
@@ -202,6 +309,8 @@ namespace HDQD.UCs
             //    comB_ThuViecChinhThuc.Text = "Chính thức";
             //else
             //    comB_ThuViecChinhThuc.Text = "Thử việc";
+
+            cb_ThoiHan.Checked = oHopdong.Co_Thoi_Han.Value;
 
             //try
             //{
@@ -312,14 +421,53 @@ namespace HDQD.UCs
         {
             if (comb_Luong.SelectedIndex == 0)      // he so
             {
-                comb_Ngach.Enabled = txt_HeSo.Enabled = nup_PhanTram.Enabled = comb_Bac.Enabled = true;
+                comb_Ngach.Enabled //= txt_HeSo.Enabled 
+                    = nup_PhanTram.Enabled = comb_Bac.Enabled = true;
                 txt_Tien.Enabled = false;
             }
             else
             {
-                comb_Ngach.Enabled = txt_HeSo.Enabled = nup_PhanTram.Enabled = comb_Bac.Enabled = false;
+                comb_Ngach.Enabled //= txt_HeSo.Enabled 
+                    = nup_PhanTram.Enabled = comb_Bac.Enabled = false;
                 txt_Tien.Enabled = true;
             }
+        }
+
+        private void comb_Ngach_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            try
+            {
+                string m_ma_ngach = comb_Ngach.SelectedValue.ToString();
+
+                var result = (from c in dtBacHeSo.AsEnumerable()
+                              where c.Field<string>("ma_ngach") == m_ma_ngach && c.Field<bool>("tinh_trang") == true
+                              select new { id = c.Field<int>("id"), bac = c.Field<int>("bac"), he_so = c.Field<double>("he_so") }
+                                  ).ToList();
+
+                DataTable dt = ToDataTable(result);
+
+                comb_Bac.DataSource = dt;
+                comb_Bac.DisplayMember = "bac";
+                comb_Bac.ValueMember = "id";
+            }
+            catch { }
+        }
+
+        private void comb_Bac_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            try
+            {
+                int m_id = Convert.ToInt32(comb_Bac.SelectedValue.ToString());
+
+                var result = (from c in dtBacHeSo.AsEnumerable()
+                              where c.Field<int>("id") == m_id
+                              select c.Field<double>("he_so"));
+
+                double m_he_so = result.ElementAt<double>(0);
+
+                txt_HeSo.Text = m_he_so.ToString();
+            }
+            catch { }
         }
     }
 }
