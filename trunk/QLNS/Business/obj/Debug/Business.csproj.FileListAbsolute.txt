@@ -140,25 +140,6 @@ D:\Job\QLNS\Projects\QLNS2\Business\bin\Debug\zh-CN\Npgsql.resources.dll
 D:\Job\QLNS\Projects\QLNS2\Business\obj\Debug\Business.csprojResolveAssemblyReference.cache
 D:\Job\QLNS\Projects\QLNS2\Business\obj\Debug\Business.dll
 D:\Job\QLNS\Projects\QLNS2\Business\obj\Debug\Business.pdb
-D:\Job\QLNS\Projects\QLNS\Business\bin\Debug\Business.dll
-D:\Job\QLNS\Projects\QLNS\Business\bin\Debug\Business.pdb
-D:\Job\QLNS\Projects\QLNS\Business\bin\Debug\DataProvider.dll
-D:\Job\QLNS\Projects\QLNS\Business\bin\Debug\Mono.Security.dll
-D:\Job\QLNS\Projects\QLNS\Business\bin\Debug\Npgsql.dll
-D:\Job\QLNS\Projects\QLNS\Business\bin\Debug\SystemConfig.dll
-D:\Job\QLNS\Projects\QLNS\Business\bin\Debug\DataProvider.pdb
-D:\Job\QLNS\Projects\QLNS\Business\bin\Debug\Npgsql.pdb
-D:\Job\QLNS\Projects\QLNS\Business\bin\Debug\Npgsql.xml
-D:\Job\QLNS\Projects\QLNS\Business\bin\Debug\SystemConfig.pdb
-D:\Job\QLNS\Projects\QLNS\Business\bin\Debug\de\Npgsql.resources.dll
-D:\Job\QLNS\Projects\QLNS\Business\bin\Debug\es\Npgsql.resources.dll
-D:\Job\QLNS\Projects\QLNS\Business\bin\Debug\fi\Npgsql.resources.dll
-D:\Job\QLNS\Projects\QLNS\Business\bin\Debug\fr\Npgsql.resources.dll
-D:\Job\QLNS\Projects\QLNS\Business\bin\Debug\ja\Npgsql.resources.dll
-D:\Job\QLNS\Projects\QLNS\Business\bin\Debug\zh-CN\Npgsql.resources.dll
-D:\Job\QLNS\Projects\QLNS\Business\obj\Debug\Business.csprojResolveAssemblyReference.cache
-D:\Job\QLNS\Projects\QLNS\Business\obj\Debug\Business.dll
-D:\Job\QLNS\Projects\QLNS\Business\obj\Debug\Business.pdb
 D:\Job\QLNS\Projects\New folder\Business\bin\Debug\Business.dll
 D:\Job\QLNS\Projects\New folder\Business\bin\Debug\Business.pdb
 D:\Job\QLNS\Projects\New folder\Business\bin\Debug\DataProvider.dll
@@ -178,3 +159,22 @@ D:\Job\QLNS\Projects\New folder\Business\bin\Debug\zh-CN\Npgsql.resources.dll
 D:\Job\QLNS\Projects\New folder\Business\obj\Debug\Business.csprojResolveAssemblyReference.cache
 D:\Job\QLNS\Projects\New folder\Business\obj\Debug\Business.dll
 D:\Job\QLNS\Projects\New folder\Business\obj\Debug\Business.pdb
+D:\Job\QLNS\Projects\QLNS\Business\bin\Debug\Business.dll
+D:\Job\QLNS\Projects\QLNS\Business\bin\Debug\Business.pdb
+D:\Job\QLNS\Projects\QLNS\Business\bin\Debug\DataProvider.dll
+D:\Job\QLNS\Projects\QLNS\Business\bin\Debug\Mono.Security.dll
+D:\Job\QLNS\Projects\QLNS\Business\bin\Debug\Npgsql.dll
+D:\Job\QLNS\Projects\QLNS\Business\bin\Debug\SystemConfig.dll
+D:\Job\QLNS\Projects\QLNS\Business\bin\Debug\DataProvider.pdb
+D:\Job\QLNS\Projects\QLNS\Business\bin\Debug\Npgsql.pdb
+D:\Job\QLNS\Projects\QLNS\Business\bin\Debug\Npgsql.xml
+D:\Job\QLNS\Projects\QLNS\Business\bin\Debug\SystemConfig.pdb
+D:\Job\QLNS\Projects\QLNS\Business\bin\Debug\de\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS\Business\bin\Debug\es\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS\Business\bin\Debug\fi\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS\Business\bin\Debug\fr\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS\Business\bin\Debug\ja\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS\Business\bin\Debug\zh-CN\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS\Business\obj\Debug\Business.csprojResolveAssemblyReference.cache
+D:\Job\QLNS\Projects\QLNS\Business\obj\Debug\Business.dll
+D:\Job\QLNS\Projects\QLNS\Business\obj\Debug\Business.pdb
