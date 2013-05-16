@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Business;
 using System.Reflection;
+using System.Globalization;
 
 namespace HDQD.UCs
 {
@@ -53,7 +54,9 @@ namespace HDQD.UCs
             oChucdanh = new ChucDanh();
             oChucvu = new ChucVu();
             oDonvi = new DonVi();
-
+            oFTP = new Business.FTP();
+            oFTP.oFileCate = FTP.FileCate.HDQD;
+            oFile = new Business.CNVC.CNVC_File();
             oBacHeSo = new Business.Luong.BacHeSo();
             dtBacHeSo = new DataTable();
 
@@ -468,6 +471,26 @@ namespace HDQD.UCs
                 txt_HeSo.Text = m_he_so.ToString();
             }
             catch { }
+        }
+
+        private void txt_Tien_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+            
+        }
+
+        private void txt_Tien_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txt_Tien.Text) &&
+                e.KeyCode != Keys.Left && e.KeyCode != Keys.Right &&
+                e.KeyCode != Keys.Up && e.KeyCode != Keys.Down)
+            {
+                txt_Tien.Text = Convert.ToDouble(txt_Tien.Text).ToString("#,#", CultureInfo.InvariantCulture);
+                txt_Tien.SelectionStart = txt_Tien.TextLength;
+            }
         }
     }
 }
