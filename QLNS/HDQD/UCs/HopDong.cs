@@ -96,9 +96,21 @@ namespace HDQD.UCs
                 else
                     oHopdong.Ngay_Het_Han = null;
 
+                //if (comB_DonVi.SelectedText != "")
                 oHopdong.Don_Vi_ID = Convert.ToInt16(comB_DonVi.SelectedValue);
-                oHopdong.Chuc_Danh_ID = Convert.ToInt16(comB_ChucDanh.SelectedValue);
-                oHopdong.Chuc_Vu_ID = Convert.ToInt16(comB_ChucVu.SelectedValue);
+                //else
+                //    oHopdong.Don_Vi_ID = null;
+
+                if (comB_ChucDanh.SelectedText != "")
+                    oHopdong.Chuc_Danh_ID = Convert.ToInt16(comB_ChucDanh.SelectedValue);
+                else
+                    oHopdong.Chuc_Danh_ID = null;
+
+                if (comB_ChucVu.SelectedText != "")
+                    oHopdong.Chuc_Vu_ID = Convert.ToInt16(comB_ChucVu.SelectedValue);
+                else
+                    oHopdong.Chuc_Vu_ID = null;
+
                 oHopdong.Ghi_Chu = rTB_GhiChu.Text;
 
                 #region Lương Info
@@ -214,6 +226,34 @@ namespace HDQD.UCs
         {
             dtBacHeSo = oBacHeSo.GetData();
             Load_Data_Cbo_Ngach();
+
+            try
+            {
+                string m_ma_ngach = comb_Ngach.SelectedValue.ToString();
+
+                var result = (from c in dtBacHeSo.AsEnumerable()
+                              where c.Field<string>("ma_ngach") == m_ma_ngach && c.Field<bool>("tinh_trang") == true
+                              select new { id = c.Field<int>("id"), bac = c.Field<int>("bac"), he_so = c.Field<double>("he_so") }
+                                  ).ToList();
+
+                DataTable dt = ToDataTable(result);
+
+                comb_Bac.DataSource = dt;
+                comb_Bac.DisplayMember = "bac";
+                comb_Bac.ValueMember = "id";
+
+
+                int m_id = Convert.ToInt32(comb_Bac.SelectedValue.ToString());
+
+                var result1 = (from c in dtBacHeSo.AsEnumerable()
+                               where c.Field<int>("id") == m_id
+                               select c.Field<double>("he_so"));
+
+                double m_he_so = result1.ElementAt<double>(0);
+
+                txt_HeSo.Text = m_he_so.ToString();
+            }
+            catch { }
         }
 
         private void Load_Data_Cbo_Ngach()
@@ -436,7 +476,29 @@ namespace HDQD.UCs
             }
         }
 
-        private void comb_Ngach_SelectionChangeCommitted(object sender, EventArgs e)
+        
+        private void txt_Tien_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+            
+        }
+
+        private void txt_Tien_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txt_Tien.Text) &&
+                e.KeyCode != Keys.Left && e.KeyCode != Keys.Right &&
+                e.KeyCode != Keys.Up && e.KeyCode != Keys.Down)
+            {
+                //txt_Tien.Text = Convert.ToDouble(txt_Tien.Text).ToString("#,#", CultureInfo.InvariantCulture);
+                txt_Tien.Text = Convert.ToDouble(txt_Tien.Text).ToString("#,#");
+                txt_Tien.SelectionStart = txt_Tien.TextLength;
+            }
+        }
+
+        private void comb_Ngach_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
@@ -456,7 +518,7 @@ namespace HDQD.UCs
             catch { }
         }
 
-        private void comb_Bac_SelectionChangeCommitted(object sender, EventArgs e)
+        private void comb_Bac_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
@@ -471,26 +533,6 @@ namespace HDQD.UCs
                 txt_HeSo.Text = m_he_so.ToString();
             }
             catch { }
-        }
-
-        private void txt_Tien_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
-            {
-                e.Handled = true;
-            }
-            
-        }
-
-        private void txt_Tien_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(txt_Tien.Text) &&
-                e.KeyCode != Keys.Left && e.KeyCode != Keys.Right &&
-                e.KeyCode != Keys.Up && e.KeyCode != Keys.Down)
-            {
-                txt_Tien.Text = Convert.ToDouble(txt_Tien.Text).ToString("#,#", CultureInfo.InvariantCulture);
-                txt_Tien.SelectionStart = txt_Tien.TextLength;
-            }
         }
     }
 }
