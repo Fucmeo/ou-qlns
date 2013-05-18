@@ -174,18 +174,13 @@ namespace Business
             DataTable dt = new DataTable();
             List<DonVi> listDonVi = new List<DonVi>();
 
-            dt = dp.getDataTable("select * from v_don_vi");
+            dt = dp.getDataTable("select * from v_don_vi_con_hd");
             listDonVi = dt.AsEnumerable().Select(row =>
                  new DonVi
                  {
                      id = row.Field<int>("id"),
                      tendonvi = row.Field<string>("ten_don_vi"),
-                     tendvviettat = row.Field<string>("ten_don_vi_viet_tat"),
-                     dvchaid = row.Field<int?>("don_vi_cha_id"),
-                     tungay = row.Field<DateTime?>("tu_ngay"),
-                     denngay = row.Field<DateTime?>("den_ngay"),
-                     isactive = row.Field<bool?>("is_active"),
-                     ghichu = row.Field<string>("ghi_chu")
+                     dvchaid = row.Field<int?>("don_vi_cha_id")
                  }).ToList();
 
             return listDonVi;

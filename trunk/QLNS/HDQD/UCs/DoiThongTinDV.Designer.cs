@@ -71,7 +71,7 @@
             this.tableLP_DoiThongTinDV.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
             this.tableLP_DoiThongTinDV.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLP_DoiThongTinDV.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLP_DoiThongTinDV.Size = new System.Drawing.Size(1200, 1200);
+            this.tableLP_DoiThongTinDV.Size = new System.Drawing.Size(1000, 1200);
             this.tableLP_DoiThongTinDV.TabIndex = 0;
             // 
             // tableLP_ThayDoiCV
@@ -90,7 +90,7 @@
             this.tableLP_ThayDoiCV.Name = "tableLP_ThayDoiCV";
             this.tableLP_ThayDoiCV.RowCount = 1;
             this.tableLP_ThayDoiCV.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLP_ThayDoiCV.Size = new System.Drawing.Size(1194, 194);
+            this.tableLP_ThayDoiCV.Size = new System.Drawing.Size(994, 194);
             this.tableLP_ThayDoiCV.TabIndex = 4;
             // 
             // tableLP_Nut
@@ -109,7 +109,7 @@
             this.tableLP_Nut.Name = "tableLP_Nut";
             this.tableLP_Nut.RowCount = 1;
             this.tableLP_Nut.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLP_Nut.Size = new System.Drawing.Size(1194, 145);
+            this.tableLP_Nut.Size = new System.Drawing.Size(994, 145);
             this.tableLP_Nut.TabIndex = 7;
             // 
             // btn_Huy
@@ -118,7 +118,7 @@
             this.btn_Huy.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Huy.ImageKey = "Cancel.png";
             this.btn_Huy.ImageList = this.imageList1;
-            this.btn_Huy.Location = new System.Drawing.Point(867, 44);
+            this.btn_Huy.Location = new System.Drawing.Point(717, 44);
             this.btn_Huy.Name = "btn_Huy";
             this.btn_Huy.Size = new System.Drawing.Size(56, 56);
             this.btn_Huy.TabIndex = 1;
@@ -138,7 +138,7 @@
             this.btn_Nhap.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Nhap.ImageKey = "Save.png";
             this.btn_Nhap.ImageList = this.imageList1;
-            this.btn_Nhap.Location = new System.Drawing.Point(270, 44);
+            this.btn_Nhap.Location = new System.Drawing.Point(220, 44);
             this.btn_Nhap.Name = "btn_Nhap";
             this.btn_Nhap.Size = new System.Drawing.Size(56, 56);
             this.btn_Nhap.TabIndex = 0;
@@ -159,7 +159,7 @@
             this.tableLP_ThayDoiCapBac.Name = "tableLP_ThayDoiCapBac";
             this.tableLP_ThayDoiCapBac.RowCount = 1;
             this.tableLP_ThayDoiCapBac.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLP_ThayDoiCapBac.Size = new System.Drawing.Size(1194, 194);
+            this.tableLP_ThayDoiCapBac.Size = new System.Drawing.Size(994, 194);
             this.tableLP_ThayDoiCapBac.TabIndex = 6;
             // 
             // thongTinQuyetDinh1
@@ -170,7 +170,7 @@
             this.thongTinQuyetDinh1.Location = new System.Drawing.Point(3, 4);
             this.thongTinQuyetDinh1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.thongTinQuyetDinh1.Name = "thongTinQuyetDinh1";
-            this.thongTinQuyetDinh1.Size = new System.Drawing.Size(1194, 291);
+            this.thongTinQuyetDinh1.Size = new System.Drawing.Size(994, 291);
             this.thongTinQuyetDinh1.TabIndex = 0;
             // 
             // cb_ThayDoiTen
@@ -227,7 +227,7 @@
             this.tableLP_ThayDoiTen.Name = "tableLP_ThayDoiTen";
             this.tableLP_ThayDoiTen.RowCount = 1;
             this.tableLP_ThayDoiTen.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLP_ThayDoiTen.Size = new System.Drawing.Size(1194, 194);
+            this.tableLP_ThayDoiTen.Size = new System.Drawing.Size(994, 194);
             this.tableLP_ThayDoiTen.TabIndex = 2;
             // 
             // DoiThongTinDV
@@ -239,7 +239,7 @@
             this.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "DoiThongTinDV";
-            this.Size = new System.Drawing.Size(1200, 1200);
+            this.Size = new System.Drawing.Size(1000, 1200);
             this.Load += new System.EventHandler(this.DoiThongTinDV_Load);
             this.tableLP_DoiThongTinDV.ResumeLayout(false);
             this.tableLP_DoiThongTinDV.PerformLayout();

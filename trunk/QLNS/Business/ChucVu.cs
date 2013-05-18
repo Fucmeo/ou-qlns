@@ -105,6 +105,16 @@ namespace Business
             return dt;
         }
 
+        public DataTable GetListWithNoEmptyRow()
+        {
+            DataTable dt = new DataTable();
+
+            dt = dp.getDataTable("select * from v_chucvu");
+
+           
+            return dt;
+        }
+
         #endregion
     }
 }

@@ -100,8 +100,8 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.13372F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 83.86628F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.49071F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 77.50929F));
             this.tableLayoutPanel1.Controls.Add(this.dtgv_DSChucVu, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lbl_SoChucVu, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
@@ -134,7 +134,7 @@
             // 
             this.lbl_SoChucVu.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbl_SoChucVu.AutoSize = true;
-            this.lbl_SoChucVu.Location = new System.Drawing.Point(89, 214);
+            this.lbl_SoChucVu.Location = new System.Drawing.Point(123, 214);
             this.lbl_SoChucVu.Name = "lbl_SoChucVu";
             this.lbl_SoChucVu.Size = new System.Drawing.Size(56, 23);
             this.lbl_SoChucVu.TabIndex = 5;
@@ -146,7 +146,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(3, 214);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 24);
+            this.label2.Size = new System.Drawing.Size(93, 23);
             this.label2.TabIndex = 4;
             this.label2.Text = "Số chức vụ";
             // 

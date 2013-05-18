@@ -36,7 +36,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txt_MaQD = new System.Windows.Forms.TextBox();
             this.comB_Loai = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lbl_LoaiQD = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dTP_NgayKy = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
@@ -75,7 +75,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.txt_MaQD, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.comB_Loai, 5, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label8, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lbl_LoaiQD, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.dTP_NgayKy, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label4, 2, 1);
@@ -155,15 +155,15 @@
             this.comB_Loai.Size = new System.Drawing.Size(164, 29);
             this.comB_Loai.TabIndex = 2;
             // 
-            // label8
+            // lbl_LoaiQD
             // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(551, 7);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(50, 21);
-            this.label8.TabIndex = 18;
-            this.label8.Text = "Loại *";
+            this.lbl_LoaiQD.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbl_LoaiQD.AutoSize = true;
+            this.lbl_LoaiQD.Location = new System.Drawing.Point(551, 7);
+            this.lbl_LoaiQD.Name = "lbl_LoaiQD";
+            this.lbl_LoaiQD.Size = new System.Drawing.Size(50, 21);
+            this.lbl_LoaiQD.TabIndex = 18;
+            this.lbl_LoaiQD.Text = "Loại *";
             // 
             // label3
             // 
@@ -275,7 +275,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         public System.Windows.Forms.ComboBox comB_Loai;
-        private System.Windows.Forms.Label label8;
         public System.Windows.Forms.TextBox txt_TenQD;
         private System.Windows.Forms.Label label6;
         public System.Windows.Forms.DateTimePicker dTP_NgayHieuLuc;
@@ -289,6 +288,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lb_ChonTapTin;
         public System.Windows.Forms.RichTextBox rTB_MoTa;
+        public System.Windows.Forms.Label lbl_LoaiQD;
 
     }
 }

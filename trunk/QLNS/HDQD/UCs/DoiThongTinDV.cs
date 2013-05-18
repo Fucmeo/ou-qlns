@@ -53,6 +53,9 @@ namespace HDQD.UCs
             GenUI_Name(0);
             GenUI_Relationship(0);
             GenUI_Title(0);
+
+            thongTinQuyetDinh1.comB_Loai.Visible = false;
+            thongTinQuyetDinh1.lbl_LoaiQD.Visible = false;
         }
 
         #region Code giao diện

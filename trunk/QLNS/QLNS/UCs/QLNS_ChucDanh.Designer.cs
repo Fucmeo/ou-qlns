@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QLNS_ChucDanh));
             this.tableLP_ChucDanh = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -41,7 +42,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLP_ThaoTac = new System.Windows.Forms.TableLayoutPanel();
             this.btn_Huy = new System.Windows.Forms.Button();
-            this.imageList1 = new System.Windows.Forms.ImageList();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.btn_Them = new System.Windows.Forms.Button();
             this.btn_Luu = new System.Windows.Forms.Button();
             this.btn_Xoa = new System.Windows.Forms.Button();
@@ -86,8 +87,8 @@
             // tableLP_DSChucDanh
             // 
             this.tableLP_DSChucDanh.ColumnCount = 2;
-            this.tableLP_DSChucDanh.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.63953F));
-            this.tableLP_DSChucDanh.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 79.36047F));
+            this.tableLP_DSChucDanh.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.06691F));
+            this.tableLP_DSChucDanh.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.93308F));
             this.tableLP_DSChucDanh.Controls.Add(this.lbl_SoChucDanh, 1, 1);
             this.tableLP_DSChucDanh.Controls.Add(this.dtgv_DSNhomNgach, 0, 0);
             this.tableLP_DSChucDanh.Controls.Add(this.label1, 0, 1);
@@ -104,7 +105,7 @@
             // 
             this.lbl_SoChucDanh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbl_SoChucDanh.AutoSize = true;
-            this.lbl_SoChucDanh.Location = new System.Drawing.Point(114, 188);
+            this.lbl_SoChucDanh.Location = new System.Drawing.Point(153, 188);
             this.lbl_SoChucDanh.Name = "lbl_SoChucDanh";
             this.lbl_SoChucDanh.Size = new System.Drawing.Size(56, 23);
             this.lbl_SoChucDanh.TabIndex = 3;
@@ -130,9 +131,9 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 183);
+            this.label1.Location = new System.Drawing.Point(3, 188);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 33);
+            this.label1.Size = new System.Drawing.Size(113, 23);
             this.label1.TabIndex = 2;
             this.label1.Text = "Số chức danh";
             // 

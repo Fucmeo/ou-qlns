@@ -227,7 +227,8 @@ namespace QLNS.UCs
                 oQLNS_ThongTinNV_Phu.txt_NoiSinhHuyen.Text = oQLNS_ThongTinNV_Phu.txt_QueXa.Text =
                 oQLNS_ThongTinNV_Phu.txt_QueHuyen.Text = oQLNS_ThongTinNV_Phu.txt_HoKhau_Quan.Text =
                 oQLNS_ThongTinNV_Phu.txt_HoKhau_Xa.Text =
-                oQLNS_ThongTinNV_Phu.txt_ChieuCao.Text = oQLNS_ThongTinNV_Phu.txt_NhomMau.Text = "";
+                oQLNS_ThongTinNV_Phu.txt_ChieuCao.Text = oQLNS_ThongTinNV_Phu.txt_NhomMau.Text =
+                oQLNS_ThongTinNV_Phu.rtb_GhiChu.Text = "";
 
             oQLNS_ThongTinNV_Phu.comB_NoiSinhTinh.SelectedValue =
                 oQLNS_ThongTinNV_Phu.comB_QueTinh.SelectedValue =
