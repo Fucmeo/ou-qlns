@@ -153,7 +153,7 @@ namespace Business.HDQD
                 new NpgsqlParameter("id_dv_doiten",m_IDDV_Ten),
                 new NpgsqlParameter("ten_dv_moi",m_TenDV_Ten),
                 new NpgsqlParameter("ten_dv_tat_moi",m_TenDVTat_Ten),
-                new NpgsqlParameter("id_dv_chucdanh",m_IDDV_CD),
+                new NpgsqlParameter("id_dv_chucvu",m_IDDV_CD),
                 new NpgsqlParameter("id_cd_cu",m_IDCu_CD),
                 new NpgsqlParameter("id_cd_moi",m_IDMoi_CD),
                 new NpgsqlParameter("id_dv_capbac",m_IDDV_CapBac),

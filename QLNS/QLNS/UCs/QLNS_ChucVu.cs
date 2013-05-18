@@ -145,7 +145,7 @@ namespace QLNS.UCs
 
         private void QLNS_ChucVu_Load(object sender, EventArgs e)
         {
-            dtDSChucVu = oChucVu.GetList();
+            dtDSChucVu = oChucVu.GetListWithNoEmptyRow();
             if (dtDSChucVu != null)
             {
                 PrepareDataSource();
@@ -207,7 +207,7 @@ namespace QLNS.UCs
         private void RefreshDataSource()
         {
             Business.ChucVu cv = new Business.ChucVu();     // khong dung chung oChucVu duoc ???
-            dtDSChucVu = cv.GetList();
+            dtDSChucVu = cv.GetListWithNoEmptyRow();
             PrepareDataSource();
             
         }

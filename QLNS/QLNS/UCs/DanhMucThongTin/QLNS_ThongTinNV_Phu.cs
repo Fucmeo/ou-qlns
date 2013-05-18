@@ -96,7 +96,8 @@ namespace QLNS.UCs.DanhMucThongTin
             oCNVC_ThongTinPhu.NoiSinhXa = txt_NoiSinhXa.Text;
             oCNVC_ThongTinPhu.NoiSinhHuyen = txt_NoiSinhHuyen.Text;
             oCNVC_ThongTinPhu.HoKhauThuongTruXa = txt_HoKhau_Xa.Text;
-            oCNVC_ThongTinPhu.HoKhauThuongChu_Huyen = txt_HoKhau_Quan.Text; 
+            oCNVC_ThongTinPhu.HoKhauThuongChu_Huyen = txt_HoKhau_Quan.Text;
+            oCNVC_ThongTinPhu.GhiChu = rtb_GhiChu.Text;
             #endregion
 
             #region Combo
@@ -161,7 +162,8 @@ namespace QLNS.UCs.DanhMucThongTin
                 txt_NoiSinhXa.Text = Convert.ToString(dtCNVC_InfoPhu.Rows[0]["noi_sinh_xa"]);
                 txt_NoiSinhHuyen.Text = Convert.ToString(dtCNVC_InfoPhu.Rows[0]["noi_sinh_huyen"]);
                 txt_HoKhau_Xa.Text = Convert.ToString(dtCNVC_InfoPhu.Rows[0]["hokhau_thuongtru_xa"]);
-                txt_HoKhau_Quan.Text = Convert.ToString(dtCNVC_InfoPhu.Rows[0]["hokhau_thuongtru_huyen"]); 
+                txt_HoKhau_Quan.Text = Convert.ToString(dtCNVC_InfoPhu.Rows[0]["hokhau_thuongtru_huyen"]);
+                rtb_GhiChu.Text = Convert.ToString(dtCNVC_InfoPhu.Rows[0]["ghi_chu"]); 
                 #endregion
 
                 #region Combo
@@ -287,7 +289,7 @@ namespace QLNS.UCs.DanhMucThongTin
             groupBox1.Enabled = groupBox2.Enabled = groupBox3.Enabled
                 = txt_TenGoiKhac.Enabled = txt_DanToc.Enabled = txt_TonGiao.Enabled
                 = txt_ChieuCao.Enabled = txt_NhomMau.Enabled = comB_QuocTich.Enabled
-                = comB_TinhTrangHonNhan.Enabled = bEnable;
+                = comB_TinhTrangHonNhan.Enabled = rtb_GhiChu.Enabled = bEnable;
             btn_Huy.Visible = bEnable;
             if (bEnable)
             {

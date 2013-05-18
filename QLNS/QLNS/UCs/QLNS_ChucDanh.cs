@@ -136,7 +136,7 @@ namespace QLNS.UCs
 
         private void QLNS_ChucDanh_Load(object sender, EventArgs e)
         {
-            dtDSChucDanh = oChucDanh.GetList();
+            dtDSChucDanh = oChucDanh.GetListWithNoEmptyRow();
             if (dtDSChucDanh != null)
             {
                 PrepareDataSource();
@@ -208,7 +208,7 @@ namespace QLNS.UCs
         private void RefreshDataSource()
         {
             Business.ChucDanh cd = new Business.ChucDanh();     // khong dung chung oChucDanh duoc ???
-            dtDSChucDanh = cd.GetList();
+            dtDSChucDanh = cd.GetListWithNoEmptyRow();
             PrepareDataSource();
         }
 
