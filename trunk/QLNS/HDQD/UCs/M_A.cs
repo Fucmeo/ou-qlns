@@ -403,12 +403,17 @@ namespace HDQD.UCs
 
         private void btn_XoaSangDV_Click(object sender, EventArgs e)
         {
-            int index = listB_SangDV.SelectedIndex;
-            dsDonVi_new.RemoveAt(index);
-            dsCNVC.RemoveAt(index);
-            ds_tenCNVC.RemoveAt(index);
+            if (listB_SangDV.SelectedIndex != -1)
+            {
+                int index = listB_SangDV.SelectedIndex;
+                dsDonVi_new.RemoveAt(index);
+                dsCNVC.RemoveAt(index);
+                ds_tenCNVC.RemoveAt(index);
 
-            listB_SangDV.Items.RemoveAt(index);
+                listB_SangDV.Items.RemoveAt(index);
+            }
+            else
+                MessageBox.Show("Vui lòng chọn một đơn vị.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void listB_SangDV_SelectedIndexChanged(object sender, EventArgs e)
@@ -546,6 +551,6 @@ namespace HDQD.UCs
             else
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-        
+
     }
 }
