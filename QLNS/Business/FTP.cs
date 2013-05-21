@@ -6,16 +6,20 @@ using System.IO;
 using System.Net;
 using System.Runtime.InteropServices;
 
+
 namespace Business
 {
     public class FTP
     {
         public enum FileCate { HinhDaiDien, HDQD };
-        string URI = "ftp://10.1.12.6/", globalFolderName, downloadPath  ;
+        string URI = 
+            //"ftp://10.1.12.6/",
+            "ftp://123.30.210.98/",
+            globalFolderName, downloadPath  ;
         string UserName = "Administrator",
-            Password = "QLNS@123qlns"
-            //Password = "A@123456"
-            ;
+            Password = "QLNS@123qlns";
+            //Password = "A@123456";
+
         public FileCate oFileCate = new FileCate();
         long lFileSizeLimit = 2621440;  // 2,5 mb
         public FTP()
