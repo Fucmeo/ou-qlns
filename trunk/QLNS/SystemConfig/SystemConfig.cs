@@ -14,6 +14,8 @@ namespace SystemConfig
             ConnectionString = "Server=123.30.210.98;Port=5432;Database=QLNS;User Id=postgres;Password=qlnsou;";
             //ConnectionString = "Server=10.1.12.6;Port=5432;Database=QLNS;User Id=postgres;Password=qlnsou;";
 
+
+
         }
     }
 }

@@ -91,7 +91,7 @@ namespace HDQD.UCs
 
         private void PreapreDataSource()
         {
-            dtDonVi = oDonvi.GetDonViList();
+            dtDonVi = oDonvi.GetActiveDonVi();
             DataRow row = dtDonVi.NewRow();
             dtDonVi.Rows.InsertAt(row, 0);
 

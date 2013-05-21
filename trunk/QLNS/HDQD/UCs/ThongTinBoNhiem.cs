@@ -32,7 +32,7 @@ namespace HDQD.UCs
 
         private void PrepareSourceDonViCombo()
         {
-            DataTable dtDonVi = oDonVi.GetDonViList();
+            DataTable dtDonVi = oDonVi.GetActiveDonVi();
             if (dtDonVi.Rows.Count > 0)
             {
                 comB_DonVi.DataSource = dtDonVi;
