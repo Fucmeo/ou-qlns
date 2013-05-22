@@ -81,6 +81,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UCs\ThemDanToc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\ThemDanToc.Designer.cs">
+      <DependentUpon>ThemDanToc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCs\ThemTonGiao.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\ThemTonGiao.Designer.cs">
+      <DependentUpon>ThemTonGiao.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCs\ManHinhChinh.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -274,6 +286,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UCs\ThemDanToc.resx">
+      <DependentUpon>ThemDanToc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\ThemTonGiao.resx">
+      <DependentUpon>ThemTonGiao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UCs\ManHinhChinh.resx">
       <DependentUpon>ManHinhChinh.cs</DependentUpon>
     </EmbeddedResource>

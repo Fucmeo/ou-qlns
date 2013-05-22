@@ -218,12 +218,16 @@ namespace QLNS.UCs
 
             oQLNS_ThongTinNV.picB_HinhDaiDien.Image = null;
 
+            oQLNS_ThongTinNV.dtAvatar.Clear();
+            oQLNS_ThongTinNV.dtCMND.Clear();
+            oQLNS_ThongTinNV.dtCNVC.Clear();
+
         }
 
         private void EmptyThongTinPhuContent()
         {
-            oQLNS_ThongTinNV_Phu.txt_TenGoiKhac.Text = oQLNS_ThongTinNV_Phu.txt_DanToc.Text =
-                oQLNS_ThongTinNV_Phu.txt_TonGiao.Text = oQLNS_ThongTinNV_Phu.txt_NoiSinhXa.Text =
+            oQLNS_ThongTinNV_Phu.txt_TenGoiKhac.Text = oQLNS_ThongTinNV_Phu.comb_DanToc.Text =
+                oQLNS_ThongTinNV_Phu.comb_TonGiao.Text = oQLNS_ThongTinNV_Phu.txt_NoiSinhXa.Text =
                 oQLNS_ThongTinNV_Phu.txt_NoiSinhHuyen.Text = oQLNS_ThongTinNV_Phu.txt_QueXa.Text =
                 oQLNS_ThongTinNV_Phu.txt_QueHuyen.Text = oQLNS_ThongTinNV_Phu.txt_HoKhau_Quan.Text =
                 oQLNS_ThongTinNV_Phu.txt_HoKhau_Xa.Text =
@@ -239,7 +243,7 @@ namespace QLNS.UCs
                 oQLNS_ThongTinNV_Phu.comB_QuocTich.SelectedValue =
                 oQLNS_ThongTinNV_Phu.comB_TinhTrangHonNhan.SelectedValue = -1;
 
-
+            oQLNS_ThongTinNV_Phu.dtCNVC_InfoPhu.Clear();
         }
 
         private void EmptyQTCTContent()
@@ -251,6 +255,10 @@ namespace QLNS.UCs
                 oQLNS_QuaTrinhCongTac.txt_ChucVu.Text = oQLNS_QuaTrinhCongTac.rTB_CongViecChinh.Text = "";
 
             oQLNS_QuaTrinhCongTac.dTP_DenNgay.Checked = oQLNS_QuaTrinhCongTac.dTP_TuNgay.Checked = false;
+
+            oQLNS_QuaTrinhCongTac.dtCtac_NonOU_GD.Clear();
+            oQLNS_QuaTrinhCongTac.dtCtac_NonOU_NonGD.Clear();
+            oQLNS_QuaTrinhCongTac.dtCtac_OU.Clear();
         }
 
         private void EmptyHopDongTTContent()
@@ -260,6 +268,9 @@ namespace QLNS.UCs
             oQLNS_HopDongTuyenDung.txt_NgheNghiep.Text = "";
             oQLNS_HopDongTuyenDung.txt_CoQuan.Text = "";
             oQLNS_HopDongTuyenDung.dtgv_HopDong.DataSource = null;
+
+            oQLNS_HopDongTuyenDung.dtHopDong.Clear();
+            oQLNS_HopDongTuyenDung.dtTTTuyenDung.Clear();
         }
 
         private void EmptyDaoTaoBDContent()
@@ -274,6 +285,9 @@ namespace QLNS.UCs
             oQLNS_DaoTaoBoiDuong.dTP_DenNgay_BoiDuong.Checked = oQLNS_DaoTaoBoiDuong.dTP_DenNgay_DaoTao.Checked =
                 oQLNS_DaoTaoBoiDuong.dTP_TuNgay_BoiDuong.Checked = oQLNS_DaoTaoBoiDuong.dTP_TuNgay_BoiDuong.Checked = false;
 
+
+            oQLNS_DaoTaoBoiDuong.dtBoiDuong.Clear();
+            oQLNS_DaoTaoBoiDuong.dtDaoTao.Clear();
         }
 
         private void EmptyGiaDinhContent()
@@ -288,6 +302,7 @@ namespace QLNS.UCs
 
             oQLNS_ThongTinGiaDinh.dtgv_QuanHeGiaDinh.DataSource = null;
 
+            oQLNS_ThongTinGiaDinh.dtDSQHeGiaDinh.Clear();
         }
 
         private void EmptyHoatDongCTContent()
@@ -321,6 +336,8 @@ namespace QLNS.UCs
                 oQLNS_LichSuBanThan.dTP_TuThoiGian.Checked = false;
 
             oQLNS_LichSuBanThan.dtgv_QHToChuc.DataSource = null;
+
+            oQLNS_LichSuBanThan.dtLSBiBat.Clear();
         }
 
         private void EmptyTrinhDoChuyenMonContent()
@@ -330,6 +347,8 @@ namespace QLNS.UCs
                oQLNS_TrinhDo_ChuyenMon.txt_TenTruong.Text = "";
 
             oQLNS_TrinhDo_ChuyenMon.dtgv_TrinhDo.DataSource = null;
+
+            oQLNS_TrinhDo_ChuyenMon.dtTrinhDo.Clear();
         }
 
         private void EmptyDienBienSKContent()
@@ -348,6 +367,8 @@ namespace QLNS.UCs
             }
 
             oQLNS_DienBienSK.dtgv_DienBienSK.DataSource = null;
+
+            oQLNS_DienBienSK.dtDienBienSK.Clear();
         }
 
 

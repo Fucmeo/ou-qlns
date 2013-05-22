@@ -88,17 +88,17 @@ namespace Business.CNVC
             set { quequantinh = value; }
         }
 
-        private string dantoc;
+        private int? dantoc;
 
-        public string DanToc
+        public int? DanToc
         {
             get { return dantoc; }
             set { dantoc = value; }
         }
 
-        private string tongiao;
+        private int? tongiao;
 
-        public string TonGiao
+        public int? TonGiao
         {
             get { return tongiao; }
             set { tongiao = value; }
@@ -165,8 +165,8 @@ namespace Business.CNVC
                 new NpgsqlParameter("p_que_quan_xa",quequanxa),
                 new NpgsqlParameter("p_que_quan_huyen",quequanhuyen),
                 new NpgsqlParameter("p_que_quan_tinh",quequantinh),
-                new NpgsqlParameter("p_dan_toc",dantoc),
-                new NpgsqlParameter("p_ton_giao",tongiao),
+                new NpgsqlParameter("p_dan_toc_id",dantoc),
+                new NpgsqlParameter("p_ton_giao_id",tongiao),
                 new NpgsqlParameter("p_chieu_cao",chieucao),
                 new NpgsqlParameter("p_nhom_mau",nhommau),
                 new NpgsqlParameter("p_ttr_hon_nhan_id",tinhtranghonhan),
@@ -200,8 +200,8 @@ namespace Business.CNVC
                 new NpgsqlParameter("p_que_quan_xa",quequanxa),
                 new NpgsqlParameter("p_que_quan_huyen",quequanhuyen),
                 new NpgsqlParameter("p_que_quan_tinh",quequantinh),
-                new NpgsqlParameter("p_dan_toc",dantoc),
-                new NpgsqlParameter("p_ton_giao",tongiao),
+                new NpgsqlParameter("p_dan_toc_id",dantoc),
+                new NpgsqlParameter("p_ton_giao_id",tongiao),
                 new NpgsqlParameter("p_chieu_cao",chieucao),
                 new NpgsqlParameter("p_nhom_mau",nhommau),
                 new NpgsqlParameter("p_ttr_hon_nhan_id",tinhtranghonhan),
