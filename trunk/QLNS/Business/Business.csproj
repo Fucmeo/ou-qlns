@@ -68,6 +68,7 @@
     <Compile Include="CNVC\CNVC_ThongTinPhu.cs" />
     <Compile Include="CNVC\CNVC_ThongTinTuyenDung.cs" />
     <Compile Include="CNVC\CNVC_TrinhDoPhoThong.cs" />
+    <Compile Include="DanToc.cs" />
     <Compile Include="DonVi.cs" />
     <Compile Include="FTP.cs" />
     <Compile Include="HDQD\CNVC_HopDong.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="QuocGia.cs" />
     <Compile Include="TinhTP.cs" />
     <Compile Include="TinhTrangHonNhan.cs" />
+    <Compile Include="TonGiao.cs" />
     <Compile Include="TrinhDo.cs" />
     <Compile Include="VanBangChinhQuy.cs" />
   </ItemGroup>

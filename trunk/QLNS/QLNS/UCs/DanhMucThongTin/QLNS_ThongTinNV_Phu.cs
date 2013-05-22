@@ -13,13 +13,17 @@ namespace QLNS.UCs.DanhMucThongTin
     public partial class QLNS_ThongTinNV_Phu : UserControl
     {
         public CNVC_ThongTinPhu oCNVC_ThongTinPhu;
-        public DataTable dtCNVC_InfoPhu, dtQuocGia, dtTinhTP, dtTinhTrangHN;
+        public DataTable dtCNVC_InfoPhu, dtQuocGia, dtTinhTP, dtTinhTrangHN , dtDanToc, dtTonGiao;
         Business.TinhTP oTinhTP;
         Business.QuocGia oQuocGia;
         Business.TinhTrangHonNhan oTinhTrangHonNhan;
+        Business.DanToc oDanToc;
+        Business.TonGiao oTonGiao;
 
         public static int nNewTinhTPID = 0;     // ID cua tinh thanh pho moi them vao
         public static int nNewQuocGiaID = 0;     // ID cua quoc gia moi them vao
+        public static int nNewTonGiaoID = 0;     // ID cua dt moi them vao
+        public static int nNewDanTocID = 0;     // ID cua tg moi them vao
 
         public QLNS_ThongTinNV_Phu()
         {
@@ -27,10 +31,14 @@ namespace QLNS.UCs.DanhMucThongTin
             oCNVC_ThongTinPhu = new CNVC_ThongTinPhu();
             dtCNVC_InfoPhu = new DataTable();
             dtTinhTP = new DataTable();
+            dtDanToc = new DataTable();
+            dtTonGiao = new DataTable();
             dtTinhTrangHN = new DataTable();
             oTinhTP = new Business.TinhTP();
             oQuocGia = new Business.QuocGia();
             oTinhTrangHonNhan = new Business.TinhTrangHonNhan();
+            oDanToc = new Business.DanToc();
+            oTonGiao = new Business.TonGiao();
         }
 
         private void QLNS_ThongTinNV_Phu_Load(object sender, EventArgs e)
@@ -87,9 +95,7 @@ namespace QLNS.UCs.DanhMucThongTin
             #region TextBox
             oCNVC_ThongTinPhu.MaNV = Program.selected_ma_nv;
             oCNVC_ThongTinPhu.TenGoiKhac = txt_TenGoiKhac.Text;
-            oCNVC_ThongTinPhu.DanToc = txt_DanToc.Text;
             oCNVC_ThongTinPhu.ChieuCao = txt_ChieuCao.Text;
-            oCNVC_ThongTinPhu.TonGiao = txt_TonGiao.Text;
             oCNVC_ThongTinPhu.NhomMau = txt_NhomMau.Text;
             oCNVC_ThongTinPhu.QueQuanXa = txt_QueXa.Text;
             oCNVC_ThongTinPhu.QueQuanHuyen = txt_QueHuyen.Text;
@@ -105,6 +111,16 @@ namespace QLNS.UCs.DanhMucThongTin
                 oCNVC_ThongTinPhu.QuocTinh = null;
             else
                 oCNVC_ThongTinPhu.QuocTinh = Convert.ToInt32(comB_QuocTich.SelectedValue);
+
+            if (Convert.ToInt32(comb_TonGiao.SelectedValue) < 0)
+                oCNVC_ThongTinPhu.TonGiao = null;
+            else
+                oCNVC_ThongTinPhu.TonGiao = Convert.ToInt32(comb_TonGiao.SelectedValue);
+
+            if (Convert.ToInt32(comb_DanToc.SelectedValue) < 0)
+                oCNVC_ThongTinPhu.DanToc = null;
+            else
+                oCNVC_ThongTinPhu.DanToc = Convert.ToInt32(comb_DanToc.SelectedValue);
 
             if (Convert.ToInt32(comB_TinhTrangHonNhan.SelectedValue) < 0)
                 oCNVC_ThongTinPhu.TinhTrangHonNhan = null;
@@ -153,9 +169,7 @@ namespace QLNS.UCs.DanhMucThongTin
             {
                 #region TextBox
                 txt_TenGoiKhac.Text = Convert.ToString(dtCNVC_InfoPhu.Rows[0]["ten_goi_khac"]);
-                txt_DanToc.Text = Convert.ToString(dtCNVC_InfoPhu.Rows[0]["dan_toc"]);
                 txt_ChieuCao.Text = Convert.ToString(dtCNVC_InfoPhu.Rows[0]["chieu_cao"]);
-                txt_TonGiao.Text = Convert.ToString(dtCNVC_InfoPhu.Rows[0]["ton_giao"]);
                 txt_NhomMau.Text = Convert.ToString(dtCNVC_InfoPhu.Rows[0]["nhom_mau"]);
                 txt_QueXa.Text = Convert.ToString(dtCNVC_InfoPhu.Rows[0]["que_quan_xa"]);
                 txt_QueHuyen.Text = Convert.ToString(dtCNVC_InfoPhu.Rows[0]["que_quan_huyen"]);
@@ -171,6 +185,18 @@ namespace QLNS.UCs.DanhMucThongTin
                     comB_HoKhauTinh.SelectedValue = Convert.ToInt32(dtCNVC_InfoPhu.Rows[0]["hokhau_thuongtru_tinh"]);
                 else
                     comB_HoKhauTinh.SelectedValue = -1;
+
+
+                if (dtCNVC_InfoPhu.Rows[0]["dan_toc_id"].ToString() != "")
+                    comb_DanToc.SelectedValue = Convert.ToInt32(dtCNVC_InfoPhu.Rows[0]["dan_toc_id"]);
+                else
+                    comb_DanToc.SelectedValue = -1;
+
+                if (dtCNVC_InfoPhu.Rows[0]["ton_giao_id"].ToString() != "")
+                    comb_TonGiao.SelectedValue = Convert.ToInt32(dtCNVC_InfoPhu.Rows[0]["ton_giao_id"]);
+                else
+                    comb_TonGiao.SelectedValue = -1;
+
 
                 if (dtCNVC_InfoPhu.Rows[0]["quoc_tich"].ToString() != "")
                     comB_QuocTich.SelectedValue = Convert.ToInt32(dtCNVC_InfoPhu.Rows[0]["quoc_tich"]);
@@ -211,6 +237,8 @@ namespace QLNS.UCs.DanhMucThongTin
             dtTinhTP = oTinhTP.GetData();
             dtTinhTrangHN = oTinhTrangHonNhan.GetData();
             dtQuocGia = oQuocGia.GetData();
+            dtDanToc = oDanToc.GetData();
+            dtTonGiao = oTonGiao.GetData();
         }
 
         public void SetupComboDS()
@@ -244,6 +272,13 @@ namespace QLNS.UCs.DanhMucThongTin
 
             #endregion
 
+            comb_TonGiao.DataSource = dtTonGiao;
+            comb_TonGiao.DisplayMember = "ten_ton_giao";
+            comb_TonGiao.ValueMember = "id";
+
+            comb_DanToc.DataSource = dtDanToc;
+            comb_DanToc.DisplayMember = "ten_dan_toc";
+            comb_DanToc.ValueMember = "id";
 
             comB_QuocTich.DataSource = dtQuocGia;
             comB_QuocTich.DisplayMember = "ten_quoc_gia";
@@ -287,7 +322,7 @@ namespace QLNS.UCs.DanhMucThongTin
         private void EnableControls(bool bEnable)
         {
             groupBox1.Enabled = groupBox2.Enabled = groupBox3.Enabled
-                = txt_TenGoiKhac.Enabled = txt_DanToc.Enabled = txt_TonGiao.Enabled
+                = txt_TenGoiKhac.Enabled = tableLP_DanToc.Enabled = tableLP_TonGiao.Enabled
                 = txt_ChieuCao.Enabled = txt_NhomMau.Enabled = comB_QuocTich.Enabled
                 = comB_TinhTrangHonNhan.Enabled = rtb_GhiChu.Enabled = bEnable;
             btn_Huy.Visible = bEnable;
@@ -517,6 +552,84 @@ namespace QLNS.UCs.DanhMucThongTin
         {
             EnableControls(false);
             FillInfo();
+        }
+
+        private void lbl_ThemDanToc_Click(object sender, EventArgs e)
+        {
+            UCs.ThemDanToc oThemDanToc = new ThemDanToc("QLNS_ThongTinNV_Phu");
+            oThemDanToc.Dock = DockStyle.Fill;
+            Forms.Popup fPopup = new Forms.Popup("Thêm dân tộc", oThemDanToc);
+            fPopup.ShowDialog();
+            if (nNewDanTocID > 0)
+            {
+                Label lbl = ((Label)sender);
+                ComboBox com = null;
+                switch (lbl.Name)
+                {
+                    case "lbl_ThemDanToc":
+                        com = comb_DanToc;
+                        break;
+
+                   
+                    default:
+                        break;
+                }
+                int? x = null;
+
+                if (com.SelectedValue != Convert.DBNull && com.SelectedValue != null)
+                    x = Convert.ToInt16(com.SelectedValue);
+
+                dtDanToc = oDanToc.GetData();
+
+                com.DataSource = dtDanToc;
+                com.DisplayMember = "ten_dan_toc";
+                com.ValueMember = "id";
+
+                if (x != null)
+                {
+                    com.SelectedValue = x;
+                }
+                nNewDanTocID = 0;
+            }
+        }
+
+        private void lbl_ThemTonGiao_Click(object sender, EventArgs e)
+        {
+            UCs.ThemTonGiao oThemTonGiao = new ThemTonGiao("QLNS_ThongTinNV_Phu");
+            oThemTonGiao.Dock = DockStyle.Fill;
+            Forms.Popup fPopup = new Forms.Popup("Thêm tôn giáo", oThemTonGiao);
+            fPopup.ShowDialog();
+            if (nNewTonGiaoID > 0)
+            {
+                Label lbl = ((Label)sender);
+                ComboBox com = null;
+                switch (lbl.Name)
+                {
+                    case "lbl_ThemTonGiao":
+                        com = comb_TonGiao;
+                        break;
+
+
+                    default:
+                        break;
+                }
+                int? x = null;
+
+                if (com.SelectedValue != Convert.DBNull && com.SelectedValue != null)
+                    x = Convert.ToInt16(com.SelectedValue);
+
+                dtTonGiao = oTonGiao.GetData();
+
+                com.DataSource = dtTonGiao;
+                com.DisplayMember = "ten_ton_giao";
+                com.ValueMember = "id";
+
+                if (x != null)
+                {
+                    com.SelectedValue = x;
+                }
+                nNewTonGiaoID = 0;
+            }
         }
 
 

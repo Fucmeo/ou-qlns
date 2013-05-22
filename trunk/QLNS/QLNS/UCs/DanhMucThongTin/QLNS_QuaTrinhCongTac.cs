@@ -18,7 +18,7 @@ namespace QLNS.UCs.DanhMucThongTin
         Business.CNVC.CNVC_QTr_CongTac_NonOU_NonGD oQtrCtac_NonOU_NonGD;
         public DataTable dtCtac_NonOU_NonGD;
         Business.CNVC.CNVC_QTr_CongTac_OU oQtrCtac_OU;
-        DataTable dtCtac_OU;
+        public DataTable dtCtac_OU;
 
         //string m_ma_nv;
         bool bAddFlag;
