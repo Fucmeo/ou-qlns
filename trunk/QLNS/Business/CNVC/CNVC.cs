@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Data;
 using Npgsql;
 using DataProvider;
+using NpgsqlTypes;
 
 namespace Business.CNVC
 {
@@ -158,6 +159,7 @@ namespace Business.CNVC
 
         public bool Add()
         {
+            NpgsqlDate d = new NpgsqlDate();
             int check;
             IDataParameter[] paras = new IDataParameter[17]{
                 new NpgsqlParameter("p_ma_nv",manv), 

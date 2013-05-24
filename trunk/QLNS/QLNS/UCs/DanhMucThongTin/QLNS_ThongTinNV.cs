@@ -412,6 +412,11 @@ namespace QLNS.UCs.DanhMucThongTin
             v = Convert.ToInt16(comB_QuocGia.SelectedValue);
             if (v <= 0) oCNVC.QuocGia = null;
             else oCNVC.QuocGia = v;
+
+            if (dTP_NgaySinh.Checked)
+                oCNVC.NgaySinh = dTP_NgaySinh.Value;
+            else
+                oCNVC.NgaySinh = null;
             
         }
 

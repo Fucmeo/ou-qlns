@@ -245,6 +245,28 @@ namespace QLNS.UCs.DanhMucThongTin
         {
             SetupTinhDS();
 
+            FillQuocGiaComb();
+
+            comb_TonGiao.DataSource = dtTonGiao;
+            comb_TonGiao.DisplayMember = "ten_ton_giao";
+            comb_TonGiao.ValueMember = "id";
+
+            comb_DanToc.DataSource = dtDanToc;
+            comb_DanToc.DisplayMember = "ten_dan_toc";
+            comb_DanToc.ValueMember = "id";
+
+            comB_QuocTich.DataSource = dtQuocGia;
+            comB_QuocTich.DisplayMember = "ten_quoc_gia";
+            comB_QuocTich.ValueMember = "id";
+
+            comB_TinhTrangHonNhan.DataSource = dtTinhTrangHN;
+            comB_TinhTrangHonNhan.DisplayMember = "ten";
+            comB_TinhTrangHonNhan.ValueMember = "id";
+
+        }
+
+        private void FillQuocGiaComb()
+        {
             #region Quoc Gia
             DataTable dt4 = dtQuocGia.Copy();
             if (dt4.AsEnumerable().Where(a => a.Field<int>("id") == -1).Count() <= 0)
@@ -268,26 +290,15 @@ namespace QLNS.UCs.DanhMucThongTin
 
             comB_QueQuan_QuocGia.DataSource = dt6;
             comB_QueQuan_QuocGia.DisplayMember = "ten_quoc_gia";
-            comB_QueQuan_QuocGia.ValueMember = "id"; 
+            comB_QueQuan_QuocGia.ValueMember = "id";
 
-            #endregion
+            DataTable dt7 = dt4.Copy();
 
-            comb_TonGiao.DataSource = dtTonGiao;
-            comb_TonGiao.DisplayMember = "ten_ton_giao";
-            comb_TonGiao.ValueMember = "id";
-
-            comb_DanToc.DataSource = dtDanToc;
-            comb_DanToc.DisplayMember = "ten_dan_toc";
-            comb_DanToc.ValueMember = "id";
-
-            comB_QuocTich.DataSource = dtQuocGia;
+            comB_QuocTich.DataSource = dt7;
             comB_QuocTich.DisplayMember = "ten_quoc_gia";
             comB_QuocTich.ValueMember = "id";
 
-            comB_TinhTrangHonNhan.DataSource = dtTinhTrangHN;
-            comB_TinhTrangHonNhan.DisplayMember = "ten";
-            comB_TinhTrangHonNhan.ValueMember = "id";
-
+            #endregion
         }
 
         public void SetupTinhDS()
@@ -323,7 +334,7 @@ namespace QLNS.UCs.DanhMucThongTin
         {
             groupBox1.Enabled = groupBox2.Enabled = groupBox3.Enabled
                 = txt_TenGoiKhac.Enabled = tableLP_DanToc.Enabled = tableLP_TonGiao.Enabled
-                = txt_ChieuCao.Enabled = txt_NhomMau.Enabled = comB_QuocTich.Enabled
+                = txt_ChieuCao.Enabled = txt_NhomMau.Enabled = tableLP_QuocTich.Enabled
                 = comB_TinhTrangHonNhan.Enabled = rtb_GhiChu.Enabled = bEnable;
             btn_Huy.Visible = bEnable;
             if (bEnable)
@@ -526,6 +537,11 @@ namespace QLNS.UCs.DanhMucThongTin
                         com = comB_HoKhau_QuocGia;
                         break;
 
+                    case "lb_ThemQuocTich_QuocGia":
+                        com = comB_QuocTich;
+                        break;
+                        
+
                     default:
                         break;
                 }
@@ -536,9 +552,7 @@ namespace QLNS.UCs.DanhMucThongTin
 
                 dtQuocGia = oQuocGia.GetData();
 
-                com.DataSource = dtQuocGia;
-                com.DisplayMember = "ten_quoc_gia";
-                com.ValueMember = "id";
+                FillQuocGiaComb();
 
                 if (x != null)
                 {
