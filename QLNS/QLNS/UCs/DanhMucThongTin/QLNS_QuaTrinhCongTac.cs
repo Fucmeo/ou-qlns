@@ -28,6 +28,7 @@ namespace QLNS.UCs.DanhMucThongTin
             InitializeComponent();
             dtCtac_NonOU_GD = new DataTable();
             dtCtac_NonOU_NonGD = new DataTable();
+            dtCtac_OU = new DataTable();
             oQtrCtac_OU = new Business.CNVC.CNVC_QTr_CongTac_OU();
             oQtrCtac_NonOU_GD = new Business.CNVC.CNVC_QTr_CongTac_NonOU_GD();
             oQtrCtac_NonOU_NonGD = new Business.CNVC.CNVC_QTr_CongTac_NonOU_NonGD();

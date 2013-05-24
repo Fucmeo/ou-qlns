@@ -202,7 +202,7 @@
             this.comB_CMND_HoChieu.Items.AddRange(new object[] {
             "CMND",
             "Hộ chiếu"});
-            this.comB_CMND_HoChieu.Location = new System.Drawing.Point(571, 54);
+            this.comB_CMND_HoChieu.Location = new System.Drawing.Point(571, 55);
             this.comB_CMND_HoChieu.Name = "comB_CMND_HoChieu";
             this.comB_CMND_HoChieu.Size = new System.Drawing.Size(240, 26);
             this.comB_CMND_HoChieu.TabIndex = 3;
@@ -842,7 +842,7 @@
             "Nam",
             "Nữ",
             " "});
-            this.comB_GioiTinh.Location = new System.Drawing.Point(134, 257);
+            this.comB_GioiTinh.Location = new System.Drawing.Point(134, 256);
             this.comB_GioiTinh.Name = "comB_GioiTinh";
             this.comB_GioiTinh.Size = new System.Drawing.Size(87, 26);
             this.comB_GioiTinh.TabIndex = 4;
