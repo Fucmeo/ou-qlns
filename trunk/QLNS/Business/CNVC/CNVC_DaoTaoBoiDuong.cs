@@ -135,6 +135,12 @@ namespace Business.CNVC
 
         public int? TrinhDoID { get; set; }
 
+        public string CQ_NguoiHuongDan { get; set; }
+
+        public string SoHieuBang { get; set; }
+
+        public string MaVaoSo { get; set; }
+
         #endregion
 
         #region Methods
@@ -142,7 +148,7 @@ namespace Business.CNVC
         public bool Add()
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[18]{
+            IDataParameter[] paras = new IDataParameter[21]{
                 new NpgsqlParameter("ma_nv",manv),
                 new NpgsqlParameter("ten_truong",tentruong),
                 new NpgsqlParameter("chuyen_nganh_dao_tao",chuyennganhdaotao),
@@ -160,7 +166,10 @@ namespace Business.CNVC
                 new NpgsqlParameter("ngay_cap_bang",NgayCapBang),
                 new NpgsqlParameter("ghi_chu",GhiChu),
                 new NpgsqlParameter("cq_trinh_do_id",TrinhDoID),
-                new NpgsqlParameter("cq_phuong_thuc_dao_tao_id",PhuongThucDaoTaoID)
+                new NpgsqlParameter("cq_phuong_thuc_dao_tao_id",PhuongThucDaoTaoID),
+                new NpgsqlParameter("cq_nguoi_huong_dan",CQ_NguoiHuongDan),
+                new NpgsqlParameter("so_hieu_bang",SoHieuBang),
+                new NpgsqlParameter("ma_vao_so",MaVaoSo)
             };
             check = (int)dp.executeScalarProc("sp_insert_cnvc_daotao_va_boiduong", paras);
             if (check > 0)
@@ -174,7 +183,7 @@ namespace Business.CNVC
         public bool Update()
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[19]{
+            IDataParameter[] paras = new IDataParameter[22]{
                 new NpgsqlParameter("p_id",id),
                 new NpgsqlParameter("p_ma_nv",manv),
                 new NpgsqlParameter("p_ten_truong",tentruong),
@@ -193,7 +202,10 @@ namespace Business.CNVC
                 new NpgsqlParameter("ngay_cap_bang",NgayCapBang),
                 new NpgsqlParameter("ghi_chu",GhiChu),
                 new NpgsqlParameter("cq_trinh_do_id",TrinhDoID),
-                new NpgsqlParameter("cq_phuong_thuc_dao_tao_id",PhuongThucDaoTaoID)
+                new NpgsqlParameter("cq_phuong_thuc_dao_tao_id",PhuongThucDaoTaoID),
+                new NpgsqlParameter("p_cq_nguoi_huong_dan",CQ_NguoiHuongDan),
+                new NpgsqlParameter("p_so_hieu_bang",SoHieuBang),
+                new NpgsqlParameter("p_ma_vao_so",MaVaoSo)
             };
             check = (int)dp.executeScalarProc("sp_update_cnvc_daotao_va_boiduong", paras);
             if (check > 0)

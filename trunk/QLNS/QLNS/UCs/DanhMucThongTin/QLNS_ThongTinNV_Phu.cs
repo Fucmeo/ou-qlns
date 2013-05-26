@@ -104,6 +104,8 @@ namespace QLNS.UCs.DanhMucThongTin
             oCNVC_ThongTinPhu.HoKhauThuongTruXa = txt_HoKhau_Xa.Text;
             oCNVC_ThongTinPhu.HoKhauThuongChu_Huyen = txt_HoKhau_Quan.Text;
             oCNVC_ThongTinPhu.GhiChu = rtb_GhiChu.Text;
+            oCNVC_ThongTinPhu.HoKhauThuongTru_SoNha = txt_HoKhau_SoNha.Text;
+            oCNVC_ThongTinPhu.HoKhauThuongTru_Duong = txt_HoKhau_Duong.Text;
             #endregion
 
             #region Combo
@@ -177,7 +179,9 @@ namespace QLNS.UCs.DanhMucThongTin
                 txt_NoiSinhHuyen.Text = Convert.ToString(dtCNVC_InfoPhu.Rows[0]["noi_sinh_huyen"]);
                 txt_HoKhau_Xa.Text = Convert.ToString(dtCNVC_InfoPhu.Rows[0]["hokhau_thuongtru_xa"]);
                 txt_HoKhau_Quan.Text = Convert.ToString(dtCNVC_InfoPhu.Rows[0]["hokhau_thuongtru_huyen"]);
-                rtb_GhiChu.Text = Convert.ToString(dtCNVC_InfoPhu.Rows[0]["ghi_chu"]); 
+                rtb_GhiChu.Text = Convert.ToString(dtCNVC_InfoPhu.Rows[0]["ghi_chu"]);
+                txt_HoKhau_SoNha.Text = Convert.ToString(dtCNVC_InfoPhu.Rows[0]["hokhau_thuongtru_sonha"]);
+                txt_HoKhau_Duong.Text = Convert.ToString(dtCNVC_InfoPhu.Rows[0]["hokhau_thuongtru_duong"]); 
                 #endregion
 
                 #region Combo

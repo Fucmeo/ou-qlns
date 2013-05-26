@@ -59,6 +59,9 @@ namespace Business.CNVC
         public string[] NgayDuBi_2 { get; set; }
         public string[] NgayChinhThuc_2 { get; set; }
         public string[] NgayRa { get; set; }
+        public string[] GhiChu_Ctr_Basic { get; set; }
+        public string[] NguoiHuongDan1 { get; set; }
+        public string[] NguoiHuongDan2 { get; set; }
         
         #endregion
 
@@ -137,6 +140,21 @@ namespace Business.CNVC
                 return false;
         }
 
+        public bool Delete_Chinh_Tri_HCCB()
+        {
+            int check;
+            IDataParameter[] paras = new IDataParameter[1]{
+                new NpgsqlParameter("p_ma_nv",MaNV)
+            };
+            check = (int)dp.executeScalarProc("sp_delete_cnvc_chinh_tri_hccb", paras);
+            if (check > 0)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
         public DataTable Get_Chinh_Tri_HCCB()
         {
             DataTable dt;
@@ -155,16 +173,34 @@ namespace Business.CNVC
         public bool Save_Loai_Chinh_Tri_Basic(int[] p_loai_ctr)
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[7]{
+            IDataParameter[] paras = new IDataParameter[10]{
                 new NpgsqlParameter("p_ma_nv",MaNV), 
                 new NpgsqlParameter("p_loai_ctr_id",p_loai_ctr), 
                 new NpgsqlParameter("p_ngay_du_bi_1",NgayDuBi_1), 
                 new NpgsqlParameter("p_ngay_chinh_thuc_1",NgayChinhThuc_1),
                 new NpgsqlParameter("p_ngay_du_bi_2",NgayDuBi_2),
                 new NpgsqlParameter("p_ngay_chinh_thuc_2",NgayChinhThuc_2),
-                new NpgsqlParameter("p_ngay_ra",NgayRa)
+                new NpgsqlParameter("p_ngay_ra",NgayRa),
+                new NpgsqlParameter("p_ghi_chu",GhiChu_Ctr_Basic),
+                new NpgsqlParameter("p_nguoi_huong_dan_1",NguoiHuongDan1),
+                new NpgsqlParameter("p_nguoi_huong_dan_2",NguoiHuongDan2)
             };
             check = (int)dp.executeScalarProc("sp_update_cnvc_chinh_tri_loai_ct_basic", paras);
+            if (check > 0)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
+        public bool Delete_Loai_Chinh_Tri_Basic()
+        {
+            int check;
+            IDataParameter[] paras = new IDataParameter[1]{
+                new NpgsqlParameter("p_ma_nv",MaNV)
+            };
+            check = (int)dp.executeScalarProc("sp_delete_cnvc_chinh_tri_loai_ct_basic", paras);
             if (check > 0)
             {
                 return true;
