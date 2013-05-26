@@ -31,6 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QLNS_ThongTinNV_Phu));
             this.tableLP_ThongTinBoSung = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLP_QuocTich = new System.Windows.Forms.TableLayoutPanel();
+            this.comB_QuocTich = new System.Windows.Forms.ComboBox();
+            this.lb_ThemQuocTich_QuocGia = new System.Windows.Forms.Label();
             this.tableLP_TonGiao = new System.Windows.Forms.TableLayoutPanel();
             this.comb_TonGiao = new System.Windows.Forms.ComboBox();
             this.lbl_ThemTonGiao = new System.Windows.Forms.Label();
@@ -40,18 +43,22 @@
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.txt_HoKhau_Duong = new System.Windows.Forms.TextBox();
+            this.txt_HoKhau_SoNha = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.comB_HoKhau_QuocGia = new System.Windows.Forms.ComboBox();
             this.lbl_ThemQuocGia_HoKhau = new System.Windows.Forms.Label();
             this.tableLP_TinhHoKhau = new System.Windows.Forms.TableLayoutPanel();
             this.lbl_ThemTinhHoKhau = new System.Windows.Forms.Label();
             this.comB_HoKhauTinh = new System.Windows.Forms.ComboBox();
-            this.txt_HoKhau_Xa = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.txt_HoKhau_Quan = new System.Windows.Forms.TextBox();
+            this.txt_HoKhau_Xa = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLP_NoiSinh = new System.Windows.Forms.TableLayoutPanel();
             this.label10 = new System.Windows.Forms.Label();
@@ -95,10 +102,8 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.btn_Huy = new System.Windows.Forms.Button();
             this.rtb_GhiChu = new System.Windows.Forms.RichTextBox();
-            this.tableLP_QuocTich = new System.Windows.Forms.TableLayoutPanel();
-            this.lb_ThemQuocTich_QuocGia = new System.Windows.Forms.Label();
-            this.comB_QuocTich = new System.Windows.Forms.ComboBox();
             this.tableLP_ThongTinBoSung.SuspendLayout();
+            this.tableLP_QuocTich.SuspendLayout();
             this.tableLP_TonGiao.SuspendLayout();
             this.tableLP_DanToc.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -113,7 +118,6 @@
             this.tableLP_QueQuan.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLP_TinhQueQuan.SuspendLayout();
-            this.tableLP_QuocTich.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLP_ThongTinBoSung
@@ -162,6 +166,48 @@
             this.tableLP_ThongTinBoSung.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.433962F));
             this.tableLP_ThongTinBoSung.Size = new System.Drawing.Size(1000, 1000);
             this.tableLP_ThongTinBoSung.TabIndex = 1;
+            // 
+            // tableLP_QuocTich
+            // 
+            this.tableLP_QuocTich.ColumnCount = 1;
+            this.tableLP_QuocTich.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLP_QuocTich.Controls.Add(this.comB_QuocTich, 0, 0);
+            this.tableLP_QuocTich.Controls.Add(this.lb_ThemQuocTich_QuocGia, 0, 1);
+            this.tableLP_QuocTich.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLP_QuocTich.Enabled = false;
+            this.tableLP_QuocTich.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
+            this.tableLP_QuocTich.Location = new System.Drawing.Point(153, 195);
+            this.tableLP_QuocTich.Name = "tableLP_QuocTich";
+            this.tableLP_QuocTich.RowCount = 2;
+            this.tableLP_QuocTich.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 59.30233F));
+            this.tableLP_QuocTich.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.69767F));
+            this.tableLP_QuocTich.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLP_QuocTich.Size = new System.Drawing.Size(344, 71);
+            this.tableLP_QuocTich.TabIndex = 44;
+            // 
+            // comB_QuocTich
+            // 
+            this.comB_QuocTich.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.comB_QuocTich.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comB_QuocTich.FormattingEnabled = true;
+            this.comB_QuocTich.Location = new System.Drawing.Point(3, 6);
+            this.comB_QuocTich.Name = "comB_QuocTich";
+            this.comB_QuocTich.Size = new System.Drawing.Size(263, 29);
+            this.comB_QuocTich.TabIndex = 11;
+            // 
+            // lb_ThemQuocTich_QuocGia
+            // 
+            this.lb_ThemQuocTich_QuocGia.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lb_ThemQuocTich_QuocGia.AutoSize = true;
+            this.lb_ThemQuocTich_QuocGia.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lb_ThemQuocTich_QuocGia.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_ThemQuocTich_QuocGia.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lb_ThemQuocTich_QuocGia.Location = new System.Drawing.Point(3, 45);
+            this.lb_ThemQuocTich_QuocGia.Name = "lb_ThemQuocTich_QuocGia";
+            this.lb_ThemQuocTich_QuocGia.Size = new System.Drawing.Size(121, 23);
+            this.lb_ThemQuocTich_QuocGia.TabIndex = 10;
+            this.lb_ThemQuocTich_QuocGia.Text = "Thêm quốc gia";
+            this.lb_ThemQuocTich_QuocGia.Click += new System.EventHandler(this.lbl_ThemQuocGia_Click);
             // 
             // tableLP_TonGiao
             // 
@@ -274,63 +320,54 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
-            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label8, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel4, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.tableLP_TinhHoKhau, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.txt_HoKhau_Xa, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.txt_HoKhau_Quan, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.txt_HoKhau_Duong, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.txt_HoKhau_SoNha, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label15, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel4, 3, 2);
+            this.tableLayoutPanel1.Controls.Add(this.tableLP_TinhHoKhau, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label8, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.txt_HoKhau_Quan, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.txt_HoKhau_Xa, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label17, 2, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 24);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(988, 193);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // label4
+            // txt_HoKhau_Duong
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 124);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 21);
-            this.label4.TabIndex = 44;
-            this.label4.Text = "Tỉnh/TP";
+            this.txt_HoKhau_Duong.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_HoKhau_Duong.Location = new System.Drawing.Point(644, 10);
+            this.txt_HoKhau_Duong.Name = "txt_HoKhau_Duong";
+            this.txt_HoKhau_Duong.Size = new System.Drawing.Size(269, 28);
+            this.txt_HoKhau_Duong.TabIndex = 48;
             // 
-            // label3
+            // txt_HoKhau_SoNha
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(496, 28);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(113, 21);
-            this.label3.TabIndex = 43;
-            this.label3.Text = "Quận  /  huyện";
+            this.txt_HoKhau_SoNha.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_HoKhau_SoNha.Location = new System.Drawing.Point(151, 10);
+            this.txt_HoKhau_SoNha.Name = "txt_HoKhau_SoNha";
+            this.txt_HoKhau_SoNha.Size = new System.Drawing.Size(269, 28);
+            this.txt_HoKhau_SoNha.TabIndex = 47;
             // 
-            // label2
+            // label15
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 28);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 21);
-            this.label2.TabIndex = 42;
-            this.label2.Text = "Phường  /  xã";
-            // 
-            // label8
-            // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(496, 124);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(70, 21);
-            this.label8.TabIndex = 41;
-            this.label8.Text = "Quốc gia";
+            this.label15.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(3, 13);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(57, 21);
+            this.label15.TabIndex = 45;
+            this.label15.Text = "Số nhà";
             // 
             // tableLayoutPanel4
             // 
@@ -339,12 +376,12 @@
             this.tableLayoutPanel4.Controls.Add(this.comB_HoKhau_QuocGia, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.lbl_ThemQuocGia_HoKhau, 0, 1);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(644, 80);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(644, 99);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 59.30233F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.69767F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(341, 110);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(341, 91);
             this.tableLayoutPanel4.TabIndex = 36;
             // 
             // comB_HoKhau_QuocGia
@@ -352,7 +389,7 @@
             this.comB_HoKhau_QuocGia.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_HoKhau_QuocGia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_HoKhau_QuocGia.FormattingEnabled = true;
-            this.comB_HoKhau_QuocGia.Location = new System.Drawing.Point(3, 18);
+            this.comB_HoKhau_QuocGia.Location = new System.Drawing.Point(3, 12);
             this.comB_HoKhau_QuocGia.Name = "comB_HoKhau_QuocGia";
             this.comB_HoKhau_QuocGia.Size = new System.Drawing.Size(263, 29);
             this.comB_HoKhau_QuocGia.TabIndex = 0;
@@ -365,7 +402,7 @@
             this.lbl_ThemQuocGia_HoKhau.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_ThemQuocGia_HoKhau.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ThemQuocGia_HoKhau.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lbl_ThemQuocGia_HoKhau.Location = new System.Drawing.Point(3, 76);
+            this.lbl_ThemQuocGia_HoKhau.Location = new System.Drawing.Point(3, 60);
             this.lbl_ThemQuocGia_HoKhau.Name = "lbl_ThemQuocGia_HoKhau";
             this.lbl_ThemQuocGia_HoKhau.Size = new System.Drawing.Size(121, 23);
             this.lbl_ThemQuocGia_HoKhau.TabIndex = 10;
@@ -379,12 +416,13 @@
             this.tableLP_TinhHoKhau.Controls.Add(this.lbl_ThemTinhHoKhau, 0, 1);
             this.tableLP_TinhHoKhau.Controls.Add(this.comB_HoKhauTinh, 0, 0);
             this.tableLP_TinhHoKhau.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLP_TinhHoKhau.Location = new System.Drawing.Point(151, 80);
+            this.tableLP_TinhHoKhau.Location = new System.Drawing.Point(151, 99);
             this.tableLP_TinhHoKhau.Name = "tableLP_TinhHoKhau";
             this.tableLP_TinhHoKhau.RowCount = 2;
             this.tableLP_TinhHoKhau.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 59.30233F));
             this.tableLP_TinhHoKhau.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.69767F));
-            this.tableLP_TinhHoKhau.Size = new System.Drawing.Size(339, 110);
+            this.tableLP_TinhHoKhau.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLP_TinhHoKhau.Size = new System.Drawing.Size(339, 91);
             this.tableLP_TinhHoKhau.TabIndex = 33;
             // 
             // lbl_ThemTinhHoKhau
@@ -394,7 +432,7 @@
             this.lbl_ThemTinhHoKhau.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_ThemTinhHoKhau.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ThemTinhHoKhau.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lbl_ThemTinhHoKhau.Location = new System.Drawing.Point(3, 76);
+            this.lbl_ThemTinhHoKhau.Location = new System.Drawing.Point(3, 60);
             this.lbl_ThemTinhHoKhau.Name = "lbl_ThemTinhHoKhau";
             this.lbl_ThemTinhHoKhau.Size = new System.Drawing.Size(173, 23);
             this.lbl_ThemTinhHoKhau.TabIndex = 6;
@@ -406,27 +444,78 @@
             this.comB_HoKhauTinh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_HoKhauTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_HoKhauTinh.FormattingEnabled = true;
-            this.comB_HoKhauTinh.Location = new System.Drawing.Point(3, 18);
+            this.comB_HoKhauTinh.Location = new System.Drawing.Point(3, 12);
             this.comB_HoKhauTinh.Name = "comB_HoKhauTinh";
             this.comB_HoKhauTinh.Size = new System.Drawing.Size(266, 29);
             this.comB_HoKhauTinh.TabIndex = 0;
             this.comB_HoKhauTinh.SelectionChangeCommitted += new System.EventHandler(this.comB_Tinh_SelectionChangeCommitted);
             // 
-            // txt_HoKhau_Xa
+            // label4
             // 
-            this.txt_HoKhau_Xa.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_HoKhau_Xa.Location = new System.Drawing.Point(151, 24);
-            this.txt_HoKhau_Xa.Name = "txt_HoKhau_Xa";
-            this.txt_HoKhau_Xa.Size = new System.Drawing.Size(269, 28);
-            this.txt_HoKhau_Xa.TabIndex = 0;
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 134);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 21);
+            this.label4.TabIndex = 44;
+            this.label4.Text = "Tỉnh/TP";
+            // 
+            // label8
+            // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(496, 134);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(70, 21);
+            this.label8.TabIndex = 41;
+            this.label8.Text = "Quốc gia";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(496, 61);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(113, 21);
+            this.label3.TabIndex = 43;
+            this.label3.Text = "Quận  /  huyện";
             // 
             // txt_HoKhau_Quan
             // 
             this.txt_HoKhau_Quan.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_HoKhau_Quan.Location = new System.Drawing.Point(644, 24);
+            this.txt_HoKhau_Quan.Location = new System.Drawing.Point(644, 58);
             this.txt_HoKhau_Quan.Name = "txt_HoKhau_Quan";
             this.txt_HoKhau_Quan.Size = new System.Drawing.Size(269, 28);
             this.txt_HoKhau_Quan.TabIndex = 1;
+            this.txt_HoKhau_Quan.TextChanged += new System.EventHandler(this.txt_HoKhau_Quan_TextChanged);
+            // 
+            // txt_HoKhau_Xa
+            // 
+            this.txt_HoKhau_Xa.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_HoKhau_Xa.Location = new System.Drawing.Point(151, 58);
+            this.txt_HoKhau_Xa.Name = "txt_HoKhau_Xa";
+            this.txt_HoKhau_Xa.Size = new System.Drawing.Size(269, 28);
+            this.txt_HoKhau_Xa.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 61);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(103, 21);
+            this.label2.TabIndex = 42;
+            this.label2.Text = "Phường  /  xã";
+            // 
+            // label17
+            // 
+            this.label17.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(496, 13);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(58, 21);
+            this.label17.TabIndex = 46;
+            this.label17.Text = "Đường";
             // 
             // groupBox2
             // 
@@ -934,48 +1023,6 @@
             this.rtb_GhiChu.TabIndex = 41;
             this.rtb_GhiChu.Text = "";
             // 
-            // tableLP_QuocTich
-            // 
-            this.tableLP_QuocTich.ColumnCount = 1;
-            this.tableLP_QuocTich.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLP_QuocTich.Controls.Add(this.comB_QuocTich, 0, 0);
-            this.tableLP_QuocTich.Controls.Add(this.lb_ThemQuocTich_QuocGia, 0, 1);
-            this.tableLP_QuocTich.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLP_QuocTich.Enabled = false;
-            this.tableLP_QuocTich.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.tableLP_QuocTich.Location = new System.Drawing.Point(153, 195);
-            this.tableLP_QuocTich.Name = "tableLP_QuocTich";
-            this.tableLP_QuocTich.RowCount = 2;
-            this.tableLP_QuocTich.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 59.30233F));
-            this.tableLP_QuocTich.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.69767F));
-            this.tableLP_QuocTich.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLP_QuocTich.Size = new System.Drawing.Size(344, 71);
-            this.tableLP_QuocTich.TabIndex = 44;
-            // 
-            // lb_ThemQuocTich_QuocGia
-            // 
-            this.lb_ThemQuocTich_QuocGia.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lb_ThemQuocTich_QuocGia.AutoSize = true;
-            this.lb_ThemQuocTich_QuocGia.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lb_ThemQuocTich_QuocGia.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_ThemQuocTich_QuocGia.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lb_ThemQuocTich_QuocGia.Location = new System.Drawing.Point(3, 45);
-            this.lb_ThemQuocTich_QuocGia.Name = "lb_ThemQuocTich_QuocGia";
-            this.lb_ThemQuocTich_QuocGia.Size = new System.Drawing.Size(121, 23);
-            this.lb_ThemQuocTich_QuocGia.TabIndex = 10;
-            this.lb_ThemQuocTich_QuocGia.Text = "Thêm quốc gia";
-            this.lb_ThemQuocTich_QuocGia.Click += new System.EventHandler(this.lbl_ThemQuocGia_Click);
-            // 
-            // comB_QuocTich
-            // 
-            this.comB_QuocTich.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.comB_QuocTich.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comB_QuocTich.FormattingEnabled = true;
-            this.comB_QuocTich.Location = new System.Drawing.Point(3, 6);
-            this.comB_QuocTich.Name = "comB_QuocTich";
-            this.comB_QuocTich.Size = new System.Drawing.Size(263, 29);
-            this.comB_QuocTich.TabIndex = 11;
-            // 
             // QLNS_ThongTinNV_Phu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -989,6 +1036,8 @@
             this.Load += new System.EventHandler(this.QLNS_ThongTinNV_Phu_Load);
             this.tableLP_ThongTinBoSung.ResumeLayout(false);
             this.tableLP_ThongTinBoSung.PerformLayout();
+            this.tableLP_QuocTich.ResumeLayout(false);
+            this.tableLP_QuocTich.PerformLayout();
             this.tableLP_TonGiao.ResumeLayout(false);
             this.tableLP_TonGiao.PerformLayout();
             this.tableLP_DanToc.ResumeLayout(false);
@@ -1014,8 +1063,6 @@
             this.tableLayoutPanel2.PerformLayout();
             this.tableLP_TinhQueQuan.ResumeLayout(false);
             this.tableLP_TinhQueQuan.PerformLayout();
-            this.tableLP_QuocTich.ResumeLayout(false);
-            this.tableLP_QuocTich.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1090,5 +1137,9 @@
         private System.Windows.Forms.TableLayoutPanel tableLP_QuocTich;
         public System.Windows.Forms.ComboBox comB_QuocTich;
         private System.Windows.Forms.Label lb_ThemQuocTich_QuocGia;
+        private System.Windows.Forms.Label label15;
+        public System.Windows.Forms.TextBox txt_HoKhau_Duong;
+        public System.Windows.Forms.TextBox txt_HoKhau_SoNha;
+        private System.Windows.Forms.Label label17;
     }
 }

@@ -122,3 +122,4 @@ D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.ThemMoHinhDT.resources
 D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.ThemQuocGia.resources
 D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.ThemTinhTP.resources
 D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.csproj.GenerateResource.Cache
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.DanhMucThongTin.QLNS_NghienCuuKH.resources

@@ -646,6 +646,11 @@ namespace QLNS.UCs.DanhMucThongTin
             }
         }
 
+        private void txt_HoKhau_Quan_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
 
 
     }
