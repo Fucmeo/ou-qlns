@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Business.CNVC;
+using System.Threading;
 
 
 namespace QLNS.UCs.DanhMucThongTin
@@ -26,6 +27,7 @@ namespace QLNS.UCs.DanhMucThongTin
 
         public static int nNewTinhTPID = 0;     // ID cua tinh thanh pho moi them vao
         public static int nNewQuocGiaID = 0;     // ID cua quoc gia moi them vao
+        int groupb_BoiDuong_Heigh, groupb_DaoTao_Heigh;
 
         public QLNS_DaoTaoBoiDuong()
         {
@@ -44,6 +46,8 @@ namespace QLNS.UCs.DanhMucThongTin
             dtMoHinh = new DataTable();
             oTinhTP = new Business.TinhTP();
             oQuocGia = new Business.QuocGia();
+
+
         }
 
         public void GetDaoTaoBoiDuongInfo(string m_MaNV)
@@ -76,6 +80,23 @@ namespace QLNS.UCs.DanhMucThongTin
             LoadVanBangData();
             LoadMoHinhData();
 
+            groupb_BoiDuong.MouseClick += new MouseEventHandler(groupb_BoiDuong_MouseClick);
+            groupb_DaoTao.MouseClick += new MouseEventHandler(groupb_DaoTao_MouseClick);
+
+            groupb_BoiDuong_Heigh = groupb_BoiDuong.Height;
+            groupb_DaoTao_Heigh = groupb_DaoTao.Height;
+        }
+
+        void groupb_DaoTao_MouseClick(object sender, MouseEventArgs e)
+        {
+            Program.CollapseGroupBox(tableLP_DaoTaoBoiDuong, (GroupBox)sender,new GroupBox[]{groupb_BoiDuong}, 50, "ĐÀO TẠO",3
+                 , new float[] { float.Parse("50"), float.Parse("50") });
+        }
+
+        void groupb_BoiDuong_MouseClick(object sender, MouseEventArgs e)
+        {
+            Program.CollapseGroupBox(tableLP_DaoTaoBoiDuong, (GroupBox)sender, new GroupBox[] { groupb_DaoTao }, 50, "BỔI DƯỠNG", 2
+                , new float[]{float.Parse("0.5"),float.Parse("0.5")});
         }
 
         #region Xu ly tinh tp
@@ -1306,6 +1327,13 @@ namespace QLNS.UCs.DanhMucThongTin
 
             txt_TrinhDo.Text = dtVanBang.AsEnumerable().Where(a => a.Field<int>("id") == nSelectedVB)
                                                         .Select(b => b.Field<string>("ten")).First();
+        }
+
+        private void lb_TapTin_Click(object sender, EventArgs e)
+        {
+            HDQD.Forms.Popup f = new HDQD.Forms.Popup(new HDQD.UCs.DSTapTin(), "QUẢN LÝ NHÂN SỰ - TẬP TIN VĂN BẰNG");
+            HDQD.UCs.DSTapTin.bHopDong = true;
+            f.ShowDialog();
         }
     }
 }

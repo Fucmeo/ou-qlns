@@ -48,5 +48,79 @@ namespace QLNS
                 }
             }
         }
+
+        /// <summary>
+        /// Expand / Collapse GroupBox
+        /// </summary>
+        /// <param name="TLP_Parent">TLP Cha (chứa các groupbox can collapse)</param>
+        /// <param name="collapse_gb">GroupBox duoc click</param>
+        /// <param name="gp_heigh_percent"></param>
+        /// <param name="gp_text">tên group box</param>
+        /// <param name="MinSize">phần trăm heigh cua gb thi collapse</param>
+        /// <param name="MinimizedSize"></param>
+        /// <param name="CollapseSize"></param>
+        /// <param name="init_heigh_percent"></param>
+        /// <param name="gp_bottom_or_top"></param>
+        static public void CollapseGroupBox(TableLayoutPanel TLP_Parent, GroupBox collapse_gb,GroupBox[] other_gb
+            , int gp_heigh_percent, string gp_text, int MinSize, float[] init_heigh_percent )
+        {
+            int RowStyleIndex = TLP_Parent.GetRow(collapse_gb);
+            int RowStyleCount = TLP_Parent.RowStyles.Count;
+
+            if (collapse_gb.Text.Contains("[+]"))    // Expand
+            {
+                //for (int i = MinimizedSize; i <= gp_heigh_percent; i = i + CollapseSize)
+                //{
+                //    collapse_gb.Height = i;
+                //    //Refresh();
+                //    //Thread.Sleep(1);
+                //}
+                collapse_gb.Text = "[-] " + gp_text;
+                collapse_gb.Height = gp_heigh_percent;
+
+                for (int i = 0; i < RowStyleCount; i++)
+                {
+                    TLP_Parent.RowStyles[i].SizeType = SizeType.Percent;
+                    //TLP.RowStyles[i].Height = TLP.Height * init_percent_heigh[i];
+                    TLP_Parent.RowStyles[i].Height = init_heigh_percent[i];
+
+                }
+                collapse_gb.Anchor = (AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom | AnchorStyles.Top);
+            }
+            else        // Collapse
+            {
+                float increase_percent = TLP_Parent.Height / RowStyleCount;
+                //for (int i = gp_heigh_percent; i >= MinimizedSize; i = i - CollapseSize)
+                //{
+                //    collapse_gb.Height = i;
+                //    //Refresh();
+                //    //Thread.Sleep(1);
+                //}
+                collapse_gb.Text = "[+] " + gp_text;
+                //gp.Height = MinimizedSize;
+                
+
+                for (int i = 0; i < RowStyleCount; i++)
+                {
+                    TLP_Parent.RowStyles[i].SizeType = SizeType.Percent;
+                    if (i != RowStyleIndex)
+                    {
+                        //gp.Anchor = (AnchorStyles.Left | AnchorStyles.Right);
+                        //TLP.RowStyles[i].Height = TLP.Height * init_percent_heigh[i] + increase_percent;
+                        TLP_Parent.RowStyles[i].Height = init_heigh_percent[i] + ( (gp_heigh_percent - MinSize) / (RowStyleCount - 1));
+                    }
+                    else
+                    {
+                        collapse_gb.Anchor = (AnchorStyles.Left | AnchorStyles.Right);
+                        TLP_Parent.RowStyles[i].Height = MinSize;
+                    }
+                }
+
+                for (int i = 0; i < other_gb.Length; i++)
+                {
+                    other_gb[i].Anchor = (AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom | AnchorStyles.Top);
+                }
+            }
+        }
     }
 }

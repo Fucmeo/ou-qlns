@@ -128,9 +128,9 @@
             this.tableLP_LichSuBanThan.SetColumnSpan(this.groupBox1, 4);
             this.groupBox1.Controls.Add(this.tableLP_TienAn);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(3, 473);
+            this.groupBox1.Location = new System.Drawing.Point(3, 474);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(877, 356);
+            this.groupBox1.Size = new System.Drawing.Size(877, 355);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tiền án - Tiền sự";
@@ -165,7 +165,7 @@
             this.tableLP_TienAn.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.40302F));
             this.tableLP_TienAn.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11F));
             this.tableLP_TienAn.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35F));
-            this.tableLP_TienAn.Size = new System.Drawing.Size(871, 331);
+            this.tableLP_TienAn.Size = new System.Drawing.Size(871, 330);
             this.tableLP_TienAn.TabIndex = 0;
             // 
             // dtgv_TienAn
@@ -180,7 +180,7 @@
             this.dtgv_TienAn.ReadOnly = true;
             this.dtgv_TienAn.RowTemplate.Height = 24;
             this.dtgv_TienAn.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgv_TienAn.Size = new System.Drawing.Size(865, 113);
+            this.dtgv_TienAn.Size = new System.Drawing.Size(865, 112);
             this.dtgv_TienAn.TabIndex = 56;
             this.dtgv_TienAn.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_TienAn_CellClick);
             // 
@@ -193,7 +193,7 @@
             this.comB_HinhThuc.Items.AddRange(new object[] {
             "Bị bắt",
             "Bị tù"});
-            this.comB_HinhThuc.Location = new System.Drawing.Point(133, 13);
+            this.comB_HinhThuc.Location = new System.Drawing.Point(133, 14);
             this.comB_HinhThuc.Name = "comB_HinhThuc";
             this.comB_HinhThuc.Size = new System.Drawing.Size(234, 26);
             this.comB_HinhThuc.TabIndex = 0;
@@ -381,7 +381,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(877, 464);
+            this.groupBox2.Size = new System.Drawing.Size(877, 465);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Quan hệ tổ chức";
@@ -426,7 +426,7 @@
             this.tableLP_QuanHeToChuc.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.67882F));
             this.tableLP_QuanHeToChuc.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLP_QuanHeToChuc.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLP_QuanHeToChuc.Size = new System.Drawing.Size(871, 439);
+            this.tableLP_QuanHeToChuc.Size = new System.Drawing.Size(871, 440);
             this.tableLP_QuanHeToChuc.TabIndex = 0;
             // 
             // label8
@@ -511,7 +511,7 @@
             this.dtgv_QHToChuc.ReadOnly = true;
             this.dtgv_QHToChuc.RowTemplate.Height = 24;
             this.dtgv_QHToChuc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgv_QHToChuc.Size = new System.Drawing.Size(865, 127);
+            this.dtgv_QHToChuc.Size = new System.Drawing.Size(865, 128);
             this.dtgv_QHToChuc.TabIndex = 8;
             this.dtgv_QHToChuc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_QHToChuc_CellClick);
             // 
@@ -655,7 +655,7 @@
             this.comB_QuocGia.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_QuocGia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_QuocGia.FormattingEnabled = true;
-            this.comB_QuocGia.Location = new System.Drawing.Point(3, 9);
+            this.comB_QuocGia.Location = new System.Drawing.Point(3, 10);
             this.comB_QuocGia.Name = "comB_QuocGia";
             this.comB_QuocGia.Size = new System.Drawing.Size(236, 26);
             this.comB_QuocGia.TabIndex = 0;
@@ -718,7 +718,7 @@
             this.comB_Tinh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_Tinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_Tinh.FormattingEnabled = true;
-            this.comB_Tinh.Location = new System.Drawing.Point(3, 9);
+            this.comB_Tinh.Location = new System.Drawing.Point(3, 10);
             this.comB_Tinh.Name = "comB_Tinh";
             this.comB_Tinh.Size = new System.Drawing.Size(236, 26);
             this.comB_Tinh.TabIndex = 0;
