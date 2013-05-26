@@ -614,6 +614,10 @@ namespace QLNS.UCs.DanhMucThongTin
             dtgv_DaoTao.Columns["ngay_cap_bang"].Width = 150;
             dtgv_DaoTao.Columns["cq_phuong_thuc_dao_tao"].HeaderText = "Phương thức đào tạo";
             dtgv_DaoTao.Columns["cq_phuong_thuc_dao_tao"].Width = 200;
+
+            dtgv_DaoTao.Columns["cq_nguoi_huong_dan"].HeaderText = "Người hướng dẫn";
+            dtgv_DaoTao.Columns["so_hieu_bang"].HeaderText = "Số hiệu bằng";
+            dtgv_DaoTao.Columns["ma_vao_so"].HeaderText = "Số vào sổ";
         }
 
         private void Setup_dtgv_BoiDuong()
@@ -627,12 +631,12 @@ namespace QLNS.UCs.DanhMucThongTin
                dtgv_BoiDuong.Columns["cq_hoi_dong_cham"].Visible = dtgv_BoiDuong.Columns["ma_nv"].Visible =
                dtgv_BoiDuong.Columns["tinh_thanhpho_id"].Visible = dtgv_BoiDuong.Columns["quoc_gia_id"].Visible =
                dtgv_BoiDuong.Columns["ten"].Visible = dtgv_BoiDuong.Columns["cq_phuong_thuc_dao_tao"].Visible =
-               dtgv_BoiDuong.Columns["trinh_do_id"].Visible = false;
+               dtgv_BoiDuong.Columns["trinh_do_id"].Visible = dtgv_BoiDuong.Columns["cq_nguoi_huong_dan"].Visible = false;
 
             //  
             dtgv_BoiDuong.Columns["ten_truong"].HeaderText = "Tên trường";
             dtgv_BoiDuong.Columns["ten_truong"].Width = 350;
-            dtgv_BoiDuong.Columns["chuyen_nganh_dao_tao"].HeaderText = "Chuyên ngành";
+            dtgv_BoiDuong.Columns["chuyen_nganh_dao_tao"].HeaderText = "Nội dung";
             dtgv_BoiDuong.Columns["chuyen_nganh_dao_tao"].Width = 250;
             dtgv_BoiDuong.Columns["tu_ngay"].HeaderText = "Từ ngày";
             dtgv_BoiDuong.Columns["tu_ngay"].Width = 100;
@@ -652,145 +656,161 @@ namespace QLNS.UCs.DanhMucThongTin
             dtgv_BoiDuong.Columns["ghi_chu"].Width = 150;
             dtgv_BoiDuong.Columns["ngay_cap_bang"].HeaderText = "Ngày cấp chứng chỉ";
             dtgv_BoiDuong.Columns["ngay_cap_bang"].Width = 150;
+
+            dtgv_BoiDuong.Columns["so_hieu_bang"].HeaderText = "Số hiệu bằng";
+            dtgv_BoiDuong.Columns["ma_vao_so"].HeaderText = "Số vào sổ";
         }
 
         private void dtgv_DaoTao_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dtgv_DaoTao.Rows.Count > 0 && dtgv_DaoTao.SelectedRows != null)
+            try
             {
-                DataGridViewRow r = dtgv_DaoTao.SelectedRows[0];
+                if (dtgv_DaoTao.Rows.Count > 0 && dtgv_DaoTao.SelectedRows != null)
+                {
+                    DataGridViewRow r = dtgv_DaoTao.SelectedRows[0];
 
-                txt_TenTruong_DaoTao.Text = r.Cells["ten_truong"].Value.ToString();
-                txt_ChuyenNganh_DaoTao.Text = r.Cells["chuyen_nganh_dao_tao"].Value.ToString();
-                txt_XepLoai_DaoTao.Text = r.Cells["xep_loai"].Value.ToString();
-                txt_TenLuanVan.Text = r.Cells["cq_ten_luan_van"].Value.ToString();
-                txt_HoiDong.Text = r.Cells["cq_hoi_dong_cham"].Value.ToString();
-                txt_Diem_DaoTao.Text = r.Cells["diem"].Value.ToString();
-                rtb_GhiChu_DaoTao.Text = r.Cells["ghi_chu"].Value.ToString();
-                txt_TrinhDo.Text = r.Cells["ten"].Value.ToString();
+                    txt_TenTruong_DaoTao.Text = r.Cells["ten_truong"].Value.ToString();
+                    txt_ChuyenNganh_DaoTao.Text = r.Cells["chuyen_nganh_dao_tao"].Value.ToString();
+                    txt_XepLoai_DaoTao.Text = r.Cells["xep_loai"].Value.ToString();
+                    txt_TenLuanVan.Text = r.Cells["cq_ten_luan_van"].Value.ToString();
+                    txt_HoiDong.Text = r.Cells["cq_hoi_dong_cham"].Value.ToString();
+                    txt_Diem_DaoTao.Text = r.Cells["diem"].Value.ToString();
+                    rtb_GhiChu_DaoTao.Text = r.Cells["ghi_chu"].Value.ToString();
+                    txt_TrinhDo.Text = r.Cells["ten"].Value.ToString();
+                    txt_DaoTao_NgHD.Text = r.Cells["cq_nguoi_huong_dan"].Value.ToString();
+                    txt_DaoTao_SoHieuBang.Text = r.Cells["so_hieu_bang"].Value.ToString();
+                    txt_DaoTao_SoVaoSo.Text = r.Cells["ma_vao_so"].Value.ToString();
 
-                if (r.Cells["cq_van_bang_id"].Value.ToString() == "")
-                {
-                    comB_VanBang.SelectedValue = -1;
-                }
-                else
-                {
-                    comB_VanBang.SelectedValue = Convert.ToInt32(r.Cells["cq_van_bang_id"].Value);
-                }
+                    if (r.Cells["cq_van_bang_id"].Value.ToString() == "")
+                    {
+                        comB_VanBang.SelectedValue = -1;
+                    }
+                    else
+                    {
+                        comB_VanBang.SelectedValue = Convert.ToInt32(r.Cells["cq_van_bang_id"].Value);
+                    }
 
-                if (r.Cells["tinh_thanhpho_id"].Value.ToString() == "")
-                {
-                    comB_Tinh_DaoTao.SelectedValue = -1;
-                }
-                else
-                {
-                    comB_Tinh_DaoTao.SelectedValue = Convert.ToInt32(r.Cells["tinh_thanhpho_id"].Value);
-                }
+                    if (r.Cells["tinh_thanhpho_id"].Value.ToString() == "")
+                    {
+                        comB_Tinh_DaoTao.SelectedValue = -1;
+                    }
+                    else
+                    {
+                        comB_Tinh_DaoTao.SelectedValue = Convert.ToInt32(r.Cells["tinh_thanhpho_id"].Value);
+                    }
 
-                if (r.Cells["quoc_gia_id"].Value.ToString() == "")
-                {
-                    comB_QuocGia_DaoTao.SelectedValue = -1;
-                }
-                else
-                {
-                    comB_QuocGia_DaoTao.SelectedValue = Convert.ToInt32(r.Cells["quoc_gia_id"].Value);
-                }
+                    if (r.Cells["quoc_gia_id"].Value.ToString() == "")
+                    {
+                        comB_QuocGia_DaoTao.SelectedValue = -1;
+                    }
+                    else
+                    {
+                        comB_QuocGia_DaoTao.SelectedValue = Convert.ToInt32(r.Cells["quoc_gia_id"].Value);
+                    }
 
-                comB_HinhThuc.SelectedValue = Convert.ToInt32(r.Cells["hinh_thuc_dao_tao_id"].Value);
+                    comB_HinhThuc.SelectedValue = Convert.ToInt32(r.Cells["hinh_thuc_dao_tao_id"].Value);
 
-                if (r.Cells["tu_ngay"].Value.ToString() != "")
-                {
-                    dTP_TuNgay_DaoTao.Checked = true;
-                    dTP_TuNgay_DaoTao.Value = Convert.ToDateTime(r.Cells["tu_ngay"].Value);
-                }
-                else
-                {
-                    dTP_TuNgay_DaoTao.Checked = false;
-                }
+                    if (r.Cells["tu_ngay"].Value.ToString() != "")
+                    {
+                        dTP_TuNgay_DaoTao.Checked = true;
+                        dTP_TuNgay_DaoTao.Value = Convert.ToDateTime(r.Cells["tu_ngay"].Value);
+                    }
+                    else
+                    {
+                        dTP_TuNgay_DaoTao.Checked = false;
+                    }
 
-                if (r.Cells["ngay_cap_bang"].Value.ToString() != "")
-                {
-                    dtp_NgayCapBang_DaoTao.Checked = true;
-                    dtp_NgayCapBang_DaoTao.Value = Convert.ToDateTime(r.Cells["ngay_cap_bang"].Value);
-                }
-                else
-                {
-                    dtp_NgayCapBang_DaoTao.Checked = false;
-                }
+                    if (r.Cells["ngay_cap_bang"].Value.ToString() != "")
+                    {
+                        dtp_NgayCapBang_DaoTao.Checked = true;
+                        dtp_NgayCapBang_DaoTao.Value = Convert.ToDateTime(r.Cells["ngay_cap_bang"].Value);
+                    }
+                    else
+                    {
+                        dtp_NgayCapBang_DaoTao.Checked = false;
+                    }
 
-                if (r.Cells["den_ngay"].Value.ToString() != "")
-                {
-                    dTP_DenNgay_DaoTao.Checked = true;
-                    dTP_DenNgay_DaoTao.Value = Convert.ToDateTime(r.Cells["den_ngay"].Value);
-                }
-                else
-                {
-                    dTP_DenNgay_DaoTao.Checked = false;
+                    if (r.Cells["den_ngay"].Value.ToString() != "")
+                    {
+                        dTP_DenNgay_DaoTao.Checked = true;
+                        dTP_DenNgay_DaoTao.Value = Convert.ToDateTime(r.Cells["den_ngay"].Value);
+                    }
+                    else
+                    {
+                        dTP_DenNgay_DaoTao.Checked = false;
+                    }
                 }
             }
+            catch { }
         }
 
         private void dtgv_BoiDuong_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dtgv_BoiDuong.Rows.Count > 0 && dtgv_BoiDuong.SelectedRows != null)
+            try
             {
-                DataGridViewRow r = dtgv_BoiDuong.SelectedRows[0];
+                if (dtgv_BoiDuong.Rows.Count > 0 && dtgv_BoiDuong.SelectedRows != null)
+                {
+                    DataGridViewRow r = dtgv_BoiDuong.SelectedRows[0];
 
-                txt_TenTruong_BoiDuong.Text = r.Cells["ten_truong"].Value.ToString();
-                txt_ChuyenNganh_BoiDuong.Text = r.Cells["chuyen_nganh_dao_tao"].Value.ToString();
-                txt_XepLoai_BoiDuong.Text = r.Cells["xep_loai"].Value.ToString();
-                txt_TenChungChi.Text = r.Cells["bd_ten_chung_chi"].Value.ToString();
-                txt_Diem_BoiDuong.Text = r.Cells["diem"].Value.ToString();
-                rtb_GhiChu_BoiDuong.Text = r.Cells["ghi_chu"].Value.ToString();
+                    txt_TenTruong_BoiDuong.Text = r.Cells["ten_truong"].Value.ToString();
+                    txt_ChuyenNganh_BoiDuong.Text = r.Cells["chuyen_nganh_dao_tao"].Value.ToString();
+                    txt_XepLoai_BoiDuong.Text = r.Cells["xep_loai"].Value.ToString();
+                    txt_TenChungChi.Text = r.Cells["bd_ten_chung_chi"].Value.ToString();
+                    txt_Diem_BoiDuong.Text = r.Cells["diem"].Value.ToString();
+                    rtb_GhiChu_BoiDuong.Text = r.Cells["ghi_chu"].Value.ToString();
+                    txt_BoiDuong_SoHieuBang.Text = r.Cells["so_hieu_bang"].Value.ToString();
+                    txt_BoiDuong_SoVaoSo.Text = r.Cells["ma_vao_so"].Value.ToString();
 
-                if (r.Cells["tu_ngay"].Value.ToString() != "")
-                {
-                    dTP_TuNgay_BoiDuong.Checked = true;
-                    dTP_TuNgay_BoiDuong.Value = Convert.ToDateTime(r.Cells["tu_ngay"].Value);
-                }
-                else
-                {
-                    dTP_TuNgay_BoiDuong.Checked = false;
-                }
+                    if (r.Cells["tu_ngay"].Value.ToString() != "")
+                    {
+                        dTP_TuNgay_BoiDuong.Checked = true;
+                        dTP_TuNgay_BoiDuong.Value = Convert.ToDateTime(r.Cells["tu_ngay"].Value);
+                    }
+                    else
+                    {
+                        dTP_TuNgay_BoiDuong.Checked = false;
+                    }
 
-                if (r.Cells["den_ngay"].Value.ToString() != "")
-                {
-                    dTP_DenNgay_BoiDuong.Checked = true;
-                    dTP_DenNgay_BoiDuong.Value = Convert.ToDateTime(r.Cells["den_ngay"].Value);
-                }
-                else
-                {
-                    dTP_DenNgay_BoiDuong.Checked = false;
-                }
+                    if (r.Cells["den_ngay"].Value.ToString() != "")
+                    {
+                        dTP_DenNgay_BoiDuong.Checked = true;
+                        dTP_DenNgay_BoiDuong.Value = Convert.ToDateTime(r.Cells["den_ngay"].Value);
+                    }
+                    else
+                    {
+                        dTP_DenNgay_BoiDuong.Checked = false;
+                    }
 
-                if (r.Cells["tinh_thanhpho_id"].Value.ToString() == "")
-                {
-                    comB_Tinh_BoiDuong.SelectedValue = -1;
-                }
-                else
-                {
-                    comB_Tinh_BoiDuong.SelectedValue = Convert.ToInt32(r.Cells["tinh_thanhpho_id"].Value);
-                }
+                    if (r.Cells["tinh_thanhpho_id"].Value.ToString() == "")
+                    {
+                        comB_Tinh_BoiDuong.SelectedValue = -1;
+                    }
+                    else
+                    {
+                        comB_Tinh_BoiDuong.SelectedValue = Convert.ToInt32(r.Cells["tinh_thanhpho_id"].Value);
+                    }
 
-                if (r.Cells["quoc_gia_id"].Value.ToString() == "")
-                {
-                    comB_QuocGia_BoiDuong.SelectedValue = -1;
-                }
-                else
-                {
-                    comB_QuocGia_BoiDuong.SelectedValue = Convert.ToInt32(r.Cells["quoc_gia_id"].Value);
-                }
+                    if (r.Cells["quoc_gia_id"].Value.ToString() == "")
+                    {
+                        comB_QuocGia_BoiDuong.SelectedValue = -1;
+                    }
+                    else
+                    {
+                        comB_QuocGia_BoiDuong.SelectedValue = Convert.ToInt32(r.Cells["quoc_gia_id"].Value);
+                    }
 
-                if (r.Cells["ngay_cap_bang"].Value.ToString() != "")
-                {
-                    dtp_NgayCap_BoiDuong.Checked = true;
-                    dtp_NgayCap_BoiDuong.Value = Convert.ToDateTime(r.Cells["ngay_cap_bang"].Value);
-                }
-                else
-                {
-                    dtp_NgayCap_BoiDuong.Checked = false;
+                    if (r.Cells["ngay_cap_bang"].Value.ToString() != "")
+                    {
+                        dtp_NgayCap_BoiDuong.Checked = true;
+                        dtp_NgayCap_BoiDuong.Value = Convert.ToDateTime(r.Cells["ngay_cap_bang"].Value);
+                    }
+                    else
+                    {
+                        dtp_NgayCap_BoiDuong.Checked = false;
+                    }
                 }
             }
+            catch { }
         }
 
         private void ControlDaoTao(bool Add)
@@ -801,7 +821,8 @@ namespace QLNS.UCs.DanhMucThongTin
                     dTP_TuNgay_DaoTao.Enabled = comB_HinhThuc.Enabled = comB_PhuongThucDT.Enabled =
                      txt_Diem_DaoTao.Enabled = rtb_GhiChu_DaoTao.Enabled =
                     comB_VanBang.Enabled = comB_QuocGia_DaoTao.Enabled = comB_Tinh_DaoTao.Enabled
-                    = dtp_NgayCapBang_DaoTao.Enabled = tableLP_DaoTao_QG.Enabled = tableLP_DaoTao_Tinh.Enabled = Add;
+                    = dtp_NgayCapBang_DaoTao.Enabled = tableLP_DaoTao_QG.Enabled = tableLP_DaoTao_Tinh.Enabled = 
+                    txt_DaoTao_NgHD.Enabled = txt_DaoTao_SoHieuBang.Enabled = txt_DaoTao_SoVaoSo.Enabled = Add;
 
             dtgv_DaoTao.Enabled = lbl_XoaDaoTao.Enabled = !Add;
 
@@ -825,7 +846,8 @@ namespace QLNS.UCs.DanhMucThongTin
                     = txt_TenChungChi.Enabled = dTP_DenNgay_BoiDuong.Enabled =
                     dTP_TuNgay_BoiDuong.Enabled = comB_QuocGia_BoiDuong.Enabled =
                     txt_Diem_BoiDuong.Enabled = rtb_GhiChu_BoiDuong.Enabled =
-                    comB_Tinh_BoiDuong.Enabled = tableLP_BoiDuong_Tinh.Enabled = tableLP_BoiDuong_QG.Enabled = Add;
+                    comB_Tinh_BoiDuong.Enabled = tableLP_BoiDuong_Tinh.Enabled = tableLP_BoiDuong_QG.Enabled = 
+                    txt_BoiDuong_SoVaoSo.Enabled = txt_BoiDuong_SoHieuBang.Enabled = Add;
             dtgv_BoiDuong.Enabled = lbl_XoaBoiDuong.Enabled = !Add;
 
             if (Add)
@@ -1005,6 +1027,10 @@ namespace QLNS.UCs.DanhMucThongTin
             oCNVC_DaoTaoBoiDuong.CQ_HoiDongCham = txt_HoiDong.Text;
             oCNVC_DaoTaoBoiDuong.BD_TenChungChi = "";
             oCNVC_DaoTaoBoiDuong.GhiChu = rtb_GhiChu_DaoTao.Text;
+            oCNVC_DaoTaoBoiDuong.CQ_NguoiHuongDan = txt_DaoTao_NgHD.Text;
+            oCNVC_DaoTaoBoiDuong.SoHieuBang = txt_DaoTao_SoHieuBang.Text;
+            oCNVC_DaoTaoBoiDuong.MaVaoSo = txt_DaoTao_SoVaoSo.Text;
+
             if (Convert.ToInt16(comB_PhuongThucDT.SelectedValue) == -1)
             {
                 oCNVC_DaoTaoBoiDuong.PhuongThucDaoTaoID = null;
@@ -1102,6 +1128,8 @@ namespace QLNS.UCs.DanhMucThongTin
             oCNVC_DaoTaoBoiDuong.BD_TenChungChi = txt_TenChungChi.Text;
             oCNVC_DaoTaoBoiDuong.CQ_TenLuanVan = txt_TenLuanVan.Text;
             oCNVC_DaoTaoBoiDuong.GhiChu = rtb_GhiChu_BoiDuong.Text;
+            oCNVC_DaoTaoBoiDuong.SoHieuBang = txt_BoiDuong_SoHieuBang.Text;
+            oCNVC_DaoTaoBoiDuong.MaVaoSo = txt_BoiDuong_SoVaoSo.Text;
             if (txt_Diem_BoiDuong.Text != "")
             {
                 try
