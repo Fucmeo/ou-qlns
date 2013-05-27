@@ -34,6 +34,7 @@ namespace QLNS.UCs.DanhMucThongTin
         public DataTable dtChinhTriExt;
         Business.ChucVu_ChinhTri oChucVu_ChinhTri;
         public DataTable dtChucVu_ChinhTri;
+        List<KeyValuePair<GroupBox, float>> lst_gb;
 
         //string m_ma_nv;
         int old_select_id;
@@ -85,6 +86,37 @@ namespace QLNS.UCs.DanhMucThongTin
             // KHANG - GROUP DTGV
             //dtgv_DoanDang.SelectionChanged+=new EventHandler(dtgv_DoanDang_SelectionChanged);
             dtgv_DoanDang.CellContentClick += new DataGridViewCellEventHandler(dtgv_DoanDang_CellContentClick);
+
+            gb_InfoChung_HoiCuuCB.MouseClick += new MouseEventHandler(gb_InfoChung_HoiCuuCB_MouseClick);
+            gb_LoaiHinhCT.MouseClick += new MouseEventHandler(gb_LoaiHinhCT_MouseClick);
+            gb_ToChuc_CV_QTHD.MouseClick += new MouseEventHandler(gb_ToChuc_CV_QTHD_MouseClick);
+
+            lst_gb = new List<KeyValuePair<GroupBox, float>>();
+            lst_gb.Add(new KeyValuePair<GroupBox,float>(gb_InfoChung_HoiCuuCB,float.Parse("20")));
+            lst_gb.Add(new KeyValuePair<GroupBox, float>(gb_LoaiHinhCT, float.Parse("45")));
+            lst_gb.Add(new KeyValuePair<GroupBox, float>(gb_ToChuc_CV_QTHD, float.Parse("35")));
+        }
+
+        void gb_ToChuc_CV_QTHD_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (!gb_InfoChung_HoiCuuCB.Text.Contains("[+]") || !gb_LoaiHinhCT.Text.Contains("[+]"))
+            {
+                Program.CollapseGroupBox((GroupBox)sender, new GroupBox[] { gb_InfoChung_HoiCuuCB, gb_LoaiHinhCT }, tableLP_ChinhTri, 2, this,
+                     lst_gb);
+            }
+        }
+
+        void gb_LoaiHinhCT_MouseClick(object sender, MouseEventArgs e)
+        {
+            Program.CollapseGroupBox((GroupBox)sender, new GroupBox[] { gb_InfoChung_HoiCuuCB, gb_ToChuc_CV_QTHD }, tableLP_ChinhTri, 1, this,
+                    lst_gb);
+
+        }
+
+        void gb_InfoChung_HoiCuuCB_MouseClick(object sender, MouseEventArgs e)
+        {
+            Program.CollapseGroupBox(gb_InfoChung_HoiCuuCB, new GroupBox[] { gb_ToChuc_CV_QTHD, gb_LoaiHinhCT }, tableLP_ChinhTri, 0, this,
+                    lst_gb);
         }
 
         // KHANG - GROUP DTGV
