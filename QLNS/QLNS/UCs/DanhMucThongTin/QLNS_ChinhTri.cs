@@ -220,25 +220,25 @@ namespace QLNS.UCs.DanhMucThongTin
 
             if (cb_DangVien.Checked == true && cb_DangVien.Enabled == true)
                 dtp_NgayDuBiLan1.Enabled = dtp_NgayChinhThucLan1.Enabled = dtp_NgayDuBiLan2.Enabled = dtp_NgayChinhThucLan2.Enabled =
-                    dtp_DangVien_NgayRa.Enabled = true;
+                    dtp_DangVien_NgayRa.Enabled = rtb_DangVien_GhiChu.Enabled = txt_NgHD1.Enabled = txt_NgHD2.Enabled = true;
             else
                 dtp_NgayDuBiLan1.Enabled = dtp_NgayChinhThucLan1.Enabled = dtp_NgayDuBiLan2.Enabled = dtp_NgayChinhThucLan2.Enabled =
-                    dtp_DangVien_NgayRa.Enabled = false;
+                    dtp_DangVien_NgayRa.Enabled = rtb_DangVien_GhiChu.Enabled = txt_NgHD1.Enabled = txt_NgHD2.Enabled = false;
 
             if (cb_DoanVien.Checked == true && cb_DoanVien.Enabled == true)
-                dtp_KetNapLan1.Enabled = dtp_KetNapLan2.Enabled = dtp_DoanVien_NgayRa.Enabled = true;
+                dtp_KetNapLan1.Enabled = dtp_KetNapLan2.Enabled = dtp_DoanVien_NgayRa.Enabled = rtb_DoanVien_GhiChu.Enabled = true;
             else
-                dtp_KetNapLan1.Enabled = dtp_KetNapLan2.Enabled = dtp_DoanVien_NgayRa.Enabled = false;
+                dtp_KetNapLan1.Enabled = dtp_KetNapLan2.Enabled = dtp_DoanVien_NgayRa.Enabled = rtb_DoanVien_GhiChu.Enabled = false;
 
             if (cb_DanQuan.Checked == true && cb_DanQuan.Enabled == true)
-                dtp_DanQuan_NgayVao.Enabled = dtp_DanQuan_NgayRa.Enabled = true;
+                dtp_DanQuan_NgayVao.Enabled = dtp_DanQuan_NgayRa.Enabled = rtb_DanQuan_GhiChu.Enabled = true;
             else
-                dtp_DanQuan_NgayVao.Enabled = dtp_DanQuan_NgayRa.Enabled = false;
+                dtp_DanQuan_NgayVao.Enabled = dtp_DanQuan_NgayRa.Enabled = rtb_DanQuan_GhiChu.Enabled = false;
 
             if (cb_CongDoan.Checked == true && cb_CongDoan.Enabled == true)
-                dtp_CongDoan_NgayVao.Enabled = dtp_CongDoan_NgayRa.Enabled = true;
+                dtp_CongDoan_NgayVao.Enabled = dtp_CongDoan_NgayRa.Enabled = rtb_CongDoan_GhiChu.Enabled = true;
             else
-                dtp_CongDoan_NgayVao.Enabled = dtp_CongDoan_NgayRa.Enabled = false;
+                dtp_CongDoan_NgayVao.Enabled = dtp_CongDoan_NgayRa.Enabled = rtb_CongDoan_GhiChu.Enabled = false;
         }
 
         private void DisplayInfo(DataGridViewRow row)
@@ -331,8 +331,10 @@ namespace QLNS.UCs.DanhMucThongTin
                             }
                             else
                                 dtp_KetNapLan2.Checked = false;
+
+                            rtb_DoanVien_GhiChu.Text = row["ghi_chu"].ToString();
                             #endregion
-                            
+
                             break;
                         case "Đảng viên":
                             #region Dang vien
@@ -377,8 +379,12 @@ namespace QLNS.UCs.DanhMucThongTin
                             }
                             else
                                 dtp_DangVien_NgayRa.Checked = false;
+
+                            rtb_DangVien_GhiChu.Text = row["ghi_chu"].ToString();
+                            txt_NgHD1.Text = row["nguoi_huong_dan_1"].ToString();
+                            txt_NgHD2.Text = row["nguoi_huong_dan_2"].ToString();
                             #endregion
-                            
+
                             break;
                         case "Dân quân tự vệ":
                             cb_DanQuan.Checked = true;
@@ -398,6 +404,8 @@ namespace QLNS.UCs.DanhMucThongTin
                             }
                             else
                                 dtp_DanQuan_NgayVao.Checked = false;
+
+                            rtb_DanQuan_GhiChu.Text = row["ghi_chu"].ToString();
                             #endregion
 
                             break;
@@ -419,6 +427,8 @@ namespace QLNS.UCs.DanhMucThongTin
                             }
                             else
                                 dtp_CongDoan_NgayVao.Checked = false;
+
+                            rtb_CongDoan_GhiChu.Text = row["ghi_chu"].ToString();
                             #endregion
 
                             break;
@@ -726,40 +736,6 @@ namespace QLNS.UCs.DanhMucThongTin
         }
 
         
-
-        private void comB_Loai_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            //old_select_id = 0;
-            //listB_DSCV.Items.Clear();
-            ////Load_Cbo_ChucVu_ChinhTri();
-        }
-
-        private void lbl_ThemDoanDang_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void lbl_SuaDoanDang_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void lbl_XoaDoanDang_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void lbl_ThemChucVu_Click(object sender, EventArgs e)
-        {
-            //if (!listB_DSCV.Items.Contains(comB_ChucVu.Text))
-            //    listB_DSCV.Items.Add(comB_ChucVu.Text);
-        }
-
-        private void lbl_XoaChucVu_Click(object sender, EventArgs e)
-        {
-          //  listB_DSCV.Items.RemoveAt(listB_DSCV.SelectedIndex);
-        }
-
         private void comB_Loai_SelectedIndexChanged(object sender, EventArgs e)
         {
             Load_Cbo_ChucVu_ChinhTri();
@@ -778,26 +754,6 @@ namespace QLNS.UCs.DanhMucThongTin
         {
             Load_Cbo_ChucVu_ChinhTri();            
         
-        }
-
-        private void groupBox4_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox5_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tableLP_ChinhTri_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void btn_Luu_HoiCB_Click(object sender, EventArgs e)
@@ -877,6 +833,10 @@ namespace QLNS.UCs.DanhMucThongTin
                     List<string> du_bi_2 = new List<string>();
                     List<string> chinh_thuc_2 = new List<string>();
                     List<string> ngay_ra = new List<string>();
+                    List<string> ghi_chu = new List<string>();
+                    List<string> nguoi_huong_dan1 = new List<string>();
+                    List<string> nguoi_huong_dan2 = new List<string>();
+
 
                     if (cb_DangVien.Checked)
                     {
@@ -906,6 +866,10 @@ namespace QLNS.UCs.DanhMucThongTin
                             ngay_ra.Add(dtp_DangVien_NgayRa.Value.ToShortDateString());
                         else
                             ngay_ra.Add(null);
+
+                        ghi_chu.Add(rtb_DangVien_GhiChu.Text);
+                        nguoi_huong_dan1.Add(txt_NgHD1.Text);
+                        nguoi_huong_dan2.Add(txt_NgHD2.Text);
                     }
 
                     if (cb_DoanVien.Checked)
@@ -926,6 +890,10 @@ namespace QLNS.UCs.DanhMucThongTin
                             ngay_ra.Add(dtp_DoanVien_NgayRa.Value.ToShortDateString());
                         else
                             ngay_ra.Add(null);
+
+                        ghi_chu.Add(rtb_DoanVien_GhiChu.Text);
+                        nguoi_huong_dan1.Add(null);
+                        nguoi_huong_dan2.Add(null);
                     }
 
                     if (cb_DanQuan.Checked)
@@ -941,6 +909,10 @@ namespace QLNS.UCs.DanhMucThongTin
                             ngay_ra.Add(dtp_DanQuan_NgayRa.Value.ToShortDateString());
                         else
                             ngay_ra.Add(null);
+
+                        ghi_chu.Add(rtb_DanQuan_GhiChu.Text);
+                        nguoi_huong_dan1.Add(null);
+                        nguoi_huong_dan2.Add(null);
                     }
 
                     if (cb_CongDoan.Checked)
@@ -956,6 +928,10 @@ namespace QLNS.UCs.DanhMucThongTin
                             ngay_ra.Add(dtp_CongDoan_NgayRa.Value.ToShortDateString());
                         else
                             ngay_ra.Add(null);
+
+                        ghi_chu.Add(rtb_CongDoan_GhiChu.Text);
+                        nguoi_huong_dan1.Add(null);
+                        nguoi_huong_dan2.Add(null);
                     }
 
                     try
@@ -967,6 +943,9 @@ namespace QLNS.UCs.DanhMucThongTin
                             oChinhTri_LoaiCtr.NgayDuBi_2 = du_bi_2.ToArray();
                             oChinhTri_LoaiCtr.NgayChinhThuc_2 = chinh_thuc_2.ToArray();
                             oChinhTri_LoaiCtr.NgayRa = ngay_ra.ToArray();
+                            oChinhTri_LoaiCtr.GhiChu_Ctr_Basic = ghi_chu.ToArray();
+                            oChinhTri_LoaiCtr.NguoiHuongDan1 = nguoi_huong_dan1.ToArray();
+                            oChinhTri_LoaiCtr.NguoiHuongDan2 = nguoi_huong_dan2.ToArray();
 
                             if (oChinhTri_LoaiCtr.Save_Loai_Chinh_Tri_Basic(loai_ctr.ToArray()))
                             {
@@ -1179,11 +1158,6 @@ namespace QLNS.UCs.DanhMucThongTin
             catch { }
         }
 
-        private void dtgv_DoanDang_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void lbl_ThemChucVu_Click_1(object sender, EventArgs e)
         {
             QLNS.UCs.QLNS_ChucVu_ChinhTri chuc_vu_chtri = new QLNS_ChucVu_ChinhTri();
@@ -1330,8 +1304,7 @@ namespace QLNS.UCs.DanhMucThongTin
             }
         }
 
-
-
+        
     }
 
     #region Comparers - used to sort CustomerInfo objects and DataRows of a DataTable
