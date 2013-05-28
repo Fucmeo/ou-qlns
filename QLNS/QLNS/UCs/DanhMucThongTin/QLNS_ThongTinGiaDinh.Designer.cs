@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.tableLP_GiaDinh_BanThan = new System.Windows.Forms.TableLayoutPanel();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.gb_QHGD = new System.Windows.Forms.GroupBox();
             this.tableLP_QuanHeGD = new System.Windows.Forms.TableLayoutPanel();
             this.dtgv_QuanHeGiaDinh = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -77,7 +77,7 @@
             this.txt_HocTap = new System.Windows.Forms.TextBox();
             this.rTB_GhiChu = new System.Windows.Forms.RichTextBox();
             this.tableLP_GiaDinh_BanThan.SuspendLayout();
-            this.groupBox9.SuspendLayout();
+            this.gb_QHGD.SuspendLayout();
             this.tableLP_QuanHeGD.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_QuanHeGiaDinh)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -91,7 +91,7 @@
             // 
             this.tableLP_GiaDinh_BanThan.ColumnCount = 1;
             this.tableLP_GiaDinh_BanThan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLP_GiaDinh_BanThan.Controls.Add(this.groupBox9, 0, 0);
+            this.tableLP_GiaDinh_BanThan.Controls.Add(this.gb_QHGD, 0, 0);
             this.tableLP_GiaDinh_BanThan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLP_GiaDinh_BanThan.Location = new System.Drawing.Point(0, 0);
             this.tableLP_GiaDinh_BanThan.Name = "tableLP_GiaDinh_BanThan";
@@ -100,16 +100,18 @@
             this.tableLP_GiaDinh_BanThan.Size = new System.Drawing.Size(1000, 1000);
             this.tableLP_GiaDinh_BanThan.TabIndex = 1;
             // 
-            // groupBox9
+            // gb_QHGD
             // 
-            this.groupBox9.Controls.Add(this.tableLP_QuanHeGD);
-            this.groupBox9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox9.Location = new System.Drawing.Point(3, 3);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(994, 994);
-            this.groupBox9.TabIndex = 0;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "Quan hệ gia đình";
+            this.gb_QHGD.Controls.Add(this.tableLP_QuanHeGD);
+            this.gb_QHGD.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gb_QHGD.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gb_QHGD.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.gb_QHGD.Location = new System.Drawing.Point(3, 3);
+            this.gb_QHGD.Name = "gb_QHGD";
+            this.gb_QHGD.Size = new System.Drawing.Size(994, 994);
+            this.gb_QHGD.TabIndex = 0;
+            this.gb_QHGD.TabStop = false;
+            this.gb_QHGD.Text = "Quan hệ gia đình";
             // 
             // tableLP_QuanHeGD
             // 
@@ -177,6 +179,8 @@
             this.tableLP_ThongTinDiaChi.Controls.Add(this.label17, 2, 2);
             this.tableLP_ThongTinDiaChi.Controls.Add(this.txt_SoNha, 1, 0);
             this.tableLP_ThongTinDiaChi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLP_ThongTinDiaChi.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tableLP_ThongTinDiaChi.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tableLP_ThongTinDiaChi.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLP_ThongTinDiaChi.Location = new System.Drawing.Point(3, 24);
             this.tableLP_ThongTinDiaChi.Name = "tableLP_ThongTinDiaChi";
@@ -254,7 +258,7 @@
             this.comB_QuocGia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_QuocGia.Enabled = false;
             this.comB_QuocGia.FormattingEnabled = true;
-            this.comB_QuocGia.Location = new System.Drawing.Point(636, 147);
+            this.comB_QuocGia.Location = new System.Drawing.Point(636, 145);
             this.comB_QuocGia.Name = "comB_QuocGia";
             this.comB_QuocGia.Size = new System.Drawing.Size(263, 29);
             this.comB_QuocGia.TabIndex = 5;
@@ -266,7 +270,7 @@
             this.comB_Tinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_Tinh.Enabled = false;
             this.comB_Tinh.FormattingEnabled = true;
-            this.comB_Tinh.Location = new System.Drawing.Point(149, 147);
+            this.comB_Tinh.Location = new System.Drawing.Point(149, 145);
             this.comB_Tinh.Name = "comB_Tinh";
             this.comB_Tinh.Size = new System.Drawing.Size(263, 29);
             this.comB_Tinh.TabIndex = 4;
@@ -415,6 +419,8 @@
             this.tableLP_ThongTinCaNhan.Controls.Add(this.txt_HocTap, 3, 4);
             this.tableLP_ThongTinCaNhan.Controls.Add(this.rTB_GhiChu, 3, 5);
             this.tableLP_ThongTinCaNhan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLP_ThongTinCaNhan.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tableLP_ThongTinCaNhan.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tableLP_ThongTinCaNhan.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLP_ThongTinCaNhan.Location = new System.Drawing.Point(3, 24);
             this.tableLP_ThongTinCaNhan.Name = "tableLP_ThongTinCaNhan";
@@ -454,7 +460,7 @@
             "Anh chị em ruột",
             "Anh chị em ruột bên vợ/chồng",
             "Khác"});
-            this.comB_MoiQH.Location = new System.Drawing.Point(149, 13);
+            this.comB_MoiQH.Location = new System.Drawing.Point(149, 15);
             this.comB_MoiQH.Name = "comB_MoiQH";
             this.comB_MoiQH.Size = new System.Drawing.Size(263, 29);
             this.comB_MoiQH.TabIndex = 0;
@@ -695,7 +701,7 @@
             this.Size = new System.Drawing.Size(1000, 1000);
             this.Load += new System.EventHandler(this.QLNS_ThongTinGiaDinh_Load);
             this.tableLP_GiaDinh_BanThan.ResumeLayout(false);
-            this.groupBox9.ResumeLayout(false);
+            this.gb_QHGD.ResumeLayout(false);
             this.tableLP_QuanHeGD.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_QuanHeGiaDinh)).EndInit();
             this.groupBox2.ResumeLayout(false);
@@ -713,7 +719,7 @@
         #endregion
 
         public System.Windows.Forms.TableLayoutPanel tableLP_GiaDinh_BanThan;
-        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.GroupBox gb_QHGD;
         private System.Windows.Forms.TableLayoutPanel tableLP_QuanHeGD;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;

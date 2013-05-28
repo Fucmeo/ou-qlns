@@ -59,3 +59,7 @@ D:\Job\QLNS\Projects\QLNS\QLNS\bin\Release\SplitButton.dll
 D:\Job\QLNS\Projects\QLNS\QLNS\bin\Release\LuongBH.pdb
 D:\Job\QLNS\Projects\QLNS\QLNS\bin\Release\SplitButton.pdb
 D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Release\QLNS.UCs.QLNS_TrinhDo.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Release\QLNS.UCs.DanhMucThongTin.QLNS_NghienCuuKH.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Release\QLNS.UCs.NCKH_ThemNguoi.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Release\QLNS.UCs.ThemDanToc.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Release\QLNS.UCs.ThemTonGiao.resources

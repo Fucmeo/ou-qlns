@@ -114,7 +114,6 @@
             // 
             this.lbl_DongMo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbl_DongMo.AutoSize = true;
-            this.lbl_DongMo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_DongMo.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_DongMo.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.lbl_DongMo.Location = new System.Drawing.Point(3, 19);
@@ -172,8 +171,9 @@
             "7. Hoạt động chính trị",
             "8. Thông tin gia đình",
             "9. Lịch sử bản thân",
-            "10. Diến biến sức khỏe"});
-            this.comB_DanhMuc.Location = new System.Drawing.Point(187, 18);
+            "10. Diến biến sức khỏe",
+            "11. Nghiên cứu khoa học"});
+            this.comB_DanhMuc.Location = new System.Drawing.Point(187, 15);
             this.comB_DanhMuc.Name = "comB_DanhMuc";
             this.comB_DanhMuc.Size = new System.Drawing.Size(305, 30);
             this.comB_DanhMuc.TabIndex = 0;

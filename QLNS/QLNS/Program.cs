@@ -17,7 +17,7 @@ namespace QLNS
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Forms.Popup("",new QLNS.UCs.DanhMucThongTin.QLNS_DienBienSK()));
             Application.Run(new Forms.Main(new UCs.QLNS_HienThiThongTin()));
-            //Application.Run(new Forms.Popup("test", new UCs.DanhMucThongTin.QLNS_ChinhTri()));
+            //Application.Run(new Forms.Popup("test", new UCs.DanhMucThongTin.QLNS_NghienCuuKH()));
         }
 
         public static string selected_ma_nv = "";   // bien toan cuc ma_nv su dung khi hien thi thong tin nv
@@ -150,6 +150,7 @@ namespace QLNS
             int CollapseSize = 30;
             int CollapsedGB = 1;        // so gb da collapse 
             int GBHeigh_Pixel = collapse_gb.Height;
+            
 
             if (collapse_gb.Text.Contains("[+]"))    // Expand
             {
@@ -167,14 +168,10 @@ namespace QLNS
                         TLP_Parent.RowStyles[i].Height = CollapseSize;
                     }
                 }
-                UC.Height += GBHeigh_Pixel;
                 collapse_gb.Text = collapse_gb.Text.Replace("[+]", "[-]");
             }
             else        // Collapse
             {
-                TLP_Parent.RowStyles[RowStyleIndex].SizeType = SizeType.Absolute;
-                TLP_Parent.RowStyles[RowStyleIndex].Height = CollapseSize;
-
                 for (int i = 0; i < other_gb.Length; i++)
                 {
                     if (other_gb[i].Text.Contains("[+]"))
@@ -183,28 +180,36 @@ namespace QLNS
                     }
                 }
 
-                for (int i = 0; i < other_gb.Length; i++)
+                if (CollapsedGB < gb_init_heigh_percent.Count)   // o cho collapse gb cuoi cung
                 {
-                    if (other_gb[i].Text.Contains("[-]"))      // cac gb dang expand
+                    TLP_Parent.RowStyles[RowStyleIndex].SizeType = SizeType.Absolute;
+                    TLP_Parent.RowStyles[RowStyleIndex].Height = CollapseSize;
+
+                    for (int i = 0; i < other_gb.Length; i++)
                     {
-                        // (100% - (số gb đã collaspe * collapse size)) / ( so gb con lai - so gb đã collaspe = so gb chua collapse)
-                        TLP_Parent.RowStyles[TLP_Parent.GetRow(other_gb[i])].SizeType = SizeType.Percent;
-                        TLP_Parent.RowStyles[TLP_Parent.GetRow(other_gb[i])].Height += (100 - (CollapsedGB * CollapseSize)) / (other_gb.Length - CollapsedGB + 1);
+                        if (other_gb[i].Text.Contains("[-]"))      // cac gb dang expand
+                        {
+                            // (100% - (số gb đã collaspe * collapse size)) / ( so gb con lai - so gb đã collaspe = so gb chua collapse)
+                            TLP_Parent.RowStyles[TLP_Parent.GetRow(other_gb[i])].SizeType = SizeType.Percent;
+                            TLP_Parent.RowStyles[TLP_Parent.GetRow(other_gb[i])].Height += (100 - (CollapsedGB * CollapseSize)) / (other_gb.Length - CollapsedGB + 1);
+                        }
                     }
+
+                    for (int i = 0; i < other_gb.Length; i++)
+                    {
+                        if (other_gb[i].Text.Contains("[+]"))   // cac gb dang collapse
+                        {
+                            TLP_Parent.RowStyles[TLP_Parent.GetRow(other_gb[i])].SizeType = SizeType.Absolute;
+                            TLP_Parent.RowStyles[TLP_Parent.GetRow(other_gb[i])].Height = CollapseSize;
+                        }
+                    }
+
+
+
+                    collapse_gb.Text = collapse_gb.Text.Replace("[-]", "[+]");
                 }
 
-                for (int i = 0; i < other_gb.Length; i++)
-                {
-                    if (other_gb[i].Text.Contains("[+]"))   // cac gb dang collapse
-                    {
-                        TLP_Parent.RowStyles[TLP_Parent.GetRow(other_gb[i])].SizeType = SizeType.Absolute;
-                        TLP_Parent.RowStyles[TLP_Parent.GetRow(other_gb[i])].Height = CollapseSize;
-                    }
-                }
-                TLP_Parent.AutoScrollMinSize = new System.Drawing.Size(TLP_Parent.AutoScrollMinSize.Width
-                                                                    ,TLP_Parent.AutoScrollMinSize.Height - GBHeigh_Pixel);
-
-                collapse_gb.Text = collapse_gb.Text.Replace("[-]", "[+]");
+                
             }
         }
     }

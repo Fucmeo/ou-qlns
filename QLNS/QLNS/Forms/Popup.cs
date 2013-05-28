@@ -18,7 +18,7 @@ namespace QLNS.Forms
 
             this.Text = title;
             this.Size = uc.Size;
-            uc.Dock = DockStyle.Fill;
+            //uc.Dock = DockStyle.Fill;
             this.tableLayoutPanel1.Controls.Add(uc,0,0);
             
             //this.Height += 100;

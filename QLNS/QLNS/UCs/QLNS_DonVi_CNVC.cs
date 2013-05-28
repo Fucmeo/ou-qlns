@@ -78,8 +78,8 @@ namespace QLNS.UCs
                     oQLNS_HienThiThongTin.tableLP_DanhMucThongTin.Controls.RemoveAt(1);
                     oQLNS_HienThiThongTin.tableLP_DanhMucThongTin.Controls.Add(oQLNS_HienThiThongTin.oQLNS_ThongTinNV, 0, 1);
                 }
-                oQLNS_HienThiThongTin.oQLNS_ThongTinNV.groupBox15.Enabled = 
-                    oQLNS_HienThiThongTin.oQLNS_ThongTinNV.groupBox2.Enabled = true;
+                oQLNS_HienThiThongTin.oQLNS_ThongTinNV.gb_CMND.Enabled = 
+                    oQLNS_HienThiThongTin.oQLNS_ThongTinNV.gb_ThongTin.Enabled = true;
                 oQLNS_HienThiThongTin.oQLNS_ThongTinNV.GetCNVC_CMNDInfo(Program.selected_ma_nv);
                 oQLNS_HienThiThongTin.oQLNS_ThongTinNV.FillInfo();
                 oQLNS_HienThiThongTin.oQLNS_ThongTinNV.GetAvatar(Program.selected_ma_nv);
