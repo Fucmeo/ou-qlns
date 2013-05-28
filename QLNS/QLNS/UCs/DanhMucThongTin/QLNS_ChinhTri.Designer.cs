@@ -155,6 +155,10 @@
             this.btn_Luu_HoiCB = new System.Windows.Forms.Button();
             this.btn_Huy_HoiCB = new System.Windows.Forms.Button();
             this.dtgv_DoanDang = new OutlookStyleControls.OutlookGrid();
+            this.label29 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.tableLP_ChinhTri.SuspendLayout();
             this.gb_LoaiHinhCT.SuspendLayout();
             this.tableLP_LoaiHinhCT.SuspendLayout();
@@ -695,39 +699,44 @@
             // tableLP_DangVien
             // 
             this.tableLP_DangVien.ColumnCount = 4;
-            this.tableLP_DangVien.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLP_DangVien.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
-            this.tableLP_DangVien.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLP_DangVien.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.tableLP_DangVien.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLP_DangVien.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.6281F));
+            this.tableLP_DangVien.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.3719F));
+            this.tableLP_DangVien.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.1405F));
             this.tableLP_DangVien.Controls.Add(this.cb_DangVien, 0, 0);
             this.tableLP_DangVien.Controls.Add(this.label9, 0, 1);
             this.tableLP_DangVien.Controls.Add(this.label18, 2, 1);
-            this.tableLP_DangVien.Controls.Add(this.label19, 0, 2);
-            this.tableLP_DangVien.Controls.Add(this.label20, 2, 2);
             this.tableLP_DangVien.Controls.Add(this.dtp_NgayDuBiLan1, 1, 1);
             this.tableLP_DangVien.Controls.Add(this.dtp_NgayChinhThucLan1, 3, 1);
-            this.tableLP_DangVien.Controls.Add(this.dtp_NgayDuBiLan2, 1, 2);
-            this.tableLP_DangVien.Controls.Add(this.dtp_NgayChinhThucLan2, 3, 2);
-            this.tableLP_DangVien.Controls.Add(this.label11, 0, 3);
-            this.tableLP_DangVien.Controls.Add(this.dtp_DangVien_NgayRa, 1, 3);
-            this.tableLP_DangVien.Controls.Add(this.label13, 2, 3);
-            this.tableLP_DangVien.Controls.Add(this.txt_NgHD1, 3, 3);
+            this.tableLP_DangVien.Controls.Add(this.label11, 0, 5);
+            this.tableLP_DangVien.Controls.Add(this.dtp_DangVien_NgayRa, 1, 5);
+            this.tableLP_DangVien.Controls.Add(this.label15, 2, 5);
+            this.tableLP_DangVien.Controls.Add(this.rtb_DangVien_GhiChu, 3, 5);
+            this.tableLP_DangVien.Controls.Add(this.label19, 0, 3);
+            this.tableLP_DangVien.Controls.Add(this.label20, 2, 3);
+            this.tableLP_DangVien.Controls.Add(this.dtp_NgayChinhThucLan2, 3, 3);
+            this.tableLP_DangVien.Controls.Add(this.label13, 0, 2);
             this.tableLP_DangVien.Controls.Add(this.label14, 0, 4);
+            this.tableLP_DangVien.Controls.Add(this.dtp_NgayDuBiLan2, 1, 3);
+            this.tableLP_DangVien.Controls.Add(this.txt_NgHD1, 1, 2);
             this.tableLP_DangVien.Controls.Add(this.txt_NgHD2, 1, 4);
-            this.tableLP_DangVien.Controls.Add(this.label15, 2, 4);
-            this.tableLP_DangVien.Controls.Add(this.rtb_DangVien_GhiChu, 3, 4);
+            this.tableLP_DangVien.Controls.Add(this.label29, 2, 2);
+            this.tableLP_DangVien.Controls.Add(this.textBox1, 3, 2);
+            this.tableLP_DangVien.Controls.Add(this.label30, 2, 4);
+            this.tableLP_DangVien.Controls.Add(this.textBox2, 3, 4);
             this.tableLP_DangVien.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLP_DangVien.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLP_DangVien.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tableLP_DangVien.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLP_DangVien.Location = new System.Drawing.Point(3, 24);
             this.tableLP_DangVien.Name = "tableLP_DangVien";
-            this.tableLP_DangVien.RowCount = 5;
-            this.tableLP_DangVien.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.64174F));
-            this.tableLP_DangVien.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.82243F));
-            this.tableLP_DangVien.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.38775F));
-            this.tableLP_DangVien.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.38775F));
-            this.tableLP_DangVien.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.2517F));
+            this.tableLP_DangVien.RowCount = 6;
+            this.tableLP_DangVien.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLP_DangVien.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLP_DangVien.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLP_DangVien.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLP_DangVien.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLP_DangVien.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLP_DangVien.Size = new System.Drawing.Size(726, 323);
             this.tableLP_DangVien.TabIndex = 0;
             // 
@@ -737,7 +746,7 @@
             this.cb_DangVien.AutoSize = true;
             this.tableLP_DangVien.SetColumnSpan(this.cb_DangVien, 2);
             this.cb_DangVien.Enabled = false;
-            this.cb_DangVien.Location = new System.Drawing.Point(3, 11);
+            this.cb_DangVien.Location = new System.Drawing.Point(3, 14);
             this.cb_DangVien.Name = "cb_DangVien";
             this.cb_DangVien.Size = new System.Drawing.Size(120, 25);
             this.cb_DangVien.TabIndex = 0;
@@ -749,9 +758,9 @@
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(3, 53);
+            this.label9.Location = new System.Drawing.Point(3, 69);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(89, 42);
+            this.label9.Size = new System.Drawing.Size(123, 21);
             this.label9.TabIndex = 32;
             this.label9.Text = "Ngày dự bị lần 1";
             // 
@@ -759,9 +768,9 @@
             // 
             this.label18.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(365, 53);
+            this.label18.Location = new System.Drawing.Point(392, 58);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(91, 42);
+            this.label18.Size = new System.Drawing.Size(127, 42);
             this.label18.TabIndex = 33;
             this.label18.Text = "Ngày chính thức lần 1";
             // 
@@ -769,9 +778,9 @@
             // 
             this.label19.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(3, 111);
+            this.label19.Location = new System.Drawing.Point(3, 175);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(89, 42);
+            this.label19.Size = new System.Drawing.Size(123, 21);
             this.label19.TabIndex = 34;
             this.label19.Text = "Ngày dự bị lần 2";
             // 
@@ -779,9 +788,9 @@
             // 
             this.label20.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(365, 111);
+            this.label20.Location = new System.Drawing.Point(392, 164);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(91, 42);
+            this.label20.Size = new System.Drawing.Size(127, 42);
             this.label20.TabIndex = 35;
             this.label20.Text = "Ngày chính thức lần 2";
             // 
@@ -792,10 +801,10 @@
             this.dtp_NgayDuBiLan1.CustomFormat = "dd/MM/yyyy";
             this.dtp_NgayDuBiLan1.Enabled = false;
             this.dtp_NgayDuBiLan1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_NgayDuBiLan1.Location = new System.Drawing.Point(111, 60);
+            this.dtp_NgayDuBiLan1.Location = new System.Drawing.Point(177, 65);
             this.dtp_NgayDuBiLan1.Name = "dtp_NgayDuBiLan1";
             this.dtp_NgayDuBiLan1.ShowCheckBox = true;
-            this.dtp_NgayDuBiLan1.Size = new System.Drawing.Size(191, 28);
+            this.dtp_NgayDuBiLan1.Size = new System.Drawing.Size(143, 28);
             this.dtp_NgayDuBiLan1.TabIndex = 36;
             // 
             // dtp_NgayChinhThucLan1
@@ -805,10 +814,10 @@
             this.dtp_NgayChinhThucLan1.CustomFormat = "dd/MM/yyyy";
             this.dtp_NgayChinhThucLan1.Enabled = false;
             this.dtp_NgayChinhThucLan1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_NgayChinhThucLan1.Location = new System.Drawing.Point(473, 60);
+            this.dtp_NgayChinhThucLan1.Location = new System.Drawing.Point(526, 65);
             this.dtp_NgayChinhThucLan1.Name = "dtp_NgayChinhThucLan1";
             this.dtp_NgayChinhThucLan1.ShowCheckBox = true;
-            this.dtp_NgayChinhThucLan1.Size = new System.Drawing.Size(191, 28);
+            this.dtp_NgayChinhThucLan1.Size = new System.Drawing.Size(134, 28);
             this.dtp_NgayChinhThucLan1.TabIndex = 37;
             // 
             // dtp_NgayDuBiLan2
@@ -818,10 +827,10 @@
             this.dtp_NgayDuBiLan2.CustomFormat = "dd/MM/yyyy";
             this.dtp_NgayDuBiLan2.Enabled = false;
             this.dtp_NgayDuBiLan2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_NgayDuBiLan2.Location = new System.Drawing.Point(111, 118);
+            this.dtp_NgayDuBiLan2.Location = new System.Drawing.Point(177, 171);
             this.dtp_NgayDuBiLan2.Name = "dtp_NgayDuBiLan2";
             this.dtp_NgayDuBiLan2.ShowCheckBox = true;
-            this.dtp_NgayDuBiLan2.Size = new System.Drawing.Size(191, 28);
+            this.dtp_NgayDuBiLan2.Size = new System.Drawing.Size(143, 28);
             this.dtp_NgayDuBiLan2.TabIndex = 38;
             // 
             // dtp_NgayChinhThucLan2
@@ -831,17 +840,17 @@
             this.dtp_NgayChinhThucLan2.CustomFormat = "dd/MM/yyyy";
             this.dtp_NgayChinhThucLan2.Enabled = false;
             this.dtp_NgayChinhThucLan2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_NgayChinhThucLan2.Location = new System.Drawing.Point(473, 118);
+            this.dtp_NgayChinhThucLan2.Location = new System.Drawing.Point(526, 171);
             this.dtp_NgayChinhThucLan2.Name = "dtp_NgayChinhThucLan2";
             this.dtp_NgayChinhThucLan2.ShowCheckBox = true;
-            this.dtp_NgayChinhThucLan2.Size = new System.Drawing.Size(191, 28);
+            this.dtp_NgayChinhThucLan2.Size = new System.Drawing.Size(134, 28);
             this.dtp_NgayChinhThucLan2.TabIndex = 39;
             // 
             // label11
             // 
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(3, 183);
+            this.label11.Location = new System.Drawing.Point(3, 283);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(63, 21);
             this.label11.TabIndex = 40;
@@ -854,55 +863,56 @@
             this.dtp_DangVien_NgayRa.CustomFormat = "dd/MM/yyyy";
             this.dtp_DangVien_NgayRa.Enabled = false;
             this.dtp_DangVien_NgayRa.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_DangVien_NgayRa.Location = new System.Drawing.Point(111, 180);
+            this.dtp_DangVien_NgayRa.Location = new System.Drawing.Point(177, 280);
             this.dtp_DangVien_NgayRa.Name = "dtp_DangVien_NgayRa";
             this.dtp_DangVien_NgayRa.ShowCheckBox = true;
-            this.dtp_DangVien_NgayRa.Size = new System.Drawing.Size(191, 28);
+            this.dtp_DangVien_NgayRa.Size = new System.Drawing.Size(143, 28);
             this.dtp_DangVien_NgayRa.TabIndex = 41;
             // 
             // label13
             // 
             this.label13.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(365, 183);
+            this.label13.Location = new System.Drawing.Point(3, 122);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(91, 21);
+            this.label13.Size = new System.Drawing.Size(116, 21);
             this.label13.TabIndex = 42;
-            this.label13.Text = "Người HD 1";
+            this.label13.Text = "Người HD lần 1";
             // 
             // txt_NgHD1
             // 
-            this.txt_NgHD1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_NgHD1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_NgHD1.Enabled = false;
-            this.txt_NgHD1.Location = new System.Drawing.Point(473, 180);
+            this.txt_NgHD1.Location = new System.Drawing.Point(177, 118);
             this.txt_NgHD1.Name = "txt_NgHD1";
-            this.txt_NgHD1.Size = new System.Drawing.Size(239, 28);
+            this.txt_NgHD1.Size = new System.Drawing.Size(209, 28);
             this.txt_NgHD1.TabIndex = 44;
+            this.txt_NgHD1.TextChanged += new System.EventHandler(this.txt_NgHD1_TextChanged);
             // 
             // label14
             // 
             this.label14.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(3, 263);
+            this.label14.Location = new System.Drawing.Point(3, 228);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(91, 21);
+            this.label14.Size = new System.Drawing.Size(116, 21);
             this.label14.TabIndex = 43;
-            this.label14.Text = "Người HD 2";
+            this.label14.Text = "Người HD lần 3";
             // 
             // txt_NgHD2
             // 
-            this.txt_NgHD2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_NgHD2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_NgHD2.Enabled = false;
-            this.txt_NgHD2.Location = new System.Drawing.Point(111, 260);
+            this.txt_NgHD2.Location = new System.Drawing.Point(177, 224);
             this.txt_NgHD2.Name = "txt_NgHD2";
-            this.txt_NgHD2.Size = new System.Drawing.Size(239, 28);
+            this.txt_NgHD2.Size = new System.Drawing.Size(209, 28);
             this.txt_NgHD2.TabIndex = 45;
             // 
             // label15
             // 
             this.label15.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(365, 263);
+            this.label15.Location = new System.Drawing.Point(392, 283);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(63, 21);
             this.label15.TabIndex = 46;
@@ -910,11 +920,13 @@
             // 
             // rtb_DangVien_GhiChu
             // 
-            this.rtb_DangVien_GhiChu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtb_DangVien_GhiChu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.rtb_DangVien_GhiChu.Enabled = false;
-            this.rtb_DangVien_GhiChu.Location = new System.Drawing.Point(473, 228);
+            this.rtb_DangVien_GhiChu.Location = new System.Drawing.Point(526, 268);
             this.rtb_DangVien_GhiChu.Name = "rtb_DangVien_GhiChu";
-            this.rtb_DangVien_GhiChu.Size = new System.Drawing.Size(250, 92);
+            this.rtb_DangVien_GhiChu.Size = new System.Drawing.Size(197, 52);
             this.rtb_DangVien_GhiChu.TabIndex = 47;
             this.rtb_DangVien_GhiChu.Text = "";
             // 
@@ -1867,6 +1879,44 @@
             this.dtgv_DoanDang.TabIndex = 60;
             this.dtgv_DoanDang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_DoanDang_CellClick);
             // 
+            // label29
+            // 
+            this.label29.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(392, 122);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(116, 21);
+            this.label29.TabIndex = 48;
+            this.label29.Text = "Người HD lần 2";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(526, 118);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(197, 28);
+            this.textBox1.TabIndex = 49;
+            // 
+            // label30
+            // 
+            this.label30.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(392, 228);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(116, 21);
+            this.label30.TabIndex = 50;
+            this.label30.Text = "Người HD lần 4";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox2.Enabled = false;
+            this.textBox2.Location = new System.Drawing.Point(526, 224);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(197, 28);
+            this.textBox2.TabIndex = 51;
+            // 
             // QLNS_ChinhTri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -2050,5 +2100,9 @@
         public System.Windows.Forms.TextBox txt_NgHD2;
         private System.Windows.Forms.Label label15;
         public System.Windows.Forms.RichTextBox rtb_DangVien_GhiChu;
+        private System.Windows.Forms.Label label29;
+        public System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label30;
+        public System.Windows.Forms.TextBox textBox2;
     }
 }
