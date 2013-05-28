@@ -40,6 +40,7 @@ namespace QLNS.UCs
         QLNS_ThongTinGiaDinh oQLNS_ThongTinGiaDinh;
         QLNS_LichSuBanThan oQLNS_LichSuBanThan;
         QLNS_DienBienSK oQLNS_DienBienSK;
+        QLNS_NghienCuuKH oQLNS_NghienCuuKH;
 
         public static string ma_nv_old ="";   // giu lai ma_nv cu khi nguoi dung sua ma_nv, se duoc gan moi khi load 1 nv ( o UC_DanhMucThongTin)
 
@@ -89,7 +90,7 @@ namespace QLNS.UCs
                 tableLP_DanhMucThongTin.Controls.RemoveAt(1);
                 tableLP_DanhMucThongTin.Controls.Add(oQLNS_ThongTinNV, 0, 1);
             }
-            oQLNS_ThongTinNV.groupBox15.Enabled = oQLNS_ThongTinNV.groupBox2.Enabled = true;
+            oQLNS_ThongTinNV.gb_CMND.Enabled = oQLNS_ThongTinNV.gb_ThongTin.Enabled = true;
             oQLNS_ThongTinNV.EnableCNVCControl(true);
            bAddFlag = true;
            Program.selected_ma_nv = "";
@@ -1822,6 +1823,23 @@ namespace QLNS.UCs
                             oQLNS_DienBienSK.GetData(Program.selected_ma_nv);
 
                         }
+                        break;
+
+                    case "11. Nghiên cứu khoa học":
+                        if (oQLNS_NghienCuuKH == null)
+                        {
+                            oQLNS_NghienCuuKH = new QLNS_NghienCuuKH();
+                            oQLNS_NghienCuuKH.Dock = DockStyle.Fill;
+                        }
+                        tableLP_DanhMucThongTin.Controls.Add(oQLNS_NghienCuuKH, 0, 1);
+                        //if (Program.selected_ma_nv != "")
+                        //    oQLNS_NghienCuuKH.Enabled = true;
+                        //if (oQLNS_DonVi_CNVC1.TreeV_CNVC.SelectedNode != null &&
+                        //        oQLNS_NghienCuuKH.dtDienBienSK.AsEnumerable().Where(a => a.Field<string>("ma_nv") == Program.selected_ma_nv).Count() <= 0)
+                        //{
+                        //    oQLNS_NghienCuuKH.GetData(Program.selected_ma_nv);
+
+                        //}
                         break;
 
                     default:

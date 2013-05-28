@@ -300,6 +300,8 @@
             this.tableLP_ChiTietSK.SetColumnSpan(this.groupb_XetNghiem, 4);
             this.groupb_XetNghiem.Controls.Add(this.tableLP_XetNghiem);
             this.groupb_XetNghiem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupb_XetNghiem.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupb_XetNghiem.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.groupb_XetNghiem.Location = new System.Drawing.Point(3, 2);
             this.groupb_XetNghiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupb_XetNghiem.Name = "groupb_XetNghiem";
@@ -343,8 +345,10 @@
             this.tableLP_XetNghiem.Controls.Add(this.label13, 2, 5);
             this.tableLP_XetNghiem.Controls.Add(this.label16, 0, 6);
             this.tableLP_XetNghiem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLP_XetNghiem.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tableLP_XetNghiem.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tableLP_XetNghiem.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.tableLP_XetNghiem.Location = new System.Drawing.Point(3, 21);
+            this.tableLP_XetNghiem.Location = new System.Drawing.Point(3, 23);
             this.tableLP_XetNghiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLP_XetNghiem.Name = "tableLP_XetNghiem";
             this.tableLP_XetNghiem.RowCount = 7;
@@ -355,14 +359,14 @@
             this.tableLP_XetNghiem.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLP_XetNghiem.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLP_XetNghiem.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLP_XetNghiem.Size = new System.Drawing.Size(1049, 350);
+            this.tableLP_XetNghiem.Size = new System.Drawing.Size(1049, 348);
             this.tableLP_XetNghiem.TabIndex = 0;
             // 
             // txt_TPTNT
             // 
             this.txt_TPTNT.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txt_TPTNT.Enabled = false;
-            this.txt_TPTNT.Location = new System.Drawing.Point(160, 309);
+            this.txt_TPTNT.Location = new System.Drawing.Point(160, 308);
             this.txt_TPTNT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_TPTNT.Name = "txt_TPTNT";
             this.txt_TPTNT.Size = new System.Drawing.Size(210, 26);
@@ -612,7 +616,7 @@
             // 
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(3, 313);
+            this.label16.Location = new System.Drawing.Point(3, 312);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(47, 18);
             this.label16.TabIndex = 15;

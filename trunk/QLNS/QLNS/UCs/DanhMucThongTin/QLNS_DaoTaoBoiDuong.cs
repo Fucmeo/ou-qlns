@@ -29,6 +29,8 @@ namespace QLNS.UCs.DanhMucThongTin
         public static int nNewQuocGiaID = 0;     // ID cua quoc gia moi them vao
         int groupb_BoiDuong_Heigh, groupb_DaoTao_Heigh;
 
+        List<KeyValuePair<GroupBox, float>> lst_gb;
+
         public QLNS_DaoTaoBoiDuong()
         {
             InitializeComponent();
@@ -47,7 +49,9 @@ namespace QLNS.UCs.DanhMucThongTin
             oTinhTP = new Business.TinhTP();
             oQuocGia = new Business.QuocGia();
 
-
+            lst_gb = new List<KeyValuePair<GroupBox, float>>();
+            lst_gb.Add(new KeyValuePair<GroupBox, float>(groupb_DaoTao, float.Parse("50")));
+            lst_gb.Add(new KeyValuePair<GroupBox, float>(groupb_BoiDuong, float.Parse("50")));
         }
 
         public void GetDaoTaoBoiDuongInfo(string m_MaNV)
@@ -89,14 +93,16 @@ namespace QLNS.UCs.DanhMucThongTin
 
         void groupb_DaoTao_MouseClick(object sender, MouseEventArgs e)
         {
-            Program.CollapseGroupBox(tableLP_DaoTaoBoiDuong, (GroupBox)sender,new GroupBox[]{groupb_BoiDuong}, 50, "ĐÀO TẠO",3
-                 , new float[] { float.Parse("50"), float.Parse("50") });
+
+            Program.CollapseGroupBox((GroupBox)sender, new GroupBox[] { groupb_BoiDuong }, tableLP_DaoTaoBoiDuong, 0, this,
+                    lst_gb);
+            
         }
 
         void groupb_BoiDuong_MouseClick(object sender, MouseEventArgs e)
         {
-            Program.CollapseGroupBox(tableLP_DaoTaoBoiDuong, (GroupBox)sender, new GroupBox[] { groupb_DaoTao }, 50, "BỔI DƯỠNG", 2
-                , new float[]{float.Parse("0.5"),float.Parse("0.5")});
+            Program.CollapseGroupBox((GroupBox)sender, new GroupBox[] { groupb_DaoTao }, tableLP_DaoTaoBoiDuong, 1, this,
+                   lst_gb);
         }
 
         #region Xu ly tinh tp

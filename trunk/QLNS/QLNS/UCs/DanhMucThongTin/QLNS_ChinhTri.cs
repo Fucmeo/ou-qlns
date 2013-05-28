@@ -92,31 +92,32 @@ namespace QLNS.UCs.DanhMucThongTin
             gb_ToChuc_CV_QTHD.MouseClick += new MouseEventHandler(gb_ToChuc_CV_QTHD_MouseClick);
 
             lst_gb = new List<KeyValuePair<GroupBox, float>>();
-            lst_gb.Add(new KeyValuePair<GroupBox,float>(gb_InfoChung_HoiCuuCB,float.Parse("20")));
-            lst_gb.Add(new KeyValuePair<GroupBox, float>(gb_LoaiHinhCT, float.Parse("45")));
+            lst_gb.Add(new KeyValuePair<GroupBox,float>(gb_InfoChung_HoiCuuCB,float.Parse("25")));
+            lst_gb.Add(new KeyValuePair<GroupBox, float>(gb_LoaiHinhCT, float.Parse("40")));
             lst_gb.Add(new KeyValuePair<GroupBox, float>(gb_ToChuc_CV_QTHD, float.Parse("35")));
+
         }
 
         void gb_ToChuc_CV_QTHD_MouseClick(object sender, MouseEventArgs e)
         {
-            if (!gb_InfoChung_HoiCuuCB.Text.Contains("[+]") || !gb_LoaiHinhCT.Text.Contains("[+]"))
-            {
                 Program.CollapseGroupBox((GroupBox)sender, new GroupBox[] { gb_InfoChung_HoiCuuCB, gb_LoaiHinhCT }, tableLP_ChinhTri, 2, this,
                      lst_gb);
-            }
+            
         }
 
         void gb_LoaiHinhCT_MouseClick(object sender, MouseEventArgs e)
         {
-            Program.CollapseGroupBox((GroupBox)sender, new GroupBox[] { gb_InfoChung_HoiCuuCB, gb_ToChuc_CV_QTHD }, tableLP_ChinhTri, 1, this,
-                    lst_gb);
-
+                Program.CollapseGroupBox((GroupBox)sender, new GroupBox[] { gb_InfoChung_HoiCuuCB, gb_ToChuc_CV_QTHD }, tableLP_ChinhTri, 1, this,
+                        lst_gb);
+            
         }
 
         void gb_InfoChung_HoiCuuCB_MouseClick(object sender, MouseEventArgs e)
         {
-            Program.CollapseGroupBox(gb_InfoChung_HoiCuuCB, new GroupBox[] { gb_ToChuc_CV_QTHD, gb_LoaiHinhCT }, tableLP_ChinhTri, 0, this,
-                    lst_gb);
+
+                Program.CollapseGroupBox(gb_InfoChung_HoiCuuCB, new GroupBox[] { gb_ToChuc_CV_QTHD, gb_LoaiHinhCT }, tableLP_ChinhTri, 0, this,
+                        lst_gb);
+            
         }
 
         // KHANG - GROUP DTGV

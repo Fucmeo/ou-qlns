@@ -87,6 +87,12 @@
     <Compile Include="UCs\DanhMucThongTin\QLNS_NghienCuuKH.Designer.cs">
       <DependentUpon>QLNS_NghienCuuKH.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCs\NCKH_ThemNguoi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\NCKH_ThemNguoi.Designer.cs">
+      <DependentUpon>NCKH_ThemNguoi.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCs\ThemDanToc.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -294,6 +300,9 @@
     </Compile>
     <EmbeddedResource Include="UCs\DanhMucThongTin\QLNS_NghienCuuKH.resx">
       <DependentUpon>QLNS_NghienCuuKH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\NCKH_ThemNguoi.resx">
+      <DependentUpon>NCKH_ThemNguoi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\ThemDanToc.resx">
       <DependentUpon>ThemDanToc.cs</DependentUpon>

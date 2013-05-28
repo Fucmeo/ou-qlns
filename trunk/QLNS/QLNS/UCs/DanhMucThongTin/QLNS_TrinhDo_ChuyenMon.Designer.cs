@@ -78,6 +78,8 @@
             // 
             this.groupBox3.Controls.Add(this.tableLP_TrinhDoPT);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox3.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.groupBox3.Location = new System.Drawing.Point(3, 3);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(794, 794);
@@ -107,6 +109,8 @@
             this.tableLP_TrinhDoPT.Controls.Add(this.label4, 2, 1);
             this.tableLP_TrinhDoPT.Controls.Add(this.txt_NamHoc, 3, 2);
             this.tableLP_TrinhDoPT.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLP_TrinhDoPT.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tableLP_TrinhDoPT.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tableLP_TrinhDoPT.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLP_TrinhDoPT.Location = new System.Drawing.Point(3, 24);
             this.tableLP_TrinhDoPT.Name = "tableLP_TrinhDoPT";
@@ -200,9 +204,9 @@
             this.comB_Tinh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_Tinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_Tinh.FormattingEnabled = true;
-            this.comB_Tinh.Location = new System.Drawing.Point(3, 17);
+            this.comB_Tinh.Location = new System.Drawing.Point(3, 19);
             this.comB_Tinh.Name = "comB_Tinh";
-            this.comB_Tinh.Size = new System.Drawing.Size(263, 29);
+            this.comB_Tinh.Size = new System.Drawing.Size(263, 26);
             this.comB_Tinh.TabIndex = 0;
             // 
             // lbl_ThemTinh
@@ -223,9 +227,9 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(396, 277);
+            this.label6.Location = new System.Drawing.Point(396, 278);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(72, 21);
+            this.label6.Size = new System.Drawing.Size(62, 18);
             this.label6.TabIndex = 50;
             this.label6.Text = "Năm học";
             // 
@@ -233,27 +237,27 @@
             // 
             this.txt_QuanHuyen.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txt_QuanHuyen.Enabled = false;
-            this.txt_QuanHuyen.Location = new System.Drawing.Point(514, 158);
+            this.txt_QuanHuyen.Location = new System.Drawing.Point(514, 159);
             this.txt_QuanHuyen.Name = "txt_QuanHuyen";
-            this.txt_QuanHuyen.Size = new System.Drawing.Size(264, 28);
+            this.txt_QuanHuyen.Size = new System.Drawing.Size(264, 26);
             this.txt_QuanHuyen.TabIndex = 3;
             // 
             // txt_PhuongXa
             // 
             this.txt_PhuongXa.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txt_PhuongXa.Enabled = false;
-            this.txt_PhuongXa.Location = new System.Drawing.Point(121, 158);
+            this.txt_PhuongXa.Location = new System.Drawing.Point(121, 159);
             this.txt_PhuongXa.Name = "txt_PhuongXa";
-            this.txt_PhuongXa.Size = new System.Drawing.Size(264, 28);
+            this.txt_PhuongXa.Size = new System.Drawing.Size(264, 26);
             this.txt_PhuongXa.TabIndex = 2;
             // 
             // txt_TenTruong
             // 
             this.txt_TenTruong.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txt_TenTruong.Enabled = false;
-            this.txt_TenTruong.Location = new System.Drawing.Point(514, 43);
+            this.txt_TenTruong.Location = new System.Drawing.Point(514, 44);
             this.txt_TenTruong.Name = "txt_TenTruong";
-            this.txt_TenTruong.Size = new System.Drawing.Size(264, 28);
+            this.txt_TenTruong.Size = new System.Drawing.Size(264, 26);
             this.txt_TenTruong.TabIndex = 1;
             // 
             // comB_CapDo
@@ -266,18 +270,18 @@
             "Tiểu học",
             "Trung học cơ sở",
             "Trung học phổ thông"});
-            this.comB_CapDo.Location = new System.Drawing.Point(121, 43);
+            this.comB_CapDo.Location = new System.Drawing.Point(121, 45);
             this.comB_CapDo.Name = "comB_CapDo";
-            this.comB_CapDo.Size = new System.Drawing.Size(264, 29);
+            this.comB_CapDo.Size = new System.Drawing.Size(264, 26);
             this.comB_CapDo.TabIndex = 0;
             // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 162);
+            this.label5.Location = new System.Drawing.Point(3, 163);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(88, 21);
+            this.label5.Size = new System.Drawing.Size(78, 18);
             this.label5.TabIndex = 30;
             this.label5.Text = "Phường/xã";
             // 
@@ -285,9 +289,9 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 47);
+            this.label1.Location = new System.Drawing.Point(3, 48);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 21);
+            this.label1.Size = new System.Drawing.Size(50, 18);
             this.label1.TabIndex = 26;
             this.label1.Text = "Cấp độ";
             // 
@@ -311,9 +315,9 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 277);
+            this.label2.Location = new System.Drawing.Point(3, 278);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 21);
+            this.label2.Size = new System.Drawing.Size(55, 18);
             this.label2.TabIndex = 27;
             this.label2.Text = "Tỉnh/TP";
             // 
@@ -321,9 +325,9 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(396, 47);
+            this.label3.Location = new System.Drawing.Point(396, 48);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 21);
+            this.label3.Size = new System.Drawing.Size(76, 18);
             this.label3.TabIndex = 28;
             this.label3.Text = "Tên trường";
             // 
@@ -331,9 +335,9 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(396, 162);
+            this.label4.Location = new System.Drawing.Point(396, 163);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 21);
+            this.label4.Size = new System.Drawing.Size(86, 18);
             this.label4.TabIndex = 29;
             this.label4.Text = "Quận/huyện";
             // 
@@ -341,9 +345,9 @@
             // 
             this.txt_NamHoc.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txt_NamHoc.Enabled = false;
-            this.txt_NamHoc.Location = new System.Drawing.Point(514, 273);
+            this.txt_NamHoc.Location = new System.Drawing.Point(514, 274);
             this.txt_NamHoc.Name = "txt_NamHoc";
-            this.txt_NamHoc.Size = new System.Drawing.Size(264, 28);
+            this.txt_NamHoc.Size = new System.Drawing.Size(264, 26);
             this.txt_NamHoc.TabIndex = 4;
             // 
             // imageList1
