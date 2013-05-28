@@ -1305,6 +1305,11 @@ namespace QLNS.UCs.DanhMucThongTin
             }
         }
 
+        private void txt_NgHD1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         
     }
 
