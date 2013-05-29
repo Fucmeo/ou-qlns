@@ -71,23 +71,28 @@
             this.cb_DangVien = new System.Windows.Forms.CheckBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
             this.dtp_NgayDuBiLan1 = new System.Windows.Forms.DateTimePicker();
             this.dtp_NgayChinhThucLan1 = new System.Windows.Forms.DateTimePicker();
-            this.dtp_NgayDuBiLan2 = new System.Windows.Forms.DateTimePicker();
-            this.dtp_NgayChinhThucLan2 = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
             this.dtp_DangVien_NgayRa = new System.Windows.Forms.DateTimePicker();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txt_NgHD1 = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txt_NgHD2 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.rtb_DangVien_GhiChu = new System.Windows.Forms.RichTextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.dtp_NgayChinhThucLan2 = new System.Windows.Forms.DateTimePicker();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.dtp_NgayDuBiLan2 = new System.Windows.Forms.DateTimePicker();
+            this.txt_NgHD1 = new System.Windows.Forms.TextBox();
+            this.txt_NgHD2 = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.gb_ToChuc_CV_QTHD = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.gp_QTHD = new System.Windows.Forms.GroupBox();
+            this.dtgv_DoanDang = new OutlookStyleControls.OutlookGrid();
             this.gb_ChucVu = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
@@ -154,11 +159,6 @@
             this.cb_ChienDau = new System.Windows.Forms.CheckBox();
             this.btn_Luu_HoiCB = new System.Windows.Forms.Button();
             this.btn_Huy_HoiCB = new System.Windows.Forms.Button();
-            this.dtgv_DoanDang = new OutlookStyleControls.OutlookGrid();
-            this.label29 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label30 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.tableLP_ChinhTri.SuspendLayout();
             this.gb_LoaiHinhCT.SuspendLayout();
             this.tableLP_LoaiHinhCT.SuspendLayout();
@@ -174,6 +174,7 @@
             this.gb_ToChuc_CV_QTHD.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.gp_QTHD.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_DoanDang)).BeginInit();
             this.gb_ChucVu.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
@@ -188,7 +189,6 @@
             this.tableLP_ThongTinChung.SuspendLayout();
             this.gb_HoiCuuChienBinh.SuspendLayout();
             this.tableLP_HoiCuuChienBinh.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgv_DoanDang)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLP_ChinhTri
@@ -774,26 +774,6 @@
             this.label18.TabIndex = 33;
             this.label18.Text = "Ngày chính thức lần 1";
             // 
-            // label19
-            // 
-            this.label19.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(3, 175);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(123, 21);
-            this.label19.TabIndex = 34;
-            this.label19.Text = "Ngày dự bị lần 2";
-            // 
-            // label20
-            // 
-            this.label20.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(392, 164);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(127, 42);
-            this.label20.TabIndex = 35;
-            this.label20.Text = "Ngày chính thức lần 2";
-            // 
             // dtp_NgayDuBiLan1
             // 
             this.dtp_NgayDuBiLan1.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -820,32 +800,6 @@
             this.dtp_NgayChinhThucLan1.Size = new System.Drawing.Size(134, 28);
             this.dtp_NgayChinhThucLan1.TabIndex = 37;
             // 
-            // dtp_NgayDuBiLan2
-            // 
-            this.dtp_NgayDuBiLan2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.dtp_NgayDuBiLan2.Checked = false;
-            this.dtp_NgayDuBiLan2.CustomFormat = "dd/MM/yyyy";
-            this.dtp_NgayDuBiLan2.Enabled = false;
-            this.dtp_NgayDuBiLan2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_NgayDuBiLan2.Location = new System.Drawing.Point(177, 171);
-            this.dtp_NgayDuBiLan2.Name = "dtp_NgayDuBiLan2";
-            this.dtp_NgayDuBiLan2.ShowCheckBox = true;
-            this.dtp_NgayDuBiLan2.Size = new System.Drawing.Size(143, 28);
-            this.dtp_NgayDuBiLan2.TabIndex = 38;
-            // 
-            // dtp_NgayChinhThucLan2
-            // 
-            this.dtp_NgayChinhThucLan2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.dtp_NgayChinhThucLan2.Checked = false;
-            this.dtp_NgayChinhThucLan2.CustomFormat = "dd/MM/yyyy";
-            this.dtp_NgayChinhThucLan2.Enabled = false;
-            this.dtp_NgayChinhThucLan2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_NgayChinhThucLan2.Location = new System.Drawing.Point(526, 171);
-            this.dtp_NgayChinhThucLan2.Name = "dtp_NgayChinhThucLan2";
-            this.dtp_NgayChinhThucLan2.ShowCheckBox = true;
-            this.dtp_NgayChinhThucLan2.Size = new System.Drawing.Size(134, 28);
-            this.dtp_NgayChinhThucLan2.TabIndex = 39;
-            // 
             // label11
             // 
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -869,45 +823,6 @@
             this.dtp_DangVien_NgayRa.Size = new System.Drawing.Size(143, 28);
             this.dtp_DangVien_NgayRa.TabIndex = 41;
             // 
-            // label13
-            // 
-            this.label13.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(3, 122);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(116, 21);
-            this.label13.TabIndex = 42;
-            this.label13.Text = "Người HD lần 1";
-            // 
-            // txt_NgHD1
-            // 
-            this.txt_NgHD1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_NgHD1.Enabled = false;
-            this.txt_NgHD1.Location = new System.Drawing.Point(177, 118);
-            this.txt_NgHD1.Name = "txt_NgHD1";
-            this.txt_NgHD1.Size = new System.Drawing.Size(209, 28);
-            this.txt_NgHD1.TabIndex = 44;
-            this.txt_NgHD1.TextChanged += new System.EventHandler(this.txt_NgHD1_TextChanged);
-            // 
-            // label14
-            // 
-            this.label14.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(3, 228);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(116, 21);
-            this.label14.TabIndex = 43;
-            this.label14.Text = "Người HD lần 3";
-            // 
-            // txt_NgHD2
-            // 
-            this.txt_NgHD2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_NgHD2.Enabled = false;
-            this.txt_NgHD2.Location = new System.Drawing.Point(177, 224);
-            this.txt_NgHD2.Name = "txt_NgHD2";
-            this.txt_NgHD2.Size = new System.Drawing.Size(209, 28);
-            this.txt_NgHD2.TabIndex = 45;
-            // 
             // label15
             // 
             this.label15.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -929,6 +844,129 @@
             this.rtb_DangVien_GhiChu.Size = new System.Drawing.Size(197, 52);
             this.rtb_DangVien_GhiChu.TabIndex = 47;
             this.rtb_DangVien_GhiChu.Text = "";
+            // 
+            // label19
+            // 
+            this.label19.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(3, 175);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(123, 21);
+            this.label19.TabIndex = 34;
+            this.label19.Text = "Ngày dự bị lần 2";
+            // 
+            // label20
+            // 
+            this.label20.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(392, 164);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(127, 42);
+            this.label20.TabIndex = 35;
+            this.label20.Text = "Ngày chính thức lần 2";
+            // 
+            // dtp_NgayChinhThucLan2
+            // 
+            this.dtp_NgayChinhThucLan2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.dtp_NgayChinhThucLan2.Checked = false;
+            this.dtp_NgayChinhThucLan2.CustomFormat = "dd/MM/yyyy";
+            this.dtp_NgayChinhThucLan2.Enabled = false;
+            this.dtp_NgayChinhThucLan2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_NgayChinhThucLan2.Location = new System.Drawing.Point(526, 171);
+            this.dtp_NgayChinhThucLan2.Name = "dtp_NgayChinhThucLan2";
+            this.dtp_NgayChinhThucLan2.ShowCheckBox = true;
+            this.dtp_NgayChinhThucLan2.Size = new System.Drawing.Size(134, 28);
+            this.dtp_NgayChinhThucLan2.TabIndex = 39;
+            // 
+            // label13
+            // 
+            this.label13.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(3, 122);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(116, 21);
+            this.label13.TabIndex = 42;
+            this.label13.Text = "Người HD lần 1";
+            // 
+            // label14
+            // 
+            this.label14.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(3, 228);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(116, 21);
+            this.label14.TabIndex = 43;
+            this.label14.Text = "Người HD lần 3";
+            // 
+            // dtp_NgayDuBiLan2
+            // 
+            this.dtp_NgayDuBiLan2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.dtp_NgayDuBiLan2.Checked = false;
+            this.dtp_NgayDuBiLan2.CustomFormat = "dd/MM/yyyy";
+            this.dtp_NgayDuBiLan2.Enabled = false;
+            this.dtp_NgayDuBiLan2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_NgayDuBiLan2.Location = new System.Drawing.Point(177, 171);
+            this.dtp_NgayDuBiLan2.Name = "dtp_NgayDuBiLan2";
+            this.dtp_NgayDuBiLan2.ShowCheckBox = true;
+            this.dtp_NgayDuBiLan2.Size = new System.Drawing.Size(143, 28);
+            this.dtp_NgayDuBiLan2.TabIndex = 38;
+            // 
+            // txt_NgHD1
+            // 
+            this.txt_NgHD1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_NgHD1.Enabled = false;
+            this.txt_NgHD1.Location = new System.Drawing.Point(177, 118);
+            this.txt_NgHD1.Name = "txt_NgHD1";
+            this.txt_NgHD1.Size = new System.Drawing.Size(209, 28);
+            this.txt_NgHD1.TabIndex = 44;
+            this.txt_NgHD1.TextChanged += new System.EventHandler(this.txt_NgHD1_TextChanged);
+            // 
+            // txt_NgHD2
+            // 
+            this.txt_NgHD2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_NgHD2.Enabled = false;
+            this.txt_NgHD2.Location = new System.Drawing.Point(177, 224);
+            this.txt_NgHD2.Name = "txt_NgHD2";
+            this.txt_NgHD2.Size = new System.Drawing.Size(209, 28);
+            this.txt_NgHD2.TabIndex = 45;
+            // 
+            // label29
+            // 
+            this.label29.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(392, 122);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(116, 21);
+            this.label29.TabIndex = 48;
+            this.label29.Text = "Người HD lần 2";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(526, 118);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(197, 28);
+            this.textBox1.TabIndex = 49;
+            // 
+            // label30
+            // 
+            this.label30.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(392, 228);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(116, 21);
+            this.label30.TabIndex = 50;
+            this.label30.Text = "Người HD lần 4";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox2.Enabled = false;
+            this.textBox2.Location = new System.Drawing.Point(526, 224);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(197, 28);
+            this.textBox2.TabIndex = 51;
             // 
             // gb_ToChuc_CV_QTHD
             // 
@@ -979,6 +1017,22 @@
             this.gp_QTHD.TabIndex = 49;
             this.gp_QTHD.TabStop = false;
             this.gp_QTHD.Text = "Quá trình hoạt động chính trị";
+            // 
+            // dtgv_DoanDang
+            // 
+            this.dtgv_DoanDang.AllowUserToAddRows = false;
+            this.dtgv_DoanDang.AllowUserToDeleteRows = false;
+            this.dtgv_DoanDang.CollapseIcon = null;
+            this.dtgv_DoanDang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgv_DoanDang.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgv_DoanDang.ExpandIcon = null;
+            this.dtgv_DoanDang.Location = new System.Drawing.Point(3, 24);
+            this.dtgv_DoanDang.Name = "dtgv_DoanDang";
+            this.dtgv_DoanDang.ReadOnly = true;
+            this.dtgv_DoanDang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgv_DoanDang.Size = new System.Drawing.Size(726, 193);
+            this.dtgv_DoanDang.TabIndex = 60;
+            this.dtgv_DoanDang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_DoanDang_CellClick);
             // 
             // gb_ChucVu
             // 
@@ -1048,7 +1102,7 @@
             this.comB_ChucVu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_ChucVu.Enabled = false;
             this.comB_ChucVu.FormattingEnabled = true;
-            this.comB_ChucVu.Location = new System.Drawing.Point(3, 10);
+            this.comB_ChucVu.Location = new System.Drawing.Point(3, 12);
             this.comB_ChucVu.Name = "comB_ChucVu";
             this.comB_ChucVu.Size = new System.Drawing.Size(192, 29);
             this.comB_ChucVu.TabIndex = 0;
@@ -1087,7 +1141,7 @@
             "Đảng viên",
             "Dân quân tự vệ",
             "Công đoàn viên"});
-            this.comB_TenToChuc.Location = new System.Drawing.Point(364, 29);
+            this.comB_TenToChuc.Location = new System.Drawing.Point(364, 31);
             this.comB_TenToChuc.Name = "comB_TenToChuc";
             this.comB_TenToChuc.Size = new System.Drawing.Size(191, 29);
             this.comB_TenToChuc.TabIndex = 65;
@@ -1129,7 +1183,7 @@
             "Đảng viên",
             "Dân quân tự vệ",
             "Công đoàn viên"});
-            this.comB_LoaiHinhCT_ChucVu.Location = new System.Drawing.Point(75, 29);
+            this.comB_LoaiHinhCT_ChucVu.Location = new System.Drawing.Point(75, 31);
             this.comB_LoaiHinhCT_ChucVu.Name = "comB_LoaiHinhCT_ChucVu";
             this.comB_LoaiHinhCT_ChucVu.Size = new System.Drawing.Size(191, 29);
             this.comB_LoaiHinhCT_ChucVu.TabIndex = 61;
@@ -1368,7 +1422,7 @@
             "Đảng viên",
             "Dân quân tự vệ",
             "Công đoàn viên"});
-            this.comB_LoaiHinhCT_ToChuc.Location = new System.Drawing.Point(111, 10);
+            this.comB_LoaiHinhCT_ToChuc.Location = new System.Drawing.Point(111, 12);
             this.comB_LoaiHinhCT_ToChuc.Name = "comB_LoaiHinhCT_ToChuc";
             this.comB_LoaiHinhCT_ToChuc.Size = new System.Drawing.Size(210, 29);
             this.comB_LoaiHinhCT_ToChuc.TabIndex = 61;
@@ -1863,60 +1917,6 @@
             this.btn_Huy_HoiCB.UseVisualStyleBackColor = true;
             this.btn_Huy_HoiCB.Visible = false;
             // 
-            // dtgv_DoanDang
-            // 
-            this.dtgv_DoanDang.AllowUserToAddRows = false;
-            this.dtgv_DoanDang.AllowUserToDeleteRows = false;
-            this.dtgv_DoanDang.CollapseIcon = null;
-            this.dtgv_DoanDang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgv_DoanDang.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtgv_DoanDang.ExpandIcon = null;
-            this.dtgv_DoanDang.Location = new System.Drawing.Point(3, 24);
-            this.dtgv_DoanDang.Name = "dtgv_DoanDang";
-            this.dtgv_DoanDang.ReadOnly = true;
-            this.dtgv_DoanDang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgv_DoanDang.Size = new System.Drawing.Size(726, 193);
-            this.dtgv_DoanDang.TabIndex = 60;
-            this.dtgv_DoanDang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_DoanDang_CellClick);
-            // 
-            // label29
-            // 
-            this.label29.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(392, 122);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(116, 21);
-            this.label29.TabIndex = 48;
-            this.label29.Text = "Người HD lần 2";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(526, 118);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(197, 28);
-            this.textBox1.TabIndex = 49;
-            // 
-            // label30
-            // 
-            this.label30.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(392, 228);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(116, 21);
-            this.label30.TabIndex = 50;
-            this.label30.Text = "Người HD lần 4";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(526, 224);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(197, 28);
-            this.textBox2.TabIndex = 51;
-            // 
             // QLNS_ChinhTri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -1947,6 +1947,7 @@
             this.gb_ToChuc_CV_QTHD.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.gp_QTHD.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_DoanDang)).EndInit();
             this.gb_ChucVu.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
@@ -1968,7 +1969,6 @@
             this.gb_HoiCuuChienBinh.ResumeLayout(false);
             this.tableLP_HoiCuuChienBinh.ResumeLayout(false);
             this.tableLP_HoiCuuChienBinh.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgv_DoanDang)).EndInit();
             this.ResumeLayout(false);
 
         }

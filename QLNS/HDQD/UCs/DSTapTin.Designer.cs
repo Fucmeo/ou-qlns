@@ -62,9 +62,9 @@
             this.tableLP_DSTapTin.Location = new System.Drawing.Point(0, 0);
             this.tableLP_DSTapTin.Name = "tableLP_DSTapTin";
             this.tableLP_DSTapTin.RowCount = 2;
-            this.tableLP_DSTapTin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLP_DSTapTin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLP_DSTapTin.Size = new System.Drawing.Size(850, 700);
+            this.tableLP_DSTapTin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLP_DSTapTin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLP_DSTapTin.Size = new System.Drawing.Size(850, 550);
             this.tableLP_DSTapTin.TabIndex = 0;
             // 
             // btn_Luu
@@ -74,7 +74,7 @@
             this.btn_Luu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_Luu.ImageKey = "Save.png";
             this.btn_Luu.ImageList = this.imageList1;
-            this.btn_Luu.Location = new System.Drawing.Point(397, 567);
+            this.btn_Luu.Location = new System.Drawing.Point(397, 467);
             this.btn_Luu.Name = "btn_Luu";
             this.btn_Luu.Size = new System.Drawing.Size(56, 56);
             this.btn_Luu.TabIndex = 3;
@@ -109,15 +109,16 @@
             this.tableLP_ChiTietFile.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLP_ChiTietFile.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLP_ChiTietFile.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLP_ChiTietFile.Size = new System.Drawing.Size(844, 484);
+            this.tableLP_ChiTietFile.Size = new System.Drawing.Size(844, 434);
             this.tableLP_ChiTietFile.TabIndex = 0;
             // 
             // pb_Preview
             // 
             this.pb_Preview.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pb_Preview.Location = new System.Drawing.Point(425, 148);
+            this.pb_Preview.Location = new System.Drawing.Point(425, 133);
             this.pb_Preview.Name = "pb_Preview";
-            this.pb_Preview.Size = new System.Drawing.Size(416, 236);
+            this.tableLP_ChiTietFile.SetRowSpan(this.pb_Preview, 2);
+            this.pb_Preview.Size = new System.Drawing.Size(416, 298);
             this.pb_Preview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pb_Preview.TabIndex = 2;
             this.pb_Preview.TabStop = false;
@@ -130,11 +131,11 @@
             this.tableLP_ThaoTac.Controls.Add(this.btn_Xoa, 0, 0);
             this.tableLP_ThaoTac.Controls.Add(this.btn_Them, 0, 0);
             this.tableLP_ThaoTac.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLP_ThaoTac.Location = new System.Drawing.Point(3, 390);
+            this.tableLP_ThaoTac.Location = new System.Drawing.Point(3, 350);
             this.tableLP_ThaoTac.Name = "tableLP_ThaoTac";
             this.tableLP_ThaoTac.RowCount = 1;
             this.tableLP_ThaoTac.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLP_ThaoTac.Size = new System.Drawing.Size(416, 91);
+            this.tableLP_ThaoTac.Size = new System.Drawing.Size(416, 81);
             this.tableLP_ThaoTac.TabIndex = 3;
             // 
             // btn_Xoa
@@ -143,7 +144,7 @@
             this.btn_Xoa.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_Xoa.ImageKey = "Garbage.png";
             this.btn_Xoa.ImageList = this.imageList1;
-            this.btn_Xoa.Location = new System.Drawing.Point(284, 17);
+            this.btn_Xoa.Location = new System.Drawing.Point(284, 12);
             this.btn_Xoa.Name = "btn_Xoa";
             this.btn_Xoa.Size = new System.Drawing.Size(56, 56);
             this.btn_Xoa.TabIndex = 5;
@@ -157,7 +158,7 @@
             this.btn_Them.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_Them.ImageKey = "Add.png";
             this.btn_Them.ImageList = this.imageList1;
-            this.btn_Them.Location = new System.Drawing.Point(76, 17);
+            this.btn_Them.Location = new System.Drawing.Point(76, 12);
             this.btn_Them.Name = "btn_Them";
             this.btn_Them.Size = new System.Drawing.Size(56, 56);
             this.btn_Them.TabIndex = 1;
@@ -171,7 +172,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(425, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(416, 139);
+            this.groupBox1.Size = new System.Drawing.Size(416, 124);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Mô tả";
@@ -181,7 +182,7 @@
             this.rtb_MoTa.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rtb_MoTa.Location = new System.Drawing.Point(3, 24);
             this.rtb_MoTa.Name = "rtb_MoTa";
-            this.rtb_MoTa.Size = new System.Drawing.Size(410, 112);
+            this.rtb_MoTa.Size = new System.Drawing.Size(410, 97);
             this.rtb_MoTa.TabIndex = 2;
             this.rtb_MoTa.Text = "";
             // 
@@ -192,7 +193,7 @@
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
             this.tableLP_ChiTietFile.SetRowSpan(this.groupBox2, 2);
-            this.groupBox2.Size = new System.Drawing.Size(416, 381);
+            this.groupBox2.Size = new System.Drawing.Size(416, 341);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh sách tập tin";
@@ -204,7 +205,7 @@
             this.lsb_DSFile.ItemHeight = 21;
             this.lsb_DSFile.Location = new System.Drawing.Point(3, 24);
             this.lsb_DSFile.Name = "lsb_DSFile";
-            this.lsb_DSFile.Size = new System.Drawing.Size(410, 354);
+            this.lsb_DSFile.Size = new System.Drawing.Size(410, 314);
             this.lsb_DSFile.TabIndex = 1;
             this.lsb_DSFile.SelectedIndexChanged += new System.EventHandler(this.lsb_DSFile_SelectedIndexChanged);
             // 
@@ -224,9 +225,9 @@
             this.Controls.Add(this.tableLP_DSTapTin);
             this.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MinimumSize = new System.Drawing.Size(700, 700);
+            this.MinimumSize = new System.Drawing.Size(700, 550);
             this.Name = "DSTapTin";
-            this.Size = new System.Drawing.Size(850, 700);
+            this.Size = new System.Drawing.Size(850, 550);
             this.Load += new System.EventHandler(this.DSTapTin_Load);
             this.tableLP_DSTapTin.ResumeLayout(false);
             this.tableLP_ChiTietFile.ResumeLayout(false);

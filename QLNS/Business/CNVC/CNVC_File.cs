@@ -25,6 +25,8 @@ namespace Business.CNVC
 
         #region Properties
 
+        public enum eFileType { HopDong, BoNhiem, ThoiNhiem,DaoTao,BoiDuong };
+
         private int? id;
 
         public int? ID
@@ -65,6 +67,10 @@ namespace Business.CNVC
             set { isavatar = value; }
         }
 
+        public eFileType FileType { get; set; }
+
+        public string Link { get; set; }
+
 
         #endregion
 
@@ -91,10 +97,12 @@ namespace Business.CNVC
         public bool AddFileArray(string[] FilesPath)
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[3]{
+            IDataParameter[] paras = new IDataParameter[5]{
                 new NpgsqlParameter("p_ma_nv",manv), 
                 new NpgsqlParameter("p_path",FilesPath), 
-                new NpgsqlParameter("p_mo_ta",mota)
+                new NpgsqlParameter("p_mo_ta",mota),
+                new NpgsqlParameter("p_file_type",FileType.ToString()),
+                new NpgsqlParameter("p_link_id",Link)
             };
             check = (int)dp.executeScalarProc("sp_insert_cnvc_file_array", paras);
             if (check > 0)

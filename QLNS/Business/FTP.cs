@@ -13,12 +13,12 @@ namespace Business
     {
         public enum FileCate { HinhDaiDien, HDQD };
         string URI = 
-            "ftp://10.1.12.6/",
-            //"ftp://123.30.210.98/",
+            //"ftp://10.1.12.6/",
+            "ftp://123.30.210.98/",
             globalFolderName, downloadPath  ;
         string UserName = "Administrator",
-            //Password = "QLNS@123qlns";
-            Password = "A@123456";
+            Password = "QLNS@123qlns";
+            //Password = "A@123456";
 
         public FileCate oFileCate = new FileCate();
         long lFileSizeLimit = 2621440;  // 2,5 mb
@@ -72,7 +72,9 @@ namespace Business
 
                 request.Credentials = new NetworkCredential(UserName, Password);
                 request.UseBinary = true;
+                request.KeepAlive = true;
                 request.ContentLength = fileInf.Length;
+                request.ServicePoint.ConnectionLimit = 8;
 
                 // Opens a file stream (System.IO.FileStream) to read the file to be uploaded
                 fs = fileInf.OpenRead();
@@ -96,14 +98,18 @@ namespace Business
                 }
                 catch (Exception)
                 {
+                    
+                    throw;
+                }
+                finally
+                {
                     if (strm != null)
                         strm.Close();
 
                     if (fs != null)
                         fs.Close();
-
-                    throw;
                 }
+
                 
                 
                 DBPath[i] = globalFolderName + "/" + ServerFileName;
