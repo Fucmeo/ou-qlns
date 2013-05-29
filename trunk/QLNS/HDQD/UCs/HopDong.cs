@@ -305,7 +305,7 @@ namespace HDQD.UCs
             comB_ChucVu.DisplayMember = "ten_chuc_vu";
             comB_ChucVu.ValueMember = "id";
 
-            comB_DonVi.DataSource = oDonvi.GetDonViList();
+            comB_DonVi.DataSource = oDonvi.GetActiveDonVi();
             comB_DonVi.DisplayMember = "ten_don_vi";
             comB_DonVi.ValueMember = "id";
         }
@@ -434,12 +434,13 @@ namespace HDQD.UCs
             string[] ServerPath = new string[1];
             try
             {
+                oFTP.oFileCate = FTP.FileCate.HDQD;
                 ServerPath = oFTP.UploadFile(Paths, Paths.Select(b => b.Split('\\').Last()).ToArray(),
                                             oHopdong.Ma_Hop_Dong);
 
                 oFile.MaNV = oHopdong.Ma_NV;
-
-                oFile.IsAvatar = false;
+                oFile.FileType = Business.CNVC.CNVC_File.eFileType.HopDong;
+                oFile.Link = oHopdong.Ma_Hop_Dong;
                 try
                 {
                     oFile.AddFileArray(ServerPath);
@@ -450,7 +451,7 @@ namespace HDQD.UCs
                     MessageBox.Show("Quá trình lưu hình không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Quá trình tải hình lên server không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
