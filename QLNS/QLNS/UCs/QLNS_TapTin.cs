@@ -76,10 +76,11 @@ namespace QLNS.UCs
                     {
                         oFile.MoTa = rTB_MoTa.Text;
                         oFile.Path = txt_DuongDan.Text;
-                        oFile.IsAvatar = false;
+                        string[] a = new string[1];
+                        a[0] = oFile.Path;
                         try
                         {
-                            oFile.Add();
+                            oFile.AddFileArray(a);
                             MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             ResetInterface(true);
@@ -142,7 +143,7 @@ namespace QLNS.UCs
 
         private void QLNS_TapTin_Load(object sender, EventArgs e)
         {
-            List<Business.CNVC.CNVC_File> dt = oFile.GetData();
+            DataTable dt = oFile.GetData();
             if (dt != null)
             {
                 PrepareDataSource(dt);
@@ -153,7 +154,7 @@ namespace QLNS.UCs
         }
 
         #region Ham phu
-        private void PrepareDataSource(List<Business.CNVC.CNVC_File> dt)
+        private void PrepareDataSource(DataTable dt)
         {
             BindingSource bs = new BindingSource();
             bs.DataSource = dt;
@@ -224,12 +225,12 @@ namespace QLNS.UCs
 
         private void RefreshDataSource()
         {            
-            List<Business.CNVC.CNVC_File> dt = oFile.GetData();
-            if (dt != null)
-            {
-                PrepareDataSource(dt);
-                EditDtgInterface();
-            }
+            //List<Business.CNVC.CNVC_File> dt = oFile.GetData();
+            //if (dt != null)
+            //{
+            //    PrepareDataSource(dt);
+            //    EditDtgInterface();
+            //}
         }
 
         #endregion

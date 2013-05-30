@@ -225,7 +225,7 @@
             this.Controls.Add(this.tableLP_DSTapTin);
             this.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MinimumSize = new System.Drawing.Size(700, 550);
+            this.MinimumSize = new System.Drawing.Size(850, 550);
             this.Name = "DSTapTin";
             this.Size = new System.Drawing.Size(850, 550);
             this.Load += new System.EventHandler(this.DSTapTin_Load);

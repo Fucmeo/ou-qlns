@@ -29,26 +29,27 @@ namespace HDQD.UCs
         // KHANG - UPLOAD FILE
         public static string[] Paths;
         public static string Desc;
+        public static DataTable dtFile;
 
         public HopDong()
         {
             InitializeComponent();
-            oHopdong = new Business.HDQD.CNVC_HopDong();
-            oLoaihopdong = new Business.HDQD.LoaiHopDong();
-            oChucdanh = new ChucDanh();
-            oChucvu = new ChucVu();
-            oDonvi = new DonVi();
-            oFTP = new Business.FTP();
-            oFTP.oFileCate = FTP.FileCate.HDQD;
-            oFile = new Business.CNVC.CNVC_File();
+            InitObject();
 
-            oBacHeSo = new Business.Luong.BacHeSo();
-            dtBacHeSo = new DataTable();
         }
 
         public HopDong(Business.HDQD.CNVC_HopDong p_HopDong)
         {
             InitializeComponent();
+            InitObject();
+
+            oHopdong = p_HopDong;
+            DisplayInfo();
+            LoadFiles(); // load danh sach file lien quan den hop dong nay
+        }
+
+        private void InitObject()
+        {
             oHopdong = new Business.HDQD.CNVC_HopDong();
             oLoaihopdong = new Business.HDQD.LoaiHopDong();
             oChucdanh = new ChucDanh();
@@ -59,9 +60,7 @@ namespace HDQD.UCs
             oFile = new Business.CNVC.CNVC_File();
             oBacHeSo = new Business.Luong.BacHeSo();
             dtBacHeSo = new DataTable();
-
-            oHopdong = p_HopDong;
-            DisplayInfo();
+            dtFile = new DataTable();
         }
 
         private void btn_Them_Click(object sender, EventArgs e)
@@ -310,6 +309,25 @@ namespace HDQD.UCs
             comB_DonVi.ValueMember = "id";
         }
 
+        /// <summary>
+        /// Khang - load ds file di kem HD nay
+        /// </summary>
+        private void LoadFiles()
+        {
+            oFile.MaNV = oHopdong.Ma_NV;
+            oFile.Link = oHopdong.Ma_Hop_Dong;
+            oFile.FileType = Business.CNVC.CNVC_File.eFileType.HopDong;
+            try
+            {
+                dtFile = oFile.GetData();
+            }
+            catch (Exception)
+            {
+                
+            }
+             
+        }
+
         private void DisplayInfo()
         {
             thongTinCNVC1.txt_MaNV.Text = oHopdong.Ma_NV;
@@ -422,14 +440,16 @@ namespace HDQD.UCs
 
         private void btn_NhapFile_Click(object sender, EventArgs e)
         {
-            Forms.Popup f = new Forms.Popup(new UCs.DSTapTin(), "QUẢN LÝ NHÂN SỰ - DANH SÁCH TẬP TIN");
+
+            Forms.Popup f = new Forms.Popup(new UCs.DSTapTin(Paths,Desc), "QUẢN LÝ NHÂN SỰ - DANH SÁCH TẬP TIN");
             UCs.DSTapTin.bHopDong = true;
             f.ShowDialog();
-            }
+
+        }
 
         private void UploadFile()
         {
-            #region Avatar
+            #region HD
 
             string[] ServerPath = new string[1];
             try

@@ -13,11 +13,14 @@ namespace Business.CNVC
     {
         DataProvider.DataProvider dp;
 
+        
+
         #region Init method
 
         public CNVC_File()
         {
             dp = new DataProvider.DataProvider();
+            
         }
         
 
@@ -25,7 +28,7 @@ namespace Business.CNVC
 
         #region Properties
 
-        public enum eFileType { HopDong, BoNhiem, ThoiNhiem,DaoTao,BoiDuong };
+        public enum eFileType { HopDong, BoNhiem, ThoiNhiem,DaoTao,BoiDuong, Avatar };
 
         private int? id;
 
@@ -59,14 +62,6 @@ namespace Business.CNVC
             set { path = value; }
         }
 
-        private bool? isavatar;
-
-        public bool? IsAvatar
-        {
-            get { return isavatar; }
-            set { isavatar = value; }
-        }
-
         public eFileType FileType { get; set; }
 
         public string Link { get; set; }
@@ -76,24 +71,6 @@ namespace Business.CNVC
 
         #region Methods
 
-        public bool Add()
-        {
-            int check;
-            IDataParameter[] paras = new IDataParameter[4]{
-                new NpgsqlParameter("p_ma_nv",manv), 
-                new NpgsqlParameter("p_path",path), 
-                new NpgsqlParameter("p_mo_ta",mota), 
-                new NpgsqlParameter("p_is_avatar",isavatar)
-            };
-            check = (int)dp.executeScalarProc("sp_insert_cnvc_file", paras);
-            if (check > 0)
-            {
-                return true;
-            }
-            else 
-                return false;
-        }
-
         public bool AddFileArray(string[] FilesPath)
         {
             int check;
@@ -101,7 +78,7 @@ namespace Business.CNVC
                 new NpgsqlParameter("p_ma_nv",manv), 
                 new NpgsqlParameter("p_path",FilesPath), 
                 new NpgsqlParameter("p_mo_ta",mota),
-                new NpgsqlParameter("p_file_type",FileType.ToString()),
+                new NpgsqlParameter("p_file_type",FileType.ToString().ToLower()),
                 new NpgsqlParameter("p_link_id",Link)
             };
             check = (int)dp.executeScalarProc("sp_insert_cnvc_file_array", paras);
@@ -161,40 +138,48 @@ namespace Business.CNVC
                 return false;
         }
 
-        public List<CNVC_File> GetData()
+        //public List<CNVC_File> GetData()
+        //{
+        //    DataTable dt;
+        //    List<CNVC_File> listFile = new List<CNVC_File>();
+        //    IDataParameter[] paras = new IDataParameter[3]{
+        //        new NpgsqlParameter("p_ma_nv",manv),
+        //        new NpgsqlParameter("p_file_type",FileType.ToString().ToLower())    ,
+        //        new NpgsqlParameter("p_link_id",Link)    
+        //    };
+
+        //    dt = dp.getDataTableProc("sp_select_cnvc_file", paras);
+
+        //    listFile = dt.AsEnumerable().Select(row =>
+        //         new CNVC_File
+        //         {
+        //             id = row.Field<int>("id"),
+        //             manv = row.Field<string>("ma_nv"),
+        //             path = row.Field<string>("path"),                     
+        //             mota = row.Field<string>("mo_ta"),
+        //              =  ,
+        //             Link = row.Field<string>("p_link_id")
+        //         }).ToList();
+
+        //    return listFile;
+        //}
+
+        public DataTable GetData()
         {
             DataTable dt;
             List<CNVC_File> listFile = new List<CNVC_File>();
-            IDataParameter[] paras = new IDataParameter[1]{
-                new NpgsqlParameter("p_ma_nv",manv)               
+            IDataParameter[] paras = new IDataParameter[3]{
+                new NpgsqlParameter("p_ma_nv",manv),
+                new NpgsqlParameter("p_file_type",FileType.ToString().ToLower())    ,
+                new NpgsqlParameter("p_link_id",Link)    
             };
 
             dt = dp.getDataTableProc("sp_select_cnvc_file", paras);
 
-            listFile = dt.AsEnumerable().Select(row =>
-                 new CNVC_File
-                 {
-                     id = row.Field<int>("id"),
-                     manv = row.Field<string>("ma_nv"),
-                     path = row.Field<string>("path"),                     
-                     mota = row.Field<string>("mo_ta"),
-                     isavatar = row.Field<bool>("is_avatar"),
-                 }).ToList();
-
-            return listFile;
-        }
-
-        public DataTable GetAvatar()
-        {
-            DataTable dt;
-            IDataParameter[] paras = new IDataParameter[1]{
-                new NpgsqlParameter("p_ma_nv",manv)               
-            };
-
-            dt = dp.getDataTableProc("sp_select_avatar", paras);
-
             return dt;
         }
+
+        
 
         #endregion
     }
