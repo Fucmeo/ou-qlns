@@ -669,35 +669,35 @@ namespace QLNS.UCs
         private void LoadTapTinLienQuan()
         {
             oFile.MaNV = MaCNVC;
-            lstFile = oFile.GetData();
+            //lstFile = oFile.GetData();
 
             #region AVATAR
 
             picB_HinhDaiDien.Image = null;
 
-            var lst = (from f in lstFile
-                          where (f.IsAvatar == true) && (f.MaNV == oFile.MaNV)
-                          select f);
+            //var lst = (from f in lstFile
+            //              where (f.IsAvatar == true) && (f.MaNV == oFile.MaNV)
+            //              select f);
 
-            if (lst.Count() > 0)
-            {
-                string path = ((Business.CNVC.CNVC_File)lst.First()).Path;
+            //if (lst.Count() > 0)
+            //{
+            //    string path = ((Business.CNVC.CNVC_File)lst.First()).Path;
 
-                try
-                {
-                    picB_HinhDaiDien.Image = Image.FromFile(path);
-                    btn_DelAvatar.Enabled = true;
-                }
-                catch (FileNotFoundException ex)
-                {
-                    MessageBox.Show("Hình không tồn tại \r\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+            //    try
+            //    {
+            //        picB_HinhDaiDien.Image = Image.FromFile(path);
+            //        btn_DelAvatar.Enabled = true;
+            //    }
+            //    catch (FileNotFoundException ex)
+            //    {
+            //        MessageBox.Show("Hình không tồn tại \r\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    }
 
-            }
-            else
-            {
-                btn_DelAvatar.Enabled = false;
-            }
+            //}
+            //else
+            //{
+            //    btn_DelAvatar.Enabled = false;
+            //}
             #endregion
         }
 

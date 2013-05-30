@@ -14,10 +14,21 @@ namespace HDQD.UCs
         const int nTLPControls = 6;
         Business.FTP oFTP;
         public static bool bHopDong = false;
-        public DSTapTin()
+
+        public DSTapTin(string[] FilesPath = null, string Mota = null)
         {
             InitializeComponent();
             oFTP = new Business.FTP();
+            if (FilesPath != null)
+            {
+                AddFiles(FilesPath, Mota);
+            }
+        }
+
+        private void AddFiles(string[] FilesPath , string MoTa)
+        {
+            lsb_DSFile.Items.AddRange(FilesPath);
+            rtb_MoTa.Text = MoTa;
         }
 
         private void DSTapTin_Load(object sender, EventArgs e)
@@ -57,8 +68,6 @@ namespace HDQD.UCs
                     HopDong.Paths = new string[lsb_DSFile.Items.Count];
                     lsb_DSFile.Items.CopyTo(HopDong.Paths, 0);
                     HopDong.Desc = rtb_MoTa.Text;
-
-                    
 
                     ((Form)this.Parent).Close();
                 }

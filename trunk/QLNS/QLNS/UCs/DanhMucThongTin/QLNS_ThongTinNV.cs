@@ -164,7 +164,7 @@ namespace QLNS.UCs.DanhMucThongTin
                 {
                     picB_HinhDaiDien.Image = Image.FromFile(AvatarPath[0]);
                     picB_HinhDaiDien.ImageLocation = AvatarPath[0];
-                    btn_DelAvatar.Enabled = true;
+                    //btn_DelAvatar.Enabled = true;
                 }
                 catch (Exception )
                 {
@@ -258,11 +258,11 @@ namespace QLNS.UCs.DanhMucThongTin
                     else
                         oFile.MaNV = txt_MaNV.Text.Trim();
 
-                    oFile.Path = ServerPath[0];
-                    oFile.IsAvatar = true;
+                    oFile.FileType = CNVC_File.eFileType.Avatar;
+
                     try
                     {
-                        oFile.Add();
+                        oFile.AddFileArray(ServerPath);
 
                     }
                     catch (Exception)
@@ -278,7 +278,7 @@ namespace QLNS.UCs.DanhMucThongTin
                     else
                         oFile.MaNV = txt_MaNV.Text.Trim();
 
-                    oFile.IsAvatar = true;
+                    oFile.FileType = CNVC_File.eFileType.Avatar;
                     oFile.DeleteAvatar();
                 }
             
@@ -446,7 +446,8 @@ namespace QLNS.UCs.DanhMucThongTin
         {
             AvatarPath[0] = null;
             oFile.MaNV = m_MaNV;
-            dtAvatar = oFile.GetAvatar();
+            oFile.FileType = CNVC_File.eFileType.Avatar;
+            dtAvatar = oFile.GetData();
             if (dtAvatar != null && dtAvatar.Rows.Count > 0)
             {
                 // Download 
@@ -692,7 +693,7 @@ namespace QLNS.UCs.DanhMucThongTin
 
         public void EnableCNVCControl(bool bEnable)
         {
-            picB_HinhDaiDien.Enabled = txt_DTDD.Enabled = txt_DTNha.Enabled = txt_MaHoSo.Enabled
+            picB_HinhDaiDien.Enabled = btn_DelAvatar.Enabled  = txt_DTDD.Enabled = txt_DTNha.Enabled = txt_MaHoSo.Enabled
                 = txt_MaNV.Enabled = txt_Ho.Enabled = txt_Ten.Enabled = txt_Email.Enabled
                 = txt_MaSoThue.Enabled = dTP_NgaySinh.Enabled = comB_GioiTinh.Enabled
                 = tableLP_DiaChi.Enabled = tableLP_QuocGia.Enabled  = bEnable;
