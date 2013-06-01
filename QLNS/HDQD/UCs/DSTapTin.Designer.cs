@@ -36,6 +36,7 @@
             this.tableLP_ChiTietFile = new System.Windows.Forms.TableLayoutPanel();
             this.pb_Preview = new System.Windows.Forms.PictureBox();
             this.tableLP_ThaoTac = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_DownLoad = new System.Windows.Forms.Button();
             this.btn_Xoa = new System.Windows.Forms.Button();
             this.btn_Them = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -43,6 +44,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lsb_DSFile = new System.Windows.Forms.ListBox();
             this.OFD = new System.Windows.Forms.OpenFileDialog();
+            this.FBD = new System.Windows.Forms.FolderBrowserDialog();
             this.tableLP_DSTapTin.SuspendLayout();
             this.tableLP_ChiTietFile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Preview)).BeginInit();
@@ -71,6 +73,7 @@
             // 
             this.btn_Luu.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tableLP_DSTapTin.SetColumnSpan(this.btn_Luu, 2);
+            this.btn_Luu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Luu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_Luu.ImageKey = "Save.png";
             this.btn_Luu.ImageList = this.imageList1;
@@ -91,6 +94,7 @@
             this.imageList1.Images.SetKeyName(2, "Edit Data.png");
             this.imageList1.Images.SetKeyName(3, "Garbage.png");
             this.imageList1.Images.SetKeyName(4, "Save.png");
+            this.imageList1.Images.SetKeyName(5, "Download.png");
             // 
             // tableLP_ChiTietFile
             // 
@@ -125,26 +129,44 @@
             // 
             // tableLP_ThaoTac
             // 
-            this.tableLP_ThaoTac.ColumnCount = 2;
-            this.tableLP_ThaoTac.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLP_ThaoTac.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLP_ThaoTac.ColumnCount = 3;
+            this.tableLP_ThaoTac.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLP_ThaoTac.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLP_ThaoTac.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLP_ThaoTac.Controls.Add(this.btn_DownLoad, 0, 0);
             this.tableLP_ThaoTac.Controls.Add(this.btn_Xoa, 0, 0);
             this.tableLP_ThaoTac.Controls.Add(this.btn_Them, 0, 0);
             this.tableLP_ThaoTac.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLP_ThaoTac.Location = new System.Drawing.Point(3, 350);
             this.tableLP_ThaoTac.Name = "tableLP_ThaoTac";
             this.tableLP_ThaoTac.RowCount = 1;
-            this.tableLP_ThaoTac.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLP_ThaoTac.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLP_ThaoTac.Size = new System.Drawing.Size(416, 81);
             this.tableLP_ThaoTac.TabIndex = 3;
+            // 
+            // btn_DownLoad
+            // 
+            this.btn_DownLoad.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_DownLoad.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_DownLoad.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_DownLoad.ImageKey = "Download.png";
+            this.btn_DownLoad.ImageList = this.imageList1;
+            this.btn_DownLoad.Location = new System.Drawing.Point(318, 12);
+            this.btn_DownLoad.Name = "btn_DownLoad";
+            this.btn_DownLoad.Size = new System.Drawing.Size(56, 56);
+            this.btn_DownLoad.TabIndex = 6;
+            this.btn_DownLoad.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_DownLoad.UseVisualStyleBackColor = true;
+            this.btn_DownLoad.Click += new System.EventHandler(this.btn_DownLoad_Click);
             // 
             // btn_Xoa
             // 
             this.btn_Xoa.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Xoa.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Xoa.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_Xoa.ImageKey = "Garbage.png";
             this.btn_Xoa.ImageList = this.imageList1;
-            this.btn_Xoa.Location = new System.Drawing.Point(284, 12);
+            this.btn_Xoa.Location = new System.Drawing.Point(179, 12);
             this.btn_Xoa.Name = "btn_Xoa";
             this.btn_Xoa.Size = new System.Drawing.Size(56, 56);
             this.btn_Xoa.TabIndex = 5;
@@ -155,10 +177,11 @@
             // btn_Them
             // 
             this.btn_Them.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Them.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Them.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_Them.ImageKey = "Add.png";
             this.btn_Them.ImageList = this.imageList1;
-            this.btn_Them.Location = new System.Drawing.Point(76, 12);
+            this.btn_Them.Location = new System.Drawing.Point(41, 12);
             this.btn_Them.Name = "btn_Them";
             this.btn_Them.Size = new System.Drawing.Size(56, 56);
             this.btn_Them.TabIndex = 1;
@@ -205,6 +228,7 @@
             this.lsb_DSFile.ItemHeight = 21;
             this.lsb_DSFile.Location = new System.Drawing.Point(3, 24);
             this.lsb_DSFile.Name = "lsb_DSFile";
+            this.lsb_DSFile.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lsb_DSFile.Size = new System.Drawing.Size(410, 314);
             this.lsb_DSFile.TabIndex = 1;
             this.lsb_DSFile.SelectedIndexChanged += new System.EventHandler(this.lsb_DSFile_SelectedIndexChanged);
@@ -216,6 +240,10 @@
             this.OFD.FilterIndex = 5;
             this.OFD.Multiselect = true;
             this.OFD.Title = "Chọn tập tin để tải lên...";
+            // 
+            // FBD
+            // 
+            this.FBD.Description = "Chọn đường dẫn lưu tập tin ...";
             // 
             // DSTapTin
             // 
@@ -254,5 +282,7 @@
         private System.Windows.Forms.RichTextBox rtb_MoTa;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ListBox lsb_DSFile;
+        private System.Windows.Forms.Button btn_DownLoad;
+        private System.Windows.Forms.FolderBrowserDialog FBD;
     }
 }

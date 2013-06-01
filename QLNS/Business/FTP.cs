@@ -299,7 +299,7 @@ namespace Business
                 if (File.Exists(downloadPath + "\\" + ServerFilesName[i]))
                 {
                     ClientFilesPath[i] = downloadPath + "\\" + ServerFilesName[i];
-                    LstServerFilesPath.RemoveAt(i);
+                    LstServerFilesPath.Remove(ServerFilesPath[i].ToString());
                 }
             }
 
