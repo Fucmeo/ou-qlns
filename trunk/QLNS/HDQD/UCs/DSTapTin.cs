@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 
 namespace HDQD.UCs
 {
@@ -29,6 +30,8 @@ namespace HDQD.UCs
         {
             lsb_DSFile.Items.AddRange(FilesPath);
             rtb_MoTa.Text = MoTa;
+
+
         }
 
         private void DSTapTin_Load(object sender, EventArgs e)
@@ -96,6 +99,39 @@ namespace HDQD.UCs
                 catch (Exception)
                 {
                     
+                }
+            }
+        }
+
+        private void btn_DownLoad_Click(object sender, EventArgs e)
+        {
+            if (lsb_DSFile.SelectedItems.Count > 0)
+            {
+                FBD.ShowDialog();
+                
+                if (FBD.SelectedPath != "")
+                {
+                    bool bSuccess = true;
+                    string SavePath = FBD.SelectedPath;
+                    for (int i = 0; i < lsb_DSFile.SelectedItems.Count; i++)
+                    {
+                        string FileName = lsb_DSFile.SelectedItems[i].ToString().Split('\\').Last();
+                        // Use Path class to manipulate file and directory paths. 
+                        //string sourceFile = System.IO.Path.Combine(lsb_DSFile.SelectedItems[i].ToString(), FileName);
+                        string destFile = System.IO.Path.Combine(SavePath, FileName);
+                        try
+                        {
+                            File.Copy(lsb_DSFile.SelectedItems[i].ToString(), destFile, true);
+                        }
+                        catch (Exception)
+                        {
+                            bSuccess = false;
+                            break;
+                        }
+
+                    }
+                    if(bSuccess)
+                        MessageBox.Show("Quá trình tải hình thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }

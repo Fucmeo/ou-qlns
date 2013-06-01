@@ -45,7 +45,7 @@ namespace HDQD.UCs
 
             oHopdong = p_HopDong;
             DisplayInfo();
-            LoadFiles(); // load danh sach file lien quan den hop dong nay
+            LoadFilesDB(); // load danh sach file lien quan den hop dong nay
         }
 
         private void InitObject()
@@ -312,7 +312,7 @@ namespace HDQD.UCs
         /// <summary>
         /// Khang - load ds file di kem HD nay
         /// </summary>
-        private void LoadFiles()
+        private void LoadFilesDB()
         {
             oFile.MaNV = oHopdong.Ma_NV;
             oFile.Link = oHopdong.Ma_Hop_Dong;
@@ -440,11 +440,42 @@ namespace HDQD.UCs
 
         private void btn_NhapFile_Click(object sender, EventArgs e)
         {
+            if (oHopdong != null)
+            {
+                LoadFilesDB();
+                DownLoadFile();  
+            }
 
             Forms.Popup f = new Forms.Popup(new UCs.DSTapTin(Paths,Desc), "QUẢN LÝ NHÂN SỰ - DANH SÁCH TẬP TIN");
             UCs.DSTapTin.bHopDong = true;
             f.ShowDialog();
+        }
 
+        // KHANG
+        private void DownLoadFile()
+        {
+            if (dtFile != null && dtFile.Rows.Count > 0)
+            {
+                string[] dbPaths = new string[dtFile.Rows.Count];
+                for (int i = 0; i < dtFile.Rows.Count; i++)
+                {
+                    dbPaths[i] = dtFile.Rows[i]["path"].ToString();
+                }
+
+                Desc = dtFile.Rows[0]["mo_ta"].ToString();
+
+                // Download 
+               
+                try
+                {
+                    Paths = oFTP.DownloadFile(dbPaths);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Quá trình tải hình đại diện không thành công \r\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                
+            }
         }
 
         private void UploadFile()
