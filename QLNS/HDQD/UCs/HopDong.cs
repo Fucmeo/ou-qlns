@@ -28,10 +28,12 @@ namespace HDQD.UCs
         DataTable dtBacHeSo;
 
         // KHANG - UPLOAD FILE
-        public static string[] Paths;
+        public static List<KeyValuePair<string, bool>> Paths;
+        //public static string[] Paths;
         public static string Desc;
         public static DataTable dtFile;
         string[] ServerPaths;
+        int nNewFilesCount;         // so file add new
 
         public HopDong()
         {
@@ -63,6 +65,7 @@ namespace HDQD.UCs
             oBacHeSo = new Business.Luong.BacHeSo();
             dtBacHeSo = new DataTable();
             dtFile = new DataTable();
+            Paths = new List<KeyValuePair<string, bool>>();
         }
 
         private void btn_Them_Click(object sender, EventArgs e)
@@ -146,7 +149,7 @@ namespace HDQD.UCs
                         else
                             MessageBox.Show("Thao tác thêm thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                        if (Paths != null && Paths.Length > 0 && bUploadInfoSuccess)
+                        if (Paths != null && Paths.Count > 0 && bUploadInfoSuccess)
                         {
                             UploadFile();
                         }
@@ -442,7 +445,7 @@ namespace HDQD.UCs
 
         private void btn_NhapFile_Click(object sender, EventArgs e)
         {
-            if (oHopdong != null)
+            if (oHopdong.Ma_Hop_Dong != null)
             {
                 LoadFilesDB();
                 DownLoadFile();  
@@ -470,7 +473,12 @@ namespace HDQD.UCs
                
                 try
                 {
-                    Paths = oFTP.DownloadFile(dbPaths);
+                    string[] p = oFTP.DownloadFile(dbPaths);
+                    for (int i = 0; i < p.Length; i++)
+                    {
+                        Paths.Add(new KeyValuePair<string,bool>(p[i],true));
+                    }
+                    
                 }
                 catch (Exception ex)
                 {
@@ -484,19 +492,18 @@ namespace HDQD.UCs
         {
             #region HD
 
-            ServerPaths = new string[Paths.Length];
+            nNewFilesCount = Paths.Where(a => a.Value == false).Count();
+            ServerPaths = new string[nNewFilesCount];
             try
             {
                 oFTP.oFileCate = FTP.FileCate.HDQD;
                 pb_Status.Value = 0;
-                pb_Status.Maximum = Paths.Length;
+                pb_Status.Maximum = nNewFilesCount;
                 
                 //this.Enabled = false;
                 ((Form)this.Parent.Parent).ControlBox = false;
                 this.Enabled = false;
                 backgroundWorker1.RunWorkerAsync();
-
-
             }
             catch (Exception)
             {
@@ -512,10 +519,12 @@ namespace HDQD.UCs
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            for (int i = 0; i < Paths.Length; i++)
+            string[] NewFiles = Paths.Where(a => a.Value == false).Select(a => a.Key).ToArray();
+            for (int i = 0; i < nNewFilesCount; i++)
             {
                 backgroundWorker1.ReportProgress(i + 1);
-                ServerPaths[i] = oFTP.UploadFile(Paths[i], Paths[i].Split('\\').Last(), oHopdong.Ma_Hop_Dong);
+
+                ServerPaths[i] = oFTP.UploadFile(NewFiles[i], NewFiles[i].Split('\\').Last(), oHopdong.Ma_Hop_Dong);
                 Thread.Sleep(100);
                 
             }
@@ -526,7 +535,7 @@ namespace HDQD.UCs
             // Change the value of the ProgressBar to the BackgroundWorker progress.
             pb_Status.Value = e.ProgressPercentage;
             // Set the text.
-            lbl_Status.Text = "Uploading file ..." + e.ProgressPercentage.ToString() + " / " + Paths.Length.ToString();
+            lbl_Status.Text = "Uploading file ..." + e.ProgressPercentage.ToString() + " / " + nNewFilesCount.ToString();
         }
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)

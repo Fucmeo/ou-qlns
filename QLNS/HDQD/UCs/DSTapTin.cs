@@ -16,7 +16,7 @@ namespace HDQD.UCs
         Business.FTP oFTP;
         public static bool bHopDong = false;
 
-        public DSTapTin(string[] FilesPath = null, string Mota = null)
+        public DSTapTin(List<KeyValuePair<string,bool>> FilesPath = null, string Mota = null)
         {
             InitializeComponent();
             oFTP = new Business.FTP();
@@ -26,12 +26,13 @@ namespace HDQD.UCs
             }
         }
 
-        private void AddFiles(string[] FilesPath , string MoTa)
+        private void AddFiles(List<KeyValuePair<string, bool>> FilesPath, string MoTa)
         {
-            lsb_DSFile.Items.AddRange(FilesPath);
+            for (int i = 0; i < FilesPath.Count; i++)
+            {
+                lsb_DSFile.Items.Add(FilesPath[i].Key.ToString());                
+            }
             rtb_MoTa.Text = MoTa;
-
-
         }
 
         private void DSTapTin_Load(object sender, EventArgs e)
@@ -46,6 +47,11 @@ namespace HDQD.UCs
                 if (oFTP.ChecFileSize(OFD.FileNames))
                 {
                     lsb_DSFile.Items.AddRange(OFD.FileNames);
+                    for (int i = 0; i < OFD.FileNames.Length; i++)
+                    {
+                        // add moi tinh trang exists = false
+                        HopDong.Paths.Add(new KeyValuePair<string, bool>(lsb_DSFile.Items[i].ToString(), false));
+                    }
                 }
                 else
                 {
@@ -68,8 +74,7 @@ namespace HDQD.UCs
                 }
                 else
                 {
-                    HopDong.Paths = new string[lsb_DSFile.Items.Count];
-                    lsb_DSFile.Items.CopyTo(HopDong.Paths, 0);
+                    // paths da duoc add vao list ngay khi add hinh`
                     HopDong.Desc = rtb_MoTa.Text;
 
                     ((Form)this.Parent).Close();
