@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using Business;
 using System.Reflection;
 using System.Globalization;
+using System.Threading;
 
 namespace HDQD.UCs
 {
@@ -30,6 +31,7 @@ namespace HDQD.UCs
         public static string[] Paths;
         public static string Desc;
         public static DataTable dtFile;
+        string[] ServerPaths;
 
         public HopDong()
         {
@@ -482,34 +484,72 @@ namespace HDQD.UCs
         {
             #region HD
 
-            string[] ServerPath = new string[1];
+            ServerPaths = new string[Paths.Length];
             try
             {
                 oFTP.oFileCate = FTP.FileCate.HDQD;
-                ServerPath = oFTP.UploadFile(Paths, Paths.Select(b => b.Split('\\').Last()).ToArray(),
-                                            oHopdong.Ma_Hop_Dong);
+                pb_Status.Value = 0;
+                pb_Status.Maximum = Paths.Length;
+                
+                //this.Enabled = false;
+                ((Form)this.Parent.Parent).ControlBox = false;
+                this.Enabled = false;
+                backgroundWorker1.RunWorkerAsync();
 
-                oFile.MaNV = oHopdong.Ma_NV;
-                oFile.FileType = Business.CNVC.CNVC_File.eFileType.HopDong;
-                oFile.Link = oHopdong.Ma_Hop_Dong;
-                try
-                {
-                    oFile.AddFileArray(ServerPath);
 
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Quá trình lưu hình không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
             }
             catch (Exception)
             {
                 MessageBox.Show("Quá trình tải hình lên server không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ((Form)this.Parent.Parent).ControlBox = true;
+                this.Enabled = true;
             }
 
             
 
             #endregion
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            for (int i = 0; i < Paths.Length; i++)
+            {
+                backgroundWorker1.ReportProgress(i + 1);
+                ServerPaths[i] = oFTP.UploadFile(Paths[i], Paths[i].Split('\\').Last(), oHopdong.Ma_Hop_Dong);
+                Thread.Sleep(100);
+                
+            }
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            // Change the value of the ProgressBar to the BackgroundWorker progress.
+            pb_Status.Value = e.ProgressPercentage;
+            // Set the text.
+            lbl_Status.Text = "Uploading file ..." + e.ProgressPercentage.ToString() + " / " + Paths.Length.ToString();
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            MessageBox.Show("Quá trình đăng hình lên server thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            lbl_Status.Text = "Done !";
+
+            oFile.MaNV = oHopdong.Ma_NV;
+            oFile.FileType = Business.CNVC.CNVC_File.eFileType.HopDong;
+            oFile.Link = oHopdong.Ma_Hop_Dong;
+            oFile.MoTa = Desc;
+            try
+            {
+                oFile.AddFileArray(ServerPaths);
+                
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Quá trình lưu hình không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            ((Form)this.Parent.Parent).ControlBox = true;
+            this.Enabled = true;
         }
 
         private void comb_Luong_SelectedIndexChanged(object sender, EventArgs e)
@@ -586,5 +626,7 @@ namespace HDQD.UCs
             }
             catch { }
         }
+
+        
     }
 }
