@@ -5,7 +5,8 @@ using System.Text;
 using System.IO;
 using System.Net;
 using System.Runtime.InteropServices;
-
+using System.Windows.Forms;
+using System.ComponentModel;
 
 namespace Business
 {
@@ -36,8 +37,10 @@ namespace Business
         /// <param name="ServerFilesName">Mang chua ten file (Name + Extension) o may client</param>
         /// <param name="m_Ma">Ma nv hoac ma qd hoac ma hd - dung de dat ten file tren server</param>
         /// <returns>Tra ve mang chua duong dan file tren server, dung de luu xuong DB</returns>
-        public  string[] UploadFile(string[] ServerFilesPath, string[] ServerFilesName, string m_Ma)
+        public string[] UploadFile(string[] ServerFilesPath, string[] ServerFilesName, string m_Ma)
         {
+            
+
             // The buffer size is set to 2kb
             int buffLength = 2048;
             byte[] buff = new byte[buffLength];
@@ -126,6 +129,103 @@ namespace Business
             return DBPath;
 
         }
+
+        /// <summary>
+        /// Upload File by File
+        /// </summary>
+        /// <param name="ServerFilesPath"></param>
+        /// <param name="ServerFilesName"></param>
+        /// <param name="m_Ma"></param>
+        /// <returns></returns>
+        public string UploadFile(string ServerFilesPath, string ServerFilesName, string m_Ma)
+        {
+            // The buffer size is set to 2kb
+            int buffLength = 2048;
+            byte[] buff = new byte[buffLength];
+            int contentLen;
+
+            string DBPath = "";
+            //oFileCate = FileCate.HinhDaiDien;
+            switch (oFileCate)
+            {
+                case FileCate.HinhDaiDien:
+                    //CreateFTPFolderIfNotExists("hinh_dai_dien");
+                    globalFolderName = "hinh_dai_dien";
+                    break;
+                case FileCate.HDQD:
+                    globalFolderName = "hinh_quyet_dinh";
+                    break;
+                default:
+                    globalFolderName = "hinh_dai_dien";
+                    break;
+            }
+
+            Stream strm = null;
+            FileStream fs = null;
+            
+            string ServerFileName = MakeFileName(m_Ma, ServerFilesName);
+            FileInfo fileInf = new FileInfo(ServerFilesPath);
+
+            //123.30.210.98
+            FtpWebRequest request = (FtpWebRequest)WebRequest.Create(URI + globalFolderName + "/" + ServerFileName);
+            request.Method = WebRequestMethods.Ftp.UploadFile;
+
+            request.Credentials = new NetworkCredential(UserName, Password);
+            request.UseBinary = true;
+            request.KeepAlive = true;
+            request.ContentLength = fileInf.Length;
+            request.ServicePoint.ConnectionLimit = 8;
+
+            // Opens a file stream (System.IO.FileStream) to read the file to be uploaded
+            fs = fileInf.OpenRead();
+
+            try
+            {
+                // Stream to which the file to be upload is written
+                strm = request.GetRequestStream();
+
+                // Read from the file stream 2kb at a time
+                contentLen = fs.Read(buff, 0, buffLength);
+
+                // Till Stream content ends
+                while (contentLen != 0)
+                {
+                    // Write Content from the file stream to the FTP Upload Stream
+                    strm.Write(buff, 0, contentLen);
+                    contentLen = fs.Read(buff, 0, buffLength);
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                if (strm != null)
+                    strm.Close();
+
+                if (fs != null)
+                    fs.Close();
+            }
+
+            DBPath = globalFolderName + "/" + ServerFileName;
+            
+
+            // Close the file stream and the Request Stream
+            if (strm != null)
+                strm.Close();
+
+            if (fs != null)
+                fs.Close();
+
+
+            return DBPath;
+
+        }
+
+       
 
         /// <summary>
         /// Tao ra ten file de luu tren server
