@@ -24,7 +24,7 @@ namespace HDQD.Forms
         {
             UCs.DoiThongTinDV ucHopDong = new UCs.DoiThongTinDV();            
             ucHopDong.Dock = DockStyle.Fill;
-            this.Controls.Add(ucHopDong);
+            this.tableLayoutPanel1.Controls.Add(ucHopDong);
         }
 
         private void Popup_Load(object sender, EventArgs e)
