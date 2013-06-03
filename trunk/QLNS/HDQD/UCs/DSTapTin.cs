@@ -16,7 +16,7 @@ namespace HDQD.UCs
         Business.FTP oFTP;
         public static bool bHopDong = false;
 
-        public DSTapTin(List<KeyValuePair<string,bool>> FilesPath = null, string Mota = null)
+        public DSTapTin(List<KeyValuePair<string,bool?>> FilesPath = null, string Mota = null)
         {
             InitializeComponent();
             oFTP = new Business.FTP();
@@ -26,11 +26,12 @@ namespace HDQD.UCs
             }
         }
 
-        private void AddFiles(List<KeyValuePair<string, bool>> FilesPath, string MoTa)
+        private void AddFiles(List<KeyValuePair<string, bool?>> FilesPath, string MoTa)
         {
             for (int i = 0; i < FilesPath.Count; i++)
             {
-                lsb_DSFile.Items.Add(FilesPath[i].Key.ToString());                
+                if (FilesPath[i].Value != null && FilesPath[i].Key != null)
+                    lsb_DSFile.Items.Add(FilesPath[i].Key.ToString());                
             }
             rtb_MoTa.Text = MoTa;
         }
@@ -50,7 +51,7 @@ namespace HDQD.UCs
                     for (int i = 0; i < OFD.FileNames.Length; i++)
                     {
                         // add moi tinh trang exists = false
-                        HopDong.Paths.Add(new KeyValuePair<string, bool>(lsb_DSFile.Items[i].ToString(), false));
+                        HopDong.Paths.Add(new KeyValuePair<string, bool?>(OFD.FileNames[i].ToString(), false));
                     }
                 }
                 else
@@ -77,18 +78,32 @@ namespace HDQD.UCs
                     // paths da duoc add vao list ngay khi add hinh`
                     HopDong.Desc = rtb_MoTa.Text;
 
-                    ((Form)this.Parent).Close();
+                    ((Form)this.Parent.Parent).Close();
                 }
             }
         }
 
         private void btn_Xoa_Click(object sender, EventArgs e)
         {
-            if (lsb_DSFile.SelectedItem != null)
+            if (lsb_DSFile.SelectedItem != null && 
+                MessageBox.Show("Bạn thực sự muốn xoá tập tin này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                for (int i = 0; i < HopDong.Paths.Count; i++)
+                {
+                    if (HopDong.Paths[i].Key == lsb_DSFile.SelectedItem.ToString() ) 
+                    {
+                        string DelFileServerPath = "hinh_quyet_dinh/" + lsb_DSFile.SelectedItem.ToString().Split('\\').Last();
+                        if (HopDong.Paths[i].Value == true) // neu file da co san moi add value = null de delete sau nay
+                            HopDong.Paths.Add(new KeyValuePair<string, bool?>(DelFileServerPath, null));   // se delete file nay
+                        HopDong.Paths.RemoveAt(i);
+                        
+                        break;
+                    }
+                }
                 lsb_DSFile.Items.Remove(lsb_DSFile.SelectedItem);
                 pb_Preview.Image = null;
                 pb_Preview.ImageLocation = null;
+
             }
         }
 

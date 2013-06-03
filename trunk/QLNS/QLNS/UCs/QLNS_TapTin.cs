@@ -46,7 +46,7 @@ namespace QLNS.UCs
                     oFile.ID = Convert.ToInt16(dtgv_DSTapTin.CurrentRow.Cells[0].Value.ToString());
                     try
                     {
-                        oFile.Delete();
+                        //oFile.Delete();
                         RefreshDataSource();
                         MessageBox.Show("Xoá thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
