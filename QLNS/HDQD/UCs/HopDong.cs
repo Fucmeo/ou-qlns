@@ -28,7 +28,7 @@ namespace HDQD.UCs
         DataTable dtBacHeSo;
 
         // KHANG - UPLOAD FILE
-        public static List<KeyValuePair<string, bool>> Paths;
+        public static List<KeyValuePair<string, bool?>> Paths;
         //public static string[] Paths;
         public static string Desc;
         public static DataTable dtFile;
@@ -65,7 +65,7 @@ namespace HDQD.UCs
             oBacHeSo = new Business.Luong.BacHeSo();
             dtBacHeSo = new DataTable();
             dtFile = new DataTable();
-            Paths = new List<KeyValuePair<string, bool>>();
+            Paths = new List<KeyValuePair<string, bool?>>();
         }
 
         private void btn_Them_Click(object sender, EventArgs e)
@@ -476,7 +476,7 @@ namespace HDQD.UCs
                     string[] p = oFTP.DownloadFile(dbPaths);
                     for (int i = 0; i < p.Length; i++)
                     {
-                        Paths.Add(new KeyValuePair<string,bool>(p[i],true));
+                        Paths.Add(new KeyValuePair<string,bool?>(p[i],true));
                     }
                     
                 }
@@ -540,17 +540,23 @@ namespace HDQD.UCs
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            MessageBox.Show("Quá trình đăng hình lên server thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            lbl_Status.Text = "Done !";
+            if (Paths.Where(a => a.Value == false).Select(a => a.Key).ToArray().Length > 0)
+            {
+                MessageBox.Show("Quá trình đăng hình lên server thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                lbl_Status.Text = "Done !";
+            }
 
             oFile.MaNV = oHopdong.Ma_NV;
             oFile.FileType = Business.CNVC.CNVC_File.eFileType.HopDong;
             oFile.Link = oHopdong.Ma_Hop_Dong;
             oFile.MoTa = Desc;
+            string[] DeleteFiles = Paths.Where(a => a.Value == null).Select(a => a.Key).ToArray();
+
             try
             {
                 oFile.AddFileArray(ServerPaths);
-                
+                if (DeleteFiles.Length > 0)
+                    oFile.Delete_HD_QD(DeleteFiles);
             }
             catch (Exception)
             {

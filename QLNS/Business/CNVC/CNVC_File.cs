@@ -123,13 +123,16 @@ namespace Business.CNVC
                 return false;
         }
 
-        public bool Delete()
+        public bool Delete_HD_QD(string[] DeletePaths)
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[1]{               
-                new NpgsqlParameter("p_id",id)
+            IDataParameter[] paras = new IDataParameter[4]{               
+                new NpgsqlParameter("p_path",DeletePaths),
+                new NpgsqlParameter("p_ma_nv",manv),
+                new NpgsqlParameter("p_link",Link),
+                new NpgsqlParameter("p_file_type",FileType.ToString().ToLower())
             };
-            check = (int)dp.executeScalarProc("sp_delete_cnvc_file", paras);
+            check = (int)dp.executeScalarProc("sp_delete_cnvc_file_hd_qd", paras);
             if (check > 0)
             {
                 return true;
