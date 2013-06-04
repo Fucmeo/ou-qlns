@@ -34,6 +34,8 @@ namespace HDQD.UCs
         public static DataTable dtFile;
         string[] ServerPaths;
         int nNewFilesCount;         // so file add new
+        string[] dbPaths;
+
 
         public HopDong()
         {
@@ -451,9 +453,7 @@ namespace HDQD.UCs
                 DownLoadFile();  
             }
 
-            Forms.Popup f = new Forms.Popup(new UCs.DSTapTin(Paths,Desc), "QUẢN LÝ NHÂN SỰ - DANH SÁCH TẬP TIN");
-            UCs.DSTapTin.bHopDong = true;
-            f.ShowDialog();
+            
         }
 
         // KHANG
@@ -461,7 +461,10 @@ namespace HDQD.UCs
         {
             if (dtFile != null && dtFile.Rows.Count > 0)
             {
-                string[] dbPaths = new string[dtFile.Rows.Count];
+                pb_Status.Value = 0;
+                pb_Status.Maximum = dtFile.Rows.Count;
+
+                dbPaths = new string[dtFile.Rows.Count];
                 for (int i = 0; i < dtFile.Rows.Count; i++)
                 {
                     dbPaths[i] = dtFile.Rows[i]["path"].ToString();
@@ -473,11 +476,8 @@ namespace HDQD.UCs
                
                 try
                 {
-                    string[] p = oFTP.DownloadFile(dbPaths);
-                    for (int i = 0; i < p.Length; i++)
-                    {
-                        Paths.Add(new KeyValuePair<string,bool?>(p[i],true));
-                    }
+                    bw_download.RunWorkerAsync();
+                    
                     
                 }
                 catch (Exception ex)
@@ -503,7 +503,7 @@ namespace HDQD.UCs
                 //this.Enabled = false;
                 ((Form)this.Parent.Parent).ControlBox = false;
                 this.Enabled = false;
-                backgroundWorker1.RunWorkerAsync();
+                bw_upload.RunWorkerAsync();
             }
             catch (Exception)
             {
@@ -519,10 +519,11 @@ namespace HDQD.UCs
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
+
             string[] NewFiles = Paths.Where(a => a.Value == false).Select(a => a.Key).ToArray();
             for (int i = 0; i < nNewFilesCount; i++)
             {
-                backgroundWorker1.ReportProgress(i + 1);
+                bw_upload.ReportProgress(i + 1);
 
                 ServerPaths[i] = oFTP.UploadFile(NewFiles[i], NewFiles[i].Split('\\').Last(), oHopdong.Ma_Hop_Dong);
                 Thread.Sleep(100);
@@ -535,15 +536,15 @@ namespace HDQD.UCs
             // Change the value of the ProgressBar to the BackgroundWorker progress.
             pb_Status.Value = e.ProgressPercentage;
             // Set the text.
-            lbl_Status.Text = "Uploading file ..." + e.ProgressPercentage.ToString() + " / " + nNewFilesCount.ToString();
+            lbl_Status.Text = "Đang đăng tập tin ..." + e.ProgressPercentage.ToString() + " / " + nNewFilesCount.ToString();
         }
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             if (Paths.Where(a => a.Value == false).Select(a => a.Key).ToArray().Length > 0)
             {
-                MessageBox.Show("Quá trình đăng hình lên server thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                lbl_Status.Text = "Done !";
+                MessageBox.Show("Quá trình đăng tập tin lên server thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                lbl_Status.Text = "Đăng hình hoàn tất!";
             }
 
             oFile.MaNV = oHopdong.Ma_NV;
@@ -560,11 +561,50 @@ namespace HDQD.UCs
             }
             catch (Exception)
             {
-                MessageBox.Show("Quá trình lưu hình không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Quá trình lưu tập tin không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             ((Form)this.Parent.Parent).ControlBox = true;
             this.Enabled = true;
+        }
+
+        private void bw_download_DoWork(object sender, DoWorkEventArgs e)
+        {
+            string[] a = new string[1];
+
+            for (int i = 0; i < dbPaths.Length; i++)
+            {
+                bw_download.ReportProgress(i + 1);
+
+                
+                a[0] = dbPaths[i];
+                string downloadpath = oFTP.DownloadFile(a)[0];
+
+                Paths.Add(new KeyValuePair<string, bool?>(downloadpath, true));
+
+                Thread.Sleep(100);
+            }
+
+           
+        }
+
+        private void bw_download_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            // Change the value of the ProgressBar to the BackgroundWorker progress.
+            pb_Status.Value = e.ProgressPercentage;
+            // Set the text.
+            lbl_Status.Text = "Đang tải tập tin ..." + e.ProgressPercentage.ToString() + " / " + dbPaths.Length.ToString();
+
+
+        }
+
+        private void bw_download_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            lbl_Status.Text = "Tải tập tin hoàn tất!";
+
+            Forms.Popup f = new Forms.Popup(new UCs.DSTapTin(Paths, Desc), "QUẢN LÝ NHÂN SỰ - DANH SÁCH TẬP TIN");
+            UCs.DSTapTin.bHopDong = true;
+            f.ShowDialog();
         }
 
         private void comb_Luong_SelectedIndexChanged(object sender, EventArgs e)
@@ -641,6 +681,8 @@ namespace HDQD.UCs
             }
             catch { }
         }
+
+        
 
         
     }

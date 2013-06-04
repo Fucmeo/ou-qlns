@@ -125,7 +125,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAABa
-        9gAAAk1TRnQBSQFMAgEBBQEAAdABAQHQAQEBOAEAATgBAAT/AREBAAj/AUIBTQE2BwABNgMAASgDAAHg
+        9gAAAk1TRnQBSQFMAgEBBQEAAeABAQHgAQEBOAEAATgBAAT/AREBAAj/AUIBTQE2BwABNgMAASgDAAHg
         AwABcAMAAQEBAAEQBgABxBIAAWYBVAFGAVQBRgFUAUYBVAFGAVQBRgFUAUYBVAFGAVQBRgFUAUYBVAFG
         AVQBRgFUAUYBVAFGAVQBRgFUAUYBVAFGAVQBRgFUAUYBVAFGAVQBRgFUAUYBVAFGAVQBRgFUAUYBVAFG
         AVQBRgFUAUYBVAFGAVQBRgFUAUYBVAFGAVQBRgFUAUYBVAFGAVQBRgFUAUYBVAFGAVQBRgFUAUYBVAFG
@@ -1179,8 +1179,11 @@
         /wD/AP8A/wBNAAs=
 </value>
   </data>
-  <metadata name="backgroundWorker1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="bw_upload.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>143, 17</value>
+  </metadata>
+  <metadata name="bw_download.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>270, 17</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>53</value>
