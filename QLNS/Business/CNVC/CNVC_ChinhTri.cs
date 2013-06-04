@@ -62,6 +62,8 @@ namespace Business.CNVC
         public string[] GhiChu_Ctr_Basic { get; set; }
         public string[] NguoiHuongDan1 { get; set; }
         public string[] NguoiHuongDan2 { get; set; }
+        public string[] NguoiHuongDan3 { get; set; }
+        public string[] NguoiHuongDan4 { get; set; }
         
         #endregion
 
@@ -173,7 +175,7 @@ namespace Business.CNVC
         public bool Save_Loai_Chinh_Tri_Basic(int[] p_loai_ctr)
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[10]{
+            IDataParameter[] paras = new IDataParameter[12]{
                 new NpgsqlParameter("p_ma_nv",MaNV), 
                 new NpgsqlParameter("p_loai_ctr_id",p_loai_ctr), 
                 new NpgsqlParameter("p_ngay_du_bi_1",NgayDuBi_1), 
@@ -183,7 +185,9 @@ namespace Business.CNVC
                 new NpgsqlParameter("p_ngay_ra",NgayRa),
                 new NpgsqlParameter("p_ghi_chu",GhiChu_Ctr_Basic),
                 new NpgsqlParameter("p_nguoi_huong_dan_1",NguoiHuongDan1),
-                new NpgsqlParameter("p_nguoi_huong_dan_2",NguoiHuongDan2)
+                new NpgsqlParameter("p_nguoi_huong_dan_2",NguoiHuongDan2),
+                new NpgsqlParameter("p_nguoi_huong_dan_3",NguoiHuongDan3),
+                new NpgsqlParameter("p_nguoi_huong_dan_4",NguoiHuongDan4)
             };
             check = (int)dp.executeScalarProc("sp_update_cnvc_chinh_tri_loai_ct_basic", paras);
             if (check > 0)

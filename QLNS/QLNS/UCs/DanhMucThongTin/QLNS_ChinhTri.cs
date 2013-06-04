@@ -221,10 +221,12 @@ namespace QLNS.UCs.DanhMucThongTin
 
             if (cb_DangVien.Checked == true && cb_DangVien.Enabled == true)
                 dtp_NgayDuBiLan1.Enabled = dtp_NgayChinhThucLan1.Enabled = dtp_NgayDuBiLan2.Enabled = dtp_NgayChinhThucLan2.Enabled =
-                    dtp_DangVien_NgayRa.Enabled = rtb_DangVien_GhiChu.Enabled = txt_NgHD1.Enabled = txt_NgHD2.Enabled = true;
+                    dtp_DangVien_NgayRa.Enabled = rtb_DangVien_GhiChu.Enabled = txt_NgHD1.Enabled = txt_NgHD2.Enabled =
+                    txt_NgHD3.Enabled = txt_NgHD4.Enabled = true;
             else
                 dtp_NgayDuBiLan1.Enabled = dtp_NgayChinhThucLan1.Enabled = dtp_NgayDuBiLan2.Enabled = dtp_NgayChinhThucLan2.Enabled =
-                    dtp_DangVien_NgayRa.Enabled = rtb_DangVien_GhiChu.Enabled = txt_NgHD1.Enabled = txt_NgHD2.Enabled = false;
+                    dtp_DangVien_NgayRa.Enabled = rtb_DangVien_GhiChu.Enabled = txt_NgHD1.Enabled = txt_NgHD2.Enabled = 
+                    txt_NgHD3.Enabled = txt_NgHD4.Enabled = false;
 
             if (cb_DoanVien.Checked == true && cb_DoanVien.Enabled == true)
                 dtp_KetNapLan1.Enabled = dtp_KetNapLan2.Enabled = dtp_DoanVien_NgayRa.Enabled = rtb_DoanVien_GhiChu.Enabled = true;
@@ -384,6 +386,8 @@ namespace QLNS.UCs.DanhMucThongTin
                             rtb_DangVien_GhiChu.Text = row["ghi_chu"].ToString();
                             txt_NgHD1.Text = row["nguoi_huong_dan_1"].ToString();
                             txt_NgHD2.Text = row["nguoi_huong_dan_2"].ToString();
+                            txt_NgHD3.Text = row["nguoi_huong_dan_3"].ToString();
+                            txt_NgHD4.Text = row["nguoi_huong_dan_4"].ToString();
                             #endregion
 
                             break;
@@ -837,6 +841,8 @@ namespace QLNS.UCs.DanhMucThongTin
                     List<string> ghi_chu = new List<string>();
                     List<string> nguoi_huong_dan1 = new List<string>();
                     List<string> nguoi_huong_dan2 = new List<string>();
+                    List<string> nguoi_huong_dan3 = new List<string>();
+                    List<string> nguoi_huong_dan4 = new List<string>();
 
 
                     if (cb_DangVien.Checked)
@@ -871,6 +877,8 @@ namespace QLNS.UCs.DanhMucThongTin
                         ghi_chu.Add(rtb_DangVien_GhiChu.Text);
                         nguoi_huong_dan1.Add(txt_NgHD1.Text);
                         nguoi_huong_dan2.Add(txt_NgHD2.Text);
+                        nguoi_huong_dan3.Add(txt_NgHD3.Text);
+                        nguoi_huong_dan4.Add(txt_NgHD4.Text);
                     }
 
                     if (cb_DoanVien.Checked)
@@ -895,6 +903,8 @@ namespace QLNS.UCs.DanhMucThongTin
                         ghi_chu.Add(rtb_DoanVien_GhiChu.Text);
                         nguoi_huong_dan1.Add(null);
                         nguoi_huong_dan2.Add(null);
+                        nguoi_huong_dan3.Add(null);
+                        nguoi_huong_dan4.Add(null);
                     }
 
                     if (cb_DanQuan.Checked)
@@ -914,6 +924,8 @@ namespace QLNS.UCs.DanhMucThongTin
                         ghi_chu.Add(rtb_DanQuan_GhiChu.Text);
                         nguoi_huong_dan1.Add(null);
                         nguoi_huong_dan2.Add(null);
+                        nguoi_huong_dan3.Add(null);
+                        nguoi_huong_dan4.Add(null);
                     }
 
                     if (cb_CongDoan.Checked)
@@ -933,6 +945,8 @@ namespace QLNS.UCs.DanhMucThongTin
                         ghi_chu.Add(rtb_CongDoan_GhiChu.Text);
                         nguoi_huong_dan1.Add(null);
                         nguoi_huong_dan2.Add(null);
+                        nguoi_huong_dan3.Add(null);
+                        nguoi_huong_dan4.Add(null);
                     }
 
                     try
@@ -947,6 +961,8 @@ namespace QLNS.UCs.DanhMucThongTin
                             oChinhTri_LoaiCtr.GhiChu_Ctr_Basic = ghi_chu.ToArray();
                             oChinhTri_LoaiCtr.NguoiHuongDan1 = nguoi_huong_dan1.ToArray();
                             oChinhTri_LoaiCtr.NguoiHuongDan2 = nguoi_huong_dan2.ToArray();
+                            oChinhTri_LoaiCtr.NguoiHuongDan3 = nguoi_huong_dan3.ToArray();
+                            oChinhTri_LoaiCtr.NguoiHuongDan4 = nguoi_huong_dan4.ToArray();
 
                             if (oChinhTri_LoaiCtr.Save_Loai_Chinh_Tri_Basic(loai_ctr.ToArray()))
                             {
