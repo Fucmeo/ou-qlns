@@ -15,8 +15,8 @@ namespace HDQD
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Forms.Popup(new UCs.DSTapTin(), "QUẢN LÝ NHÂN SỰ - Thành lập đơn vị"));
-            Application.Run(new Forms.Popup(new UCs.BoNhiem(), "QUẢN LÝ NHÂN SỰ - Thành lập đơn vị"));
+            Application.Run(new Forms.Popup(new UCs.TiepNhan(), "QUẢN LÝ NHÂN SỰ - Quyết định tiếp nhận"));
+            //Application.Run(new Forms.Popup(new UCs.BoNhiem(), "QUẢN LÝ NHÂN SỰ - Thành lập đơn vị"));
         }
     }
 }
