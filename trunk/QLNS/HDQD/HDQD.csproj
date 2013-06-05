@@ -156,6 +156,12 @@
     <Compile Include="UCs\ThongTinQuyetDinh.designer.cs">
       <DependentUpon>ThongTinQuyetDinh.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCs\TiepNhan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\TiepNhan.Designer.cs">
+      <DependentUpon>TiepNhan.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Forms\Popup.resx">
       <DependentUpon>Popup.cs</DependentUpon>
     </EmbeddedResource>
@@ -218,6 +224,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\ThongTinQuyetDinh.resx">
       <DependentUpon>ThongTinQuyetDinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\TiepNhan.resx">
+      <DependentUpon>TiepNhan.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
