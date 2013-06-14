@@ -72,6 +72,12 @@
     <Compile Include="UCs\DanhSachQuyetDinh.designer.cs">
       <DependentUpon>DanhSachQuyetDinh.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCs\DinhNghiaCT.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\DinhNghiaCT.Designer.cs">
+      <DependentUpon>DinhNghiaCT.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCs\DoiThongTinDV.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -182,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\DanhSachQuyetDinh.resx">
       <DependentUpon>DanhSachQuyetDinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\DinhNghiaCT.resx">
+      <DependentUpon>DinhNghiaCT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\DoiThongTinDV.resx">
       <DependentUpon>DoiThongTinDV.cs</DependentUpon>
