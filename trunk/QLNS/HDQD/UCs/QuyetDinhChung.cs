@@ -32,19 +32,25 @@ namespace HDQD.UCs
             SetupDTGV();
             PrepareSourceLoaiQuyetDinh();
             PrepareSourceLoaiPhuCapCombo();
-            comB_HeSoTienMat.SelectedIndex = 0;
+            //comB_HeSoTienMat.SelectedIndex = 0;
         }
 
         private void cb_CoPhuCap_CheckedChanged(object sender, EventArgs e)
         {
             if (cb_CoPhuCap.Checked)
             {
-                comB_HeSoTienMat.Enabled = comB_LoaiPhuCap.Enabled = txt_PhuCap.Enabled = dTP_NgayBatDau.Enabled = dTP_NgayHetHan.Enabled
+                //comB_HeSoTienMat.Enabled = 
+                    comB_LoaiPhuCap.Enabled = 
+                   // txt_PhuCap.Enabled = 
+                    dTP_NgayBatDau.Enabled = dTP_NgayHetHan.Enabled
                     = rTB_GhiChu.Enabled = false;
             }
             else
             {
-                comB_HeSoTienMat.Enabled = comB_LoaiPhuCap.Enabled = txt_PhuCap.Enabled = dTP_NgayBatDau.Enabled = dTP_NgayHetHan.Enabled
+                //comB_HeSoTienMat.Enabled = 
+                    comB_LoaiPhuCap.Enabled = 
+                    //txt_PhuCap.Enabled = 
+                    dTP_NgayBatDau.Enabled = dTP_NgayHetHan.Enabled
                     = rTB_GhiChu.Enabled = true;
             }
         }
@@ -74,7 +80,8 @@ namespace HDQD.UCs
         private void ResetInterface()
         {
             thongTinCNVC1.txt_Ten.Text = thongTinCNVC1.txt_MaNV.Text = thongTinCNVC1.txt_Ho.Text = "";
-            txt_PhuCap.Text = rTB_GhiChu.Text = "";
+            //txt_PhuCap.Text = 
+                rTB_GhiChu.Text = "";
             cb_CoPhuCap.Checked = false;
             thongTinQuyetDinh1.txt_MaQD.Text
                 = thongTinQuyetDinh1.txt_TenQD.Text = thongTinQuyetDinh1.rTB_MoTa.Text = "";
@@ -87,6 +94,11 @@ namespace HDQD.UCs
             DataTable dtLoaiPhuCap = oLoaiPhuCap.GetList();
             if (dtLoaiPhuCap.Rows.Count > 0)
             {
+                DataRow dr = dtLoaiPhuCap.NewRow();
+                dr["ten_loai"] = "";
+                dr["id"] = -1;
+                dtLoaiPhuCap.Rows.InsertAt(dr, 0);
+
                 comB_LoaiPhuCap.DataSource = dtLoaiPhuCap;
                 comB_LoaiPhuCap.DisplayMember = "ten_loai";
                 comB_LoaiPhuCap.ValueMember = "id";
@@ -176,44 +188,44 @@ namespace HDQD.UCs
             if (!string.IsNullOrWhiteSpace(thongTinCNVC1.txt_MaNV.Text) && CompareCNVCInfo())
             {
                 UInt32 a;
-                if (cb_CoPhuCap.Checked || (comB_HeSoTienMat.Text == "Tiền mặt" && UInt32.TryParse(txt_PhuCap.Text.Trim(), out a))
-                        || (comB_HeSoTienMat.Text == "Hệ số"))
-                {
-                    int new_index = dtgv_DSCNVC.Rows.Add(1);
+                //if (cb_CoPhuCap.Checked || (comB_HeSoTienMat.Text == "Tiền mặt" && UInt32.TryParse(txt_PhuCap.Text.Trim(), out a))
+                //        || (comB_HeSoTienMat.Text == "Hệ số"))
+                //{
+                //    int new_index = dtgv_DSCNVC.Rows.Add(1);
 
-                    dtgv_DSCNVC.Rows[new_index].Cells["ma_nv"].Value = thongTinCNVC1.txt_MaNV.Text.Trim();
-                    dtgv_DSCNVC.Rows[new_index].Cells["ho"].Value = thongTinCNVC1.txt_Ho.Text.Trim();
-                    dtgv_DSCNVC.Rows[new_index].Cells["ten"].Value = thongTinCNVC1.txt_Ten.Text.Trim();
+                //    dtgv_DSCNVC.Rows[new_index].Cells["ma_nv"].Value = thongTinCNVC1.txt_MaNV.Text.Trim();
+                //    dtgv_DSCNVC.Rows[new_index].Cells["ho"].Value = thongTinCNVC1.txt_Ho.Text.Trim();
+                //    dtgv_DSCNVC.Rows[new_index].Cells["ten"].Value = thongTinCNVC1.txt_Ten.Text.Trim();
 
-                    if (cb_CoPhuCap.Checked)
-                    {
-                        dtgv_DSCNVC.Rows[new_index].Cells["phu_cap"].Value = "KHÔNG";
-                        dtgv_DSCNVC.Rows[new_index].Cells["ten_loai_phu_cap"].Value = "KHÔNG";
-                        dtgv_DSCNVC.Rows[new_index].Cells["loai_phu_cap_id"].Value = null;
-                        dtgv_DSCNVC.Rows[new_index].Cells["ngay_bat_dau"].Value = "KHÔNG";
-                        dtgv_DSCNVC.Rows[new_index].Cells["ngay_het_han"].Value = "KHÔNG";
-                        dtgv_DSCNVC.Rows[new_index].Cells["ghi_chu"].Value = "KHÔNG";
-                        dtgv_DSCNVC.Rows[new_index].Cells["heso_tienmat"].Value = "KHÔNG";
-                    }
-                    else
-                    {
-                        dtgv_DSCNVC.Rows[new_index].Cells["phu_cap"].Value = txt_PhuCap.Text.Trim();
-                        dtgv_DSCNVC.Rows[new_index].Cells["ten_loai_phu_cap"].Value = comB_LoaiPhuCap.Text;
-                        dtgv_DSCNVC.Rows[new_index].Cells["loai_phu_cap_id"].Value = comB_LoaiPhuCap.SelectedValue;
-                        dtgv_DSCNVC.Rows[new_index].Cells["ngay_bat_dau"].Value = dTP_NgayBatDau.Value.Date;
-                        if (dTP_NgayHetHan.Checked)
-                            dtgv_DSCNVC.Rows[new_index].Cells["ngay_het_han"].Value = dTP_NgayHetHan.Value.Date;
-                        else
-                            dtgv_DSCNVC.Rows[new_index].Cells["ngay_het_han"].Value = "KHÔNG";
-                        dtgv_DSCNVC.Rows[new_index].Cells["ghi_chu"].Value = rTB_GhiChu.Text;
-                        dtgv_DSCNVC.Rows[new_index].Cells["heso_tienmat"].Value = comB_HeSoTienMat.Text;
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Phụ cấp có giá trị không đúng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                //    if (cb_CoPhuCap.Checked)
+                //    {
+                //        dtgv_DSCNVC.Rows[new_index].Cells["phu_cap"].Value = "KHÔNG";
+                //        dtgv_DSCNVC.Rows[new_index].Cells["ten_loai_phu_cap"].Value = "KHÔNG";
+                //        dtgv_DSCNVC.Rows[new_index].Cells["loai_phu_cap_id"].Value = null;
+                //        dtgv_DSCNVC.Rows[new_index].Cells["ngay_bat_dau"].Value = "KHÔNG";
+                //        dtgv_DSCNVC.Rows[new_index].Cells["ngay_het_han"].Value = "KHÔNG";
+                //        dtgv_DSCNVC.Rows[new_index].Cells["ghi_chu"].Value = "KHÔNG";
+                //        dtgv_DSCNVC.Rows[new_index].Cells["heso_tienmat"].Value = "KHÔNG";
+                //    }
+                //    else
+                //    {
+                //        //dtgv_DSCNVC.Rows[new_index].Cells["phu_cap"].Value = txt_PhuCap.Text.Trim();
+                //        dtgv_DSCNVC.Rows[new_index].Cells["ten_loai_phu_cap"].Value = comB_LoaiPhuCap.Text;
+                //        dtgv_DSCNVC.Rows[new_index].Cells["loai_phu_cap_id"].Value = comB_LoaiPhuCap.SelectedValue;
+                //        dtgv_DSCNVC.Rows[new_index].Cells["ngay_bat_dau"].Value = dTP_NgayBatDau.Value.Date;
+                //        if (dTP_NgayHetHan.Checked)
+                //            dtgv_DSCNVC.Rows[new_index].Cells["ngay_het_han"].Value = dTP_NgayHetHan.Value.Date;
+                //        else
+                //            dtgv_DSCNVC.Rows[new_index].Cells["ngay_het_han"].Value = "KHÔNG";
+                //        dtgv_DSCNVC.Rows[new_index].Cells["ghi_chu"].Value = rTB_GhiChu.Text;
+                //       // dtgv_DSCNVC.Rows[new_index].Cells["heso_tienmat"].Value = comB_HeSoTienMat.Text;
+                //    }
+                //}
+                //else
+                //{
+                //    MessageBox.Show("Phụ cấp có giá trị không đúng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //    return;
+                //}
 
             }
             else
@@ -281,6 +293,18 @@ namespace HDQD.UCs
             dtgv_DSCNVC.Columns["ngay_bat_dau"].Width = 150;
             dtgv_DSCNVC.Columns["ngay_het_han"].Width = 150;
             dtgv_DSCNVC.Columns["ghi_chu"].Width = 300;
+        }
+
+        private void comB_LoaiPhuCap_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            TLP_HienThiLoaiPC.Visible = true;
+            TLP_HienThiLoaiPC.RowStyles[0].SizeType = TLP_HienThiLoaiPC.RowStyles[1].SizeType =
+                TLP_HienThiLoaiPC.RowStyles[2].SizeType = SizeType.Percent;
+
+            textBox1.Visible = textBox2.Visible = comboBox1.Visible = false;
+
+            TLP_HienThiLoaiPC.RowStyles[0].Height = TLP_HienThiLoaiPC.RowStyles[1].Height = 1;
+            TLP_HienThiLoaiPC.RowStyles[2].Height = 98;
         }
     }
 }

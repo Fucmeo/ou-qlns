@@ -88,10 +88,10 @@ namespace HDQD.UCs
                 //txt_TenVietTat.Text = row.Cells[2].Value.ToString();
                 rTB_MoTa.Text = row.Cells[2].Value.ToString();
                 bool bienche_hd = Convert.ToBoolean(row.Cells[3].Value);
-                if (bienche_hd == true)
-                    comB_Loai.Text = "Biên chế";
-                else
-                    comB_Loai.Text = "Hợp đồng";
+                //if (bienche_hd == true)
+                //    comB_Loai.Text = "Biên chế";
+                //else
+                //    comB_Loai.Text = "Hợp đồng";
 
                 //bool co_thoihan = Convert.ToBoolean(row.Cells[4].Value);
                 //cb_ThoiHan.Checked = co_thoihan;
@@ -109,7 +109,7 @@ namespace HDQD.UCs
             {
                 btn_Them.Visible = btn_Xoa.Visible = btn_Sua.Visible = true;
                 btn_Huy.Visible = btn_Luu.Visible = false;
-                txt_Ten.Enabled = comB_Loai.Enabled 
+                txt_Ten.Enabled //= comB_Loai.Enabled 
                     //= cb_ThoiHan.Enabled 
                     = rTB_MoTa.Enabled = false;
                 dtgv_DSLoaiHD.Enabled = true;
@@ -122,7 +122,7 @@ namespace HDQD.UCs
             {
                 btn_Them.Visible = btn_Xoa.Visible = btn_Sua.Visible = false;
                 btn_Huy.Visible = btn_Luu.Visible = true;
-                txt_Ten.Enabled = comB_Loai.Enabled 
+                txt_Ten.Enabled// = comB_Loai.Enabled 
                     //= cb_ThoiHan.Enabled 
                     = rTB_MoTa.Enabled = true;
                 dtgv_DSLoaiHD.Enabled = false;
@@ -210,12 +210,12 @@ namespace HDQD.UCs
                     {
                         oLoaiHopDong.Loai_Hop_Dong = txt_Ten.Text.Trim();
                         oLoaiHopDong.MoTa = rTB_MoTa.Text.Trim();
-                        if (comB_Loai.Text == "Biên chế")
-                            oLoaiHopDong.BienChe_HopDong = true;
-                        else if (comB_Loai.Text == "Hợp đồng")
-                            oLoaiHopDong.BienChe_HopDong = false;
-                        else if (comB_Loai.Text == "")
-                            MessageBox.Show("Phải chọn hình thức biên chế hoặc hợp đồng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        //if (comB_Loai.Text == "Biên chế")
+                        //    oLoaiHopDong.BienChe_HopDong = true;
+                        //else if (comB_Loai.Text == "Hợp đồng")
+                        //    oLoaiHopDong.BienChe_HopDong = false;
+                        //else if (comB_Loai.Text == "")
+                        //    MessageBox.Show("Phải chọn hình thức biên chế hoặc hợp đồng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                         //oLoaiHopDong.Co_Thoi_Han = cb_ThoiHan.Checked;
                         try
@@ -243,12 +243,12 @@ namespace HDQD.UCs
                         oLoaiHopDong.ID = Convert.ToInt16(dtgv_DSLoaiHD.CurrentRow.Cells[0].Value.ToString());
                         oLoaiHopDong.Loai_Hop_Dong = txt_Ten.Text.Trim();
                         oLoaiHopDong.MoTa = rTB_MoTa.Text.Trim();
-                        if (comB_Loai.Text == "Biên chế")
-                            oLoaiHopDong.BienChe_HopDong = true;
-                        else if (comB_Loai.Text == "Hợp đồng")
-                            oLoaiHopDong.BienChe_HopDong = false;
-                        else if (comB_Loai.Text == "")
-                            MessageBox.Show("Phải chọn hình thức biên chế hoặc hợp đồng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        //if (comB_Loai.Text == "Biên chế")
+                        //    oLoaiHopDong.BienChe_HopDong = true;
+                        //else if (comB_Loai.Text == "Hợp đồng")
+                        //    oLoaiHopDong.BienChe_HopDong = false;
+                        //else if (comB_Loai.Text == "")
+                        //    MessageBox.Show("Phải chọn hình thức biên chế hoặc hợp đồng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                         //oLoaiHopDong.Co_Thoi_Han = cb_ThoiHan.Checked;
                         try
