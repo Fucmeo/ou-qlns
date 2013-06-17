@@ -65,9 +65,9 @@ namespace HDQD.UCs
             dtgv_DSLoaiHD.Columns[1].Width = 200;
             dtgv_DSLoaiHD.Columns[2].Name = "Mo_Ta";
             dtgv_DSLoaiHD.Columns[2].HeaderText = "Mô tả";
-            dtgv_DSLoaiHD.Columns[2].Width = 500;
-            dtgv_DSLoaiHD.Columns[3].Name = "BC_HD";
-            dtgv_DSLoaiHD.Columns[3].HeaderText = "Biên chế hoặc hợp đồng?";
+            //dtgv_DSLoaiHD.Columns[2].Width = 500;
+            //dtgv_DSLoaiHD.Columns[3].Name = "BC_HD";
+            //dtgv_DSLoaiHD.Columns[3].HeaderText = "Biên chế hoặc hợp đồng?";
             //dtgv_DSLoaiHD.Columns[3].Width = 100;
             //dtgv_DSLoaiHD.Columns[4].Name = "Co_Thoi_Han";
             //dtgv_DSLoaiHD.Columns[4].HeaderText = "Có thời hạn?";
@@ -87,7 +87,7 @@ namespace HDQD.UCs
                 txt_Ten.Text = row.Cells[1].Value.ToString();
                 //txt_TenVietTat.Text = row.Cells[2].Value.ToString();
                 rTB_MoTa.Text = row.Cells[2].Value.ToString();
-                bool bienche_hd = Convert.ToBoolean(row.Cells[3].Value);
+                //bool bienche_hd = Convert.ToBoolean(row.Cells[3].Value);
                 //if (bienche_hd == true)
                 //    comB_Loai.Text = "Biên chế";
                 //else
