@@ -218,6 +218,7 @@ namespace LuongBH.UCs.Luong
                         oNgach.TenNgach = txt_TenNgach.Text.Trim();
                         oNgach.MaNgach = txt_MaNgach.Text.Trim();
                         oNgach.NhomNgachID = Convert.ToInt32(comB_NhomNgach.SelectedValue);
+                        oNgach.SoThangNangBac = Convert.ToInt16(nup_SoNam.Value);
                         try
                         {
                             oNgach.Add();
@@ -278,6 +279,7 @@ namespace LuongBH.UCs.Luong
                         oNgach.TenNgach = txt_TenNgach.Text.Trim();
                         oNgach.MaNgach = SelectedNode.Name.ToString();
                         oNgach.NhomNgachID = Convert.ToInt32(comB_NhomNgach.SelectedValue);
+                        oNgach.SoThangNangBac = Convert.ToInt16(nup_SoNam.Value);
                         try
                         {
                             if(txt_MaNgach.Text == SelectedNode.Name.ToString()) oNgach.Update(null);
@@ -338,14 +340,14 @@ namespace LuongBH.UCs.Luong
             {
                 btn_Them.Visible = btn_Xoa.Visible = btn_Sua.Visible = true;
                 btn_Huy.Visible = btn_Luu.Visible = false;
-                txt_MaNgach.Enabled = txt_TenNgach.Enabled = comB_NhomNgach.Enabled = false;
+                txt_MaNgach.Enabled = txt_TenNgach.Enabled = nup_SoNam.Enabled = comB_NhomNgach.Enabled = false;
                 TreeV_Ngach_NhomNgach.Enabled = true;
             }
             else
             {
                 btn_Them.Visible = btn_Xoa.Visible = btn_Sua.Visible = false;
                 btn_Huy.Visible = btn_Luu.Visible = true;
-                txt_MaNgach.Enabled = txt_TenNgach.Enabled = comB_NhomNgach.Enabled = true;
+                txt_MaNgach.Enabled = txt_TenNgach.Enabled = nup_SoNam.Enabled = comB_NhomNgach.Enabled = true;
                 TreeV_Ngach_NhomNgach.Enabled = false;
 
                 if (bAddFlag) // thao tac them moi xoa rong cac field
@@ -367,6 +369,7 @@ namespace LuongBH.UCs.Luong
                 {
                     txt_MaNgach.Text = "";
                     txt_TenNgach.Text = SelectedNode.Text;
+                    nup_SoNam.Value = 0;
                     comB_NhomNgach.SelectedIndex = -1;
                     SelectedNode.ExpandAll();
                 }
@@ -376,6 +379,7 @@ namespace LuongBH.UCs.Luong
                     txt_MaNgach.Text = SelectedNode.Name;
                     int NhomNgachID = Convert.ToInt32(lstNgach.Where(a => a.MaNgach == SelectedNode.Name).Select(a => a.NhomNgachID).First());
                     comB_NhomNgach.SelectedValue = NhomNgachID;
+                    nup_SoNam.Value = Convert.ToInt32(lstNgach.Where(a => a.MaNgach == SelectedNode.Name).Select(a => a.SoThangNangBac).First());
                 } 
             }
             

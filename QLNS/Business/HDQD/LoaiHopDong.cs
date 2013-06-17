@@ -45,21 +45,7 @@ namespace Business.HDQD
             set { mota = value; }
         }
 
-        private bool bienche_hopdong;
-
-        public bool BienChe_HopDong
-        {
-            get { return bienche_hopdong; }
-            set { bienche_hopdong = value; }
-        }
-
-        private bool co_thoi_han;
-
-        public bool Co_Thoi_Han
-        {
-            get { return co_thoi_han; }
-            set { co_thoi_han = value; }
-        }
+       
 
         #endregion
 
@@ -67,11 +53,9 @@ namespace Business.HDQD
         public bool Add()
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[3]{
+            IDataParameter[] paras = new IDataParameter[2]{
                 new NpgsqlParameter("p_loai_hop_dong",loai_hopdong),
-                new NpgsqlParameter("p_mo_ta",mota),
-                new NpgsqlParameter("p_bienche_hopdong",bienche_hopdong)
-                //new NpgsqlParameter("p_co_thoi_han",co_thoi_han)
+                new NpgsqlParameter("p_mo_ta",mota)
             };
             check = (int)dp.executeScalarProc("sp1_insert_loai_hop_dong", paras);
             if (check > 0)
@@ -85,12 +69,10 @@ namespace Business.HDQD
         public bool Update()
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[4]{
+            IDataParameter[] paras = new IDataParameter[3]{
                 new NpgsqlParameter("p_id",id), 
                 new NpgsqlParameter("p_loai_hop_dong",loai_hopdong),
-                new NpgsqlParameter("p_mo_ta",mota),
-                new NpgsqlParameter("p_bienche_hopdong",bienche_hopdong)
-                //new NpgsqlParameter("p_co_thoi_han",co_thoi_han)
+                new NpgsqlParameter("p_mo_ta",mota)
             };
             check = (int)dp.executeScalarProc("sp1_update_loai_hop_dong", paras);
             if (check > 0)

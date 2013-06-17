@@ -38,6 +38,7 @@
             this.TreeV_Ngach_NhomNgach = new System.Windows.Forms.TreeView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLP_ThongTin = new System.Windows.Forms.TableLayoutPanel();
+            this.lb_SoThang = new System.Windows.Forms.Label();
             this.txt_TenNgach = new System.Windows.Forms.TextBox();
             this.txt_MaNgach = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -50,13 +51,13 @@
             this.btn_Luu = new System.Windows.Forms.Button();
             this.btn_Huy = new System.Windows.Forms.Button();
             this.btn_Them = new wyDay.Controls.SplitButton();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txt_SoNamNangBac = new System.Windows.Forms.TextBox();
+            this.nup_SoNam = new System.Windows.Forms.NumericUpDown();
             this.contextMenuStrip1.SuspendLayout();
             this.tableLP_Ngach_NhomNgach.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tableLP_ThongTin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nup_SoNam)).BeginInit();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -145,10 +146,10 @@
             // tableLP_ThongTin
             // 
             this.tableLP_ThongTin.ColumnCount = 2;
-            this.tableLP_ThongTin.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.19048F));
-            this.tableLP_ThongTin.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.80952F));
-            this.tableLP_ThongTin.Controls.Add(this.txt_SoNamNangBac, 1, 3);
-            this.tableLP_ThongTin.Controls.Add(this.label4, 0, 3);
+            this.tableLP_ThongTin.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.74603F));
+            this.tableLP_ThongTin.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.25397F));
+            this.tableLP_ThongTin.Controls.Add(this.nup_SoNam, 1, 3);
+            this.tableLP_ThongTin.Controls.Add(this.lb_SoThang, 0, 3);
             this.tableLP_ThongTin.Controls.Add(this.txt_TenNgach, 1, 1);
             this.tableLP_ThongTin.Controls.Add(this.txt_MaNgach, 1, 0);
             this.tableLP_ThongTin.Controls.Add(this.label3, 0, 2);
@@ -167,33 +168,44 @@
             this.tableLP_ThongTin.Size = new System.Drawing.Size(378, 234);
             this.tableLP_ThongTin.TabIndex = 0;
             // 
+            // lb_SoThang
+            // 
+            this.lb_SoThang.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lb_SoThang.AutoSize = true;
+            this.lb_SoThang.Location = new System.Drawing.Point(3, 183);
+            this.lb_SoThang.Name = "lb_SoThang";
+            this.lb_SoThang.Size = new System.Drawing.Size(113, 42);
+            this.lb_SoThang.TabIndex = 10;
+            this.lb_SoThang.Text = "Số tháng nâng bậc";
+            this.lb_SoThang.Visible = false;
+            // 
             // txt_TenNgach
             // 
             this.txt_TenNgach.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txt_TenNgach.Enabled = false;
-            this.txt_TenNgach.Location = new System.Drawing.Point(101, 73);
+            this.txt_TenNgach.Location = new System.Drawing.Point(122, 73);
             this.txt_TenNgach.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txt_TenNgach.Name = "txt_TenNgach";
-            this.txt_TenNgach.Size = new System.Drawing.Size(274, 28);
+            this.txt_TenNgach.Size = new System.Drawing.Size(253, 28);
             this.txt_TenNgach.TabIndex = 9;
             // 
             // txt_MaNgach
             // 
             this.txt_MaNgach.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txt_MaNgach.Enabled = false;
-            this.txt_MaNgach.Location = new System.Drawing.Point(101, 15);
+            this.txt_MaNgach.Location = new System.Drawing.Point(122, 15);
             this.txt_MaNgach.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txt_MaNgach.Name = "txt_MaNgach";
-            this.txt_MaNgach.Size = new System.Drawing.Size(274, 28);
+            this.txt_MaNgach.Size = new System.Drawing.Size(253, 28);
             this.txt_MaNgach.TabIndex = 8;
             // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 124);
+            this.label3.Location = new System.Drawing.Point(3, 134);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 42);
+            this.label3.Size = new System.Drawing.Size(98, 21);
             this.label3.TabIndex = 6;
             this.label3.Text = "Nhóm ngạch";
             // 
@@ -226,9 +238,9 @@
             this.comB_NhomNgach.Items.AddRange(new object[] {
             "Biên chế",
             "Hợp đồng"});
-            this.comB_NhomNgach.Location = new System.Drawing.Point(101, 130);
+            this.comB_NhomNgach.Location = new System.Drawing.Point(122, 132);
             this.comB_NhomNgach.Name = "comB_NhomNgach";
-            this.comB_NhomNgach.Size = new System.Drawing.Size(274, 29);
+            this.comB_NhomNgach.Size = new System.Drawing.Size(253, 29);
             this.comB_NhomNgach.TabIndex = 7;
             // 
             // btn_Sua
@@ -314,25 +326,15 @@
             this.btn_Them.UseVisualStyleBackColor = true;
             this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
             // 
-            // label4
+            // nup_SoNam
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 183);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 42);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Số năm nâng bậc";
-            // 
-            // txt_SoNamNangBac
-            // 
-            this.txt_SoNamNangBac.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_SoNamNangBac.Enabled = false;
-            this.txt_SoNamNangBac.Location = new System.Drawing.Point(101, 190);
-            this.txt_SoNamNangBac.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.txt_SoNamNangBac.Name = "txt_SoNamNangBac";
-            this.txt_SoNamNangBac.Size = new System.Drawing.Size(129, 28);
-            this.txt_SoNamNangBac.TabIndex = 11;
+            this.nup_SoNam.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.nup_SoNam.Enabled = false;
+            this.nup_SoNam.Location = new System.Drawing.Point(122, 190);
+            this.nup_SoNam.Name = "nup_SoNam";
+            this.nup_SoNam.Size = new System.Drawing.Size(120, 28);
+            this.nup_SoNam.TabIndex = 32;
+            this.nup_SoNam.Visible = false;
             // 
             // Ngach_NhomNgach
             // 
@@ -352,6 +354,7 @@
             this.groupBox2.ResumeLayout(false);
             this.tableLP_ThongTin.ResumeLayout(false);
             this.tableLP_ThongTin.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nup_SoNam)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -378,8 +381,8 @@
         private System.Windows.Forms.ComboBox comB_NhomNgach;
         private System.Windows.Forms.TextBox txt_MaNgach;
         private System.Windows.Forms.TextBox txt_TenNgach;
-        private System.Windows.Forms.TextBox txt_SoNamNangBac;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lb_SoThang;
+        private System.Windows.Forms.NumericUpDown nup_SoNam;
 
     }
 }

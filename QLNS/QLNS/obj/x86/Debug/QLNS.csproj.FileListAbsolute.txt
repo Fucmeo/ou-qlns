@@ -78,7 +78,6 @@ D:\Job\QLNS\Projects\QLNS\QLNS\bin\Debug\LuongBH.pdb
 D:\Job\QLNS\Projects\QLNS\QLNS\bin\Debug\Npgsql.pdb
 D:\Job\QLNS\Projects\QLNS\QLNS\bin\Debug\Npgsql.xml
 D:\Job\QLNS\Projects\QLNS\QLNS\bin\Debug\SystemConfig.pdb
-D:\Job\QLNS\Projects\QLNS\QLNS\bin\Debug\SplitButton.pdb
 D:\Job\QLNS\Projects\QLNS\QLNS\bin\Debug\de\Npgsql.resources.dll
 D:\Job\QLNS\Projects\QLNS\QLNS\bin\Debug\es\Npgsql.resources.dll
 D:\Job\QLNS\Projects\QLNS\QLNS\bin\Debug\fi\Npgsql.resources.dll

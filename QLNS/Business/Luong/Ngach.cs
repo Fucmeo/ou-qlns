@@ -30,6 +30,8 @@ namespace Business.Luong
 
         public int NhomNgachID { get; set; }
 
+        public int? SoThangNangBac { get; set; }
+
 
         #endregion
 
@@ -38,10 +40,11 @@ namespace Business.Luong
         public bool Add()
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[3]{
+            IDataParameter[] paras = new IDataParameter[4]{
                 new NpgsqlParameter("p_ma_ngach",MaNgach),
                 new NpgsqlParameter("p_ten_ngach",TenNgach),
-                new NpgsqlParameter("p_nhom_ngach_id",NhomNgachID)
+                new NpgsqlParameter("p_nhom_ngach_id",NhomNgachID),
+                new NpgsqlParameter("p_so_thang_nang_bac",SoThangNangBac)
             };
             check = (int)dp.executeScalarProc("sp2_insert_ngach", paras);
             if (check > 0)
@@ -55,11 +58,12 @@ namespace Business.Luong
         public bool Update(string MaNgachMoi)
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[4]{
+            IDataParameter[] paras = new IDataParameter[5]{
                 new NpgsqlParameter("p_ma_ngach_old",MaNgach), 
                 new NpgsqlParameter("p_ma_ngach_new",MaNgachMoi), 
                 new NpgsqlParameter("p_ten_ngach",TenNgach),
-                new NpgsqlParameter("p_nhom_ngach_id",NhomNgachID)
+                new NpgsqlParameter("p_nhom_ngach_id",NhomNgachID),
+                new NpgsqlParameter("p_so_thang_nang_bac",SoThangNangBac)
             };
             check = (int)dp.executeScalarProc("sp2_update_ngach", paras);
             if (check > 0)
@@ -96,7 +100,8 @@ namespace Business.Luong
                  {
                      MaNgach = row.Field<string>("ma_ngach"),
                      TenNgach = row.Field<string>("ten_ngach"),
-                     NhomNgachID = row.Field<int>("nhom_ngach_id")
+                     NhomNgachID = row.Field<int>("nhom_ngach_id"),
+                     SoThangNangBac = row.Field<int?>("so_thang_nang_bac"),
                  }).ToList();
 
             return listDonVi;
