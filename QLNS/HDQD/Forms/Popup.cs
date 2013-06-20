@@ -22,7 +22,7 @@ namespace HDQD.Forms
 
         public Popup()
         {
-            UCs.DoiThongTinDV ucHopDong = new UCs.DoiThongTinDV();            
+            UCs.TiepNhan ucHopDong = new UCs.TiepNhan();            
             ucHopDong.Dock = DockStyle.Fill;
             this.tableLayoutPanel1.Controls.Add(oUC);
         }
@@ -31,6 +31,11 @@ namespace HDQD.Forms
         {
             oUC.Dock = DockStyle.Fill;
             this.tableLayoutPanel1.Controls.Add(oUC);
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

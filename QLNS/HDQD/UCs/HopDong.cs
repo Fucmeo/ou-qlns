@@ -20,6 +20,7 @@ namespace HDQD.UCs
         Business.ChucDanh oChucdanh;
         Business.ChucVu oChucvu;
         Business.DonVi oDonvi;
+        Business.HDQD.LoaiPhuCap oLoaiPC;
         Business.CNVC.CNVC cnvc;
         Business.FTP oFTP;
         public Business.CNVC.CNVC_File oFile;
@@ -68,6 +69,7 @@ namespace HDQD.UCs
             dtBacHeSo = new DataTable();
             dtFile = new DataTable();
             Paths = new List<KeyValuePair<string, bool?>>();
+            oLoaiPC = new Business.HDQD.LoaiPhuCap();
         }
 
         private void btn_Them_Click(object sender, EventArgs e)
@@ -314,6 +316,10 @@ namespace HDQD.UCs
             comB_DonVi.DataSource = oDonvi.GetActiveDonVi();
             comB_DonVi.DisplayMember = "ten_don_vi";
             comB_DonVi.ValueMember = "id";
+
+            comB_LoaiPhuCap.DataSource = oLoaiPC.GetList();
+            comB_LoaiPhuCap.DisplayMember = "ten_loai";
+            comB_LoaiPhuCap.ValueMember = "id";
         }
 
         /// <summary>
@@ -680,6 +686,12 @@ namespace HDQD.UCs
                 txt_HeSo.Text = m_he_so.ToString();
             }
             catch { }
+        }
+
+        private void cb_CoPhuCap_CheckedChanged(object sender, EventArgs e)
+        {
+            comB_LoaiPhuCap.Enabled = txt_TienPC.Enabled = txt_HeSoPC.Enabled = comB_LuongPC.Enabled = txt_CongThucPC.Enabled = dTP_NgayBatDauPC.Enabled =
+                dTP_NgayHetHanPC.Enabled = nup_PhanTramPC.Enabled = rTB_GhiChuPC.Enabled = !cb_CoPhuCap.Checked;
         }
 
         
