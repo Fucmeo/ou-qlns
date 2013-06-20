@@ -135,7 +135,9 @@ namespace LuongBH.UCs.Luong
             if (SelectedNode != null)
             {
                 bAddFlag = false;
-                ResetInterface(false);            
+                ResetInterface(false);
+                if (SelectedNode.Level == 0) lb_SoThang.Visible = nup_SoNam.Visible = false;
+                else lb_SoThang.Visible = nup_SoNam.Visible = true;
             }
             
         }
@@ -321,6 +323,7 @@ namespace LuongBH.UCs.Luong
             ResetInterface(false);
             txt_MaNgach.Enabled = comB_NhomNgach.Enabled = false;
             comB_NhomNgach.SelectedIndex = -1;
+            lb_SoThang.Visible = nup_SoNam.Visible = false;
         }
 
         private void TSMI_ThemNgach_Click(object sender, EventArgs e)
@@ -328,6 +331,7 @@ namespace LuongBH.UCs.Luong
             bAddFlag = true;
             AddEditNhomNgach = false;
             ResetInterface(false);
+            lb_SoThang.Visible = nup_SoNam.Visible = true;
         }
 
         /// <summary>
@@ -365,16 +369,18 @@ namespace LuongBH.UCs.Luong
             SelectedNode = TreeV_Ngach_NhomNgach.SelectedNode;
             if (SelectedNode != null)
             {
-                if (SelectedNode.Level == 0)
+                if (SelectedNode.Level == 0)        // Nhom ngach
                 {
                     txt_MaNgach.Text = "";
                     txt_TenNgach.Text = SelectedNode.Text;
                     nup_SoNam.Value = 0;
                     comB_NhomNgach.SelectedIndex = -1;
                     SelectedNode.ExpandAll();
+                    lb_SoThang.Visible = nup_SoNam.Visible = false;
                 }
-                else
+                else        // ngach
                 {
+                    lb_SoThang.Visible = nup_SoNam.Visible = true;
                     txt_TenNgach.Text = SelectedNode.Text;
                     txt_MaNgach.Text = SelectedNode.Name;
                     int NhomNgachID = Convert.ToInt32(lstNgach.Where(a => a.MaNgach == SelectedNode.Name).Select(a => a.NhomNgachID).First());
