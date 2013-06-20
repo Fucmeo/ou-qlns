@@ -15,5 +15,10 @@ namespace HDQD.UCs
         {
             InitializeComponent();
         }
+
+        private void rtb_CongThuc_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
     }
 }
