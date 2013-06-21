@@ -115,6 +115,15 @@ namespace Business.HDQD
             return dt;
         }
 
+        public DataTable GetListCachTinhDetail()
+        {
+            DataTable dt = new DataTable();
+
+            dt = dp.getDataTable("select * from v_loai_phu_cap_detail");
+
+            return dt;
+        }
+
         #endregion
     }
 }
