@@ -14,7 +14,7 @@ namespace HDQD.UCs
     {
         bool bAddFlag;
         Business.HDQD.LoaiPhuCap oLoaiPhuCap;
-        DataTable dtDSLoaiPhuCap;
+        DataTable dtDSLoaiPhuCap,dtDSCachTinhDetail;
 
 
         public LoaiPhuCap()
@@ -33,10 +33,15 @@ namespace HDQD.UCs
         {
             ResetInterface(true);
             dtDSLoaiPhuCap = oLoaiPhuCap.GetList();
+            dtDSCachTinhDetail = oLoaiPhuCap.GetListCachTinhDetail();
+            
+            
+
             if (dtDSLoaiPhuCap != null)
             {
                 PrepareDataSource();
                 //EditDtgInterface();
+                
             }
         }
 
@@ -52,23 +57,19 @@ namespace HDQD.UCs
             {
                 btn_Sua.Visible = btn_Xoa.Visible = true;
             }
+            BindLoaiPCToLstB();
         }
 
         /// <summary>
         /// Sua ten, an  cac cot cua dtg cho phu hop
         /// </summary>
-        //private void EditDtgInterface()
-        //{
-        //    // Dat ten cho cac cot
-        //    dtgv_DSLoaiPC.Columns[1].HeaderText = "Tên loại phụ cấp";
-        //    dtgv_DSLoaiPC.Columns[1].Width = 300;
-        //    dtgv_DSLoaiPC.Columns[2].HeaderText = "Tên viết tắt";
-        //    dtgv_DSLoaiPC.Columns[2].Width = 100;
-        //    dtgv_DSLoaiPC.Columns[3].HeaderText = "Mô tả";
-        //    dtgv_DSLoaiPC.Columns[3].Width = 500;
-        //    // An cot ID
-        //    dtgv_DSLoaiPC.Columns[0].Visible = false;
-        //}
+        private void BindLoaiPCToLstB()
+        {
+            lstb_DS.DataSource = dtDSLoaiPhuCap;
+            lstb_DS.DisplayMember = "ten_loai";
+            lstb_DS.ValueMember = "id";
+            lstb_DS.ClearSelected();
+        }
 
         /// <summary>
         /// Su dung thong tin row dang chon de hien thi len txt, comb,..
@@ -128,13 +129,7 @@ namespace HDQD.UCs
 
         #endregion
 
-        private void dtgv_DSLoaiPC_SelectionChanged(object sender, EventArgs e)
-        {
-            //if (dtgv_DSLoaiPC.CurrentRow != null)
-            //{
-            //    DisplayInfo(dtgv_DSLoaiPC.CurrentRow);
-            //}
-        }
+        
 
         private void btn_Sua_Click(object sender, EventArgs e)
         {
@@ -238,29 +233,25 @@ namespace HDQD.UCs
 
         private void rdb_CheckedChanged(object sender, EventArgs e)
         {
-            switch (((RadioButton)sender).Name)
+            if (((RadioButton)sender).Enabled)
             {
-                case "rdb_Khoan":
-                    TLP_CachTinh.Visible = false;
-                    break;
-                case "rdb_HeSo":
-                    TLP_CachTinh.Visible = true;
-                    lb_HeSo.Visible = comb_Luong.Visible = true;
-                    TLP_CachTinh.RowStyles[1].SizeType = TLP_CachTinh.RowStyles[0].SizeType = SizeType.Percent;
-                    TLP_CachTinh.RowStyles[1].Height = 1;
-                    TLP_CachTinh.RowStyles[0].Height = 99;
-                    break;
+                switch (((RadioButton)sender).Name)
+                {
+                    case "rdb_Khoan":
+                        ChangeCachTinhInterface(1);
+                        break;
+                    case "rdb_HeSo":
+                        ChangeCachTinhInterface(2);
+                        break;
 
-                case "rdb_CongThuc":
-                    TLP_CachTinh.Visible = true;
-                    lb_HeSo.Visible = comb_Luong.Visible = false;
-                    TLP_CachTinh.RowStyles[0].SizeType = TLP_CachTinh.RowStyles[1].SizeType = SizeType.Percent;
-                    TLP_CachTinh.RowStyles[0].Height = 1;
-                    TLP_CachTinh.RowStyles[1].Height = 99;
-                    break;
-                default:
-                    break;
+                    case "rdb_CongThuc":
+                        ChangeCachTinhInterface(3);
+                        break;
+                    default:
+                        break;
+                }
             }
+            
         }
 
         private void btn_ThietLap_Click(object sender, EventArgs e)
@@ -277,7 +268,142 @@ namespace HDQD.UCs
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            try
+            {
+                if (lstb_DS.SelectedItem != null)
+                {
+                    int n = Convert.ToInt16(lstb_DS.SelectedValue.ToString());
+                    txt_Ten.Text = dtDSLoaiPhuCap.AsEnumerable().Where(a => a.Field<int>("id") == n).Select(a => a.Field<string>("ten_loai")).First();
+                    txt_TenVietTat.Text = dtDSLoaiPhuCap.AsEnumerable().Where(a => a.Field<int>("id") == n).Select(a => a.Field<string>("ten_viet_tat")).First();
+                    rTB_MoTa.Text = dtDSLoaiPhuCap.AsEnumerable().Where(a => a.Field<int>("id") == n).Select(a => a.Field<string>("mo_ta")).First();
+                }
 
+                if (dtDSCachTinhDetail != null && dtDSCachTinhDetail.AsEnumerable().Where(a => a.Field<int>("loai_pc_id") == Convert.ToInt16(lstb_DS.SelectedValue)).Count() > 0)
+                {
+                    BindDataForDTGV(dtDSCachTinhDetail.AsEnumerable().Where(a => a.Field<int>("loai_pc_id") == Convert.ToInt16(lstb_DS.SelectedValue)).CopyToDataTable());
+                    if (dtgv_DS.DataSource != null)
+                        SetupDTGV();
+                }
+                else
+                {
+                    dtgv_DS.DataSource = null;
+                }
+            }
+            catch (Exception)
+            {
+            }
+            
+        }
+
+        private void BindDataForDTGV(DataTable dt)
+        {
+            dtgv_DS.DataSource = dt;
+            dtgv_DS.ClearSelection();
+        }
+
+        private void SetupDTGV()
+        {
+            dtgv_DS.Columns["cach_tinh"].Visible = dtgv_DS.Columns["loai_pc_id"].Visible = false;
+            dtgv_DS.Columns["id"].Visible = false;
+
+            dtgv_DS.Columns["cach_tinh_text"].HeaderText = "Cách tính";
+            dtgv_DS.Columns["cach_tinh_text"].Width = 350;
+            dtgv_DS.Columns["tu_ngay"].HeaderText = "Từ ngày";
+            dtgv_DS.Columns["tu_ngay"].Width = 100;
+            dtgv_DS.Columns["den_ngay"].HeaderText = "Đến ngày";
+            dtgv_DS.Columns["den_ngay"].Width = 100;
+            dtgv_DS.Columns["ghi_chu"].HeaderText = "Ghi chú";
+            dtgv_DS.Columns["ghi_chu"].Width = 300;
+            dtgv_DS.Columns["ngay_tao"].HeaderText = "Ngày tạo";
+            dtgv_DS.Columns["ngay_tao"].Width = 100;
+        }
+
+        private void ChangeCachTinhInterface(int nCachTinh)
+        {
+            switch (nCachTinh)
+            {
+                case 1:
+                    TLP_CachTinh.Visible = false;
+                    rdb_Khoan.Checked = true;
+                    break;
+                case 2:
+                    TLP_CachTinh.Visible = true;
+                    lb_HeSo.Visible = comb_Luong.Visible = true;
+                    TLP_CachTinh.RowStyles[1].SizeType = TLP_CachTinh.RowStyles[0].SizeType = SizeType.Percent;
+                    TLP_CachTinh.RowStyles[1].Height = 1;
+                    comb_Luong.Text = "Lương cơ bản";
+                    TLP_CachTinh.RowStyles[0].Height = 99;
+                    rdb_HeSo.Checked = true;
+                    break;
+
+                case 3:
+                    TLP_CachTinh.Visible = true;
+                    lb_HeSo.Visible = comb_Luong.Visible = true;
+                    TLP_CachTinh.RowStyles[1].SizeType = TLP_CachTinh.RowStyles[0].SizeType = SizeType.Percent;
+                    TLP_CachTinh.RowStyles[1].Height = 1;
+                    TLP_CachTinh.RowStyles[0].Height = 99;
+                    comb_Luong.Text = "Lương tối thiểu";
+                    rdb_HeSo.Checked = true;
+                    break;
+
+                case 4:
+                    TLP_CachTinh.Visible = true;
+                    lb_HeSo.Visible = comb_Luong.Visible = false;
+                    TLP_CachTinh.RowStyles[0].SizeType = TLP_CachTinh.RowStyles[1].SizeType = SizeType.Percent;
+                    TLP_CachTinh.RowStyles[0].Height = 1;
+                    TLP_CachTinh.RowStyles[1].Height = 99;
+                    rdb_CongThuc.Checked = true;
+                    break;
+            }
+        }
+
+        private void dtgv_DS_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (dtgv_DS.SelectedRows != null)
+                {
+                    DataRow dr = dtDSCachTinhDetail.AsEnumerable().Where(a => a.Field<int>("id") == Convert.ToInt16(dtgv_DS.SelectedRows[0].Cells["id"].Value)).First();
+
+                    dTP_TuNgay.Value = Convert.ToDateTime(dr["tu_ngay"]);
+
+                    if (dr["den_ngay"].ToString() != "")
+                    {
+                        dtp_DenNgay.Checked = true;
+                        dtp_DenNgay.Value = Convert.ToDateTime(dr["den_ngay"].ToString());
+                    }
+                    else
+                    {
+                        dtp_DenNgay.Checked = false;
+                    }
+
+                    rtb_GhiChu.Text = Convert.ToString(dr["ghi_chu"]);
+
+                    switch (Convert.ToInt16(dr["cach_tinh"]))
+                    {
+                        case 1:
+                            ChangeCachTinhInterface(1);
+                            break;
+                        case 2:
+                            ChangeCachTinhInterface(2);
+                            break;
+                        case 3:
+                            ChangeCachTinhInterface(3);
+                            break;
+                        case 4:
+                            ChangeCachTinhInterface(4);
+                            break;
+
+                        default:
+                            break;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }
