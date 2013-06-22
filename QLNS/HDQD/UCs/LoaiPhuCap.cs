@@ -12,7 +12,7 @@ namespace HDQD.UCs
 {
     public partial class LoaiPhuCap : UserControl
     {
-        bool bAddFlag;
+        bool? bAddLoaiPCFlag , bAddCachTinhFlag;
         Business.HDQD.LoaiPhuCap oLoaiPhuCap;
         DataTable dtDSLoaiPhuCap,dtDSCachTinhDetail;
 
@@ -23,15 +23,8 @@ namespace HDQD.UCs
             oLoaiPhuCap = new Business.HDQD.LoaiPhuCap();
         }
 
-        private void btn_Them_Click(object sender, EventArgs e)
-        {
-            bAddFlag = true;
-            ResetInterface(false);
-        }
-
         private void LoaiPhuCap_Load(object sender, EventArgs e)
         {
-            ResetInterface(true);
             dtDSLoaiPhuCap = oLoaiPhuCap.GetList();
             dtDSCachTinhDetail = oLoaiPhuCap.GetListCachTinhDetail();
             
@@ -86,42 +79,11 @@ namespace HDQD.UCs
         }
 
         /// <summary>
-        /// An hien control, button
-        /// </summary>
-        /// <param name="init">true = init state, otherwise add/edit state</param>
-        private void ResetInterface(bool init)
-        {
-            //if (init)
-            //{
-            //    btn_Them.Visible = btn_Xoa.Visible = btn_Sua.Visible = true;
-            //    btn_Huy.Visible = btn_Luu.Visible = false;
-            //    txt_Ten.Enabled = txt_TenVietTat.Enabled = rTB_MoTa.Enabled = false;
-            //    dtgv_DSLoaiPC.Enabled = true;
-            //    if (dtgv_DSLoaiPC.CurrentRow != null)
-            //    {
-            //        DisplayInfo(dtgv_DSLoaiPC.CurrentRow);
-            //    }
-            //}
-            //else
-            //{
-            //    btn_Them.Visible = btn_Xoa.Visible = btn_Sua.Visible = false;
-            //    btn_Huy.Visible = btn_Luu.Visible = true;
-            //    txt_Ten.Enabled = txt_TenVietTat.Enabled = rTB_MoTa.Enabled = true;
-            //    dtgv_DSLoaiPC.Enabled = false;
-
-            //    if (bAddFlag) // thao tac them moi xoa rong cac field
-            //    {
-            //        txt_Ten.Text = txt_TenVietTat.Text = rTB_MoTa.Text = "";
-            //    }
-            //}
-        }
-
-        /// <summary>
         /// Refresh Data Source cho dtg sau moi lan thao tac
         /// </summary>
         private void RefreshDataSource()
         {
-            Business.HDQD.LoaiPhuCap loaipc = new Business.HDQD.LoaiPhuCap();    // khong dung chung oChucVu duoc ???
+            Business.HDQD.LoaiPhuCap loaipc = new Business.HDQD.LoaiPhuCap();    
             dtDSLoaiPhuCap = loaipc.GetList();
             PrepareDataSource();
 
@@ -133,102 +95,100 @@ namespace HDQD.UCs
 
         private void btn_Sua_Click(object sender, EventArgs e)
         {
-            bAddFlag = false;
-            ResetInterface(false);
+            bAddLoaiPCFlag = false;
         }
 
         private void btn_Huy_Click(object sender, EventArgs e)
         {
-            ResetInterface(true);
+            ButtonControl(true);
+            LoaiPCControls(false);
         }
 
         private void btn_Xoa_Click(object sender, EventArgs e)
         {
-            //if (dtgv_DSLoaiPC.CurrentRow != null)
-            //{
-            //    if (MessageBox.Show("Bạn thực sự muốn xoá loại phụ cấp này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            //    {
-            //        try
-            //        {
-            //            oLoaiPhuCap.ID = Convert.ToInt16(dtgv_DSLoaiPC.CurrentRow.Cells[0].Value.ToString());
-            //            if (oLoaiPhuCap.Delete())
-            //            {
-            //                MessageBox.Show("Xoá thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //            }
-            //            RefreshDataSource();
-
-            //        }
-            //        catch (Exception )
-            //        {
-            //            MessageBox.Show("Xóa thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //        }
-
-            //    }
-            //}
+            
         }
 
         private void btn_Luu_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txt_Ten.Text))
+            if (bAddLoaiPCFlag == true)
             {
-                #region thao tac them
-
-                if (bAddFlag)
+                if (!string.IsNullOrWhiteSpace(txt_Ten.Text))
                 {
-                    if (MessageBox.Show("Bạn thực sự muốn thêm loại phụ cấp này ?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        oLoaiPhuCap.TenLoaiPhuCap = txt_Ten.Text.Trim();
-                        oLoaiPhuCap.TenLoaiPC_Viettat = txt_TenVietTat.Text.Trim();
-                        oLoaiPhuCap.MoTa = rTB_MoTa.Text.Trim();
-                        try
+                    #region thao tac them loai pc
+                        if (MessageBox.Show("Bạn thực sự muốn thêm loại phụ cấp này ?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
-                            if (oLoaiPhuCap.Add())
+                            oLoaiPhuCap.TenLoaiPhuCap = txt_Ten.Text.Trim();
+                            oLoaiPhuCap.TenLoaiPC_Viettat = txt_TenVietTat.Text.Trim();
+                            oLoaiPhuCap.MoTa = rTB_MoTa.Text.Trim();
+                            try
                             {
-                                MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
+                                if (oLoaiPhuCap.Add())
+                                {
+                                    MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
 
-                            RefreshDataSource();
-                            ResetInterface(true);
+                                RefreshDataSource();
+                                ButtonControl(true);
+                                LoaiPCControls(false);
+                                CachTinhControls(false);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Thao tác thêm thất bại.\n" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Thao tác thêm thất bại.\n" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
+                    
+                    #endregion
+                    
                 }
-                #endregion
-                #region thao tac sua
                 else
+                    MessageBox.Show("Tên loại phụ cấp không được rỗng, xin vui lòng cung cấp tên loại phụ cấp.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (bAddLoaiPCFlag == false)
+            {
+                #region thao tac sua loai pc
+                if (MessageBox.Show("Bạn thực sự muốn sửa loại phụ cấp này ?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    if (MessageBox.Show("Bạn thực sự muốn sửa mô hình này ?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    oLoaiPhuCap.ID = Convert.ToInt16(lstb_DS.SelectedValue);
+                    oLoaiPhuCap.TenLoaiPhuCap = txt_Ten.Text.Trim();
+                    oLoaiPhuCap.TenLoaiPC_Viettat = txt_TenVietTat.Text.Trim();
+                    oLoaiPhuCap.MoTa = rTB_MoTa.Text.Trim();
+                    try
                     {
-                        //oLoaiPhuCap.ID = Convert.ToInt16(dtgv_DSLoaiPC.CurrentRow.Cells[0].Value.ToString());
-                        oLoaiPhuCap.TenLoaiPhuCap = txt_Ten.Text.Trim();
-                        oLoaiPhuCap.TenLoaiPC_Viettat = txt_TenVietTat.Text.Trim();
-                        oLoaiPhuCap.MoTa = rTB_MoTa.Text.Trim();
-                        try
+                        if (oLoaiPhuCap.Update())
                         {
-                            if (oLoaiPhuCap.Update())
-                            {
-                                MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-
-
-                            RefreshDataSource();
-                            ResetInterface(true);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Thao tác sửa thất bại.\n" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
 
+
+                        RefreshDataSource();
+                        ButtonControl(true);
+                        LoaiPCControls(false);
+                        CachTinhControls(false);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Thao tác sửa thất bại.\n" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
                 }
                 #endregion
             }
-            else
-                MessageBox.Show("Tên loại phụ cấp không được rỗng, xin vui lòng cung cấp tên loại phụ cấp.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    
+           
+            
+
+            if (bAddCachTinhFlag == true)
+            {
+
+            }
+            else if (bAddCachTinhFlag == false)
+            {
+
+            }
+
+            
         }
 
         private void rdb_CheckedChanged(object sender, EventArgs e)
@@ -268,6 +228,7 @@ namespace HDQD.UCs
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ClearUICachTinh();
             try
             {
                 if (lstb_DS.SelectedItem != null)
@@ -303,11 +264,11 @@ namespace HDQD.UCs
 
         private void SetupDTGV()
         {
-            dtgv_DS.Columns["cach_tinh"].Visible = dtgv_DS.Columns["loai_pc_id"].Visible = false;
+            dtgv_DS.Columns["chuoi_cong_thuc"].Visible = dtgv_DS.Columns["cach_tinh"].Visible = dtgv_DS.Columns["loai_pc_id"].Visible = false;
             dtgv_DS.Columns["id"].Visible = false;
 
             dtgv_DS.Columns["cach_tinh_text"].HeaderText = "Cách tính";
-            dtgv_DS.Columns["cach_tinh_text"].Width = 350;
+            dtgv_DS.Columns["cach_tinh_text"].Width = 250;
             dtgv_DS.Columns["tu_ngay"].HeaderText = "Từ ngày";
             dtgv_DS.Columns["tu_ngay"].Width = 100;
             dtgv_DS.Columns["den_ngay"].HeaderText = "Đến ngày";
@@ -353,12 +314,14 @@ namespace HDQD.UCs
                     TLP_CachTinh.RowStyles[0].Height = 1;
                     TLP_CachTinh.RowStyles[1].Height = 99;
                     rdb_CongThuc.Checked = true;
+                    
                     break;
             }
         }
 
         private void dtgv_DS_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            //ClearUILoaiPC();
             try
             {
                 if (dtgv_DS.SelectedRows != null)
@@ -378,6 +341,7 @@ namespace HDQD.UCs
                     }
 
                     rtb_GhiChu.Text = Convert.ToString(dr["ghi_chu"]);
+                    rtb_CongThuc.Text = Convert.ToString(dr["chuoi_cong_thuc"]);
 
                     switch (Convert.ToInt16(dr["cach_tinh"]))
                     {
@@ -406,9 +370,94 @@ namespace HDQD.UCs
             }
         }
 
-        private void btn_Luu_Click_1(object sender, EventArgs e)
+        private void TSMI_ThemLoaiPC_Click(object sender, EventArgs e)
         {
+            bAddLoaiPCFlag = true;
+            bAddCachTinhFlag = null;
 
+            LoaiPCControls(true);
+            ButtonControl(false);
+            CachTinhControls(false);
+            ClearUICachTinh();
+            ClearUILoaiPC();
+        }
+
+        private void LoaiPCControls(bool bEnable)
+        {
+            txt_Ten.Enabled = txt_TenVietTat.Enabled = rTB_MoTa.Enabled = bEnable;
+            lstb_DS.Enabled = !bEnable;
+        }
+
+        private void CachTinhControls(bool bEnable)
+        {
+            gb_CachTinh.Enabled = bEnable;
+        }
+
+        private void ButtonControl(bool Init)
+        {
+            splitButton1.Visible = btn_Sua.Visible = btn_Xoa.Visible = Init;
+            btn_Luu.Visible = btn_Huy.Visible = !Init;
+        }
+
+        private void ClearUILoaiPC()
+        {
+            txt_Ten.Text = txt_TenVietTat.Text = rTB_MoTa.Text = "";
+            lstb_DS.ClearSelected();
+        }
+
+        private void ClearUICachTinh()
+        {
+            dtp_DenNgay.Checked = false;
+            rtb_GhiChu.Text = "";
+            rdb_Khoan.Checked = true;
+            ChangeCachTinhInterface(1);
+            rtb_CongThuc.Text = "";
+            dtgv_DS.ClearSelection();
+        }
+
+        private void TSMI_SuaLoaiPC_Click(object sender, EventArgs e)
+        {
+            bAddLoaiPCFlag = false;
+            bAddCachTinhFlag = null;
+            LoaiPCControls(true);
+            ButtonControl(false);
+            CachTinhControls(false);
+            //ClearUICachTinh();
+            //ClearUILoaiPC();
+
+        }
+
+        private void TSMI_SuaCachTinh_Click(object sender, EventArgs e)
+        {
+            bAddLoaiPCFlag = true;
+            bAddCachTinhFlag = null;
+        }
+
+        private void TSMI_XoaLoaiPC_Click(object sender, EventArgs e)
+        {
+            if (lstb_DS.SelectedItem != null)
+            {
+                if (MessageBox.Show("Bạn thực sự muốn xoá loại phụ cấp \"" + lstb_DS.Text.ToString() + "\" ?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    try
+                    {
+                        oLoaiPhuCap.ID = Convert.ToInt16(lstb_DS.SelectedValue);
+                        if (oLoaiPhuCap.Delete())
+                        {
+                            MessageBox.Show("Xoá thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        RefreshDataSource();
+                        ClearUILoaiPC();
+                        ClearUICachTinh();
+                        dtgv_DS.DataSource = null;
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Xóa không thành công", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                }
+            }
         }
     }
 }
