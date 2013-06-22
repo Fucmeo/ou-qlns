@@ -11,19 +11,19 @@ namespace Business.HDQD
     {
         #region Properties
 
-        static List<string> lstValue = new List<string>();
-        static List<Boolean> lstIsLeaf = new List<Boolean>();
-        static List<Boolean> lstIsRoot = new List<Boolean>();
-        static List<string> lstLeftNode = new List<string>();
-        static List<string> lstRightNode = new List<string>();
-        static BinaryTreeNode btn;
+        public List<string> lstValue = new List<string>();
+        public List<Boolean> lstIsLeaf = new List<Boolean>();
+        public List<Boolean> lstIsRoot = new List<Boolean>();
+        public List<string> lstLeftNode = new List<string>();
+        public List<string> lstRightNode = new List<string>();
+         BinaryTreeNode btn;
 
 
         #endregion
 
         #region Method
 
-        public static void GetExpressionTreeData(BinaryTreeNode btn)
+        public  void GetExpressionTreeData(BinaryTreeNode btn)
         {
             if (btn.LeftChild.IsLeaf)
             {
@@ -67,7 +67,7 @@ namespace Business.HDQD
         /// <param name="node" />
         /// <param name="opStack" />
         /// <param name="nodeStack" />
-        private static void CreateSubTree(Stack<BinaryTreeNode> opStack, Stack<BinaryTreeNode> nodeStack)
+        private  void CreateSubTree(Stack<BinaryTreeNode> opStack, Stack<BinaryTreeNode> nodeStack)
         {
             BinaryTreeNode node = opStack.Pop();
             node.RightChild = nodeStack.Pop();
@@ -75,7 +75,7 @@ namespace Business.HDQD
             nodeStack.Push(node);
         }
 
-        public static BinaryTreeNode Infix2ExpressionTree(string infixExpression)
+        public  BinaryTreeNode Infix2ExpressionTree(string infixExpression)
         {
             //Lis prefix = new List();
             Stack<BinaryTreeNode> operatorStack = new Stack<BinaryTreeNode>();
@@ -113,17 +113,17 @@ namespace Business.HDQD
             return nodeStack.Peek();
         }
 
-        private static bool IsOperator(string str)
+        private  bool IsOperator(string str)
         {
             return Regex.Match(str, @"\+|\-|\*|\/|\%").Success;
         }
 
-        public static bool IsOperand(string str)
+        public  bool IsOperand(string str)
         {
             return Regex.Match(str, @"^\d+$|^([a-z]|[A-Z])$").Success;
         }
 
-        public static int GetPriority(string op)
+        public  int GetPriority(string op)
         {
             if (op == "*" || op == "/" || op == "%")
                 return 2;
@@ -132,7 +132,7 @@ namespace Business.HDQD
             return 0;
         }
 
-        public static void FormatExpression(ref string expression)
+        public  void FormatExpression(ref string expression)
         {
             expression = expression.Replace(" ", "");
 
