@@ -33,13 +33,21 @@
             this.tableLP_LoaiPC = new System.Windows.Forms.TableLayoutPanel();
             this.gp_ThaoTac = new System.Windows.Forms.GroupBox();
             this.tableLP_ThaoTac = new System.Windows.Forms.TableLayoutPanel();
-            this.btn_Huy = new System.Windows.Forms.Button();
+            this.btn_Sua = new wyDay.Controls.SplitButton();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.TSMI_SuaLoaiPC = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMI_SuaCachTinh = new System.Windows.Forms.ToolStripMenuItem();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.btn_Huy = new System.Windows.Forms.Button();
             this.btn_Luu = new System.Windows.Forms.Button();
             this.splitButton1 = new wyDay.Controls.SplitButton();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.TSMI_ThemLoaiPC = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMI_ThemCachTinh = new System.Windows.Forms.ToolStripMenuItem();
+            this.btn_Xoa = new wyDay.Controls.SplitButton();
+            this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.TSMI_XoaLoaiPC = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMI_XoaCachTinh = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLP_ChiTietLoaiPC = new System.Windows.Forms.TableLayoutPanel();
             this.gb_LoaiPC = new System.Windows.Forms.GroupBox();
             this.TLP_LoaiPhuCap_Con = new System.Windows.Forms.TableLayoutPanel();
@@ -71,18 +79,12 @@
             this.rtb_CongThuc = new System.Windows.Forms.RichTextBox();
             this.gb_DanhSach = new System.Windows.Forms.GroupBox();
             this.dtgv_DS = new System.Windows.Forms.DataGridView();
-            this.btn_Sua = new wyDay.Controls.SplitButton();
-            this.btn_Xoa = new wyDay.Controls.SplitButton();
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.TSMI_SuaLoaiPC = new System.Windows.Forms.ToolStripMenuItem();
-            this.TSMI_SuaCachTinh = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.TSMI_XoaLoaiPC = new System.Windows.Forms.ToolStripMenuItem();
-            this.TSMI_XoaCachTinh = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLP_LoaiPC.SuspendLayout();
             this.gp_ThaoTac.SuspendLayout();
             this.tableLP_ThaoTac.SuspendLayout();
+            this.contextMenuStrip2.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            this.contextMenuStrip3.SuspendLayout();
             this.tableLP_ChiTietLoaiPC.SuspendLayout();
             this.gb_LoaiPC.SuspendLayout();
             this.TLP_LoaiPhuCap_Con.SuspendLayout();
@@ -93,8 +95,6 @@
             this.TLP_CachTinh.SuspendLayout();
             this.gb_DanhSach.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_DS)).BeginInit();
-            this.contextMenuStrip2.SuspendLayout();
-            this.contextMenuStrip3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLP_LoaiPC
@@ -152,6 +152,53 @@
             this.tableLP_ThaoTac.Size = new System.Drawing.Size(788, 81);
             this.tableLP_ThaoTac.TabIndex = 2;
             // 
+            // btn_Sua
+            // 
+            this.btn_Sua.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Sua.AutoSize = true;
+            this.btn_Sua.ContextMenuStrip = this.contextMenuStrip2;
+            this.btn_Sua.ImageKey = "Edit Data.png";
+            this.btn_Sua.ImageList = this.imageList1;
+            this.btn_Sua.Location = new System.Drawing.Point(195, 9);
+            this.btn_Sua.Name = "btn_Sua";
+            this.btn_Sua.Size = new System.Drawing.Size(80, 62);
+            this.btn_Sua.SplitMenuStrip = this.contextMenuStrip2;
+            this.btn_Sua.TabIndex = 6;
+            this.btn_Sua.UseVisualStyleBackColor = true;
+            this.btn_Sua.Click += new System.EventHandler(this.btn_Sua_Click);
+            // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSMI_SuaLoaiPC,
+            this.TSMI_SuaCachTinh});
+            this.contextMenuStrip2.Name = "contextMenuStrip1";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(281, 52);
+            // 
+            // TSMI_SuaLoaiPC
+            // 
+            this.TSMI_SuaLoaiPC.Name = "TSMI_SuaLoaiPC";
+            this.TSMI_SuaLoaiPC.Size = new System.Drawing.Size(280, 24);
+            this.TSMI_SuaLoaiPC.Text = "Sửa loại phụ cấp";
+            this.TSMI_SuaLoaiPC.Click += new System.EventHandler(this.TSMI_SuaLoaiPC_Click);
+            // 
+            // TSMI_SuaCachTinh
+            // 
+            this.TSMI_SuaCachTinh.Name = "TSMI_SuaCachTinh";
+            this.TSMI_SuaCachTinh.Size = new System.Drawing.Size(280, 24);
+            this.TSMI_SuaCachTinh.Text = "Sửa cách tính cho loại phụ cấp";
+            this.TSMI_SuaCachTinh.Click += new System.EventHandler(this.TSMI_SuaCachTinh_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Add.png");
+            this.imageList1.Images.SetKeyName(1, "Cancel.png");
+            this.imageList1.Images.SetKeyName(2, "Edit Data.png");
+            this.imageList1.Images.SetKeyName(3, "Garbage.png");
+            this.imageList1.Images.SetKeyName(4, "Save.png");
+            // 
             // btn_Huy
             // 
             this.btn_Huy.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -167,16 +214,6 @@
             this.btn_Huy.UseVisualStyleBackColor = true;
             this.btn_Huy.Visible = false;
             this.btn_Huy.Click += new System.EventHandler(this.btn_Huy_Click);
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "Add.png");
-            this.imageList1.Images.SetKeyName(1, "Cancel.png");
-            this.imageList1.Images.SetKeyName(2, "Edit Data.png");
-            this.imageList1.Images.SetKeyName(3, "Garbage.png");
-            this.imageList1.Images.SetKeyName(4, "Save.png");
             // 
             // btn_Luu
             // 
@@ -228,6 +265,44 @@
             this.TSMI_ThemCachTinh.Name = "TSMI_ThemCachTinh";
             this.TSMI_ThemCachTinh.Size = new System.Drawing.Size(292, 24);
             this.TSMI_ThemCachTinh.Text = "Thêm cách tính cho loại phụ cấp";
+            this.TSMI_ThemCachTinh.Click += new System.EventHandler(this.TSMI_ThemCachTinh_Click);
+            // 
+            // btn_Xoa
+            // 
+            this.btn_Xoa.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Xoa.AutoSize = true;
+            this.btn_Xoa.ContextMenuStrip = this.contextMenuStrip3;
+            this.btn_Xoa.ImageKey = "Garbage.png";
+            this.btn_Xoa.ImageList = this.imageList1;
+            this.btn_Xoa.Location = new System.Drawing.Point(668, 9);
+            this.btn_Xoa.Name = "btn_Xoa";
+            this.btn_Xoa.Size = new System.Drawing.Size(80, 62);
+            this.btn_Xoa.SplitMenuStrip = this.contextMenuStrip3;
+            this.btn_Xoa.TabIndex = 7;
+            this.btn_Xoa.UseVisualStyleBackColor = true;
+            this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
+            // 
+            // contextMenuStrip3
+            // 
+            this.contextMenuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSMI_XoaLoaiPC,
+            this.TSMI_XoaCachTinh});
+            this.contextMenuStrip3.Name = "contextMenuStrip1";
+            this.contextMenuStrip3.Size = new System.Drawing.Size(282, 52);
+            // 
+            // TSMI_XoaLoaiPC
+            // 
+            this.TSMI_XoaLoaiPC.Name = "TSMI_XoaLoaiPC";
+            this.TSMI_XoaLoaiPC.Size = new System.Drawing.Size(281, 24);
+            this.TSMI_XoaLoaiPC.Text = "Xoá loại phụ cấp";
+            this.TSMI_XoaLoaiPC.Click += new System.EventHandler(this.TSMI_XoaLoaiPC_Click);
+            // 
+            // TSMI_XoaCachTinh
+            // 
+            this.TSMI_XoaCachTinh.Name = "TSMI_XoaCachTinh";
+            this.TSMI_XoaCachTinh.Size = new System.Drawing.Size(281, 24);
+            this.TSMI_XoaCachTinh.Text = "Xoá cách tính cho loại phụ cấp";
+            this.TSMI_XoaCachTinh.Click += new System.EventHandler(this.TSMI_XoaCachTinh_Click);
             // 
             // tableLP_ChiTietLoaiPC
             // 
@@ -442,7 +517,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TLP_CongThucTinh.SetColumnSpan(this.rtb_GhiChu, 2);
-            this.rtb_GhiChu.Enabled = false;
             this.rtb_GhiChu.Location = new System.Drawing.Point(200, 44);
             this.rtb_GhiChu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rtb_GhiChu.MaxLength = 50;
@@ -575,7 +649,7 @@
             this.comb_Luong.Items.AddRange(new object[] {
             "Lương cơ bản",
             "Lương tối thiểu"});
-            this.comb_Luong.Location = new System.Drawing.Point(191, 14);
+            this.comb_Luong.Location = new System.Drawing.Point(191, 12);
             this.comb_Luong.Name = "comb_Luong";
             this.comb_Luong.Size = new System.Drawing.Size(289, 29);
             this.comb_Luong.TabIndex = 34;
@@ -616,6 +690,7 @@
             this.rtb_CongThuc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtb_CongThuc.Enabled = false;
             this.rtb_CongThuc.Location = new System.Drawing.Point(191, 56);
             this.rtb_CongThuc.Name = "rtb_CongThuc";
             this.rtb_CongThuc.Size = new System.Drawing.Size(442, 48);
@@ -651,79 +726,6 @@
             this.dtgv_DS.TabIndex = 0;
             this.dtgv_DS.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_DS_CellClick);
             // 
-            // btn_Sua
-            // 
-            this.btn_Sua.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Sua.AutoSize = true;
-            this.btn_Sua.ContextMenuStrip = this.contextMenuStrip2;
-            this.btn_Sua.ImageKey = "Edit Data.png";
-            this.btn_Sua.ImageList = this.imageList1;
-            this.btn_Sua.Location = new System.Drawing.Point(195, 9);
-            this.btn_Sua.Name = "btn_Sua";
-            this.btn_Sua.Size = new System.Drawing.Size(80, 62);
-            this.btn_Sua.SplitMenuStrip = this.contextMenuStrip2;
-            this.btn_Sua.TabIndex = 6;
-            this.btn_Sua.UseVisualStyleBackColor = true;
-            this.btn_Sua.Click += new System.EventHandler(this.btn_Sua_Click);
-            // 
-            // btn_Xoa
-            // 
-            this.btn_Xoa.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Xoa.AutoSize = true;
-            this.btn_Xoa.ContextMenuStrip = this.contextMenuStrip3;
-            this.btn_Xoa.ImageKey = "Garbage.png";
-            this.btn_Xoa.ImageList = this.imageList1;
-            this.btn_Xoa.Location = new System.Drawing.Point(668, 9);
-            this.btn_Xoa.Name = "btn_Xoa";
-            this.btn_Xoa.Size = new System.Drawing.Size(80, 62);
-            this.btn_Xoa.SplitMenuStrip = this.contextMenuStrip3;
-            this.btn_Xoa.TabIndex = 7;
-            this.btn_Xoa.UseVisualStyleBackColor = true;
-            this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
-            // 
-            // contextMenuStrip2
-            // 
-            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TSMI_SuaLoaiPC,
-            this.TSMI_SuaCachTinh});
-            this.contextMenuStrip2.Name = "contextMenuStrip1";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(281, 52);
-            // 
-            // TSMI_SuaLoaiPC
-            // 
-            this.TSMI_SuaLoaiPC.Name = "TSMI_SuaLoaiPC";
-            this.TSMI_SuaLoaiPC.Size = new System.Drawing.Size(280, 24);
-            this.TSMI_SuaLoaiPC.Text = "Sửa loại phụ cấp";
-            this.TSMI_SuaLoaiPC.Click += new System.EventHandler(this.TSMI_SuaLoaiPC_Click);
-            // 
-            // TSMI_SuaCachTinh
-            // 
-            this.TSMI_SuaCachTinh.Name = "TSMI_SuaCachTinh";
-            this.TSMI_SuaCachTinh.Size = new System.Drawing.Size(280, 24);
-            this.TSMI_SuaCachTinh.Text = "Sửa cách tính cho loại phụ cấp";
-            this.TSMI_SuaCachTinh.Click += new System.EventHandler(this.TSMI_SuaCachTinh_Click);
-            // 
-            // contextMenuStrip3
-            // 
-            this.contextMenuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TSMI_XoaLoaiPC,
-            this.TSMI_XoaCachTinh});
-            this.contextMenuStrip3.Name = "contextMenuStrip1";
-            this.contextMenuStrip3.Size = new System.Drawing.Size(282, 74);
-            // 
-            // TSMI_XoaLoaiPC
-            // 
-            this.TSMI_XoaLoaiPC.Name = "TSMI_XoaLoaiPC";
-            this.TSMI_XoaLoaiPC.Size = new System.Drawing.Size(281, 24);
-            this.TSMI_XoaLoaiPC.Text = "Xoá loại phụ cấp";
-            this.TSMI_XoaLoaiPC.Click += new System.EventHandler(this.TSMI_XoaLoaiPC_Click);
-            // 
-            // TSMI_XoaCachTinh
-            // 
-            this.TSMI_XoaCachTinh.Name = "TSMI_XoaCachTinh";
-            this.TSMI_XoaCachTinh.Size = new System.Drawing.Size(281, 24);
-            this.TSMI_XoaCachTinh.Text = "Xoá cách tính cho loại phụ cấp";
-            // 
             // LoaiPhuCap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -739,7 +741,9 @@
             this.gp_ThaoTac.ResumeLayout(false);
             this.tableLP_ThaoTac.ResumeLayout(false);
             this.tableLP_ThaoTac.PerformLayout();
+            this.contextMenuStrip2.ResumeLayout(false);
             this.contextMenuStrip1.ResumeLayout(false);
+            this.contextMenuStrip3.ResumeLayout(false);
             this.tableLP_ChiTietLoaiPC.ResumeLayout(false);
             this.gb_LoaiPC.ResumeLayout(false);
             this.TLP_LoaiPhuCap_Con.ResumeLayout(false);
@@ -753,8 +757,6 @@
             this.TLP_CachTinh.PerformLayout();
             this.gb_DanhSach.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_DS)).EndInit();
-            this.contextMenuStrip2.ResumeLayout(false);
-            this.contextMenuStrip3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

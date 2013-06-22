@@ -12,11 +12,13 @@ namespace Business.HDQD
     public class LoaiPhuCap
     {
         DataProvider.DataProvider dp;
+        ExpressionTree ET;
 
         #region Init Methods
         public LoaiPhuCap()
         {
             dp = new DataProvider.DataProvider();
+            ET = new ExpressionTree();
         }
 
         #endregion
@@ -115,9 +117,68 @@ namespace Business.HDQD
             return dt;
         }
 
-        public void AddDetail(DateTime tungay , DateTime? denngay , string ghichu , int cachtinh )
+        public bool AddDetail(int loaipc_id, DateTime tungay , DateTime? denngay , string ghichu , int cachtinh , string chuoi_cong_thuc )
         {
+            List<string> lstValue = new List<string>();
+            List<Boolean> lstIsLeaf = new List<Boolean>();
+            List<Boolean> lstIsRoot = new List<Boolean>();
+            List<string> lstLeftNode = new List<string>();
+            List<string> lstRightNode = new List<string>();
 
+            if (cachtinh == 4)
+            {
+                ET.GetExpressionTreeData(ET.Infix2ExpressionTree(chuoi_cong_thuc));
+                lstValue = ET.lstValue;
+                lstIsLeaf = ET.lstIsLeaf;
+                lstIsRoot = ET.lstIsRoot;
+                lstLeftNode = ET.lstLeftNode;
+                lstRightNode = ET.lstRightNode;
+            }
+            else
+            {
+                lstValue = null;
+                lstIsLeaf = null;
+                lstIsRoot = null;
+                lstLeftNode = null;
+                lstRightNode = null;
+            }
+
+            int check;
+            IDataParameter[] paras = new IDataParameter[11]{
+                new NpgsqlParameter("p_loai_pc_id",loaipc_id), 
+                new NpgsqlParameter("p_cach_tinh",cachtinh),
+                new NpgsqlParameter("p_tu_ngay",tungay),
+                new NpgsqlParameter("p_den_ngay",denngay),
+                new NpgsqlParameter("p_ghi_chu",ghichu),
+                new NpgsqlParameter("m_value",(lstValue == null) ? null : lstValue.ToArray()),
+                new NpgsqlParameter("m_is_leaf",(lstValue == null) ? null :lstIsLeaf.ToArray()),
+                new NpgsqlParameter("m_is_root",(lstValue == null) ? null :lstIsRoot.ToArray()),
+                new NpgsqlParameter("m_left_node",(lstValue == null) ? null :lstLeftNode.ToArray()),
+                new NpgsqlParameter("m_right_node",(lstValue == null) ? null :lstRightNode.ToArray()),
+                new NpgsqlParameter("m_chuoi_cong_thuc",chuoi_cong_thuc)
+            };
+            check = (int)dp.executeScalarProc("sp1_insert_loai_phu_cap_detail", paras);
+            if (check > 0)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
+        public bool DeleteDetail(int p_id)
+        {
+            int check;
+            IDataParameter[] paras = new IDataParameter[1]{
+                new NpgsqlParameter("p_id",p_id)
+            };
+            check = (int)dp.executeScalarProc("sp1_delete_loai_phu_cap_detail", paras);
+            if (check > 0)
+            {
+                return true;
+            }
+            else
+                return false;
         }
 
         public DataTable GetListCachTinhDetail()
