@@ -86,6 +86,8 @@
             this.btn_Them = new System.Windows.Forms.Button();
             this.bw_upload = new System.ComponentModel.BackgroundWorker();
             this.bw_download = new System.ComponentModel.BackgroundWorker();
+            this.label17 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.TLP_TiepNhan.SuspendLayout();
             this.gp_ThongTinTiepNhan.SuspendLayout();
             this.TLP_ThongTinTiepNhan.SuspendLayout();
@@ -100,6 +102,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nup_PhanTram)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.TLP_Button.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // TLP_TiepNhan
@@ -208,9 +211,9 @@
             this.tableLP_PhuCap.Controls.Add(this.label2, 0, 2);
             this.tableLP_PhuCap.Controls.Add(this.dTP_NgayHetHanPC, 3, 2);
             this.tableLP_PhuCap.Controls.Add(this.dTP_NgayBatDauPC, 1, 2);
+            this.tableLP_PhuCap.Controls.Add(this.label18, 4, 2);
             this.tableLP_PhuCap.Controls.Add(this.nup_PhanTramPC, 5, 2);
             this.tableLP_PhuCap.Controls.Add(this.label6, 0, 3);
-            this.tableLP_PhuCap.Controls.Add(this.label18, 4, 2);
             this.tableLP_PhuCap.Controls.Add(this.groupBox3, 0, 4);
             this.tableLP_PhuCap.Controls.Add(this.TLP_HienThiLoaiPC, 0, 1);
             this.tableLP_PhuCap.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -381,14 +384,16 @@
             this.TLP_HienThiLoaiPC.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.69099F));
             this.TLP_HienThiLoaiPC.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.74249F));
             this.TLP_HienThiLoaiPC.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.5794F));
+            this.TLP_HienThiLoaiPC.Controls.Add(this.numericUpDown1, 1, 2);
             this.TLP_HienThiLoaiPC.Controls.Add(this.label10, 0, 0);
             this.TLP_HienThiLoaiPC.Controls.Add(this.txt_TienPC, 1, 0);
-            this.TLP_HienThiLoaiPC.Controls.Add(this.label12, 0, 1);
             this.TLP_HienThiLoaiPC.Controls.Add(this.label15, 2, 1);
-            this.TLP_HienThiLoaiPC.Controls.Add(this.label16, 0, 2);
             this.TLP_HienThiLoaiPC.Controls.Add(this.txt_HeSoPC, 1, 1);
-            this.TLP_HienThiLoaiPC.Controls.Add(this.txt_CongThucPC, 1, 2);
             this.TLP_HienThiLoaiPC.Controls.Add(this.comB_LuongPC, 3, 1);
+            this.TLP_HienThiLoaiPC.Controls.Add(this.txt_CongThucPC, 3, 2);
+            this.TLP_HienThiLoaiPC.Controls.Add(this.label16, 2, 2);
+            this.TLP_HienThiLoaiPC.Controls.Add(this.label12, 0, 1);
+            this.TLP_HienThiLoaiPC.Controls.Add(this.label17, 0, 2);
             this.TLP_HienThiLoaiPC.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.TLP_HienThiLoaiPC.Location = new System.Drawing.Point(3, 52);
             this.TLP_HienThiLoaiPC.Name = "TLP_HienThiLoaiPC";
@@ -398,7 +403,6 @@
             this.TLP_HienThiLoaiPC.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.TLP_HienThiLoaiPC.Size = new System.Drawing.Size(770, 100);
             this.TLP_HienThiLoaiPC.TabIndex = 41;
-            this.TLP_HienThiLoaiPC.Visible = false;
             // 
             // label10
             // 
@@ -444,7 +448,7 @@
             // 
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(3, 74);
+            this.label16.Location = new System.Drawing.Point(385, 74);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(65, 17);
             this.label16.TabIndex = 4;
@@ -462,9 +466,9 @@
             // 
             this.txt_CongThucPC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_CongThucPC.Enabled = false;
-            this.txt_CongThucPC.Location = new System.Drawing.Point(127, 71);
+            this.txt_CongThucPC.Location = new System.Drawing.Point(536, 71);
             this.txt_CongThucPC.Name = "txt_CongThucPC";
-            this.txt_CongThucPC.Size = new System.Drawing.Size(252, 24);
+            this.txt_CongThucPC.Size = new System.Drawing.Size(231, 24);
             this.txt_CongThucPC.TabIndex = 7;
             // 
             // comB_LuongPC
@@ -796,6 +800,29 @@
             // 
             this.bw_download.WorkerReportsProgress = true;
             // 
+            // label17
+            // 
+            this.label17.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(3, 74);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(88, 17);
+            this.label17.TabIndex = 34;
+            this.label17.Text = "Phần trăm (%)";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.numericUpDown1.Location = new System.Drawing.Point(127, 71);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 24);
+            this.numericUpDown1.TabIndex = 44;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // TiepNhan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -825,6 +852,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.TLP_Button.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -887,5 +915,7 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dtgv_DSPhuCap;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label17;
     }
 }

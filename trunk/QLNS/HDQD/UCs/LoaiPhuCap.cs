@@ -405,5 +405,10 @@ namespace HDQD.UCs
                 throw;
             }
         }
+
+        private void btn_Luu_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
