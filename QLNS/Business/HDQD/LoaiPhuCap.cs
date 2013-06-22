@@ -115,6 +115,11 @@ namespace Business.HDQD
             return dt;
         }
 
+        public void AddDetail(DateTime tungay , DateTime? denngay , string ghichu , int cachtinh )
+        {
+
+        }
+
         public DataTable GetListCachTinhDetail()
         {
             DataTable dt = new DataTable();
@@ -125,5 +130,7 @@ namespace Business.HDQD
         }
 
         #endregion
+
+
     }
 }
