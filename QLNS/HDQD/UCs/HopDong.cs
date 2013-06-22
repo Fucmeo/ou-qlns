@@ -80,12 +80,11 @@ namespace HDQD.UCs
                                                     // neu thanh cong moi upload file
                 oHopdong.Ma_NV = thongTinCNVC1.txt_MaNV.Text;
 
-                oHopdong.Ma_Hop_Dong = txt_MaHD.Text;
+                oHopdong.Ma_Tuyen_Dung = txt_MaHD.Text;
                 oHopdong.Ma_Loai_HD = Convert.ToInt16(comB_LoaiHD.SelectedValue);
-                //if (comB_ThuViecChinhThuc.Text == "Thử việc")
-                //    oHopdong.ThuViec_ChinhThuc = false;
-                //else if (comB_ThuViecChinhThuc.Text == "Chính thức")
-                //    oHopdong.ThuViec_ChinhThuc = true;
+
+                oHopdong.La_QD_Tiep_Nhan = false;
+                oHopdong.Loai_QD_ID = null;
 
                 oHopdong.Co_Thoi_Han = cb_ThoiHan.Checked;
 
@@ -109,12 +108,12 @@ namespace HDQD.UCs
                 //else
                 //    oHopdong.Don_Vi_ID = null;
 
-                if (comB_ChucDanh.SelectedText != "")
+                if (comB_ChucDanh.Text != "")
                     oHopdong.Chuc_Danh_ID = Convert.ToInt16(comB_ChucDanh.SelectedValue);
                 else
                     oHopdong.Chuc_Danh_ID = null;
 
-                if (comB_ChucVu.SelectedText != "")
+                if (comB_ChucVu.Text != "")
                     oHopdong.Chuc_Vu_ID = Convert.ToInt16(comB_ChucVu.SelectedValue);
                 else
                     oHopdong.Chuc_Vu_ID = null;
@@ -139,12 +138,19 @@ namespace HDQD.UCs
 
                 #endregion
 
+                #region Phu cap Info
+                oHopdong.Co_Phu_Cap = !cb_CoPhuCap.Checked;
+
+
+                #endregion
+
                 try
                 {
                     if (MessageBox.Show("Bạn thực sự muốn thêm hợp đồng cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         //if (oHopdong.Add())
-                        if (oHopdong.Add_wLuong())
+                        //if (oHopdong.Add_wLuong())
+                        if (oHopdong.Add_wLuong_PhucCap())
                         {
                             MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             bUploadInfoSuccess = true;

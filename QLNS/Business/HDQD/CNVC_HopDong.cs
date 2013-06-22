@@ -158,14 +158,6 @@ namespace Business.HDQD
             set { ghi_chu = value; }
         }
 
-        private string ma_hop_dong;
-
-        public string Ma_Hop_Dong
-        {
-            get { return ma_hop_dong; }
-            set { ma_hop_dong = value; }
-        }
-
         public bool? Khoan_or_HeSo { get; set; }
 
         public double? Luong_Khoan { get; set; }
@@ -174,6 +166,29 @@ namespace Business.HDQD
 
         public double? PhanTramHuong { get; set; }
 
+        public string Ma_Tuyen_Dung { get; set; }
+
+        public bool La_QD_Tiep_Nhan { get; set; }
+
+        public int? Loai_QD_ID { get; set; }
+
+        public bool Co_Phu_Cap { get; set; }
+
+        public int[] Loai_Phu_Cap_ID { get; set; }
+
+        public double[] Value_Khoan { get; set; }
+        public double[] Value_HeSo { get; set; }
+        public double[] Value_PhanTram { get; set; }
+        public double[] PC_PhanTramHuong { get; set; }
+
+
+        private string ma_hop_dong;
+
+        public string Ma_Hop_Dong
+        {
+            get { return ma_hop_dong; }
+            set { ma_hop_dong = value; }
+        }
         #endregion
 
         #region Methods
@@ -223,6 +238,43 @@ namespace Business.HDQD
                 new NpgsqlParameter("p_phan_tram_huong",PhanTramHuong),
             };
             check = (int)dp.executeScalarProc("sp1_insert_cnvc_hop_dong", paras);
+            if (check > 0)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
+        public bool Add_wLuong_PhucCap()
+        {
+            int check;
+            IDataParameter[] paras = new IDataParameter[23]{
+                new NpgsqlParameter("p_ma_nv",ma_nv),
+                new NpgsqlParameter("p_ma_loai_hd",ma_loai_hd),
+                new NpgsqlParameter("p_ma_tuyen_dung",Ma_Tuyen_Dung),
+                new NpgsqlParameter("p_la_qd_tiep_nhan",La_QD_Tiep_Nhan),
+                new NpgsqlParameter("p_loai_qd_id",Loai_QD_ID),
+                new NpgsqlParameter("p_co_thoi_han",co_thoi_han),
+                new NpgsqlParameter("p_ngay_ky",ngay_ky),
+                new NpgsqlParameter("p_ngay_hieu_luc",ngay_hieu_luc),
+                new NpgsqlParameter("p_ngay_het_han",ngay_het_han),
+                new NpgsqlParameter("p_chuc_vu_chinh_id",chuc_vu_id),
+                new NpgsqlParameter("p_don_vi_chinh_id",don_vi_id),
+                new NpgsqlParameter("p_chuc_danh_chinh_id",chuc_danh_id),
+                new NpgsqlParameter("p_ghi_chu",ghi_chu),
+                new NpgsqlParameter("p_khoan_or_heso",Khoan_or_HeSo),
+                new NpgsqlParameter("p_luong_khoan",Luong_Khoan),
+                new NpgsqlParameter("p_heso_luong_id",BacHeSo_ID),
+                new NpgsqlParameter("p_phan_tram_huong_luong",PhanTramHuong),
+                new NpgsqlParameter("p_co_phu_cap",Co_Phu_Cap),
+                new NpgsqlParameter("p_loai_phu_cap_id",Loai_Phu_Cap_ID),
+                new NpgsqlParameter("p_value_khoan",Value_Khoan),
+                new NpgsqlParameter("p_value_he_so",Value_HeSo),
+                new NpgsqlParameter("p_value_phan_tram",Value_PhanTram),
+                new NpgsqlParameter("p_phan_tram_huong_pc",PC_PhanTramHuong)                          
+            };
+            check = (int)dp.executeScalarProc("sp1_insert_cnvc_tuyen_dung", paras);
             if (check > 0)
             {
                 return true;
