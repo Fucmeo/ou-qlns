@@ -73,6 +73,7 @@
     <Compile Include="DonVi.cs" />
     <Compile Include="FTP.cs" />
     <Compile Include="HDQD\CNVC_HopDong.cs" />
+    <Compile Include="HDQD\ExpressionTree.cs" />
     <Compile Include="HDQD\KiemNhiem.cs" />
     <Compile Include="HDQD\LoaiHopDong.cs" />
     <Compile Include="HDQD\LoaiPhuCap.cs" />
