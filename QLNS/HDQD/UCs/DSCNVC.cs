@@ -65,7 +65,7 @@ namespace HDQD.UCs
                     default:
                         break;
                 }
-                ((Form)this.Parent).Close();
+                ((Form)this.Parent.Parent).Close();
             }
         }
 

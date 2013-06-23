@@ -117,6 +117,15 @@ namespace Business.HDQD
             return dt;
         }
 
+        public DataTable GetList_Cbo()
+        {
+            DataTable dt = new DataTable();
+
+            dt = dp.getDataTable("select * from v_loai_phu_cap_cbo");
+
+            return dt;
+        }
+
         public bool AddDetail(int loaipc_id, DateTime tungay , DateTime? denngay , string ghichu , int cachtinh , string chuoi_cong_thuc )
         {
             List<string> lstValue = new List<string>();

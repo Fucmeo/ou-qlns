@@ -169,6 +169,7 @@ namespace Business.HDQD
         public string Ma_Tuyen_Dung { get; set; }
 
         public bool La_QD_Tiep_Nhan { get; set; }
+        public string Ten_Quyet_Dinh { get; set; }
 
         public int? Loai_QD_ID { get; set; }
 
@@ -180,7 +181,9 @@ namespace Business.HDQD
         public double[] Value_HeSo { get; set; }
         public double[] Value_PhanTram { get; set; }
         public double[] PC_PhanTramHuong { get; set; }
-
+        public DateTime[] PC_TuNgay { get; set; }
+        public DateTime[] PC_DenNgay { get; set; }
+        public string[] PC_GhiChu { get; set; }
 
         private string ma_hop_dong;
 
@@ -246,14 +249,15 @@ namespace Business.HDQD
                 return false;
         }
 
-        public bool Add_wLuong_PhucCap()
+        public bool Add_wLuong_PhuCap()
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[23]{
+            IDataParameter[] paras = new IDataParameter[27]{
                 new NpgsqlParameter("p_ma_nv",ma_nv),
                 new NpgsqlParameter("p_ma_loai_hd",ma_loai_hd),
                 new NpgsqlParameter("p_ma_tuyen_dung",Ma_Tuyen_Dung),
                 new NpgsqlParameter("p_la_qd_tiep_nhan",La_QD_Tiep_Nhan),
+                new NpgsqlParameter("p_ten_qd",Ten_Quyet_Dinh),
                 new NpgsqlParameter("p_loai_qd_id",Loai_QD_ID),
                 new NpgsqlParameter("p_co_thoi_han",co_thoi_han),
                 new NpgsqlParameter("p_ngay_ky",ngay_ky),
@@ -272,7 +276,10 @@ namespace Business.HDQD
                 new NpgsqlParameter("p_value_khoan",Value_Khoan),
                 new NpgsqlParameter("p_value_he_so",Value_HeSo),
                 new NpgsqlParameter("p_value_phan_tram",Value_PhanTram),
-                new NpgsqlParameter("p_phan_tram_huong_pc",PC_PhanTramHuong)                          
+                new NpgsqlParameter("p_phan_tram_huong_pc",PC_PhanTramHuong),
+                new NpgsqlParameter("p_tu_ngay_pc",PC_TuNgay),
+                new NpgsqlParameter("p_den_ngay_pc",PC_DenNgay),
+                new NpgsqlParameter("p_ghi_chu_pc",PC_GhiChu)
             };
             check = (int)dp.executeScalarProc("sp1_insert_cnvc_tuyen_dung", paras);
             if (check > 0)
