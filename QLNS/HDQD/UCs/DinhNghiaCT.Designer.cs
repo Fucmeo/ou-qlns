@@ -95,6 +95,7 @@
             this.btn_Input.TabIndex = 3;
             this.btn_Input.Text = ">";
             this.btn_Input.UseVisualStyleBackColor = true;
+            this.btn_Input.Click += new System.EventHandler(this.btn_Input_Click);
             // 
             // groupBox3
             // 
@@ -123,6 +124,7 @@
             this.lstb_ToanTu.Name = "lstb_ToanTu";
             this.lstb_ToanTu.Size = new System.Drawing.Size(313, 131);
             this.lstb_ToanTu.TabIndex = 0;
+            this.lstb_ToanTu.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lstb_ToanTu_MouseClick);
             // 
             // groupBox2
             // 
@@ -140,13 +142,11 @@
             this.lstb_PhanTu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lstb_PhanTu.FormattingEnabled = true;
             this.lstb_PhanTu.ItemHeight = 21;
-            this.lstb_PhanTu.Items.AddRange(new object[] {
-            "Lương cơ bản",
-            "Phụ cấp chức vụ"});
             this.lstb_PhanTu.Location = new System.Drawing.Point(3, 24);
             this.lstb_PhanTu.Name = "lstb_PhanTu";
             this.lstb_PhanTu.Size = new System.Drawing.Size(313, 211);
             this.lstb_PhanTu.TabIndex = 1;
+            this.lstb_PhanTu.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lstb_PhanTu_MouseClick);
             // 
             // btn_Luu
             // 
@@ -165,8 +165,9 @@
             this.btn_Del.Name = "btn_Del";
             this.btn_Del.Size = new System.Drawing.Size(83, 52);
             this.btn_Del.TabIndex = 4;
-            this.btn_Del.Text = "x";
+            this.btn_Del.Text = "<";
             this.btn_Del.UseVisualStyleBackColor = true;
+            this.btn_Del.Click += new System.EventHandler(this.btn_Del_Click);
             // 
             // groupBox4
             // 
@@ -189,6 +190,7 @@
             this.rtb_CongThuc.TabIndex = 0;
             this.rtb_CongThuc.Text = "";
             this.rtb_CongThuc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.rtb_CongThuc_KeyPress);
+            this.rtb_CongThuc.MouseDown += new System.Windows.Forms.MouseEventHandler(this.rtb_CongThuc_MouseDown);
             // 
             // DinhNghiaCT
             // 
@@ -200,6 +202,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "DinhNghiaCT";
             this.Size = new System.Drawing.Size(983, 500);
+            this.Load += new System.EventHandler(this.DinhNghiaCT_Load);
             this.groupBox1.ResumeLayout(false);
             this.TLP_DinhNghiaCT.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);

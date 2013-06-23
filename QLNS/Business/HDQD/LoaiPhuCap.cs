@@ -181,7 +181,7 @@ namespace Business.HDQD
                 return false;
         }
 
-        public DataTable GetListCachTinhDetail()
+        public DataTable GetDTCachTinhDetail()
         {
             DataTable dt = new DataTable();
 
@@ -189,6 +189,16 @@ namespace Business.HDQD
 
             return dt;
         }
+
+        public DataTable GetDTCongThucElement()
+        {
+            DataTable dt = new DataTable();
+
+            dt = dp.getDataTable("select * from v_cong_thuc_element");
+
+            return dt;
+        }
+
 
         #endregion
 

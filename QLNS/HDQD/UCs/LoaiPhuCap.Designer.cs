@@ -649,7 +649,7 @@
             this.comb_Luong.Items.AddRange(new object[] {
             "Lương cơ bản",
             "Lương tối thiểu"});
-            this.comb_Luong.Location = new System.Drawing.Point(191, 12);
+            this.comb_Luong.Location = new System.Drawing.Point(191, 14);
             this.comb_Luong.Name = "comb_Luong";
             this.comb_Luong.Size = new System.Drawing.Size(289, 29);
             this.comb_Luong.TabIndex = 34;
