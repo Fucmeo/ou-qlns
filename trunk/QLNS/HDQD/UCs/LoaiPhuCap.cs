@@ -26,7 +26,7 @@ namespace HDQD.UCs
         private void LoaiPhuCap_Load(object sender, EventArgs e)
         {
             dtDSLoaiPhuCap = oLoaiPhuCap.GetList();
-            dtDSCachTinhDetail = oLoaiPhuCap.GetListCachTinhDetail();
+            dtDSCachTinhDetail = oLoaiPhuCap.GetDTCachTinhDetail();
             
             
 
@@ -92,7 +92,7 @@ namespace HDQD.UCs
 
         private void RefreshCachTinhDS()
         {
-            dtDSCachTinhDetail = oLoaiPhuCap.GetListCachTinhDetail();
+            dtDSCachTinhDetail = oLoaiPhuCap.GetDTCachTinhDetail();
             ChangeCachTinhDS();
         }
 
