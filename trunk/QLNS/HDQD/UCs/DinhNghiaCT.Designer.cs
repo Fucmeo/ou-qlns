@@ -80,8 +80,8 @@
             this.TLP_DinhNghiaCT.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TLP_DinhNghiaCT.Name = "TLP_DinhNghiaCT";
             this.TLP_DinhNghiaCT.RowCount = 3;
-            this.TLP_DinhNghiaCT.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.80467F));
-            this.TLP_DinhNghiaCT.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.81953F));
+            this.TLP_DinhNghiaCT.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.14894F));
+            this.TLP_DinhNghiaCT.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.65957F));
             this.TLP_DinhNghiaCT.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.06715F));
             this.TLP_DinhNghiaCT.Size = new System.Drawing.Size(977, 470);
             this.TLP_DinhNghiaCT.TabIndex = 1;
@@ -89,7 +89,7 @@
             // btn_Input
             // 
             this.btn_Input.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Input.Location = new System.Drawing.Point(359, 96);
+            this.btn_Input.Location = new System.Drawing.Point(359, 89);
             this.btn_Input.Name = "btn_Input";
             this.btn_Input.Size = new System.Drawing.Size(83, 52);
             this.btn_Input.TabIndex = 3;
@@ -101,9 +101,9 @@
             // 
             this.groupBox3.Controls.Add(this.lstb_ToanTu);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(3, 247);
+            this.groupBox3.Location = new System.Drawing.Point(3, 234);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(319, 158);
+            this.groupBox3.Size = new System.Drawing.Size(319, 171);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Toán tử";
@@ -122,7 +122,7 @@
             ")"});
             this.lstb_ToanTu.Location = new System.Drawing.Point(3, 24);
             this.lstb_ToanTu.Name = "lstb_ToanTu";
-            this.lstb_ToanTu.Size = new System.Drawing.Size(313, 131);
+            this.lstb_ToanTu.Size = new System.Drawing.Size(313, 144);
             this.lstb_ToanTu.TabIndex = 0;
             this.lstb_ToanTu.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lstb_ToanTu_MouseClick);
             // 
@@ -132,7 +132,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(319, 238);
+            this.groupBox2.Size = new System.Drawing.Size(319, 225);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Phần tử";
@@ -144,7 +144,7 @@
             this.lstb_PhanTu.ItemHeight = 21;
             this.lstb_PhanTu.Location = new System.Drawing.Point(3, 24);
             this.lstb_PhanTu.Name = "lstb_PhanTu";
-            this.lstb_PhanTu.Size = new System.Drawing.Size(313, 211);
+            this.lstb_PhanTu.Size = new System.Drawing.Size(313, 198);
             this.lstb_PhanTu.TabIndex = 1;
             this.lstb_PhanTu.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lstb_PhanTu_MouseClick);
             // 
@@ -157,11 +157,12 @@
             this.btn_Luu.TabIndex = 2;
             this.btn_Luu.Text = "Lưu";
             this.btn_Luu.UseVisualStyleBackColor = true;
+            this.btn_Luu.Click += new System.EventHandler(this.btn_Luu_Click);
             // 
             // btn_Del
             // 
             this.btn_Del.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Del.Location = new System.Drawing.Point(359, 300);
+            this.btn_Del.Location = new System.Drawing.Point(359, 293);
             this.btn_Del.Name = "btn_Del";
             this.btn_Del.Size = new System.Drawing.Size(83, 52);
             this.btn_Del.TabIndex = 4;
@@ -224,7 +225,7 @@
         private System.Windows.Forms.Button btn_Input;
         private System.Windows.Forms.Button btn_Del;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.RichTextBox rtb_CongThuc;
+        public System.Windows.Forms.RichTextBox rtb_CongThuc;
 
     }
 }

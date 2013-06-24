@@ -126,7 +126,7 @@ namespace Business.HDQD
             return dt;
         }
 
-        public bool AddDetail(int loaipc_id, DateTime tungay , DateTime? denngay , string ghichu , int cachtinh , string chuoi_cong_thuc )
+        public bool AddDetail(int loaipc_id, DateTime tungay , DateTime? denngay , string ghichu , int cachtinh , string chuoi_cong_thuc_value, string chuoi_cong_thuc_text)
         {
             List<string> lstValue = new List<string>();
             List<Boolean> lstIsLeaf = new List<Boolean>();
@@ -136,7 +136,7 @@ namespace Business.HDQD
 
             if (cachtinh == 4)
             {
-                ET.GetExpressionTreeData(ET.Infix2ExpressionTree(chuoi_cong_thuc));
+                ET.GetExpressionTreeData(ET.Infix2ExpressionTree(chuoi_cong_thuc_value));
                 lstValue = ET.lstValue;
                 lstIsLeaf = ET.lstIsLeaf;
                 lstIsRoot = ET.lstIsRoot;
@@ -153,7 +153,7 @@ namespace Business.HDQD
             }
 
             int check;
-            IDataParameter[] paras = new IDataParameter[11]{
+            IDataParameter[] paras = new IDataParameter[12]{
                 new NpgsqlParameter("p_loai_pc_id",loaipc_id), 
                 new NpgsqlParameter("p_cach_tinh",cachtinh),
                 new NpgsqlParameter("p_tu_ngay",tungay),
@@ -164,7 +164,8 @@ namespace Business.HDQD
                 new NpgsqlParameter("m_is_root",(lstValue == null) ? null :lstIsRoot.ToArray()),
                 new NpgsqlParameter("m_left_node",(lstValue == null) ? null :lstLeftNode.ToArray()),
                 new NpgsqlParameter("m_right_node",(lstValue == null) ? null :lstRightNode.ToArray()),
-                new NpgsqlParameter("m_chuoi_cong_thuc",chuoi_cong_thuc)
+                new NpgsqlParameter("m_chuoi_cong_thuc_text",chuoi_cong_thuc_text),
+                new NpgsqlParameter("m_chuoi_cong_thuc_value",chuoi_cong_thuc_value)
             };
             check = (int)dp.executeScalarProc("sp1_insert_loai_phu_cap_detail", paras);
             if (check > 0)

@@ -12,15 +12,22 @@ namespace HDQD.UCs
 {
     public partial class DinhNghiaCT : UserControl
     {
-        public static List<string> DisplayString,ValueString;
+        public  List<string> lstDisplayString,lstValueString;
         Business.HDQD.LoaiPhuCap oLoaiPhuCap;
         DataTable dtCongThucElement;
         int MouseCursorIndex;
+        
         public DinhNghiaCT()
         {
             InitializeComponent();
             dtCongThucElement = new DataTable();
             oLoaiPhuCap = new Business.HDQD.LoaiPhuCap();
+            lstValueString = new List<string>();
+            lstDisplayString = new List<string>();
+            if (lstDisplayString.Count > 0)
+            {
+                rtb_CongThuc.Text = string.Join(" ", lstDisplayString.ToArray());
+            }
         }
 
         private void rtb_CongThuc_KeyPress(object sender, KeyPressEventArgs e)
@@ -49,11 +56,16 @@ namespace HDQD.UCs
             if (lstb_PhanTu.SelectedItem != null)
             {
                 rtb_CongThuc.Text += "[ " + lstb_PhanTu.Text + " ] ";
+                lstValueString.Add(lstb_PhanTu.SelectedValue.ToString());
+                lstDisplayString.Add(lstb_PhanTu.Text);
             }
             else if (lstb_ToanTu.SelectedItem != null)
             {
                 rtb_CongThuc.Text += "[ " + lstb_ToanTu.Text + " ] ";
+                lstValueString.Add(lstb_ToanTu.Text);
+                lstDisplayString.Add(lstb_ToanTu.Text);
             }
+
         }
 
         private void btn_Del_Click(object sender, EventArgs e)
@@ -62,10 +74,14 @@ namespace HDQD.UCs
             string s = rtb_CongThuc.Text;
             int LeftBracketsIndex;
             int a = s.Count();
-            if (i - 1 <= s.Count() )
+            if (i != 0 & i - 1 <= s.Count() )
             {
                 LeftBracketsIndex = s.LastIndexOf("[ ", i-1);
                 if (LeftBracketsIndex >= 0) LeftBracketsIndex -= 1;
+                string removed_string = s.Substring(LeftBracketsIndex + 1, i - 1 - LeftBracketsIndex);
+                int removed_index = lstDisplayString.IndexOf(removed_string.Replace("[","").Replace("]","").Trim());
+                lstValueString.RemoveAt(removed_index);
+                lstDisplayString.Remove(removed_string.Replace("[", "").Replace("]", "").Trim());
                 s = s.Remove(LeftBracketsIndex + 1 , i  -1 - LeftBracketsIndex);
                 rtb_CongThuc.Text = s;
             }
@@ -103,6 +119,18 @@ namespace HDQD.UCs
         private void lstb_PhanTu_MouseClick(object sender, MouseEventArgs e)
         {
             lstb_ToanTu.ClearSelected();
+        }
+
+        private void btn_Luu_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ((Form)this.Parent.Parent).Close();
+            }
+            catch (Exception)
+            {
+                
+            }
         }
     }
 }
