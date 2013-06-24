@@ -576,6 +576,10 @@ namespace HDQD.UCs
                 DownLoadFile();  
             }
 
+            Form f = new Forms.Popup(new UCs.DSTapTin(), "QUẢN LÝ NHÂN SỰ - DANH SÁCH TẬP TIN");
+            f.ShowDialog();
+
+
             
         }
 

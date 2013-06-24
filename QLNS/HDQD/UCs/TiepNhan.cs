@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Business;
 using System.Reflection;
+using System.Threading;
 
 namespace HDQD.UCs
 {
@@ -27,6 +28,17 @@ namespace HDQD.UCs
         DataTable dtPhuCap;
         int row_count_pc = 0;
 
+        #region Upload file
+        Business.FTP oFTP;
+        public Business.CNVC.CNVC_File oFile;
+        public static List<KeyValuePair<string, bool?>> Paths;
+        public static string Desc;
+        public static DataTable dtFile;
+        string[] ServerPaths;
+        int nNewFilesCount;         // so file add new
+        string[] dbPaths; 
+        #endregion
+
         public TiepNhan()
         {
             InitializeComponent();
@@ -40,6 +52,7 @@ namespace HDQD.UCs
 
             oHopdong = p_HopDong;
             DisplayInfo();
+            LoadFilesDB(); // load danh sach file lien quan den hop dong nay
         }
 
         private void InitObject()
@@ -51,9 +64,13 @@ namespace HDQD.UCs
             oBacHeSo = new Business.Luong.BacHeSo();
             dtBacHeSo = new DataTable();
             oLoaiPC = new Business.HDQD.LoaiPhuCap();
-
+            oFile = new Business.CNVC.CNVC_File();
             dtLoaiPC = new DataTable();
             dtPhuCap = new DataTable();
+            oFTP = new Business.FTP();
+            oFTP.oFileCate = FTP.FileCate.HDQD;
+            dtFile = new DataTable();
+            Paths = new List<KeyValuePair<string, bool?>>();
         }
 
         private void TiepNhan_Load(object sender, EventArgs e)
@@ -476,10 +493,10 @@ namespace HDQD.UCs
                         else
                             MessageBox.Show("Thao tác thêm thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                        //if (Paths != null && Paths.Count > 0 && bUploadInfoSuccess)
-                        //{
-                        //    UploadFile();
-                        //}
+                        if (Paths != null && Paths.Count > 0 && bUploadInfoSuccess)
+                        {
+                            UploadFile();
+                        }
                     }
                 }
                 catch (Exception)
@@ -490,6 +507,189 @@ namespace HDQD.UCs
             else
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
+
+        #region KHANG - UPLOAD / DOWNLOAD FILE
+        private void UploadFile()
+        {
+            #region HD
+
+            nNewFilesCount = Paths.Where(a => a.Value == false).Count();
+            ServerPaths = new string[nNewFilesCount];
+            try
+            {
+                oFTP.oFileCate = FTP.FileCate.HDQD;
+                pb_Status.Value = 0;
+                pb_Status.Maximum = nNewFilesCount;
+
+                //this.Enabled = false;
+                ((Form)this.Parent.Parent).ControlBox = false;
+                this.Enabled = false;
+                bw_upload.RunWorkerAsync();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Quá trình tải hình lên server không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ((Form)this.Parent.Parent).ControlBox = true;
+                this.Enabled = true;
+            }
+
+
+
+            #endregion
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+            string[] NewFiles = Paths.Where(a => a.Value == false).Select(a => a.Key).ToArray();
+            for (int i = 0; i < nNewFilesCount; i++)
+            {
+                bw_upload.ReportProgress(i + 1);
+
+                ServerPaths[i] = oFTP.UploadFile(NewFiles[i], NewFiles[i].Split('\\').Last(), oHopdong.Ma_Hop_Dong);
+                Thread.Sleep(100);
+
+            }
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            // Change the value of the ProgressBar to the BackgroundWorker progress.
+            pb_Status.Value = e.ProgressPercentage;
+            // Set the text.
+            lbl_Status.Text = "Đang đăng tập tin ..." + e.ProgressPercentage.ToString() + " / " + nNewFilesCount.ToString();
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (Paths.Where(a => a.Value == false).Select(a => a.Key).ToArray().Length > 0)
+            {
+                MessageBox.Show("Quá trình đăng tập tin lên server thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                lbl_Status.Text = "Đăng hình hoàn tất!";
+            }
+
+            oFile.MaNV = oHopdong.Ma_NV;
+            oFile.FileType = Business.CNVC.CNVC_File.eFileType.HopDong;
+            oFile.Link = oHopdong.Ma_Hop_Dong;
+            oFile.MoTa = Desc;
+            string[] DeleteFiles = Paths.Where(a => a.Value == null).Select(a => a.Key).ToArray();
+
+            try
+            {
+                oFile.AddFileArray(ServerPaths);
+                if (DeleteFiles.Length > 0)
+                    oFile.Delete_HD_QD(DeleteFiles);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Quá trình lưu tập tin không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            ((Form)this.Parent.Parent).ControlBox = true;
+            this.Enabled = true;
+        }
+
+        private void bw_download_DoWork(object sender, DoWorkEventArgs e)
+        {
+            string[] a = new string[1];
+
+            for (int i = 0; i < dbPaths.Length; i++)
+            {
+                bw_download.ReportProgress(i + 1);
+
+
+                a[0] = dbPaths[i];
+                string downloadpath = oFTP.DownloadFile(a)[0];
+
+                Paths.Add(new KeyValuePair<string, bool?>(downloadpath, true));
+
+                Thread.Sleep(100);
+            }
+
+
+        }
+
+        private void bw_download_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            // Change the value of the ProgressBar to the BackgroundWorker progress.
+            pb_Status.Value = e.ProgressPercentage;
+            // Set the text.
+            lbl_Status.Text = "Đang tải tập tin ..." + e.ProgressPercentage.ToString() + " / " + dbPaths.Length.ToString();
+
+
+        }
+
+        private void bw_download_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            lbl_Status.Text = "Tải tập tin hoàn tất!";
+
+            Forms.Popup f = new Forms.Popup(new UCs.DSTapTin(Paths, Desc), "QUẢN LÝ NHÂN SỰ - DANH SÁCH TẬP TIN");
+            UCs.DSTapTin.bHopDong = true;
+            f.ShowDialog();
+        }
+
+        private void DownLoadFile()
+        {
+            if (dtFile != null && dtFile.Rows.Count > 0)
+            {
+                pb_Status.Value = 0;
+                pb_Status.Maximum = dtFile.Rows.Count;
+
+                dbPaths = new string[dtFile.Rows.Count];
+                for (int i = 0; i < dtFile.Rows.Count; i++)
+                {
+                    dbPaths[i] = dtFile.Rows[i]["path"].ToString();
+                }
+
+                Desc = dtFile.Rows[0]["mo_ta"].ToString();
+
+                // Download 
+
+                try
+                {
+                    bw_download.RunWorkerAsync();
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Quá trình tải hình đại diện không thành công \r\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+            }
+        }
+
+        private void btn_NhapFile_Click(object sender, EventArgs e)
+        {
+            if (oHopdong.Ma_Hop_Dong != null)
+            {
+                LoadFilesDB();
+                DownLoadFile();
+            }
+            Form f = new Forms.Popup(new UCs.DSTapTin(), "QUẢN LÝ NHÂN SỰ - DANH SÁCH TẬP TIN");
+            f.ShowDialog();
+        }
+
+        /// <summary>
+        /// Khang - load ds file di kem HD nay
+        /// </summary>
+        private void LoadFilesDB()
+        {
+            oFile.MaNV = oHopdong.Ma_NV;
+            oFile.Link = oHopdong.Ma_Hop_Dong;
+            oFile.FileType = Business.CNVC.CNVC_File.eFileType.HopDong;
+            try
+            {
+                dtFile = oFile.GetData();
+            }
+            catch (Exception)
+            {
+
+            }
+
+        }
+
+        #endregion
 
         private void txt_Tien_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -636,5 +836,7 @@ namespace HDQD.UCs
             dtPhuCap.AcceptChanges();
             PrepareDTGVSource(dtPhuCap);
         }
+
+        
     }
 }
