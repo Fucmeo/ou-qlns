@@ -15,12 +15,13 @@ namespace HDQD.UCs
         bool? bAddLoaiPCFlag , bAddCachTinhFlag;
         Business.HDQD.LoaiPhuCap oLoaiPhuCap;
         DataTable dtDSLoaiPhuCap,dtDSCachTinhDetail;
-
+        DinhNghiaCT ucDinhNghiaCT;
 
         public LoaiPhuCap()
         {
             InitializeComponent();
             oLoaiPhuCap = new Business.HDQD.LoaiPhuCap();
+            ucDinhNghiaCT = new DinhNghiaCT();
         }
 
         private void LoaiPhuCap_Load(object sender, EventArgs e)
@@ -205,7 +206,8 @@ namespace HDQD.UCs
                         den_ngay = null;
                     string ghichu = rtb_GhiChu.Text;
                     int cachtinh = 1;
-                    string chuoi_cong_thuc = "(a+b)*c-d/e";
+                    string chuoi_cong_thuc = "";
+                    string chuoi_cong_thuc_text= "";
                     if (rdb_Khoan.Checked)
                     {
                         cachtinh = 1;
@@ -221,12 +223,21 @@ namespace HDQD.UCs
                     {
                         cachtinh = 4;
 
-                        // parse cong thuc > string
+                        if (ucDinhNghiaCT.lstValueString.Count > 0)
+                        {
+                            chuoi_cong_thuc = string.Join("", ucDinhNghiaCT.lstValueString.ToArray());
+                            chuoi_cong_thuc_text = string.Join(" ", ucDinhNghiaCT.lstDisplayString.ToArray());
+                        }
+                        else
+                        {
+                            MessageBox.Show("Công thức chưa được định nghĩa.\n", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
                     }
 
                     try
                     {
-                        oLoaiPhuCap.AddDetail(loai_pc_id, tu_ngay, den_ngay, ghichu, cachtinh, chuoi_cong_thuc);
+                        oLoaiPhuCap.AddDetail(loai_pc_id, tu_ngay, den_ngay, ghichu, cachtinh, chuoi_cong_thuc, chuoi_cong_thuc_text);
 
                         RefreshCachTinhDS();
                         ButtonControl(true);
@@ -278,8 +289,16 @@ namespace HDQD.UCs
 
         private void btn_ThietLap_Click(object sender, EventArgs e)
         {
-            Forms.Popup frPopup = new Forms.Popup(new UCs.DinhNghiaCT(), "QUẢN LÝ NHÂN SỰ - ĐỊNH NGHĨA CÔNG THỨC TÍNH PHỤ CẤP");
+            Forms.Popup frPopup = new Forms.Popup(ucDinhNghiaCT, "QUẢN LÝ NHÂN SỰ - ĐỊNH NGHĨA CÔNG THỨC TÍNH PHỤ CẤP");
+            if (ucDinhNghiaCT.lstDisplayString.Count > 0)
+            {
+                
+            }
             frPopup.ShowDialog();
+            if (ucDinhNghiaCT.lstValueString.Count > 0)
+            {
+                rtb_CongThuc.Text = string.Join(" ", ucDinhNghiaCT.lstDisplayString.ToArray());
+            }
         }
 
 
@@ -331,8 +350,10 @@ namespace HDQD.UCs
 
         private void SetupDTGV()
         {
-            dtgv_DS.Columns["chuoi_cong_thuc"].Visible = dtgv_DS.Columns["cach_tinh"].Visible = dtgv_DS.Columns["loai_pc_id"].Visible = false;
+            dtgv_DS.Columns["chuoi_cong_thuc_value"].Visible = dtgv_DS.Columns["chuoi_cong_thuc_text"].Visible = 
+                dtgv_DS.Columns["cach_tinh"].Visible = dtgv_DS.Columns["loai_pc_id"].Visible = false;
             dtgv_DS.Columns["id"].Visible = false;
+
 
             dtgv_DS.Columns["cach_tinh_text"].HeaderText = "Cách tính";
             dtgv_DS.Columns["cach_tinh_text"].Width = 250;
@@ -408,7 +429,7 @@ namespace HDQD.UCs
                     }
 
                     rtb_GhiChu.Text = Convert.ToString(dr["ghi_chu"]);
-                    rtb_CongThuc.Text = Convert.ToString(dr["chuoi_cong_thuc"]);
+                    rtb_CongThuc.Text = Convert.ToString(dr["chuoi_cong_thuc_text"]);
 
                     switch (Convert.ToInt16(dr["cach_tinh"]))
                     {
