@@ -33,9 +33,5 @@ namespace HDQD.Forms
             this.tableLayoutPanel1.Controls.Add(oUC);
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

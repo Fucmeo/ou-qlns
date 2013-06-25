@@ -31,8 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TiepNhan));
             this.TLP_TiepNhan = new System.Windows.Forms.TableLayoutPanel();
-            this.thongTinCNVC1 = new HDQD.UCs.ThongTinCNVC();
-            this.thongTinQuyetDinh1 = new HDQD.UCs.ThongTinQuyetDinh();
             this.gp_ThongTinTiepNhan = new System.Windows.Forms.GroupBox();
             this.TLP_ThongTinTiepNhan = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -94,6 +92,8 @@
             this.lbl_Status = new System.Windows.Forms.Label();
             this.bw_upload = new System.ComponentModel.BackgroundWorker();
             this.bw_download = new System.ComponentModel.BackgroundWorker();
+            this.thongTinCNVC1 = new HDQD.UCs.ThongTinCNVC();
+            this.thongTinQuyetDinh1 = new HDQD.UCs.ThongTinQuyetDinh();
             this.TLP_TiepNhan.SuspendLayout();
             this.gp_ThongTinTiepNhan.SuspendLayout();
             this.TLP_ThongTinTiepNhan.SuspendLayout();
@@ -133,32 +133,6 @@
             this.TLP_TiepNhan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.006012F));
             this.TLP_TiepNhan.Size = new System.Drawing.Size(900, 1000);
             this.TLP_TiepNhan.TabIndex = 0;
-            // 
-            // thongTinCNVC1
-            // 
-            this.thongTinCNVC1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.thongTinCNVC1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.thongTinCNVC1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.thongTinCNVC1.Location = new System.Drawing.Point(3, 4);
-            this.thongTinCNVC1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.thongTinCNVC1.Name = "thongTinCNVC1";
-            this.thongTinCNVC1.Size = new System.Drawing.Size(894, 114);
-            this.thongTinCNVC1.TabIndex = 0;
-            // 
-            // thongTinQuyetDinh1
-            // 
-            this.thongTinQuyetDinh1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.thongTinQuyetDinh1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.thongTinQuyetDinh1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.thongTinQuyetDinh1.Location = new System.Drawing.Point(3, 126);
-            this.thongTinQuyetDinh1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.thongTinQuyetDinh1.Name = "thongTinQuyetDinh1";
-            this.thongTinQuyetDinh1.Size = new System.Drawing.Size(894, 168);
-            this.thongTinQuyetDinh1.TabIndex = 1;
             // 
             // gp_ThongTinTiepNhan
             // 
@@ -279,7 +253,7 @@
             this.tableLP_PhuCap.SetColumnSpan(this.comB_LoaiPhuCap, 2);
             this.comB_LoaiPhuCap.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_LoaiPhuCap.FormattingEnabled = true;
-            this.comB_LoaiPhuCap.Location = new System.Drawing.Point(438, 10);
+            this.comB_LoaiPhuCap.Location = new System.Drawing.Point(438, 8);
             this.comB_LoaiPhuCap.Name = "comB_LoaiPhuCap";
             this.comB_LoaiPhuCap.Size = new System.Drawing.Size(252, 29);
             this.comB_LoaiPhuCap.TabIndex = 1;
@@ -603,7 +577,7 @@
             this.comb_Luong.Items.AddRange(new object[] {
             "Hệ số",
             "Khoán"});
-            this.comb_Luong.Location = new System.Drawing.Point(109, 12);
+            this.comb_Luong.Location = new System.Drawing.Point(109, 10);
             this.comb_Luong.Name = "comb_Luong";
             this.comb_Luong.Size = new System.Drawing.Size(179, 29);
             this.comb_Luong.TabIndex = 33;
@@ -655,7 +629,7 @@
             this.comb_Ngach.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comb_Ngach.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comb_Ngach.FormattingEnabled = true;
-            this.comb_Ngach.Location = new System.Drawing.Point(371, 12);
+            this.comb_Ngach.Location = new System.Drawing.Point(371, 10);
             this.comb_Ngach.Name = "comb_Ngach";
             this.comb_Ngach.Size = new System.Drawing.Size(187, 29);
             this.comb_Ngach.TabIndex = 29;
@@ -676,7 +650,7 @@
             this.comb_Bac.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comb_Bac.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comb_Bac.FormattingEnabled = true;
-            this.comb_Bac.Location = new System.Drawing.Point(691, 12);
+            this.comb_Bac.Location = new System.Drawing.Point(691, 10);
             this.comb_Bac.Name = "comb_Bac";
             this.comb_Bac.Size = new System.Drawing.Size(182, 29);
             this.comb_Bac.TabIndex = 30;
@@ -905,9 +879,9 @@
             // bw_upload
             // 
             this.bw_upload.WorkerReportsProgress = true;
-            this.bw_upload.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
-            this.bw_upload.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
-            this.bw_upload.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            this.bw_upload.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bw_upload_DoWork);
+            this.bw_upload.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bw_upload_ProgressChanged);
+            this.bw_upload.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bw_upload_RunWorkerCompleted);
             // 
             // bw_download
             // 
@@ -915,6 +889,32 @@
             this.bw_download.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bw_download_DoWork);
             this.bw_download.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bw_download_ProgressChanged);
             this.bw_download.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bw_download_RunWorkerCompleted);
+            // 
+            // thongTinCNVC1
+            // 
+            this.thongTinCNVC1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.thongTinCNVC1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.thongTinCNVC1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.thongTinCNVC1.Location = new System.Drawing.Point(3, 4);
+            this.thongTinCNVC1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.thongTinCNVC1.Name = "thongTinCNVC1";
+            this.thongTinCNVC1.Size = new System.Drawing.Size(894, 114);
+            this.thongTinCNVC1.TabIndex = 0;
+            // 
+            // thongTinQuyetDinh1
+            // 
+            this.thongTinQuyetDinh1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.thongTinQuyetDinh1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.thongTinQuyetDinh1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.thongTinQuyetDinh1.Location = new System.Drawing.Point(3, 126);
+            this.thongTinQuyetDinh1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.thongTinQuyetDinh1.Name = "thongTinQuyetDinh1";
+            this.thongTinQuyetDinh1.Size = new System.Drawing.Size(894, 168);
+            this.thongTinQuyetDinh1.TabIndex = 1;
             // 
             // TiepNhan
             // 

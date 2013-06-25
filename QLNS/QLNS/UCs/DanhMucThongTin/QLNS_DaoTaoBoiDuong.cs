@@ -1365,9 +1365,9 @@ namespace QLNS.UCs.DanhMucThongTin
 
         private void lb_TapTin_Click(object sender, EventArgs e)
         {
-            HDQD.Forms.Popup f = new HDQD.Forms.Popup(new HDQD.UCs.DSTapTin(), "QUẢN LÝ NHÂN SỰ - TẬP TIN VĂN BẰNG");
-            HDQD.UCs.DSTapTin.bHopDong = true;
-            f.ShowDialog();
+            //HDQD.Forms.Popup f = new HDQD.Forms.Popup(new HDQD.UCs.DSTapTin(), "QUẢN LÝ NHÂN SỰ - TẬP TIN VĂN BẰNG");
+            //HDQD.UCs.DSTapTin.bHopDong = true;
+            //f.ShowDialog();
         }
     }
 }

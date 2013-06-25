@@ -15,8 +15,9 @@ namespace HDQD.UCs
         const int nTLPControls = 6;
         Business.FTP oFTP;
         public static bool bHopDong = false;
+        string UCName;
 
-        public DSTapTin(List<KeyValuePair<string,bool?>> FilesPath = null, string Mota = null)
+        public DSTapTin(string _UCName, List<KeyValuePair<string,bool?>> FilesPath = null, string Mota = null)
         {
             InitializeComponent();
             oFTP = new Business.FTP();
@@ -24,6 +25,8 @@ namespace HDQD.UCs
             {
                 AddFiles(FilesPath, Mota);
             }
+            UCName = _UCName;
+            
         }
 
         private void AddFiles(List<KeyValuePair<string, bool?>> FilesPath, string MoTa)
@@ -51,7 +54,18 @@ namespace HDQD.UCs
                     for (int i = 0; i < OFD.FileNames.Length; i++)
                     {
                         // add moi tinh trang exists = false
-                        HopDong.Paths.Add(new KeyValuePair<string, bool?>(OFD.FileNames[i].ToString(), false));
+                        switch (UCName)
+                        {
+                            case "HopDong":
+                                HopDong.Paths.Add(new KeyValuePair<string, bool?>(OFD.FileNames[i].ToString(), false));
+                                break;
+                            case "TiepNhan":
+                                TiepNhan.Paths.Add(new KeyValuePair<string, bool?>(OFD.FileNames[i].ToString(), false));
+                                break;
+                            default:
+                                break;
+                        }
+                        
                     }
                 }
                 else
@@ -66,20 +80,23 @@ namespace HDQD.UCs
         {
             if (lsb_DSFile.Items.Count > 0)
             {
-                if (!bHopDong)
-                {
-                    ThongTinQuyetDinh.Paths = new string[lsb_DSFile.Items.Count];
-                    lsb_DSFile.Items.CopyTo(ThongTinQuyetDinh.Paths, 0);
-                    ThongTinQuyetDinh.Desc = rtb_MoTa.Text;
-                    ((Form)this.Parent).Close();
-                }
-                else
-                {
-                    // paths da duoc add vao list ngay khi add hinh`
-                    HopDong.Desc = rtb_MoTa.Text;
 
-                    ((Form)this.Parent.Parent).Close();
+                // paths da duoc add vao list ngay khi add hinh`
+                switch (UCName)
+                {
+                    case "HopDong":
+                        HopDong.Desc = rtb_MoTa.Text;
+                        break;
+                    case "TiepNhan":
+                        TiepNhan.Desc = rtb_MoTa.Text;
+                        break;
+                    default:
+                        break;
                 }
+                    
+
+                ((Form)this.Parent.Parent).Close();
+                
             }
         }
 
@@ -88,23 +105,51 @@ namespace HDQD.UCs
             if (lsb_DSFile.SelectedItem != null && 
                 MessageBox.Show("Bạn thực sự muốn xoá tập tin này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                for (int i = 0; i < HopDong.Paths.Count; i++)
-                {
-                    if (HopDong.Paths[i].Key == lsb_DSFile.SelectedItem.ToString() ) 
-                    {
-                        string DelFileServerPath = "hinh_quyet_dinh/" + lsb_DSFile.SelectedItem.ToString().Split('\\').Last();
-                        if (HopDong.Paths[i].Value == true) // neu file da co san moi add value = null de delete sau nay
-                            HopDong.Paths.Add(new KeyValuePair<string, bool?>(DelFileServerPath, null));   // se delete file nay
-                        HopDong.Paths.RemoveAt(i);
-                        
-                        break;
-                    }
-                }
+                RemoveFile();
+
                 lsb_DSFile.Items.Remove(lsb_DSFile.SelectedItem);
                 pb_Preview.Image = null;
                 pb_Preview.ImageLocation = null;
 
             }
+        }
+
+        private void RemoveFile()
+        {
+            switch (UCName)
+            {
+                case "HopDong":
+                    for (int i = 0; i < HopDong.Paths.Count; i++)
+                    {
+                        if (HopDong.Paths[i].Key == lsb_DSFile.SelectedItem.ToString())
+                        {
+                            string DelFileServerPath = "hinh_quyet_dinh/" + lsb_DSFile.SelectedItem.ToString().Split('\\').Last();
+                            if (HopDong.Paths[i].Value == true) // neu file da co san moi add value = null de delete sau nay
+                                HopDong.Paths.Add(new KeyValuePair<string, bool?>(DelFileServerPath, null));   // se delete file nay
+                            HopDong.Paths.RemoveAt(i);
+
+                            break;
+                        }
+                    }
+                    break;
+                case "TiepNhan":
+                    for (int i = 0; i < TiepNhan.Paths.Count; i++)
+                    {
+                        if (TiepNhan.Paths[i].Key == lsb_DSFile.SelectedItem.ToString())
+                        {
+                            string DelFileServerPath = "hinh_quyet_dinh/" + lsb_DSFile.SelectedItem.ToString().Split('\\').Last();
+                            if (TiepNhan.Paths[i].Value == true) // neu file da co san moi add value = null de delete sau nay
+                                TiepNhan.Paths.Add(new KeyValuePair<string, bool?>(DelFileServerPath, null));   // se delete file nay
+                            TiepNhan.Paths.RemoveAt(i);
+
+                            break;
+                        }
+                    }
+                    break;
+                default:
+                    break;
+            }
+            
         }
 
         private void lsb_DSFile_SelectedIndexChanged(object sender, EventArgs e)

@@ -28,7 +28,7 @@ namespace Business.CNVC
 
         #region Properties
 
-        public enum eFileType { HopDong, BoNhiem, ThoiNhiem,DaoTao,BoiDuong, Avatar };
+        public enum eFileType { HopDong, BoNhiem, ThoiNhiem,DaoTao,BoiDuong, Avatar,TiepNhan };
 
         private int? id;
 
