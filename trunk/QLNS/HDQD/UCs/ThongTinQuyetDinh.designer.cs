@@ -44,7 +44,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.dTP_NgayHetHan = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
-            this.lb_ChonTapTin = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -83,7 +82,6 @@
             this.tableLayoutPanel1.Controls.Add(this.label7, 4, 1);
             this.tableLayoutPanel1.Controls.Add(this.dTP_NgayHetHan, 5, 1);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.lb_ChonTapTin, 3, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 24);
@@ -150,7 +148,7 @@
             "Bổ nhiệm",
             "Kiêm nhiệm",
             "Điều động"});
-            this.comB_Loai.Location = new System.Drawing.Point(627, 5);
+            this.comB_Loai.Location = new System.Drawing.Point(627, 3);
             this.comB_Loai.Name = "comB_Loai";
             this.comB_Loai.Size = new System.Drawing.Size(164, 29);
             this.comB_Loai.TabIndex = 2;
@@ -239,20 +237,6 @@
             this.label2.TabIndex = 19;
             this.label2.Text = "Mô tả";
             // 
-            // lb_ChonTapTin
-            // 
-            this.lb_ChonTapTin.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lb_ChonTapTin.AutoSize = true;
-            this.lb_ChonTapTin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lb_ChonTapTin.Font = new System.Drawing.Font("Calibri", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_ChonTapTin.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lb_ChonTapTin.Location = new System.Drawing.Point(363, 87);
-            this.lb_ChonTapTin.Name = "lb_ChonTapTin";
-            this.lb_ChonTapTin.Size = new System.Drawing.Size(96, 21);
-            this.lb_ChonTapTin.TabIndex = 7;
-            this.lb_ChonTapTin.Text = "Chọn tập tin";
-            this.lb_ChonTapTin.Click += new System.EventHandler(this.lb_ChonTapTin_Click);
-            // 
             // ThongTinQuyetDinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -286,7 +270,6 @@
         public System.Windows.Forms.DateTimePicker dTP_NgayKy;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lb_ChonTapTin;
         public System.Windows.Forms.RichTextBox rTB_MoTa;
         public System.Windows.Forms.Label lbl_LoaiQD;
 
