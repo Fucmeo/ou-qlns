@@ -66,7 +66,13 @@ namespace QLNS.Forms
             tsmi_TrinhDo.Image = ImageL_MenuStripItem.Images["Trinh do.png"];
             tsmi_LuongToiThieu.Image = ImageL_MenuStripItem.Images["Luong Toi Thieu.png"];
             tsmi_LoaiHD.Image = ImageL_MenuStripItem.Images["Contract Type.png"];
-
+            
+            quyếtĐịnhĐơnVịToolStripMenuItem.Image = ImageL_MenuStripItem.Images["don vi.png"];
+            quyếtĐịnhCôngNhậnChứcDanhGiảngViênToolStripMenuItem.Image = ImageL_MenuStripItem.Images["Chuc danh GV.png"];
+            quyếtĐịnhThôiViệcNghỉHưuToolStripMenuItem.Image = ImageL_MenuStripItem.Images["nghi huu.png"];
+            tsmi_QLHD_ThaiSan.Image = ImageL_MenuStripItem.Images["thai san.png"];
+            qĐChungToolStripMenuItem.Image = ImageL_MenuStripItem.Images["Decision.png"];
+            qĐKhenThưởngNângLươngChuyểnNgạchToolStripMenuItem.Image = ImageL_MenuStripItem.Images["khen thuong.png"];
             
         }
 
@@ -186,30 +192,22 @@ namespace QLNS.Forms
 
         private void tsmi_QLHD_DoiThongTInDV_Click(object sender, EventArgs e)
         {
-            Forms.Popup f = new Popup("Quyết định đổi thông tin đơn vị", new HDQD.UCs.DoiThongTinDV());
-            f.WindowState = FormWindowState.Maximized;
-            f.ShowDialog();
+            
         }
 
         private void tsmi_QLHD_TachDV_Click(object sender, EventArgs e)
         {
-            Forms.Popup f = new Popup("Quyết định tách đơn vị", new HDQD.UCs.M_A(true));
-            f.WindowState = FormWindowState.Maximized;
-            f.ShowDialog();
+            
         }
 
         private void tsmi_QLHD_QDChung_Click(object sender, EventArgs e)
         {
-            Forms.Popup f = new Popup("Quyết định chung", new HDQD.UCs.QuyetDinhChung());
-            f.WindowState = FormWindowState.Maximized;
-            f.ShowDialog();
+            
         }
 
         private void tsmi_QLHD_GopDV_Click(object sender, EventArgs e)
         {
-            Forms.Popup f = new Popup("Quyết định gộp đơn vị", new HDQD.UCs.M_A(false));
-            f.WindowState = FormWindowState.Maximized;
-            f.ShowDialog();
+            
         }
 
 
@@ -295,13 +293,58 @@ namespace QLNS.Forms
 
         private void tsmi_QLHD_ThemHD_Click(object sender, EventArgs e)
         {
-            Forms.Popup f = new Popup("Thêm hợp đồng", new HDQD.UCs.HopDong());            
-            f.ShowDialog();
+            
         }
 
         private void tsmi_LoaiHD_Click(object sender, EventArgs e)
         {
             Forms.Popup f = new Popup("Quản lý loại hợp đồng", new HDQD.UCs.LoaiHopDong());
+            f.ShowDialog();
+        }
+
+        private void tsmi_QLHD_HDMoi_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Thêm hợp đồng mới", new HDQD.UCs.HopDong());
+            f.ShowDialog();
+        }
+
+        private void tsmi_QLHD_TiepNhan_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Quyết định tiếp nhận", new HDQD.UCs.TiepNhan());
+            f.ShowDialog();
+        }
+
+        private void tsmi_QLHD_GiaHan_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Gia hạn hợp đồng", new HDQD.UCs.HopDong());
+            f.ShowDialog();
+        }
+
+        private void qĐChungToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Quyết định chung", new HDQD.UCs.QuyetDinhChung());
+            f.WindowState = FormWindowState.Maximized;
+            f.ShowDialog();
+        }
+
+        private void táchĐơnVịToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Quyết định tách đơn vị", new HDQD.UCs.M_A(true));
+            f.WindowState = FormWindowState.Maximized;
+            f.ShowDialog();
+        }
+
+        private void gộpĐơnVịToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Quyết định gộp đơn vị", new HDQD.UCs.M_A(false));
+            f.WindowState = FormWindowState.Maximized;
+            f.ShowDialog();
+        }
+
+        private void đổiThôngTinĐơnVịToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Quyết định đổi thông tin đơn vị", new HDQD.UCs.DoiThongTinDV());
+            f.WindowState = FormWindowState.Maximized;
             f.ShowDialog();
         }
     }
