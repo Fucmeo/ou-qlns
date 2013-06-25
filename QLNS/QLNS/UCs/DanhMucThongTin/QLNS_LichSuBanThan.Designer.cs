@@ -160,7 +160,7 @@
             this.tableLP_TienAn.Controls.Add(this.tableLayoutPanel1, 2, 3);
             this.tableLP_TienAn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLP_TienAn.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableLP_TienAn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.tableLP_TienAn.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tableLP_TienAn.Location = new System.Drawing.Point(3, 24);
             this.tableLP_TienAn.Name = "tableLP_TienAn";
             this.tableLP_TienAn.RowCount = 5;
@@ -197,7 +197,7 @@
             this.comB_HinhThuc.Items.AddRange(new object[] {
             "Bị bắt",
             "Bị tù"});
-            this.comB_HinhThuc.Location = new System.Drawing.Point(133, 13);
+            this.comB_HinhThuc.Location = new System.Drawing.Point(133, 14);
             this.comB_HinhThuc.Name = "comB_HinhThuc";
             this.comB_HinhThuc.Size = new System.Drawing.Size(234, 26);
             this.comB_HinhThuc.TabIndex = 0;
@@ -420,7 +420,7 @@
             this.tableLP_QuanHeToChuc.Controls.Add(this.txt_PhuongXa, 1, 3);
             this.tableLP_QuanHeToChuc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLP_QuanHeToChuc.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableLP_QuanHeToChuc.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.tableLP_QuanHeToChuc.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tableLP_QuanHeToChuc.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLP_QuanHeToChuc.Location = new System.Drawing.Point(3, 24);
             this.tableLP_QuanHeToChuc.Name = "tableLP_QuanHeToChuc";

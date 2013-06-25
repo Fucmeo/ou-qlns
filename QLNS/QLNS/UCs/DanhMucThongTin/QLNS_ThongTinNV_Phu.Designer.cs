@@ -190,7 +190,7 @@
             this.comB_QuocTich.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_QuocTich.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_QuocTich.FormattingEnabled = true;
-            this.comB_QuocTich.Location = new System.Drawing.Point(3, 8);
+            this.comB_QuocTich.Location = new System.Drawing.Point(3, 6);
             this.comB_QuocTich.Name = "comB_QuocTich";
             this.comB_QuocTich.Size = new System.Drawing.Size(263, 29);
             this.comB_QuocTich.TabIndex = 11;
@@ -230,7 +230,7 @@
             this.comb_TonGiao.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comb_TonGiao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comb_TonGiao.FormattingEnabled = true;
-            this.comb_TonGiao.Location = new System.Drawing.Point(3, 15);
+            this.comb_TonGiao.Location = new System.Drawing.Point(3, 13);
             this.comb_TonGiao.Name = "comb_TonGiao";
             this.comb_TonGiao.Size = new System.Drawing.Size(263, 29);
             this.comb_TonGiao.TabIndex = 0;
@@ -270,7 +270,7 @@
             this.comb_DanToc.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comb_DanToc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comb_DanToc.FormattingEnabled = true;
-            this.comb_DanToc.Location = new System.Drawing.Point(3, 15);
+            this.comb_DanToc.Location = new System.Drawing.Point(3, 13);
             this.comb_DanToc.Name = "comb_DanToc";
             this.comb_DanToc.Size = new System.Drawing.Size(263, 29);
             this.comb_DanToc.TabIndex = 0;
@@ -336,7 +336,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label17, 2, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableLayoutPanel1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.tableLayoutPanel1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tableLayoutPanel1.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 24);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -393,7 +393,7 @@
             this.comB_HoKhau_QuocGia.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_HoKhau_QuocGia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_HoKhau_QuocGia.FormattingEnabled = true;
-            this.comB_HoKhau_QuocGia.Location = new System.Drawing.Point(3, 14);
+            this.comB_HoKhau_QuocGia.Location = new System.Drawing.Point(3, 13);
             this.comB_HoKhau_QuocGia.Name = "comB_HoKhau_QuocGia";
             this.comB_HoKhau_QuocGia.Size = new System.Drawing.Size(263, 26);
             this.comB_HoKhau_QuocGia.TabIndex = 0;
@@ -448,7 +448,7 @@
             this.comB_HoKhauTinh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_HoKhauTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_HoKhauTinh.FormattingEnabled = true;
-            this.comB_HoKhauTinh.Location = new System.Drawing.Point(3, 14);
+            this.comB_HoKhauTinh.Location = new System.Drawing.Point(3, 13);
             this.comB_HoKhauTinh.Name = "comB_HoKhauTinh";
             this.comB_HoKhauTinh.Size = new System.Drawing.Size(266, 26);
             this.comB_HoKhauTinh.TabIndex = 0;
@@ -554,7 +554,7 @@
             this.tableLP_NoiSinh.Controls.Add(this.txt_NoiSinhHuyen, 3, 0);
             this.tableLP_NoiSinh.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLP_NoiSinh.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableLP_NoiSinh.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.tableLP_NoiSinh.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tableLP_NoiSinh.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLP_NoiSinh.Location = new System.Drawing.Point(3, 24);
             this.tableLP_NoiSinh.Name = "tableLP_NoiSinh";
@@ -624,7 +624,7 @@
             this.comB_NoiSinh_QuocGia.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_NoiSinh_QuocGia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_NoiSinh_QuocGia.FormattingEnabled = true;
-            this.comB_NoiSinh_QuocGia.Location = new System.Drawing.Point(3, 20);
+            this.comB_NoiSinh_QuocGia.Location = new System.Drawing.Point(3, 19);
             this.comB_NoiSinh_QuocGia.Name = "comB_NoiSinh_QuocGia";
             this.comB_NoiSinh_QuocGia.Size = new System.Drawing.Size(263, 26);
             this.comB_NoiSinh_QuocGia.TabIndex = 0;
@@ -678,7 +678,7 @@
             this.comB_NoiSinhTinh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_NoiSinhTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_NoiSinhTinh.FormattingEnabled = true;
-            this.comB_NoiSinhTinh.Location = new System.Drawing.Point(3, 20);
+            this.comB_NoiSinhTinh.Location = new System.Drawing.Point(3, 19);
             this.comB_NoiSinhTinh.Name = "comB_NoiSinhTinh";
             this.comB_NoiSinhTinh.Size = new System.Drawing.Size(266, 26);
             this.comB_NoiSinhTinh.TabIndex = 0;
@@ -735,7 +735,7 @@
             this.comB_TinhTrangHonNhan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_TinhTrangHonNhan.Enabled = false;
             this.comB_TinhTrangHonNhan.FormattingEnabled = true;
-            this.comB_TinhTrangHonNhan.Location = new System.Drawing.Point(653, 9);
+            this.comB_TinhTrangHonNhan.Location = new System.Drawing.Point(653, 7);
             this.comB_TinhTrangHonNhan.Name = "comB_TinhTrangHonNhan";
             this.comB_TinhTrangHonNhan.Size = new System.Drawing.Size(263, 29);
             this.comB_TinhTrangHonNhan.TabIndex = 1;
@@ -831,7 +831,7 @@
             this.tableLP_QueQuan.Controls.Add(this.label19, 2, 0);
             this.tableLP_QueQuan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLP_QueQuan.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableLP_QueQuan.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.tableLP_QueQuan.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tableLP_QueQuan.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLP_QueQuan.Location = new System.Drawing.Point(3, 24);
             this.tableLP_QueQuan.Name = "tableLP_QueQuan";
@@ -871,7 +871,7 @@
             this.comB_QueQuan_QuocGia.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_QueQuan_QuocGia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_QueQuan_QuocGia.FormattingEnabled = true;
-            this.comB_QueQuan_QuocGia.Location = new System.Drawing.Point(3, 12);
+            this.comB_QueQuan_QuocGia.Location = new System.Drawing.Point(3, 11);
             this.comB_QueQuan_QuocGia.Name = "comB_QueQuan_QuocGia";
             this.comB_QueQuan_QuocGia.Size = new System.Drawing.Size(263, 26);
             this.comB_QueQuan_QuocGia.TabIndex = 0;
@@ -911,7 +911,7 @@
             this.comB_QueTinh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_QueTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_QueTinh.FormattingEnabled = true;
-            this.comB_QueTinh.Location = new System.Drawing.Point(3, 12);
+            this.comB_QueTinh.Location = new System.Drawing.Point(3, 11);
             this.comB_QueTinh.Name = "comB_QueTinh";
             this.comB_QueTinh.Size = new System.Drawing.Size(263, 26);
             this.comB_QueTinh.TabIndex = 0;

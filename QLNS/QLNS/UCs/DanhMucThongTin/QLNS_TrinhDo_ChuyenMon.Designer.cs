@@ -110,7 +110,7 @@
             this.tableLP_TrinhDoPT.Controls.Add(this.txt_NamHoc, 3, 2);
             this.tableLP_TrinhDoPT.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLP_TrinhDoPT.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableLP_TrinhDoPT.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.tableLP_TrinhDoPT.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tableLP_TrinhDoPT.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLP_TrinhDoPT.Location = new System.Drawing.Point(3, 24);
             this.tableLP_TrinhDoPT.Name = "tableLP_TrinhDoPT";
@@ -270,7 +270,7 @@
             "Tiểu học",
             "Trung học cơ sở",
             "Trung học phổ thông"});
-            this.comB_CapDo.Location = new System.Drawing.Point(121, 45);
+            this.comB_CapDo.Location = new System.Drawing.Point(121, 44);
             this.comB_CapDo.Name = "comB_CapDo";
             this.comB_CapDo.Size = new System.Drawing.Size(264, 26);
             this.comB_CapDo.TabIndex = 0;
