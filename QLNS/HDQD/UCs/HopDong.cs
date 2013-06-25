@@ -33,6 +33,8 @@ namespace HDQD.UCs
         DataTable dtPhuCap;
         int row_count_pc = 0;
 
+        Business.HDQD.CNVC_PhuCap oCNVCPhuCap;
+
         // KHANG - UPLOAD FILE
         public static List<KeyValuePair<string, bool?>> Paths;
         //public static string[] Paths;
@@ -77,6 +79,13 @@ namespace HDQD.UCs
             oLoaiPC = new Business.HDQD.LoaiPhuCap();
             dtPhuCap = new DataTable();
             dtLoaiPC = new DataTable();
+            oCNVCPhuCap = new Business.HDQD.CNVC_PhuCap();
+
+            dtLoaiPC = oLoaiPC.GetList_Cbo();
+
+            PreapreDataSource();
+            Prepare_Data_BacHeSo();
+            PrepareDataTablePhuCap();
         }
 
         private void btn_Them_Click(object sender, EventArgs e)
@@ -264,11 +273,7 @@ namespace HDQD.UCs
 
         private void HopDong_Load(object sender, EventArgs e)
         {
-            dtLoaiPC = oLoaiPC.GetList_Cbo();
-
-            PreapreDataSource();
-            Prepare_Data_BacHeSo();
-            PrepareDataTablePhuCap();
+            
             //CreateColumnsDtgv();
 
             comb_Luong.SelectedIndex = 0;
@@ -443,66 +448,84 @@ namespace HDQD.UCs
 
         private void DisplayInfo()
         {
-            //thongTinCNVC1.txt_MaNV.Text = oHopdong.Ma_NV;
-            //// thông tin Họ tên NV.
-            //cnvc = new Business.CNVC.CNVC();
-            //cnvc.MaNV = oHopdong.Ma_NV;
-            //DataTable dtHoTenNV = cnvc.Search_Ho_Ten();
-            //thongTinCNVC1.txt_Ho.Text = dtHoTenNV.Rows[0]["ho"].ToString();
-            //thongTinCNVC1.txt_Ten.Text = dtHoTenNV.Rows[0]["ten"].ToString();
+            thongTinCNVC1.txt_MaNV.Text = oHopdong.Ma_NV;
+            // thông tin Họ tên NV.
+            cnvc = new Business.CNVC.CNVC();
+            cnvc.MaNV = oHopdong.Ma_NV;
+            DataTable dtHoTenNV = cnvc.Search_Ho_Ten();
+            thongTinCNVC1.txt_Ho.Text = dtHoTenNV.Rows[0]["ho"].ToString();
+            thongTinCNVC1.txt_Ten.Text = dtHoTenNV.Rows[0]["ten"].ToString();
 
-            //txt_MaHD.Text = oHopdong.Ma_Hop_Dong;
-            //rTB_GhiChu.Text = oHopdong.Ghi_Chu;
+            txt_MaHD.Text = oHopdong.Ma_Tuyen_Dung;
+            rTB_GhiChu.Text = oHopdong.Ghi_Chu;
 
-            //if (oHopdong.Ngay_Ky != null)
-            //{
-            //    dTP_NgayKy.Checked = true;
-            //    dTP_NgayKy.Value = oHopdong.Ngay_Ky.Value;
-            //}
-            //if (oHopdong.Ngay_Hieu_Luc != null)
-            //{
-            //    dtp_TuNgay.Checked = true;
-            //    dtp_TuNgay.Value = oHopdong.Ngay_Hieu_Luc.Value;
-            //}
-            //if (oHopdong.Ngay_Het_Han != null)
-            //{
-            //    dtp_DenNgay.Checked = true;
-            //    dtp_DenNgay.Value = oHopdong.Ngay_Het_Han.Value;
-            //}
+            if (oHopdong.Ngay_Ky != null)
+            {
+                dTP_NgayKy.Checked = true;
+                dTP_NgayKy.Value = oHopdong.Ngay_Ky.Value;
+            }
+            if (oHopdong.Ngay_Hieu_Luc != null)
+            {
+                dtp_TuNgay.Checked = true;
+                dtp_TuNgay.Value = oHopdong.Ngay_Hieu_Luc.Value;
+            }
+            if (oHopdong.Ngay_Het_Han != null)
+            {
+                dtp_DenNgay.Checked = true;
+                dtp_DenNgay.Value = oHopdong.Ngay_Het_Han.Value;
+            }
 
-            ////Xử lý combo box
-            //if (oHopdong.Chuc_Danh_ID != null)
-            //    comB_ChucDanh.SelectedValue = oHopdong.Chuc_Danh_ID;
-            //if (oHopdong.Chuc_Vu_ID != null)
-            //    comB_ChucVu.SelectedValue = oHopdong.Chuc_Vu_ID;
-            //if (oHopdong.Don_Vi_ID != null)
-            //    comB_DonVi.SelectedValue = oHopdong.Don_Vi_ID;
-            //if (oHopdong.Ma_Loai_HD != null)
-            //    comB_LoaiHD.SelectedValue = oHopdong.Ma_Loai_HD;
-            ////if (oHopdong.ThuViec_ChinhThuc == true) //chính thức
-            ////    comB_ThuViecChinhThuc.Text = "Chính thức";
-            ////else
-            ////    comB_ThuViecChinhThuc.Text = "Thử việc";
+            //Xử lý combo box
+            if (oHopdong.Chuc_Danh_ID != null)
+                comB_ChucDanh.SelectedValue = oHopdong.Chuc_Danh_ID;
+            if (oHopdong.Chuc_Vu_ID != null)
+                comB_ChucVu.SelectedValue = oHopdong.Chuc_Vu_ID;
+            if (oHopdong.Don_Vi_ID != null)
+                comB_DonVi.SelectedValue = oHopdong.Don_Vi_ID;
+            if (oHopdong.Ma_Loai_HD != null)
+                comB_LoaiHD.SelectedValue = oHopdong.Ma_Loai_HD;
+            //if (oHopdong.ThuViec_ChinhThuc == true) //chính thức
+            //    comB_ThuViecChinhThuc.Text = "Chính thức";
+            //else
+            //    comB_ThuViecChinhThuc.Text = "Thử việc";
 
-            //cb_ThoiHan.Checked = oHopdong.Co_Thoi_Han.Value;
+            cb_ThoiHan.Checked = oHopdong.Co_Thoi_Han.Value;
 
-            ////try
-            ////{
-            ////    comB_ChucDanh.SelectedValue = oHopdong.Chuc_Danh_ID;
-            ////    comB_ChucVu.SelectedValue = oHopdong.Chuc_Vu_ID;
-            ////    comB_DonVi.SelectedValue = oHopdong.Don_Vi_ID;
-            ////    comB_LoaiHD.SelectedValue = oHopdong.Ma_Loai_HD;
-            ////    if (oHopdong.ThuViec_ChinhThuc == true) //chính thức
-            ////        comB_ThuViecChinhThuc.Text = "Chính thức";
-            ////    else
-            ////        comB_ThuViecChinhThuc.Text = "Thử việc";
-            ////}
-            ////catch {
-            ////    comB_ChucDanh.SelectedValue = 0;
-            ////    comB_ChucVu.SelectedValue = 0;
-            ////    comB_DonVi.SelectedValue = 0;
-            ////    comB_LoaiHD.SelectedValue = 0;
-            ////}
+            #region Luong Info
+            txt_Tien.Text = oHopdong.Luong_Khoan.ToString();
+            nup_PhanTram.Value = Convert.ToDecimal(oHopdong.PhanTramHuong.Value);
+            if (oHopdong.Khoan_or_HeSo == true)
+                comb_Luong.Text = "Hệ số";
+            else
+                comb_Luong.Text = "Khoán";
+
+            if (oHopdong.BacHeSo_ID != null)
+            {
+                var result = (from c in dtBacHeSo.AsEnumerable()
+                              where c.Field<int>("id") == oHopdong.BacHeSo_ID && c.Field<bool>("tinh_trang") == true
+                              select c.Field<string>("ma_ngach")
+                            );
+
+                string ma_ngach = result.ElementAt(0).ToString();
+
+                comb_Ngach.SelectedValue = ma_ngach;
+                comb_Bac.SelectedValue = oHopdong.BacHeSo_ID;
+
+                var result1 = (from c in dtBacHeSo.AsEnumerable()
+                               where c.Field<int>("id") == oHopdong.BacHeSo_ID
+                               select c.Field<double>("he_so"));
+
+                double m_he_so = result1.ElementAt<double>(0);
+
+                txt_HeSo.Text = m_he_so.ToString();
+            }
+            #endregion
+
+            #region Phu Cap Info
+            DataTable dt = oCNVCPhuCap.GetList_PhuCap_byCNVC(oHopdong.Ma_Tuyen_Dung, oHopdong.Ma_NV);
+            PrepareDTGVSource(dt);
+
+            #endregion
         }
 
         private void PrepareDataTablePhuCap()

@@ -103,43 +103,48 @@ namespace HDQD.UCs
         private void EditDtgInterface()
         {
             // Dat ten cho cac cot
-            dtgv_DSHD.Columns[0].HeaderText = "ID";
-            dtgv_DSHD.Columns[1].HeaderText = "Mã nhân viên";
-            dtgv_DSHD.Columns[1].Width = 200;
-            dtgv_DSHD.Columns[2].HeaderText = "Mã hợp đồng";
-            dtgv_DSHD.Columns[2].Width = 200;
-            dtgv_DSHD.Columns[3].HeaderText = "Mã loại Hợp đồng";
-            dtgv_DSHD.Columns[4].HeaderText = "Loại hợp đồng";
-            dtgv_DSHD.Columns[4].Width = 200;
-            dtgv_DSHD.Columns[5].HeaderText = "Có thời hạn";
-            dtgv_DSHD.Columns[5].Width = 100;
-            dtgv_DSHD.Columns[6].HeaderText = "Ngày ký";
-            dtgv_DSHD.Columns[6].Width = 100;
-            dtgv_DSHD.Columns[7].HeaderText = "Ngày hiệu lực";
-            dtgv_DSHD.Columns[7].Width = 100;
-            dtgv_DSHD.Columns[8].HeaderText = "Ngày hết hạn";
-            dtgv_DSHD.Columns[8].Width = 100;
-            dtgv_DSHD.Columns[9].HeaderText = "Chức vụ ID";
-            dtgv_DSHD.Columns[10].HeaderText = "Tên chức vụ";
-            dtgv_DSHD.Columns[10].Width = 100;
-            dtgv_DSHD.Columns[11].HeaderText = "Chức danh ID";
-            dtgv_DSHD.Columns[12].HeaderText = "Tên chức danh";
-            dtgv_DSHD.Columns[12].Width = 100;
-            dtgv_DSHD.Columns[13].HeaderText = "Đơn vị ID";
-            dtgv_DSHD.Columns[14].HeaderText = "Tên đơn vị";
-            dtgv_DSHD.Columns[14].Width = 100;
-            dtgv_DSHD.Columns[15].HeaderText = "Tình trạng";
-            dtgv_DSHD.Columns[15].Width = 100;
-            dtgv_DSHD.Columns[16].HeaderText = "Ghi chú";
+            dtgv_DSHD.Columns["id"].HeaderText = "ID";
+            dtgv_DSHD.Columns["ma_nv"].HeaderText = "Mã nhân viên";
+            dtgv_DSHD.Columns["ma_nv"].Width = 200;
+            dtgv_DSHD.Columns["ma_hop_dong"].HeaderText = "Mã hợp đồng";
+            dtgv_DSHD.Columns["ma_hop_dong"].Width = 200;
+            dtgv_DSHD.Columns["ma_loai_hd"].HeaderText = "Mã loại Hợp đồng";
+            dtgv_DSHD.Columns["loai_hop_dong"].HeaderText = "Loại hợp đồng";
+            dtgv_DSHD.Columns["loai_hop_dong"].Width = 200;
+            dtgv_DSHD.Columns["co_thoi_han"].HeaderText = "Có thời hạn";
+            dtgv_DSHD.Columns["co_thoi_han"].Width = 100;
+            dtgv_DSHD.Columns["ngay_ky"].HeaderText = "Ngày ký";
+            dtgv_DSHD.Columns["ngay_ky"].Width = 100;
+            dtgv_DSHD.Columns["ngay_hieu_luc"].HeaderText = "Ngày hiệu lực";
+            dtgv_DSHD.Columns["ngay_hieu_luc"].Width = 100;
+            dtgv_DSHD.Columns["ngay_het_han"].HeaderText = "Ngày hết hạn";
+            dtgv_DSHD.Columns["ngay_het_han"].Width = 100;
+            dtgv_DSHD.Columns["chuc_vu_chinh_id"].HeaderText = "Chức vụ ID";
+            dtgv_DSHD.Columns["ten_chuc_vu"].HeaderText = "Tên chức vụ";
+            dtgv_DSHD.Columns["ten_chuc_vu"].Width = 100;
+            dtgv_DSHD.Columns["chuc_danh_chinh_id"].HeaderText = "Chức danh ID";
+            dtgv_DSHD.Columns["ten_chuc_danh"].HeaderText = "Tên chức danh";
+            dtgv_DSHD.Columns["ten_chuc_danh"].Width = 100;
+            dtgv_DSHD.Columns["don_vi_chinh_id"].HeaderText = "Đơn vị ID";
+            dtgv_DSHD.Columns["ten_don_vi"].HeaderText = "Tên đơn vị";
+            dtgv_DSHD.Columns["ten_don_vi"].Width = 100;
+            dtgv_DSHD.Columns["tinh_trang"].HeaderText = "Tình trạng";
+            dtgv_DSHD.Columns["tinh_trang"].Width = 100;
+            dtgv_DSHD.Columns["ghi_chu"].HeaderText = "Ghi chú";
             //dtgv_DSHD.Columns[17].HeaderText = "Ngày hết hạn ADJ";
             // An cot ID
-            dtgv_DSHD.Columns[0].Visible = false;
-            dtgv_DSHD.Columns[3].Visible = false;
-            dtgv_DSHD.Columns[9].Visible = false;
-            dtgv_DSHD.Columns[11].Visible = false;
-            dtgv_DSHD.Columns[13].Visible = false;
-            dtgv_DSHD.Columns[16].Visible = false;
+            dtgv_DSHD.Columns["id"].Visible = false;
+            dtgv_DSHD.Columns["ma_loai_hd"].Visible = false;
+            dtgv_DSHD.Columns["chuc_vu_chinh_id"].Visible = false;
+            dtgv_DSHD.Columns["chuc_danh_chinh_id"].Visible = false;
+            dtgv_DSHD.Columns["don_vi_chinh_id"].Visible = false;
+            dtgv_DSHD.Columns["ghi_chu"].Visible = false;
             //dtgv_DSHD.Columns[17].Visible = false;
+            dtgv_DSHD.Columns["khoan_or_heso"].Visible = false;
+            dtgv_DSHD.Columns["luong_khoan"].Visible = false;
+            dtgv_DSHD.Columns["ngach_bac_heso_id"].Visible = false;
+            dtgv_DSHD.Columns["phan_tram_huong"].Visible = false;
+
         }
 
         private void ResetInterface(bool init)
@@ -256,29 +261,42 @@ namespace HDQD.UCs
             {
                 DataGridViewRow row = dtgv_DSHD.CurrentRow;
                 oHopDong = new Business.HDQD.CNVC_HopDong();
-                oHopDong.ID = Convert.ToInt16(row.Cells[0].Value.ToString());
-                oHopDong.Ma_NV = row.Cells[1].Value.ToString();
-                oHopDong.Ma_Hop_Dong = row.Cells[2].Value.ToString();
-                oHopDong.Ma_Loai_HD = Convert.ToInt16(row.Cells[3].Value.ToString());
-                oHopDong.Loai_Hop_Dong = row.Cells[4].Value.ToString();
-                oHopDong.Co_Thoi_Han = Convert.ToBoolean(row.Cells[5].Value.ToString());
-                if (row.Cells[6].Value.ToString() != "")
-                    oHopDong.Ngay_Ky = Convert.ToDateTime(row.Cells[6].Value.ToString());
-                if (row.Cells[7].Value.ToString() != "")
-                    oHopDong.Ngay_Hieu_Luc = Convert.ToDateTime(row.Cells[7].Value.ToString());
-                if (row.Cells[8].Value.ToString() != "")
-                    oHopDong.Ngay_Het_Han = Convert.ToDateTime(row.Cells[8].Value.ToString());
-                if (row.Cells[9].Value.ToString() != "")
-                    oHopDong.Chuc_Vu_ID = Convert.ToInt16(row.Cells[9].Value.ToString());
-                oHopDong.Chuc_Vu = row.Cells[10].Value.ToString();
-                if (row.Cells[11].Value.ToString() != "")
-                    oHopDong.Chuc_Danh_ID = Convert.ToInt16(row.Cells[11].Value.ToString());
-                oHopDong.Chuc_Danh = row.Cells[12].Value.ToString();
-                if (row.Cells[13].Value.ToString() != "")
-                    oHopDong.Don_Vi_ID = Convert.ToInt16(row.Cells[13].Value.ToString());
-                oHopDong.Don_Vi = row.Cells[14].Value.ToString();
-                oHopDong.Tinh_Trang = Convert.ToBoolean(row.Cells[15].Value.ToString());
-                oHopDong.Ghi_Chu = row.Cells[16].Value.ToString();
+                oHopDong.ID = Convert.ToInt16(row.Cells["id"].Value.ToString());
+                oHopDong.Ma_NV = row.Cells["ma_nv"].Value.ToString();
+                oHopDong.Ma_Tuyen_Dung = row.Cells["ma_hop_dong"].Value.ToString();
+                oHopDong.La_QD_Tiep_Nhan = false;
+                oHopDong.Ma_Loai_HD = Convert.ToInt16(row.Cells["ma_loai_hd"].Value.ToString());
+                oHopDong.Loai_Hop_Dong = row.Cells["loai_hop_dong"].Value.ToString();
+                oHopDong.Co_Thoi_Han = Convert.ToBoolean(row.Cells["co_thoi_han"].Value.ToString());
+                if (row.Cells["ngay_ky"].Value.ToString() != "")
+                    oHopDong.Ngay_Ky = Convert.ToDateTime(row.Cells["ngay_ky"].Value.ToString());
+                if (row.Cells["ngay_hieu_luc"].Value.ToString() != "")
+                    oHopDong.Ngay_Hieu_Luc = Convert.ToDateTime(row.Cells["ngay_hieu_luc"].Value.ToString());
+                if (row.Cells["ngay_het_han"].Value.ToString() != "")
+                    oHopDong.Ngay_Het_Han = Convert.ToDateTime(row.Cells["ngay_het_han"].Value.ToString());
+                if (row.Cells["chuc_vu_chinh_id"].Value.ToString() != "")
+                    oHopDong.Chuc_Vu_ID = Convert.ToInt16(row.Cells["chuc_vu_chinh_id"].Value.ToString());
+                oHopDong.Chuc_Vu = row.Cells["ten_chuc_vu"].Value.ToString();
+
+                if (row.Cells["chuc_danh_chinh_id"].Value.ToString() != "")
+                    oHopDong.Chuc_Danh_ID = Convert.ToInt16(row.Cells["chuc_danh_chinh_id"].Value.ToString());
+                oHopDong.Chuc_Danh = row.Cells["ten_chuc_danh"].Value.ToString();
+
+                if (row.Cells["don_vi_chinh_id"].Value.ToString() != "")
+                    oHopDong.Don_Vi_ID = Convert.ToInt16(row.Cells["don_vi_chinh_id"].Value.ToString());
+                oHopDong.Don_Vi = row.Cells["ten_don_vi"].Value.ToString();
+                oHopDong.Tinh_Trang = Convert.ToBoolean(row.Cells["tinh_trang"].Value.ToString());
+                oHopDong.Ghi_Chu = row.Cells["ghi_chu"].Value.ToString();
+
+                #region Luong Info
+                oHopDong.Khoan_or_HeSo = Convert.ToBoolean(row.Cells["tinh_trang"].Value.ToString());
+                if (row.Cells["luong_khoan"].Value.ToString() != "")
+                    oHopDong.Luong_Khoan = Convert.ToDouble(row.Cells["luong_khoan"].Value.ToString());
+                if (row.Cells["ngach_bac_heso_id"].Value.ToString() != "")
+                    oHopDong.BacHeSo_ID = Convert.ToInt16(row.Cells["ngach_bac_heso_id"].Value.ToString());
+                if (row.Cells["phan_tram_huong"].Value.ToString() != "")
+                    oHopDong.PhanTramHuong = Convert.ToDouble(row.Cells["phan_tram_huong"].Value.ToString());
+                #endregion
 
                 UCs.HopDong hopdong = new HopDong(oHopDong);
                 Forms.Popup popup = new Forms.Popup(hopdong, "QUẢN LÝ NHÂN SỰ - HỢP ĐỒNG");
