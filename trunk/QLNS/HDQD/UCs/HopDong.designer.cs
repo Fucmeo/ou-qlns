@@ -1025,9 +1025,9 @@
             // bw_upload
             // 
             this.bw_upload.WorkerReportsProgress = true;
-            this.bw_upload.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
-            this.bw_upload.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
-            this.bw_upload.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            this.bw_upload.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bw_upload_DoWork);
+            this.bw_upload.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bw_upload_ProgressChanged);
+            this.bw_upload.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bw_upload_RunWorkerCompleted);
             // 
             // bw_download
             // 

@@ -576,11 +576,8 @@ namespace HDQD.UCs
                 DownLoadFile();  
             }
 
-            Form f = new Forms.Popup(new UCs.DSTapTin(), "QUẢN LÝ NHÂN SỰ - DANH SÁCH TẬP TIN");
+            Form f = new Forms.Popup(new UCs.DSTapTin("HopDong", Paths, Desc), "QUẢN LÝ NHÂN SỰ - DANH SÁCH TẬP TIN");
             f.ShowDialog();
-
-
-            
         }
 
         // KHANG
@@ -644,7 +641,7 @@ namespace HDQD.UCs
             #endregion
         }
 
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        private void bw_upload_DoWork(object sender, DoWorkEventArgs e)
         {
 
             string[] NewFiles = Paths.Where(a => a.Value == false).Select(a => a.Key).ToArray();
@@ -658,7 +655,7 @@ namespace HDQD.UCs
             }
         }
 
-        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        private void bw_upload_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             // Change the value of the ProgressBar to the BackgroundWorker progress.
             pb_Status.Value = e.ProgressPercentage;
@@ -666,7 +663,7 @@ namespace HDQD.UCs
             lbl_Status.Text = "Đang đăng tập tin ..." + e.ProgressPercentage.ToString() + " / " + nNewFilesCount.ToString();
         }
 
-        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        private void bw_upload_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             if (Paths.Where(a => a.Value == false).Select(a => a.Key).ToArray().Length > 0)
             {
@@ -729,7 +726,7 @@ namespace HDQD.UCs
         {
             lbl_Status.Text = "Tải tập tin hoàn tất!";
 
-            Forms.Popup f = new Forms.Popup(new UCs.DSTapTin(Paths, Desc), "QUẢN LÝ NHÂN SỰ - DANH SÁCH TẬP TIN");
+            Forms.Popup f = new Forms.Popup(new UCs.DSTapTin("HopDong",Paths, Desc), "QUẢN LÝ NHÂN SỰ - DANH SÁCH TẬP TIN");
             UCs.DSTapTin.bHopDong = true;
             f.ShowDialog();
         }
