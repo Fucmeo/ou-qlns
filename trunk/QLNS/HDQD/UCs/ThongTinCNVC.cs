@@ -34,7 +34,7 @@ namespace HDQD.UCs
                 DataTable dt;
 
                 // neu dang o UC HopDong thi search nv - khong can quan tam qua trinh cong tac
-                if (this.Parent.Parent.Name == "HopDong")
+                if (this.Parent.Parent.Name == "HopDong" || this.Parent.Parent.Name == "TiepNhan")
                 {
                     dt = oCNVC.SearchDataForQD(true);
                 }
