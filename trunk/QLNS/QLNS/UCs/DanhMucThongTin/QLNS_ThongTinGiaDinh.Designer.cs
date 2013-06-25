@@ -180,7 +180,7 @@
             this.tableLP_ThongTinDiaChi.Controls.Add(this.txt_SoNha, 1, 0);
             this.tableLP_ThongTinDiaChi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLP_ThongTinDiaChi.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableLP_ThongTinDiaChi.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.tableLP_ThongTinDiaChi.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tableLP_ThongTinDiaChi.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLP_ThongTinDiaChi.Location = new System.Drawing.Point(3, 24);
             this.tableLP_ThongTinDiaChi.Name = "tableLP_ThongTinDiaChi";
@@ -258,7 +258,7 @@
             this.comB_QuocGia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_QuocGia.Enabled = false;
             this.comB_QuocGia.FormattingEnabled = true;
-            this.comB_QuocGia.Location = new System.Drawing.Point(636, 145);
+            this.comB_QuocGia.Location = new System.Drawing.Point(636, 147);
             this.comB_QuocGia.Name = "comB_QuocGia";
             this.comB_QuocGia.Size = new System.Drawing.Size(263, 29);
             this.comB_QuocGia.TabIndex = 5;
@@ -270,7 +270,7 @@
             this.comB_Tinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_Tinh.Enabled = false;
             this.comB_Tinh.FormattingEnabled = true;
-            this.comB_Tinh.Location = new System.Drawing.Point(149, 145);
+            this.comB_Tinh.Location = new System.Drawing.Point(149, 147);
             this.comB_Tinh.Name = "comB_Tinh";
             this.comB_Tinh.Size = new System.Drawing.Size(263, 29);
             this.comB_Tinh.TabIndex = 4;
@@ -420,7 +420,7 @@
             this.tableLP_ThongTinCaNhan.Controls.Add(this.rTB_GhiChu, 3, 5);
             this.tableLP_ThongTinCaNhan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLP_ThongTinCaNhan.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableLP_ThongTinCaNhan.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.tableLP_ThongTinCaNhan.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tableLP_ThongTinCaNhan.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLP_ThongTinCaNhan.Location = new System.Drawing.Point(3, 24);
             this.tableLP_ThongTinCaNhan.Name = "tableLP_ThongTinCaNhan";
@@ -460,7 +460,7 @@
             "Anh chị em ruột",
             "Anh chị em ruột bên vợ/chồng",
             "Khác"});
-            this.comB_MoiQH.Location = new System.Drawing.Point(149, 15);
+            this.comB_MoiQH.Location = new System.Drawing.Point(149, 13);
             this.comB_MoiQH.Name = "comB_MoiQH";
             this.comB_MoiQH.Size = new System.Drawing.Size(263, 29);
             this.comB_MoiQH.TabIndex = 0;

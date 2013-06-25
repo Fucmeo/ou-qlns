@@ -170,7 +170,7 @@
             this.tableLP_CMND.Controls.Add(this.tableLayoutPanel2, 2, 2);
             this.tableLP_CMND.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLP_CMND.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableLP_CMND.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.tableLP_CMND.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tableLP_CMND.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLP_CMND.Location = new System.Drawing.Point(3, 24);
             this.tableLP_CMND.Name = "tableLP_CMND";
@@ -192,7 +192,7 @@
             this.comB_TinhTrang.Items.AddRange(new object[] {
             "Còn hiệu lực",
             "Hết hiệu lực"});
-            this.comB_TinhTrang.Location = new System.Drawing.Point(134, 97);
+            this.comB_TinhTrang.Location = new System.Drawing.Point(134, 98);
             this.comB_TinhTrang.Name = "comB_TinhTrang";
             this.comB_TinhTrang.Size = new System.Drawing.Size(236, 26);
             this.comB_TinhTrang.TabIndex = 4;
@@ -206,7 +206,7 @@
             this.comB_CMND_HoChieu.Items.AddRange(new object[] {
             "CMND",
             "Hộ chiếu"});
-            this.comB_CMND_HoChieu.Location = new System.Drawing.Point(571, 55);
+            this.comB_CMND_HoChieu.Location = new System.Drawing.Point(571, 54);
             this.comB_CMND_HoChieu.Name = "comB_CMND_HoChieu";
             this.comB_CMND_HoChieu.Size = new System.Drawing.Size(240, 26);
             this.comB_CMND_HoChieu.TabIndex = 3;
@@ -418,7 +418,7 @@
             this.tableLP_ThongTinNV.Controls.Add(this.txt_DTDD, 3, 4);
             this.tableLP_ThongTinNV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLP_ThongTinNV.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableLP_ThongTinNV.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.tableLP_ThongTinNV.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tableLP_ThongTinNV.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLP_ThongTinNV.Location = new System.Drawing.Point(3, 24);
             this.tableLP_ThongTinNV.Name = "tableLP_ThongTinNV";

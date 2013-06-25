@@ -98,7 +98,7 @@
             this.tableLP_ThongTinTuyenDung.Controls.Add(this.btn_Luu, 1, 2);
             this.tableLP_ThongTinTuyenDung.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLP_ThongTinTuyenDung.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableLP_ThongTinTuyenDung.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.tableLP_ThongTinTuyenDung.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tableLP_ThongTinTuyenDung.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLP_ThongTinTuyenDung.Location = new System.Drawing.Point(3, 24);
             this.tableLP_ThongTinTuyenDung.Name = "tableLP_ThongTinTuyenDung";

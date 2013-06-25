@@ -102,7 +102,7 @@ namespace HDQD.UCs
                 oHopdong.La_QD_Tiep_Nhan = false;
                 oHopdong.Ten_Quyet_Dinh = null;
                 oHopdong.Loai_QD_ID = null;
-
+                
                 oHopdong.Co_Thoi_Han = cb_ThoiHan.Checked;
 
                 if (dTP_NgayKy.Checked == true)
@@ -405,26 +405,34 @@ namespace HDQD.UCs
 
         private void PreapreDataSource()
         {
-            comB_LoaiHD.DataSource = oLoaihopdong.GetList_Compact();
-            comB_LoaiHD.DisplayMember = "loai_hop_dong";
-            comB_LoaiHD.ValueMember = "id";
+            try
+            {
+                comB_LoaiHD.DataSource = oLoaihopdong.GetList_Compact();
+                comB_LoaiHD.DisplayMember = "loai_hop_dong";
+                comB_LoaiHD.ValueMember = "id";
 
-            comB_ChucDanh.DataSource = oChucdanh.GetList();
-            comB_ChucDanh.DisplayMember = "ten_chuc_danh";
-            comB_ChucDanh.ValueMember = "id";
+                comB_ChucDanh.DataSource = oChucdanh.GetList();
+                comB_ChucDanh.DisplayMember = "ten_chuc_danh";
+                comB_ChucDanh.ValueMember = "id";
 
-            comB_ChucVu.DataSource = oChucvu.GetList();
-            comB_ChucVu.DisplayMember = "ten_chuc_vu";
-            comB_ChucVu.ValueMember = "id";
+                comB_ChucVu.DataSource = oChucvu.GetList();
+                comB_ChucVu.DisplayMember = "ten_chuc_vu";
+                comB_ChucVu.ValueMember = "id";
 
-            comB_DonVi.DataSource = oDonvi.GetActiveDonVi();
-            comB_DonVi.DisplayMember = "ten_don_vi";
-            comB_DonVi.ValueMember = "id";
+                comB_DonVi.DataSource = oDonvi.GetActiveDonVi();
+                comB_DonVi.DisplayMember = "ten_don_vi";
+                comB_DonVi.ValueMember = "id";
 
-            comB_LoaiPhuCap.DataSource = dtLoaiPC;
-            comB_LoaiPhuCap.DisplayMember = "ten_loai";
-            comB_LoaiPhuCap.ValueMember = "id";
-            EditInterface_LoaiPC();
+                comB_LoaiPhuCap.DataSource = dtLoaiPC;
+                comB_LoaiPhuCap.DisplayMember = "ten_loai";
+                comB_LoaiPhuCap.ValueMember = "id";
+                EditInterface_LoaiPC();
+            }
+            catch (Exception)
+            {
+                
+            }
+            
         }
 
         /// <summary>
@@ -433,7 +441,7 @@ namespace HDQD.UCs
         private void LoadFilesDB()
         {
             oFile.MaNV = oHopdong.Ma_NV;
-            oFile.Link = oHopdong.Ma_Hop_Dong;
+            oFile.Link = oHopdong.Ma_Tuyen_Dung;
             oFile.FileType = Business.CNVC.CNVC_File.eFileType.HopDong;
             try
             {
@@ -593,14 +601,18 @@ namespace HDQD.UCs
 
         private void btn_NhapFile_Click(object sender, EventArgs e)
         {
-            if (oHopdong.Ma_Hop_Dong != null)
+            if (oHopdong.Ma_Tuyen_Dung != null)
             {
                 LoadFilesDB();
                 DownLoadFile();  
             }
+            else
+            {
+                Form f = new Forms.Popup(new UCs.DSTapTin("HopDong", Paths, Desc), "QUẢN LÝ NHÂN SỰ - DANH SÁCH TẬP TIN");
+                f.ShowDialog();
+            }
 
-            Form f = new Forms.Popup(new UCs.DSTapTin("HopDong", Paths, Desc), "QUẢN LÝ NHÂN SỰ - DANH SÁCH TẬP TIN");
-            f.ShowDialog();
+            
         }
 
         // KHANG
@@ -672,7 +684,7 @@ namespace HDQD.UCs
             {
                 bw_upload.ReportProgress(i + 1);
 
-                ServerPaths[i] = oFTP.UploadFile(NewFiles[i], NewFiles[i].Split('\\').Last(), oHopdong.Ma_Hop_Dong);
+                ServerPaths[i] = oFTP.UploadFile(NewFiles[i], NewFiles[i].Split('\\').Last(), oHopdong.Ma_Tuyen_Dung);
                 Thread.Sleep(100);
                 
             }
@@ -696,7 +708,7 @@ namespace HDQD.UCs
 
             oFile.MaNV = oHopdong.Ma_NV;
             oFile.FileType = Business.CNVC.CNVC_File.eFileType.HopDong;
-            oFile.Link = oHopdong.Ma_Hop_Dong;
+            oFile.Link = oHopdong.Ma_Tuyen_Dung;
             oFile.MoTa = Desc;
             string[] DeleteFiles = Paths.Where(a => a.Value == null).Select(a => a.Key).ToArray();
 

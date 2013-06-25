@@ -168,7 +168,7 @@
             this.tableLP_NgoaiDH.Controls.Add(this.txt_TenDV, 3, 0);
             this.tableLP_NgoaiDH.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLP_NgoaiDH.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableLP_NgoaiDH.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.tableLP_NgoaiDH.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tableLP_NgoaiDH.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLP_NgoaiDH.Location = new System.Drawing.Point(3, 24);
             this.tableLP_NgoaiDH.Name = "tableLP_NgoaiDH";
@@ -260,7 +260,7 @@
             this.comB_Nganh.Items.AddRange(new object[] {
             "Trong ngành giáo dục",
             "Ngoài ngành giáo dục"});
-            this.comB_Nganh.Location = new System.Drawing.Point(151, 323);
+            this.comB_Nganh.Location = new System.Drawing.Point(151, 325);
             this.comB_Nganh.Name = "comB_Nganh";
             this.comB_Nganh.Size = new System.Drawing.Size(269, 26);
             this.comB_Nganh.TabIndex = 6;

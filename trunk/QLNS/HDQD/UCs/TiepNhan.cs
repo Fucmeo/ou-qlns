@@ -144,22 +144,30 @@ namespace HDQD.UCs
 
         private void PreapreDataSource()
         {
-            comB_ChucDanh.DataSource = oChucdanh.GetList();
-            comB_ChucDanh.DisplayMember = "ten_chuc_danh";
-            comB_ChucDanh.ValueMember = "id";
+            try
+            {
+                comB_ChucDanh.DataSource = oChucdanh.GetList();
+                comB_ChucDanh.DisplayMember = "ten_chuc_danh";
+                comB_ChucDanh.ValueMember = "id";
 
-            comB_ChucVu.DataSource = oChucvu.GetList();
-            comB_ChucVu.DisplayMember = "ten_chuc_vu";
-            comB_ChucVu.ValueMember = "id";
+                comB_ChucVu.DataSource = oChucvu.GetList();
+                comB_ChucVu.DisplayMember = "ten_chuc_vu";
+                comB_ChucVu.ValueMember = "id";
 
-            comB_DonVi.DataSource = oDonvi.GetActiveDonVi();
-            comB_DonVi.DisplayMember = "ten_don_vi";
-            comB_DonVi.ValueMember = "id";
+                comB_DonVi.DataSource = oDonvi.GetActiveDonVi();
+                comB_DonVi.DisplayMember = "ten_don_vi";
+                comB_DonVi.ValueMember = "id";
 
-            comB_LoaiPhuCap.DataSource = dtLoaiPC;
-            comB_LoaiPhuCap.DisplayMember = "ten_loai";
-            comB_LoaiPhuCap.ValueMember = "id";
-            EditInterface_LoaiPC();
+                comB_LoaiPhuCap.DataSource = dtLoaiPC;
+                comB_LoaiPhuCap.DisplayMember = "ten_loai";
+                comB_LoaiPhuCap.ValueMember = "id";
+                EditInterface_LoaiPC();
+            }
+            catch (Exception)
+            {
+                
+            }
+            
         }
 
         private void Prepare_Data_BacHeSo()
