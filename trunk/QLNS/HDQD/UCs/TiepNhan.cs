@@ -45,13 +45,13 @@ namespace HDQD.UCs
             InitObject();
         }
 
-        public TiepNhan(Business.HDQD.CNVC_HopDong p_HopDong)
+        public TiepNhan(Business.HDQD.CNVC_HopDong p_HopDong, string p_ho, string p_ten)
         {
             InitializeComponent();
             InitObject();
 
             oHopdong = p_HopDong;
-            DisplayInfo();
+            DisplayInfo(p_ho, p_ten);
             LoadFilesDB(); // load danh sach file lien quan den hop dong nay
         }
 
@@ -71,16 +71,16 @@ namespace HDQD.UCs
             oFTP.oFileCate = FTP.FileCate.HDQD;
             dtFile = new DataTable();
             Paths = new List<KeyValuePair<string, bool?>>();
-        }
 
-        private void TiepNhan_Load(object sender, EventArgs e)
-        {
             dtLoaiPC = oLoaiPC.GetList_Cbo();
 
             PreapreDataSource();
             Prepare_Data_BacHeSo();
             PrepareDataTablePhuCap();
+        }
 
+        private void TiepNhan_Load(object sender, EventArgs e)
+        {
             comb_Luong.SelectedIndex = 0;
 
             thongTinQuyetDinh1.comB_Loai.Enabled = false;
@@ -221,9 +221,76 @@ namespace HDQD.UCs
             catch { }
         }
 
-        private void DisplayInfo()
-        { 
-        
+        private void DisplayInfo(string cnvc_ho, string cnvc_ten)
+        {
+            thongTinCNVC1.txt_MaNV.Text = oHopdong.Ma_NV;
+            thongTinCNVC1.txt_Ho.Text = cnvc_ho;
+            thongTinCNVC1.txt_Ten.Text = cnvc_ten;
+
+            thongTinQuyetDinh1.txt_MaQD.Text = oHopdong.Ma_Tuyen_Dung;
+            thongTinQuyetDinh1.txt_TenQD.Text = oHopdong.Ten_Quyet_Dinh;
+            thongTinQuyetDinh1.rTB_MoTa.Text = oHopdong.MoTa_QD;
+            if (oHopdong.Ngay_Ky != null)
+            {
+                thongTinQuyetDinh1.dTP_NgayKy.Value = oHopdong.Ngay_Ky.Value;
+            }
+            if (oHopdong.Ngay_Hieu_Luc != null)
+            {
+                thongTinQuyetDinh1.dTP_NgayHieuLuc.Value = oHopdong.Ngay_Hieu_Luc.Value;
+            }
+            if (oHopdong.Ngay_Het_Han != null)
+            {
+                thongTinQuyetDinh1.dTP_NgayHetHan.Checked = true;
+                thongTinQuyetDinh1.dTP_NgayHetHan.Value = oHopdong.Ngay_Het_Han.Value;
+            }
+            if (oHopdong.Loai_QD_ID != null)
+                thongTinQuyetDinh1.comB_Loai.SelectedValue = oHopdong.Loai_QD_ID;
+
+            //Xử lý combo box
+            if (oHopdong.Chuc_Danh_ID != null)
+                comB_ChucDanh.SelectedValue = oHopdong.Chuc_Danh_ID;
+            if (oHopdong.Chuc_Vu_ID != null)
+                comB_ChucVu.SelectedValue = oHopdong.Chuc_Vu_ID;
+            if (oHopdong.Don_Vi_ID != null)
+                comB_DonVi.SelectedValue = oHopdong.Don_Vi_ID;
+
+            #region Luong Info
+            txt_Tien.Text = oHopdong.Luong_Khoan.ToString();
+            nup_PhanTram.Value = Convert.ToDecimal(oHopdong.PhanTramHuong.Value);
+            if (oHopdong.Khoan_or_HeSo == true)
+                comb_Luong.Text = "Hệ số";
+            else
+                comb_Luong.Text = "Khoán";
+
+            if (oHopdong.BacHeSo_ID != null)
+            {
+                var result = (from c in dtBacHeSo.AsEnumerable()
+                              where c.Field<int>("id") == oHopdong.BacHeSo_ID && c.Field<bool>("tinh_trang") == true
+                              select c.Field<string>("ma_ngach")
+                            );
+
+                string ma_ngach = result.ElementAt(0).ToString();
+
+                comb_Ngach.SelectedValue = ma_ngach;
+                comb_Bac.SelectedValue = oHopdong.BacHeSo_ID;
+
+                var result1 = (from c in dtBacHeSo.AsEnumerable()
+                               where c.Field<int>("id") == oHopdong.BacHeSo_ID
+                               select c.Field<double>("he_so"));
+
+                double m_he_so = result1.ElementAt<double>(0);
+
+                txt_HeSo.Text = m_he_so.ToString();
+            }
+            #endregion
+
+            #region Phu Cap Info
+            Business.HDQD.CNVC_PhuCap oCNVCPhuCap = new Business.HDQD.CNVC_PhuCap();
+            DataTable dt = oCNVCPhuCap.GetList_PhuCap_byCNVC(oHopdong.Ma_Tuyen_Dung, oHopdong.Ma_NV);
+            PrepareDTGVSource(dt);
+
+            #endregion
+            
         }
 
         #region Convert List to Data Table

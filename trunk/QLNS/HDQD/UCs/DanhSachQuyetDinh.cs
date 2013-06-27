@@ -236,7 +236,86 @@ namespace HDQD.UCs
                 MessageBox.Show("Vui lòng chọn một loại quyết định", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        private void dtgv_DSQD_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dtgv_DSQD.CurrentRow != null)
+            {
+                DataGridViewRow row = dtgv_DSQD.CurrentRow;
+                int loai_qd = Convert.ToInt16(row.Cells["loai_qd_id"].Value.ToString());
+                switch (loai_qd)
+                {
+                    case 10:
+                        Show_QD_TiepNhan(row);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
 
+        private void Show_QD_TiepNhan(DataGridViewRow p_row)
+        {
+            try
+            {
+                string ma_qd = p_row.Cells["ma_quyet_dinh"].Value.ToString();
+                Business.HDQD.CNVC_HopDong oHopDong = new Business.HDQD.CNVC_HopDong();
+                DataTable dt = oHopDong.Search_QD_TiepNhan(ma_qd);
+
+                if (dt.Rows.Count > 0)
+                {
+                    oHopDong.ID = Convert.ToInt16(dt.Rows[0]["id"].ToString());
+                    oHopDong.Ma_NV = dt.Rows[0]["ma_nv"].ToString();
+                    string cnvc_ho = dt.Rows[0]["ho"].ToString();
+                    string cnvc_ten = dt.Rows[0]["ten"].ToString();
+
+                    oHopDong.Ma_Tuyen_Dung = dt.Rows[0]["ma_hop_dong"].ToString();
+                    oHopDong.La_QD_Tiep_Nhan = true;
+                    oHopDong.Ten_Quyet_Dinh = p_row.Cells["ten"].Value.ToString();
+                    oHopDong.Loai_QD_ID = Convert.ToInt16(p_row.Cells["loai_qd_id"].Value.ToString());
+                    if (p_row.Cells["ngay_ky"].Value.ToString() != "")
+                        oHopDong.Ngay_Ky = Convert.ToDateTime(p_row.Cells["ngay_ky"].Value.ToString());
+                    if (p_row.Cells["ngay_hieu_luc"].Value.ToString() != "")
+                        oHopDong.Ngay_Hieu_Luc = Convert.ToDateTime(p_row.Cells["ngay_hieu_luc"].Value.ToString());
+                    if (p_row.Cells["ngay_het_han"].Value.ToString() != "")
+                        oHopDong.Ngay_Het_Han = Convert.ToDateTime(p_row.Cells["ngay_het_han"].Value.ToString());
+                    oHopDong.MoTa_QD = p_row.Cells["mo_ta"].Value.ToString();
+
+                    oHopDong.Co_Thoi_Han = Convert.ToBoolean(dt.Rows[0]["co_thoi_han"].ToString());
+                    
+                    if (dt.Rows[0]["chuc_vu_chinh_id"].ToString() != "")
+                        oHopDong.Chuc_Vu_ID = Convert.ToInt16(dt.Rows[0]["chuc_vu_chinh_id"].ToString());
+                    oHopDong.Chuc_Vu = dt.Rows[0]["ten_chuc_vu"].ToString();
+
+                    if (dt.Rows[0]["chuc_danh_chinh_id"].ToString() != "")
+                        oHopDong.Chuc_Danh_ID = Convert.ToInt16(dt.Rows[0]["chuc_danh_chinh_id"].ToString());
+                    oHopDong.Chuc_Danh = dt.Rows[0]["ten_chuc_danh"].ToString();
+
+                    if (dt.Rows[0]["don_vi_chinh_id"].ToString() != "")
+                        oHopDong.Don_Vi_ID = Convert.ToInt16(dt.Rows[0]["don_vi_chinh_id"].ToString());
+                    oHopDong.Don_Vi = dt.Rows[0]["ten_don_vi"].ToString();
+                    oHopDong.Tinh_Trang = Convert.ToBoolean(dt.Rows[0]["tinh_trang"].ToString());
+                    oHopDong.Ghi_Chu = dt.Rows[0]["ghi_chu"].ToString();
+
+                    #region Luong Info
+                    oHopDong.Khoan_or_HeSo = Convert.ToBoolean(dt.Rows[0]["tinh_trang"].ToString());
+                    if (dt.Rows[0]["luong_khoan"].ToString() != "")
+                        oHopDong.Luong_Khoan = Convert.ToDouble(dt.Rows[0]["luong_khoan"].ToString());
+                    if (dt.Rows[0]["ngach_bac_heso_id"].ToString() != "")
+                        oHopDong.BacHeSo_ID = Convert.ToInt16(dt.Rows[0]["ngach_bac_heso_id"].ToString());
+                    if (dt.Rows[0]["phan_tram_huong"].ToString() != "")
+                        oHopDong.PhanTramHuong = Convert.ToDouble(dt.Rows[0]["phan_tram_huong"].ToString());
+                    #endregion
+
+                    UCs.TiepNhan tiepnhan = new TiepNhan(oHopDong, cnvc_ho, cnvc_ten);
+                    Forms.Popup popup = new Forms.Popup(tiepnhan, "QUẢN LÝ NHÂN SỰ - QUYẾT ĐỊNH TIẾP NHẬN");
+                    popup.Show();
+                }
+            }
+            catch { }
+            
+
+
+        }
 
 
 

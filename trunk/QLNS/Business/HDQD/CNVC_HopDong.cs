@@ -170,8 +170,8 @@ namespace Business.HDQD
 
         public bool La_QD_Tiep_Nhan { get; set; }
         public string Ten_Quyet_Dinh { get; set; }
-
         public int? Loai_QD_ID { get; set; }
+        public string MoTa_QD { get; set; }
 
         public bool Co_Phu_Cap { get; set; }
 
@@ -350,6 +350,19 @@ namespace Business.HDQD
             };
 
             dt = dp.getDataTableProc("sp1_qsearch_hop_dong", paras);
+
+            return dt;
+        }
+
+        public DataTable Search_QD_TiepNhan(string p_ma_qd)
+        {
+            DataTable dt;
+
+            IDataParameter[] paras = new IDataParameter[1]{
+                new NpgsqlParameter("p_ma_qd",p_ma_qd)
+            };
+
+            dt = dp.getDataTableProc("sp1_select_tiep_nhan", paras);
 
             return dt;
         }
