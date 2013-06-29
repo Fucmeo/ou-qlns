@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Business;
+using System.Globalization;
 
 namespace HDQD.UCs
 {
@@ -485,7 +486,7 @@ namespace HDQD.UCs
                                 dv_cha_id[i] = dv.DVChaID.Value;
                             else
                                 dv_cha_id[i] = 0;
-                            tu_ngay[i] = dv.TuNgay.Value.ToShortDateString();
+                            tu_ngay[i] = dv.TuNgay.Value.ToString("d", CultureInfo.CreateSpecificCulture("vi-VN"));
 
                             ma_nv[i] = dsCNVC[i];
 
@@ -531,7 +532,7 @@ namespace HDQD.UCs
                         int? dv_cha_id = dv.DVChaID;
                         //if (comb_DVTrucThuoc.Text != "")
                         //    dv_cha_id = Convert.ToInt16(comb_DVTrucThuoc.SelectedValue);
-                        string tu_ngay = dv.TuNgay.Value.ToShortDateString();
+                        string tu_ngay = dv.TuNgay.Value.ToString("d", CultureInfo.CreateSpecificCulture("vi-VN"));
                         string ghi_chu = dv.GhiChu;
 
                         bool result = quyetdinh.MA_Gop_DonVi(tu_don_vi_id, ten_dv_moi, ten_dv_viet_tat, dv_cha_id, tu_ngay, ghi_chu);
