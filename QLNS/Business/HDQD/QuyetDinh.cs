@@ -185,15 +185,15 @@ namespace Business.HDQD
         {
             string m_ngay_het_han = null;
             if (ngay_het_han != null)
-                m_ngay_het_han = ngay_het_han.Value.ToShortDateString();
+                m_ngay_het_han = ngay_het_han.Value.ToString("d", CultureInfo.CreateSpecificCulture("vi-VN"));
 
             IDataParameter[] paras = new IDataParameter[15]{
                 new NpgsqlParameter("p_ma_qd",ma_qd),
                 new NpgsqlParameter("p_ten_qd",ten_qd),
                 new NpgsqlParameter("p_ma_loai_qd",loai_qd_id),
                 new NpgsqlParameter("p_path",path),
-                new NpgsqlParameter("p_ngay_ky",ngay_ky.Value.ToShortDateString()),
-                new NpgsqlParameter("p_ngay_hieu_luc",ngay_hieu_luc.Value.ToShortDateString()),
+                new NpgsqlParameter("p_ngay_ky",ngay_ky.Value.ToString("d", CultureInfo.CreateSpecificCulture("vi-VN"))),
+                new NpgsqlParameter("p_ngay_hieu_luc",ngay_hieu_luc.Value.ToString("d", CultureInfo.CreateSpecificCulture("vi-VN"))),
                 new NpgsqlParameter("p_ngay_het_han",m_ngay_het_han),
                 new NpgsqlParameter("p_mo_ta",mota),
                 new NpgsqlParameter("p_tu_don_vi_id",p_tu_don_vi_id),
@@ -218,17 +218,19 @@ namespace Business.HDQD
         public bool MA_Gop_DonVi(int[] p_tu_don_vi_id, string p_ten_don_vi_moi, string p_ten_dv_moi_viet_tat, int? p_truc_thuoc_don_vi,
                                     string p_tu_ngay, string p_ghi_chu)
         {
+            //string vi_VN = dt.ToString("d", CultureInfo.CreateSpecificCulture("vi-VN"));
+
             string m_ngay_het_han = null;
             if (ngay_het_han != null)
-                m_ngay_het_han = ngay_het_han.Value.ToShortDateString();
+                m_ngay_het_han = ngay_het_han.Value.ToString("d", CultureInfo.CreateSpecificCulture("vi-VN"));
 
             IDataParameter[] paras = new IDataParameter[14]{
                 new NpgsqlParameter("p_ma_qd",ma_qd),
                 new NpgsqlParameter("p_ten_qd",ten_qd),
                 new NpgsqlParameter("p_ma_loai_qd",loai_qd_id),
                 new NpgsqlParameter("p_path",path),
-                new NpgsqlParameter("p_ngay_ky", ngay_ky.Value.ToShortDateString()),
-                new NpgsqlParameter("p_ngay_hieu_luc",ngay_hieu_luc.Value.ToShortDateString()),
+                new NpgsqlParameter("p_ngay_ky", ngay_ky.Value.ToString("d", CultureInfo.CreateSpecificCulture("vi-VN"))),
+                new NpgsqlParameter("p_ngay_hieu_luc",ngay_hieu_luc.Value.ToString("d", CultureInfo.CreateSpecificCulture("vi-VN"))),
                 new NpgsqlParameter("p_ngay_het_han",m_ngay_het_han),
                 new NpgsqlParameter("p_mo_ta",mota),
                 new NpgsqlParameter("p_tu_don_vi_id",p_tu_don_vi_id),
