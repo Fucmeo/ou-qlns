@@ -110,7 +110,7 @@ namespace QLNS.UCs
 
                         try
                         {
-                            oFile.Update();
+                            //oFile.Update();
                             MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             ResetInterface(true);

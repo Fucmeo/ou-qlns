@@ -13,7 +13,6 @@ namespace HDQD.UCs
     public partial class BoNhiem : UserControl
     {
         Business.FTP oFTP;
-        Business.HDQD.QuyetDinh_File oFile;
         DonVi oDonVi;
         ChucVu oChucVu;
         Business.HDQD.KiemNhiem oKiemNhiem;
@@ -25,7 +24,6 @@ namespace HDQD.UCs
             InitializeComponent();
             oDonVi = new DonVi();
             oChucVu = new ChucVu();
-            oFile = new Business.HDQD.QuyetDinh_File();
             oKiemNhiem = new Business.HDQD.KiemNhiem();
             oFTP = new Business.FTP();
         }
@@ -241,41 +239,7 @@ namespace HDQD.UCs
 
         private void UploadFile()
         {
-            #region Avatar
-            oFile.MaQD = oKiemNhiem.MaQuyetDinh;
-            int FileCount = ThongTinQuyetDinh.Paths.Count();
-
-            string[] ServerPath = new string[FileCount];
-            string[] ServerFileName = new string[FileCount];
-            ServerFileName = ThongTinQuyetDinh.Paths.Select(s => s.Split('\\').Last()).ToArray();
-            try
-            {
-                oFTP.oFileCate = FTP.FileCate.HDQD;
-                ServerPath = oFTP.UploadFile(ThongTinQuyetDinh.Paths,
-                                            ServerFileName, oFile.MaQD);
-
-                oFile.Path = ServerPath;
-                oFile.MoTa = ThongTinQuyetDinh.Desc;
-                try
-                {
-                    oFile.Add();
-
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Quá trình lưu hình không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Quá trình tải hình lên server không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-
-
-
-            
-
-            #endregion
+      
         }
 
         /// <summary>
