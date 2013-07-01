@@ -72,6 +72,7 @@
     <Compile Include="DanToc.cs" />
     <Compile Include="DonVi.cs" />
     <Compile Include="FTP.cs" />
+    <Compile Include="HDQD\QD_File.cs" />
     <Compile Include="HDQD\CNVC_HopDong.cs" />
     <Compile Include="HDQD\CNVC_PhuCap.cs" />
     <Compile Include="HDQD\ExpressionTree.cs" />
@@ -81,7 +82,6 @@
     <Compile Include="HDQD\LoaiQuyetDinh.cs" />
     <Compile Include="HDQD\QuyetDinh.cs" />
     <Compile Include="HDQD\QuyetDinhChung.cs" />
-    <Compile Include="HDQD\QuyetDinh_File.cs" />
     <Compile Include="HDQD\ThoiNhiem.cs" />
     <Compile Include="HinhThucDaoTao.cs" />
     <Compile Include="LoaiHopDong.cs" />

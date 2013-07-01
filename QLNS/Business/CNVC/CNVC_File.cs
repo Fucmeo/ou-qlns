@@ -90,24 +90,6 @@ namespace Business.CNVC
                 return false;
         }
 
-        public bool Update()
-        {
-            int check;
-            IDataParameter[] paras = new IDataParameter[4]{
-                new NpgsqlParameter("id",id), 
-                new NpgsqlParameter("ma_nv",manv), 
-                new NpgsqlParameter("path",path), 
-                new NpgsqlParameter("mo_ta",mota)
-            };
-            check = (int)dp.executeScalarProc("sp_update_cnvc_file", paras);
-            if (check > 0)
-            {
-                return true;
-            }
-            else
-                return false;
-        }
-
         public bool DeleteAvatar()
         {
             int check;

@@ -1102,7 +1102,7 @@
             this.comB_ChucVu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_ChucVu.Enabled = false;
             this.comB_ChucVu.FormattingEnabled = true;
-            this.comB_ChucVu.Location = new System.Drawing.Point(3, 10);
+            this.comB_ChucVu.Location = new System.Drawing.Point(3, 12);
             this.comB_ChucVu.Name = "comB_ChucVu";
             this.comB_ChucVu.Size = new System.Drawing.Size(192, 29);
             this.comB_ChucVu.TabIndex = 0;
@@ -1141,7 +1141,7 @@
             "Đảng viên",
             "Dân quân tự vệ",
             "Công đoàn viên"});
-            this.comB_TenToChuc.Location = new System.Drawing.Point(364, 29);
+            this.comB_TenToChuc.Location = new System.Drawing.Point(364, 31);
             this.comB_TenToChuc.Name = "comB_TenToChuc";
             this.comB_TenToChuc.Size = new System.Drawing.Size(191, 29);
             this.comB_TenToChuc.TabIndex = 65;
@@ -1183,7 +1183,7 @@
             "Đảng viên",
             "Dân quân tự vệ",
             "Công đoàn viên"});
-            this.comB_LoaiHinhCT_ChucVu.Location = new System.Drawing.Point(75, 29);
+            this.comB_LoaiHinhCT_ChucVu.Location = new System.Drawing.Point(75, 31);
             this.comB_LoaiHinhCT_ChucVu.Name = "comB_LoaiHinhCT_ChucVu";
             this.comB_LoaiHinhCT_ChucVu.Size = new System.Drawing.Size(191, 29);
             this.comB_LoaiHinhCT_ChucVu.TabIndex = 61;
@@ -1422,7 +1422,7 @@
             "Đảng viên",
             "Dân quân tự vệ",
             "Công đoàn viên"});
-            this.comB_LoaiHinhCT_ToChuc.Location = new System.Drawing.Point(111, 10);
+            this.comB_LoaiHinhCT_ToChuc.Location = new System.Drawing.Point(111, 12);
             this.comB_LoaiHinhCT_ToChuc.Name = "comB_LoaiHinhCT_ToChuc";
             this.comB_LoaiHinhCT_ToChuc.Size = new System.Drawing.Size(210, 29);
             this.comB_LoaiHinhCT_ToChuc.TabIndex = 61;

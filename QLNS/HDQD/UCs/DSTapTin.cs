@@ -62,6 +62,9 @@ namespace HDQD.UCs
                             case "TiepNhan":
                                 TiepNhan.Paths.Add(new KeyValuePair<string, bool?>(OFD.FileNames[i].ToString(), false));
                                 break;
+                            case "DoiThongTin":
+                                DoiThongTinDV.Paths.Add(new KeyValuePair<string, bool?>(OFD.FileNames[i].ToString(), false));
+                                break;
                             default:
                                 break;
                         }
@@ -89,6 +92,9 @@ namespace HDQD.UCs
                         break;
                     case "TiepNhan":
                         TiepNhan.Desc = rtb_MoTa.Text;
+                        break;
+                    case "DoiThongTin":
+                        DoiThongTinDV.Desc = rtb_MoTa.Text;
                         break;
                     default:
                         break;
@@ -141,6 +147,20 @@ namespace HDQD.UCs
                             if (TiepNhan.Paths[i].Value == true) // neu file da co san moi add value = null de delete sau nay
                                 TiepNhan.Paths.Add(new KeyValuePair<string, bool?>(DelFileServerPath, null));   // se delete file nay
                             TiepNhan.Paths.RemoveAt(i);
+
+                            break;
+                        }
+                    }
+                    break;
+                case "DoiThongTin":
+                    for (int i = 0; i < DoiThongTinDV.Paths.Count; i++)
+                    {
+                        if (DoiThongTinDV.Paths[i].Key == lsb_DSFile.SelectedItem.ToString())
+                        {
+                            string DelFileServerPath = "hinh_quyet_dinh/" + lsb_DSFile.SelectedItem.ToString().Split('\\').Last();
+                            if (DoiThongTinDV.Paths[i].Value == true) // neu file da co san moi add value = null de delete sau nay
+                                DoiThongTinDV.Paths.Add(new KeyValuePair<string, bool?>(DelFileServerPath, null));   // se delete file nay
+                            DoiThongTinDV.Paths.RemoveAt(i);
 
                             break;
                         }
