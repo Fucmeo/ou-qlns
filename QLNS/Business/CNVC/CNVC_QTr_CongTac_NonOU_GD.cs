@@ -92,6 +92,8 @@ namespace Business.CNVC
         public string TenCoQuan { get; set; }
 
         public string GhiChu { get; set; }
+
+        public bool ThamNien_NG { get; set; }
         
         #endregion
 
@@ -100,7 +102,7 @@ namespace Business.CNVC
         public bool Add()
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[9]{
+            IDataParameter[] paras = new IDataParameter[10]{
                 new NpgsqlParameter("ma_nv",manv), 
                 new NpgsqlParameter("ten_don_vi",tendonvi), 
                 new NpgsqlParameter("chuc_danh",chucdanh), 
@@ -109,7 +111,8 @@ namespace Business.CNVC
                 new NpgsqlParameter("den_ngay",denngay), 
                 new NpgsqlParameter("cong_viec_chinh",congviecchinh),
                 new NpgsqlParameter("ten_co_quan",TenCoQuan), 
-                new NpgsqlParameter("ghi_chu",GhiChu)
+                new NpgsqlParameter("ghi_chu",GhiChu),
+                new NpgsqlParameter("tham_nien_gd",ThamNien_NG)
             };
             check = (int)dp.executeScalarProc("sp_insert_cnvc_nonou_gd", paras);
             if (check > 0)
@@ -138,7 +141,7 @@ namespace Business.CNVC
         public bool Update()
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[9]{
+            IDataParameter[] paras = new IDataParameter[10]{
                 new NpgsqlParameter("p_id",id), 
                 new NpgsqlParameter("p_ten_don_vi",tendonvi), 
                 new NpgsqlParameter("p_chuc_danh",chucdanh), 
@@ -147,7 +150,8 @@ namespace Business.CNVC
                 new NpgsqlParameter("p_den_ngay",denngay), 
                 new NpgsqlParameter("p_cong_viec_chinh",congviecchinh),
                 new NpgsqlParameter("p_ten_co_quan",TenCoQuan), 
-                new NpgsqlParameter("p_ghi_chu",GhiChu)
+                new NpgsqlParameter("p_ghi_chu",GhiChu),
+                new NpgsqlParameter("p_tham_nien_gd",ThamNien_NG)
             };
             check = (int)dp.executeScalarProc("sp_update_cnvc_nonou_gd", paras);
             if (check > 0)

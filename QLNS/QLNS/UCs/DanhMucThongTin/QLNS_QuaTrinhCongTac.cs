@@ -134,6 +134,9 @@ namespace QLNS.UCs.DanhMucThongTin
                     comB_Nganh.Text = "Trong ngành giáo dục";
                 else
                     comB_Nganh.Text = "Ngoài ngành giáo dục";
+
+                if (row.Cells["tham_nien_gd"].Value.ToString() != "")
+                    cb_TinhThamNien.Checked = Convert.ToBoolean(row.Cells["tham_nien_gd"].Value.ToString());
             }
         }
 
@@ -169,6 +172,7 @@ namespace QLNS.UCs.DanhMucThongTin
             dtgv_QTCT_Ngoai.Columns["den_ngay"].HeaderText = "Đến ngày";
             dtgv_QTCT_Ngoai.Columns["cong_viec"].HeaderText = "Công việc chính";
             dtgv_QTCT_Ngoai.Columns["cong_viec"].Width = 200;
+            dtgv_QTCT_Ngoai.Columns["tham_nien_gd"].HeaderText = "Tính thâm niên nhà giáo";
             
             dtgv_QTCT_Ngoai.Columns["id"].Visible = false;
             dtgv_QTCT_Ngoai.Columns["ma_nv"].Visible = false;
@@ -190,7 +194,8 @@ namespace QLNS.UCs.DanhMucThongTin
                                tu_ngay = c.Field<DateTime?>("tu_ngay"),
                                den_ngay = c.Field<DateTime?>("den_ngay"),
                                cong_viec = c.Field<string>("cong_viec_chinh"),
-                               ghi_chu = c.Field<string>("ghi_chu")
+                               ghi_chu = c.Field<string>("ghi_chu"),
+                               tham_nien_gd = c.Field<bool?>("tham_nien_gd")
                            }
                                   ).Union(
                                 from d in dtCtac_NonOU_NonGD.AsEnumerable()
@@ -206,7 +211,8 @@ namespace QLNS.UCs.DanhMucThongTin
                                     tu_ngay = d.Field<DateTime?>("tu_ngay"),
                                     den_ngay = d.Field<DateTime?>("den_ngay"),
                                     cong_viec = d.Field<string>("cong_viec_chinh"),
-                                    ghi_chu = d.Field<string>("ghi_chu")
+                                    ghi_chu = d.Field<string>("ghi_chu"),
+                                    tham_nien_gd = d.Field<bool?>("tham_nien_gd")
                                 })).ToList();
 
             DataTable dt = ToDataTable(result);
@@ -240,7 +246,7 @@ namespace QLNS.UCs.DanhMucThongTin
             }
             else
             {
-                txt_ChucDanh.Enabled = txt_ChucVu.Enabled = txt_TenDV.Enabled = dTP_DenNgay.Enabled = dTP_TuNgay.Enabled = 
+                txt_ChucDanh.Enabled = txt_ChucVu.Enabled = txt_TenDV.Enabled = dTP_DenNgay.Enabled = dTP_TuNgay.Enabled =
                         txt_CoQuan.Enabled = rtb_GhiChu.Enabled = rTB_CongViecChinh.Enabled = true;
                 dtgv_QTCT_Ngoai.Enabled = comB_Nganh.Enabled = false;
 
@@ -254,6 +260,11 @@ namespace QLNS.UCs.DanhMucThongTin
                 lbl_SuaNgoai.Text = "Hủy";
                 lbl_XoaNgoai.Visible = false;
             }
+
+            if (comB_Nganh.Text == "Trong ngành giáo dục" && lbl_ThemNgoai.Text != "Thêm")
+                cb_TinhThamNien.Enabled = true;
+            else
+                cb_TinhThamNien.Enabled = false;
         }
        
         #endregion
@@ -337,6 +348,7 @@ namespace QLNS.UCs.DanhMucThongTin
                             oQtrCtac_NonOU_GD.DenNgay = dTP_DenNgay.Value;
                         oQtrCtac_NonOU_GD.TenCoQuan = txt_CoQuan.Text;
                         oQtrCtac_NonOU_GD.GhiChu = rtb_GhiChu.Text;
+                        oQtrCtac_NonOU_GD.ThamNien_NG = cb_TinhThamNien.Checked;
                     }
                     else
                     {
@@ -480,6 +492,14 @@ namespace QLNS.UCs.DanhMucThongTin
 
                 }
             }
+        }
+
+        private void comB_Nganh_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comB_Nganh.Text == "Trong ngành giáo dục" && lbl_ThemNgoai.Text != "Thêm")
+                cb_TinhThamNien.Enabled = true;
+            else
+                cb_TinhThamNien.Enabled = false;
         }
 
     }
