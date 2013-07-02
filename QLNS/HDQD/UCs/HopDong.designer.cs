@@ -104,6 +104,8 @@
             this.lbl_Status = new System.Windows.Forms.Label();
             this.bw_upload = new System.ComponentModel.BackgroundWorker();
             this.bw_download = new System.ComponentModel.BackgroundWorker();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.tableLP_HopDong.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLP_ChiTietHopDong.SuspendLayout();
@@ -163,49 +165,51 @@
             // tableLP_ChiTietHopDong
             // 
             this.tableLP_ChiTietHopDong.ColumnCount = 6;
-            this.tableLP_ChiTietHopDong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.12121F));
-            this.tableLP_ChiTietHopDong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.21212F));
-            this.tableLP_ChiTietHopDong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.94332F));
-            this.tableLP_ChiTietHopDong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.25506F));
-            this.tableLP_ChiTietHopDong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.12121F));
-            this.tableLP_ChiTietHopDong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.21212F));
-            this.tableLP_ChiTietHopDong.Controls.Add(this.groupBox3, 0, 4);
-            this.tableLP_ChiTietHopDong.Controls.Add(this.comB_LoaiHD, 3, 0);
+            this.tableLP_ChiTietHopDong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.13759F));
+            this.tableLP_ChiTietHopDong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.24079F));
+            this.tableLP_ChiTietHopDong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.95946F));
+            this.tableLP_ChiTietHopDong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.28378F));
+            this.tableLP_ChiTietHopDong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.13759F));
+            this.tableLP_ChiTietHopDong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.24079F));
+            this.tableLP_ChiTietHopDong.Controls.Add(this.groupBox3, 0, 5);
+            this.tableLP_ChiTietHopDong.Controls.Add(this.label2, 0, 6);
+            this.tableLP_ChiTietHopDong.Controls.Add(this.rTB_GhiChu, 1, 6);
+            this.tableLP_ChiTietHopDong.Controls.Add(this.groupBox2, 0, 4);
+            this.tableLP_ChiTietHopDong.Controls.Add(this.btn_Them, 2, 7);
+            this.tableLP_ChiTietHopDong.Controls.Add(this.btn_NhapFile, 1, 7);
+            this.tableLP_ChiTietHopDong.Controls.Add(this.btn_DungHD, 3, 7);
+            this.tableLP_ChiTietHopDong.Controls.Add(this.label11, 0, 3);
+            this.tableLP_ChiTietHopDong.Controls.Add(this.comB_DonVi, 1, 3);
+            this.tableLP_ChiTietHopDong.Controls.Add(this.label13, 2, 3);
+            this.tableLP_ChiTietHopDong.Controls.Add(this.comB_ChucVu, 3, 3);
+            this.tableLP_ChiTietHopDong.Controls.Add(this.comB_ChucDanh, 5, 3);
+            this.tableLP_ChiTietHopDong.Controls.Add(this.label14, 4, 3);
+            this.tableLP_ChiTietHopDong.Controls.Add(this.label1, 0, 0);
             this.tableLP_ChiTietHopDong.Controls.Add(this.txt_MaHD, 1, 0);
             this.tableLP_ChiTietHopDong.Controls.Add(this.label4, 2, 0);
-            this.tableLP_ChiTietHopDong.Controls.Add(this.label1, 0, 0);
-            this.tableLP_ChiTietHopDong.Controls.Add(this.label2, 0, 5);
-            this.tableLP_ChiTietHopDong.Controls.Add(this.rTB_GhiChu, 1, 5);
-            this.tableLP_ChiTietHopDong.Controls.Add(this.groupBox2, 0, 3);
-            this.tableLP_ChiTietHopDong.Controls.Add(this.btn_Them, 2, 6);
-            this.tableLP_ChiTietHopDong.Controls.Add(this.btn_NhapFile, 1, 6);
-            this.tableLP_ChiTietHopDong.Controls.Add(this.btn_DungHD, 3, 6);
-            this.tableLP_ChiTietHopDong.Controls.Add(this.dtp_DenNgay, 5, 1);
-            this.tableLP_ChiTietHopDong.Controls.Add(this.label12, 4, 1);
-            this.tableLP_ChiTietHopDong.Controls.Add(this.dtp_TuNgay, 3, 1);
-            this.tableLP_ChiTietHopDong.Controls.Add(this.label10, 2, 1);
-            this.tableLP_ChiTietHopDong.Controls.Add(this.label6, 0, 1);
+            this.tableLP_ChiTietHopDong.Controls.Add(this.comB_LoaiHD, 3, 0);
             this.tableLP_ChiTietHopDong.Controls.Add(this.cb_ThoiHan, 4, 0);
+            this.tableLP_ChiTietHopDong.Controls.Add(this.label6, 0, 1);
             this.tableLP_ChiTietHopDong.Controls.Add(this.dTP_NgayKy, 1, 1);
-            this.tableLP_ChiTietHopDong.Controls.Add(this.label11, 0, 2);
-            this.tableLP_ChiTietHopDong.Controls.Add(this.comB_DonVi, 1, 2);
-            this.tableLP_ChiTietHopDong.Controls.Add(this.label13, 2, 2);
-            this.tableLP_ChiTietHopDong.Controls.Add(this.comB_ChucVu, 3, 2);
-            this.tableLP_ChiTietHopDong.Controls.Add(this.comB_ChucDanh, 5, 2);
-            this.tableLP_ChiTietHopDong.Controls.Add(this.label14, 4, 2);
+            this.tableLP_ChiTietHopDong.Controls.Add(this.label10, 2, 1);
+            this.tableLP_ChiTietHopDong.Controls.Add(this.dtp_TuNgay, 3, 1);
+            this.tableLP_ChiTietHopDong.Controls.Add(this.label12, 4, 1);
+            this.tableLP_ChiTietHopDong.Controls.Add(this.dtp_DenNgay, 5, 1);
+            this.tableLP_ChiTietHopDong.Controls.Add(this.checkBox1, 2, 2);
+            this.tableLP_ChiTietHopDong.Controls.Add(this.checkBox2, 0, 2);
             this.tableLP_ChiTietHopDong.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLP_ChiTietHopDong.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLP_ChiTietHopDong.Location = new System.Drawing.Point(3, 24);
             this.tableLP_ChiTietHopDong.Name = "tableLP_ChiTietHopDong";
-            this.tableLP_ChiTietHopDong.RowCount = 7;
-            this.tableLP_ChiTietHopDong.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.974535F));
-            this.tableLP_ChiTietHopDong.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.015671F));
-            this.tableLP_ChiTietHopDong.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.093046F));
-            this.tableLP_ChiTietHopDong.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.90793F));
-            this.tableLP_ChiTietHopDong.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 55.58912F));
-            this.tableLP_ChiTietHopDong.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.653575F));
-            this.tableLP_ChiTietHopDong.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.75428F));
-            this.tableLP_ChiTietHopDong.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLP_ChiTietHopDong.RowCount = 8;
+            this.tableLP_ChiTietHopDong.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.693044F));
+            this.tableLP_ChiTietHopDong.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.607752F));
+            this.tableLP_ChiTietHopDong.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.769144F));
+            this.tableLP_ChiTietHopDong.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.780378F));
+            this.tableLP_ChiTietHopDong.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.05411F));
+            this.tableLP_ChiTietHopDong.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52.17644F));
+            this.tableLP_ChiTietHopDong.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.683167F));
+            this.tableLP_ChiTietHopDong.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.235971F));
             this.tableLP_ChiTietHopDong.Size = new System.Drawing.Size(988, 908);
             this.tableLP_ChiTietHopDong.TabIndex = 0;
             // 
@@ -214,9 +218,9 @@
             this.tableLP_ChiTietHopDong.SetColumnSpan(this.groupBox3, 6);
             this.groupBox3.Controls.Add(this.tableLP_PhuCap);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(3, 265);
+            this.groupBox3.Location = new System.Drawing.Point(3, 290);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(982, 498);
+            this.groupBox3.Size = new System.Drawing.Size(982, 467);
             this.groupBox3.TabIndex = 35;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thông tin phụ cấp";
@@ -255,16 +259,16 @@
             this.tableLP_PhuCap.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.62176F));
             this.tableLP_PhuCap.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.95337F));
             this.tableLP_PhuCap.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.3057F));
-            this.tableLP_PhuCap.Size = new System.Drawing.Size(976, 471);
+            this.tableLP_PhuCap.Size = new System.Drawing.Size(976, 440);
             this.tableLP_PhuCap.TabIndex = 0;
             // 
             // rTB_GhiChuPC
             // 
             this.tableLP_PhuCap.SetColumnSpan(this.rTB_GhiChuPC, 3);
             this.rTB_GhiChuPC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rTB_GhiChuPC.Location = new System.Drawing.Point(165, 238);
+            this.rTB_GhiChuPC.Location = new System.Drawing.Point(165, 222);
             this.rTB_GhiChuPC.Name = "rTB_GhiChuPC";
-            this.rTB_GhiChuPC.Size = new System.Drawing.Size(480, 54);
+            this.rTB_GhiChuPC.Size = new System.Drawing.Size(480, 50);
             this.rTB_GhiChuPC.TabIndex = 6;
             this.rTB_GhiChuPC.Text = "";
             // 
@@ -272,7 +276,7 @@
             // 
             this.label15.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(327, 19);
+            this.label15.Location = new System.Drawing.Point(327, 17);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(97, 21);
             this.label15.TabIndex = 35;
@@ -283,7 +287,7 @@
             this.cb_CoPhuCap.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cb_CoPhuCap.AutoSize = true;
             this.tableLP_PhuCap.SetColumnSpan(this.cb_CoPhuCap, 2);
-            this.cb_CoPhuCap.Location = new System.Drawing.Point(3, 17);
+            this.cb_CoPhuCap.Location = new System.Drawing.Point(3, 15);
             this.cb_CoPhuCap.Name = "cb_CoPhuCap";
             this.cb_CoPhuCap.Size = new System.Drawing.Size(155, 25);
             this.cb_CoPhuCap.TabIndex = 0;
@@ -297,7 +301,7 @@
             this.tableLP_PhuCap.SetColumnSpan(this.comB_LoaiPhuCap, 2);
             this.comB_LoaiPhuCap.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_LoaiPhuCap.FormattingEnabled = true;
-            this.comB_LoaiPhuCap.Location = new System.Drawing.Point(489, 17);
+            this.comB_LoaiPhuCap.Location = new System.Drawing.Point(489, 13);
             this.comB_LoaiPhuCap.Name = "comB_LoaiPhuCap";
             this.comB_LoaiPhuCap.Size = new System.Drawing.Size(252, 29);
             this.comB_LoaiPhuCap.TabIndex = 1;
@@ -307,7 +311,7 @@
             // 
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(327, 200);
+            this.label16.Location = new System.Drawing.Point(327, 185);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(102, 21);
             this.label16.TabIndex = 38;
@@ -317,7 +321,7 @@
             // 
             this.label17.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(3, 200);
+            this.label17.Location = new System.Drawing.Point(3, 185);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(102, 21);
             this.label17.TabIndex = 37;
@@ -329,7 +333,7 @@
             this.dTP_NgayHetHanPC.Checked = false;
             this.dTP_NgayHetHanPC.CustomFormat = "dd/MM/yyyy";
             this.dTP_NgayHetHanPC.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dTP_NgayHetHanPC.Location = new System.Drawing.Point(489, 196);
+            this.dTP_NgayHetHanPC.Location = new System.Drawing.Point(489, 182);
             this.dTP_NgayHetHanPC.Name = "dTP_NgayHetHanPC";
             this.dTP_NgayHetHanPC.ShowCheckBox = true;
             this.dTP_NgayHetHanPC.Size = new System.Drawing.Size(123, 28);
@@ -341,7 +345,7 @@
             this.dTP_NgayBatDauPC.Checked = false;
             this.dTP_NgayBatDauPC.CustomFormat = "dd/MM/yyyy";
             this.dTP_NgayBatDauPC.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dTP_NgayBatDauPC.Location = new System.Drawing.Point(165, 196);
+            this.dTP_NgayBatDauPC.Location = new System.Drawing.Point(165, 182);
             this.dTP_NgayBatDauPC.Name = "dTP_NgayBatDauPC";
             this.dTP_NgayBatDauPC.Size = new System.Drawing.Size(123, 28);
             this.dTP_NgayBatDauPC.TabIndex = 4;
@@ -349,7 +353,7 @@
             // nup_PhanTramPC
             // 
             this.nup_PhanTramPC.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.nup_PhanTramPC.Location = new System.Drawing.Point(813, 196);
+            this.nup_PhanTramPC.Location = new System.Drawing.Point(813, 182);
             this.nup_PhanTramPC.Name = "nup_PhanTramPC";
             this.nup_PhanTramPC.Size = new System.Drawing.Size(120, 28);
             this.nup_PhanTramPC.TabIndex = 32;
@@ -363,7 +367,7 @@
             // 
             this.label18.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(3, 254);
+            this.label18.Location = new System.Drawing.Point(3, 236);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(63, 21);
             this.label18.TabIndex = 40;
@@ -373,7 +377,7 @@
             // 
             this.label24.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(651, 189);
+            this.label24.Location = new System.Drawing.Point(651, 175);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(127, 42);
             this.label24.TabIndex = 42;
@@ -384,9 +388,9 @@
             this.tableLP_PhuCap.SetColumnSpan(this.groupBox4, 6);
             this.groupBox4.Controls.Add(this.dtgv_DSPhuCap);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Location = new System.Drawing.Point(3, 298);
+            this.groupBox4.Location = new System.Drawing.Point(3, 278);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(970, 170);
+            this.groupBox4.Size = new System.Drawing.Size(970, 159);
             this.groupBox4.TabIndex = 43;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Danh sách phụ cấp";
@@ -401,7 +405,7 @@
             this.dtgv_DSPhuCap.ReadOnly = true;
             this.dtgv_DSPhuCap.RowTemplate.Height = 24;
             this.dtgv_DSPhuCap.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgv_DSPhuCap.Size = new System.Drawing.Size(964, 143);
+            this.dtgv_DSPhuCap.Size = new System.Drawing.Size(964, 132);
             this.dtgv_DSPhuCap.TabIndex = 2;
             this.dtgv_DSPhuCap.SelectionChanged += new System.EventHandler(this.dtgv_DSPhuCap_SelectionChanged);
             // 
@@ -427,19 +431,19 @@
             this.TLP_HienThiLoaiPC.Controls.Add(this.label23, 0, 2);
             this.TLP_HienThiLoaiPC.Controls.Add(this.txt_Luong_PC, 3, 1);
             this.TLP_HienThiLoaiPC.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.TLP_HienThiLoaiPC.Location = new System.Drawing.Point(3, 62);
+            this.TLP_HienThiLoaiPC.Location = new System.Drawing.Point(3, 58);
             this.TLP_HienThiLoaiPC.Name = "TLP_HienThiLoaiPC";
             this.TLP_HienThiLoaiPC.RowCount = 3;
             this.TLP_HienThiLoaiPC.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.TLP_HienThiLoaiPC.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.TLP_HienThiLoaiPC.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.TLP_HienThiLoaiPC.Size = new System.Drawing.Size(970, 121);
+            this.TLP_HienThiLoaiPC.Size = new System.Drawing.Size(970, 112);
             this.TLP_HienThiLoaiPC.TabIndex = 41;
             // 
             // nup_Value_PhanTramPC
             // 
             this.nup_Value_PhanTramPC.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.nup_Value_PhanTramPC.Location = new System.Drawing.Point(159, 86);
+            this.nup_Value_PhanTramPC.Location = new System.Drawing.Point(159, 79);
             this.nup_Value_PhanTramPC.Name = "nup_Value_PhanTramPC";
             this.nup_Value_PhanTramPC.Size = new System.Drawing.Size(120, 28);
             this.nup_Value_PhanTramPC.TabIndex = 46;
@@ -453,7 +457,7 @@
             // 
             this.label19.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(3, 9);
+            this.label19.Location = new System.Drawing.Point(3, 8);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(86, 21);
             this.label19.TabIndex = 0;
@@ -462,7 +466,7 @@
             // txt_TienPC
             // 
             this.txt_TienPC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_TienPC.Location = new System.Drawing.Point(159, 6);
+            this.txt_TienPC.Location = new System.Drawing.Point(159, 4);
             this.txt_TienPC.Name = "txt_TienPC";
             this.txt_TienPC.Size = new System.Drawing.Size(320, 28);
             this.txt_TienPC.TabIndex = 1;
@@ -473,7 +477,7 @@
             // 
             this.label20.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(3, 49);
+            this.label20.Location = new System.Drawing.Point(3, 45);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(49, 21);
             this.label20.TabIndex = 2;
@@ -483,7 +487,7 @@
             // 
             this.label21.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(485, 49);
+            this.label21.Location = new System.Drawing.Point(485, 45);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(54, 21);
             this.label21.TabIndex = 3;
@@ -493,7 +497,7 @@
             // 
             this.txt_CongThucPC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_CongThucPC.Enabled = false;
-            this.txt_CongThucPC.Location = new System.Drawing.Point(676, 86);
+            this.txt_CongThucPC.Location = new System.Drawing.Point(676, 79);
             this.txt_CongThucPC.Name = "txt_CongThucPC";
             this.txt_CongThucPC.Size = new System.Drawing.Size(291, 28);
             this.txt_CongThucPC.TabIndex = 7;
@@ -502,7 +506,7 @@
             // 
             this.label22.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(485, 90);
+            this.label22.Location = new System.Drawing.Point(485, 82);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(81, 21);
             this.label22.TabIndex = 4;
@@ -511,7 +515,7 @@
             // txt_HeSoPC
             // 
             this.txt_HeSoPC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_HeSoPC.Location = new System.Drawing.Point(159, 46);
+            this.txt_HeSoPC.Location = new System.Drawing.Point(159, 41);
             this.txt_HeSoPC.Name = "txt_HeSoPC";
             this.txt_HeSoPC.Size = new System.Drawing.Size(320, 28);
             this.txt_HeSoPC.TabIndex = 6;
@@ -520,7 +524,7 @@
             // 
             this.label23.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(3, 90);
+            this.label23.Location = new System.Drawing.Point(3, 82);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(109, 21);
             this.label23.TabIndex = 35;
@@ -530,7 +534,7 @@
             // 
             this.txt_Luong_PC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_Luong_PC.Enabled = false;
-            this.txt_Luong_PC.Location = new System.Drawing.Point(676, 46);
+            this.txt_Luong_PC.Location = new System.Drawing.Point(676, 41);
             this.txt_Luong_PC.Name = "txt_Luong_PC";
             this.txt_Luong_PC.Size = new System.Drawing.Size(291, 28);
             this.txt_Luong_PC.TabIndex = 47;
@@ -541,7 +545,7 @@
             this.btn_DelPC.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_DelPC.ImageKey = "Cancel.png";
             this.btn_DelPC.ImageList = this.imageList1;
-            this.btn_DelPC.Location = new System.Drawing.Point(868, 241);
+            this.btn_DelPC.Location = new System.Drawing.Point(868, 223);
             this.btn_DelPC.Name = "btn_DelPC";
             this.btn_DelPC.Size = new System.Drawing.Size(50, 48);
             this.btn_DelPC.TabIndex = 44;
@@ -565,7 +569,7 @@
             this.btn_AddPC.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_AddPC.ImageKey = "Add.png";
             this.btn_AddPC.ImageList = this.imageList1;
-            this.btn_AddPC.Location = new System.Drawing.Point(704, 241);
+            this.btn_AddPC.Location = new System.Drawing.Point(704, 223);
             this.btn_AddPC.Name = "btn_AddPC";
             this.btn_AddPC.Size = new System.Drawing.Size(50, 48);
             this.btn_AddPC.TabIndex = 45;
@@ -578,7 +582,7 @@
             this.comB_LoaiHD.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_LoaiHD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_LoaiHD.FormattingEnabled = true;
-            this.comB_LoaiHD.Location = new System.Drawing.Point(449, 14);
+            this.comB_LoaiHD.Location = new System.Drawing.Point(449, 6);
             this.comB_LoaiHD.Name = "comB_LoaiHD";
             this.comB_LoaiHD.Size = new System.Drawing.Size(204, 29);
             this.comB_LoaiHD.TabIndex = 1;
@@ -587,7 +591,7 @@
             // txt_MaHD
             // 
             this.txt_MaHD.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_MaHD.Location = new System.Drawing.Point(122, 13);
+            this.txt_MaHD.Location = new System.Drawing.Point(122, 7);
             this.txt_MaHD.Name = "txt_MaHD";
             this.txt_MaHD.Size = new System.Drawing.Size(203, 28);
             this.txt_MaHD.TabIndex = 0;
@@ -597,7 +601,7 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(331, 6);
+            this.label4.Location = new System.Drawing.Point(331, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(109, 42);
             this.label4.TabIndex = 5;
@@ -607,7 +611,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 6);
+            this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(108, 42);
             this.label1.TabIndex = 2;
@@ -617,7 +621,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 779);
+            this.label2.Location = new System.Drawing.Point(3, 778);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(99, 42);
             this.label2.TabIndex = 3;
@@ -627,9 +631,9 @@
             // 
             this.tableLP_ChiTietHopDong.SetColumnSpan(this.rTB_GhiChu, 3);
             this.rTB_GhiChu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rTB_GhiChu.Location = new System.Drawing.Point(122, 769);
+            this.rTB_GhiChu.Location = new System.Drawing.Point(122, 763);
             this.rTB_GhiChu.Name = "rTB_GhiChu";
-            this.rTB_GhiChu.Size = new System.Drawing.Size(531, 63);
+            this.rTB_GhiChu.Size = new System.Drawing.Size(531, 72);
             this.rTB_GhiChu.TabIndex = 9;
             this.rTB_GhiChu.Text = "";
             // 
@@ -638,9 +642,9 @@
             this.tableLP_ChiTietHopDong.SetColumnSpan(this.groupBox2, 6);
             this.groupBox2.Controls.Add(this.tableLP_ThongTinLuong);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(3, 139);
+            this.groupBox2.Location = new System.Drawing.Point(3, 172);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(982, 120);
+            this.groupBox2.Size = new System.Drawing.Size(982, 112);
             this.groupBox2.TabIndex = 32;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin lương";
@@ -673,7 +677,7 @@
             this.tableLP_ThongTinLuong.RowCount = 2;
             this.tableLP_ThongTinLuong.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.91452F));
             this.tableLP_ThongTinLuong.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 31.66596F));
-            this.tableLP_ThongTinLuong.Size = new System.Drawing.Size(976, 93);
+            this.tableLP_ThongTinLuong.Size = new System.Drawing.Size(976, 85);
             this.tableLP_ThongTinLuong.TabIndex = 0;
             // 
             // comb_Luong
@@ -684,7 +688,7 @@
             this.comb_Luong.Items.AddRange(new object[] {
             "Hệ số",
             "Khoán"});
-            this.comb_Luong.Location = new System.Drawing.Point(121, 11);
+            this.comb_Luong.Location = new System.Drawing.Point(121, 7);
             this.comb_Luong.Name = "comb_Luong";
             this.comb_Luong.Size = new System.Drawing.Size(201, 29);
             this.comb_Luong.TabIndex = 33;
@@ -694,7 +698,7 @@
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 13);
+            this.label8.Location = new System.Drawing.Point(3, 11);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(54, 21);
             this.label8.TabIndex = 32;
@@ -704,7 +708,7 @@
             // 
             this.lbl_SoTien.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbl_SoTien.AutoSize = true;
-            this.lbl_SoTien.Location = new System.Drawing.Point(3, 60);
+            this.lbl_SoTien.Location = new System.Drawing.Point(3, 53);
             this.lbl_SoTien.Name = "lbl_SoTien";
             this.lbl_SoTien.Size = new System.Drawing.Size(57, 21);
             this.lbl_SoTien.TabIndex = 35;
@@ -714,7 +718,7 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(328, 13);
+            this.label3.Location = new System.Drawing.Point(328, 11);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 21);
             this.label3.TabIndex = 25;
@@ -724,7 +728,7 @@
             // 
             this.txt_Tien.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txt_Tien.Enabled = false;
-            this.txt_Tien.Location = new System.Drawing.Point(121, 56);
+            this.txt_Tien.Location = new System.Drawing.Point(121, 50);
             this.txt_Tien.Name = "txt_Tien";
             this.txt_Tien.Size = new System.Drawing.Size(201, 28);
             this.txt_Tien.TabIndex = 34;
@@ -736,7 +740,7 @@
             this.comb_Ngach.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comb_Ngach.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comb_Ngach.FormattingEnabled = true;
-            this.comb_Ngach.Location = new System.Drawing.Point(414, 11);
+            this.comb_Ngach.Location = new System.Drawing.Point(414, 7);
             this.comb_Ngach.Name = "comb_Ngach";
             this.comb_Ngach.Size = new System.Drawing.Size(209, 29);
             this.comb_Ngach.TabIndex = 29;
@@ -746,7 +750,7 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(629, 13);
+            this.label5.Location = new System.Drawing.Point(629, 11);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(34, 21);
             this.label5.TabIndex = 26;
@@ -757,7 +761,7 @@
             this.comb_Bac.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comb_Bac.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comb_Bac.FormattingEnabled = true;
-            this.comb_Bac.Location = new System.Drawing.Point(771, 11);
+            this.comb_Bac.Location = new System.Drawing.Point(771, 7);
             this.comb_Bac.Name = "comb_Bac";
             this.comb_Bac.Size = new System.Drawing.Size(202, 29);
             this.comb_Bac.TabIndex = 30;
@@ -767,7 +771,7 @@
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(328, 60);
+            this.label7.Location = new System.Drawing.Point(328, 53);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(49, 21);
             this.label7.TabIndex = 28;
@@ -777,7 +781,7 @@
             // 
             this.txt_HeSo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txt_HeSo.Enabled = false;
-            this.txt_HeSo.Location = new System.Drawing.Point(414, 56);
+            this.txt_HeSo.Location = new System.Drawing.Point(414, 50);
             this.txt_HeSo.Name = "txt_HeSo";
             this.txt_HeSo.Size = new System.Drawing.Size(209, 28);
             this.txt_HeSo.TabIndex = 0;
@@ -786,7 +790,7 @@
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(629, 49);
+            this.label9.Location = new System.Drawing.Point(629, 43);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(127, 42);
             this.label9.TabIndex = 27;
@@ -795,7 +799,7 @@
             // nup_PhanTram
             // 
             this.nup_PhanTram.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.nup_PhanTram.Location = new System.Drawing.Point(771, 56);
+            this.nup_PhanTram.Location = new System.Drawing.Point(771, 50);
             this.nup_PhanTram.Name = "nup_PhanTram";
             this.nup_PhanTram.Size = new System.Drawing.Size(120, 28);
             this.nup_PhanTram.TabIndex = 31;
@@ -812,7 +816,7 @@
             this.btn_Them.Enabled = false;
             this.btn_Them.ImageKey = "Save.png";
             this.btn_Them.ImageList = this.imageList1;
-            this.btn_Them.Location = new System.Drawing.Point(331, 843);
+            this.btn_Them.Location = new System.Drawing.Point(331, 845);
             this.btn_Them.Name = "btn_Them";
             this.btn_Them.Size = new System.Drawing.Size(56, 56);
             this.btn_Them.TabIndex = 11;
@@ -826,7 +830,7 @@
             this.btn_NhapFile.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_NhapFile.ImageKey = "Document-Add.png";
             this.btn_NhapFile.ImageList = this.imageList1;
-            this.btn_NhapFile.Location = new System.Drawing.Point(195, 843);
+            this.btn_NhapFile.Location = new System.Drawing.Point(195, 845);
             this.btn_NhapFile.Name = "btn_NhapFile";
             this.btn_NhapFile.Size = new System.Drawing.Size(56, 56);
             this.btn_NhapFile.TabIndex = 10;
@@ -840,7 +844,7 @@
             this.btn_DungHD.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_DungHD.ImageKey = "Remove Avatar.png";
             this.btn_DungHD.ImageList = this.imageList1;
-            this.btn_DungHD.Location = new System.Drawing.Point(523, 843);
+            this.btn_DungHD.Location = new System.Drawing.Point(523, 845);
             this.btn_DungHD.Name = "btn_DungHD";
             this.btn_DungHD.Size = new System.Drawing.Size(56, 56);
             this.btn_DungHD.TabIndex = 12;
@@ -854,7 +858,7 @@
             this.dtp_DenNgay.Checked = false;
             this.dtp_DenNgay.CustomFormat = "dd/MM/yyyy";
             this.dtp_DenNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_DenNgay.Location = new System.Drawing.Point(778, 58);
+            this.dtp_DenNgay.Location = new System.Drawing.Point(778, 53);
             this.dtp_DenNgay.Name = "dtp_DenNgay";
             this.dtp_DenNgay.ShowCheckBox = true;
             this.dtp_DenNgay.Size = new System.Drawing.Size(207, 28);
@@ -864,7 +868,7 @@
             // 
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(659, 61);
+            this.label12.Location = new System.Drawing.Point(659, 56);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(75, 21);
             this.label12.TabIndex = 13;
@@ -876,7 +880,7 @@
             this.dtp_TuNgay.Checked = false;
             this.dtp_TuNgay.CustomFormat = "dd/MM/yyyy";
             this.dtp_TuNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_TuNgay.Location = new System.Drawing.Point(449, 58);
+            this.dtp_TuNgay.Location = new System.Drawing.Point(449, 53);
             this.dtp_TuNgay.Name = "dtp_TuNgay";
             this.dtp_TuNgay.ShowCheckBox = true;
             this.dtp_TuNgay.Size = new System.Drawing.Size(204, 28);
@@ -886,7 +890,7 @@
             // 
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(331, 61);
+            this.label10.Location = new System.Drawing.Point(331, 56);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(76, 21);
             this.label10.TabIndex = 11;
@@ -896,7 +900,7 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 61);
+            this.label6.Location = new System.Drawing.Point(3, 56);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 21);
             this.label6.TabIndex = 7;
@@ -907,7 +911,7 @@
             this.cb_ThoiHan.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cb_ThoiHan.AutoSize = true;
             this.tableLP_ChiTietHopDong.SetColumnSpan(this.cb_ThoiHan, 2);
-            this.cb_ThoiHan.Location = new System.Drawing.Point(659, 14);
+            this.cb_ThoiHan.Location = new System.Drawing.Point(659, 8);
             this.cb_ThoiHan.Name = "cb_ThoiHan";
             this.cb_ThoiHan.Size = new System.Drawing.Size(113, 25);
             this.cb_ThoiHan.TabIndex = 34;
@@ -920,7 +924,7 @@
             this.dTP_NgayKy.Checked = false;
             this.dTP_NgayKy.CustomFormat = "dd/MM/yyyy";
             this.dTP_NgayKy.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dTP_NgayKy.Location = new System.Drawing.Point(122, 58);
+            this.dTP_NgayKy.Location = new System.Drawing.Point(122, 53);
             this.dTP_NgayKy.Name = "dTP_NgayKy";
             this.dTP_NgayKy.ShowCheckBox = true;
             this.dTP_NgayKy.Size = new System.Drawing.Size(203, 28);
@@ -930,7 +934,7 @@
             // 
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(3, 102);
+            this.label11.Location = new System.Drawing.Point(3, 137);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(56, 21);
             this.label11.TabIndex = 12;
@@ -941,7 +945,7 @@
             this.comB_DonVi.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_DonVi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_DonVi.FormattingEnabled = true;
-            this.comB_DonVi.Location = new System.Drawing.Point(122, 100);
+            this.comB_DonVi.Location = new System.Drawing.Point(122, 133);
             this.comB_DonVi.Name = "comB_DonVi";
             this.comB_DonVi.Size = new System.Drawing.Size(203, 29);
             this.comB_DonVi.TabIndex = 6;
@@ -950,7 +954,7 @@
             // 
             this.label13.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(331, 102);
+            this.label13.Location = new System.Drawing.Point(331, 137);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(66, 21);
             this.label13.TabIndex = 14;
@@ -961,7 +965,7 @@
             this.comB_ChucVu.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_ChucVu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_ChucVu.FormattingEnabled = true;
-            this.comB_ChucVu.Location = new System.Drawing.Point(449, 100);
+            this.comB_ChucVu.Location = new System.Drawing.Point(449, 133);
             this.comB_ChucVu.Name = "comB_ChucVu";
             this.comB_ChucVu.Size = new System.Drawing.Size(204, 29);
             this.comB_ChucVu.TabIndex = 7;
@@ -971,7 +975,7 @@
             this.comB_ChucDanh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_ChucDanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_ChucDanh.FormattingEnabled = true;
-            this.comB_ChucDanh.Location = new System.Drawing.Point(778, 100);
+            this.comB_ChucDanh.Location = new System.Drawing.Point(778, 133);
             this.comB_ChucDanh.Name = "comB_ChucDanh";
             this.comB_ChucDanh.Size = new System.Drawing.Size(207, 29);
             this.comB_ChucDanh.TabIndex = 8;
@@ -980,7 +984,7 @@
             // 
             this.label14.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(659, 102);
+            this.label14.Location = new System.Drawing.Point(659, 137);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(84, 21);
             this.label14.TabIndex = 33;
@@ -1035,6 +1039,30 @@
             this.bw_download.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bw_download_DoWork);
             this.bw_download.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bw_download_ProgressChanged);
             this.bw_download.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bw_download_RunWorkerCompleted);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.checkBox1.AutoSize = true;
+            this.tableLP_ChiTietHopDong.SetColumnSpan(this.checkBox1, 2);
+            this.checkBox1.Location = new System.Drawing.Point(331, 96);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(203, 25);
+            this.checkBox1.TabIndex = 36;
+            this.checkBox1.Text = "Tính thâm niên nâng bậc";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.checkBox2.AutoSize = true;
+            this.tableLP_ChiTietHopDong.SetColumnSpan(this.checkBox2, 2);
+            this.checkBox2.Location = new System.Drawing.Point(3, 96);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(200, 25);
+            this.checkBox2.TabIndex = 37;
+            this.checkBox2.Text = "Tính thâm niên nhà giáo";
+            this.checkBox2.UseVisualStyleBackColor = true;
             // 
             // HopDong
             // 
@@ -1146,5 +1174,7 @@
         private System.Windows.Forms.NumericUpDown nup_Value_PhanTramPC;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.TextBox txt_Luong_PC;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBox2;
     }
 }

@@ -57,6 +57,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txt_CoQuan = new System.Windows.Forms.TextBox();
             this.txt_TenDV = new System.Windows.Forms.TextBox();
+            this.cb_TinhThamNien = new System.Windows.Forms.CheckBox();
             this.tableLP_QuaTrinhCongTac.SuspendLayout();
             this.tableLP_TrongDH.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -146,8 +147,9 @@
             this.tableLP_NgoaiDH.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tableLP_NgoaiDH.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLP_NgoaiDH.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.tableLP_NgoaiDH.Controls.Add(this.cb_TinhThamNien, 2, 4);
             this.tableLP_NgoaiDH.Controls.Add(this.rtb_GhiChu, 3, 2);
-            this.tableLP_NgoaiDH.Controls.Add(this.tableLayoutPanel2, 2, 4);
+            this.tableLP_NgoaiDH.Controls.Add(this.tableLayoutPanel2, 3, 4);
             this.tableLP_NgoaiDH.Controls.Add(this.comB_Nganh, 1, 4);
             this.tableLP_NgoaiDH.Controls.Add(this.label7, 0, 4);
             this.tableLP_NgoaiDH.Controls.Add(this.label5, 0, 3);
@@ -195,7 +197,6 @@
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLP_NgoaiDH.SetColumnSpan(this.tableLayoutPanel2, 2);
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
@@ -203,11 +204,11 @@
             this.tableLayoutPanel2.Controls.Add(this.lbl_XoaNgoai, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.lbl_SuaNgoai, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(496, 303);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(644, 303);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(489, 69);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(341, 69);
             this.tableLayoutPanel2.TabIndex = 54;
             // 
             // lbl_ThemNgoai
@@ -231,7 +232,7 @@
             this.lbl_XoaNgoai.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_XoaNgoai.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_XoaNgoai.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lbl_XoaNgoai.Location = new System.Drawing.Point(329, 23);
+            this.lbl_XoaNgoai.Location = new System.Drawing.Point(229, 23);
             this.lbl_XoaNgoai.Name = "lbl_XoaNgoai";
             this.lbl_XoaNgoai.Size = new System.Drawing.Size(39, 23);
             this.lbl_XoaNgoai.TabIndex = 2;
@@ -244,7 +245,7 @@
             this.lbl_SuaNgoai.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_SuaNgoai.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_SuaNgoai.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lbl_SuaNgoai.Location = new System.Drawing.Point(166, 23);
+            this.lbl_SuaNgoai.Location = new System.Drawing.Point(116, 23);
             this.lbl_SuaNgoai.Name = "lbl_SuaNgoai";
             this.lbl_SuaNgoai.Size = new System.Drawing.Size(39, 23);
             this.lbl_SuaNgoai.TabIndex = 1;
@@ -260,7 +261,7 @@
             this.comB_Nganh.Items.AddRange(new object[] {
             "Trong ngành giáo dục",
             "Ngoài ngành giáo dục"});
-            this.comB_Nganh.Location = new System.Drawing.Point(151, 325);
+            this.comB_Nganh.Location = new System.Drawing.Point(151, 324);
             this.comB_Nganh.Name = "comB_Nganh";
             this.comB_Nganh.Size = new System.Drawing.Size(269, 26);
             this.comB_Nganh.TabIndex = 6;
@@ -442,6 +443,17 @@
             this.txt_TenDV.Size = new System.Drawing.Size(269, 26);
             this.txt_TenDV.TabIndex = 0;
             // 
+            // cb_TinhThamNien
+            // 
+            this.cb_TinhThamNien.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cb_TinhThamNien.AutoSize = true;
+            this.cb_TinhThamNien.Location = new System.Drawing.Point(496, 326);
+            this.cb_TinhThamNien.Name = "cb_TinhThamNien";
+            this.cb_TinhThamNien.Size = new System.Drawing.Size(125, 22);
+            this.cb_TinhThamNien.TabIndex = 59;
+            this.cb_TinhThamNien.Text = "Tính thâm niên ";
+            this.cb_TinhThamNien.UseVisualStyleBackColor = true;
+            // 
             // QLNS_QuaTrinhCongTac
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -498,5 +510,6 @@
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.Label label8;
         public System.Windows.Forms.TextBox txt_CoQuan;
+        public System.Windows.Forms.CheckBox cb_TinhThamNien;
     }
 }
