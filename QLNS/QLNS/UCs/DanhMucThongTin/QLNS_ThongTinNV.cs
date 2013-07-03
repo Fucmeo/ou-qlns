@@ -829,12 +829,19 @@ namespace QLNS.UCs.DanhMucThongTin
             {
                 var ids = from c in dtTinhTP.AsEnumerable()
                           where c.Field<int>("id") == v
-                          select c.Field<int>("quoc_gia_id");
+                          select c.Field<int?>("quoc_gia_id");
 
-                int quoc_gia_id = ids.ElementAt<int>(0);
+                
+                    int? quoc_gia_id = ids.ElementAt<int?>(0);
 
-                comB_QuocGia.SelectedValue = quoc_gia_id;
-                ExcludeTinhData(quoc_gia_id, v);
+                    if (quoc_gia_id != null)
+                    {
+                        comB_QuocGia.SelectedValue = quoc_gia_id;
+                        ExcludeTinhData(quoc_gia_id, v);
+                    }
+                    
+                
+                
             }
         }
 
@@ -844,7 +851,7 @@ namespace QLNS.UCs.DanhMucThongTin
         /// </summary>
         /// <param name="quoc_gia_id"></param>
         /// <param name="SelectedValue">tinh mà ng dung da chon</param>
-        private void ExcludeTinhData( int quoc_gia_id, int SelectedValue)
+        private void ExcludeTinhData( int? quoc_gia_id, int SelectedValue)
         {
             var dt = dtTinhTP.AsEnumerable().Where(a => a.Field<int>("quoc_gia_id") == quoc_gia_id);
             DataTable dt2 = dt.CopyToDataTable();

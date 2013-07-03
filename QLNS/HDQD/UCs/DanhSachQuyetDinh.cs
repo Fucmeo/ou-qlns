@@ -224,7 +224,7 @@ namespace HDQD.UCs
                         f.ShowDialog();
                         break;
                     case 8:
-                        f = new Forms.Popup(new HDQD.UCs.QuyetDinhChung(), "QUẢN LÝ NHÂN SỰ - QUYẾT ĐỊNH CHUNG");
+                        f = new Forms.Popup(new HDQD.UCs.QuyetDinhPhuCap(), "QUẢN LÝ NHÂN SỰ - QUYẾT ĐỊNH CHUNG");
                         f.ShowDialog();
                         break;
 

@@ -38,7 +38,10 @@ namespace QLNS.UCs
             {
                 oTinhTP.TenTinhTP = txt_Ten.Text;
                 oTinhTP.MoTa = rTB_GhiChu.Text;
-                oTinhTP.QuocGiaID = Convert.ToInt32(comB_QuocGia.SelectedValue);
+                if (Convert.ToInt32(comB_QuocGia.SelectedValue) != -1)
+                    oTinhTP.QuocGiaID = Convert.ToInt32(comB_QuocGia.SelectedValue);
+                else
+                    oTinhTP.QuocGiaID = null;
                 
                 try
                 {
@@ -87,23 +90,31 @@ namespace QLNS.UCs
 
         public void LoadQuocGiaData()
         {
-            dtQuocGia = oQuocGia.GetData();
-            dtQuocGia = dtQuocGia.AsEnumerable().Where(a => a.Field<int>("id") != -1).CopyToDataTable();
-
-            // comb
-            comB_QuocGia.DataSource = dtQuocGia;
-            comB_QuocGia.DisplayMember = "ten_quoc_gia";
-            comB_QuocGia.ValueMember = "id";
-
-            if (dtQuocGia.Rows.Count > 0)
+            try
             {
-                comB_QuocGia.SelectedIndex = 0;
+                dtQuocGia = oQuocGia.GetData();
+                //dtQuocGia = dtQuocGia.AsEnumerable().Where(a => a.Field<int>("id") != -1).CopyToDataTable();
+
+                // comb
+                comB_QuocGia.DataSource = dtQuocGia;
+                comB_QuocGia.DisplayMember = "ten_quoc_gia";
+                comB_QuocGia.ValueMember = "id";
+
+                if (dtQuocGia.Rows.Count > 0)
+                {
+                    comB_QuocGia.SelectedIndex = 0;
+                }
+                else
+                {
+                    MessageBox.Show("Chưa có quốc gia, xin vui lòng thêm quốc gia trước.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ((Form)this.Parent).Close();
+                }
             }
-            else
+            catch (Exception)
             {
-                MessageBox.Show("Chưa có quốc gia, xin vui lòng thêm quốc gia trước.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ((Form)this.Parent).Close();
+                
             }
+            
 
             
         }

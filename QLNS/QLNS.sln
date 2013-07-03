@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HDQD", "HDQD\HDQD.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuongBH", "LuongBH\LuongBH.csproj", "{FA72629F-A340-453A-9258-AE430CCD6176}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupProject", "..\QLNS_KHANG\SetupProject\SetupProject.vdproj", "{BC83AC9E-2E6F-4DCB-B88B-491E549BFF9B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,18 +83,6 @@ Global
 		{FA72629F-A340-453A-9258-AE430CCD6176}.Release|Mixed Platforms.Build.0 = Release|x86
 		{FA72629F-A340-453A-9258-AE430CCD6176}.Release|x86.ActiveCfg = Release|x86
 		{FA72629F-A340-453A-9258-AE430CCD6176}.Release|x86.Build.0 = Release|x86
-		{BC83AC9E-2E6F-4DCB-B88B-491E549BFF9B}.Debug|Any CPU.ActiveCfg = Debug
-		{BC83AC9E-2E6F-4DCB-B88B-491E549BFF9B}.Debug|Any CPU.Build.0 = Debug
-		{BC83AC9E-2E6F-4DCB-B88B-491E549BFF9B}.Debug|Mixed Platforms.ActiveCfg = Debug
-		{BC83AC9E-2E6F-4DCB-B88B-491E549BFF9B}.Debug|Mixed Platforms.Build.0 = Debug
-		{BC83AC9E-2E6F-4DCB-B88B-491E549BFF9B}.Debug|x86.ActiveCfg = Debug
-		{BC83AC9E-2E6F-4DCB-B88B-491E549BFF9B}.Debug|x86.Build.0 = Debug
-		{BC83AC9E-2E6F-4DCB-B88B-491E549BFF9B}.Release|Any CPU.ActiveCfg = Release
-		{BC83AC9E-2E6F-4DCB-B88B-491E549BFF9B}.Release|Any CPU.Build.0 = Release
-		{BC83AC9E-2E6F-4DCB-B88B-491E549BFF9B}.Release|Mixed Platforms.ActiveCfg = Release
-		{BC83AC9E-2E6F-4DCB-B88B-491E549BFF9B}.Release|Mixed Platforms.Build.0 = Release
-		{BC83AC9E-2E6F-4DCB-B88B-491E549BFF9B}.Release|x86.ActiveCfg = Release
-		{BC83AC9E-2E6F-4DCB-B88B-491E549BFF9B}.Release|x86.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
