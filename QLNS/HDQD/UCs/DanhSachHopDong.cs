@@ -144,6 +144,8 @@ namespace HDQD.UCs
             dtgv_DSHD.Columns["luong_khoan"].Visible = false;
             dtgv_DSHD.Columns["ngach_bac_heso_id"].Visible = false;
             dtgv_DSHD.Columns["phan_tram_huong"].Visible = false;
+            dtgv_DSHD.Columns["tham_nien_nang_bac"].Visible = false;
+            dtgv_DSHD.Columns["tham_nien_gd"].Visible = false;
 
         }
 
@@ -287,6 +289,15 @@ namespace HDQD.UCs
                 oHopDong.Don_Vi = row.Cells["ten_don_vi"].Value.ToString();
                 oHopDong.Tinh_Trang = Convert.ToBoolean(row.Cells["tinh_trang"].Value.ToString());
                 oHopDong.Ghi_Chu = row.Cells["ghi_chu"].Value.ToString();
+
+                if (row.Cells["tham_nien_nang_bac"].Value.ToString() != "")
+                    oHopDong.Tham_nien_nang_bac = Convert.ToBoolean(row.Cells["tham_nien_nang_bac"].Value.ToString());
+                else
+                    oHopDong.Tham_nien_nang_bac = false;
+                if (row.Cells["tham_nien_gd"].Value.ToString() != "")
+                    oHopDong.Tham_nien_nha_giao = Convert.ToBoolean(row.Cells["tham_nien_gd"].Value.ToString());
+                else
+                    oHopDong.Tham_nien_nha_giao = false;
 
                 #region Luong Info
                 oHopDong.Khoan_or_HeSo = Convert.ToBoolean(row.Cells["tinh_trang"].Value.ToString());
