@@ -56,9 +56,9 @@ namespace Business
             set { mota = value; }
         }
 
-        private int quoc_gia_id;
+        private int? quoc_gia_id;
 
-        public int QuocGiaID
+        public int? QuocGiaID
         {
             get { return quoc_gia_id; }
             set { quoc_gia_id = value; }

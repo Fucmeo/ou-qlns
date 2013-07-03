@@ -322,7 +322,7 @@ namespace QLNS.Forms
 
         private void qĐChungToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Forms.Popup f = new Popup("Quyết định chung", new HDQD.UCs.QuyetDinhChung());
+            Forms.Popup f = new Popup("Quyết định chung", new HDQD.UCs.QuyetDinhPhuCap());
             f.WindowState = FormWindowState.Maximized;
             f.ShowDialog();
         }

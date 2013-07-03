@@ -129,11 +129,17 @@
     <Compile Include="UCs\M_A.Designer.cs">
       <DependentUpon>M_A.cs</DependentUpon>
     </Compile>
-    <Compile Include="UCs\QuyetDinhChung.cs">
+    <Compile Include="UCs\QDChung.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UCs\QuyetDinhChung.designer.cs">
-      <DependentUpon>QuyetDinhChung.cs</DependentUpon>
+    <Compile Include="UCs\QDChung.Designer.cs">
+      <DependentUpon>QDChung.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCs\QuyetDinhPhuCap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\QuyetDinhPhuCap.designer.cs">
+      <DependentUpon>QuyetDinhPhuCap.cs</DependentUpon>
     </Compile>
     <Compile Include="UCs\ThanhLapDonVi.cs">
       <SubType>UserControl</SubType>
@@ -219,8 +225,11 @@
     <EmbeddedResource Include="UCs\M_A.resx">
       <DependentUpon>M_A.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UCs\QuyetDinhChung.resx">
-      <DependentUpon>QuyetDinhChung.cs</DependentUpon>
+    <EmbeddedResource Include="UCs\QDChung.resx">
+      <DependentUpon>QDChung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\QuyetDinhPhuCap.resx">
+      <DependentUpon>QuyetDinhPhuCap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\ThanhLapDonVi.resx">
       <DependentUpon>ThanhLapDonVi.cs</DependentUpon>

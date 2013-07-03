@@ -45,9 +45,9 @@ namespace HDQD.UCs
                         break;
 
                     case ParentUC.QuyetDinhChung:
-                        HDQD.UCs.ThongTinCNVC.strMaNV = HDQD.UCs.QuyetDinhChung.strMaNVOld = dtgv_DSCNVC.Rows[e.RowIndex].Cells["ma_nv"].Value.ToString();
-                        HDQD.UCs.ThongTinCNVC.strHo = HDQD.UCs.QuyetDinhChung.strHoOld = dtgv_DSCNVC.Rows[e.RowIndex].Cells["ho"].Value.ToString();
-                        HDQD.UCs.ThongTinCNVC.strTen = HDQD.UCs.QuyetDinhChung.strTenOld = dtgv_DSCNVC.Rows[e.RowIndex].Cells["ten"].Value.ToString();
+                        HDQD.UCs.ThongTinCNVC.strMaNV = HDQD.UCs.QuyetDinhPhuCap.strMaNVOld = dtgv_DSCNVC.Rows[e.RowIndex].Cells["ma_nv"].Value.ToString();
+                        HDQD.UCs.ThongTinCNVC.strHo = HDQD.UCs.QuyetDinhPhuCap.strHoOld = dtgv_DSCNVC.Rows[e.RowIndex].Cells["ho"].Value.ToString();
+                        HDQD.UCs.ThongTinCNVC.strTen = HDQD.UCs.QuyetDinhPhuCap.strTenOld = dtgv_DSCNVC.Rows[e.RowIndex].Cells["ten"].Value.ToString();
                         break;
 
                     case ParentUC.HopDong:
@@ -121,9 +121,9 @@ namespace HDQD.UCs
                     break;
 
                 case ParentUC.QuyetDinhChung:
-                    HDQD.UCs.ThongTinCNVC.strMaNV = HDQD.UCs.QuyetDinhChung.strMaNVOld = dtgv_DSCNVC.SelectedRows[0].Cells["ma_nv"].Value.ToString();
-                    HDQD.UCs.ThongTinCNVC.strHo = HDQD.UCs.QuyetDinhChung.strHoOld = dtgv_DSCNVC.SelectedRows[0].Cells["ho"].Value.ToString();
-                    HDQD.UCs.ThongTinCNVC.strTen = HDQD.UCs.QuyetDinhChung.strTenOld = dtgv_DSCNVC.SelectedRows[0].Cells["ten"].Value.ToString();
+                    HDQD.UCs.ThongTinCNVC.strMaNV = HDQD.UCs.QuyetDinhPhuCap.strMaNVOld = dtgv_DSCNVC.SelectedRows[0].Cells["ma_nv"].Value.ToString();
+                    HDQD.UCs.ThongTinCNVC.strHo = HDQD.UCs.QuyetDinhPhuCap.strHoOld = dtgv_DSCNVC.SelectedRows[0].Cells["ho"].Value.ToString();
+                    HDQD.UCs.ThongTinCNVC.strTen = HDQD.UCs.QuyetDinhPhuCap.strTenOld = dtgv_DSCNVC.SelectedRows[0].Cells["ten"].Value.ToString();
                     break;
 
                 case ParentUC.HopDong:
