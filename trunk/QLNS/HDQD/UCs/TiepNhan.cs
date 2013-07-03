@@ -254,6 +254,13 @@ namespace HDQD.UCs
             if (oHopdong.Don_Vi_ID != null)
                 comB_DonVi.SelectedValue = oHopdong.Don_Vi_ID;
 
+            try
+            {
+                cb_ThamNienNB.Checked = oHopdong.Tham_nien_nang_bac;
+                cb_ThamNienNG.Checked = oHopdong.Tham_nien_nha_giao;
+            }
+            catch { }
+
             #region Luong Info
             txt_Tien.Text = oHopdong.Luong_Khoan.ToString();
             nup_PhanTram.Value = Convert.ToDecimal(oHopdong.PhanTramHuong.Value);
@@ -448,6 +455,8 @@ namespace HDQD.UCs
                     oHopdong.Chuc_Vu_ID = null;
 
                 oHopdong.Ghi_Chu = thongTinQuyetDinh1.rTB_MoTa.Text;
+                oHopdong.Tham_nien_nang_bac = cb_ThamNienNB.Checked;
+                oHopdong.Tham_nien_nha_giao = cb_ThamNienNG.Checked;
 
                 #region Lương Info
                 if (comb_Luong.SelectedIndex == 0)      // he so

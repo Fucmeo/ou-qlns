@@ -192,6 +192,9 @@ namespace Business.HDQD
             get { return ma_hop_dong; }
             set { ma_hop_dong = value; }
         }
+
+        public bool Tham_nien_nang_bac { get; set; }
+        public bool Tham_nien_nha_giao { get; set; }
         #endregion
 
         #region Methods
@@ -252,7 +255,7 @@ namespace Business.HDQD
         public bool Add_wLuong_PhuCap()
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[27]{
+            IDataParameter[] paras = new IDataParameter[29]{
                 new NpgsqlParameter("p_ma_nv",ma_nv),
                 new NpgsqlParameter("p_ma_loai_hd",ma_loai_hd),
                 new NpgsqlParameter("p_ma_tuyen_dung",Ma_Tuyen_Dung),
@@ -279,7 +282,9 @@ namespace Business.HDQD
                 new NpgsqlParameter("p_phan_tram_huong_pc",PC_PhanTramHuong),
                 new NpgsqlParameter("p_tu_ngay_pc",PC_TuNgay),
                 new NpgsqlParameter("p_den_ngay_pc",PC_DenNgay),
-                new NpgsqlParameter("p_ghi_chu_pc",PC_GhiChu)
+                new NpgsqlParameter("p_ghi_chu_pc",PC_GhiChu),
+                new NpgsqlParameter("p_tham_nien_nang_bac",Tham_nien_nang_bac),
+                new NpgsqlParameter("p_tham_nien_gd",Tham_nien_nha_giao)
             };
             check = (int)dp.executeScalarProc("sp1_insert_cnvc_tuyen_dung", paras);
             if (check > 0)

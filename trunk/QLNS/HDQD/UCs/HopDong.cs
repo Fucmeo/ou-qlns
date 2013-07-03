@@ -137,6 +137,9 @@ namespace HDQD.UCs
 
                 oHopdong.Ghi_Chu = rTB_GhiChu.Text;
 
+                oHopdong.Tham_nien_nang_bac = cb_ThamNienNB.Checked;
+                oHopdong.Tham_nien_nha_giao = cb_ThamNienNG.Checked;
+
                 #region Lương Info
                 if (comb_Luong.SelectedIndex == 0)      // he so
                 {
@@ -498,6 +501,13 @@ namespace HDQD.UCs
             //    comB_ThuViecChinhThuc.Text = "Thử việc";
 
             cb_ThoiHan.Checked = oHopdong.Co_Thoi_Han.Value;
+
+            try
+            {
+                cb_ThamNienNB.Checked = oHopdong.Tham_nien_nang_bac;
+                cb_ThamNienNG.Checked = oHopdong.Tham_nien_nha_giao;
+            }
+            catch { }
 
             #region Luong Info
             txt_Tien.Text = oHopdong.Luong_Khoan.ToString();

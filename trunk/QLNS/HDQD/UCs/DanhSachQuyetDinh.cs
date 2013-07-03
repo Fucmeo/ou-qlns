@@ -296,6 +296,16 @@ namespace HDQD.UCs
                     oHopDong.Tinh_Trang = Convert.ToBoolean(dt.Rows[0]["tinh_trang"].ToString());
                     oHopDong.Ghi_Chu = dt.Rows[0]["ghi_chu"].ToString();
 
+                    if (dt.Rows[0]["tham_nien_nang_bac"].ToString() != "")
+                        oHopDong.Tham_nien_nang_bac = Convert.ToBoolean(dt.Rows[0]["tham_nien_nang_bac"].ToString());
+                    else
+                        oHopDong.Tham_nien_nang_bac = false;
+
+                    if (dt.Rows[0]["tham_nien_gd"].ToString() != "")
+                        oHopDong.Tham_nien_nha_giao = Convert.ToBoolean(dt.Rows[0]["tham_nien_gd"].ToString());
+                    else
+                        oHopDong.Tham_nien_nha_giao = false;
+
                     #region Luong Info
                     oHopDong.Khoan_or_HeSo = Convert.ToBoolean(dt.Rows[0]["tinh_trang"].ToString());
                     if (dt.Rows[0]["luong_khoan"].ToString() != "")
