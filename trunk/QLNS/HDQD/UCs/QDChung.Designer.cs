@@ -31,7 +31,14 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QDChung));
             this.TLP_QDChung = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.pb_Status = new System.Windows.Forms.ProgressBar();
+            this.lbl_Status = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_NhapFile = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.btn_DungHD = new System.Windows.Forms.Button();
+            this.btn_Them = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLP_PhuCap = new System.Windows.Forms.TableLayoutPanel();
@@ -63,34 +70,32 @@
             this.btn_AddPC = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_ThietLap = new System.Windows.Forms.Button();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.thongTinCNVC1 = new HDQD.UCs.ThongTinCNVC();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.TLP_ThongTinQD = new System.Windows.Forms.TableLayoutPanel();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.bw_upload = new System.ComponentModel.BackgroundWorker();
-            this.bw_download = new System.ComponentModel.BackgroundWorker();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.btn_ThietLap = new System.Windows.Forms.Button();
-            this.btn_NhapFile = new System.Windows.Forms.Button();
-            this.btn_DungHD = new System.Windows.Forms.Button();
-            this.btn_Them = new System.Windows.Forms.Button();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.pb_Status = new System.Windows.Forms.ProgressBar();
-            this.lbl_Status = new System.Windows.Forms.Label();
             this.thongTinQuyetDinh1 = new HDQD.UCs.ThongTinQuyetDinh();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.TLP_ThongTinKhac = new System.Windows.Forms.TableLayoutPanel();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.bw_upload = new System.ComponentModel.BackgroundWorker();
+            this.bw_download = new System.ComponentModel.BackgroundWorker();
             this.TLP_QDChung.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -102,20 +107,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.nup_Value_PhanTramPC)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.TLP_ThongTinQD.SuspendLayout();
-            this.tableLayoutPanel6.SuspendLayout();
-            this.tableLayoutPanel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            this.tableLayoutPanel5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.TLP_ThongTinKhac.SuspendLayout();
             this.SuspendLayout();
             // 
             // TLP_QDChung
             // 
+            this.TLP_QDChung.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TLP_QDChung.AutoScroll = true;
+            this.TLP_QDChung.AutoScrollMinSize = new System.Drawing.Size(800, 1000);
             this.TLP_QDChung.ColumnCount = 1;
             this.TLP_QDChung.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.TLP_QDChung.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
@@ -125,9 +134,9 @@
             this.TLP_QDChung.Controls.Add(this.groupBox3, 0, 2);
             this.TLP_QDChung.Controls.Add(this.groupBox1, 0, 1);
             this.TLP_QDChung.Controls.Add(this.groupBox2, 0, 0);
-            this.TLP_QDChung.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TLP_QDChung.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.TLP_QDChung.Location = new System.Drawing.Point(0, 0);
+            this.TLP_QDChung.MinimumSize = new System.Drawing.Size(800, 1000);
             this.TLP_QDChung.Name = "TLP_QDChung";
             this.TLP_QDChung.RowCount = 6;
             this.TLP_QDChung.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.16667F));
@@ -138,6 +147,39 @@
             this.TLP_QDChung.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.2F));
             this.TLP_QDChung.Size = new System.Drawing.Size(1000, 1200);
             this.TLP_QDChung.TabIndex = 0;
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel5.ColumnCount = 2;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.31486F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.68513F));
+            this.tableLayoutPanel5.Controls.Add(this.pb_Status, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.lbl_Status, 1, 0);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 1151);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(994, 46);
+            this.tableLayoutPanel5.TabIndex = 7;
+            // 
+            // pb_Status
+            // 
+            this.pb_Status.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.pb_Status.Location = new System.Drawing.Point(3, 13);
+            this.pb_Status.Name = "pb_Status";
+            this.pb_Status.Size = new System.Drawing.Size(245, 19);
+            this.pb_Status.TabIndex = 0;
+            // 
+            // lbl_Status
+            // 
+            this.lbl_Status.AutoSize = true;
+            this.lbl_Status.Location = new System.Drawing.Point(254, 0);
+            this.lbl_Status.Name = "lbl_Status";
+            this.lbl_Status.Size = new System.Drawing.Size(0, 21);
+            this.lbl_Status.TabIndex = 1;
             // 
             // tableLayoutPanel4
             // 
@@ -158,6 +200,55 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(994, 61);
             this.tableLayoutPanel4.TabIndex = 6;
+            // 
+            // btn_NhapFile
+            // 
+            this.btn_NhapFile.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btn_NhapFile.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_NhapFile.ImageKey = "Document-Add.png";
+            this.btn_NhapFile.ImageList = this.imageList1;
+            this.btn_NhapFile.Location = new System.Drawing.Point(272, 3);
+            this.btn_NhapFile.Name = "btn_NhapFile";
+            this.btn_NhapFile.Size = new System.Drawing.Size(56, 55);
+            this.btn_NhapFile.TabIndex = 18;
+            this.btn_NhapFile.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_NhapFile.UseVisualStyleBackColor = true;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Save.png");
+            this.imageList1.Images.SetKeyName(1, "Document-Add.png");
+            this.imageList1.Images.SetKeyName(2, "Remove Avatar.png");
+            this.imageList1.Images.SetKeyName(3, "Add.png");
+            this.imageList1.Images.SetKeyName(4, "Cancel.png");
+            // 
+            // btn_DungHD
+            // 
+            this.btn_DungHD.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btn_DungHD.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_DungHD.ImageKey = "Remove Avatar.png";
+            this.btn_DungHD.ImageList = this.imageList1;
+            this.btn_DungHD.Location = new System.Drawing.Point(665, 3);
+            this.btn_DungHD.Name = "btn_DungHD";
+            this.btn_DungHD.Size = new System.Drawing.Size(56, 55);
+            this.btn_DungHD.TabIndex = 17;
+            this.btn_DungHD.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_DungHD.UseVisualStyleBackColor = true;
+            // 
+            // btn_Them
+            // 
+            this.btn_Them.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btn_Them.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Them.ImageKey = "Save.png";
+            this.btn_Them.ImageList = this.imageList1;
+            this.btn_Them.Location = new System.Drawing.Point(603, 3);
+            this.btn_Them.Name = "btn_Them";
+            this.btn_Them.Size = new System.Drawing.Size(56, 55);
+            this.btn_Them.TabIndex = 16;
+            this.btn_Them.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Them.UseVisualStyleBackColor = true;
             // 
             // groupBox4
             // 
@@ -263,7 +354,7 @@
             this.tableLP_PhuCap.SetColumnSpan(this.comB_LoaiPhuCap, 2);
             this.comB_LoaiPhuCap.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_LoaiPhuCap.FormattingEnabled = true;
-            this.comB_LoaiPhuCap.Location = new System.Drawing.Point(492, 14);
+            this.comB_LoaiPhuCap.Location = new System.Drawing.Point(492, 16);
             this.comB_LoaiPhuCap.Name = "comB_LoaiPhuCap";
             this.comB_LoaiPhuCap.Size = new System.Drawing.Size(252, 29);
             this.comB_LoaiPhuCap.TabIndex = 1;
@@ -551,6 +642,157 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(988, 100);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 6;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.71894F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.57026F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.94094F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.266803F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel7, 0, 2);
+            this.tableLayoutPanel6.Controls.Add(this.radioButton1, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.radioButton2, 2, 0);
+            this.tableLayoutPanel6.Controls.Add(this.radioButton3, 0, 1);
+            this.tableLayoutPanel6.Controls.Add(this.radioButton4, 1, 1);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 3;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(982, 94);
+            this.tableLayoutPanel6.TabIndex = 2;
+            // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel7.ColumnCount = 5;
+            this.tableLayoutPanel6.SetColumnSpan(this.tableLayoutPanel7, 6);
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.13934F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.59836F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.14344F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.03688F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel7.Controls.Add(this.btn_ThietLap, 4, 0);
+            this.tableLayoutPanel7.Controls.Add(this.numericUpDown2, 1, 0);
+            this.tableLayoutPanel7.Controls.Add(this.textBox3, 3, 0);
+            this.tableLayoutPanel7.Controls.Add(this.label14, 2, 0);
+            this.tableLayoutPanel7.Controls.Add(this.label20, 0, 0);
+            this.tableLayoutPanel7.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 65);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 1;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(976, 26);
+            this.tableLayoutPanel7.TabIndex = 41;
+            // 
+            // btn_ThietLap
+            // 
+            this.btn_ThietLap.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_ThietLap.Location = new System.Drawing.Point(834, 3);
+            this.btn_ThietLap.Name = "btn_ThietLap";
+            this.btn_ThietLap.Size = new System.Drawing.Size(88, 20);
+            this.btn_ThietLap.TabIndex = 45;
+            this.btn_ThietLap.Text = "Thiết lập";
+            this.btn_ThietLap.UseVisualStyleBackColor = true;
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.numericUpDown2.Location = new System.Drawing.Point(141, 3);
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(120, 28);
+            this.numericUpDown2.TabIndex = 44;
+            this.numericUpDown2.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // textBox3
+            // 
+            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox3.Enabled = false;
+            this.textBox3.Location = new System.Drawing.Point(402, 3);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(375, 28);
+            this.textBox3.TabIndex = 7;
+            // 
+            // label14
+            // 
+            this.label14.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(303, 2);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(81, 21);
+            this.label14.TabIndex = 4;
+            this.label14.Text = "Công thức";
+            // 
+            // label20
+            // 
+            this.label20.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(3, 2);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(109, 21);
+            this.label20.TabIndex = 34;
+            this.label20.Text = "Phần trăm (%)";
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(3, 3);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(106, 25);
+            this.radioButton1.TabIndex = 42;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Tính lương";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(379, 3);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(151, 25);
+            this.radioButton2.TabIndex = 43;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Không tính lương";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Checked = true;
+            this.radioButton3.Location = new System.Drawing.Point(3, 34);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(168, 25);
+            this.radioButton3.TabIndex = 44;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "Tính theo công thức cũ";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Location = new System.Drawing.Point(177, 34);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(196, 25);
+            this.radioButton4.TabIndex = 45;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "Tính theo công thức mới";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tableLayoutPanel1);
@@ -578,7 +820,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 162F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 121F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(988, 121);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
@@ -624,206 +866,6 @@
             this.TLP_ThongTinQD.Size = new System.Drawing.Size(988, 257);
             this.TLP_ThongTinQD.TabIndex = 0;
             // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "Save.png");
-            this.imageList1.Images.SetKeyName(1, "Document-Add.png");
-            this.imageList1.Images.SetKeyName(2, "Remove Avatar.png");
-            this.imageList1.Images.SetKeyName(3, "Add.png");
-            this.imageList1.Images.SetKeyName(4, "Cancel.png");
-            // 
-            // bw_upload
-            // 
-            this.bw_upload.WorkerReportsProgress = true;
-            // 
-            // bw_download
-            // 
-            this.bw_download.WorkerReportsProgress = true;
-            // 
-            // tableLayoutPanel6
-            // 
-            this.tableLayoutPanel6.ColumnCount = 6;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel6.Controls.Add(this.checkBox1, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel7, 0, 1);
-            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 2;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.6943F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.61373F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(982, 94);
-            this.tableLayoutPanel6.TabIndex = 2;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.checkBox1.AutoSize = true;
-            this.tableLayoutPanel6.SetColumnSpan(this.checkBox1, 2);
-            this.checkBox1.Location = new System.Drawing.Point(3, 3);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(152, 22);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Không tính lương";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel7
-            // 
-            this.tableLayoutPanel7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel7.ColumnCount = 5;
-            this.tableLayoutPanel6.SetColumnSpan(this.tableLayoutPanel7, 6);
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.13934F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.59836F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.14344F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.03688F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel7.Controls.Add(this.btn_ThietLap, 4, 0);
-            this.tableLayoutPanel7.Controls.Add(this.numericUpDown2, 1, 0);
-            this.tableLayoutPanel7.Controls.Add(this.textBox3, 3, 0);
-            this.tableLayoutPanel7.Controls.Add(this.label14, 2, 0);
-            this.tableLayoutPanel7.Controls.Add(this.label20, 0, 0);
-            this.tableLayoutPanel7.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 31);
-            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.RowCount = 1;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(976, 60);
-            this.tableLayoutPanel7.TabIndex = 41;
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.numericUpDown2.Location = new System.Drawing.Point(141, 16);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(120, 28);
-            this.numericUpDown2.TabIndex = 44;
-            this.numericUpDown2.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // textBox3
-            // 
-            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(402, 16);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(375, 28);
-            this.textBox3.TabIndex = 7;
-            // 
-            // label14
-            // 
-            this.label14.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(303, 19);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(81, 21);
-            this.label14.TabIndex = 4;
-            this.label14.Text = "Công thức";
-            // 
-            // label20
-            // 
-            this.label20.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(3, 19);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(109, 21);
-            this.label20.TabIndex = 34;
-            this.label20.Text = "Phần trăm (%)";
-            // 
-            // btn_ThietLap
-            // 
-            this.btn_ThietLap.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_ThietLap.Location = new System.Drawing.Point(834, 11);
-            this.btn_ThietLap.Name = "btn_ThietLap";
-            this.btn_ThietLap.Size = new System.Drawing.Size(88, 38);
-            this.btn_ThietLap.TabIndex = 45;
-            this.btn_ThietLap.Text = "Thiết lập";
-            this.btn_ThietLap.UseVisualStyleBackColor = true;
-            // 
-            // btn_NhapFile
-            // 
-            this.btn_NhapFile.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btn_NhapFile.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_NhapFile.ImageKey = "Document-Add.png";
-            this.btn_NhapFile.ImageList = this.imageList1;
-            this.btn_NhapFile.Location = new System.Drawing.Point(272, 3);
-            this.btn_NhapFile.Name = "btn_NhapFile";
-            this.btn_NhapFile.Size = new System.Drawing.Size(56, 55);
-            this.btn_NhapFile.TabIndex = 18;
-            this.btn_NhapFile.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_NhapFile.UseVisualStyleBackColor = true;
-            // 
-            // btn_DungHD
-            // 
-            this.btn_DungHD.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btn_DungHD.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_DungHD.ImageKey = "Remove Avatar.png";
-            this.btn_DungHD.ImageList = this.imageList1;
-            this.btn_DungHD.Location = new System.Drawing.Point(665, 3);
-            this.btn_DungHD.Name = "btn_DungHD";
-            this.btn_DungHD.Size = new System.Drawing.Size(56, 55);
-            this.btn_DungHD.TabIndex = 17;
-            this.btn_DungHD.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_DungHD.UseVisualStyleBackColor = true;
-            // 
-            // btn_Them
-            // 
-            this.btn_Them.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btn_Them.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Them.ImageKey = "Save.png";
-            this.btn_Them.ImageList = this.imageList1;
-            this.btn_Them.Location = new System.Drawing.Point(603, 3);
-            this.btn_Them.Name = "btn_Them";
-            this.btn_Them.Size = new System.Drawing.Size(56, 55);
-            this.btn_Them.TabIndex = 16;
-            this.btn_Them.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Them.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel5.ColumnCount = 2;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.31486F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.68513F));
-            this.tableLayoutPanel5.Controls.Add(this.pb_Status, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.lbl_Status, 1, 0);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 1151);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 1;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(994, 46);
-            this.tableLayoutPanel5.TabIndex = 7;
-            // 
-            // pb_Status
-            // 
-            this.pb_Status.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.pb_Status.Location = new System.Drawing.Point(3, 13);
-            this.pb_Status.Name = "pb_Status";
-            this.pb_Status.Size = new System.Drawing.Size(245, 19);
-            this.pb_Status.TabIndex = 0;
-            // 
-            // lbl_Status
-            // 
-            this.lbl_Status.AutoSize = true;
-            this.lbl_Status.Location = new System.Drawing.Point(254, 0);
-            this.lbl_Status.Name = "lbl_Status";
-            this.lbl_Status.Size = new System.Drawing.Size(0, 21);
-            this.lbl_Status.TabIndex = 1;
-            // 
             // thongTinQuyetDinh1
             // 
             this.thongTinQuyetDinh1.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -832,35 +874,36 @@
             this.thongTinQuyetDinh1.Location = new System.Drawing.Point(3, 4);
             this.thongTinQuyetDinh1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.thongTinQuyetDinh1.Name = "thongTinQuyetDinh1";
-            this.thongTinQuyetDinh1.Size = new System.Drawing.Size(982, 173);
+            this.thongTinQuyetDinh1.Size = new System.Drawing.Size(982, 172);
             this.thongTinQuyetDinh1.TabIndex = 0;
             // 
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.TLP_ThongTinKhac);
             this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox6.Location = new System.Drawing.Point(3, 184);
+            this.groupBox6.Location = new System.Drawing.Point(3, 183);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(982, 70);
+            this.groupBox6.Size = new System.Drawing.Size(982, 71);
             this.groupBox6.TabIndex = 1;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Thông tin khác";
             // 
             // TLP_ThongTinKhac
             // 
-            this.TLP_ThongTinKhac.ColumnCount = 2;
-            this.TLP_ThongTinKhac.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.TLP_ThongTinKhac.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.TLP_ThongTinKhac.Controls.Add(this.checkBox3, 1, 0);
+            this.TLP_ThongTinKhac.ColumnCount = 3;
+            this.TLP_ThongTinKhac.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.TLP_ThongTinKhac.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.TLP_ThongTinKhac.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.TLP_ThongTinKhac.Controls.Add(this.checkBox2, 0, 0);
+            this.TLP_ThongTinKhac.Controls.Add(this.checkBox3, 2, 0);
+            this.TLP_ThongTinKhac.Controls.Add(this.checkBox4, 1, 0);
             this.TLP_ThongTinKhac.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TLP_ThongTinKhac.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.TLP_ThongTinKhac.Location = new System.Drawing.Point(3, 24);
             this.TLP_ThongTinKhac.Name = "TLP_ThongTinKhac";
             this.TLP_ThongTinKhac.RowCount = 1;
             this.TLP_ThongTinKhac.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.TLP_ThongTinKhac.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.TLP_ThongTinKhac.Size = new System.Drawing.Size(976, 43);
+            this.TLP_ThongTinKhac.Size = new System.Drawing.Size(976, 44);
             this.TLP_ThongTinKhac.TabIndex = 0;
             // 
             // checkBox2
@@ -878,12 +921,31 @@
             // 
             this.checkBox3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(491, 9);
+            this.checkBox3.Location = new System.Drawing.Point(653, 9);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(240, 25);
             this.checkBox3.TabIndex = 2;
             this.checkBox3.Text = "Ảnh hưởng quá trình công tác";
             this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(328, 9);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(200, 25);
+            this.checkBox4.TabIndex = 3;
+            this.checkBox4.Text = "Tính thâm niên nhà giáo";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // bw_upload
+            // 
+            this.bw_upload.WorkerReportsProgress = true;
+            // 
+            // bw_download
+            // 
+            this.bw_download.WorkerReportsProgress = true;
             // 
             // QDChung
             // 
@@ -896,6 +958,8 @@
             this.Name = "QDChung";
             this.Size = new System.Drawing.Size(1000, 1200);
             this.TLP_QDChung.ResumeLayout(false);
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -909,17 +973,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.nup_Value_PhanTramPC)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.TLP_ThongTinQD.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            this.tableLayoutPanel5.ResumeLayout(false);
-            this.tableLayoutPanel5.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.TLP_ThongTinQD.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.TLP_ThongTinKhac.ResumeLayout(false);
             this.TLP_ThongTinKhac.PerformLayout();
@@ -971,7 +1033,6 @@
         private System.ComponentModel.BackgroundWorker bw_upload;
         private System.ComponentModel.BackgroundWorker bw_download;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-        public System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.TextBox textBox3;
@@ -989,5 +1050,10 @@
         private System.Windows.Forms.TableLayoutPanel TLP_ThongTinKhac;
         public System.Windows.Forms.CheckBox checkBox3;
         public System.Windows.Forms.CheckBox checkBox2;
+        public System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioButton4;
     }
 }
