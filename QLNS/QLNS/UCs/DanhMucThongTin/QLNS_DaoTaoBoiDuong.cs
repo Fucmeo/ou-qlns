@@ -367,66 +367,79 @@ namespace QLNS.UCs.DanhMucThongTin
         {
             dtHinhThuc = oHinhThucDaoTao.GetData();
 
-            DataTable dt = dtHinhThuc.Copy();
+            if (dtHinhThuc != null && dtHinhThuc.Rows.Count >0)
+            {
+                DataTable dt = dtHinhThuc.Copy();
 
-            //if (dt.AsEnumerable().Where(a => a.Field<int>("id") == -1).Count() <= 0)
-            //{
-            //    DataRow dr = dt.NewRow();
-            //    dr["ten_hinh_thuc"] = "";
-            //    dr["id"] = -1;
-            //    dt.Rows.InsertAt(dr, 0);
-            //}
-            
-            // comb
-            comB_HinhThuc.DataSource = dt;
-            comB_HinhThuc.DisplayMember = "ten_hinh_thuc";
-            comB_HinhThuc.ValueMember = "id";
+                //if (dt.AsEnumerable().Where(a => a.Field<int>("id") == -1).Count() <= 0)
+                //{
+                //    DataRow dr = dt.NewRow();
+                //    dr["ten_hinh_thuc"] = "";
+                //    dr["id"] = -1;
+                //    dt.Rows.InsertAt(dr, 0);
+                //}
 
-            comB_HinhThuc.SelectedIndex = 0;
+                // comb
+                comB_HinhThuc.DataSource = dt;
+                comB_HinhThuc.DisplayMember = "ten_hinh_thuc";
+                comB_HinhThuc.ValueMember = "id";
+
+                comB_HinhThuc.SelectedIndex = 0;
+            }
+           
         }
 
         private void LoadVanBangData()
         {
             dtVanBang = oVanBangChinhQuy.GetData();
 
-            DataTable dt = dtVanBang.Copy();
-
-            if (dt.AsEnumerable().Where(a => a.Field<int>("id") == -1).Count() <= 0)
+            if (dtVanBang != null && dtVanBang.Rows.Count >0)
             {
-                DataRow dr = dt.NewRow();
-                dr["ten_van_bang"] = "";
-                dr["id"] = -1;
-                dt.Rows.InsertAt(dr, 0);
+                DataTable dt = dtVanBang.Copy();
+
+                if (dt.AsEnumerable().Where(a => a.Field<int>("id") == -1).Count() <= 0)
+                {
+                    DataRow dr = dt.NewRow();
+                    dr["ten_van_bang"] = "";
+                    dr["id"] = -1;
+                    dt.Rows.InsertAt(dr, 0);
+                }
+
+                // comb
+                comB_VanBang.DataSource = dt;
+                comB_VanBang.DisplayMember = "ten_van_bang";
+                comB_VanBang.ValueMember = "id";
+
+                comB_VanBang.SelectedIndex = 0;
+                
             }
-
-            // comb
-            comB_VanBang.DataSource = dt;
-            comB_VanBang.DisplayMember = "ten_van_bang";
-            comB_VanBang.ValueMember = "id";
-
-            comB_VanBang.SelectedIndex = 0;
+           
         }
 
         private void LoadMoHinhData()
         {
             dtMoHinh = oMoHinh.GetData();
-
-            DataTable dt = dtMoHinh.Copy();
-
-            if (dt.AsEnumerable().Where(a => a.Field<int>("id") == -1).Count() <= 0)
+            if (dtMoHinh != null & dtMoHinh.Rows.Count > 0)
             {
-                DataRow dr = dt.NewRow();
-                dr["ten_mo_hinh"] = "";
-                dr["id"] = -1;
-                dt.Rows.InsertAt(dr, 0);
+                DataTable dt = dtMoHinh.Copy();
+
+                if (dt.AsEnumerable().Where(a => a.Field<int>("id") == -1).Count() <= 0)
+                {
+                    DataRow dr = dt.NewRow();
+                    dr["ten_mo_hinh"] = "";
+                    dr["id"] = -1;
+                    dt.Rows.InsertAt(dr, 0);
+                }
+
+                // comb
+                comB_PhuongThucDT.DataSource = dt;
+                comB_PhuongThucDT.DisplayMember = "ten_mo_hinh";
+                comB_PhuongThucDT.ValueMember = "id";
+
+                comB_PhuongThucDT.SelectedIndex = 0;
             }
 
-            // comb
-            comB_PhuongThucDT.DataSource = dt;
-            comB_PhuongThucDT.DisplayMember = "ten_mo_hinh";
-            comB_PhuongThucDT.ValueMember = "id";
-
-            comB_PhuongThucDT.SelectedIndex = 0;
+            
         }
 
         public void FillDaoTaoData()
