@@ -124,7 +124,7 @@ namespace QLNS.UCs
 
         private void LoadCboDonViTrucThuoc()
         {
-            DataTable dvlist = donvi.GetDonViList();
+            DataTable dvlist = donvi.GetActiveDonVi();
             BindingSource bs = new BindingSource();
             bs.DataSource = dvlist;
             bs.AddNew();
