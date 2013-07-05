@@ -12,12 +12,12 @@ namespace HDQD.Forms
     public partial class Popup : Form
     {
         UserControl oUC;
+        string sTitle;
         public Popup(UserControl _oUC, string _title)
         {
             InitializeComponent();
             oUC = _oUC;
-            this.Size = oUC.Size;
-            this.Text = _title;
+            sTitle = _title;
         }
 
         public Popup()
@@ -31,6 +31,8 @@ namespace HDQD.Forms
         {
             oUC.Dock = DockStyle.Fill;
             this.tableLayoutPanel1.Controls.Add(oUC);
+            this.Size = oUC.Size;
+            this.Text = sTitle;
         }
 
     }
