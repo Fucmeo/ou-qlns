@@ -17,6 +17,7 @@ namespace HDQD.UCs
         Business.DonVi oDonvi;
         Business.HDQD.LoaiPhuCap oLoaiPC;
         Business.HDQD.QuyetDinh oQuyetDinh;
+        DinhNghiaCT ucDinhNghiaCT;
 
         DataTable dtLoaiPC;
         DataTable dtPhuCap;
@@ -588,6 +589,20 @@ namespace HDQD.UCs
                     rTB_GhiChuPC.Text = dtgv_DSPhuCap.CurrentRow.Cells["ghi_chu"].Value.ToString();
                 }
                 catch { }
+            }
+        }
+
+        private void btn_ThietLap_Click(object sender, EventArgs e)
+        {
+            Forms.Popup frPopup = new Forms.Popup(ucDinhNghiaCT, "QUẢN LÝ NHÂN SỰ - ĐỊNH NGHĨA CÔNG THỨC TÍNH PHỤ CẤP");
+            if (ucDinhNghiaCT.lstDisplayString.Count > 0)
+            {
+
+            }
+            frPopup.ShowDialog();
+            if (ucDinhNghiaCT.lstValueString.Count > 0)
+            {
+                txt_CongThucLuong.Text = string.Join(" ", ucDinhNghiaCT.lstDisplayString.ToArray());
             }
         }
 
