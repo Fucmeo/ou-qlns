@@ -280,6 +280,58 @@ namespace Business.HDQD
                 throw;
             }
         }
+
+        public bool Add_QuyetDinhChung(bool p_tham_nien_nang_bac, bool p_tham_nien_gd, bool p_define_cthuc, string p_cthuc, double? p_cthuc_phantram,
+                            bool p_khong_tinh_luong, string[] p_ma_nv, bool[] p_ins_qtr_ctac, int[] p_don_vi_id, int[] p_chuc_vu_id, int[] p_chuc_danh_id,
+                            bool[] p_co_phu_cap, int[] p_loai_phu_cap_id, double[] p_value_khoan, double[] p_value_he_so, double[] p_value_phan_tram,
+                            double[] p_phan_tram_huong_pc, DateTime[] p_tu_ngay_pc, DateTime[] p_den_ngay_pc, string[] p_ghi_chu_pc)
+        {
+            //string vi_VN = dt.ToString("d", CultureInfo.CreateSpecificCulture("vi-VN"));
+
+            string m_ngay_het_han = null;
+            if (ngay_het_han != null)
+                m_ngay_het_han = ngay_het_han.Value.ToString("d", CultureInfo.CreateSpecificCulture("vi-VN"));
+
+            IDataParameter[] paras = new IDataParameter[]{
+                new NpgsqlParameter("p_ma_quyet_dinh",ma_qd),
+                new NpgsqlParameter("p_ten_quyet_dinh",ten_qd),
+                new NpgsqlParameter("p_loai_qd",loai_qd_id),
+                new NpgsqlParameter("p_ngay_ky", ngay_ky.Value),
+                new NpgsqlParameter("p_ngay_hieu_luc",ngay_hieu_luc.Value),
+                new NpgsqlParameter("p_ngay_het_han",m_ngay_het_han),
+                new NpgsqlParameter("p_mo_ta",mota),
+                new NpgsqlParameter("p_path",path),
+                new NpgsqlParameter("p_tham_nien_nang_bac",p_tham_nien_nang_bac),
+                new NpgsqlParameter("p_tham_nien_gd",p_tham_nien_gd),
+                new NpgsqlParameter("p_define_cthuc",p_define_cthuc),
+                new NpgsqlParameter("p_cthuc",p_cthuc),
+                new NpgsqlParameter("p_cthuc_phantram",p_cthuc_phantram),
+                new NpgsqlParameter("p_khong_tinh_luong",p_khong_tinh_luong),
+                new NpgsqlParameter("p_ma_nv",p_ma_nv),
+                new NpgsqlParameter("p_ins_qtr_ctac",p_ins_qtr_ctac),
+                new NpgsqlParameter("p_don_vi_id",p_don_vi_id),
+                new NpgsqlParameter("p_chuc_vu_id",p_chuc_vu_id),
+                new NpgsqlParameter("p_chuc_danh_id",p_chuc_danh_id),
+                new NpgsqlParameter("p_co_phu_cap",p_co_phu_cap),
+                new NpgsqlParameter("p_loai_phu_cap_id",p_loai_phu_cap_id),
+                new NpgsqlParameter("p_value_khoan",p_value_khoan),
+                new NpgsqlParameter("p_value_he_so",p_value_he_so),
+                new NpgsqlParameter("p_value_phan_tram",p_value_phan_tram),
+                new NpgsqlParameter("p_phan_tram_huong_pc",p_phan_tram_huong_pc),
+                new NpgsqlParameter("p_tu_ngay_pc",p_tu_ngay_pc),
+                new NpgsqlParameter("p_den_ngay_pc",p_den_ngay_pc),
+                new NpgsqlParameter("p_ghi_chu_pc",p_ghi_chu_pc)
+            };
+            try
+            {
+                dp.executeScalarProc("sp1_insert_quyet_dinh_chung", paras);
+                return true;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         #endregion
     }
 }
