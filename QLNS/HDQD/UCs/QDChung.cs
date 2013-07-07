@@ -18,6 +18,7 @@ namespace HDQD.UCs
         Business.HDQD.LoaiPhuCap oLoaiPC;
         Business.HDQD.QuyetDinh oQuyetDinh;
         DinhNghiaCT ucDinhNghiaCT;
+        Business.HDQD.LoaiQuyetDinh oLoaiQD;
 
         DataTable dtLoaiPC;
         DataTable dtPhuCap;
@@ -36,6 +37,7 @@ namespace HDQD.UCs
             oDonvi = new DonVi();
             oLoaiPC = new Business.HDQD.LoaiPhuCap();
             oQuyetDinh = new Business.HDQD.QuyetDinh();
+            oLoaiQD = new Business.HDQD.LoaiQuyetDinh();
 
             dtPhuCap = new DataTable();
             dtLoaiPC = new DataTable();
@@ -43,6 +45,7 @@ namespace HDQD.UCs
             dtLoaiPC = oLoaiPC.GetList_Cbo();
             PreapreDataSource();
             PrepareDataTablePhuCap();
+            LoadCbo_Loai_QD();
         }
 
         private void cb_Ins_Qtr_Ctac_CheckedChanged(object sender, EventArgs e)
@@ -51,6 +54,20 @@ namespace HDQD.UCs
         }
 
         #region Private Methods
+
+        private void LoadCbo_Loai_QD()
+        {
+            DataTable dt = oLoaiQD.GetList_Compact();
+            DataRow[] drr = dt.Select("id in (4,5,9,10)");
+            foreach (DataRow row in drr)
+                row.Delete();
+
+            dt.AcceptChanges();
+
+            thongTinQuyetDinh1.comB_Loai.DataSource = dt;
+            thongTinQuyetDinh1.comB_Loai.DisplayMember = "ten_loai";
+            thongTinQuyetDinh1.comB_Loai.ValueMember = "id";
+        }
         
         private void PreapreDataSource()
         {
@@ -403,8 +420,16 @@ namespace HDQD.UCs
                 #region Quyet Dinh Info
                 oQuyetDinh.Ma_Quyet_Dinh = thongTinQuyetDinh1.txt_MaQD.Text;
                 oQuyetDinh.Ten_Quyet_Dinh = thongTinQuyetDinh1.txt_TenQD.Text;
-                //oQuyetDinh.Loai_QuyetDinh_ID = Convert.ToInt32(thongTinQuyetDinh1.comB_Loai.SelectedValue.ToString());
-                oQuyetDinh.Loai_QuyetDinh_ID = 7;
+                try
+                {
+                    oQuyetDinh.Loai_QuyetDinh_ID = Convert.ToInt32(thongTinQuyetDinh1.comB_Loai.SelectedValue.ToString());
+                }
+                catch 
+                {
+                    oQuyetDinh.Loai_QuyetDinh_ID = null;
+                }
+                    
+                //oQuyetDinh.Loai_QuyetDinh_ID = 7;
                 oQuyetDinh.Ngay_Ky = thongTinQuyetDinh1.dTP_NgayKy.Value;
                 oQuyetDinh.Ngay_Hieu_Luc = thongTinQuyetDinh1.dTP_NgayHieuLuc.Value;
                 if (thongTinQuyetDinh1.dTP_NgayHetHan.Checked)
