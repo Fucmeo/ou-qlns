@@ -173,7 +173,7 @@
             "9. Lịch sử bản thân",
             "10. Diến biến sức khỏe",
             "11. Nghiên cứu khoa học"});
-            this.comB_DanhMuc.Location = new System.Drawing.Point(187, 15);
+            this.comB_DanhMuc.Location = new System.Drawing.Point(187, 18);
             this.comB_DanhMuc.Name = "comB_DanhMuc";
             this.comB_DanhMuc.Size = new System.Drawing.Size(305, 30);
             this.comB_DanhMuc.TabIndex = 0;

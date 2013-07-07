@@ -71,8 +71,11 @@ namespace QLNS.Forms
             quyếtĐịnhCôngNhậnChứcDanhGiảngViênToolStripMenuItem.Image = ImageL_MenuStripItem.Images["Chuc danh GV.png"];
             quyếtĐịnhThôiViệcNghỉHưuToolStripMenuItem.Image = ImageL_MenuStripItem.Images["nghi huu.png"];
             tsmi_QLHD_ThaiSan.Image = ImageL_MenuStripItem.Images["thai san.png"];
+            tsmi_LoaiPC.Image = ImageL_MenuStripItem.Images["Vietnamese-Dong.png"];
             qĐChungToolStripMenuItem.Image = ImageL_MenuStripItem.Images["Decision.png"];
             qĐKhenThưởngNângLươngChuyểnNgạchToolStripMenuItem.Image = ImageL_MenuStripItem.Images["khen thuong.png"];
+
+           
             
         }
 
@@ -345,6 +348,78 @@ namespace QLNS.Forms
         {
             Forms.Popup f = new Popup("Quyết định đổi thông tin đơn vị", new HDQD.UCs.DoiThongTinDV());
             f.WindowState = FormWindowState.Maximized;
+            f.ShowDialog();
+        }
+
+        private void tsmi_LoaiPC_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Quản lý loại phụ cấp", new HDQD.UCs.LoaiPhuCap());
+            //f.WindowState = FormWindowState.Maximized;
+            f.ShowDialog();
+        }
+
+        private void tsmi_QLHD_ThaiSan_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void quyếtĐịnhThôiViệcNghỉHưuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void qĐDuHocToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HDQD.UCs.QDChung uc = new HDQD.UCs.QDChung();
+            uc.thongTinQuyetDinh1.comB_Loai.Items.Clear();
+            uc.thongTinQuyetDinh1.comB_Loai.Items.Add("Đi du học");
+            Forms.Popup f = new Popup("Quyết định đi du học", uc);
+            f.ShowDialog();
+        }
+
+        private void qĐNghỉThaiSảnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HDQD.UCs.QDChung uc = new HDQD.UCs.QDChung();
+            uc.thongTinQuyetDinh1.comB_Loai.Items.Clear();
+            uc.thongTinQuyetDinh1.comB_Loai.Items.Add("Nghỉ thai sản");
+            Forms.Popup f = new Popup("Quyết định nghỉ thai sản", uc);
+            f.ShowDialog();
+        }
+
+        private void qĐNghỉKhôngLươngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HDQD.UCs.QDChung uc = new HDQD.UCs.QDChung();
+            uc.thongTinQuyetDinh1.comB_Loai.Items.Clear();
+            uc.thongTinQuyetDinh1.comB_Loai.Items.Add("Nghỉ không lương");
+            uc.gb_ThongTinLuong.Enabled = false;
+            Forms.Popup f = new Popup("Quyết định nghỉ không lương", uc);
+            f.ShowDialog();
+        }
+
+        private void qĐDuLịchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HDQD.UCs.QDChung uc = new HDQD.UCs.QDChung();
+            uc.thongTinQuyetDinh1.comB_Loai.Items.Clear();
+            uc.thongTinQuyetDinh1.comB_Loai.Items.Add("Du lịch");
+            Forms.Popup f = new Popup("Quyết định du lịch", uc);
+            f.ShowDialog();
+        }
+
+        private void qĐThôiViệcToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HDQD.UCs.QDChung uc = new HDQD.UCs.QDChung();
+            uc.thongTinQuyetDinh1.comB_Loai.Items.Clear();
+            uc.thongTinQuyetDinh1.comB_Loai.Items.Add("Thôi việc");
+            Forms.Popup f = new Popup("Quyết định thôi việc", uc);
+            f.ShowDialog();
+        }
+
+        private void qĐNghỉHưuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HDQD.UCs.QDChung uc = new HDQD.UCs.QDChung();
+            uc.thongTinQuyetDinh1.comB_Loai.Items.Clear();
+            uc.thongTinQuyetDinh1.comB_Loai.Items.Add("Nghỉ hưu");
+            Forms.Popup f = new Popup("Quyết định nghỉ hưu", uc);
             f.ShowDialog();
         }
     }
