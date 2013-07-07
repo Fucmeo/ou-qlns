@@ -13,10 +13,13 @@ namespace Business.HDQD
     public class QuyetDinh
     {
         DataProvider.DataProvider dp;
+        ExpressionTree ET;
+
         #region Inits Methods
         public QuyetDinh()
         {
             dp = new DataProvider.DataProvider();
+            ET = new ExpressionTree();
         }
         #endregion
 
@@ -291,6 +294,30 @@ namespace Business.HDQD
             string m_ngay_het_han = null;
             if (ngay_het_han != null)
                 m_ngay_het_han = ngay_het_han.Value.ToString("d", CultureInfo.CreateSpecificCulture("vi-VN"));
+
+            //List<string> lstValue = new List<string>();
+            //List<Boolean> lstIsLeaf = new List<Boolean>();
+            //List<Boolean> lstIsRoot = new List<Boolean>();
+            //List<string> lstLeftNode = new List<string>();
+            //List<string> lstRightNode = new List<string>();
+
+            //if (p_define_cthuc == true)
+            //{
+            //    ET.GetExpressionTreeData(ET.Infix2ExpressionTree(p_cthuc_value));
+            //    lstValue = ET.lstValue;
+            //    lstIsLeaf = ET.lstIsLeaf;
+            //    lstIsRoot = ET.lstIsRoot;
+            //    lstLeftNode = ET.lstLeftNode;
+            //    lstRightNode = ET.lstRightNode;
+            //}
+            //else
+            //{
+            //    lstValue = null;
+            //    lstIsLeaf = null;
+            //    lstIsRoot = null;
+            //    lstLeftNode = null;
+            //    lstRightNode = null;
+            //}
 
             IDataParameter[] paras = new IDataParameter[]{
                 new NpgsqlParameter("p_ma_quyet_dinh",ma_qd),
