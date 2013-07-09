@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Business;
+using System.Text.RegularExpressions;
 
 namespace HDQD.UCs
 {
@@ -14,13 +15,14 @@ namespace HDQD.UCs
     {
         public  List<string> lstDisplayString,lstValueString;
         Business.HDQD.LoaiPhuCap oLoaiPhuCap;
-        DataTable dtCongThucElement;
+        DataTable dtCongThucElement,dtCongThuc;
         int MouseCursorIndex;
         
         public DinhNghiaCT()
         {
             InitializeComponent();
             dtCongThucElement = new DataTable();
+            dtCongThuc = new DataTable();
             oLoaiPhuCap = new Business.HDQD.LoaiPhuCap();
             lstValueString = new List<string>();
             lstDisplayString = new List<string>();
@@ -39,6 +41,23 @@ namespace HDQD.UCs
         {
             dtCongThucElement = oLoaiPhuCap.GetDTCongThucElement();
             BindCongThucElementToLstB();
+
+            dtCongThuc = oLoaiPhuCap.GetDTCachTinhDetail();
+            BindCongThucToLstB();
+        }
+
+        private void BindCongThucToLstB()
+        {
+            if (dtCongThuc.Rows.Count > 0)
+            {
+                dtCongThuc = dtCongThuc.AsEnumerable().Where(a => a.Field<int>("cach_tinh") == 4).CopyToDataTable();
+
+                lsb_CongThucCu.DataSource = dtCongThuc;
+                lsb_CongThucCu.DisplayMember = "chuoi_cong_thuc_text";
+                lsb_CongThucCu.ValueMember = "id";
+
+
+            }
         }
 
         private void BindCongThucElementToLstB()
@@ -130,6 +149,76 @@ namespace HDQD.UCs
             catch (Exception)
             {
                 
+            }
+        }
+
+        private void lsb_CongThucCu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cong_thuc">chuoi cong thuc value /display</param>
+        /// <param name="type">1 : display ; 2 : value</param>
+        private void BreakCTInfoList(string cong_thuc, int type)
+        {
+            int preIndex = 0;
+            for (int i = 0; i < cong_thuc.Length; i++)
+            {
+                if (IsOperator(cong_thuc[i].ToString()))
+                {
+                    if (type == 1)
+                    {
+                        lstDisplayString.Add(cong_thuc.Substring(preIndex,i-preIndex).Trim()); // add operator
+                        lstDisplayString.Add(cong_thuc[i].ToString());      // add operand
+                        preIndex = i+1;
+                    }
+                    else if (type == 2)
+                    {
+                        lstValueString.Add(cong_thuc.Substring(preIndex, i - preIndex).Trim()); // add operator
+                        lstValueString.Add(cong_thuc[i].ToString());      // add operand
+                        preIndex = i + 1;
+                    }
+                }
+            }
+            // add phan con lai la operator
+            if (type == 1)
+            {
+                lstDisplayString.Add(cong_thuc.Substring(preIndex, cong_thuc.Length - preIndex).Trim()); // add operator
+            }
+            else if (type == 2)
+            {
+                lstValueString.Add(cong_thuc.Substring(preIndex, cong_thuc.Length - preIndex).Trim()); // add operator
+            }
+            
+        }
+
+        private bool IsOperator(string str)
+        {
+            return Regex.Match(str, @"\(|\)|\+|\-|\*|\/|\%").Success;
+        }
+
+        private void lsb_CongThucCu_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (lsb_CongThucCu.SelectedItem != null)
+            {
+                lstValueString.Clear();
+                lstDisplayString.Clear();
+                BreakCTInfoList(lsb_CongThucCu.Text, 1);
+                BreakCTInfoList(dtCongThuc.AsEnumerable().Where(a => a.Field<int>("id") == Convert.ToInt32(lsb_CongThucCu.SelectedValue)).Select(a => a.Field<string>("chuoi_cong_thuc_value")).First().ToString(), 2);
+
+                BindCongThucToRichTextBox();
+            }
+        }
+
+        private void BindCongThucToRichTextBox()
+        {
+            rtb_CongThuc.Text = "";
+            for (int i = 0; i < lstDisplayString.Count; i++)
+            {
+                rtb_CongThuc.Text += "[ " + lstDisplayString[i] + " ] ";
             }
         }
     }
