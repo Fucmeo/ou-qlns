@@ -42,7 +42,7 @@ namespace HDQD.UCs
             dtCongThucElement = oLoaiPhuCap.GetDTCongThucElement();
             BindCongThucElementToLstB();
 
-            dtCongThuc = oLoaiPhuCap.GetDTCachTinhDetail();
+            dtCongThuc = oLoaiPhuCap.GetDTCachTinhDetail_DistinctCT();
             BindCongThucToLstB();
         }
 
@@ -50,12 +50,12 @@ namespace HDQD.UCs
         {
             if (dtCongThuc.Rows.Count > 0)
             {
-                dtCongThuc = dtCongThuc.AsEnumerable().Where(a => a.Field<int>("cach_tinh") == 4).CopyToDataTable();
+                //dtCongThuc = dtCongThuc.AsEnumerable().Where(a => a.Field<int>("cach_tinh") == 4).CopyToDataTable();
+
 
                 lsb_CongThucCu.DataSource = dtCongThuc;
                 lsb_CongThucCu.DisplayMember = "chuoi_cong_thuc_text";
-                lsb_CongThucCu.ValueMember = "id";
-
+                lsb_CongThucCu.ValueMember = "chuoi_cong_thuc_value";
 
             }
         }
@@ -207,7 +207,7 @@ namespace HDQD.UCs
                 lstValueString.Clear();
                 lstDisplayString.Clear();
                 BreakCTInfoList(lsb_CongThucCu.Text, 1);
-                BreakCTInfoList(dtCongThuc.AsEnumerable().Where(a => a.Field<int>("id") == Convert.ToInt32(lsb_CongThucCu.SelectedValue)).Select(a => a.Field<string>("chuoi_cong_thuc_value")).First().ToString(), 2);
+                BreakCTInfoList(lsb_CongThucCu.SelectedValue.ToString(),2);
 
                 BindCongThucToRichTextBox();
             }
@@ -220,6 +220,14 @@ namespace HDQD.UCs
             {
                 rtb_CongThuc.Text += "[ " + lstDisplayString[i] + " ] ";
             }
+        }
+
+        private void lsb_CongThucCu_DataSourceChanged(object sender, EventArgs e)
+        {
+            
+
+            
+
         }
     }
 }

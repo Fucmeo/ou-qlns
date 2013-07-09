@@ -30,23 +30,23 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.TLP_DinhNghiaCT = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.lsb_CongThucCu = new System.Windows.Forms.ListBox();
             this.btn_Input = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lstb_ToanTu = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lstb_PhanTu = new System.Windows.Forms.ListBox();
             this.btn_Luu = new System.Windows.Forms.Button();
-            this.btn_Del = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.rtb_CongThuc = new System.Windows.Forms.RichTextBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.lsb_CongThucCu = new System.Windows.Forms.ListBox();
+            this.btn_Del = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.TLP_DinhNghiaCT.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -91,6 +91,30 @@
             this.TLP_DinhNghiaCT.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.04255F));
             this.TLP_DinhNghiaCT.Size = new System.Drawing.Size(977, 470);
             this.TLP_DinhNghiaCT.TabIndex = 1;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.lsb_CongThucCu);
+            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox5.Location = new System.Drawing.Point(479, 237);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(495, 163);
+            this.groupBox5.TabIndex = 6;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Công thức cũ";
+            // 
+            // lsb_CongThucCu
+            // 
+            this.lsb_CongThucCu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lsb_CongThucCu.FormattingEnabled = true;
+            this.lsb_CongThucCu.ItemHeight = 21;
+            this.lsb_CongThucCu.Location = new System.Drawing.Point(3, 24);
+            this.lsb_CongThucCu.Name = "lsb_CongThucCu";
+            this.lsb_CongThucCu.Size = new System.Drawing.Size(489, 136);
+            this.lsb_CongThucCu.TabIndex = 0;
+            this.lsb_CongThucCu.SelectedIndexChanged += new System.EventHandler(this.lsb_CongThucCu_SelectedIndexChanged);
+            this.lsb_CongThucCu.DataSourceChanged += new System.EventHandler(this.lsb_CongThucCu_DataSourceChanged);
+            this.lsb_CongThucCu.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lsb_CongThucCu_MouseDoubleClick);
             // 
             // btn_Input
             // 
@@ -167,17 +191,6 @@
             this.btn_Luu.UseVisualStyleBackColor = true;
             this.btn_Luu.Click += new System.EventHandler(this.btn_Luu_Click);
             // 
-            // btn_Del
-            // 
-            this.btn_Del.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Del.Location = new System.Drawing.Point(359, 292);
-            this.btn_Del.Name = "btn_Del";
-            this.btn_Del.Size = new System.Drawing.Size(83, 52);
-            this.btn_Del.TabIndex = 4;
-            this.btn_Del.Text = "<";
-            this.btn_Del.UseVisualStyleBackColor = true;
-            this.btn_Del.Click += new System.EventHandler(this.btn_Del_Click);
-            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.rtb_CongThuc);
@@ -201,28 +214,16 @@
             this.rtb_CongThuc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.rtb_CongThuc_KeyPress);
             this.rtb_CongThuc.MouseDown += new System.Windows.Forms.MouseEventHandler(this.rtb_CongThuc_MouseDown);
             // 
-            // groupBox5
+            // btn_Del
             // 
-            this.groupBox5.Controls.Add(this.lsb_CongThucCu);
-            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox5.Location = new System.Drawing.Point(479, 237);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(495, 163);
-            this.groupBox5.TabIndex = 6;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Công thức cũ";
-            // 
-            // lsb_CongThucCu
-            // 
-            this.lsb_CongThucCu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lsb_CongThucCu.FormattingEnabled = true;
-            this.lsb_CongThucCu.ItemHeight = 21;
-            this.lsb_CongThucCu.Location = new System.Drawing.Point(3, 24);
-            this.lsb_CongThucCu.Name = "lsb_CongThucCu";
-            this.lsb_CongThucCu.Size = new System.Drawing.Size(489, 136);
-            this.lsb_CongThucCu.TabIndex = 0;
-            this.lsb_CongThucCu.SelectedIndexChanged += new System.EventHandler(this.lsb_CongThucCu_SelectedIndexChanged);
-            this.lsb_CongThucCu.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lsb_CongThucCu_MouseDoubleClick);
+            this.btn_Del.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Del.Location = new System.Drawing.Point(359, 292);
+            this.btn_Del.Name = "btn_Del";
+            this.btn_Del.Size = new System.Drawing.Size(83, 52);
+            this.btn_Del.TabIndex = 4;
+            this.btn_Del.Text = "<";
+            this.btn_Del.UseVisualStyleBackColor = true;
+            this.btn_Del.Click += new System.EventHandler(this.btn_Del_Click);
             // 
             // DinhNghiaCT
             // 
@@ -237,10 +238,10 @@
             this.Load += new System.EventHandler(this.DinhNghiaCT_Load);
             this.groupBox1.ResumeLayout(false);
             this.TLP_DinhNghiaCT.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

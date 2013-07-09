@@ -199,6 +199,14 @@ namespace Business.HDQD
 
             return dt;
         }
+        public DataTable GetDTCachTinhDetail_DistinctCT()
+        {
+            DataTable dt = new DataTable();
+
+            dt = dp.getDataTable("select * from v_loai_phu_cap_detail_distinct_cong_thuc");
+
+            return dt;
+        }
 
         public DataTable GetDTCongThucElement()
         {
