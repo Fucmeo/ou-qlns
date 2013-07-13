@@ -29,10 +29,12 @@ namespace HDQD.Forms
 
         private void Popup_Load(object sender, EventArgs e)
         {
-            oUC.Dock = DockStyle.Fill;
+            
             this.tableLayoutPanel1.Controls.Add(oUC);
             this.Size = oUC.Size;
             this.Text = sTitle;
+            oUC.Dock = DockStyle.Fill;
+            this.tableLayoutPanel1.AutoScrollMinSize = new Size(this.Size.Width - 50, this.Size.Height - 50);
         }
 
     }

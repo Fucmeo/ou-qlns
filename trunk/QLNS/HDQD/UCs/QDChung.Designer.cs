@@ -84,6 +84,7 @@
             this.rb_KhongTinhLuong = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.thongTinCNVC1 = new HDQD.UCs.ThongTinCNVC();
             this.TLP_QTCT = new System.Windows.Forms.TableLayoutPanel();
             this.cb_Ins_Qtr_Ctac = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -94,14 +95,13 @@
             this.comB_DonVi = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.TLP_ThongTinQD = new System.Windows.Forms.TableLayoutPanel();
+            this.thongTinQuyetDinh1 = new HDQD.UCs.ThongTinQuyetDinh();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.TLP_ThongTinKhac = new System.Windows.Forms.TableLayoutPanel();
             this.cb_Tham_Nien_NB = new System.Windows.Forms.CheckBox();
             this.cb_Tham_Nien_NG = new System.Windows.Forms.CheckBox();
             this.bw_upload = new System.ComponentModel.BackgroundWorker();
             this.bw_download = new System.ComponentModel.BackgroundWorker();
-            this.thongTinCNVC1 = new HDQD.UCs.ThongTinCNVC();
-            this.thongTinQuyetDinh1 = new HDQD.UCs.ThongTinQuyetDinh();
             this.TLP_QDChung.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -131,7 +131,6 @@
             // TLP_QDChung
             // 
             this.TLP_QDChung.AutoScroll = true;
-            this.TLP_QDChung.AutoScrollMinSize = new System.Drawing.Size(800, 1000);
             this.TLP_QDChung.ColumnCount = 1;
             this.TLP_QDChung.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.TLP_QDChung.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
@@ -364,7 +363,7 @@
             this.tableLP_PhuCap.SetColumnSpan(this.comB_LoaiPhuCap, 2);
             this.comB_LoaiPhuCap.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_LoaiPhuCap.FormattingEnabled = true;
-            this.comB_LoaiPhuCap.Location = new System.Drawing.Point(543, 15);
+            this.comB_LoaiPhuCap.Location = new System.Drawing.Point(543, 17);
             this.comB_LoaiPhuCap.Name = "comB_LoaiPhuCap";
             this.comB_LoaiPhuCap.Size = new System.Drawing.Size(252, 29);
             this.comB_LoaiPhuCap.TabIndex = 1;
@@ -861,6 +860,17 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1088, 172);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
+            // thongTinCNVC1
+            // 
+            this.thongTinCNVC1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.thongTinCNVC1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.thongTinCNVC1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.thongTinCNVC1.Location = new System.Drawing.Point(3, 4);
+            this.thongTinCNVC1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.thongTinCNVC1.Name = "thongTinCNVC1";
+            this.thongTinCNVC1.Size = new System.Drawing.Size(1082, 102);
+            this.thongTinCNVC1.TabIndex = 0;
+            // 
             // TLP_QTCT
             // 
             this.TLP_QTCT.ColumnCount = 7;
@@ -916,7 +926,7 @@
             this.comB_ChucDanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_ChucDanh.Enabled = false;
             this.comB_ChucDanh.FormattingEnabled = true;
-            this.comB_ChucDanh.Location = new System.Drawing.Point(863, 13);
+            this.comB_ChucDanh.Location = new System.Drawing.Point(863, 15);
             this.comB_ChucDanh.Name = "comB_ChucDanh";
             this.comB_ChucDanh.Size = new System.Drawing.Size(216, 29);
             this.comB_ChucDanh.TabIndex = 9;
@@ -947,7 +957,7 @@
             this.comB_ChucVu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_ChucVu.Enabled = false;
             this.comB_ChucVu.FormattingEnabled = true;
-            this.comB_ChucVu.Location = new System.Drawing.Point(535, 13);
+            this.comB_ChucVu.Location = new System.Drawing.Point(535, 15);
             this.comB_ChucVu.Name = "comB_ChucVu";
             this.comB_ChucVu.Size = new System.Drawing.Size(225, 29);
             this.comB_ChucVu.TabIndex = 8;
@@ -958,7 +968,7 @@
             this.comB_DonVi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_DonVi.Enabled = false;
             this.comB_DonVi.FormattingEnabled = true;
-            this.comB_DonVi.Location = new System.Drawing.Point(221, 13);
+            this.comB_DonVi.Location = new System.Drawing.Point(221, 15);
             this.comB_DonVi.Name = "comB_DonVi";
             this.comB_DonVi.Size = new System.Drawing.Size(234, 29);
             this.comB_DonVi.TabIndex = 7;
@@ -994,6 +1004,17 @@
             this.TLP_ThongTinQD.Size = new System.Drawing.Size(1088, 249);
             this.TLP_ThongTinQD.TabIndex = 0;
             // 
+            // thongTinQuyetDinh1
+            // 
+            this.thongTinQuyetDinh1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.thongTinQuyetDinh1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.thongTinQuyetDinh1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.thongTinQuyetDinh1.Location = new System.Drawing.Point(3, 4);
+            this.thongTinQuyetDinh1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.thongTinQuyetDinh1.Name = "thongTinQuyetDinh1";
+            this.thongTinQuyetDinh1.Size = new System.Drawing.Size(1082, 151);
+            this.thongTinQuyetDinh1.TabIndex = 0;
+            // 
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.TLP_ThongTinKhac);
@@ -1020,11 +1041,10 @@
             this.TLP_ThongTinKhac.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TLP_ThongTinKhac.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.TLP_ThongTinKhac.Location = new System.Drawing.Point(3, 24);
-            this.TLP_ThongTinKhac.MinimumSize = new System.Drawing.Size(0, 80);
             this.TLP_ThongTinKhac.Name = "TLP_ThongTinKhac";
             this.TLP_ThongTinKhac.RowCount = 1;
             this.TLP_ThongTinKhac.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.64865F));
-            this.TLP_ThongTinKhac.Size = new System.Drawing.Size(1076, 80);
+            this.TLP_ThongTinKhac.Size = new System.Drawing.Size(1076, 57);
             this.TLP_ThongTinKhac.TabIndex = 0;
             // 
             // cb_Tham_Nien_NB
@@ -1032,7 +1052,7 @@
             this.cb_Tham_Nien_NB.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cb_Tham_Nien_NB.AutoSize = true;
             this.TLP_ThongTinKhac.SetColumnSpan(this.cb_Tham_Nien_NB, 2);
-            this.cb_Tham_Nien_NB.Location = new System.Drawing.Point(3, 27);
+            this.cb_Tham_Nien_NB.Location = new System.Drawing.Point(3, 16);
             this.cb_Tham_Nien_NB.Name = "cb_Tham_Nien_NB";
             this.cb_Tham_Nien_NB.Size = new System.Drawing.Size(203, 25);
             this.cb_Tham_Nien_NB.TabIndex = 1;
@@ -1044,7 +1064,7 @@
             this.cb_Tham_Nien_NG.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cb_Tham_Nien_NG.AutoSize = true;
             this.TLP_ThongTinKhac.SetColumnSpan(this.cb_Tham_Nien_NG, 2);
-            this.cb_Tham_Nien_NG.Location = new System.Drawing.Point(250, 27);
+            this.cb_Tham_Nien_NG.Location = new System.Drawing.Point(250, 16);
             this.cb_Tham_Nien_NG.Name = "cb_Tham_Nien_NG";
             this.cb_Tham_Nien_NG.Size = new System.Drawing.Size(200, 25);
             this.cb_Tham_Nien_NG.TabIndex = 3;
@@ -1058,28 +1078,6 @@
             // bw_download
             // 
             this.bw_download.WorkerReportsProgress = true;
-            // 
-            // thongTinCNVC1
-            // 
-            this.thongTinCNVC1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.thongTinCNVC1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.thongTinCNVC1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.thongTinCNVC1.Location = new System.Drawing.Point(3, 4);
-            this.thongTinCNVC1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.thongTinCNVC1.Name = "thongTinCNVC1";
-            this.thongTinCNVC1.Size = new System.Drawing.Size(1082, 102);
-            this.thongTinCNVC1.TabIndex = 0;
-            // 
-            // thongTinQuyetDinh1
-            // 
-            this.thongTinQuyetDinh1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.thongTinQuyetDinh1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.thongTinQuyetDinh1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.thongTinQuyetDinh1.Location = new System.Drawing.Point(3, 4);
-            this.thongTinQuyetDinh1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.thongTinQuyetDinh1.Name = "thongTinQuyetDinh1";
-            this.thongTinQuyetDinh1.Size = new System.Drawing.Size(1082, 151);
-            this.thongTinQuyetDinh1.TabIndex = 0;
             // 
             // QDChung
             // 

@@ -38,6 +38,7 @@ namespace HDQD.UCs
             oLoaiPC = new Business.HDQD.LoaiPhuCap();
             oQuyetDinh = new Business.HDQD.QuyetDinh();
             oLoaiQD = new Business.HDQD.LoaiQuyetDinh();
+            ucDinhNghiaCT = new DinhNghiaCT();
 
             dtPhuCap = new DataTable();
             dtLoaiPC = new DataTable();
@@ -620,14 +621,14 @@ namespace HDQD.UCs
         private void btn_ThietLap_Click(object sender, EventArgs e)
         {
             Forms.Popup frPopup = new Forms.Popup(ucDinhNghiaCT, "QUẢN LÝ NHÂN SỰ - ĐỊNH NGHĨA CÔNG THỨC TÍNH PHỤ CẤP");
-            if (ucDinhNghiaCT.lstDisplayString.Count > 0)
-            {
+            //if (ucDinhNghiaCT.lstDisplayString.Count > 0)
+            //{
 
-            }
+            //}
             frPopup.ShowDialog();
             if (ucDinhNghiaCT.lstValueString.Count > 0)
             {
-                txt_CongThucLuong.Text = string.Join(" ", ucDinhNghiaCT.lstDisplayString.ToArray());
+                txt_CongThucLuong.Text = string.Join(" ", txt_CongThucLuong.Text);
             }
         }
 

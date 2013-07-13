@@ -102,7 +102,7 @@ namespace HDQD.UCs
                 lstValueString.RemoveAt(removed_index);
                 lstDisplayString.Remove(removed_string.Replace("[", "").Replace("]", "").Trim());
                 s = s.Remove(LeftBracketsIndex + 1 , i  -1 - LeftBracketsIndex);
-                rtb_CongThuc.Text = s;
+                rtb_CongThuc.Text = s;  
             }
         }
 
@@ -187,10 +187,12 @@ namespace HDQD.UCs
             if (type == 1)
             {
                 lstDisplayString.Add(cong_thuc.Substring(preIndex, cong_thuc.Length - preIndex).Trim()); // add operator
+                lstDisplayString.RemoveAll(a => a == "");
             }
             else if (type == 2)
             {
                 lstValueString.Add(cong_thuc.Substring(preIndex, cong_thuc.Length - preIndex).Trim()); // add operator
+                lstValueString.RemoveAll(a => a == "");
             }
             
         }
