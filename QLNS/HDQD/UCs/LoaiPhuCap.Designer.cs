@@ -436,14 +436,12 @@
             // 
             // lstb_DS
             // 
-            this.lstb_DS.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lstb_DS.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lstb_DS.FormattingEnabled = true;
             this.lstb_DS.ItemHeight = 21;
             this.lstb_DS.Location = new System.Drawing.Point(3, 3);
             this.lstb_DS.Name = "lstb_DS";
-            this.lstb_DS.Size = new System.Drawing.Size(332, 130);
+            this.lstb_DS.Size = new System.Drawing.Size(332, 138);
             this.lstb_DS.TabIndex = 0;
             this.lstb_DS.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -649,7 +647,7 @@
             this.comb_Luong.Items.AddRange(new object[] {
             "Lương cơ bản",
             "Lương tối thiểu"});
-            this.comb_Luong.Location = new System.Drawing.Point(191, 14);
+            this.comb_Luong.Location = new System.Drawing.Point(191, 12);
             this.comb_Luong.Name = "comb_Luong";
             this.comb_Luong.Size = new System.Drawing.Size(289, 29);
             this.comb_Luong.TabIndex = 34;

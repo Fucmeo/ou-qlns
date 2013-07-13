@@ -11,13 +11,14 @@ namespace Business.HDQD
     {
         #region Properties
 
-        public List<string> lstValue = new List<string>();
-        public List<Boolean> lstIsLeaf = new List<Boolean>();
-        public List<Boolean> lstIsRoot = new List<Boolean>();
-        public List<string> lstLeftNode = new List<string>();
-        public List<string> lstRightNode = new List<string>();
-         BinaryTreeNode btn;
-
+        public List<string> lstValue;
+        public List<Boolean> lstIsLeaf;
+        public List<Boolean> lstIsRoot ;
+        public List<string> lstLeftNode;
+        public List<string> lstRightNode ;
+        int i = 0;
+        int TreeNodeCount;
+        BinaryTreeNode obtn;
 
         #endregion
 
@@ -27,6 +28,7 @@ namespace Business.HDQD
         {
             if (btn.LeftChild.IsLeaf)
             {
+                i += 1;
                 // insert
                 lstValue.Add(btn.LeftChild.Value);
                 lstIsLeaf.Add(true);
@@ -41,6 +43,7 @@ namespace Business.HDQD
 
             if (btn.RightChild.IsLeaf)
             {
+                i += 1;
                 // insert
                 lstValue.Add(btn.RightChild.Value);
                 lstIsLeaf.Add(true);
@@ -54,9 +57,18 @@ namespace Business.HDQD
             }
 
             // insert btn
+            i += 1;
             lstValue.Add(btn.Value);
             lstIsLeaf.Add(false);
-            lstIsRoot.Add(false);
+            if (i != TreeNodeCount)
+            {
+                lstIsRoot.Add(false);
+            }
+            else
+            {
+                lstIsRoot.Add(true);
+            }
+            
             lstLeftNode.Add(btn.LeftChild.Value);
             lstRightNode.Add(btn.RightChild.Value);
         }
@@ -77,6 +89,12 @@ namespace Business.HDQD
 
         public  BinaryTreeNode Infix2ExpressionTree(string infixExpression)
         {
+            lstValue = new List<string>();
+        lstIsLeaf = new List<Boolean>();
+       lstIsRoot = new List<Boolean>();
+        lstLeftNode = new List<string>();
+        lstRightNode = new List<string>();
+
             //Lis prefix = new List();
             Stack<BinaryTreeNode> operatorStack = new Stack<BinaryTreeNode>();
             Stack<BinaryTreeNode> nodeStack = new Stack<BinaryTreeNode>();
@@ -84,7 +102,8 @@ namespace Business.HDQD
             FormatExpression(ref infixExpression);
 
             IEnumerable enumer = infixExpression.Split(' ');
-
+            obtn = new BinaryTreeNode();
+            
             foreach (string s in enumer)
             {
                 if (IsOperand(s))
@@ -110,12 +129,14 @@ namespace Business.HDQD
             while (operatorStack.Count > 0)
                 CreateSubTree(operatorStack, nodeStack);
 
-            return nodeStack.Peek();
+            obtn = nodeStack.Peek();
+            TreeNodeCount = infixExpression.Split(' ').Except(new string[2]{"(",")"}.AsEnumerable()).Count();
+            return obtn;
         }
 
         private  bool IsOperator(string str)
         {
-            return Regex.Match(str, @"\+|\-|\*|\/|\%").Success;
+            return Regex.Match(str, @"\(|\)|\+|\-|\*|\/|\%").Success;
         }
 
         public  bool IsOperand(string str)
@@ -152,7 +173,6 @@ namespace Business.HDQD
         public BinaryTreeNode LeftChild;
         public BinaryTreeNode RightChild;
         public string Value;
-        public int Count;
 
         public bool IsLeaf
         {
@@ -162,6 +182,11 @@ namespace Business.HDQD
         public BinaryTreeNode(string value)
         {
             Value = value;
+        }
+
+        public BinaryTreeNode()
+        {
+
         }
 
     }
