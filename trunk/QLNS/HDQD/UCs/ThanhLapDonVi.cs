@@ -168,6 +168,7 @@ namespace HDQD.UCs
                         quyetdinh.Add_ThanhLapDV(ten_don_vi_moi, ten_dv_viet_tat, dv_cha_id, ghi_chu, tu_ngay);
                         MessageBox.Show("Thành lập đơn vị thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         EnableControls(true);
+                        bUploadInfoSuccess = true;
                         
                         if (Paths != null && Paths.Count > 0 && bUploadInfoSuccess)
                         {
@@ -231,7 +232,7 @@ namespace HDQD.UCs
 
         private void PreapreDataSource()
         {
-            dtDonVi = oDonvi.GetDonViList();
+            dtDonVi = oDonvi.GetActiveDonVi();
             DataRow row = dtDonVi.NewRow();
             dtDonVi.Rows.InsertAt(row, 0);
 
@@ -254,7 +255,10 @@ namespace HDQD.UCs
                 else
                     comb_DVTrucThuoc.SelectedValue = 0;
                 if (dv.TuNgay != null)
+                {
                     dTP_NgayHieuLuc.Value = dv.TuNgay.Value;
+                    dTP_NgayHieuLuc.Checked = false;
+                }
                 else
                     dTP_NgayHieuLuc.Checked = false;
                 rTB_GhiChu.Text = dv.GhiChu;
@@ -388,9 +392,11 @@ namespace HDQD.UCs
             }
             else
             {
-                Form f = new Forms.Popup(new UCs.DSTapTin("DoiThongTin", Paths, Desc), "QUẢN LÝ NHÂN SỰ - DANH SÁCH TẬP TIN");
-                f.ShowDialog();
+                
             }
+
+            Form f = new Forms.Popup(new UCs.DSTapTin("ThanhLapDonVi", Paths, Desc), "QUẢN LÝ NHÂN SỰ - DANH SÁCH TẬP TIN");
+            f.ShowDialog();
         }
 
         private void DownLoadFile()
