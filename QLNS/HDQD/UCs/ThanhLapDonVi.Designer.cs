@@ -34,6 +34,10 @@
             this.tableLP_Nut = new System.Windows.Forms.TableLayoutPanel();
             this.btn_Nhap = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.btn_NhapFile = new System.Windows.Forms.Button();
+            this.lbl_Status = new System.Windows.Forms.Label();
+            this.pb_Status = new System.Windows.Forms.ProgressBar();
+            this.thongTinQuyetDinh1 = new HDQD.UCs.ThongTinQuyetDinh();
             this.tableLP_DonVi = new System.Windows.Forms.TableLayoutPanel();
             this.gb_ThongTinDV = new System.Windows.Forms.GroupBox();
             this.tableLP_ThongTinDV = new System.Windows.Forms.TableLayoutPanel();
@@ -54,15 +58,11 @@
             this.tableLP_DSDV = new System.Windows.Forms.TableLayoutPanel();
             this.lstb_DSDV = new System.Windows.Forms.ListBox();
             this.tableLP_Nut2 = new System.Windows.Forms.TableLayoutPanel();
-            this.btn_Xoa = new System.Windows.Forms.Button();
-            this.btn_Them = new System.Windows.Forms.Button();
             this.btn_Sua = new System.Windows.Forms.Button();
-            this.thongTinQuyetDinh1 = new HDQD.UCs.ThongTinQuyetDinh();
+            this.btn_Them = new System.Windows.Forms.Button();
+            this.btn_Xoa = new System.Windows.Forms.Button();
             this.bw_upload = new System.ComponentModel.BackgroundWorker();
             this.bw_download = new System.ComponentModel.BackgroundWorker();
-            this.btn_NhapFile = new System.Windows.Forms.Button();
-            this.pb_Status = new System.Windows.Forms.ProgressBar();
-            this.lbl_Status = new System.Windows.Forms.Label();
             this.tableLP_ThanhLapDV.SuspendLayout();
             this.tableLP_Nut.SuspendLayout();
             this.tableLP_DonVi.SuspendLayout();
@@ -133,6 +133,49 @@
             this.imageList1.Images.SetKeyName(3, "Garbage.png");
             this.imageList1.Images.SetKeyName(4, "Save.png");
             this.imageList1.Images.SetKeyName(5, "Document-Add.png");
+            // 
+            // btn_NhapFile
+            // 
+            this.btn_NhapFile.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_NhapFile.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_NhapFile.ImageKey = "Document-Add.png";
+            this.btn_NhapFile.ImageList = this.imageList1;
+            this.btn_NhapFile.Location = new System.Drawing.Point(195, 18);
+            this.btn_NhapFile.Name = "btn_NhapFile";
+            this.btn_NhapFile.Size = new System.Drawing.Size(56, 56);
+            this.btn_NhapFile.TabIndex = 12;
+            this.btn_NhapFile.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_NhapFile.UseVisualStyleBackColor = true;
+            this.btn_NhapFile.Click += new System.EventHandler(this.btn_NhapFile_Click);
+            // 
+            // lbl_Status
+            // 
+            this.lbl_Status.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbl_Status.AutoSize = true;
+            this.lbl_Status.Location = new System.Drawing.Point(450, 100);
+            this.lbl_Status.Name = "lbl_Status";
+            this.lbl_Status.Size = new System.Drawing.Size(0, 21);
+            this.lbl_Status.TabIndex = 14;
+            // 
+            // pb_Status
+            // 
+            this.pb_Status.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pb_Status.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pb_Status.Location = new System.Drawing.Point(99, 100);
+            this.pb_Status.Name = "pb_Status";
+            this.pb_Status.Size = new System.Drawing.Size(248, 20);
+            this.pb_Status.TabIndex = 13;
+            // 
+            // thongTinQuyetDinh1
+            // 
+            this.thongTinQuyetDinh1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.thongTinQuyetDinh1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.thongTinQuyetDinh1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.thongTinQuyetDinh1.Location = new System.Drawing.Point(3, 4);
+            this.thongTinQuyetDinh1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.thongTinQuyetDinh1.Name = "thongTinQuyetDinh1";
+            this.thongTinQuyetDinh1.Size = new System.Drawing.Size(894, 262);
+            this.thongTinQuyetDinh1.TabIndex = 0;
             // 
             // tableLP_DonVi
             // 
@@ -261,7 +304,7 @@
             this.comb_DVTrucThuoc.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comb_DVTrucThuoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comb_DVTrucThuoc.FormattingEnabled = true;
-            this.comb_DVTrucThuoc.Location = new System.Drawing.Point(195, 98);
+            this.comb_DVTrucThuoc.Location = new System.Drawing.Point(195, 100);
             this.comb_DVTrucThuoc.Name = "comb_DVTrucThuoc";
             this.comb_DVTrucThuoc.Size = new System.Drawing.Size(310, 29);
             this.comb_DVTrucThuoc.TabIndex = 2;
@@ -381,52 +424,41 @@
             this.tableLP_Nut2.Size = new System.Drawing.Size(294, 87);
             this.tableLP_Nut2.TabIndex = 39;
             // 
-            // btn_Xoa
-            // 
-            this.btn_Xoa.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Xoa.ImageKey = "Garbage.png";
-            this.btn_Xoa.ImageList = this.imageList1;
-            this.btn_Xoa.Location = new System.Drawing.Point(216, 15);
-            this.btn_Xoa.Name = "btn_Xoa";
-            this.btn_Xoa.Size = new System.Drawing.Size(56, 56);
-            this.btn_Xoa.TabIndex = 1;
-            this.btn_Xoa.UseVisualStyleBackColor = true;
-            this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
-            // 
-            // btn_Them
-            // 
-            this.btn_Them.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Them.ImageKey = "Add.png";
-            this.btn_Them.ImageList = this.imageList1;
-            this.btn_Them.Location = new System.Drawing.Point(20, 15);
-            this.btn_Them.Name = "btn_Them";
-            this.btn_Them.Size = new System.Drawing.Size(56, 56);
-            this.btn_Them.TabIndex = 0;
-            this.btn_Them.UseVisualStyleBackColor = true;
-            this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
-            // 
             // btn_Sua
             // 
             this.btn_Sua.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Sua.ImageKey = "Edit Data.png";
             this.btn_Sua.ImageList = this.imageList1;
-            this.btn_Sua.Location = new System.Drawing.Point(117, 15);
+            this.btn_Sua.Location = new System.Drawing.Point(119, 15);
             this.btn_Sua.Name = "btn_Sua";
             this.btn_Sua.Size = new System.Drawing.Size(56, 56);
             this.btn_Sua.TabIndex = 2;
             this.btn_Sua.UseVisualStyleBackColor = true;
             this.btn_Sua.Click += new System.EventHandler(this.btn_Sua_Click);
             // 
-            // thongTinQuyetDinh1
+            // btn_Them
             // 
-            this.thongTinQuyetDinh1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.thongTinQuyetDinh1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.thongTinQuyetDinh1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.thongTinQuyetDinh1.Location = new System.Drawing.Point(3, 4);
-            this.thongTinQuyetDinh1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.thongTinQuyetDinh1.Name = "thongTinQuyetDinh1";
-            this.thongTinQuyetDinh1.Size = new System.Drawing.Size(894, 262);
-            this.thongTinQuyetDinh1.TabIndex = 0;
+            this.btn_Them.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Them.ImageKey = "Add.png";
+            this.btn_Them.ImageList = this.imageList1;
+            this.btn_Them.Location = new System.Drawing.Point(21, 15);
+            this.btn_Them.Name = "btn_Them";
+            this.btn_Them.Size = new System.Drawing.Size(56, 56);
+            this.btn_Them.TabIndex = 0;
+            this.btn_Them.UseVisualStyleBackColor = true;
+            this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
+            // 
+            // btn_Xoa
+            // 
+            this.btn_Xoa.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Xoa.ImageKey = "Garbage.png";
+            this.btn_Xoa.ImageList = this.imageList1;
+            this.btn_Xoa.Location = new System.Drawing.Point(217, 15);
+            this.btn_Xoa.Name = "btn_Xoa";
+            this.btn_Xoa.Size = new System.Drawing.Size(56, 56);
+            this.btn_Xoa.TabIndex = 1;
+            this.btn_Xoa.UseVisualStyleBackColor = true;
+            this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
             // 
             // bw_upload
             // 
@@ -441,38 +473,6 @@
             this.bw_download.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bw_download_DoWork);
             this.bw_download.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bw_download_ProgressChanged);
             this.bw_download.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bw_download_RunWorkerCompleted);
-            // 
-            // btn_NhapFile
-            // 
-            this.btn_NhapFile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_NhapFile.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_NhapFile.ImageKey = "Document-Add.png";
-            this.btn_NhapFile.ImageList = this.imageList1;
-            this.btn_NhapFile.Location = new System.Drawing.Point(195, 18);
-            this.btn_NhapFile.Name = "btn_NhapFile";
-            this.btn_NhapFile.Size = new System.Drawing.Size(56, 56);
-            this.btn_NhapFile.TabIndex = 12;
-            this.btn_NhapFile.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_NhapFile.UseVisualStyleBackColor = true;
-            this.btn_NhapFile.Click += new System.EventHandler(this.btn_NhapFile_Click);
-            // 
-            // pb_Status
-            // 
-            this.pb_Status.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pb_Status.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pb_Status.Location = new System.Drawing.Point(99, 101);
-            this.pb_Status.Name = "pb_Status";
-            this.pb_Status.Size = new System.Drawing.Size(248, 20);
-            this.pb_Status.TabIndex = 13;
-            // 
-            // lbl_Status
-            // 
-            this.lbl_Status.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lbl_Status.AutoSize = true;
-            this.lbl_Status.Location = new System.Drawing.Point(450, 100);
-            this.lbl_Status.Name = "lbl_Status";
-            this.lbl_Status.Size = new System.Drawing.Size(0, 21);
-            this.lbl_Status.TabIndex = 14;
             // 
             // ThanhLapDonVi
             // 
