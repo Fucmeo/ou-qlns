@@ -65,6 +65,9 @@ namespace HDQD.UCs
                             case "DoiThongTin":
                                 DoiThongTinDV.Paths.Add(new KeyValuePair<string, bool?>(OFD.FileNames[i].ToString(), false));
                                 break;
+                            case "ThanhLapDonVi":
+                                ThanhLapDonVi.Paths.Add(new KeyValuePair<string, bool?>(OFD.FileNames[i].ToString(), false));
+                                break;
                             default:
                                 break;
                         }
@@ -73,7 +76,7 @@ namespace HDQD.UCs
                 }
                 else
                 {
-                    MessageBox.Show("Tập tin không được lớn hơn 2,5 MB.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Tập tin không được lớn hơn 3 MB.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 
             }
@@ -95,6 +98,9 @@ namespace HDQD.UCs
                         break;
                     case "DoiThongTin":
                         DoiThongTinDV.Desc = rtb_MoTa.Text;
+                        break;
+                    case "ThanhLapDonVi":
+                        ThanhLapDonVi.Desc = rtb_MoTa.Text;
                         break;
                     default:
                         break;
@@ -161,6 +167,20 @@ namespace HDQD.UCs
                             if (DoiThongTinDV.Paths[i].Value == true) // neu file da co san moi add value = null de delete sau nay
                                 DoiThongTinDV.Paths.Add(new KeyValuePair<string, bool?>(DelFileServerPath, null));   // se delete file nay
                             DoiThongTinDV.Paths.RemoveAt(i);
+
+                            break;
+                        }
+                    }
+                    break;
+                case "ThanhLapDonVi":
+                    for (int i = 0; i < ThanhLapDonVi.Paths.Count; i++)
+                    {
+                        if (ThanhLapDonVi.Paths[i].Key == lsb_DSFile.SelectedItem.ToString())
+                        {
+                            string DelFileServerPath = "hinh_quyet_dinh/" + lsb_DSFile.SelectedItem.ToString().Split('\\').Last();
+                            if (ThanhLapDonVi.Paths[i].Value == true) // neu file da co san moi add value = null de delete sau nay
+                                ThanhLapDonVi.Paths.Add(new KeyValuePair<string, bool?>(DelFileServerPath, null));   // se delete file nay
+                            ThanhLapDonVi.Paths.RemoveAt(i);
 
                             break;
                         }

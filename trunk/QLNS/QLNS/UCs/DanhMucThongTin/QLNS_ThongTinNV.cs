@@ -918,7 +918,7 @@ namespace QLNS.UCs.DanhMucThongTin
                 }
                 else
                 {
-                    MessageBox.Show("Tập tin không được lớn hơn 2,5 MB.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Tập tin không được lớn hơn 3 MB.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 
             }
