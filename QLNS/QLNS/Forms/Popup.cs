@@ -11,15 +11,13 @@ namespace QLNS.Forms
 {
     public partial class Popup : Form
     {
-
+        UserControl oUC;
         public Popup(string title , UserControl uc)
         {
             InitializeComponent();
 
             this.Text = title;
-            this.Size = uc.Size;
-            uc.Dock = DockStyle.Fill;
-            this.tableLayoutPanel1.Controls.Add(uc,0,0);
+            oUC = uc;
             
             //this.Height += 100;
             //this.Width += 100;
@@ -27,7 +25,12 @@ namespace QLNS.Forms
 
         private void Popup_Load(object sender, EventArgs e)
         {
+            this.MinimumSize = new Size(oUC.Width, oUC.Height);
+            this.Size = new Size(oUC.Size.Width + 40, oUC.Size.Height + 20);
+            this.tableLayoutPanel1.Controls.Add(oUC);
 
+            oUC.Dock = DockStyle.Fill;
+            this.tableLayoutPanel1.AutoScrollMinSize = new Size(oUC.Size.Width, oUC.Size.Height);
         }
     }
 }

@@ -325,7 +325,7 @@ namespace QLNS.Forms
 
         private void qĐChungToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Forms.Popup f = new Popup("Quyết định chung", new HDQD.UCs.QuyetDinhPhuCap());
+            Forms.Popup f = new Popup("Quyết định chung", new HDQD.UCs.QDChung());
             f.WindowState = FormWindowState.Maximized;
             f.ShowDialog();
         }
@@ -371,8 +371,9 @@ namespace QLNS.Forms
         private void qĐDuHocToolStripMenuItem_Click(object sender, EventArgs e)
         {
             HDQD.UCs.QDChung uc = new HDQD.UCs.QDChung();
-            uc.thongTinQuyetDinh1.comB_Loai.Items.Clear();
+            uc.thongTinQuyetDinh1.comB_Loai.DataSource = null;
             uc.thongTinQuyetDinh1.comB_Loai.Items.Add("Đi du học");
+            uc.thongTinQuyetDinh1.comB_Loai.SelectedIndex = 0;
             Forms.Popup f = new Popup("Quyết định đi du học", uc);
             f.ShowDialog();
         }
@@ -380,8 +381,9 @@ namespace QLNS.Forms
         private void qĐNghỉThaiSảnToolStripMenuItem_Click(object sender, EventArgs e)
         {
             HDQD.UCs.QDChung uc = new HDQD.UCs.QDChung();
-            uc.thongTinQuyetDinh1.comB_Loai.Items.Clear();
+            uc.thongTinQuyetDinh1.comB_Loai.DataSource = null;
             uc.thongTinQuyetDinh1.comB_Loai.Items.Add("Nghỉ thai sản");
+            uc.thongTinQuyetDinh1.comB_Loai.SelectedIndex = 0;
             Forms.Popup f = new Popup("Quyết định nghỉ thai sản", uc);
             f.ShowDialog();
         }
@@ -389,8 +391,9 @@ namespace QLNS.Forms
         private void qĐNghỉKhôngLươngToolStripMenuItem_Click(object sender, EventArgs e)
         {
             HDQD.UCs.QDChung uc = new HDQD.UCs.QDChung();
-            uc.thongTinQuyetDinh1.comB_Loai.Items.Clear();
+            uc.thongTinQuyetDinh1.comB_Loai.DataSource = null;
             uc.thongTinQuyetDinh1.comB_Loai.Items.Add("Nghỉ không lương");
+            uc.thongTinQuyetDinh1.comB_Loai.SelectedIndex = 0;
             uc.gb_ThongTinLuong.Enabled = false;
             Forms.Popup f = new Popup("Quyết định nghỉ không lương", uc);
             f.ShowDialog();
@@ -399,8 +402,9 @@ namespace QLNS.Forms
         private void qĐDuLịchToolStripMenuItem_Click(object sender, EventArgs e)
         {
             HDQD.UCs.QDChung uc = new HDQD.UCs.QDChung();
-            uc.thongTinQuyetDinh1.comB_Loai.Items.Clear();
+            uc.thongTinQuyetDinh1.comB_Loai.DataSource = null;
             uc.thongTinQuyetDinh1.comB_Loai.Items.Add("Du lịch");
+            uc.thongTinQuyetDinh1.comB_Loai.SelectedIndex = 0;
             Forms.Popup f = new Popup("Quyết định du lịch", uc);
             f.ShowDialog();
         }
@@ -408,8 +412,9 @@ namespace QLNS.Forms
         private void qĐThôiViệcToolStripMenuItem_Click(object sender, EventArgs e)
         {
             HDQD.UCs.QDChung uc = new HDQD.UCs.QDChung();
-            uc.thongTinQuyetDinh1.comB_Loai.Items.Clear();
+            uc.thongTinQuyetDinh1.comB_Loai.DataSource = null;
             uc.thongTinQuyetDinh1.comB_Loai.Items.Add("Thôi việc");
+            uc.thongTinQuyetDinh1.comB_Loai.SelectedIndex = 0;
             Forms.Popup f = new Popup("Quyết định thôi việc", uc);
             f.ShowDialog();
         }
@@ -417,9 +422,17 @@ namespace QLNS.Forms
         private void qĐNghỉHưuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             HDQD.UCs.QDChung uc = new HDQD.UCs.QDChung();
-            uc.thongTinQuyetDinh1.comB_Loai.Items.Clear();
+            uc.thongTinQuyetDinh1.comB_Loai.DataSource = null;
             uc.thongTinQuyetDinh1.comB_Loai.Items.Add("Nghỉ hưu");
+            uc.thongTinQuyetDinh1.comB_Loai.SelectedIndex = 0;
             Forms.Popup f = new Popup("Quyết định nghỉ hưu", uc);
+            f.ShowDialog();
+        }
+
+        private void thànhLậpĐơnVịToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HDQD.UCs.ThanhLapDonVi uc = new HDQD.UCs.ThanhLapDonVi();
+            Forms.Popup f = new Popup("Quyết định thành lập đơn vị", uc);
             f.ShowDialog();
         }
     }
