@@ -270,7 +270,7 @@ namespace Business.HDQD
                 new NpgsqlParameter("p_ten_don_vi_moi",m_TenDV_Ten),
                 new NpgsqlParameter("p_ten_dv_moi_viet_tat",m_TenDVTat_Ten),
                 new NpgsqlParameter("p_truc_thuoc_don_vi",m_IDDVCha),
-                new NpgsqlParameter("p_tu_ngay",m_NgayHieuLuc.Select( a => a.ToString("d", CultureInfo.CreateSpecificCulture("en-NZ"))).ToArray()),  // format : mm/dd/yyyy),
+                new NpgsqlParameter("p_tu_ngay",m_NgayHieuLuc.Select( a => a.ToString("d", CultureInfo.CreateSpecificCulture("vi-VN"))).ToArray()),  // format : mm/dd/yyyy),
                 new NpgsqlParameter("p_ghi_chu",m_GhiChu)
             };
             try

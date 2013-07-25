@@ -74,6 +74,7 @@ namespace QLNS.Forms
             tsmi_LoaiPC.Image = ImageL_MenuStripItem.Images["Vietnamese-Dong.png"];
             qĐChungToolStripMenuItem.Image = ImageL_MenuStripItem.Images["Decision.png"];
             qĐKhenThưởngNângLươngChuyểnNgạchToolStripMenuItem.Image = ImageL_MenuStripItem.Images["khen thuong.png"];
+            tsmi_LoaiQD.Image = ImageL_MenuStripItem.Images["Decision.png"];
 
            
             
@@ -433,6 +434,13 @@ namespace QLNS.Forms
         {
             HDQD.UCs.ThanhLapDonVi uc = new HDQD.UCs.ThanhLapDonVi();
             Forms.Popup f = new Popup("Quyết định thành lập đơn vị", uc);
+            f.ShowDialog();
+        }
+
+        private void tsmi_LoaiQD_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Quản lý loại quyết định", new HDQD.UCs.LoaiQuyetDinh());
+            //f.WindowState = FormWindowState.Maximized;
             f.ShowDialog();
         }
     }
