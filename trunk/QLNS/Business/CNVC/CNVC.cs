@@ -310,6 +310,19 @@ namespace Business.CNVC
             return dt;
         }
 
+        public DataTable GetThamNienDT()
+        {
+            DataTable dt;
+
+            IDataParameter[] paras = new IDataParameter[1]{
+                new NpgsqlParameter("p_ma_nv",manv)               
+            };
+
+            dt = dp.getDataTableProc("sp1_select_cnvc_tham_nien", paras);
+
+            return dt;
+        }
+
         #endregion
 
 

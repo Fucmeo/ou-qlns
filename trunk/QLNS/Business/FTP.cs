@@ -15,7 +15,8 @@ namespace Business
         public enum FileCate { HinhDaiDien, HDQD };
         string URI = 
             //"ftp://10.1.12.6/",
-            "ftp://123.30.210.98/",
+            //"ftp://123.30.210.98/",
+            "ftp://42.112.19.16/",
             globalFolderName, downloadPath  ;
         string UserName = "Administrator",
             Password = "QLNS@123qlns";
