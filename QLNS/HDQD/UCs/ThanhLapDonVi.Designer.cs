@@ -152,9 +152,9 @@
             // 
             this.lbl_Status.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbl_Status.AutoSize = true;
-            this.lbl_Status.Location = new System.Drawing.Point(450, 100);
+            this.lbl_Status.Location = new System.Drawing.Point(450, 102);
             this.lbl_Status.Name = "lbl_Status";
-            this.lbl_Status.Size = new System.Drawing.Size(0, 21);
+            this.lbl_Status.Size = new System.Drawing.Size(0, 17);
             this.lbl_Status.TabIndex = 14;
             // 
             // pb_Status
@@ -221,7 +221,7 @@
             this.tableLP_ThongTinDV.Controls.Add(this.dTP_NgayHieuLuc, 1, 3);
             this.tableLP_ThongTinDV.Controls.Add(this.tableLP_NutThongTinDV, 0, 5);
             this.tableLP_ThongTinDV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLP_ThongTinDV.Location = new System.Drawing.Point(3, 24);
+            this.tableLP_ThongTinDV.Location = new System.Drawing.Point(3, 20);
             this.tableLP_ThongTinDV.Name = "tableLP_ThongTinDV";
             this.tableLP_ThongTinDV.RowCount = 6;
             this.tableLP_ThongTinDV.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
@@ -230,24 +230,24 @@
             this.tableLP_ThongTinDV.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLP_ThongTinDV.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLP_ThongTinDV.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLP_ThongTinDV.Size = new System.Drawing.Size(570, 456);
+            this.tableLP_ThongTinDV.Size = new System.Drawing.Size(570, 460);
             this.tableLP_ThongTinDV.TabIndex = 1;
             // 
             // txt_TenDVTat
             // 
             this.txt_TenDVTat.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txt_TenDVTat.Location = new System.Drawing.Point(195, 53);
+            this.txt_TenDVTat.Location = new System.Drawing.Point(195, 57);
             this.txt_TenDVTat.Name = "txt_TenDVTat";
-            this.txt_TenDVTat.Size = new System.Drawing.Size(310, 28);
+            this.txt_TenDVTat.Size = new System.Drawing.Size(310, 24);
             this.txt_TenDVTat.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 12);
+            this.label1.Location = new System.Drawing.Point(3, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 21);
+            this.label1.Size = new System.Drawing.Size(28, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên";
             // 
@@ -255,9 +255,9 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 57);
+            this.label2.Location = new System.Drawing.Point(3, 60);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 21);
+            this.label2.Size = new System.Drawing.Size(72, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Tên viết tắt";
             // 
@@ -265,9 +265,9 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 147);
+            this.label4.Location = new System.Drawing.Point(3, 152);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(104, 21);
+            this.label4.Size = new System.Drawing.Size(84, 17);
             this.label4.TabIndex = 3;
             this.label4.Text = "Ngày hiệu lực";
             // 
@@ -275,9 +275,9 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 102);
+            this.label3.Location = new System.Drawing.Point(3, 106);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 21);
+            this.label3.Size = new System.Drawing.Size(68, 17);
             this.label3.TabIndex = 2;
             this.label3.Text = "Trực thuộc";
             // 
@@ -285,18 +285,18 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 260);
+            this.label5.Location = new System.Drawing.Point(3, 267);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 21);
+            this.label5.Size = new System.Drawing.Size(50, 17);
             this.label5.TabIndex = 4;
             this.label5.Text = "Ghi chú";
             // 
             // txt_TenDV
             // 
             this.txt_TenDV.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txt_TenDV.Location = new System.Drawing.Point(195, 8);
+            this.txt_TenDV.Location = new System.Drawing.Point(195, 11);
             this.txt_TenDV.Name = "txt_TenDV";
-            this.txt_TenDV.Size = new System.Drawing.Size(310, 28);
+            this.txt_TenDV.Size = new System.Drawing.Size(310, 24);
             this.txt_TenDV.TabIndex = 0;
             // 
             // comb_DVTrucThuoc
@@ -304,17 +304,17 @@
             this.comb_DVTrucThuoc.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comb_DVTrucThuoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comb_DVTrucThuoc.FormattingEnabled = true;
-            this.comb_DVTrucThuoc.Location = new System.Drawing.Point(195, 100);
+            this.comb_DVTrucThuoc.Location = new System.Drawing.Point(195, 104);
             this.comb_DVTrucThuoc.Name = "comb_DVTrucThuoc";
-            this.comb_DVTrucThuoc.Size = new System.Drawing.Size(310, 29);
+            this.comb_DVTrucThuoc.Size = new System.Drawing.Size(310, 25);
             this.comb_DVTrucThuoc.TabIndex = 2;
             // 
             // rTB_GhiChu
             // 
             this.rTB_GhiChu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rTB_GhiChu.Location = new System.Drawing.Point(134, 183);
+            this.rTB_GhiChu.Location = new System.Drawing.Point(134, 187);
             this.rTB_GhiChu.Name = "rTB_GhiChu";
-            this.rTB_GhiChu.Size = new System.Drawing.Size(433, 176);
+            this.rTB_GhiChu.Size = new System.Drawing.Size(433, 178);
             this.rTB_GhiChu.TabIndex = 4;
             this.rTB_GhiChu.Text = "";
             // 
@@ -324,10 +324,10 @@
             this.dTP_NgayHieuLuc.Checked = false;
             this.dTP_NgayHieuLuc.CustomFormat = "dd/MM/yyyy";
             this.dTP_NgayHieuLuc.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dTP_NgayHieuLuc.Location = new System.Drawing.Point(197, 143);
+            this.dTP_NgayHieuLuc.Location = new System.Drawing.Point(197, 149);
             this.dTP_NgayHieuLuc.Name = "dTP_NgayHieuLuc";
             this.dTP_NgayHieuLuc.ShowCheckBox = true;
-            this.dTP_NgayHieuLuc.Size = new System.Drawing.Size(306, 28);
+            this.dTP_NgayHieuLuc.Size = new System.Drawing.Size(306, 24);
             this.dTP_NgayHieuLuc.TabIndex = 3;
             // 
             // tableLP_NutThongTinDV
@@ -339,11 +339,11 @@
             this.tableLP_NutThongTinDV.Controls.Add(this.btn_LuuThongTin, 0, 0);
             this.tableLP_NutThongTinDV.Controls.Add(this.btn_HuyThongTin, 1, 0);
             this.tableLP_NutThongTinDV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLP_NutThongTinDV.Location = new System.Drawing.Point(3, 365);
+            this.tableLP_NutThongTinDV.Location = new System.Drawing.Point(3, 371);
             this.tableLP_NutThongTinDV.Name = "tableLP_NutThongTinDV";
             this.tableLP_NutThongTinDV.RowCount = 1;
             this.tableLP_NutThongTinDV.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLP_NutThongTinDV.Size = new System.Drawing.Size(564, 88);
+            this.tableLP_NutThongTinDV.Size = new System.Drawing.Size(564, 86);
             this.tableLP_NutThongTinDV.TabIndex = 33;
             // 
             // btn_LuuThongTin
@@ -351,7 +351,7 @@
             this.btn_LuuThongTin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_LuuThongTin.ImageKey = "Save.png";
             this.btn_LuuThongTin.ImageList = this.imageList1;
-            this.btn_LuuThongTin.Location = new System.Drawing.Point(113, 16);
+            this.btn_LuuThongTin.Location = new System.Drawing.Point(113, 15);
             this.btn_LuuThongTin.Name = "btn_LuuThongTin";
             this.btn_LuuThongTin.Size = new System.Drawing.Size(56, 56);
             this.btn_LuuThongTin.TabIndex = 0;
@@ -363,7 +363,7 @@
             this.btn_HuyThongTin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_HuyThongTin.ImageKey = "Cancel.png";
             this.btn_HuyThongTin.ImageList = this.imageList1;
-            this.btn_HuyThongTin.Location = new System.Drawing.Point(395, 16);
+            this.btn_HuyThongTin.Location = new System.Drawing.Point(395, 15);
             this.btn_HuyThongTin.Name = "btn_HuyThongTin";
             this.btn_HuyThongTin.Size = new System.Drawing.Size(56, 56);
             this.btn_HuyThongTin.TabIndex = 1;
@@ -388,22 +388,22 @@
             this.tableLP_DSDV.Controls.Add(this.lstb_DSDV, 0, 0);
             this.tableLP_DSDV.Controls.Add(this.tableLP_Nut2, 0, 1);
             this.tableLP_DSDV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLP_DSDV.Location = new System.Drawing.Point(3, 24);
+            this.tableLP_DSDV.Location = new System.Drawing.Point(3, 20);
             this.tableLP_DSDV.Name = "tableLP_DSDV";
             this.tableLP_DSDV.RowCount = 2;
             this.tableLP_DSDV.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 79.71014F));
             this.tableLP_DSDV.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.28986F));
-            this.tableLP_DSDV.Size = new System.Drawing.Size(300, 456);
+            this.tableLP_DSDV.Size = new System.Drawing.Size(300, 460);
             this.tableLP_DSDV.TabIndex = 0;
             // 
             // lstb_DSDV
             // 
             this.lstb_DSDV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lstb_DSDV.FormattingEnabled = true;
-            this.lstb_DSDV.ItemHeight = 21;
+            this.lstb_DSDV.ItemHeight = 17;
             this.lstb_DSDV.Location = new System.Drawing.Point(3, 3);
             this.lstb_DSDV.Name = "lstb_DSDV";
-            this.lstb_DSDV.Size = new System.Drawing.Size(294, 357);
+            this.lstb_DSDV.Size = new System.Drawing.Size(294, 360);
             this.lstb_DSDV.TabIndex = 0;
             this.lstb_DSDV.SelectedIndexChanged += new System.EventHandler(this.lstb_DSDV_SelectedIndexChanged);
             // 
@@ -417,11 +417,11 @@
             this.tableLP_Nut2.Controls.Add(this.btn_Them, 0, 0);
             this.tableLP_Nut2.Controls.Add(this.btn_Xoa, 2, 0);
             this.tableLP_Nut2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLP_Nut2.Location = new System.Drawing.Point(3, 366);
+            this.tableLP_Nut2.Location = new System.Drawing.Point(3, 369);
             this.tableLP_Nut2.Name = "tableLP_Nut2";
             this.tableLP_Nut2.RowCount = 1;
             this.tableLP_Nut2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLP_Nut2.Size = new System.Drawing.Size(294, 87);
+            this.tableLP_Nut2.Size = new System.Drawing.Size(294, 88);
             this.tableLP_Nut2.TabIndex = 39;
             // 
             // btn_Sua
@@ -429,7 +429,7 @@
             this.btn_Sua.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Sua.ImageKey = "Edit Data.png";
             this.btn_Sua.ImageList = this.imageList1;
-            this.btn_Sua.Location = new System.Drawing.Point(119, 15);
+            this.btn_Sua.Location = new System.Drawing.Point(119, 16);
             this.btn_Sua.Name = "btn_Sua";
             this.btn_Sua.Size = new System.Drawing.Size(56, 56);
             this.btn_Sua.TabIndex = 2;
@@ -441,7 +441,7 @@
             this.btn_Them.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Them.ImageKey = "Add.png";
             this.btn_Them.ImageList = this.imageList1;
-            this.btn_Them.Location = new System.Drawing.Point(21, 15);
+            this.btn_Them.Location = new System.Drawing.Point(21, 16);
             this.btn_Them.Name = "btn_Them";
             this.btn_Them.Size = new System.Drawing.Size(56, 56);
             this.btn_Them.TabIndex = 0;
@@ -453,7 +453,7 @@
             this.btn_Xoa.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Xoa.ImageKey = "Garbage.png";
             this.btn_Xoa.ImageList = this.imageList1;
-            this.btn_Xoa.Location = new System.Drawing.Point(217, 15);
+            this.btn_Xoa.Location = new System.Drawing.Point(217, 16);
             this.btn_Xoa.Name = "btn_Xoa";
             this.btn_Xoa.Size = new System.Drawing.Size(56, 56);
             this.btn_Xoa.TabIndex = 1;
@@ -476,7 +476,7 @@
             // 
             // ThanhLapDonVi
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.tableLP_ThanhLapDV);
