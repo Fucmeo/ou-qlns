@@ -30,10 +30,52 @@ namespace HDQD.UCs
         public QDChung()
         {
             InitializeComponent();
-            InitObject();
+            InitObject(true);
         }
 
-        private void InitObject()
+        public QDChung(string p_loai_quyet_dinh)
+        {
+            InitializeComponent();
+            InitObject(false);
+
+
+            #region Xử lý dữ liệu cho cbo Loại Quyết Định
+            DataTable dt = new DataTable();
+            dt.Columns.Add("loai_quyet_dinh_id", typeof(int));
+            dt.Columns.Add("ten_loai_quyet_dinh", typeof(string));
+
+            switch (p_loai_quyet_dinh)
+            {
+                case "Đi du học":
+                    dt.Rows.Add(new object[2] { 8, "Đi du học" });
+                    break;
+                case "Nghỉ thai sản":
+                    dt.Rows.Add(new object[2] { 11, "Nghỉ thai sản" });
+                    break;
+                case "Nghỉ không lương":
+                    dt.Rows.Add(new object[2] { 12, "Nghỉ không lương" });
+                    gb_ThongTinLuong.Enabled = false;
+                    break;
+                case "Đi du lịch":
+                    dt.Rows.Add(new object[2] { 13, "Đi du lịch" });
+                    break;
+                case "Thôi việc":
+                    dt.Rows.Add(new object[2] { 14, "Thôi việc" });
+                    break;
+                case "Nghỉ hưu":
+                    dt.Rows.Add(new object[2] { 15, "Nghỉ hưu" });
+                    break;
+                default:
+                    break;
+            }
+
+            thongTinQuyetDinh1.comB_Loai.DataSource = dt;
+            thongTinQuyetDinh1.comB_Loai.DisplayMember = "ten_loai_quyet_dinh";
+            thongTinQuyetDinh1.comB_Loai.ValueMember = "loai_quyet_dinh_id";
+            #endregion
+        }
+
+        private void InitObject(bool p_loadcbo_loaiqd)
         {
             oChucdanh = new ChucDanh();
             oChucvu = new ChucVu();
@@ -49,7 +91,10 @@ namespace HDQD.UCs
             dtLoaiPC = oLoaiPC.GetList_Cbo();
             PreapreDataSource();
             PrepareDataTablePhuCap();
-            LoadCbo_Loai_QD();
+
+            if (p_loadcbo_loaiqd)
+            { LoadCbo_Loai_QD(); }
+
         }
 
         private void cb_Ins_Qtr_Ctac_CheckedChanged(object sender, EventArgs e)

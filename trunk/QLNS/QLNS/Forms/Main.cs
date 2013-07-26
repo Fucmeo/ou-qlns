@@ -371,61 +371,61 @@ namespace QLNS.Forms
 
         private void qĐDuHocToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            HDQD.UCs.QDChung uc = new HDQD.UCs.QDChung();
-            uc.thongTinQuyetDinh1.comB_Loai.DataSource = null;
-            uc.thongTinQuyetDinh1.comB_Loai.Items.Add("Đi du học");
-            uc.thongTinQuyetDinh1.comB_Loai.SelectedIndex = 0;
+            HDQD.UCs.QDChung uc = new HDQD.UCs.QDChung("Đi du học");
+            //uc.thongTinQuyetDinh1.comB_Loai.DataSource = null;
+            //uc.thongTinQuyetDinh1.comB_Loai.Items.Add("Đi du học");
+            //uc.thongTinQuyetDinh1.comB_Loai.SelectedIndex = 0;
             Forms.Popup f = new Popup("Quyết định đi du học", uc);
             f.ShowDialog();
         }
 
         private void qĐNghỉThaiSảnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            HDQD.UCs.QDChung uc = new HDQD.UCs.QDChung();
-            uc.thongTinQuyetDinh1.comB_Loai.DataSource = null;
-            uc.thongTinQuyetDinh1.comB_Loai.Items.Add("Nghỉ thai sản");
-            uc.thongTinQuyetDinh1.comB_Loai.SelectedIndex = 0;
+            HDQD.UCs.QDChung uc = new HDQD.UCs.QDChung("Nghỉ thai sản");
+            //uc.thongTinQuyetDinh1.comB_Loai.DataSource = null;
+            //uc.thongTinQuyetDinh1.comB_Loai.Items.Add("Nghỉ thai sản");
+            //uc.thongTinQuyetDinh1.comB_Loai.SelectedIndex = 0;
             Forms.Popup f = new Popup("Quyết định nghỉ thai sản", uc);
             f.ShowDialog();
         }
 
         private void qĐNghỉKhôngLươngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            HDQD.UCs.QDChung uc = new HDQD.UCs.QDChung();
-            uc.thongTinQuyetDinh1.comB_Loai.DataSource = null;
-            uc.thongTinQuyetDinh1.comB_Loai.Items.Add("Nghỉ không lương");
-            uc.thongTinQuyetDinh1.comB_Loai.SelectedIndex = 0;
-            uc.gb_ThongTinLuong.Enabled = false;
+            HDQD.UCs.QDChung uc = new HDQD.UCs.QDChung("Nghỉ không lương");
+            //uc.thongTinQuyetDinh1.comB_Loai.DataSource = null;
+            //uc.thongTinQuyetDinh1.comB_Loai.Items.Add("Nghỉ không lương");
+            //uc.thongTinQuyetDinh1.comB_Loai.SelectedIndex = 0;
+            //uc.gb_ThongTinLuong.Enabled = false;
             Forms.Popup f = new Popup("Quyết định nghỉ không lương", uc);
             f.ShowDialog();
         }
 
         private void qĐDuLịchToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            HDQD.UCs.QDChung uc = new HDQD.UCs.QDChung();
-            uc.thongTinQuyetDinh1.comB_Loai.DataSource = null;
-            uc.thongTinQuyetDinh1.comB_Loai.Items.Add("Du lịch");
-            uc.thongTinQuyetDinh1.comB_Loai.SelectedIndex = 0;
-            Forms.Popup f = new Popup("Quyết định du lịch", uc);
+            HDQD.UCs.QDChung uc = new HDQD.UCs.QDChung("Đi du lịch");
+            //uc.thongTinQuyetDinh1.comB_Loai.DataSource = null;
+            //uc.thongTinQuyetDinh1.comB_Loai.Items.Add("Đi du lịch");
+            //uc.thongTinQuyetDinh1.comB_Loai.SelectedIndex = 0;
+            Forms.Popup f = new Popup("Quyết định đi du lịch", uc);
             f.ShowDialog();
         }
 
         private void qĐThôiViệcToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            HDQD.UCs.QDChung uc = new HDQD.UCs.QDChung();
-            uc.thongTinQuyetDinh1.comB_Loai.DataSource = null;
-            uc.thongTinQuyetDinh1.comB_Loai.Items.Add("Thôi việc");
-            uc.thongTinQuyetDinh1.comB_Loai.SelectedIndex = 0;
+            HDQD.UCs.QDChung uc = new HDQD.UCs.QDChung("Thôi việc");
+            //uc.thongTinQuyetDinh1.comB_Loai.DataSource = null;
+            //uc.thongTinQuyetDinh1.comB_Loai.Items.Add("Thôi việc");
+            //uc.thongTinQuyetDinh1.comB_Loai.SelectedIndex = 0;
             Forms.Popup f = new Popup("Quyết định thôi việc", uc);
             f.ShowDialog();
         }
 
         private void qĐNghỉHưuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            HDQD.UCs.QDChung uc = new HDQD.UCs.QDChung();
-            uc.thongTinQuyetDinh1.comB_Loai.DataSource = null;
-            uc.thongTinQuyetDinh1.comB_Loai.Items.Add("Nghỉ hưu");
-            uc.thongTinQuyetDinh1.comB_Loai.SelectedIndex = 0;
+            HDQD.UCs.QDChung uc = new HDQD.UCs.QDChung("Nghỉ hưu");
+            //uc.thongTinQuyetDinh1.comB_Loai.DataSource = null;
+            //uc.thongTinQuyetDinh1.comB_Loai.Items.Add("Nghỉ hưu");
+            //uc.thongTinQuyetDinh1.comB_Loai.SelectedIndex = 0;
             Forms.Popup f = new Popup("Quyết định nghỉ hưu", uc);
             f.ShowDialog();
         }

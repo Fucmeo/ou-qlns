@@ -159,6 +159,8 @@ namespace HDQD.UCs
                         {
                             MessageBox.Show("Xoá thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
+                        else
+                            MessageBox.Show("Không thể xóa được quyết định này!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         RefreshDataSource();
 
                     }
