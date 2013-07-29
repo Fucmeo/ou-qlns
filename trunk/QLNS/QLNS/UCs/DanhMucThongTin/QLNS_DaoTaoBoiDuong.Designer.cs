@@ -396,6 +396,7 @@
             // 
             this.lbl_ThemBoiDuong.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbl_ThemBoiDuong.AutoSize = true;
+            this.lbl_ThemBoiDuong.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_ThemBoiDuong.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ThemBoiDuong.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.lbl_ThemBoiDuong.Location = new System.Drawing.Point(3, 4);
@@ -409,6 +410,7 @@
             // 
             this.lbl_XoaBoiDuong.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbl_XoaBoiDuong.AutoSize = true;
+            this.lbl_XoaBoiDuong.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_XoaBoiDuong.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_XoaBoiDuong.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.lbl_XoaBoiDuong.Location = new System.Drawing.Point(175, 4);
@@ -422,6 +424,7 @@
             // 
             this.lbl_SuaBoiDuong.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbl_SuaBoiDuong.AutoSize = true;
+            this.lbl_SuaBoiDuong.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_SuaBoiDuong.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_SuaBoiDuong.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.lbl_SuaBoiDuong.Location = new System.Drawing.Point(89, 4);
@@ -435,6 +438,7 @@
             // 
             this.lb_BoiDuong_TapTin.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lb_BoiDuong_TapTin.AutoSize = true;
+            this.lb_BoiDuong_TapTin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lb_BoiDuong_TapTin.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_BoiDuong_TapTin.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.lb_BoiDuong_TapTin.Location = new System.Drawing.Point(261, 4);
@@ -740,7 +744,7 @@
             this.comB_PhuongThucDT.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_PhuongThucDT.Enabled = false;
             this.comB_PhuongThucDT.FormattingEnabled = true;
-            this.comB_PhuongThucDT.Location = new System.Drawing.Point(468, 94);
+            this.comB_PhuongThucDT.Location = new System.Drawing.Point(468, 93);
             this.comB_PhuongThucDT.Name = "comB_PhuongThucDT";
             this.comB_PhuongThucDT.Size = new System.Drawing.Size(226, 26);
             this.comB_PhuongThucDT.TabIndex = 5;
@@ -880,6 +884,7 @@
             // 
             this.lbl_ThemDaoTao.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbl_ThemDaoTao.AutoSize = true;
+            this.lbl_ThemDaoTao.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_ThemDaoTao.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ThemDaoTao.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.lbl_ThemDaoTao.Location = new System.Drawing.Point(3, 5);
@@ -893,6 +898,7 @@
             // 
             this.lbl_XoaDaoTao.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbl_XoaDaoTao.AutoSize = true;
+            this.lbl_XoaDaoTao.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_XoaDaoTao.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_XoaDaoTao.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.lbl_XoaDaoTao.Location = new System.Drawing.Point(175, 5);
@@ -906,6 +912,7 @@
             // 
             this.lbl_SuaDaoTao.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbl_SuaDaoTao.AutoSize = true;
+            this.lbl_SuaDaoTao.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_SuaDaoTao.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_SuaDaoTao.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.lbl_SuaDaoTao.Location = new System.Drawing.Point(89, 5);
@@ -919,6 +926,7 @@
             // 
             this.lb_DaoTao_File.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lb_DaoTao_File.AutoSize = true;
+            this.lb_DaoTao_File.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lb_DaoTao_File.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_DaoTao_File.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.lb_DaoTao_File.Location = new System.Drawing.Point(261, 5);
@@ -1054,7 +1062,7 @@
             this.comB_HinhThuc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_HinhThuc.Enabled = false;
             this.comB_HinhThuc.FormattingEnabled = true;
-            this.comB_HinhThuc.Location = new System.Drawing.Point(119, 94);
+            this.comB_HinhThuc.Location = new System.Drawing.Point(119, 93);
             this.comB_HinhThuc.Name = "comB_HinhThuc";
             this.comB_HinhThuc.Size = new System.Drawing.Size(226, 26);
             this.comB_HinhThuc.TabIndex = 4;

@@ -93,9 +93,9 @@ namespace QLNS.UCs.DanhMucThongTin
             }
             else
             {
-                if (dtDSTinhTP.AsEnumerable().Where(a => a.Field<int>("quoc_gia_id") == v).Count() > 0)
+                if (dtDSTinhTP.AsEnumerable().Where(a => a.Field<int?>("quoc_gia_id") == v).Count() > 0)
                 {
-                    dt = dtDSTinhTP.AsEnumerable().Where(a => a.Field<int>("quoc_gia_id") == v).CopyToDataTable();
+                    dt = dtDSTinhTP.AsEnumerable().Where(a => a.Field<int?>("quoc_gia_id") == v).CopyToDataTable();
 
                     DataRow dr = dt.NewRow();
                     dr["ten_tinh_tp"] = "";

@@ -232,7 +232,7 @@ namespace QLNS.UCs.DanhMucThongTin
             if (init)
             {
                 txt_ChucDanh.Enabled = txt_ChucVu.Enabled = txt_TenDV.Enabled = comB_Nganh.Enabled = dTP_DenNgay.Enabled = dTP_TuNgay.Enabled =
-                    txt_CoQuan.Enabled = rtb_GhiChu.Enabled = rTB_CongViecChinh.Enabled = false;
+                    txt_CoQuan.Enabled = rtb_GhiChu.Enabled = rTB_CongViecChinh.Enabled  = false;
 
                 dtgv_QTCT_Ngoai.Enabled = true;
                 if (dtgv_QTCT_Ngoai.CurrentRow != null)
@@ -247,7 +247,7 @@ namespace QLNS.UCs.DanhMucThongTin
             else
             {
                 txt_ChucDanh.Enabled = txt_ChucVu.Enabled = txt_TenDV.Enabled = dTP_DenNgay.Enabled = dTP_TuNgay.Enabled =
-                        txt_CoQuan.Enabled = rtb_GhiChu.Enabled = rTB_CongViecChinh.Enabled = true;
+                        txt_CoQuan.Enabled = rtb_GhiChu.Enabled = rTB_CongViecChinh.Enabled  = true;
                 dtgv_QTCT_Ngoai.Enabled = comB_Nganh.Enabled = false;
 
                 if (bAddFlag) // thao tac them moi xoa rong cac field
@@ -499,7 +499,10 @@ namespace QLNS.UCs.DanhMucThongTin
             if (comB_Nganh.Text == "Trong ngành giáo dục" && lbl_ThemNgoai.Text != "Thêm")
                 cb_TinhThamNien.Enabled = true;
             else
+            {
                 cb_TinhThamNien.Enabled = false;
+                cb_TinhThamNien.Checked = false;
+            }
         }
 
     }

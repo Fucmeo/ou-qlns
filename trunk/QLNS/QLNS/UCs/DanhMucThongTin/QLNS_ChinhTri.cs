@@ -159,7 +159,7 @@ namespace QLNS.UCs.DanhMucThongTin
             if (init)
             {
                 comB_LoaiHinhCT_ToChuc.Enabled = txt_TenToChuc.Enabled = dtp_ToChuc_NgayVao.Enabled = dtp_ToChuc_NgayRa.Enabled = false;
-                dtgv_DoanDang.Enabled = listb_DSChucVu.Enabled = true;
+                dtgv_DoanDang.Enabled = listb_DSChucVu.Enabled = rtb_ToChuc_GhiChu.Enabled = true;
                 if (dtgv_DoanDang.CurrentRow != null)
                 {
                     DisplayInfo(dtgv_DoanDang.CurrentRow);
@@ -172,7 +172,7 @@ namespace QLNS.UCs.DanhMucThongTin
             else
             {
                 comB_LoaiHinhCT_ToChuc.Enabled = txt_TenToChuc.Enabled = dtp_ToChuc_NgayVao.Enabled = dtp_ToChuc_NgayRa.Enabled = true;
-                dtgv_DoanDang.Enabled = listb_DSChucVu.Enabled = false;
+                dtgv_DoanDang.Enabled = listb_DSChucVu.Enabled = rtb_ToChuc_GhiChu.Enabled = false;
                 if (bAddFlag_ToChuc) // thao tac them moi xoa rong cac field
                 {
                     txt_TenToChuc.Text = "";
@@ -211,8 +211,20 @@ namespace QLNS.UCs.DanhMucThongTin
 
         private void ResetInterface_Chinh_Tri_HCCB(bool init)
         {
-            txt_QuanHam.Enabled = txt_DanhHieu.Enabled = txt_ThuongBinh.Enabled = rtb_KhenThuong_TrungDoan.Enabled =
-                dtp_NgayNhapNgu.Enabled = dtp_NgayXuatNgu.Enabled = cb_ChienDau.Enabled = init;
+            cb_LaHoiCuuCB.Enabled = init;
+
+            if (cb_LaHoiCuuCB.Checked == true && cb_LaHoiCuuCB.Enabled == true)
+            {
+                txt_QuanHam.Enabled = txt_DanhHieu.Enabled = txt_ThuongBinh.Enabled = rtb_KhenThuong_TrungDoan.Enabled =
+                dtp_NgayNhapNgu.Enabled = dtp_NgayXuatNgu.Enabled = cb_ChienDau.Enabled = true;
+            }
+            else
+            {
+                txt_QuanHam.Enabled = txt_DanhHieu.Enabled = txt_ThuongBinh.Enabled = rtb_KhenThuong_TrungDoan.Enabled =
+                dtp_NgayNhapNgu.Enabled = dtp_NgayXuatNgu.Enabled = cb_ChienDau.Enabled = false;
+            }
+
+            
         }
 
         private void ResetInterface_Loai_Chinh_Tri_Basic(bool init)
@@ -991,34 +1003,34 @@ namespace QLNS.UCs.DanhMucThongTin
         {
             if (cb_DangVien.Checked == true && cb_DangVien.Enabled == true)
                 dtp_NgayDuBiLan1.Enabled = dtp_NgayChinhThucLan1.Enabled = dtp_NgayDuBiLan2.Enabled = dtp_NgayChinhThucLan2.Enabled =
-                    dtp_DangVien_NgayRa.Enabled = true;
+                    dtp_DangVien_NgayRa.Enabled = txt_NgHD1.Enabled = txt_NgHD2.Enabled = txt_NgHD3.Enabled = txt_NgHD4.Enabled = rtb_DangVien_GhiChu.Enabled = true;
             else
                 dtp_NgayDuBiLan1.Enabled = dtp_NgayChinhThucLan1.Enabled = dtp_NgayDuBiLan2.Enabled = dtp_NgayChinhThucLan2.Enabled =
-                    dtp_DangVien_NgayRa.Enabled = false;
+                    dtp_DangVien_NgayRa.Enabled = txt_NgHD1.Enabled = txt_NgHD2.Enabled = txt_NgHD3.Enabled = txt_NgHD4.Enabled = rtb_DangVien_GhiChu.Enabled = false;
         }
 
         private void cb_DoanVien_CheckedChanged(object sender, EventArgs e)
         {
             if (cb_DoanVien.Checked == true && cb_DoanVien.Enabled == true)
-                dtp_KetNapLan1.Enabled = dtp_KetNapLan2.Enabled = dtp_DoanVien_NgayRa.Enabled = true;
+                dtp_KetNapLan1.Enabled = dtp_KetNapLan2.Enabled = dtp_DoanVien_NgayRa.Enabled = rtb_DoanVien_GhiChu.Enabled = true;
             else
-                dtp_KetNapLan1.Enabled = dtp_KetNapLan2.Enabled = dtp_DoanVien_NgayRa.Enabled = false;
+                dtp_KetNapLan1.Enabled = dtp_KetNapLan2.Enabled = dtp_DoanVien_NgayRa.Enabled = rtb_DoanVien_GhiChu.Enabled = false;
         }
 
         private void cb_DanQuan_CheckedChanged(object sender, EventArgs e)
         {
             if (cb_DanQuan.Checked == true && cb_DanQuan.Enabled == true)
-                dtp_DanQuan_NgayVao.Enabled = dtp_DanQuan_NgayRa.Enabled = true;
+                dtp_DanQuan_NgayVao.Enabled = dtp_DanQuan_NgayRa.Enabled = rtb_DanQuan_GhiChu.Enabled = true;
             else
-                dtp_DanQuan_NgayVao.Enabled = dtp_DanQuan_NgayRa.Enabled = false;
+                dtp_DanQuan_NgayVao.Enabled = dtp_DanQuan_NgayRa.Enabled = rtb_DanQuan_GhiChu.Enabled = false;
         }
 
         private void cb_CongDoan_CheckedChanged(object sender, EventArgs e)
         {
             if (cb_CongDoan.Checked == true && cb_CongDoan.Enabled == true)
-                dtp_CongDoan_NgayVao.Enabled = dtp_CongDoan_NgayRa.Enabled = true;
+                dtp_CongDoan_NgayVao.Enabled = dtp_CongDoan_NgayRa.Enabled = rtb_CongDoan_GhiChu.Enabled = true;
             else
-                dtp_CongDoan_NgayVao.Enabled = dtp_CongDoan_NgayRa.Enabled = false;
+                dtp_CongDoan_NgayVao.Enabled = dtp_CongDoan_NgayRa.Enabled = rtb_CongDoan_GhiChu.Enabled = false;
         }
 
         private void lb_Them_ToChuc_Click(object sender, EventArgs e)
@@ -1324,6 +1336,20 @@ namespace QLNS.UCs.DanhMucThongTin
         private void txt_NgHD1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cb_LaHoiCuuCB_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cb_LaHoiCuuCB.Checked == true && cb_LaHoiCuuCB.Enabled == true)
+            {
+                txt_QuanHam.Enabled = txt_DanhHieu.Enabled = txt_ThuongBinh.Enabled = rtb_KhenThuong_TrungDoan.Enabled =
+                dtp_NgayNhapNgu.Enabled = dtp_NgayXuatNgu.Enabled = cb_ChienDau.Enabled = true;
+            }
+            else
+            {
+                txt_QuanHam.Enabled = txt_DanhHieu.Enabled = txt_ThuongBinh.Enabled = rtb_KhenThuong_TrungDoan.Enabled =
+                dtp_NgayNhapNgu.Enabled = dtp_NgayXuatNgu.Enabled = cb_ChienDau.Enabled = false;
+            }
         }
 
         

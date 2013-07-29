@@ -258,7 +258,7 @@
             this.comB_QuocGia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_QuocGia.Enabled = false;
             this.comB_QuocGia.FormattingEnabled = true;
-            this.comB_QuocGia.Location = new System.Drawing.Point(636, 147);
+            this.comB_QuocGia.Location = new System.Drawing.Point(636, 145);
             this.comB_QuocGia.Name = "comB_QuocGia";
             this.comB_QuocGia.Size = new System.Drawing.Size(263, 29);
             this.comB_QuocGia.TabIndex = 5;
@@ -270,7 +270,7 @@
             this.comB_Tinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_Tinh.Enabled = false;
             this.comB_Tinh.FormattingEnabled = true;
-            this.comB_Tinh.Location = new System.Drawing.Point(149, 147);
+            this.comB_Tinh.Location = new System.Drawing.Point(149, 145);
             this.comB_Tinh.Name = "comB_Tinh";
             this.comB_Tinh.Size = new System.Drawing.Size(263, 29);
             this.comB_Tinh.TabIndex = 4;
@@ -394,7 +394,6 @@
             this.tableLP_ThongTinCaNhan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tableLP_ThongTinCaNhan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLP_ThongTinCaNhan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
-            this.tableLP_ThongTinCaNhan.Controls.Add(this.cb_LaDangVien, 3, 0);
             this.tableLP_ThongTinCaNhan.Controls.Add(this.comB_MoiQH, 1, 0);
             this.tableLP_ThongTinCaNhan.Controls.Add(this.rTB_ThanhVienToChuc, 1, 5);
             this.tableLP_ThongTinCaNhan.Controls.Add(this.txt_Ho, 1, 1);
@@ -409,7 +408,6 @@
             this.tableLP_ThongTinCaNhan.Controls.Add(this.label11, 2, 3);
             this.tableLP_ThongTinCaNhan.Controls.Add(this.label7, 2, 2);
             this.tableLP_ThongTinCaNhan.Controls.Add(this.label3, 2, 1);
-            this.tableLP_ThongTinCaNhan.Controls.Add(this.cb_ThanNhanNuocNgoai, 2, 0);
             this.tableLP_ThongTinCaNhan.Controls.Add(this.txt_NamSinh, 1, 2);
             this.tableLP_ThongTinCaNhan.Controls.Add(this.txt_Ten, 3, 1);
             this.tableLP_ThongTinCaNhan.Controls.Add(this.txt_NgheNghiep, 1, 3);
@@ -418,6 +416,8 @@
             this.tableLP_ThongTinCaNhan.Controls.Add(this.txt_DVCongTac, 1, 4);
             this.tableLP_ThongTinCaNhan.Controls.Add(this.txt_HocTap, 3, 4);
             this.tableLP_ThongTinCaNhan.Controls.Add(this.rTB_GhiChu, 3, 5);
+            this.tableLP_ThongTinCaNhan.Controls.Add(this.cb_ThanNhanNuocNgoai, 3, 0);
+            this.tableLP_ThongTinCaNhan.Controls.Add(this.cb_LaDangVien, 2, 0);
             this.tableLP_ThongTinCaNhan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLP_ThongTinCaNhan.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLP_ThongTinCaNhan.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -439,7 +439,7 @@
             this.cb_LaDangVien.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cb_LaDangVien.AutoSize = true;
             this.cb_LaDangVien.Enabled = false;
-            this.cb_LaDangVien.Location = new System.Drawing.Point(636, 15);
+            this.cb_LaDangVien.Location = new System.Drawing.Point(490, 15);
             this.cb_LaDangVien.Name = "cb_LaDangVien";
             this.cb_LaDangVien.Size = new System.Drawing.Size(120, 25);
             this.cb_LaDangVien.TabIndex = 17;
@@ -460,7 +460,7 @@
             "Anh chị em ruột",
             "Anh chị em ruột bên vợ/chồng",
             "Khác"});
-            this.comB_MoiQH.Location = new System.Drawing.Point(149, 13);
+            this.comB_MoiQH.Location = new System.Drawing.Point(149, 15);
             this.comB_MoiQH.Name = "comB_MoiQH";
             this.comB_MoiQH.Size = new System.Drawing.Size(263, 29);
             this.comB_MoiQH.TabIndex = 0;
@@ -601,9 +601,9 @@
             this.cb_ThanNhanNuocNgoai.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cb_ThanNhanNuocNgoai.AutoSize = true;
             this.cb_ThanNhanNuocNgoai.Enabled = false;
-            this.cb_ThanNhanNuocNgoai.Location = new System.Drawing.Point(490, 15);
+            this.cb_ThanNhanNuocNgoai.Location = new System.Drawing.Point(636, 15);
             this.cb_ThanNhanNuocNgoai.Name = "cb_ThanNhanNuocNgoai";
-            this.cb_ThanNhanNuocNgoai.Size = new System.Drawing.Size(140, 25);
+            this.cb_ThanNhanNuocNgoai.Size = new System.Drawing.Size(187, 25);
             this.cb_ThanNhanNuocNgoai.TabIndex = 1;
             this.cb_ThanNhanNuocNgoai.Text = "Thân nhân nước ngoài";
             this.cb_ThanNhanNuocNgoai.UseVisualStyleBackColor = true;

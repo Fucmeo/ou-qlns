@@ -352,7 +352,7 @@
             this.cb_CongDoan.TabIndex = 0;
             this.cb_CongDoan.Text = "Là Công đoàn";
             this.cb_CongDoan.UseVisualStyleBackColor = true;
-            this.cb_CongDoan.Click += new System.EventHandler(this.cb_CongDoan_CheckedChanged);
+            this.cb_CongDoan.CheckedChanged += new System.EventHandler(this.cb_CongDoan_CheckedChanged);
             // 
             // label26
             // 
@@ -471,7 +471,7 @@
             this.cb_DanQuan.TabIndex = 0;
             this.cb_DanQuan.Text = "Là Dân quân tự vệ";
             this.cb_DanQuan.UseVisualStyleBackColor = true;
-            this.cb_DanQuan.Click += new System.EventHandler(this.cb_DanQuan_CheckedChanged);
+            this.cb_DanQuan.CheckedChanged += new System.EventHandler(this.cb_DanQuan_CheckedChanged);
             // 
             // label24
             // 
@@ -592,7 +592,7 @@
             this.cb_DoanVien.TabIndex = 0;
             this.cb_DoanVien.Text = "Là Đoàn viên";
             this.cb_DoanVien.UseVisualStyleBackColor = true;
-            this.cb_DoanVien.Click += new System.EventHandler(this.cb_DoanVien_CheckedChanged);
+            this.cb_DoanVien.CheckedChanged += new System.EventHandler(this.cb_DoanVien_CheckedChanged);
             // 
             // label21
             // 
@@ -752,7 +752,7 @@
             this.cb_DangVien.TabIndex = 0;
             this.cb_DangVien.Text = "Là Đảng viên";
             this.cb_DangVien.UseVisualStyleBackColor = true;
-            this.cb_DangVien.Click += new System.EventHandler(this.cb_DangVien_CheckedChanged);
+            this.cb_DangVien.CheckedChanged += new System.EventHandler(this.cb_DangVien_CheckedChanged);
             // 
             // label9
             // 
@@ -1111,6 +1111,7 @@
             // 
             this.lbl_ThemChucVu.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbl_ThemChucVu.AutoSize = true;
+            this.lbl_ThemChucVu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_ThemChucVu.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ThemChucVu.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.lbl_ThemChucVu.Location = new System.Drawing.Point(3, 57);
@@ -1212,6 +1213,7 @@
             // 
             this.lbl_Them_Chuc_Vu.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lbl_Them_Chuc_Vu.AutoSize = true;
+            this.lbl_Them_Chuc_Vu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_Them_Chuc_Vu.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Them_Chuc_Vu.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.lbl_Them_Chuc_Vu.Location = new System.Drawing.Point(48, 33);
@@ -1225,6 +1227,7 @@
             // 
             this.lbl_Xoa_Chuc_Vu.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbl_Xoa_Chuc_Vu.AutoSize = true;
+            this.lbl_Xoa_Chuc_Vu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_Xoa_Chuc_Vu.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Xoa_Chuc_Vu.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.lbl_Xoa_Chuc_Vu.Location = new System.Drawing.Point(191, 33);
@@ -1238,6 +1241,7 @@
             // 
             this.lbl_Sua_Chuc_Vu.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_Sua_Chuc_Vu.AutoSize = true;
+            this.lbl_Sua_Chuc_Vu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_Sua_Chuc_Vu.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Sua_Chuc_Vu.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.lbl_Sua_Chuc_Vu.Location = new System.Drawing.Point(125, 33);
@@ -1449,6 +1453,7 @@
             // 
             this.lb_Them_ToChuc.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lb_Them_ToChuc.AutoSize = true;
+            this.lb_Them_ToChuc.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lb_Them_ToChuc.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Them_ToChuc.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.lb_Them_ToChuc.Location = new System.Drawing.Point(194, 12);
@@ -1462,6 +1467,7 @@
             // 
             this.lb_Xoa_ToChuc.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lb_Xoa_ToChuc.AutoSize = true;
+            this.lb_Xoa_ToChuc.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lb_Xoa_ToChuc.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Xoa_ToChuc.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.lb_Xoa_ToChuc.Location = new System.Drawing.Point(483, 12);
@@ -1475,6 +1481,7 @@
             // 
             this.lb_Sua__ToChuc.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lb_Sua__ToChuc.AutoSize = true;
+            this.lb_Sua__ToChuc.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lb_Sua__ToChuc.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Sua__ToChuc.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.lb_Sua__ToChuc.Location = new System.Drawing.Point(344, 12);
@@ -1745,13 +1752,13 @@
             this.cb_LaHoiCuuCB.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cb_LaHoiCuuCB.AutoSize = true;
             this.tableLP_HoiCuuChienBinh.SetColumnSpan(this.cb_LaHoiCuuCB, 2);
-            this.cb_LaHoiCuuCB.Enabled = false;
             this.cb_LaHoiCuuCB.Location = new System.Drawing.Point(3, 4);
             this.cb_LaHoiCuuCB.Name = "cb_LaHoiCuuCB";
             this.cb_LaHoiCuuCB.Size = new System.Drawing.Size(181, 25);
             this.cb_LaHoiCuuCB.TabIndex = 39;
             this.cb_LaHoiCuuCB.Text = "Là Hội cựu chiến bịnh";
             this.cb_LaHoiCuuCB.UseVisualStyleBackColor = true;
+            this.cb_LaHoiCuuCB.CheckedChanged += new System.EventHandler(this.cb_LaHoiCuuCB_CheckedChanged);
             // 
             // rtb_KhenThuong_TrungDoan
             // 
