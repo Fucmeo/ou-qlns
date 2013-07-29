@@ -39,6 +39,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -92,6 +93,12 @@
     </Compile>
     <Compile Include="UCs\NCKH_ThemNguoi.Designer.cs">
       <DependentUpon>NCKH_ThemNguoi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCs\QLNS_ThamNien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\QLNS_ThamNien.Designer.cs">
+      <DependentUpon>QLNS_ThamNien.cs</DependentUpon>
     </Compile>
     <Compile Include="UCs\ThemDanToc.cs">
       <SubType>UserControl</SubType>
@@ -303,6 +310,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\NCKH_ThemNguoi.resx">
       <DependentUpon>NCKH_ThemNguoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\QLNS_ThamNien.resx">
+      <DependentUpon>QLNS_ThamNien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\ThemDanToc.resx">
       <DependentUpon>ThemDanToc.cs</DependentUpon>

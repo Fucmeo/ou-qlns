@@ -1,8 +1,8 @@
 D:\Job\QLNS\Projects\QLNS\DataProvider\bin\Release\DataProvider.dll
 D:\Job\QLNS\Projects\QLNS\DataProvider\bin\Release\DataProvider.pdb
+D:\Job\QLNS\Projects\QLNS\DataProvider\bin\Release\Mono.Security.dll
 D:\Job\QLNS\Projects\QLNS\DataProvider\bin\Release\Npgsql.dll
 D:\Job\QLNS\Projects\QLNS\DataProvider\bin\Release\SystemConfig.dll
-D:\Job\QLNS\Projects\QLNS\DataProvider\bin\Release\Mono.Security.dll
 D:\Job\QLNS\Projects\QLNS\DataProvider\bin\Release\SystemConfig.pdb
 D:\Job\QLNS\Projects\QLNS\DataProvider\bin\Release\Npgsql.pdb
 D:\Job\QLNS\Projects\QLNS\DataProvider\bin\Release\Npgsql.xml

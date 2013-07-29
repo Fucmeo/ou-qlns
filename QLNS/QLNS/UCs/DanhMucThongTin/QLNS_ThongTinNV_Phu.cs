@@ -382,7 +382,7 @@ namespace QLNS.UCs.DanhMucThongTin
             }
             else
             {
-                var dt = dtTinhTP.AsEnumerable().Where(a => a.Field<int>("quoc_gia_id") == v);
+                var dt = dtTinhTP.AsEnumerable().Where(a => a.Field<int?>("quoc_gia_id") == v);
                 if (dt != null && dt.Count() > 0)
                 {
                     LoadTinhData(dt.CopyToDataTable(), Comb_Tinh);
@@ -459,9 +459,9 @@ namespace QLNS.UCs.DanhMucThongTin
         /// <param name="Comb_Tinh"></param>
         /// <param name="quoc_gia_id"></param>
         /// <param name="SelectedValue">tinh mà ng dung da chon</param>
-        private void ExcludeTinhData(ComboBox Comb_Tinh, int quoc_gia_id, int SelectedValue)
+        private void ExcludeTinhData(ComboBox Comb_Tinh, int? quoc_gia_id, int SelectedValue)
         {
-            var dt = dtTinhTP.AsEnumerable().Where(a => a.Field<int>("quoc_gia_id") == quoc_gia_id);
+            var dt = dtTinhTP.AsEnumerable().Where(a => a.Field<int?>("quoc_gia_id") == quoc_gia_id);
             DataTable dt2 = dt.CopyToDataTable();
             if (dt2.AsEnumerable().Where(a => a.Field<int>("id") == -1).Count() <= 0)
             {

@@ -193,7 +193,7 @@ namespace QLNS.UCs.DanhMucThongTin
             }
             else
             {
-                var dt = dtTinhTP.AsEnumerable().Where(a => a.Field<int>("quoc_gia_id") == v);
+                var dt = dtTinhTP.AsEnumerable().Where(a => a.Field<int?>("quoc_gia_id") == v);
                 if (dt != null && dt.Count() > 0)
                 {
                     LoadTinhData(dt.CopyToDataTable(), Comb_Tinh);
@@ -269,7 +269,7 @@ namespace QLNS.UCs.DanhMucThongTin
         /// <param name="SelectedValue">tinh mà ng dung da chon</param>
         private void ExcludeTinhData(ComboBox Comb_Tinh, int quoc_gia_id, int SelectedValue)
         {
-            var dt = dtTinhTP.AsEnumerable().Where(a => a.Field<int>("quoc_gia_id") == quoc_gia_id);
+            var dt = dtTinhTP.AsEnumerable().Where(a => a.Field<int?>("quoc_gia_id") == quoc_gia_id);
             DataTable dt2 = dt.CopyToDataTable();
             if (dt2.AsEnumerable().Where(a => a.Field<int>("id") == -1).Count() <= 0)
             {
@@ -866,7 +866,7 @@ namespace QLNS.UCs.DanhMucThongTin
                     dTP_TuNgay_BoiDuong.Enabled = comB_QuocGia_BoiDuong.Enabled =
                     txt_Diem_BoiDuong.Enabled = rtb_GhiChu_BoiDuong.Enabled =
                     comB_Tinh_BoiDuong.Enabled = tableLP_BoiDuong_Tinh.Enabled = tableLP_BoiDuong_QG.Enabled = 
-                    txt_BoiDuong_SoVaoSo.Enabled = txt_BoiDuong_SoHieuBang.Enabled = Add;
+                    txt_BoiDuong_SoVaoSo.Enabled = txt_BoiDuong_SoHieuBang.Enabled = dtp_NgayCap_BoiDuong.Enabled = Add;
             dtgv_BoiDuong.Enabled = lbl_XoaBoiDuong.Enabled = !Add;
 
             if (Add)

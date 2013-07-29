@@ -339,7 +339,7 @@ namespace QLNS.UCs.DanhMucThongTin
             }
             else
             {
-                var dt = dtTinhTP.AsEnumerable().Where(a => a.Field<int>("quoc_gia_id") == v);
+                var dt = dtTinhTP.AsEnumerable().Where(a => a.Field<int?>("quoc_gia_id") == v);
                 if (dt != null && dt.Count() > 0)
                 {
                     LoadTinhData(dt.CopyToDataTable());
@@ -361,7 +361,7 @@ namespace QLNS.UCs.DanhMucThongTin
 
             if (!string.IsNullOrWhiteSpace(txt_Email.Text.Trim()))
             {
-                Regex reg = new Regex(@"^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$"); ///Object initialization for Regex 
+                Regex reg = new Regex(@"^[_A-Za-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$"); ///Object initialization for Regex 
                 if (!reg.IsMatch(txt_Email.Text.Trim()))
                     return false;
             }
@@ -809,7 +809,8 @@ namespace QLNS.UCs.DanhMucThongTin
                     dTP_NgayCap.Checked = false;
 
                 txt_NoiCap.Text = r.Cells[4].Value.ToString();
-                if (r.Cells[4].Value.ToString() == "Còn hiệu lực")
+
+                if (r.Cells[5].Value.ToString() == "Còn hiệu lực")
                 {
                     comB_TinhTrang.Text = "Còn hiệu lực";
                 }
@@ -853,7 +854,7 @@ namespace QLNS.UCs.DanhMucThongTin
         /// <param name="SelectedValue">tinh mà ng dung da chon</param>
         private void ExcludeTinhData( int? quoc_gia_id, int SelectedValue)
         {
-            var dt = dtTinhTP.AsEnumerable().Where(a => a.Field<int>("quoc_gia_id") == quoc_gia_id);
+            var dt = dtTinhTP.AsEnumerable().Where(a => a.Field<int?>("quoc_gia_id") == quoc_gia_id);
             DataTable dt2 = dt.CopyToDataTable();
             if (dt2.AsEnumerable().Where(a => a.Field<int>("id") == -1).Count() <= 0)
             {

@@ -192,7 +192,7 @@
             this.comB_TinhTrang.Items.AddRange(new object[] {
             "Còn hiệu lực",
             "Hết hiệu lực"});
-            this.comB_TinhTrang.Location = new System.Drawing.Point(134, 97);
+            this.comB_TinhTrang.Location = new System.Drawing.Point(134, 98);
             this.comB_TinhTrang.Name = "comB_TinhTrang";
             this.comB_TinhTrang.Size = new System.Drawing.Size(236, 26);
             this.comB_TinhTrang.TabIndex = 4;
@@ -206,7 +206,7 @@
             this.comB_CMND_HoChieu.Items.AddRange(new object[] {
             "CMND",
             "Hộ chiếu"});
-            this.comB_CMND_HoChieu.Location = new System.Drawing.Point(571, 55);
+            this.comB_CMND_HoChieu.Location = new System.Drawing.Point(571, 54);
             this.comB_CMND_HoChieu.Name = "comB_CMND_HoChieu";
             this.comB_CMND_HoChieu.Size = new System.Drawing.Size(240, 26);
             this.comB_CMND_HoChieu.TabIndex = 3;
