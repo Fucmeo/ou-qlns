@@ -75,6 +75,73 @@ namespace HDQD.UCs
             #endregion
         }
 
+        public QDChung(string p_ma_qd, bool p_display)
+        {
+            InitializeComponent();
+            InitObject(true);
+
+            DisplayInfo(p_ma_qd);
+        }
+
+        private void DisplayInfo(string p_ma_qd)
+        {
+            try
+            {
+                DataTable qd_info = oQuyetDinh.Search_QD_Chung(p_ma_qd);
+                if (qd_info.Rows.Count == 1)
+                {
+                    #region Thông tin Quyết Định
+                    thongTinQuyetDinh1.txt_MaQD.Text = qd_info.Rows[0]["ma_quyet_dinh"].ToString();
+                    thongTinQuyetDinh1.txt_TenQD.Text = qd_info.Rows[0]["ten_qd"].ToString();
+                    thongTinQuyetDinh1.comB_Loai.SelectedValue = Convert.ToInt32(qd_info.Rows[0]["loai_qd_id"].ToString());
+
+                    thongTinQuyetDinh1.dTP_NgayHieuLuc.Value = Convert.ToDateTime(qd_info.Rows[0]["ngay_hieu_luc"].ToString());
+                    if (qd_info.Rows[0]["ngay_het_han"].ToString() != "")
+                    {
+                        thongTinQuyetDinh1.dTP_NgayHetHan.Value = Convert.ToDateTime(qd_info.Rows[0]["ngay_het_han"].ToString());
+                    }
+                    else
+                        thongTinQuyetDinh1.dTP_NgayHetHan.Checked = false;
+
+                    thongTinQuyetDinh1.dTP_NgayKy.Value = Convert.ToDateTime(qd_info.Rows[0]["ngay_ky"].ToString());
+                    thongTinQuyetDinh1.rTB_MoTa.Text = qd_info.Rows[0]["mo_ta"].ToString();
+                    #endregion
+
+                    #region Lương - Thâm Niên Info
+                    cb_Tham_Nien_NB.Checked = Convert.ToBoolean(qd_info.Rows[0]["tham_nien_nang_bac"].ToString());
+                    cb_Tham_Nien_NG.Checked = Convert.ToBoolean(qd_info.Rows[0]["tham_nien_gd"].ToString());
+
+                    if (Convert.ToBoolean(qd_info.Rows[0]["khong_tinh_luong"].ToString()) == false)
+                    {
+                        rb_KhongTinhLuong.Checked = true;
+                    }
+                    else
+                    {
+                        rb_TinhLuong.Checked = true;
+                        if (Convert.ToBoolean(qd_info.Rows[0]["define_cthuc"].ToString()) == false)
+                            rb_CT_MacDinh.Checked = true;
+                        else
+                        {
+                            rb_CT_Moi.Checked = true;
+                            nup_Value_PhanTramLuong.Value = Convert.ToDecimal(qd_info.Rows[0]["cthuc_phan_tram"].ToString());
+                            txt_CongThucLuong.Text = qd_info.Rows[0]["chuoi_cong_thuc_text"].ToString();
+                        }
+                    }
+                    #endregion
+
+                    #region Nhân viên - Phụ Cấp Info
+                    dtPhuCap = oQuyetDinh.Search_QD_Chung_Detail(p_ma_qd);
+                    
+                    BindingSource bs = new BindingSource();
+                    bs.DataSource = dtPhuCap;
+                    dtgv_DSPhuCap.DataSource = bs;
+                    EditDtgInterface_Display();
+                    #endregion
+                }
+            }
+            catch { }
+        }
+
         private void InitObject(bool p_loadcbo_loaiqd)
         {
             oChucdanh = new ChucDanh();
@@ -103,6 +170,39 @@ namespace HDQD.UCs
         }
 
         #region Private Methods
+
+        private void EditDtgInterface_Display()
+        {
+            // Dat ten cho cac cot
+            //dtgv_DSPhuCap.Columns["loai_pc_id"].HeaderText = "Loại Phụ cấp ID";
+            dtgv_DSPhuCap.Columns["ma_nv"].HeaderText = "Mã nhân viên";
+            dtgv_DSPhuCap.Columns["ten_nv"].HeaderText = "Tên nhân viên";
+            dtgv_DSPhuCap.Columns["ten_don_vi"].HeaderText = "Tên đơn vị";
+            dtgv_DSPhuCap.Columns["ten_chuc_vu"].HeaderText = "Chức vụ";
+            dtgv_DSPhuCap.Columns["ten_chuc_danh"].HeaderText = "Chức danh";
+
+            dtgv_DSPhuCap.Columns["ten_loai"].HeaderText = "Loại Phụ cấp";
+            dtgv_DSPhuCap.Columns["value_khoan"].HeaderText = "Giá trị Khoán";
+            dtgv_DSPhuCap.Columns["value_he_so"].HeaderText = "Giá trị Hệ số";
+            dtgv_DSPhuCap.Columns["value_phan_tram"].HeaderText = "Giá trị Phần trăm";
+            dtgv_DSPhuCap.Columns["phan_tram_huong"].HeaderText = "Phần trăm được hưởng";
+            dtgv_DSPhuCap.Columns["tu_ngay"].HeaderText = "Từ ngày";
+            dtgv_DSPhuCap.Columns["den_ngay"].HeaderText = "Đến ngày";
+
+            // An cac cot ID
+            dtgv_DSPhuCap.Columns["id"].Visible = false;
+            dtgv_DSPhuCap.Columns["loai_pc_id"].Visible = false;
+            dtgv_DSPhuCap.Columns["ghi_chu"].Visible = false;
+            //dtgv_DSPhuCap.Columns["ma_nv"].Visible = false;
+            dtgv_DSPhuCap.Columns["don_vi_id"].Visible = false;
+            dtgv_DSPhuCap.Columns["chuc_vu_id"].Visible = false;
+            dtgv_DSPhuCap.Columns["chuc_danh_id"].Visible = false;
+            dtgv_DSPhuCap.Columns["ins_qtr_ctac"].Visible = false;
+            dtgv_DSPhuCap.Columns["qtr_ctac_ou_id"].Visible = false;
+            dtgv_DSPhuCap.Columns["co_phu_cap"].Visible = false;
+            dtgv_DSPhuCap.Columns["ho"].Visible = false;
+            dtgv_DSPhuCap.Columns["ten"].Visible = false;
+        }
 
         private void LoadCbo_Loai_QD()
         {
@@ -208,6 +308,8 @@ namespace HDQD.UCs
             row_count_pc = 0;
             dtPhuCap.Columns.Add("id", typeof(int));
             dtPhuCap.Columns.Add("ma_nv", typeof(string));
+            dtPhuCap.Columns.Add("ho", typeof(string));
+            dtPhuCap.Columns.Add("ten", typeof(string));
             dtPhuCap.Columns.Add("ten_nv", typeof(string));
             dtPhuCap.Columns.Add("ins_qtr_ctac", typeof(bool));
             dtPhuCap.Columns.Add("don_vi_id", typeof(int));
@@ -256,6 +358,8 @@ namespace HDQD.UCs
             dtgv_DSPhuCap.Columns["chuc_danh_id"].Visible = false;
             dtgv_DSPhuCap.Columns["ins_qtr_ctac"].Visible = false;
             dtgv_DSPhuCap.Columns["co_phu_cap"].Visible = false;
+            dtgv_DSPhuCap.Columns["ho"].Visible = false;
+            dtgv_DSPhuCap.Columns["ten"].Visible = false;
         }
 
         private bool CheckInputData()
@@ -320,6 +424,8 @@ namespace HDQD.UCs
                     DataRow dr = dtPhuCap.NewRow();
                     dr["id"] = row_count_pc;
                     dr["ma_nv"] = thongTinCNVC1.txt_MaNV.Text;
+                    dr["ho"] = thongTinCNVC1.txt_Ho.Text.Trim();
+                    dr["ten"] = thongTinCNVC1.txt_Ten.Text.Trim();
                     dr["ten_nv"] = thongTinCNVC1.txt_Ho.Text.Trim() + " " + thongTinCNVC1.txt_Ten.Text.Trim();
 
                     #region Xử lý phần insert qtr công tác
@@ -681,6 +787,21 @@ namespace HDQD.UCs
             {
                 try
                 {
+                    thongTinCNVC1.txt_Ho.Text = dtgv_DSPhuCap.CurrentRow.Cells["ho"].Value.ToString();
+                    thongTinCNVC1.txt_Ten.Text = dtgv_DSPhuCap.CurrentRow.Cells["ten"].Value.ToString();
+                    thongTinCNVC1.txt_MaNV.Text = dtgv_DSPhuCap.CurrentRow.Cells["ma_nv"].Value.ToString();
+
+                    cb_Ins_Qtr_Ctac.Checked = Convert.ToBoolean(dtgv_DSPhuCap.CurrentRow.Cells["ins_qtr_ctac"].Value.ToString());
+                    comB_DonVi.SelectedValue = Convert.ToInt32(dtgv_DSPhuCap.CurrentRow.Cells["don_vi_id"].Value.ToString());
+                    if (dtgv_DSPhuCap.CurrentRow.Cells["chuc_vu_id"].Value.ToString() != "")
+                        comB_ChucVu.SelectedValue = Convert.ToInt32(dtgv_DSPhuCap.CurrentRow.Cells["chuc_vu_id"].Value.ToString());
+                    else
+                        comB_ChucVu.Text = "";
+                    if (dtgv_DSPhuCap.CurrentRow.Cells["chuc_danh_id"].Value.ToString() != "")
+                        comB_ChucDanh.SelectedValue = Convert.ToInt32(dtgv_DSPhuCap.CurrentRow.Cells["chuc_danh_id"].Value.ToString());
+                    else
+                        comB_ChucDanh.Text = "";
+                    
                     comB_LoaiPhuCap.Text = dtgv_DSPhuCap.CurrentRow.Cells["ten_loai"].Value.ToString();
                     txt_TienPC.Text = dtgv_DSPhuCap.CurrentRow.Cells["value_khoan"].Value.ToString();
                     txt_HeSoPC.Text = dtgv_DSPhuCap.CurrentRow.Cells["value_he_so"].Value.ToString();

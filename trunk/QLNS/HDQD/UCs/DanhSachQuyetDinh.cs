@@ -248,6 +248,7 @@ namespace HDQD.UCs
                         Show_QD_TiepNhan(row);
                         break;
                     default:
+                        Show_QD_Chung(row);
                         break;
                 }
             }
@@ -327,7 +328,22 @@ namespace HDQD.UCs
 
         }
 
+        private void Show_QD_Chung(DataGridViewRow p_row)
+        {
+            try
+            {
+                string ma_qd = p_row.Cells["ma_quyet_dinh"].Value.ToString();
+                
+                UCs.QDChung qdchung = new QDChung(ma_qd, true);
+                Forms.Popup popup = new Forms.Popup(qdchung, "QUẢN LÝ NHÂN SỰ - QUYẾT ĐỊNH CHUNG");
+                popup.Show();
+                
+            }
+            catch { }
 
+
+
+        }
 
     }
 }
