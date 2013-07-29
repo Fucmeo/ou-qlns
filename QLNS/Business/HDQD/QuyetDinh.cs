@@ -365,6 +365,32 @@ namespace Business.HDQD
                 throw;
             }
         }
+
+        public DataTable Search_QD_Chung(string p_ma_qd)
+        {
+            DataTable dt;
+
+            IDataParameter[] paras = new IDataParameter[1]{
+                new NpgsqlParameter("p_ma_qd",p_ma_qd)
+            };
+
+            dt = dp.getDataTableProc("sp1_select_qd_chung", paras);
+
+            return dt;
+        }
+
+        public DataTable Search_QD_Chung_Detail(string p_ma_qd)
+        {
+            DataTable dt;
+
+            IDataParameter[] paras = new IDataParameter[1]{
+                new NpgsqlParameter("p_ma_qd",p_ma_qd)
+            };
+
+            dt = dp.getDataTableProc("sp1_select_qd_chung_detail", paras);
+
+            return dt;
+        }
         #endregion
     }
 }
