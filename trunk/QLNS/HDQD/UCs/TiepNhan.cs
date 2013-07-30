@@ -409,7 +409,7 @@ namespace HDQD.UCs
         private void cb_CoPhuCap_CheckedChanged(object sender, EventArgs e)
         {
             comB_LoaiPhuCap.Enabled = txt_TienPC.Enabled = txt_HeSoPC.Enabled = dTP_NgayBatDauPC.Enabled =
-                dTP_NgayHetHanPC.Enabled = nup_PhanTramPC.Enabled = rTB_GhiChuPC.Enabled = dtgv_DSPhuCap.Enabled = !cb_CoPhuCap.Checked;
+                dTP_NgayHetHanPC.Enabled = nup_PhanTramPC.Enabled = rTB_GhiChuPC.Enabled = dtgv_DSPhuCap.Enabled = nup_Value_PhanTramPC.Enabled = !cb_CoPhuCap.Checked;
             EditInterface_LoaiPC();
         }
 
@@ -830,42 +830,46 @@ namespace HDQD.UCs
 
         private void EditInterface_LoaiPC()
         {
-            int id = Convert.ToInt16(comB_LoaiPhuCap.SelectedValue.ToString());
-            int cach_tinh = Convert.ToInt16((from c in dtLoaiPC.AsEnumerable()
-                                             where c.Field<int>("id") == id
-                                             select c.Field<int>("cach_tinh")).ElementAt(0).ToString());
-
-            string cong_thuc = (from c in dtLoaiPC.AsEnumerable()
-                                where c.Field<int>("id") == id
-                                select c.Field<string>("chuoi_cong_thuc")).ElementAt(0).ToString();
-            switch (cach_tinh)
+            try
             {
-                case 1:
-                    txt_TienPC.Enabled = true;
-                    txt_HeSoPC.Enabled = false;
-                    nup_Value_PhanTramPC.Enabled = false;
-                    break;
-                case 2:
-                    txt_TienPC.Enabled = false;
-                    txt_HeSoPC.Enabled = true;
-                    txt_Luong_PC.Text = "Lương cơ bản";
-                    nup_Value_PhanTramPC.Enabled = false;
-                    break;
-                case 3:
-                    txt_TienPC.Enabled = false;
-                    txt_HeSoPC.Enabled = true;
-                    txt_Luong_PC.Text = "Lương tối thiểu";
-                    nup_Value_PhanTramPC.Enabled = false;
-                    break;
-                case 4:
-                    txt_TienPC.Enabled = false;
-                    txt_HeSoPC.Enabled = false;
-                    nup_Value_PhanTramPC.Enabled = true;
-                    txt_CongThucPC.Text = cong_thuc;
-                    break;
-                default:
-                    break;
+                int id = Convert.ToInt16(comB_LoaiPhuCap.SelectedValue.ToString());
+                int cach_tinh = Convert.ToInt16((from c in dtLoaiPC.AsEnumerable()
+                                                 where c.Field<int>("id") == id
+                                                 select c.Field<int>("cach_tinh")).ElementAt(0).ToString());
+
+                string cong_thuc = (from c in dtLoaiPC.AsEnumerable()
+                                    where c.Field<int>("id") == id
+                                    select c.Field<string>("chuoi_cong_thuc")).ElementAt(0).ToString();
+                switch (cach_tinh)
+                {
+                    case 1:
+                        txt_TienPC.Enabled = true;
+                        txt_HeSoPC.Enabled = false;
+                        nup_Value_PhanTramPC.Enabled = false;
+                        break;
+                    case 2:
+                        txt_TienPC.Enabled = false;
+                        txt_HeSoPC.Enabled = true;
+                        txt_Luong_PC.Text = "Lương cơ bản";
+                        nup_Value_PhanTramPC.Enabled = false;
+                        break;
+                    case 3:
+                        txt_TienPC.Enabled = false;
+                        txt_HeSoPC.Enabled = true;
+                        txt_Luong_PC.Text = "Lương tối thiểu";
+                        nup_Value_PhanTramPC.Enabled = false;
+                        break;
+                    case 4:
+                        txt_TienPC.Enabled = false;
+                        txt_HeSoPC.Enabled = false;
+                        nup_Value_PhanTramPC.Enabled = true;
+                        txt_CongThucPC.Text = cong_thuc;
+                        break;
+                    default:
+                        break;
+                }
             }
+            catch { }
         }
 
         private void btn_AddPC_Click(object sender, EventArgs e)
