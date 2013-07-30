@@ -280,12 +280,12 @@ namespace HDQD.UCs
         private void dtgv_DSLoaiHD_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             var grid = (DataGridView)sender;
-            if (grid.Columns[3].Name == "BC_HD")
-            {
-                //bool temp = (bool)e.Value;
-                //e.Value = (bool)e.Value ? "Biên chế" : "Hợp đồng";
-                //e.FormattingApplied = true;
-            }
+            //if (grid.Columns[3].Name == "BC_HD")
+            //{
+            //    //bool temp = (bool)e.Value;
+            //    //e.Value = (bool)e.Value ? "Biên chế" : "Hợp đồng";
+            //    //e.FormattingApplied = true;
+            //}
         }
 
         private void cb_ThoiHan_CheckedChanged(object sender, EventArgs e)
