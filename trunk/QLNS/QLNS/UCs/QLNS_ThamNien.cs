@@ -59,7 +59,7 @@ namespace QLNS.UCs
             //dt_TimeFilter = dt_original.Copy();
 
             dt_original = oCNVC.GetThamNienDT();
-            dt_original = dt_original.AsEnumerable().OrderBy(a => a.Field<DateTime>("tu_ngay")).CopyToDataTable();
+            //dt_original = dt_original.AsEnumerable().OrderBy(a => a.Field<DateTime>("tu_ngay")).CopyToDataTable();
             if (dt_original.Rows.Count >0)
             {
                 txt_MaNV.Text = dt_original.AsEnumerable().Select(b => b.Field<string>("ma_nv")).First().ToString();
@@ -128,6 +128,13 @@ namespace QLNS.UCs
             }
         }
 
+        private void ClearThongTin()
+        {
+            cb_CongTac.Checked = cb_NangBac.Checked = cb_NhaGiao.Checked = cb_TrongNganhGD.Checked = false;
+            dtp_DenNgay.Checked = dtp_TuNgay.Checked = false;
+            rtb_GhiChu.Text = "";
+        }
+
         private void AddDataPoint()
         {
             chart_ThamNien.Series["Nhà giáo (NG)"].EmptyPointStyle.BorderWidth = 1;
@@ -137,35 +144,48 @@ namespace QLNS.UCs
             chart_ThamNien.Series["Nhà giáo (NG)"].EmptyPointStyle.MarkerStyle = MarkerStyle.Cross;
             for (int i = 0; i < dt_binding.Rows.Count; i++)
 			{
+                DateTime dFrom = Convert.ToDateTime(dt_binding.Rows[i]["tu_ngay"]);
+                DateTime dTo = Convert.ToDateTime(dt_binding.Rows[i]["den_ngay"]);
+                int id = Convert.ToInt32(dt_binding.Rows[i]["id"]);
 			    if (Convert.ToBoolean(dt_binding.Rows[i]["tham_nien_nha_giao"]))
                 {
-                    DateTime dFrom = Convert.ToDateTime(dt_binding.Rows[i]["tu_ngay"]);
-                    DateTime dTo = Convert.ToDateTime(dt_binding.Rows[i]["den_ngay"]);
-                    if (i >= 1)
+                    
+                    if (chart_ThamNien.Series["Nhà giáo (NG)"].Points.Count > 1)
                     {
                         chart_ThamNien.Series["Nhà giáo (NG)"].Points.AddXY(0, 0);
                         chart_ThamNien.Series["Nhà giáo (NG)"].Points[chart_ThamNien.Series["Nhà giáo (NG)"].Points.Count - 1].IsEmpty = true;
                     }
                     chart_ThamNien.Series["Nhà giáo (NG)"].Points.AddXY(dFrom, 1);
+                    chart_ThamNien.Series["Nhà giáo (NG)"].Points[chart_ThamNien.Series["Nhà giáo (NG)"].Points.Count - 1].Tag= id.ToString();
                     chart_ThamNien.Series["Nhà giáo (NG)"].Points.AddXY(dTo,  1);
+                    chart_ThamNien.Series["Nhà giáo (NG)"].Points[chart_ThamNien.Series["Nhà giáo (NG)"].Points.Count - 1].Tag = id.ToString();
 
-                    
-                    
-                    //chart_ThamNien.DataManipulator.InsertEmptyPoints(
                 }
                 else if (Convert.ToBoolean(dt_binding.Rows[i]["tham_nien_nang_bac"]))
                 {
-                    DateTime dFrom = Convert.ToDateTime(dt_binding.Rows[i]["tu_ngay"]);
-                    DateTime dTo = Convert.ToDateTime(dt_binding.Rows[i]["den_ngay"]);
-                    chart_ThamNien.Series["Nâng bậc (NB)"].Points.AddXY(dFrom, i + 1);
-                    chart_ThamNien.Series["Nâng bậc (NB)"].Points.AddXY(dTo, i + 1);
+                    
+                    if (chart_ThamNien.Series["Nâng bậc (NB)"].Points.Count > 1)
+                    {
+                        chart_ThamNien.Series["Nâng bậc (NB)"].Points.AddXY(0, 0);
+                        chart_ThamNien.Series["Nâng bậc (NB)"].Points[chart_ThamNien.Series["Nâng bậc (NB)"].Points.Count - 1].IsEmpty = true;
+                    }
+                    chart_ThamNien.Series["Nâng bậc (NB)"].Points.AddXY(dFrom, 2);
+                    chart_ThamNien.Series["Nâng bậc (NB)"].Points[chart_ThamNien.Series["Nâng bậc (NB)"].Points.Count - 1].Tag = id.ToString();
+                    chart_ThamNien.Series["Nâng bậc (NB)"].Points.AddXY(dTo, 2);
+                    chart_ThamNien.Series["Nâng bậc (NB)"].Points[chart_ThamNien.Series["Nâng bậc (NB)"].Points.Count - 1].Tag = id.ToString();
                 }
                 else if (Convert.ToBoolean(dt_binding.Rows[i]["tham_nien_cong_tac_ou"]))
                 {
-                    DateTime dFrom = Convert.ToDateTime(dt_binding.Rows[i]["tu_ngay"]);
-                    DateTime dTo = Convert.ToDateTime(dt_binding.Rows[i]["den_ngay"]);
-                    chart_ThamNien.Series["Công tác (CT)"].Points.AddXY(dFrom, i + 1);
-                    chart_ThamNien.Series["Công tác (CT)"].Points.AddXY(dTo, i + 1);
+                  
+                    if (chart_ThamNien.Series["Công tác (CT)"].Points.Count > 1)
+                    {
+                        chart_ThamNien.Series["Công tác (CT)"].Points.AddXY(0, 0);
+                        chart_ThamNien.Series["Công tác (CT)"].Points[chart_ThamNien.Series["Công tác (CT)"].Points.Count - 1].IsEmpty = true;
+                    }
+                    chart_ThamNien.Series["Công tác (CT)"].Points.AddXY(dFrom, 3);
+                    chart_ThamNien.Series["Công tác (CT)"].Points[chart_ThamNien.Series["Công tác (CT)"].Points.Count - 1].Tag = id.ToString();
+                    chart_ThamNien.Series["Công tác (CT)"].Points.AddXY(dTo,3);
+                    chart_ThamNien.Series["Công tác (CT)"].Points[chart_ThamNien.Series["Công tác (CT)"].Points.Count - 1].Tag = id.ToString();
                 }
 			}
         }
@@ -227,8 +247,8 @@ namespace QLNS.UCs
                 case DTPs_State.Both:
                     for (int i = 0; i < dt_TimeFilter.Rows.Count; i++)
                     {
-                        if (Convert.ToDateTime(dt_TimeFilter.Rows[i]["batdau"]).Date < dtp_TuNgay.Value.Date
-                            || Convert.ToDateTime(dt_TimeFilter.Rows[i]["ketthuc"]).Date > dtp_DenNgay.Value.Date)
+                        if (Convert.ToDateTime(dt_TimeFilter.Rows[i]["batdau"]).Date < dtp_TuNgay_filter.Value.Date
+                            || Convert.ToDateTime(dt_TimeFilter.Rows[i]["ketthuc"]).Date > dtp_DenNgay_filter.Value.Date)
                         {
                             dt_TimeFilter.Rows[i]["bind"] = false;
                         }
@@ -240,11 +260,11 @@ namespace QLNS.UCs
                     }
                     break;
                 case DTPs_State.One:
-                    if (dtp_TuNgay.Checked)
+                    if (dtp_TuNgay_filter.Checked)
                     {
                         for (int i = 0; i < dt_TimeFilter.Rows.Count; i++)
                         {
-                            if (Convert.ToDateTime(dt_TimeFilter.Rows[i]["batdau"]).Date < dtp_TuNgay.Value.Date)
+                            if (Convert.ToDateTime(dt_TimeFilter.Rows[i]["batdau"]).Date < dtp_TuNgay_filter.Value.Date)
                             {
                                 dt_TimeFilter.Rows[i]["bind"] = false;
                             }
@@ -259,7 +279,7 @@ namespace QLNS.UCs
                     {
                         for (int i = 0; i < dt_TimeFilter.Rows.Count; i++)
                         {
-                            if (Convert.ToDateTime(dt_TimeFilter.Rows[i]["ketthuc"]).Date > dtp_DenNgay.Value.Date)
+                            if (Convert.ToDateTime(dt_TimeFilter.Rows[i]["ketthuc"]).Date > dtp_DenNgay_filter.Value.Date)
                             {
                                 dt_TimeFilter.Rows[i]["bind"] = false;
                             }
@@ -286,5 +306,85 @@ namespace QLNS.UCs
             //}
 
         }
+
+        private void chart_ThamNien_MouseMove(object sender, MouseEventArgs e)
+        {
+            // Call Hit Test Method
+            HitTestResult result = chart_ThamNien.HitTest(e.X, e.Y);
+
+            // If a Data Point or a Legend item is selected.
+            if (result.ChartElementType == ChartElementType.DataPoint ||
+                result.ChartElementType == ChartElementType.DataPointLabel)
+            {
+                // Set cursor type 
+                this.Cursor = Cursors.Hand;
+            }
+            //else if (result.ChartElementType != ChartElementType.Nothing &&
+            //    result.ChartElementType != ChartElementType.PlottingArea)
+            //{
+            //    // Set cursor type 
+            //    this.Cursor = Cursors.Hand;
+            //}
+            else
+            {
+                // Set default cursor
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void chart_ThamNien_MouseDown(object sender, MouseEventArgs e)
+        {
+            // Call Hit Test Method
+            HitTestResult result = chart_ThamNien.HitTest(e.X, e.Y);
+
+            if (result.ChartElementType == ChartElementType.DataPoint)
+            {
+                
+                ClearThongTin();
+                // Show dialog
+                //MessageBox.Show(DateTime.FromOADate(chart_ThamNien.Series[result.Series.Name].Points[result.PointIndex].XValue).ToString());
+
+                int? id = Convert.ToInt32(chart_ThamNien.Series[result.Series.Name].Points[result.PointIndex].Tag);
+                DataRow r = dt_original.AsEnumerable().Where(a => a.Field<int?>("id") == id).CopyToDataTable().Rows[0];
+                BindThongTin(r);
+                
+            }
+            //else if (result.ChartElementType != ChartElementType.Nothing)
+            //{
+            //    string elementType = result.ChartElementType.ToString();
+            //    MessageBox.Show(this, "Selected Element is: " + elementType);
+            //}
+        }
+
+        private void BindThongTin(DataRow r)
+        {
+            if (r["tu_ngay"].ToString() != "")
+            {
+                dtp_TuNgay.Checked = true;
+                dtp_TuNgay.Value = Convert.ToDateTime(r["tu_ngay"]);
+            }
+            else
+            {
+                dtp_TuNgay.Checked = false;
+            }
+
+            if (r["den_ngay"].ToString() != "")
+            {
+                dtp_DenNgay.Checked = true;
+                dtp_DenNgay.Value = Convert.ToDateTime(r["den_ngay"]);
+            }
+            else
+            {
+                dtp_DenNgay.Checked = false;
+            }
+
+            rtb_GhiChu.Text = r["ghi_chu"].ToString();
+
+            cb_CongTac.Checked = Convert.ToBoolean(r["tham_nien_cong_tac_ou"]);
+            cb_NangBac.Checked = Convert.ToBoolean(r["tham_nien_nang_bac"]);
+            cb_NhaGiao.Checked = Convert.ToBoolean(r["tham_nien_nha_giao"]);
+            cb_TrongNganhGD.Checked = Convert.ToBoolean(r["trong_nganh_gd"]);
+        }
+
     }
 }

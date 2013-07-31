@@ -43,17 +43,17 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
-            this.dtp_TuNgay = new System.Windows.Forms.DateTimePicker();
+            this.dtp_TuNgay_filter = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
-            this.dtp_DenNgay = new System.Windows.Forms.DateTimePicker();
+            this.dtp_DenNgay_filter = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.TLP_ThongTin = new System.Windows.Forms.TableLayoutPanel();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtp_TuNgay = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtp_DenNgay = new System.Windows.Forms.DateTimePicker();
             this.cb_TrongNganhGD = new System.Windows.Forms.CheckBox();
             this.cb_NangBac = new System.Windows.Forms.CheckBox();
             this.cb_CongTac = new System.Windows.Forms.CheckBox();
@@ -255,9 +255,9 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.Controls.Add(this.label3, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.dtp_TuNgay, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.dtp_TuNgay_filter, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.label2, 2, 0);
-            this.tableLayoutPanel3.Controls.Add(this.dtp_DenNgay, 3, 0);
+            this.tableLayoutPanel3.Controls.Add(this.dtp_DenNgay_filter, 3, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(4, 25);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -277,19 +277,19 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "Từ ngày";
             // 
-            // dtp_TuNgay
+            // dtp_TuNgay_filter
             // 
-            this.dtp_TuNgay.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dtp_TuNgay.Checked = false;
-            this.dtp_TuNgay.CustomFormat = "dd/MM/yyyy";
-            this.dtp_TuNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_TuNgay.Location = new System.Drawing.Point(245, 13);
-            this.dtp_TuNgay.Margin = new System.Windows.Forms.Padding(4);
-            this.dtp_TuNgay.Name = "dtp_TuNgay";
-            this.dtp_TuNgay.ShowCheckBox = true;
-            this.dtp_TuNgay.Size = new System.Drawing.Size(233, 28);
-            this.dtp_TuNgay.TabIndex = 5;
-            this.dtp_TuNgay.Value = new System.DateTime(2013, 1, 1, 0, 0, 0, 0);
+            this.dtp_TuNgay_filter.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtp_TuNgay_filter.Checked = false;
+            this.dtp_TuNgay_filter.CustomFormat = "dd/MM/yyyy";
+            this.dtp_TuNgay_filter.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_TuNgay_filter.Location = new System.Drawing.Point(245, 13);
+            this.dtp_TuNgay_filter.Margin = new System.Windows.Forms.Padding(4);
+            this.dtp_TuNgay_filter.Name = "dtp_TuNgay_filter";
+            this.dtp_TuNgay_filter.ShowCheckBox = true;
+            this.dtp_TuNgay_filter.Size = new System.Drawing.Size(233, 28);
+            this.dtp_TuNgay_filter.TabIndex = 5;
+            this.dtp_TuNgay_filter.Value = new System.DateTime(2013, 1, 1, 0, 0, 0, 0);
             // 
             // label2
             // 
@@ -302,19 +302,19 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Đến  ngày";
             // 
-            // dtp_DenNgay
+            // dtp_DenNgay_filter
             // 
-            this.dtp_DenNgay.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dtp_DenNgay.Checked = false;
-            this.dtp_DenNgay.CustomFormat = "dd/MM/yyyy";
-            this.dtp_DenNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_DenNgay.Location = new System.Drawing.Point(727, 13);
-            this.dtp_DenNgay.Margin = new System.Windows.Forms.Padding(4);
-            this.dtp_DenNgay.Name = "dtp_DenNgay";
-            this.dtp_DenNgay.ShowCheckBox = true;
-            this.dtp_DenNgay.Size = new System.Drawing.Size(235, 28);
-            this.dtp_DenNgay.TabIndex = 4;
-            this.dtp_DenNgay.Value = new System.DateTime(2014, 1, 1, 0, 0, 0, 0);
+            this.dtp_DenNgay_filter.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtp_DenNgay_filter.Checked = false;
+            this.dtp_DenNgay_filter.CustomFormat = "dd/MM/yyyy";
+            this.dtp_DenNgay_filter.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_DenNgay_filter.Location = new System.Drawing.Point(727, 13);
+            this.dtp_DenNgay_filter.Margin = new System.Windows.Forms.Padding(4);
+            this.dtp_DenNgay_filter.Name = "dtp_DenNgay_filter";
+            this.dtp_DenNgay_filter.ShowCheckBox = true;
+            this.dtp_DenNgay_filter.Size = new System.Drawing.Size(235, 28);
+            this.dtp_DenNgay_filter.TabIndex = 4;
+            this.dtp_DenNgay_filter.Value = new System.DateTime(2014, 1, 1, 0, 0, 0, 0);
             // 
             // label1
             // 
@@ -350,9 +350,9 @@
             this.TLP_ThongTin.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.TLP_ThongTin.Controls.Add(this.label8, 0, 2);
             this.TLP_ThongTin.Controls.Add(this.label6, 0, 1);
-            this.TLP_ThongTin.Controls.Add(this.dateTimePicker1, 1, 1);
+            this.TLP_ThongTin.Controls.Add(this.dtp_TuNgay, 1, 1);
             this.TLP_ThongTin.Controls.Add(this.label7, 2, 1);
-            this.TLP_ThongTin.Controls.Add(this.dateTimePicker2, 3, 1);
+            this.TLP_ThongTin.Controls.Add(this.dtp_DenNgay, 3, 1);
             this.TLP_ThongTin.Controls.Add(this.cb_TrongNganhGD, 3, 0);
             this.TLP_ThongTin.Controls.Add(this.cb_NangBac, 0, 0);
             this.TLP_ThongTin.Controls.Add(this.cb_CongTac, 1, 0);
@@ -374,9 +374,9 @@
             // 
             // label8
             // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(55, 121);
+            this.label8.Location = new System.Drawing.Point(106, 121);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(63, 21);
@@ -385,28 +385,29 @@
             // 
             // label6
             // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(54, 43);
+            this.label6.Location = new System.Drawing.Point(105, 43);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(64, 21);
             this.label6.TabIndex = 18;
             this.label6.Text = "Từ ngày";
             // 
-            // dateTimePicker1
+            // dtp_TuNgay
             // 
-            this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dateTimePicker1.Checked = false;
-            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(216, 40);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.ShowCheckBox = true;
-            this.dateTimePicker1.Size = new System.Drawing.Size(233, 28);
-            this.dateTimePicker1.TabIndex = 16;
-            this.dateTimePicker1.Value = new System.DateTime(2013, 1, 1, 0, 0, 0, 0);
+            this.dtp_TuNgay.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtp_TuNgay.Checked = false;
+            this.dtp_TuNgay.CustomFormat = "dd/MM/yyyy";
+            this.dtp_TuNgay.Enabled = false;
+            this.dtp_TuNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_TuNgay.Location = new System.Drawing.Point(216, 40);
+            this.dtp_TuNgay.Margin = new System.Windows.Forms.Padding(4);
+            this.dtp_TuNgay.Name = "dtp_TuNgay";
+            this.dtp_TuNgay.ShowCheckBox = true;
+            this.dtp_TuNgay.Size = new System.Drawing.Size(233, 28);
+            this.dtp_TuNgay.TabIndex = 16;
+            this.dtp_TuNgay.Value = new System.DateTime(2013, 1, 1, 0, 0, 0, 0);
             // 
             // label7
             // 
@@ -419,24 +420,26 @@
             this.label7.TabIndex = 17;
             this.label7.Text = "Đến  ngày";
             // 
-            // dateTimePicker2
+            // dtp_DenNgay
             // 
-            this.dateTimePicker2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dateTimePicker2.Checked = false;
-            this.dateTimePicker2.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(746, 40);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.ShowCheckBox = true;
-            this.dateTimePicker2.Size = new System.Drawing.Size(235, 28);
-            this.dateTimePicker2.TabIndex = 15;
-            this.dateTimePicker2.Value = new System.DateTime(2014, 1, 1, 0, 0, 0, 0);
+            this.dtp_DenNgay.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtp_DenNgay.Checked = false;
+            this.dtp_DenNgay.CustomFormat = "dd/MM/yyyy";
+            this.dtp_DenNgay.Enabled = false;
+            this.dtp_DenNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_DenNgay.Location = new System.Drawing.Point(746, 40);
+            this.dtp_DenNgay.Margin = new System.Windows.Forms.Padding(4);
+            this.dtp_DenNgay.Name = "dtp_DenNgay";
+            this.dtp_DenNgay.ShowCheckBox = true;
+            this.dtp_DenNgay.Size = new System.Drawing.Size(235, 28);
+            this.dtp_DenNgay.TabIndex = 15;
+            this.dtp_DenNgay.Value = new System.DateTime(2014, 1, 1, 0, 0, 0, 0);
             // 
             // cb_TrongNganhGD
             // 
             this.cb_TrongNganhGD.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cb_TrongNganhGD.AutoSize = true;
+            this.cb_TrongNganhGD.Enabled = false;
             this.cb_TrongNganhGD.Location = new System.Drawing.Point(774, 5);
             this.cb_TrongNganhGD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cb_TrongNganhGD.Name = "cb_TrongNganhGD";
@@ -447,9 +450,10 @@
             // 
             // cb_NangBac
             // 
-            this.cb_NangBac.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cb_NangBac.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.cb_NangBac.AutoSize = true;
-            this.cb_NangBac.Location = new System.Drawing.Point(38, 5);
+            this.cb_NangBac.Enabled = false;
+            this.cb_NangBac.Location = new System.Drawing.Point(74, 5);
             this.cb_NangBac.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cb_NangBac.Name = "cb_NangBac";
             this.cb_NangBac.Size = new System.Drawing.Size(96, 25);
@@ -461,6 +465,7 @@
             // 
             this.cb_CongTac.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cb_CongTac.AutoSize = true;
+            this.cb_CongTac.Enabled = false;
             this.cb_CongTac.Location = new System.Drawing.Point(287, 5);
             this.cb_CongTac.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cb_CongTac.Name = "cb_CongTac";
@@ -473,6 +478,7 @@
             // 
             this.cb_NhaGiao.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cb_NhaGiao.AutoSize = true;
+            this.cb_NhaGiao.Enabled = false;
             this.cb_NhaGiao.Location = new System.Drawing.Point(570, 5);
             this.cb_NhaGiao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cb_NhaGiao.Name = "cb_NhaGiao";
@@ -484,6 +490,7 @@
             // rtb_GhiChu
             // 
             this.rtb_GhiChu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtb_GhiChu.Enabled = false;
             this.rtb_GhiChu.Location = new System.Drawing.Point(176, 84);
             this.rtb_GhiChu.Name = "rtb_GhiChu";
             this.rtb_GhiChu.Size = new System.Drawing.Size(314, 96);
@@ -541,6 +548,8 @@
             this.chart_ThamNien.Size = new System.Drawing.Size(994, 298);
             this.chart_ThamNien.TabIndex = 2;
             this.chart_ThamNien.Text = "chart1";
+            this.chart_ThamNien.MouseDown += new System.Windows.Forms.MouseEventHandler(this.chart_ThamNien_MouseDown);
+            this.chart_ThamNien.MouseMove += new System.Windows.Forms.MouseEventHandler(this.chart_ThamNien_MouseMove);
             // 
             // TLP_ThongTinNV
             // 
@@ -647,9 +656,9 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btn_Apply;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dtp_TuNgay;
+        private System.Windows.Forms.DateTimePicker dtp_TuNgay_filter;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dtp_DenNgay;
+        private System.Windows.Forms.DateTimePicker dtp_DenNgay_filter;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
@@ -664,9 +673,9 @@
         private System.Windows.Forms.CheckBox cb_NhaGiao;
         private System.Windows.Forms.CheckBox cb_TrongNganhGD;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtp_TuNgay;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtp_DenNgay;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.RichTextBox rtb_GhiChu;
     }
