@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QLNS_ThamNien));
             this.TLP_QLNS_ThamNien = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -65,6 +67,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txt_MaNV = new System.Windows.Forms.TextBox();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.tableLP_ThaoTac = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_Huy = new System.Windows.Forms.Button();
+            this.btn_Them = new System.Windows.Forms.Button();
+            this.btn_Luu = new System.Windows.Forms.Button();
+            this.btn_Xoa = new System.Windows.Forms.Button();
+            this.btn_Sua = new System.Windows.Forms.Button();
             this.TLP_QLNS_ThamNien.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -77,6 +86,7 @@
             this.TLP_ThongTin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_ThamNien)).BeginInit();
             this.TLP_ThongTinNV.SuspendLayout();
+            this.tableLP_ThaoTac.SuspendLayout();
             this.SuspendLayout();
             // 
             // TLP_QLNS_ThamNien
@@ -93,8 +103,8 @@
             this.TLP_QLNS_ThamNien.Name = "TLP_QLNS_ThamNien";
             this.TLP_QLNS_ThamNien.RowCount = 4;
             this.TLP_QLNS_ThamNien.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761905F));
-            this.TLP_QLNS_ThamNien.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.57143F));
-            this.TLP_QLNS_ThamNien.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 38.09524F));
+            this.TLP_QLNS_ThamNien.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.375F));
+            this.TLP_QLNS_ThamNien.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 39.125F));
             this.TLP_QLNS_ThamNien.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.57143F));
             this.TLP_QLNS_ThamNien.Size = new System.Drawing.Size(1000, 800);
             this.TLP_QLNS_ThamNien.TabIndex = 0;
@@ -109,7 +119,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Size = new System.Drawing.Size(994, 220);
+            this.groupBox2.Size = new System.Drawing.Size(994, 211);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Điều kiện lọc";
@@ -128,7 +138,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(988, 190);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(988, 181);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // tableLayoutPanel2
@@ -142,20 +152,20 @@
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(982, 184);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.56522F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 55.43478F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(982, 175);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.tableLayoutPanel4);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Location = new System.Drawing.Point(4, 96);
+            this.groupBox4.Location = new System.Drawing.Point(4, 81);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox4.Size = new System.Drawing.Size(974, 84);
+            this.groupBox4.Size = new System.Drawing.Size(974, 90);
             this.groupBox4.TabIndex = 10;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Theo loại thâm niên";
@@ -176,7 +186,7 @@
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(966, 55);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(966, 61);
             this.tableLayoutPanel4.TabIndex = 4;
             // 
             // cb_NangBac_filter
@@ -185,7 +195,7 @@
             this.cb_NangBac_filter.AutoSize = true;
             this.cb_NangBac_filter.Checked = true;
             this.cb_NangBac_filter.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cb_NangBac_filter.Location = new System.Drawing.Point(313, 15);
+            this.cb_NangBac_filter.Location = new System.Drawing.Point(313, 18);
             this.cb_NangBac_filter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cb_NangBac_filter.Name = "cb_NangBac_filter";
             this.cb_NangBac_filter.Size = new System.Drawing.Size(96, 25);
@@ -196,7 +206,7 @@
             // btn_Apply
             // 
             this.btn_Apply.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Apply.Location = new System.Drawing.Point(798, 7);
+            this.btn_Apply.Location = new System.Drawing.Point(798, 10);
             this.btn_Apply.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Apply.Name = "btn_Apply";
             this.btn_Apply.Size = new System.Drawing.Size(92, 41);
@@ -211,7 +221,7 @@
             this.cb_CongTac_filter.AutoSize = true;
             this.cb_CongTac_filter.Checked = true;
             this.cb_CongTac_filter.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cb_CongTac_filter.Location = new System.Drawing.Point(556, 15);
+            this.cb_CongTac_filter.Location = new System.Drawing.Point(556, 18);
             this.cb_CongTac_filter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cb_CongTac_filter.Name = "cb_CongTac_filter";
             this.cb_CongTac_filter.Size = new System.Drawing.Size(92, 25);
@@ -225,7 +235,7 @@
             this.cb_NhaGiao_filter.AutoSize = true;
             this.cb_NhaGiao_filter.Checked = true;
             this.cb_NhaGiao_filter.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cb_NhaGiao_filter.Location = new System.Drawing.Point(74, 15);
+            this.cb_NhaGiao_filter.Location = new System.Drawing.Point(74, 18);
             this.cb_NhaGiao_filter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cb_NhaGiao_filter.Name = "cb_NhaGiao_filter";
             this.cb_NhaGiao_filter.Size = new System.Drawing.Size(93, 25);
@@ -242,7 +252,7 @@
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox3.Size = new System.Drawing.Size(974, 84);
+            this.groupBox3.Size = new System.Drawing.Size(974, 69);
             this.groupBox3.TabIndex = 9;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Theo thời gian";
@@ -263,14 +273,14 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(966, 55);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(966, 40);
             this.tableLayoutPanel3.TabIndex = 7;
             // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(88, 17);
+            this.label3.Location = new System.Drawing.Point(88, 9);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 21);
@@ -283,7 +293,7 @@
             this.dtp_TuNgay_filter.Checked = false;
             this.dtp_TuNgay_filter.CustomFormat = "dd/MM/yyyy";
             this.dtp_TuNgay_filter.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_TuNgay_filter.Location = new System.Drawing.Point(245, 13);
+            this.dtp_TuNgay_filter.Location = new System.Drawing.Point(245, 6);
             this.dtp_TuNgay_filter.Margin = new System.Windows.Forms.Padding(4);
             this.dtp_TuNgay_filter.Name = "dtp_TuNgay_filter";
             this.dtp_TuNgay_filter.ShowCheckBox = true;
@@ -295,7 +305,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(563, 17);
+            this.label2.Location = new System.Drawing.Point(563, 9);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 21);
@@ -308,7 +318,7 @@
             this.dtp_DenNgay_filter.Checked = false;
             this.dtp_DenNgay_filter.CustomFormat = "dd/MM/yyyy";
             this.dtp_DenNgay_filter.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_DenNgay_filter.Location = new System.Drawing.Point(727, 13);
+            this.dtp_DenNgay_filter.Location = new System.Drawing.Point(727, 6);
             this.dtp_DenNgay_filter.Margin = new System.Windows.Forms.Padding(4);
             this.dtp_DenNgay_filter.Name = "dtp_DenNgay_filter";
             this.dtp_DenNgay_filter.ShowCheckBox = true;
@@ -344,10 +354,11 @@
             // TLP_ThongTin
             // 
             this.TLP_ThongTin.ColumnCount = 4;
-            this.TLP_ThongTin.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.51012F));
-            this.TLP_ThongTin.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.38866F));
-            this.TLP_ThongTin.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.TLP_ThongTin.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.TLP_ThongTin.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.52786F));
+            this.TLP_ThongTin.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.42148F));
+            this.TLP_ThongTin.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.02533F));
+            this.TLP_ThongTin.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.02533F));
+            this.TLP_ThongTin.Controls.Add(this.tableLP_ThaoTac, 0, 3);
             this.TLP_ThongTin.Controls.Add(this.label8, 0, 2);
             this.TLP_ThongTin.Controls.Add(this.label6, 0, 1);
             this.TLP_ThongTin.Controls.Add(this.dtp_TuNgay, 1, 1);
@@ -365,10 +376,11 @@
             this.TLP_ThongTin.Location = new System.Drawing.Point(3, 26);
             this.TLP_ThongTin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TLP_ThongTin.Name = "TLP_ThongTin";
-            this.TLP_ThongTin.RowCount = 3;
-            this.TLP_ThongTin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.75F));
+            this.TLP_ThongTin.RowCount = 4;
             this.TLP_ThongTin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.27083F));
-            this.TLP_ThongTin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 61.97917F));
+            this.TLP_ThongTin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.39583F));
+            this.TLP_ThongTin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.4375F));
+            this.TLP_ThongTin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.9375F));
             this.TLP_ThongTin.Size = new System.Drawing.Size(988, 192);
             this.TLP_ThongTin.TabIndex = 1;
             // 
@@ -376,7 +388,7 @@
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(106, 121);
+            this.label8.Location = new System.Drawing.Point(106, 89);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(63, 21);
@@ -387,7 +399,7 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(105, 43);
+            this.label6.Location = new System.Drawing.Point(105, 46);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(64, 21);
@@ -401,10 +413,9 @@
             this.dtp_TuNgay.CustomFormat = "dd/MM/yyyy";
             this.dtp_TuNgay.Enabled = false;
             this.dtp_TuNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_TuNgay.Location = new System.Drawing.Point(216, 40);
+            this.dtp_TuNgay.Location = new System.Drawing.Point(216, 43);
             this.dtp_TuNgay.Margin = new System.Windows.Forms.Padding(4);
             this.dtp_TuNgay.Name = "dtp_TuNgay";
-            this.dtp_TuNgay.ShowCheckBox = true;
             this.dtp_TuNgay.Size = new System.Drawing.Size(233, 28);
             this.dtp_TuNgay.TabIndex = 16;
             this.dtp_TuNgay.Value = new System.DateTime(2013, 1, 1, 0, 0, 0, 0);
@@ -413,7 +424,7 @@
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(577, 43);
+            this.label7.Location = new System.Drawing.Point(577, 46);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(79, 21);
@@ -427,7 +438,7 @@
             this.dtp_DenNgay.CustomFormat = "dd/MM/yyyy";
             this.dtp_DenNgay.Enabled = false;
             this.dtp_DenNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_DenNgay.Location = new System.Drawing.Point(746, 40);
+            this.dtp_DenNgay.Location = new System.Drawing.Point(746, 43);
             this.dtp_DenNgay.Margin = new System.Windows.Forms.Padding(4);
             this.dtp_DenNgay.Name = "dtp_DenNgay";
             this.dtp_DenNgay.ShowCheckBox = true;
@@ -491,9 +502,9 @@
             // 
             this.rtb_GhiChu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.rtb_GhiChu.Enabled = false;
-            this.rtb_GhiChu.Location = new System.Drawing.Point(176, 84);
+            this.rtb_GhiChu.Location = new System.Drawing.Point(176, 81);
             this.rtb_GhiChu.Name = "rtb_GhiChu";
-            this.rtb_GhiChu.Size = new System.Drawing.Size(314, 96);
+            this.rtb_GhiChu.Size = new System.Drawing.Size(314, 38);
             this.rtb_GhiChu.TabIndex = 20;
             this.rtb_GhiChu.Text = "";
             // 
@@ -504,48 +515,48 @@
             this.chart_ThamNien.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(64)))), ((int)(((byte)(1)))));
             this.chart_ThamNien.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
             this.chart_ThamNien.BorderlineWidth = 2;
-            chartArea1.AxisX.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Triangle;
-            chartArea1.AxisX.Interval = 1D;
-            chartArea1.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea1.AxisX.IntervalOffset = 1D;
-            chartArea1.AxisX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Months;
-            chartArea1.AxisX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Months;
-            chartArea1.AxisX.IsStartedFromZero = false;
-            chartArea1.AxisX.MajorGrid.Enabled = false;
-            chartArea1.AxisX.MajorGrid.Interval = 1D;
-            chartArea1.AxisX.MajorGrid.IntervalOffset = 1D;
-            chartArea1.AxisX.MajorGrid.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Months;
-            chartArea1.AxisX.MajorGrid.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Months;
-            chartArea1.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea1.AxisX.MajorGrid.LineWidth = 2;
-            chartArea1.AxisX.MajorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea1.AxisX.MinorGrid.Enabled = true;
-            chartArea1.AxisX.MinorGrid.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Months;
-            chartArea1.AxisX.MinorGrid.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Months;
-            chartArea1.AxisX.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.DashDot;
-            chartArea1.AxisX.MinorTickMark.Enabled = true;
-            chartArea1.AxisX.MinorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.AcrossAxis;
-            chartArea1.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea1.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea1.AxisY.MajorGrid.Enabled = false;
-            chartArea1.AxisY.MajorTickMark.Enabled = false;
-            chartArea1.BackColor = System.Drawing.Color.OldLace;
-            chartArea1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-            chartArea1.Name = "ChartArea1";
-            chartArea1.ShadowColor = System.Drawing.Color.Transparent;
-            this.chart_ThamNien.ChartAreas.Add(chartArea1);
+            chartArea7.AxisX.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Triangle;
+            chartArea7.AxisX.Interval = 1D;
+            chartArea7.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea7.AxisX.IntervalOffset = 1D;
+            chartArea7.AxisX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Months;
+            chartArea7.AxisX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Months;
+            chartArea7.AxisX.IsStartedFromZero = false;
+            chartArea7.AxisX.MajorGrid.Enabled = false;
+            chartArea7.AxisX.MajorGrid.Interval = 1D;
+            chartArea7.AxisX.MajorGrid.IntervalOffset = 1D;
+            chartArea7.AxisX.MajorGrid.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Months;
+            chartArea7.AxisX.MajorGrid.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Months;
+            chartArea7.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea7.AxisX.MajorGrid.LineWidth = 2;
+            chartArea7.AxisX.MajorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea7.AxisX.MinorGrid.Enabled = true;
+            chartArea7.AxisX.MinorGrid.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Months;
+            chartArea7.AxisX.MinorGrid.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Months;
+            chartArea7.AxisX.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.DashDot;
+            chartArea7.AxisX.MinorTickMark.Enabled = true;
+            chartArea7.AxisX.MinorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.AcrossAxis;
+            chartArea7.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea7.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea7.AxisY.MajorGrid.Enabled = false;
+            chartArea7.AxisY.MajorTickMark.Enabled = false;
+            chartArea7.BackColor = System.Drawing.Color.OldLace;
+            chartArea7.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            chartArea7.Name = "ChartArea1";
+            chartArea7.ShadowColor = System.Drawing.Color.Transparent;
+            this.chart_ThamNien.ChartAreas.Add(chartArea7);
             this.chart_ThamNien.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Alignment = System.Drawing.StringAlignment.Far;
-            legend1.DockedToChartArea = "ChartArea1";
-            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            legend1.HeaderSeparator = System.Windows.Forms.DataVisualization.Charting.LegendSeparatorStyle.DoubleLine;
-            legend1.IsDockedInsideChartArea = false;
-            legend1.Name = "Legend1";
-            this.chart_ThamNien.Legends.Add(legend1);
-            this.chart_ThamNien.Location = new System.Drawing.Point(3, 269);
+            legend7.Alignment = System.Drawing.StringAlignment.Far;
+            legend7.DockedToChartArea = "ChartArea1";
+            legend7.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            legend7.HeaderSeparator = System.Windows.Forms.DataVisualization.Charting.LegendSeparatorStyle.DoubleLine;
+            legend7.IsDockedInsideChartArea = false;
+            legend7.Name = "Legend1";
+            this.chart_ThamNien.Legends.Add(legend7);
+            this.chart_ThamNien.Location = new System.Drawing.Point(3, 260);
             this.chart_ThamNien.Name = "chart_ThamNien";
-            this.chart_ThamNien.Size = new System.Drawing.Size(994, 298);
+            this.chart_ThamNien.Size = new System.Drawing.Size(994, 307);
             this.chart_ThamNien.TabIndex = 2;
             this.chart_ThamNien.Text = "chart1";
             this.chart_ThamNien.MouseDown += new System.Windows.Forms.MouseEventHandler(this.chart_ThamNien_MouseDown);
@@ -609,6 +620,110 @@
             this.txt_MaNV.Size = new System.Drawing.Size(199, 28);
             this.txt_MaNV.TabIndex = 11;
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Add.png");
+            this.imageList1.Images.SetKeyName(1, "Cancel.png");
+            this.imageList1.Images.SetKeyName(2, "Edit Data.png");
+            this.imageList1.Images.SetKeyName(3, "Garbage.png");
+            this.imageList1.Images.SetKeyName(4, "Save.png");
+            // 
+            // tableLP_ThaoTac
+            // 
+            this.tableLP_ThaoTac.ColumnCount = 5;
+            this.TLP_ThongTin.SetColumnSpan(this.tableLP_ThaoTac, 4);
+            this.tableLP_ThaoTac.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLP_ThaoTac.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLP_ThaoTac.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLP_ThaoTac.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLP_ThaoTac.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLP_ThaoTac.Controls.Add(this.btn_Huy, 3, 0);
+            this.tableLP_ThaoTac.Controls.Add(this.btn_Them, 0, 0);
+            this.tableLP_ThaoTac.Controls.Add(this.btn_Luu, 2, 0);
+            this.tableLP_ThaoTac.Controls.Add(this.btn_Xoa, 4, 0);
+            this.tableLP_ThaoTac.Controls.Add(this.btn_Sua, 1, 0);
+            this.tableLP_ThaoTac.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLP_ThaoTac.Location = new System.Drawing.Point(3, 125);
+            this.tableLP_ThaoTac.Name = "tableLP_ThaoTac";
+            this.tableLP_ThaoTac.RowCount = 1;
+            this.tableLP_ThaoTac.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLP_ThaoTac.Size = new System.Drawing.Size(982, 64);
+            this.tableLP_ThaoTac.TabIndex = 21;
+            // 
+            // btn_Huy
+            // 
+            this.btn_Huy.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Huy.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_Huy.ImageKey = "Cancel.png";
+            this.btn_Huy.ImageList = this.imageList1;
+            this.btn_Huy.Location = new System.Drawing.Point(658, 4);
+            this.btn_Huy.Name = "btn_Huy";
+            this.btn_Huy.Size = new System.Drawing.Size(56, 56);
+            this.btn_Huy.TabIndex = 3;
+            this.btn_Huy.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Huy.UseVisualStyleBackColor = true;
+            this.btn_Huy.Visible = false;
+            this.btn_Huy.Click += new System.EventHandler(this.btn_Huy_Click);
+            // 
+            // btn_Them
+            // 
+            this.btn_Them.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Them.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_Them.ImageKey = "Add.png";
+            this.btn_Them.ImageList = this.imageList1;
+            this.btn_Them.Location = new System.Drawing.Point(70, 4);
+            this.btn_Them.Name = "btn_Them";
+            this.btn_Them.Size = new System.Drawing.Size(56, 56);
+            this.btn_Them.TabIndex = 0;
+            this.btn_Them.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Them.UseVisualStyleBackColor = true;
+            this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
+            // 
+            // btn_Luu
+            // 
+            this.btn_Luu.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Luu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_Luu.ImageKey = "Save.png";
+            this.btn_Luu.ImageList = this.imageList1;
+            this.btn_Luu.Location = new System.Drawing.Point(462, 4);
+            this.btn_Luu.Name = "btn_Luu";
+            this.btn_Luu.Size = new System.Drawing.Size(56, 56);
+            this.btn_Luu.TabIndex = 2;
+            this.btn_Luu.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Luu.UseVisualStyleBackColor = true;
+            this.btn_Luu.Visible = false;
+            this.btn_Luu.Click += new System.EventHandler(this.btn_Luu_Click);
+            // 
+            // btn_Xoa
+            // 
+            this.btn_Xoa.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Xoa.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_Xoa.ImageKey = "Garbage.png";
+            this.btn_Xoa.ImageList = this.imageList1;
+            this.btn_Xoa.Location = new System.Drawing.Point(855, 4);
+            this.btn_Xoa.Name = "btn_Xoa";
+            this.btn_Xoa.Size = new System.Drawing.Size(56, 56);
+            this.btn_Xoa.TabIndex = 4;
+            this.btn_Xoa.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Xoa.UseVisualStyleBackColor = true;
+            this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
+            // 
+            // btn_Sua
+            // 
+            this.btn_Sua.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Sua.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_Sua.ImageKey = "Edit Data.png";
+            this.btn_Sua.ImageList = this.imageList1;
+            this.btn_Sua.Location = new System.Drawing.Point(266, 4);
+            this.btn_Sua.Name = "btn_Sua";
+            this.btn_Sua.Size = new System.Drawing.Size(56, 56);
+            this.btn_Sua.TabIndex = 1;
+            this.btn_Sua.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Sua.UseVisualStyleBackColor = true;
+            this.btn_Sua.Click += new System.EventHandler(this.btn_Sua_Click);
+            // 
             // QLNS_ThamNien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -637,6 +752,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart_ThamNien)).EndInit();
             this.TLP_ThongTinNV.ResumeLayout(false);
             this.TLP_ThongTinNV.PerformLayout();
+            this.tableLP_ThaoTac.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -678,5 +794,12 @@
         private System.Windows.Forms.DateTimePicker dtp_DenNgay;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.RichTextBox rtb_GhiChu;
+        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.TableLayoutPanel tableLP_ThaoTac;
+        private System.Windows.Forms.Button btn_Huy;
+        private System.Windows.Forms.Button btn_Them;
+        private System.Windows.Forms.Button btn_Luu;
+        private System.Windows.Forms.Button btn_Xoa;
+        private System.Windows.Forms.Button btn_Sua;
     }
 }
