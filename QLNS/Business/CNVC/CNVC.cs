@@ -159,7 +159,6 @@ namespace Business.CNVC
 
         public bool Add()
         {
-            NpgsqlDate d = new NpgsqlDate();
             int check;
             IDataParameter[] paras = new IDataParameter[17]{
                 new NpgsqlParameter("p_ma_nv",manv), 
@@ -321,6 +320,73 @@ namespace Business.CNVC
             dt = dp.getDataTableProc("sp1_select_cnvc_tham_nien", paras);
 
             return dt;
+        }
+
+        public bool AddThamNien(int? qtr_ctac_nonou_gd_id, int? qtr_ctac_ou_id, int? cnvc_qd_id,
+           bool trong_nganh_gd, bool tham_nien_nha_giao, bool tham_nien_nang_bac ,
+            bool tham_nien_cong_tac_ou, DateTime tu_ngay, DateTime? den_ngay, string ghi_chu)
+        {
+            int check;
+            IDataParameter[] paras = new IDataParameter[11]{
+                new NpgsqlParameter("p_ma_nv",manv), 
+                new NpgsqlParameter("qtr_ctac_nonou_gd_id",qtr_ctac_nonou_gd_id), 
+                new NpgsqlParameter("qtr_ctac_ou_id",qtr_ctac_ou_id), 
+                new NpgsqlParameter("cnvc_qd_id",cnvc_qd_id), 
+                new NpgsqlParameter("trong_nganh_gd",trong_nganh_gd), 
+                new NpgsqlParameter("tham_nien_nha_giao",tham_nien_nha_giao), 
+                new NpgsqlParameter("tham_nien_nang_bac",tham_nien_nang_bac),
+                new NpgsqlParameter("tham_nien_cong_tac_ou",tham_nien_cong_tac_ou),
+                new NpgsqlParameter("tu_ngay",tu_ngay),
+                new NpgsqlParameter("den_ngay",den_ngay),
+                new NpgsqlParameter("ghi_chu",ghi_chu)
+            };
+            check = (int)dp.executeScalarProc("sp_insert_cnvc_tham_nien", paras);
+            if (check > 0)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
+        public bool UpdateThamNien(int id, bool trong_nganh_gd, bool tham_nien_nha_giao, bool tham_nien_nang_bac,
+            bool tham_nien_cong_tac_ou, DateTime tu_ngay, DateTime? den_ngay, string ghi_chu)
+        {
+            int check;
+            IDataParameter[] paras = new IDataParameter[9]{
+                new NpgsqlParameter("p_id",id), 
+                new NpgsqlParameter("p_ma_nv",manv), 
+                new NpgsqlParameter("p_trong_nganh_gd",trong_nganh_gd), 
+                new NpgsqlParameter("p_tham_nien_nha_giao",tham_nien_nha_giao), 
+                new NpgsqlParameter("p_tham_nien_nang_bac",tham_nien_nang_bac),
+                new NpgsqlParameter("p_tham_nien_cong_tac_ou",tham_nien_cong_tac_ou),
+                new NpgsqlParameter("p_tu_ngay",tu_ngay),
+                new NpgsqlParameter("p_den_ngay",den_ngay),
+                new NpgsqlParameter("p_ghi_chu",ghi_chu)
+            };
+            check = (int)dp.executeScalarProc("sp_update_cnvc_tham_nien", paras);
+            if (check > 0)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
+        public bool DeleteThamNien(int id)
+        {
+            int check;
+            IDataParameter[] paras = new IDataParameter[2]{
+                new NpgsqlParameter("p_id",id), 
+                new NpgsqlParameter("p_ma_nv",manv)
+            };
+            check = (int)dp.executeScalarProc("sp_delete_cnvc_tham_nien", paras);
+            if (check > 0)
+            {
+                return true;
+            }
+            else
+                return false;
         }
 
         #endregion
