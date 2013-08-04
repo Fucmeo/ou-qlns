@@ -12,13 +12,14 @@ namespace QLNS.UCs
 {
     public partial class QLNS_ThamNien : UserControl
     {
-        DataTable dt_original, dt_binding, dt_TimeFilter, dt_EventFilter;
+        DataTable dt_original, dt_binding, dt_TimeFilter, dt_CateFilter;
         DateTime? dOldFrom, dOldTo;
         enum DTPs_State { Both, One, None };
         DTPs_State dtp_state;
         Business.CNVC.CNVC oCNVC;
         bool bAddFlag;
         HitTestResult result;
+        bool bNhaGiaoChecked, bCongTacChecked, bNangBacChecked; // bien giu gia tri filter cũ
 
         public QLNS_ThamNien(string p_manv)
         {
@@ -42,7 +43,7 @@ namespace QLNS.UCs
             dt_original = new DataTable();
             dt_binding = new DataTable();
             dt_TimeFilter = new DataTable();
-            dt_EventFilter = new DataTable();
+            dt_CateFilter = new DataTable();
 
             //dt_original.Columns.AddRange(new DataColumn[] { new DataColumn("ma",typeof(string)) ,
             //                                        new DataColumn("ten",typeof(string)) ,
@@ -56,9 +57,9 @@ namespace QLNS.UCs
             //dt_original.Rows.Add(new object[] { "HD2", "Hợp đồng 2", "Hợp đồng", new DateTime(2013, 01, 01), new DateTime(2013, 12, 31), true });
             //dt_original.Rows.Add(new object[] { "HD1", "Hợp đồng 1", "Hợp đồng", new DateTime(2012, 01, 01), new DateTime(2012, 12, 31), true });
             //dt_original.Rows.Add(new object[] { "DH1", "Du học 1", "Du học", new DateTime(2012, 01, 01), new DateTime(2012, 4, 1), true });
-            //dt_binding = dt_original.Copy();
-            //dt_EventFilter = dt_original.Copy();
-            //dt_TimeFilter = dt_original.Copy();
+            dt_binding = dt_original.Copy();
+            dt_CateFilter = dt_original.Copy();
+            dt_TimeFilter = dt_original.Copy();
             GetThamNienData();
             
         }
@@ -72,7 +73,7 @@ namespace QLNS.UCs
                 txt_MaNV.Text = dt_original.AsEnumerable().Select(b => b.Field<string>("ma_nv")).First().ToString();
                 txt_HoTen.Text = dt_original.AsEnumerable().Select(b => b.Field<string>("ten_nv")).First().ToString();
                 dt_binding = dt_original.Copy();
-                dt_EventFilter = dt_original.Copy();
+                dt_CateFilter = dt_original.Copy();
                 dt_TimeFilter = dt_original.Copy();
             }
             else
@@ -84,7 +85,7 @@ namespace QLNS.UCs
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            bNhaGiaoChecked = bCongTacChecked = bNangBacChecked = true;
             //chart_ThamNien.ChartAreas[0].AxisX.RoundAxisValues();
         }
 
@@ -104,9 +105,14 @@ namespace QLNS.UCs
             //    }
             //}
 
-            chart_ThamNien.Series.Add("Nâng bậc (NB)");
-            chart_ThamNien.Series.Add("Công tác (CT)");
-            chart_ThamNien.Series.Add("Nhà giáo (NG)");
+            if(cb_NangBac_filter.Checked)
+                chart_ThamNien.Series.Add("Nâng bậc (NB)");
+
+            if(cb_CongTac_filter.Checked)
+                chart_ThamNien.Series.Add("Công tác (CT)");
+
+            if(cb_NhaGiao_filter.Checked)
+                chart_ThamNien.Series.Add("Nhà giáo (NG)");
         }
 
         private void SetSeriesDataTypes()
@@ -149,11 +155,12 @@ namespace QLNS.UCs
 
         private void AddDataPoint()
         {
-            chart_ThamNien.Series["Nhà giáo (NG)"].EmptyPointStyle.BorderWidth = 1;
-            chart_ThamNien.Series["Nhà giáo (NG)"].EmptyPointStyle.BorderColor = Color.Black;
-            chart_ThamNien.Series["Nhà giáo (NG)"].EmptyPointStyle.MarkerColor = Color.Red;
-            chart_ThamNien.Series["Nhà giáo (NG)"].EmptyPointStyle.MarkerSize = 15;
-            chart_ThamNien.Series["Nhà giáo (NG)"].EmptyPointStyle.MarkerStyle = MarkerStyle.Cross;
+            //chart_ThamNien.Series["Nhà giáo (NG)"].EmptyPointStyle.BorderWidth = 1;
+            //chart_ThamNien.Series["Nhà giáo (NG)"].EmptyPointStyle.BorderColor = Color.Black;
+            //chart_ThamNien.Series["Nhà giáo (NG)"].EmptyPointStyle.MarkerColor = Color.Red;
+            //chart_ThamNien.Series["Nhà giáo (NG)"].EmptyPointStyle.MarkerSize = 15;
+            //chart_ThamNien.Series["Nhà giáo (NG)"].EmptyPointStyle.MarkerStyle = MarkerStyle.Cross;
+
             for (int i = 0; i < dt_binding.Rows.Count; i++)
 			{
                 DateTime dFrom = Convert.ToDateTime(dt_binding.Rows[i]["tu_ngay"]);
@@ -161,46 +168,71 @@ namespace QLNS.UCs
                 int id = Convert.ToInt32(dt_binding.Rows[i]["id"]);
 			    if (Convert.ToBoolean(dt_binding.Rows[i]["tham_nien_nha_giao"]))
                 {
-                    if (chart_ThamNien.Series["Nhà giáo (NG)"].Points.Count > 1)
+                    if (IsSeriesExists("Nhà giáo (NG)"))
                     {
-                        chart_ThamNien.Series["Nhà giáo (NG)"].Points.AddXY(0, 0);
-                        chart_ThamNien.Series["Nhà giáo (NG)"].Points[chart_ThamNien.Series["Nhà giáo (NG)"].Points.Count - 1].IsEmpty = true;
+                        if (chart_ThamNien.Series["Nhà giáo (NG)"].Points.Count > 1)
+                        {
+                            chart_ThamNien.Series["Nhà giáo (NG)"].Points.AddXY(0, 0);
+                            chart_ThamNien.Series["Nhà giáo (NG)"].Points[chart_ThamNien.Series["Nhà giáo (NG)"].Points.Count - 1].IsEmpty = true;
+                        }
+                        chart_ThamNien.Series["Nhà giáo (NG)"].Points.AddXY(dFrom, 1);
+                        chart_ThamNien.Series["Nhà giáo (NG)"].Points[chart_ThamNien.Series["Nhà giáo (NG)"].Points.Count - 1].Tag = id.ToString();
+                        chart_ThamNien.Series["Nhà giáo (NG)"].Points.AddXY(dTo, 1);
+                        chart_ThamNien.Series["Nhà giáo (NG)"].Points[chart_ThamNien.Series["Nhà giáo (NG)"].Points.Count - 1].Tag = id.ToString();
                     }
-                    chart_ThamNien.Series["Nhà giáo (NG)"].Points.AddXY(dFrom, 1);
-                    chart_ThamNien.Series["Nhà giáo (NG)"].Points[chart_ThamNien.Series["Nhà giáo (NG)"].Points.Count - 1].Tag= id.ToString();
-                    chart_ThamNien.Series["Nhà giáo (NG)"].Points.AddXY(dTo,  1);
-                    chart_ThamNien.Series["Nhà giáo (NG)"].Points[chart_ThamNien.Series["Nhà giáo (NG)"].Points.Count - 1].Tag = id.ToString();
-
-                }
-
-                if (Convert.ToBoolean(dt_binding.Rows[i]["tham_nien_nang_bac"]))
-                {
                     
-                    if (chart_ThamNien.Series["Nâng bậc (NB)"].Points.Count > 1)
-                    {
-                        chart_ThamNien.Series["Nâng bậc (NB)"].Points.AddXY(0, 0);
-                        chart_ThamNien.Series["Nâng bậc (NB)"].Points[chart_ThamNien.Series["Nâng bậc (NB)"].Points.Count - 1].IsEmpty = true;
-                    }
-                    chart_ThamNien.Series["Nâng bậc (NB)"].Points.AddXY(dFrom, 2);
-                    chart_ThamNien.Series["Nâng bậc (NB)"].Points[chart_ThamNien.Series["Nâng bậc (NB)"].Points.Count - 1].Tag = id.ToString();
-                    chart_ThamNien.Series["Nâng bậc (NB)"].Points.AddXY(dTo, 2);
-                    chart_ThamNien.Series["Nâng bậc (NB)"].Points[chart_ThamNien.Series["Nâng bậc (NB)"].Points.Count - 1].Tag = id.ToString();
+
                 }
 
-                if (Convert.ToBoolean(dt_binding.Rows[i]["tham_nien_cong_tac_ou"]))
+                if (IsSeriesExists("Nâng bậc (NB)"))
                 {
-                  
-                    if (chart_ThamNien.Series["Công tác (CT)"].Points.Count > 1)
+                    if (Convert.ToBoolean(dt_binding.Rows[i]["tham_nien_nang_bac"]))
                     {
-                        chart_ThamNien.Series["Công tác (CT)"].Points.AddXY(0, 0);
-                        chart_ThamNien.Series["Công tác (CT)"].Points[chart_ThamNien.Series["Công tác (CT)"].Points.Count - 1].IsEmpty = true;
+
+                        if (chart_ThamNien.Series["Nâng bậc (NB)"] != null && chart_ThamNien.Series["Nâng bậc (NB)"].Points.Count > 1)
+                        {
+                            chart_ThamNien.Series["Nâng bậc (NB)"].Points.AddXY(0, 0);
+                            chart_ThamNien.Series["Nâng bậc (NB)"].Points[chart_ThamNien.Series["Nâng bậc (NB)"].Points.Count - 1].IsEmpty = true;
+                        }
+                        chart_ThamNien.Series["Nâng bậc (NB)"].Points.AddXY(dFrom, 2);
+                        chart_ThamNien.Series["Nâng bậc (NB)"].Points[chart_ThamNien.Series["Nâng bậc (NB)"].Points.Count - 1].Tag = id.ToString();
+                        chart_ThamNien.Series["Nâng bậc (NB)"].Points.AddXY(dTo, 2);
+                        chart_ThamNien.Series["Nâng bậc (NB)"].Points[chart_ThamNien.Series["Nâng bậc (NB)"].Points.Count - 1].Tag = id.ToString();
                     }
-                    chart_ThamNien.Series["Công tác (CT)"].Points.AddXY(dFrom, 3);
-                    chart_ThamNien.Series["Công tác (CT)"].Points[chart_ThamNien.Series["Công tác (CT)"].Points.Count - 1].Tag = id.ToString();
-                    chart_ThamNien.Series["Công tác (CT)"].Points.AddXY(dTo,3);
-                    chart_ThamNien.Series["Công tác (CT)"].Points[chart_ThamNien.Series["Công tác (CT)"].Points.Count - 1].Tag = id.ToString();
+
                 }
+
+                if (IsSeriesExists("Công tác (CT)"))
+                {
+                    if (Convert.ToBoolean(dt_binding.Rows[i]["tham_nien_cong_tac_ou"]))
+                    {
+
+                        if (chart_ThamNien.Series["Công tác (CT)"] != null && chart_ThamNien.Series["Công tác (CT)"].Points.Count > 1)
+                        {
+                            chart_ThamNien.Series["Công tác (CT)"].Points.AddXY(0, 0);
+                            chart_ThamNien.Series["Công tác (CT)"].Points[chart_ThamNien.Series["Công tác (CT)"].Points.Count - 1].IsEmpty = true;
+                        }
+                        chart_ThamNien.Series["Công tác (CT)"].Points.AddXY(dFrom, 3);
+                        chart_ThamNien.Series["Công tác (CT)"].Points[chart_ThamNien.Series["Công tác (CT)"].Points.Count - 1].Tag = id.ToString();
+                        chart_ThamNien.Series["Công tác (CT)"].Points.AddXY(dTo, 3);
+                        chart_ThamNien.Series["Công tác (CT)"].Points[chart_ThamNien.Series["Công tác (CT)"].Points.Count - 1].Tag = id.ToString();
+                    }
+                }
+                
 			}
+        }
+
+        private bool IsSeriesExists(string sSeriesName)
+        {
+            for (int i = 0; i < chart_ThamNien.Series.Count; i++)
+            {
+                if (chart_ThamNien.Series[i].Name == sSeriesName)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         private void SetChartXLimit()
@@ -224,7 +256,7 @@ namespace QLNS.UCs
         {
             for (int i = 0; i < dt_binding.Rows.Count; i++)
             {
-                if (Convert.ToBoolean(dt_EventFilter.Rows[i]["bind"]) && Convert.ToBoolean(dt_TimeFilter.Rows[i]["bind"]))
+                if (Convert.ToBoolean(dt_CateFilter.Rows[i]["bind"]) && Convert.ToBoolean(dt_TimeFilter.Rows[i]["bind"]))
                 {
                     dt_binding.Rows[i]["bind"] = true;
                 }
@@ -245,23 +277,107 @@ namespace QLNS.UCs
 
         private void btn_Apply_Click(object sender, EventArgs e)
         {
+            bool bTimeFilter = false;
+            bool bCateFilter = false;
+            DateTime? dNewFrom, dNewTo;
+            if (dtp_TuNgay_filter.Checked)
+            {
+                dNewFrom = dtp_TuNgay_filter.Value;
 
+            }
+            else
+            {
+                dNewFrom = null;
+
+            }
+
+            if (dtp_DenNgay_filter.Checked)
+            {
+                dNewTo = dtp_DenNgay_filter.Value;
+            }
+            else
+            {
+                dNewTo = null;
+            }
+
+            if (dOldFrom != dNewFrom || dOldTo != dNewTo) // value khac moi filter moi
+            {
+                if (dtp_TuNgay_filter.Checked && dtp_DenNgay_filter.Checked) // 1.both check
+                {
+                    dtp_state = DTPs_State.Both;
+                }
+                else
+                {
+                    if (dtp_TuNgay_filter.Checked || dtp_DenNgay_filter.Checked) // 2.1 check
+                    {
+                        dtp_state = DTPs_State.One;
+                    }
+                    else // 3.none check
+                    {
+                        dtp_state = DTPs_State.None;
+                    }
+                }
+                dOldFrom = dNewFrom;
+                dOldTo = dNewTo;
+                FilterByTime();
+                bTimeFilter = true;
+                
+            }
+            else
+            {
+                bTimeFilter = false;
+            }
+
+            if (bCongTacChecked != cb_CongTac_filter.Checked || bNangBacChecked != cb_NangBac_filter.Checked || bNhaGiaoChecked != cb_NhaGiao_filter.Checked)
+            {
+                bCongTacChecked = cb_CongTac_filter.Checked;
+                bNangBacChecked = cb_NangBac_filter.Checked;
+                bNhaGiaoChecked = cb_NhaGiao_filter.Checked;
+
+                //FilterByCategory();
+                bCateFilter = true;
+            }
+            else
+            {
+                bCateFilter = false;
+            }
+
+            if (bCateFilter || bTimeFilter)
+            {
+                JoinFilter();
+                RegenerateChart(); 
+            }
+            
+        }
+
+        private void FilterByCategory()
+        {
+            //for (int i = 0; i < dt_CateFilter.Rows.Count; i++)
+            //{
+            //    bool bRowNhaGiao = Convert.ToBoolean(dt_CateFilter.Rows[i]["tham_nien_nha_giao"]);
+            //    bool bRowNangBac = Convert.ToBoolean(dt_CateFilter.Rows[i]["tham_nien_nang_bac"]);
+            //    bool bRowCongTac = Convert.ToBoolean(dt_CateFilter.Rows[i]["tham_nien_cong_tac_ou"]);
+
+            //    if (!cb_NhaGiao_filter.Checked && bRowNhaGiao)
+            //    {
+            //        dt_CateFilter.Rows[i]["bind"] = false;
+            //    }
+            //    else if (cb_NhaGiao_filter.Checked && bRowNhaGiao)
+            //    {
+            //        dt_CateFilter.Rows[i]["bind"] = true;
+            //    }
+            //}
         }
 
         private void FilterByTime()
         {
-            //for (int i = 0; i < dt.Rows.Count; i++)
-            //{
-            //    dt.Rows[i]["bind"] = true;
-            //}
-
             switch (dtp_state)
             {
                 case DTPs_State.Both:
                     for (int i = 0; i < dt_TimeFilter.Rows.Count; i++)
                     {
-                        if (Convert.ToDateTime(dt_TimeFilter.Rows[i]["batdau"]).Date < dtp_TuNgay_filter.Value.Date
-                            || Convert.ToDateTime(dt_TimeFilter.Rows[i]["ketthuc"]).Date > dtp_DenNgay_filter.Value.Date)
+                        if (Convert.ToDateTime(dt_TimeFilter.Rows[i]["tu_ngay"]).Date < dtp_TuNgay_filter.Value.Date
+                            || Convert.ToDateTime(dt_TimeFilter.Rows[i]["den_ngay"]).Date > dtp_DenNgay_filter.Value.Date)
                         {
                             dt_TimeFilter.Rows[i]["bind"] = false;
                         }
@@ -277,7 +393,7 @@ namespace QLNS.UCs
                     {
                         for (int i = 0; i < dt_TimeFilter.Rows.Count; i++)
                         {
-                            if (Convert.ToDateTime(dt_TimeFilter.Rows[i]["batdau"]).Date < dtp_TuNgay_filter.Value.Date)
+                            if (Convert.ToDateTime(dt_TimeFilter.Rows[i]["tu_ngay"]).Date < dtp_TuNgay_filter.Value.Date)
                             {
                                 dt_TimeFilter.Rows[i]["bind"] = false;
                             }
@@ -292,7 +408,7 @@ namespace QLNS.UCs
                     {
                         for (int i = 0; i < dt_TimeFilter.Rows.Count; i++)
                         {
-                            if (Convert.ToDateTime(dt_TimeFilter.Rows[i]["ketthuc"]).Date > dtp_DenNgay_filter.Value.Date)
+                            if (Convert.ToDateTime(dt_TimeFilter.Rows[i]["den_ngay"]).Date > dtp_DenNgay_filter.Value.Date)
                             {
                                 dt_TimeFilter.Rows[i]["bind"] = false;
                             }
@@ -313,10 +429,6 @@ namespace QLNS.UCs
                 default:
                     break;
             }
-            //if (dt_TimeFilter.AsEnumerable().Where(a => a.Field<Boolean>("bind") == true).Count() > 0)
-            //{
-            //    dt_binding = dt_original.AsEnumerable().Where(a => a.Field<Boolean>("bind") == true).CopyToDataTable();    
-            //}
 
         }
 
