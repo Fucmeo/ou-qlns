@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QLNS_ThamNien));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.TLP_QLNS_ThamNien = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -51,6 +51,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.TLP_ThongTin = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLP_ThaoTac = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_Huy = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.btn_Them = new System.Windows.Forms.Button();
+            this.btn_Luu = new System.Windows.Forms.Button();
+            this.btn_Xoa = new System.Windows.Forms.Button();
+            this.btn_Sua = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dtp_TuNgay = new System.Windows.Forms.DateTimePicker();
@@ -67,13 +74,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txt_MaNV = new System.Windows.Forms.TextBox();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.tableLP_ThaoTac = new System.Windows.Forms.TableLayoutPanel();
-            this.btn_Huy = new System.Windows.Forms.Button();
-            this.btn_Them = new System.Windows.Forms.Button();
-            this.btn_Luu = new System.Windows.Forms.Button();
-            this.btn_Xoa = new System.Windows.Forms.Button();
-            this.btn_Sua = new System.Windows.Forms.Button();
             this.TLP_QLNS_ThamNien.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -84,9 +84,9 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.TLP_ThongTin.SuspendLayout();
+            this.tableLP_ThaoTac.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_ThamNien)).BeginInit();
             this.TLP_ThongTinNV.SuspendLayout();
-            this.tableLP_ThaoTac.SuspendLayout();
             this.SuspendLayout();
             // 
             // TLP_QLNS_ThamNien
@@ -384,6 +384,110 @@
             this.TLP_ThongTin.Size = new System.Drawing.Size(988, 192);
             this.TLP_ThongTin.TabIndex = 1;
             // 
+            // tableLP_ThaoTac
+            // 
+            this.tableLP_ThaoTac.ColumnCount = 5;
+            this.TLP_ThongTin.SetColumnSpan(this.tableLP_ThaoTac, 4);
+            this.tableLP_ThaoTac.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLP_ThaoTac.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLP_ThaoTac.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLP_ThaoTac.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLP_ThaoTac.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLP_ThaoTac.Controls.Add(this.btn_Huy, 3, 0);
+            this.tableLP_ThaoTac.Controls.Add(this.btn_Them, 0, 0);
+            this.tableLP_ThaoTac.Controls.Add(this.btn_Luu, 2, 0);
+            this.tableLP_ThaoTac.Controls.Add(this.btn_Xoa, 4, 0);
+            this.tableLP_ThaoTac.Controls.Add(this.btn_Sua, 1, 0);
+            this.tableLP_ThaoTac.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLP_ThaoTac.Location = new System.Drawing.Point(3, 125);
+            this.tableLP_ThaoTac.Name = "tableLP_ThaoTac";
+            this.tableLP_ThaoTac.RowCount = 1;
+            this.tableLP_ThaoTac.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLP_ThaoTac.Size = new System.Drawing.Size(982, 64);
+            this.tableLP_ThaoTac.TabIndex = 21;
+            // 
+            // btn_Huy
+            // 
+            this.btn_Huy.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Huy.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_Huy.ImageKey = "Cancel.png";
+            this.btn_Huy.ImageList = this.imageList1;
+            this.btn_Huy.Location = new System.Drawing.Point(658, 4);
+            this.btn_Huy.Name = "btn_Huy";
+            this.btn_Huy.Size = new System.Drawing.Size(56, 56);
+            this.btn_Huy.TabIndex = 3;
+            this.btn_Huy.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Huy.UseVisualStyleBackColor = true;
+            this.btn_Huy.Visible = false;
+            this.btn_Huy.Click += new System.EventHandler(this.btn_Huy_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Add.png");
+            this.imageList1.Images.SetKeyName(1, "Cancel.png");
+            this.imageList1.Images.SetKeyName(2, "Edit Data.png");
+            this.imageList1.Images.SetKeyName(3, "Garbage.png");
+            this.imageList1.Images.SetKeyName(4, "Save.png");
+            // 
+            // btn_Them
+            // 
+            this.btn_Them.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Them.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_Them.ImageKey = "Add.png";
+            this.btn_Them.ImageList = this.imageList1;
+            this.btn_Them.Location = new System.Drawing.Point(70, 4);
+            this.btn_Them.Name = "btn_Them";
+            this.btn_Them.Size = new System.Drawing.Size(56, 56);
+            this.btn_Them.TabIndex = 0;
+            this.btn_Them.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Them.UseVisualStyleBackColor = true;
+            this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
+            // 
+            // btn_Luu
+            // 
+            this.btn_Luu.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Luu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_Luu.ImageKey = "Save.png";
+            this.btn_Luu.ImageList = this.imageList1;
+            this.btn_Luu.Location = new System.Drawing.Point(462, 4);
+            this.btn_Luu.Name = "btn_Luu";
+            this.btn_Luu.Size = new System.Drawing.Size(56, 56);
+            this.btn_Luu.TabIndex = 2;
+            this.btn_Luu.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Luu.UseVisualStyleBackColor = true;
+            this.btn_Luu.Visible = false;
+            this.btn_Luu.Click += new System.EventHandler(this.btn_Luu_Click);
+            // 
+            // btn_Xoa
+            // 
+            this.btn_Xoa.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Xoa.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_Xoa.ImageKey = "Garbage.png";
+            this.btn_Xoa.ImageList = this.imageList1;
+            this.btn_Xoa.Location = new System.Drawing.Point(855, 4);
+            this.btn_Xoa.Name = "btn_Xoa";
+            this.btn_Xoa.Size = new System.Drawing.Size(56, 56);
+            this.btn_Xoa.TabIndex = 4;
+            this.btn_Xoa.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Xoa.UseVisualStyleBackColor = true;
+            this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
+            // 
+            // btn_Sua
+            // 
+            this.btn_Sua.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Sua.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_Sua.ImageKey = "Edit Data.png";
+            this.btn_Sua.ImageList = this.imageList1;
+            this.btn_Sua.Location = new System.Drawing.Point(266, 4);
+            this.btn_Sua.Name = "btn_Sua";
+            this.btn_Sua.Size = new System.Drawing.Size(56, 56);
+            this.btn_Sua.TabIndex = 1;
+            this.btn_Sua.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Sua.UseVisualStyleBackColor = true;
+            this.btn_Sua.Click += new System.EventHandler(this.btn_Sua_Click);
+            // 
             // label8
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -515,45 +619,45 @@
             this.chart_ThamNien.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(64)))), ((int)(((byte)(1)))));
             this.chart_ThamNien.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
             this.chart_ThamNien.BorderlineWidth = 2;
-            chartArea7.AxisX.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Triangle;
-            chartArea7.AxisX.Interval = 1D;
-            chartArea7.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea7.AxisX.IntervalOffset = 1D;
-            chartArea7.AxisX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Months;
-            chartArea7.AxisX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Months;
-            chartArea7.AxisX.IsStartedFromZero = false;
-            chartArea7.AxisX.MajorGrid.Enabled = false;
-            chartArea7.AxisX.MajorGrid.Interval = 1D;
-            chartArea7.AxisX.MajorGrid.IntervalOffset = 1D;
-            chartArea7.AxisX.MajorGrid.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Months;
-            chartArea7.AxisX.MajorGrid.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Months;
-            chartArea7.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea7.AxisX.MajorGrid.LineWidth = 2;
-            chartArea7.AxisX.MajorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea7.AxisX.MinorGrid.Enabled = true;
-            chartArea7.AxisX.MinorGrid.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Months;
-            chartArea7.AxisX.MinorGrid.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Months;
-            chartArea7.AxisX.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.DashDot;
-            chartArea7.AxisX.MinorTickMark.Enabled = true;
-            chartArea7.AxisX.MinorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.AcrossAxis;
-            chartArea7.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea7.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea7.AxisY.MajorGrid.Enabled = false;
-            chartArea7.AxisY.MajorTickMark.Enabled = false;
-            chartArea7.BackColor = System.Drawing.Color.OldLace;
-            chartArea7.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-            chartArea7.Name = "ChartArea1";
-            chartArea7.ShadowColor = System.Drawing.Color.Transparent;
-            this.chart_ThamNien.ChartAreas.Add(chartArea7);
+            chartArea1.AxisX.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Triangle;
+            chartArea1.AxisX.Interval = 1D;
+            chartArea1.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea1.AxisX.IntervalOffset = 1D;
+            chartArea1.AxisX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Months;
+            chartArea1.AxisX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Months;
+            chartArea1.AxisX.IsStartedFromZero = false;
+            chartArea1.AxisX.MajorGrid.Enabled = false;
+            chartArea1.AxisX.MajorGrid.Interval = 1D;
+            chartArea1.AxisX.MajorGrid.IntervalOffset = 1D;
+            chartArea1.AxisX.MajorGrid.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Months;
+            chartArea1.AxisX.MajorGrid.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Months;
+            chartArea1.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea1.AxisX.MajorGrid.LineWidth = 2;
+            chartArea1.AxisX.MajorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea1.AxisX.MinorGrid.Enabled = true;
+            chartArea1.AxisX.MinorGrid.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Months;
+            chartArea1.AxisX.MinorGrid.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Months;
+            chartArea1.AxisX.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.DashDot;
+            chartArea1.AxisX.MinorTickMark.Enabled = true;
+            chartArea1.AxisX.MinorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.AcrossAxis;
+            chartArea1.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea1.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea1.AxisY.MajorGrid.Enabled = false;
+            chartArea1.AxisY.MajorTickMark.Enabled = false;
+            chartArea1.BackColor = System.Drawing.Color.OldLace;
+            chartArea1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            chartArea1.Name = "ChartArea1";
+            chartArea1.ShadowColor = System.Drawing.Color.Transparent;
+            this.chart_ThamNien.ChartAreas.Add(chartArea1);
             this.chart_ThamNien.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend7.Alignment = System.Drawing.StringAlignment.Far;
-            legend7.DockedToChartArea = "ChartArea1";
-            legend7.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            legend7.HeaderSeparator = System.Windows.Forms.DataVisualization.Charting.LegendSeparatorStyle.DoubleLine;
-            legend7.IsDockedInsideChartArea = false;
-            legend7.Name = "Legend1";
-            this.chart_ThamNien.Legends.Add(legend7);
+            legend1.Alignment = System.Drawing.StringAlignment.Far;
+            legend1.DockedToChartArea = "ChartArea1";
+            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            legend1.HeaderSeparator = System.Windows.Forms.DataVisualization.Charting.LegendSeparatorStyle.DoubleLine;
+            legend1.IsDockedInsideChartArea = false;
+            legend1.Name = "Legend1";
+            this.chart_ThamNien.Legends.Add(legend1);
             this.chart_ThamNien.Location = new System.Drawing.Point(3, 260);
             this.chart_ThamNien.Name = "chart_ThamNien";
             this.chart_ThamNien.Size = new System.Drawing.Size(994, 307);
@@ -620,110 +724,6 @@
             this.txt_MaNV.Size = new System.Drawing.Size(199, 28);
             this.txt_MaNV.TabIndex = 11;
             // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "Add.png");
-            this.imageList1.Images.SetKeyName(1, "Cancel.png");
-            this.imageList1.Images.SetKeyName(2, "Edit Data.png");
-            this.imageList1.Images.SetKeyName(3, "Garbage.png");
-            this.imageList1.Images.SetKeyName(4, "Save.png");
-            // 
-            // tableLP_ThaoTac
-            // 
-            this.tableLP_ThaoTac.ColumnCount = 5;
-            this.TLP_ThongTin.SetColumnSpan(this.tableLP_ThaoTac, 4);
-            this.tableLP_ThaoTac.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLP_ThaoTac.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLP_ThaoTac.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLP_ThaoTac.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLP_ThaoTac.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLP_ThaoTac.Controls.Add(this.btn_Huy, 3, 0);
-            this.tableLP_ThaoTac.Controls.Add(this.btn_Them, 0, 0);
-            this.tableLP_ThaoTac.Controls.Add(this.btn_Luu, 2, 0);
-            this.tableLP_ThaoTac.Controls.Add(this.btn_Xoa, 4, 0);
-            this.tableLP_ThaoTac.Controls.Add(this.btn_Sua, 1, 0);
-            this.tableLP_ThaoTac.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLP_ThaoTac.Location = new System.Drawing.Point(3, 125);
-            this.tableLP_ThaoTac.Name = "tableLP_ThaoTac";
-            this.tableLP_ThaoTac.RowCount = 1;
-            this.tableLP_ThaoTac.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLP_ThaoTac.Size = new System.Drawing.Size(982, 64);
-            this.tableLP_ThaoTac.TabIndex = 21;
-            // 
-            // btn_Huy
-            // 
-            this.btn_Huy.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Huy.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_Huy.ImageKey = "Cancel.png";
-            this.btn_Huy.ImageList = this.imageList1;
-            this.btn_Huy.Location = new System.Drawing.Point(658, 4);
-            this.btn_Huy.Name = "btn_Huy";
-            this.btn_Huy.Size = new System.Drawing.Size(56, 56);
-            this.btn_Huy.TabIndex = 3;
-            this.btn_Huy.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Huy.UseVisualStyleBackColor = true;
-            this.btn_Huy.Visible = false;
-            this.btn_Huy.Click += new System.EventHandler(this.btn_Huy_Click);
-            // 
-            // btn_Them
-            // 
-            this.btn_Them.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Them.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_Them.ImageKey = "Add.png";
-            this.btn_Them.ImageList = this.imageList1;
-            this.btn_Them.Location = new System.Drawing.Point(70, 4);
-            this.btn_Them.Name = "btn_Them";
-            this.btn_Them.Size = new System.Drawing.Size(56, 56);
-            this.btn_Them.TabIndex = 0;
-            this.btn_Them.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Them.UseVisualStyleBackColor = true;
-            this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
-            // 
-            // btn_Luu
-            // 
-            this.btn_Luu.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Luu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_Luu.ImageKey = "Save.png";
-            this.btn_Luu.ImageList = this.imageList1;
-            this.btn_Luu.Location = new System.Drawing.Point(462, 4);
-            this.btn_Luu.Name = "btn_Luu";
-            this.btn_Luu.Size = new System.Drawing.Size(56, 56);
-            this.btn_Luu.TabIndex = 2;
-            this.btn_Luu.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Luu.UseVisualStyleBackColor = true;
-            this.btn_Luu.Visible = false;
-            this.btn_Luu.Click += new System.EventHandler(this.btn_Luu_Click);
-            // 
-            // btn_Xoa
-            // 
-            this.btn_Xoa.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Xoa.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_Xoa.ImageKey = "Garbage.png";
-            this.btn_Xoa.ImageList = this.imageList1;
-            this.btn_Xoa.Location = new System.Drawing.Point(855, 4);
-            this.btn_Xoa.Name = "btn_Xoa";
-            this.btn_Xoa.Size = new System.Drawing.Size(56, 56);
-            this.btn_Xoa.TabIndex = 4;
-            this.btn_Xoa.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Xoa.UseVisualStyleBackColor = true;
-            this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
-            // 
-            // btn_Sua
-            // 
-            this.btn_Sua.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Sua.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_Sua.ImageKey = "Edit Data.png";
-            this.btn_Sua.ImageList = this.imageList1;
-            this.btn_Sua.Location = new System.Drawing.Point(266, 4);
-            this.btn_Sua.Name = "btn_Sua";
-            this.btn_Sua.Size = new System.Drawing.Size(56, 56);
-            this.btn_Sua.TabIndex = 1;
-            this.btn_Sua.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Sua.UseVisualStyleBackColor = true;
-            this.btn_Sua.Click += new System.EventHandler(this.btn_Sua_Click);
-            // 
             // QLNS_ThamNien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -749,10 +749,10 @@
             this.groupBox1.ResumeLayout(false);
             this.TLP_ThongTin.ResumeLayout(false);
             this.TLP_ThongTin.PerformLayout();
+            this.tableLP_ThaoTac.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart_ThamNien)).EndInit();
             this.TLP_ThongTinNV.ResumeLayout(false);
             this.TLP_ThongTinNV.PerformLayout();
-            this.tableLP_ThaoTac.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
