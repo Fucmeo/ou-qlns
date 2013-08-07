@@ -6,14 +6,538 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace QLNS.UCs
 {
     public partial class QLNS_QTrCTac_Chart : UserControl
     {
-        public QLNS_QTrCTac_Chart()
+        DataTable dt_original, dt_binding, dt_TimeFilter, dt_CateFilter;
+        DataTable dt_DonVi, dt_ChucVu, dt_ChucDanh;
+        DateTime? dOldFrom, dOldTo;
+        enum DTPs_State { Both, One, None };
+        DTPs_State dtp_state;
+        Business.CNVC.CNVC oCNVC;
+        Business.DonVi oDonVi;
+        Business.ChucDanh oChucDanh;
+        Business.ChucVu oChucVu;
+        bool bAddFlag;
+        HitTestResult result;
+
+        public QLNS_QTrCTac_Chart(string p_manv)
         {
             InitializeComponent();
+            dtp_state = DTPs_State.None;
+            oCNVC = new Business.CNVC.CNVC();
+            oChucDanh = new Business.ChucDanh();
+            oChucVu = new Business.ChucVu();
+            oDonVi = new Business.DonVi();
+            oCNVC.MaNV = p_manv;
+            dOldFrom = dOldTo = null;
+            dt_original = new DataTable();
+            dt_binding = new DataTable();
+            dt_TimeFilter = new DataTable();
+            dt_CateFilter = new DataTable();
+            dt_DonVi = new DataTable();
+            dt_ChucDanh = new DataTable();  
+            dt_ChucVu = new DataTable();
+
         }
+
+        private void QLNS_QTrCTac_Chart_Load(object sender, EventArgs e)
+        {
+            GetDataSourceForCombo();
+            BindDataForCombo();
+            GetData_QtrCTac();
+
+            RegenerateChart();
+        }
+
+
+
+        private void GetData_QtrCTac()
+        {
+            try
+            {
+                dt_original = oCNVC.GetQtrCtacOUDT();
+                if (dt_original.Rows.Count > 0)
+                {
+                    txt_MaNV.Text = dt_original.AsEnumerable().Select(b => b.Field<string>("ma_nv")).First().ToString();
+                    txt_HoTen.Text = dt_original.AsEnumerable().Select(b => b.Field<string>("ho")).First().ToString() + " " +
+                        dt_original.AsEnumerable().Select(b => b.Field<string>("ten")).First().ToString();
+                    dt_binding = dt_original.Copy();
+                    dt_CateFilter = dt_original.Copy();
+                    dt_TimeFilter = dt_original.Copy();
+                }
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        private void GetDataSourceForCombo()
+        {
+            try
+            {
+                dt_ChucVu = oChucVu.GetList();
+                dt_DonVi = oDonVi.GetDonViList();
+                dt_ChucDanh = oChucDanh.GetList();
+            }
+            catch (Exception)
+            {
+                
+            }
+        }
+
+        private void BindDataForCombo()
+        {
+            if (dt_ChucDanh.Rows.Count > 0)
+            {
+                DataTable dt = dt_ChucDanh.Copy();
+                cb_ChucDanh.DataSource = dt;
+                cb_ChucDanh.DisplayMember = "ten_chuc_danh";
+                cb_ChucDanh.ValueMember = "id";
+                cb_ChucDanh.SelectedValue = -1;
+
+                DataTable dt2 = dt_ChucDanh.Copy();
+                dt2.Rows[0]["id"] = 0;
+                dt2.Rows[0]["ten_chuc_danh"] = "Tất cả";
+                cb_ChucDanh_Filter.DataSource = dt2;
+                cb_ChucDanh_Filter.DisplayMember = "ten_chuc_danh";
+                cb_ChucDanh_Filter.ValueMember = "id";
+                cb_ChucDanh.SelectedValue = 0;
+            }
+
+            if (dt_ChucVu.Rows.Count > 0)
+            {
+                DataTable dt = dt_ChucVu.Copy();
+                cb_ChucVu.DataSource = dt;
+                cb_ChucVu.DisplayMember = "ten_chuc_vu";
+                cb_ChucVu.ValueMember = "id";
+                cb_ChucVu.SelectedValue = -1;
+
+                DataTable dt2 = dt_ChucVu.Copy();
+                dt2.Rows[0]["id"] = 0;
+                dt2.Rows[0]["ten_chuc_vu"] = "Tất cả";
+                cb_ChucVu_Filter.DataSource = dt2;
+                cb_ChucVu_Filter.DisplayMember = "ten_chuc_vu";
+                cb_ChucVu_Filter.ValueMember = "id";
+                cb_ChucVu_Filter.SelectedValue = 0;
+            }
+
+            if (dt_DonVi.Rows.Count > 0)
+            {
+                DataTable dt = dt_DonVi.Copy();
+                cb_DonVi.DataSource = dt;
+                cb_DonVi.DisplayMember = "ten_don_vi";
+                cb_DonVi.ValueMember = "id";
+
+                DataTable dt2 = dt_DonVi.Copy();
+                DataRow dr = dt2.NewRow();
+                dr["ten_don_vi"] = "Tất cả";
+                dr["id"] = 0;
+                dt2.Rows.InsertAt(dr, 0);
+
+                cb_DonVi_Filter.DataSource = dt2;
+                cb_DonVi_Filter.DisplayMember = "ten_don_vi";
+                cb_DonVi_Filter.ValueMember = "id";
+                cb_DonVi_Filter.SelectedValue = 0;
+
+            }
+            
+
+
+        }
+
+        private void GetThamNienData()
+        {
+            dt_original = oCNVC.GetThamNienDT();
+            //dt_original = dt_original.AsEnumerable().OrderBy(a => a.Field<DateTime>("tu_ngay")).CopyToDataTable();
+            if (dt_original.Rows.Count > 0)
+            {
+                txt_MaNV.Text = dt_original.AsEnumerable().Select(b => b.Field<string>("ma_nv")).First().ToString();
+                txt_HoTen.Text = dt_original.AsEnumerable().Select(b => b.Field<string>("ten_nv")).First().ToString();
+                dt_binding = dt_original.Copy();
+                dt_CateFilter = dt_original.Copy();
+                dt_TimeFilter = dt_original.Copy();
+            }
+            else
+            {
+                txt_MaNV.Text = "";
+                txt_HoTen.Text = "";
+            }
+        }
+
+        private void AddSeries()
+        {
+            int n = chart_QtrCTac.Series.Count;
+            for (int i = 0; i < n; i++)
+            {
+                chart_QtrCTac.Series.RemoveAt(0);
+            }
+
+            var distinct_donvi = (from DataRow dr in dt_original.Rows
+                                  select new { ten_don_vi = dr["ten_don_vi"], ten_don_vi_viet_tat = dr["ten_don_vi_viet_tat"] }).Distinct();
+
+            foreach (var r in distinct_donvi)
+            {
+                chart_QtrCTac.Series.Add(r.ten_don_vi.ToString() + "(" + r.ten_don_vi_viet_tat.ToString() + ")");
+                chart_QtrCTac.Series[chart_QtrCTac.Series.Count - 1].Label = r.ten_don_vi_viet_tat.ToString();
+            }
+        }
+
+        private void SetSeriesDataTypes()
+        {
+            for (int i = 0; i < chart_QtrCTac.Series.Count; i++)
+            {
+                chart_QtrCTac.Series[i].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
+                chart_QtrCTac.Series[i].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+                chart_QtrCTac.Series[i].ChartArea = "ChartArea1";
+                chart_QtrCTac.Series[i].YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+                chart_QtrCTac.Series[i].BorderWidth = 3;
+                chart_QtrCTac.Series[i].MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Diamond;
+
+                chart_QtrCTac.Series[i].EmptyPointStyle.BorderWidth = 1;
+                chart_QtrCTac.Series[i].EmptyPointStyle.BorderColor = Color.Black;
+                chart_QtrCTac.Series[i].EmptyPointStyle.MarkerColor = Color.Red;
+                chart_QtrCTac.Series[i].EmptyPointStyle.MarkerSize = 15;
+                chart_QtrCTac.Series[i].EmptyPointStyle.MarkerStyle = MarkerStyle.Cross;
+                
+            }
+        }
+
+        private void ClearThongTin()
+        {
+            cb_ConHD.Checked =  false;
+            dtp_DenNgay.Checked = dtp_TuNgay.Checked = false;
+        }
+
+        private void AddDataPoint()
+        {
+            
+
+            for (int i = 0; i < dt_binding.Rows.Count; i++)
+            {
+                DateTime dFrom = Convert.ToDateTime(dt_binding.Rows[i]["tu_thoi_gian"]);
+                DateTime dTo;
+                if (dt_binding.Rows[i]["den_thoi_gian_adj"].ToString() == "")
+                {
+                    dTo = DateTime.Now;
+                }
+                else
+                {
+                     dTo = Convert.ToDateTime(dt_binding.Rows[i]["den_thoi_gian_adj"]);
+                }
+                
+                int id = Convert.ToInt32(dt_binding.Rows[i]["id"]);
+
+                string ten_don_vi = dt_binding.Rows[i]["ten_don_vi"].ToString();
+                string ten_don_vi_viet_tat = dt_binding.Rows[i]["ten_don_vi_viet_tat"].ToString();
+                string ten_series = ten_don_vi + "(" + ten_don_vi_viet_tat + ")";
+                
+                if (IsSeriesExists(ten_series))
+                {
+                    if (chart_QtrCTac.Series[ten_series].Points.Count > 1)
+                    {
+                        chart_QtrCTac.Series[ten_series].Points.AddXY(0, 0);
+                        chart_QtrCTac.Series[ten_series].Points[chart_QtrCTac.Series[ten_series].Points.Count - 1].IsEmpty = true;
+                    }
+                    chart_QtrCTac.Series[ten_series].Points.AddXY(dFrom, chart_QtrCTac.Series.IndexOf(ten_series) + 1);
+                    chart_QtrCTac.Series[ten_series].Points[chart_QtrCTac.Series[ten_series].Points.Count - 1].Tag = id.ToString();
+                    chart_QtrCTac.Series[ten_series].Points.AddXY(dTo, chart_QtrCTac.Series.IndexOf(ten_series) + 1);
+                    chart_QtrCTac.Series[ten_series].Points[chart_QtrCTac.Series[ten_series].Points.Count - 1].Tag = id.ToString();
+                }
+            }
+        }
+
+        private bool IsSeriesExists(string sSeriesName)
+        {
+            for (int i = 0; i < chart_QtrCTac.Series.Count; i++)
+            {
+                if (chart_QtrCTac.Series[i].Name == sSeriesName)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private void SetChartXLimit()
+        {
+            if (dt_binding.AsEnumerable().Where(a => a.Field<Boolean>("bind") == true).Count() > 0)
+            {
+                DateTime dmax = dt_binding.AsEnumerable().Where(a => a.Field<Boolean>("bind") == true && Convert.ToString(a.Field<DateTime?>("den_thoi_gian_adj")) != "").Select(a => a.Field<DateTime>("den_thoi_gian_adj")).Max();
+                if (dmax < DateTime.Now) dmax = DateTime.Now;
+                DateTime dmin = dt_binding.AsEnumerable().Where(a => a.Field<Boolean>("bind") == true).Select(a => a.Field<DateTime>("tu_thoi_gian")).Min();
+                chart_QtrCTac.ChartAreas[0].AxisX.Maximum = (dmax.AddMonths(1)).ToOADate();
+                chart_QtrCTac.ChartAreas[0].AxisX.Minimum = (dmin.AddMonths(-1)).ToOADate();
+            }
+
+        }
+
+        private void JoinFilter()
+        {
+            for (int i = 0; i < dt_binding.Rows.Count; i++)
+            {
+                if (Convert.ToBoolean(dt_CateFilter.Rows[i]["bind"]) && Convert.ToBoolean(dt_TimeFilter.Rows[i]["bind"]))
+                {
+                    dt_binding.Rows[i]["bind"] = true;
+                }
+                else
+                {
+                    dt_binding.Rows[i]["bind"] = false;
+                }
+            }
+        }
+
+        private void RegenerateChart()
+        {
+            AddSeries();
+            SetSeriesDataTypes();
+            AddDataPoint();
+            SetChartXLimit();
+        }
+
+        private void chart_QtrCTac_MouseMove(object sender, MouseEventArgs e)
+        {
+            // Call Hit Test Method
+            HitTestResult result = chart_QtrCTac.HitTest(e.X, e.Y);
+
+            // If a Data Point or a Legend item is selected.
+            if (result.ChartElementType == ChartElementType.DataPoint ||
+                result.ChartElementType == ChartElementType.DataPointLabel)
+            {
+                // Set cursor type 
+                this.Cursor = Cursors.Hand;
+            }
+            //else if (result.ChartElementType != ChartElementType.Nothing &&
+            //    result.ChartElementType != ChartElementType.PlottingArea)
+            //{
+            //    // Set cursor type 
+            //    this.Cursor = Cursors.Hand;
+            //}
+            else
+            {
+                // Set default cursor
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void chart_QtrCTac_MouseDown(object sender, MouseEventArgs e)
+        {
+            // Call Hit Test Method
+            result = chart_QtrCTac.HitTest(e.X, e.Y);
+
+            if (result.ChartElementType == ChartElementType.DataPoint || result.ChartElementType == ChartElementType.DataPointLabel)
+            {
+
+                ClearThongTin();
+                // Show dialog
+                //MessageBox.Show(DateTime.FromOADate(chart_QtrCTac.Series[result.Series.Name].Points[result.PointIndex].XValue).ToString());
+
+                int? id = Convert.ToInt32(chart_QtrCTac.Series[result.Series.Name].Points[result.PointIndex].Tag);
+                DataRow r = dt_original.AsEnumerable().Where(a => a.Field<int?>("id") == id).CopyToDataTable().Rows[0];
+                BindThongTin(r);
+
+            }
+            //else if (result.ChartElementType != ChartElementType.Nothing)
+            //{
+            //    string elementType = result.ChartElementType.ToString();
+            //    MessageBox.Show(this, "Selected Element is: " + elementType);
+            //}
+        }
+
+        private void BindThongTin(DataRow r)
+        {
+            if (r["tu_thoi_gian"].ToString() != "")
+            {
+                dtp_TuNgay.Checked = true;
+                dtp_TuNgay.Value = Convert.ToDateTime(r["tu_thoi_gian"]);
+            }
+            else
+            {
+                dtp_TuNgay.Checked = false;
+            }
+
+            if (r["den_thoi_gian_adj"].ToString() != "")
+            {
+                dtp_DenNgay.Checked = true;
+                dtp_DenNgay.Value = Convert.ToDateTime(r["den_thoi_gian_adj"]);
+            }
+            else
+            {
+                dtp_DenNgay.Checked = false;
+            }
+
+            cb_ConHD.Checked = Convert.ToBoolean(r["tinh_trang"]);
+            if (r["ma_hop_dong"].ToString() != "")
+                txt_MaHD.Text = r["ma_hop_dong"].ToString();
+            else
+                txt_MaHD.Text = "";
+
+            if (r["ma_quyet_dinh"].ToString() != "")
+                txt_MaQD.Text = r["ma_quyet_dinh"].ToString();
+            else
+                txt_MaQD.Text = "";
+
+            if (r["don_vi_id"].ToString() == "")
+                cb_DonVi.SelectedValue = -1;
+            else
+                cb_DonVi.SelectedValue = Convert.ToInt32(r["don_vi_id"].ToString());
+
+            if (r["chuc_danh_id"].ToString() == "")
+                cb_ChucDanh.SelectedValue = -1;
+            else
+                cb_ChucDanh.SelectedValue = Convert.ToInt32(r["chuc_danh_id"].ToString());
+
+            if (r["chuc_vu_id"].ToString() == "")
+                cb_ChucVu.SelectedValue = -1;
+            else
+                cb_ChucVu.SelectedValue = Convert.ToInt32(r["chuc_vu_id"].ToString());
+
+
+
+
+        }
+
+        private void btn_Them_Click(object sender, EventArgs e)
+        {
+            EnableControls(false);
+            bAddFlag = true;
+            ClearThongTin();
+        }
+
+        private void EnableControls(bool Init)
+        {
+            dtp_DenNgay_filter.Enabled = dtp_TuNgay_filter.Enabled =
+                cb_DonVi_Filter.Enabled = cb_ChucDanh_Filter.Enabled = cb_ChucVu_Filter.Enabled = 
+                cb_ConHD_filter.Enabled = 
+                 btn_Them.Visible = btn_Sua.Visible = btn_Xoa.Visible = Init;
+
+            cb_ConHD.Enabled = cb_DonVi.Enabled = cb_ChucVu.Enabled = cb_ChucDanh.Enabled =
+                txt_MaHD.Enabled = txt_MaQD.Enabled = 
+                dtp_TuNgay.Enabled = dtp_DenNgay.Enabled =
+                btn_Luu.Visible = btn_Huy.Visible = !Init;
+        }
+
+        private void btn_Sua_Click(object sender, EventArgs e)
+        {
+            if (result != null && (result.ChartElementType == ChartElementType.DataPoint || result.ChartElementType == ChartElementType.DataPointLabel))
+            {
+                EnableControls(false);
+                bAddFlag = false;
+            }
+            else
+            {
+                MessageBox.Show("Xin chọn giai đoạn muốn sửa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btn_Luu_Click(object sender, EventArgs e)
+        {
+            #region MyRegion
+            //if ((cb_CongTac.Checked || cb_NangBac.Checked || cb_NangBac.Checked))
+            //{
+
+            //    bool bNangBac = cb_NangBac.Checked;
+            //    bool bCongTac = cb_CongTac.Checked;
+            //    bool bNhaGiao = cb_NhaGiao.Checked;
+            //    bool bTrongGD = cb_TrongNganhGD.Checked;
+            //    DateTime dtTuNgay = dtp_TuNgay.Value;
+            //    DateTime? dtDenNgay;
+            //    if (dtp_DenNgay.Checked) dtDenNgay = dtp_DenNgay.Value;
+            //    else dtDenNgay = null;
+            //    string sGhiChu = rtb_GhiChu.Text;
+
+            //    if (bAddFlag)       // thêm
+            //    {
+            //        try
+            //        {
+            //            if (MessageBox.Show("Bạn muốn thêm thâm niên này ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            //            {
+            //                oCNVC.AddThamNien(null, null, null, bTrongGD, bNhaGiao, bNangBac, bCongTac, dtTuNgay, dtDenNgay, sGhiChu);
+            //                EnableControls(true);
+            //                // load lai chart
+            //                GetThamNienData();
+            //                RegenerateChart();
+
+            //                MessageBox.Show("Thêm thâm niên thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //            }
+            //        }
+            //        catch (Exception)
+            //        {
+            //            MessageBox.Show("Thêm không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            //        }
+            //    }
+            //    else        // sửa
+            //    {
+            //        try
+            //        {
+            //            if (MessageBox.Show("Bạn muốn sửa thâm niên này ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            //            {
+            //                int id = Convert.ToInt32(chart_QtrCTac.Series[result.Series.Name].Points[result.PointIndex].Tag);
+            //                oCNVC.UpdateThamNien(id, bTrongGD, bNhaGiao, bNangBac, bCongTac, dtTuNgay, dtDenNgay, sGhiChu);
+            //                EnableControls(true);
+            //                // load lai chart
+            //                GetThamNienData();
+            //                RegenerateChart();
+
+            //                MessageBox.Show("Sửa thâm niên thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //            }
+            //        }
+            //        catch (Exception)
+            //        {
+            //            MessageBox.Show("Sửa không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Xin chọn loại thâm niên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //} 
+            #endregion
+        }
+
+        private void btn_Xoa_Click(object sender, EventArgs e)
+        {
+            if (result != null && (result.ChartElementType == ChartElementType.DataPoint || result.ChartElementType == ChartElementType.DataPointLabel))
+            {
+                try
+                {
+                    if (MessageBox.Show("Bạn muốn xoá thâm niên này ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        int id = Convert.ToInt32(chart_QtrCTac.Series[result.Series.Name].Points[result.PointIndex].Tag);
+                        oCNVC.DeleteThamNien(id);
+                        MessageBox.Show("Xoá thâm niên thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        GetThamNienData();
+                        RegenerateChart();
+                    }
+
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Xoá thâm niên thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                ClearThongTin();
+                EnableControls(true);
+            }
+            else
+            {
+                MessageBox.Show("Xin chọn giai đoạn muốn xoá", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btn_Huy_Click(object sender, EventArgs e)
+        {
+            ClearThongTin();
+            EnableControls(true);
+        }
+
+        
     }
 }

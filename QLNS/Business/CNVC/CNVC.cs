@@ -389,6 +389,19 @@ namespace Business.CNVC
                 return false;
         }
 
+        public DataTable GetQtrCtacOUDT()
+        {
+            DataTable dt;
+
+            IDataParameter[] paras = new IDataParameter[1]{
+                new NpgsqlParameter("p_ma_nv",manv)               
+            };
+
+            dt = dp.getDataTableProc("sp1_select_cnvc_qtr_ctac_ou_chart", paras);
+
+            return dt;
+        }
+
         #endregion
 
 

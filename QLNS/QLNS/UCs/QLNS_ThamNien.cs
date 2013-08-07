@@ -57,10 +57,8 @@ namespace QLNS.UCs
             //dt_original.Rows.Add(new object[] { "HD2", "Hợp đồng 2", "Hợp đồng", new DateTime(2013, 01, 01), new DateTime(2013, 12, 31), true });
             //dt_original.Rows.Add(new object[] { "HD1", "Hợp đồng 1", "Hợp đồng", new DateTime(2012, 01, 01), new DateTime(2012, 12, 31), true });
             //dt_original.Rows.Add(new object[] { "DH1", "Du học 1", "Du học", new DateTime(2012, 01, 01), new DateTime(2012, 4, 1), true });
-            dt_binding = dt_original.Copy();
-            dt_CateFilter = dt_original.Copy();
-            dt_TimeFilter = dt_original.Copy();
             GetThamNienData();
+          
             
         }
 
