@@ -212,6 +212,10 @@ namespace QLNS.UCs
         {
             cb_ConHD.Checked =  false;
             dtp_DenNgay.Checked = dtp_TuNgay.Checked = false;
+            cb_ChucDanh.SelectedValue = cb_ChucVu.SelectedValue
+                = cb_DonVi.SelectedValue = -1;
+
+            txt_MaHD.Text = txt_MaQD.Text = "";
         }
 
         private void AddDataPoint()
@@ -414,7 +418,7 @@ namespace QLNS.UCs
         {
             dtp_DenNgay_filter.Enabled = dtp_TuNgay_filter.Enabled =
                 cb_DonVi_Filter.Enabled = cb_ChucDanh_Filter.Enabled = cb_ChucVu_Filter.Enabled = 
-                cb_ConHD_filter.Enabled = 
+                cb_ConHD_filter.Enabled = chart_QtrCTac.Enabled = 
                  btn_Them.Visible = btn_Sua.Visible = btn_Xoa.Visible = Init;
 
             cb_ConHD.Enabled = cb_DonVi.Enabled = cb_ChucVu.Enabled = cb_ChucDanh.Enabled =
@@ -439,67 +443,71 @@ namespace QLNS.UCs
         private void btn_Luu_Click(object sender, EventArgs e)
         {
             #region MyRegion
-            //if ((cb_CongTac.Checked || cb_NangBac.Checked || cb_NangBac.Checked))
-            //{
+            if (true)
+            {
+                bool bConHD = cb_ConHD.Checked;
+                DateTime dtTuNgay = dtp_TuNgay.Value;
+                DateTime? dtDenNgay;
+                if (dtp_DenNgay.Checked) dtDenNgay = dtp_DenNgay.Value;
+                else dtDenNgay = null;
 
-            //    bool bNangBac = cb_NangBac.Checked;
-            //    bool bCongTac = cb_CongTac.Checked;
-            //    bool bNhaGiao = cb_NhaGiao.Checked;
-            //    bool bTrongGD = cb_TrongNganhGD.Checked;
-            //    DateTime dtTuNgay = dtp_TuNgay.Value;
-            //    DateTime? dtDenNgay;
-            //    if (dtp_DenNgay.Checked) dtDenNgay = dtp_DenNgay.Value;
-            //    else dtDenNgay = null;
-            //    string sGhiChu = rtb_GhiChu.Text;
+                int? nDonViID = Convert.ToInt32(cb_DonVi.SelectedValue);
+                if (nDonViID == -1) nDonViID = null;
 
-            //    if (bAddFlag)       // thêm
-            //    {
-            //        try
-            //        {
-            //            if (MessageBox.Show("Bạn muốn thêm thâm niên này ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            //            {
-            //                oCNVC.AddThamNien(null, null, null, bTrongGD, bNhaGiao, bNangBac, bCongTac, dtTuNgay, dtDenNgay, sGhiChu);
-            //                EnableControls(true);
-            //                // load lai chart
-            //                GetThamNienData();
-            //                RegenerateChart();
+                int? nChucDanhID = Convert.ToInt32(cb_ChucDanh.SelectedValue);
+                if (nChucDanhID == -1) nChucDanhID = null;
 
-            //                MessageBox.Show("Thêm thâm niên thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //            }
-            //        }
-            //        catch (Exception)
-            //        {
-            //            MessageBox.Show("Thêm không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                int? nChucVuID = Convert.ToInt32(cb_ChucVu.SelectedValue);
+                if (nChucVuID == -1) nChucVuID = null;
 
-            //        }
-            //    }
-            //    else        // sửa
-            //    {
-            //        try
-            //        {
-            //            if (MessageBox.Show("Bạn muốn sửa thâm niên này ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            //            {
-            //                int id = Convert.ToInt32(chart_QtrCTac.Series[result.Series.Name].Points[result.PointIndex].Tag);
-            //                oCNVC.UpdateThamNien(id, bTrongGD, bNhaGiao, bNangBac, bCongTac, dtTuNgay, dtDenNgay, sGhiChu);
-            //                EnableControls(true);
-            //                // load lai chart
-            //                GetThamNienData();
-            //                RegenerateChart();
+                if (bAddFlag)       // thêm
+                {
+                    try
+                    {
+                        if (MessageBox.Show("Bạn muốn thêm thâm niên này ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            oCNVC.AddThamNien(null, null, null, bTrongGD, bNhaGiao, bNangBac, bCongTac, dtTuNgay, dtDenNgay, sGhiChu);
+                            EnableControls(true);
+                            // load lai chart
+                            GetThamNienData();
+                            RegenerateChart();
 
-            //                MessageBox.Show("Sửa thâm niên thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //            }
-            //        }
-            //        catch (Exception)
-            //        {
-            //            MessageBox.Show("Sửa không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("Thêm thâm niên thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Thêm không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-            //        }
-            //    }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Xin chọn loại thâm niên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //} 
+                    }
+                }
+                else        // sửa
+                {
+                    try
+                    {
+                        if (MessageBox.Show("Bạn muốn sửa thâm niên này ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            int id = Convert.ToInt32(chart_QtrCTac.Series[result.Series.Name].Points[result.PointIndex].Tag);
+                            oCNVC.UpdateThamNien(id, bTrongGD, bNhaGiao, bNangBac, bCongTac, dtTuNgay, dtDenNgay, sGhiChu);
+                            EnableControls(true);
+                            // load lai chart
+                            GetThamNienData();
+                            RegenerateChart();
+
+                            MessageBox.Show("Sửa thâm niên thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Sửa không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Xin chọn loại thâm niên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            } 
             #endregion
         }
 

@@ -322,6 +322,58 @@ namespace Business.CNVC
             return dt;
         }
 
+        public bool AddQtrCTacOU(int p_don_vi_id, int p_chuc_danh_id, int p_chuc_vu_id,
+            DateTime p_tu_thoi_gian, DateTime p_den_thoi_gian, bool p_tinh_trang )
+        {
+            int check;
+            IDataParameter[] paras = new IDataParameter[12]{
+                new NpgsqlParameter("p_ma_nv",manv), 
+                new NpgsqlParameter("p_don_vi_id",p_don_vi_id), 
+                new NpgsqlParameter("p_chuc_danh_id",p_chuc_danh_id), 
+                new NpgsqlParameter("p_chuc_vu_id",p_chuc_vu_id), 
+                new NpgsqlParameter("p_tu_thoi_gian",p_tu_thoi_gian), 
+                new NpgsqlParameter("p_den_thoi_gian",p_den_thoi_gian), 
+                new NpgsqlParameter("p_tinh_trang",p_tinh_trang),
+                new NpgsqlParameter("p_ma_quyet_dinh",null),
+                new NpgsqlParameter("p_ma_hop_dong",null),
+                new NpgsqlParameter("p_ma_quyet_dinh_thoi_nhiem",null),
+                new NpgsqlParameter("p_den_thoi_gian_adj",null),
+                new NpgsqlParameter("p_id_cu",null)
+            };
+            check = (int)dp.executeScalarProc("sp_insert_cnvc_tham_nien", paras);
+            if (check > 0)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
+        public bool UpdateQtrCTacOU(int id, int p_don_vi_id, int p_chuc_danh_id, int p_chuc_vu_id,
+            DateTime p_tu_thoi_gian, DateTime p_den_thoi_gian, bool p_tinh_trang)
+        {
+            int check;
+            IDataParameter[] paras = new IDataParameter[8]{
+                new NpgsqlParameter("p_id",id), 
+                new NpgsqlParameter("p_ma_nv",manv), 
+                new NpgsqlParameter("p_don_vi_id",p_don_vi_id), 
+                new NpgsqlParameter("p_chuc_danh_id",p_chuc_danh_id), 
+                new NpgsqlParameter("p_chuc_vu_id",p_chuc_vu_id), 
+                new NpgsqlParameter("p_tu_thoi_gian",p_tu_thoi_gian), 
+                new NpgsqlParameter("p_den_thoi_gian",p_den_thoi_gian), 
+                new NpgsqlParameter("p_tinh_trang",p_tinh_trang)
+            };
+            check = (int)dp.executeScalarProc("sp_update_cnvc_qtr_ctac_ou_from_chart", paras);
+            if (check > 0)
+            {
+                return true;
+            }
+            else
+                return false;
+        } 
+
+
+
         public bool AddThamNien(int? qtr_ctac_nonou_gd_id, int? qtr_ctac_ou_id, int? cnvc_qd_id,
            bool trong_nganh_gd, bool tham_nien_nha_giao, bool tham_nien_nang_bac ,
             bool tham_nien_cong_tac_ou, DateTime tu_ngay, DateTime? den_ngay, string ghi_chu)
