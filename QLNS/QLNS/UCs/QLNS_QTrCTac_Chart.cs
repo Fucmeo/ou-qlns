@@ -178,7 +178,8 @@ namespace QLNS.UCs
                 chart_QtrCTac.Series.RemoveAt(0);
             }
 
-            var distinct_donvi = (from DataRow dr in dt_original.Rows
+            var distinct_donvi = (from DataRow dr in dt_binding.Rows
+                                  where Convert.ToBoolean(dr["bind"])  == true
                                   select new { ten_don_vi = dr["ten_don_vi"], ten_don_vi_viet_tat = dr["ten_don_vi_viet_tat"] }).Distinct();
 
             foreach (var r in distinct_donvi)
@@ -418,7 +419,7 @@ namespace QLNS.UCs
         {
             dtp_DenNgay_filter.Enabled = dtp_TuNgay_filter.Enabled =
                 cb_DonVi_Filter.Enabled = cb_ChucDanh_Filter.Enabled = cb_ChucVu_Filter.Enabled = 
-                cb_ConHD_filter.Enabled = chart_QtrCTac.Enabled = 
+                TLP_TinhTrang_Filter.Enabled = chart_QtrCTac.Enabled = 
                  btn_Them.Visible = btn_Sua.Visible = btn_Xoa.Visible = Init;
 
             cb_ConHD.Enabled = cb_DonVi.Enabled = cb_ChucVu.Enabled = cb_ChucDanh.Enabled =
@@ -451,8 +452,7 @@ namespace QLNS.UCs
                 if (dtp_DenNgay.Checked) dtDenNgay = dtp_DenNgay.Value;
                 else dtDenNgay = null;
 
-                int? nDonViID = Convert.ToInt32(cb_DonVi.SelectedValue);
-                if (nDonViID == -1) nDonViID = null;
+                int nDonViID = Convert.ToInt32(cb_DonVi.SelectedValue);
 
                 int? nChucDanhID = Convert.ToInt32(cb_ChucDanh.SelectedValue);
                 if (nChucDanhID == -1) nChucDanhID = null;
@@ -464,15 +464,15 @@ namespace QLNS.UCs
                 {
                     try
                     {
-                        if (MessageBox.Show("Bạn muốn thêm thâm niên này ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        if (MessageBox.Show("Bạn muốn thêm quá trình công tác này ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
-                            oCNVC.AddThamNien(null, null, null, bTrongGD, bNhaGiao, bNangBac, bCongTac, dtTuNgay, dtDenNgay, sGhiChu);
+                            oCNVC.AddQtrCTacOU(nDonViID, nChucDanhID, nChucVuID,dtTuNgay, dtDenNgay, bConHD);
                             EnableControls(true);
                             // load lai chart
-                            GetThamNienData();
+                            GetData_QtrCTac();
                             RegenerateChart();
 
-                            MessageBox.Show("Thêm thâm niên thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Thêm thêm quá trình công tác thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                     catch (Exception)
@@ -485,16 +485,16 @@ namespace QLNS.UCs
                 {
                     try
                     {
-                        if (MessageBox.Show("Bạn muốn sửa thâm niên này ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        if (MessageBox.Show("Bạn muốn sửa thêm quá trình công tác này ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
                             int id = Convert.ToInt32(chart_QtrCTac.Series[result.Series.Name].Points[result.PointIndex].Tag);
-                            oCNVC.UpdateThamNien(id, bTrongGD, bNhaGiao, bNangBac, bCongTac, dtTuNgay, dtDenNgay, sGhiChu);
+                            oCNVC.UpdateQtrCTacOU(id, nDonViID, nChucDanhID, nChucVuID, dtTuNgay, dtDenNgay, bConHD);
                             EnableControls(true);
                             // load lai chart
                             GetThamNienData();
                             RegenerateChart();
 
-                            MessageBox.Show("Sửa thâm niên thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Sửa thêm quá trình công tác thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                     catch (Exception)
@@ -544,6 +544,77 @@ namespace QLNS.UCs
         {
             ClearThongTin();
             EnableControls(true);
+        }
+
+        private void btn_Apply_Click(object sender, EventArgs e)
+        {
+            #region Thong tin cong tac filter
+            int nDonViID = Convert.ToInt32(cb_DonVi_Filter.SelectedValue);
+            int nChucDanhID = Convert.ToInt32(cb_ChucDanh_Filter.SelectedValue);
+            int nChucVuID = Convert.ToInt32(cb_ChucVu_Filter.SelectedValue);
+
+            for (int i = 0; i < dt_CateFilter.Rows.Count; i++)
+            {
+                dt_CateFilter.Rows[i]["bind"] = true;
+            }
+
+            if (nDonViID != 0)  // khong phai select all
+            {
+                for (int i = 0; i < dt_CateFilter.Rows.Count; i++)
+                {
+                    if (Convert.ToInt32(dt_CateFilter.Rows[i]["don_vi_id"]) != nDonViID)
+                    {
+                        dt_CateFilter.Rows[i]["bind"] = false;
+                    }
+                }
+            }
+
+            if (nChucDanhID != 0)  // khong phai select all
+            {
+                for (int i = 0; i < dt_CateFilter.Rows.Count; i++)
+                {
+                    if (dt_CateFilter.Rows[i]["chuc_danh_id"].ToString() == "" ||
+                            Convert.ToInt32(dt_CateFilter.Rows[i]["chuc_danh_id"]) != nChucDanhID) // chuc danh rỗng hoac khong dung chuc danh id da chon deu bi set = false
+                    {
+                        dt_CateFilter.Rows[i]["bind"] = false;
+                    }
+                }
+            }
+
+            if (nChucVuID != 0)  // khong phai select all
+            {
+                for (int i = 0; i < dt_CateFilter.Rows.Count; i++)
+                {
+                    if (dt_CateFilter.Rows[i]["chuc_vu_id"].ToString() == "" ||
+                            Convert.ToInt32(dt_CateFilter.Rows[i]["chuc_vu_id"]) != nChucVuID) // chuc vu rỗng hoac khong dung chuc vu id da chon deu bi set = false
+                    {
+                        dt_CateFilter.Rows[i]["bind"] = false;
+                    }
+                }
+            }
+
+            if (rb_HetHD.Checked)
+            {
+                for (int i = 0; i < dt_CateFilter.Rows.Count; i++)
+                {
+                        dt_CateFilter.Rows[i]["bind"] = !Convert.ToBoolean(dt_CateFilter.Rows[i]["tinh_trang"]);
+                    
+                }
+            }
+            else if (rb_ConHD.Checked)
+            {
+                for (int i = 0; i < dt_CateFilter.Rows.Count; i++)
+                {
+                    dt_CateFilter.Rows[i]["bind"] = Convert.ToBoolean(dt_CateFilter.Rows[i]["tinh_trang"]);
+
+                }
+            }
+
+            #endregion
+
+            JoinFilter();
+            RegenerateChart();
+
         }
 
         

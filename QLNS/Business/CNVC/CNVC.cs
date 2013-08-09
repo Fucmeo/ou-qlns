@@ -322,8 +322,8 @@ namespace Business.CNVC
             return dt;
         }
 
-        public bool AddQtrCTacOU(int p_don_vi_id, int p_chuc_danh_id, int p_chuc_vu_id,
-            DateTime p_tu_thoi_gian, DateTime p_den_thoi_gian, bool p_tinh_trang )
+        public bool AddQtrCTacOU(int p_don_vi_id, int? p_chuc_danh_id, int? p_chuc_vu_id,
+            DateTime p_tu_thoi_gian, DateTime? p_den_thoi_gian, bool p_tinh_trang )
         {
             int check;
             IDataParameter[] paras = new IDataParameter[12]{
@@ -349,8 +349,8 @@ namespace Business.CNVC
                 return false;
         }
 
-        public bool UpdateQtrCTacOU(int id, int p_don_vi_id, int p_chuc_danh_id, int p_chuc_vu_id,
-            DateTime p_tu_thoi_gian, DateTime p_den_thoi_gian, bool p_tinh_trang)
+        public bool UpdateQtrCTacOU(int id, int p_don_vi_id, int? p_chuc_danh_id, int? p_chuc_vu_id,
+            DateTime p_tu_thoi_gian, DateTime? p_den_thoi_gian, bool p_tinh_trang)
         {
             int check;
             IDataParameter[] paras = new IDataParameter[8]{
