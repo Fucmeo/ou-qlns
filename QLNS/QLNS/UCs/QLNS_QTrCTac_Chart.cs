@@ -15,8 +15,11 @@ namespace QLNS.UCs
         DataTable dt_original, dt_binding, dt_TimeFilter, dt_CateFilter;
         DataTable dt_DonVi, dt_ChucVu, dt_ChucDanh;
         DateTime? dOldFrom, dOldTo;
+        //int nOld_DonViID = 0, nOld_ChucDanhID = 0, nOld_ChucVuID = 0; // id cũ để dùng khi check cần fải filter mới hay o
+        //enum RDs_State { All, Active, InActive }; 
         enum DTPs_State { Both, One, None };
         DTPs_State dtp_state;
+        //RDs_State rd_state;
         Business.CNVC.CNVC oCNVC;
         Business.DonVi oDonVi;
         Business.ChucDanh oChucDanh;
@@ -28,6 +31,7 @@ namespace QLNS.UCs
         {
             InitializeComponent();
             dtp_state = DTPs_State.None;
+            //rd_state = RDs_State.All;
             oCNVC = new Business.CNVC.CNVC();
             oChucDanh = new Business.ChucDanh();
             oChucVu = new Business.ChucVu();
@@ -274,13 +278,18 @@ namespace QLNS.UCs
         {
             if (dt_binding.AsEnumerable().Where(a => a.Field<Boolean>("bind") == true).Count() > 0)
             {
-                DateTime dmax = dt_binding.AsEnumerable().Where(a => a.Field<Boolean>("bind") == true && Convert.ToString(a.Field<DateTime?>("den_thoi_gian_adj")) != "").Select(a => a.Field<DateTime>("den_thoi_gian_adj")).Max();
-                if (dmax < DateTime.Now) dmax = DateTime.Now;
+                DateTime dmax = DateTime.Now;
+                if (dt_binding.AsEnumerable().Where(a => a.Field<Boolean>("bind") == true && Convert.ToString(a.Field<DateTime?>("den_thoi_gian_adj")) != "").Count() > 0)
+                {
+                     dmax = dt_binding.AsEnumerable().Where(a => a.Field<Boolean>("bind") == true && Convert.ToString(a.Field<DateTime?>("den_thoi_gian_adj")) != "").Select(a => a.Field<DateTime>("den_thoi_gian_adj")).Max();
+                }
+
+
+
                 DateTime dmin = dt_binding.AsEnumerable().Where(a => a.Field<Boolean>("bind") == true).Select(a => a.Field<DateTime>("tu_thoi_gian")).Min();
                 chart_QtrCTac.ChartAreas[0].AxisX.Maximum = (dmax.AddMonths(1)).ToOADate();
                 chart_QtrCTac.ChartAreas[0].AxisX.Minimum = (dmin.AddMonths(-1)).ToOADate();
             }
-
         }
 
         private void JoinFilter()
@@ -548,6 +557,9 @@ namespace QLNS.UCs
 
         private void btn_Apply_Click(object sender, EventArgs e)
         {
+            //bool bTimeFilter = false;
+            //bool bCateFilter = false;
+
             #region Thong tin cong tac filter
             int nDonViID = Convert.ToInt32(cb_DonVi_Filter.SelectedValue);
             int nChucDanhID = Convert.ToInt32(cb_ChucDanh_Filter.SelectedValue);
@@ -612,8 +624,143 @@ namespace QLNS.UCs
 
             #endregion
 
-            JoinFilter();
-            RegenerateChart();
+            #region Time filter
+            
+            DateTime? dNewFrom, dNewTo;
+            if (dtp_TuNgay_filter.Checked)
+            {
+                dNewFrom = dtp_TuNgay_filter.Value;
+            }
+            else
+            {
+                dNewFrom = null;
+            }
+
+            if (dtp_DenNgay_filter.Checked)
+            {
+                dNewTo = dtp_DenNgay_filter.Value;
+            }
+            else
+            {
+                dNewTo = null;
+            }
+
+            if (dOldFrom != dNewFrom || dOldTo != dNewTo) // value khac moi filter moi
+            {
+                if (dtp_TuNgay_filter.Checked && dtp_DenNgay_filter.Checked) // 1.both check
+                {
+                    dtp_state = DTPs_State.Both;
+                }
+                else
+                {
+                    if (dtp_TuNgay_filter.Checked || dtp_DenNgay_filter.Checked) // 2.1 check
+                    {
+                        dtp_state = DTPs_State.One;
+                    }
+                    else // 3.none check
+                    {
+                        dtp_state = DTPs_State.None;
+                    }
+                }
+                dOldFrom = dNewFrom;
+                dOldTo = dNewTo;
+                FilterByTime();
+                //bTimeFilter = true;
+
+            }
+            else
+            {
+               // bTimeFilter = false;
+            }
+
+            #endregion
+
+            //if (bTimeFilter || bCateFilter)
+            //{
+                JoinFilter();
+                RegenerateChart();
+                ClearThongTin();
+           // }
+            
+
+        }
+
+        private void FilterByTime()
+        {
+            DateTime dtDenTG;
+            switch (dtp_state)
+            {
+                    
+                case DTPs_State.Both:
+                    for (int i = 0; i < dt_TimeFilter.Rows.Count; i++)
+                    {
+
+                        if (dt_TimeFilter.Rows[i]["den_thoi_gian_adj"].ToString() == "") dtDenTG = DateTime.Now;
+                        else dtDenTG = Convert.ToDateTime(dt_TimeFilter.Rows[i]["den_thoi_gian_adj"]);
+
+                        if ((Convert.ToDateTime(dt_TimeFilter.Rows[i]["tu_thoi_gian"]).Date < dtp_TuNgay_filter.Value.Date
+                            && dtDenTG < dtp_TuNgay_filter.Value.Date) ||
+                            (Convert.ToDateTime(dt_TimeFilter.Rows[i]["tu_thoi_gian"]).Date > dtp_DenNgay_filter.Value.Date
+                            && dtDenTG > dtp_DenNgay_filter.Value.Date))
+                        {
+                            dt_TimeFilter.Rows[i]["bind"] = false;
+                        }
+                        else
+                        {
+                            dt_TimeFilter.Rows[i]["bind"] = true;
+                        }
+
+                    }
+                    break;
+                case DTPs_State.One:
+                    if (dtp_TuNgay_filter.Checked)
+                    {
+                        for (int i = 0; i < dt_TimeFilter.Rows.Count; i++)
+                        {
+                            if (dt_TimeFilter.Rows[i]["den_thoi_gian_adj"].ToString() == "") dtDenTG = DateTime.Now;
+                            else dtDenTG = Convert.ToDateTime(dt_TimeFilter.Rows[i]["den_thoi_gian_adj"]);
+
+                            if (Convert.ToDateTime(dt_TimeFilter.Rows[i]["tu_thoi_gian"]).Date < dtp_TuNgay_filter.Value.Date 
+                                 && dtDenTG < dtp_TuNgay_filter.Value.Date)
+                            {
+                                dt_TimeFilter.Rows[i]["bind"] = false;
+                            }
+                            else
+                            {
+                                dt_TimeFilter.Rows[i]["bind"] = true;
+                            }
+
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 0; i < dt_TimeFilter.Rows.Count; i++)
+                        {
+                            if (dt_TimeFilter.Rows[i]["den_thoi_gian_adj"].ToString() == "") dtDenTG = DateTime.Now;
+                            else dtDenTG = Convert.ToDateTime(dt_TimeFilter.Rows[i]["den_thoi_gian_adj"]);
+
+                            if (Convert.ToDateTime(dt_TimeFilter.Rows[i]["tu_thoi_gian"]).Date > dtp_TuNgay_filter.Value.Date 
+                                && dtDenTG > dtp_DenNgay_filter.Value.Date)
+                            {
+                                dt_TimeFilter.Rows[i]["bind"] = false;
+                            }
+                            else
+                            {
+                                dt_TimeFilter.Rows[i]["bind"] = true;
+                            }
+
+                        }
+                    }
+                    break;
+                case DTPs_State.None:
+                    for (int i = 0; i < dt_TimeFilter.Rows.Count; i++)
+                    {
+                        dt_TimeFilter.Rows[i]["bind"] = true;
+                    }
+                    break;
+                default:
+                    break;
+            }
 
         }
 

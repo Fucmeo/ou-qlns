@@ -343,7 +343,8 @@ namespace QLNS.UCs
             if (bCateFilter || bTimeFilter)
             {
                 JoinFilter();
-                RegenerateChart(); 
+                RegenerateChart();
+                ClearThongTin();
             }
             
         }
@@ -369,13 +370,20 @@ namespace QLNS.UCs
 
         private void FilterByTime()
         {
+            DateTime dtDenTG;
+
             switch (dtp_state)
             {
                 case DTPs_State.Both:
                     for (int i = 0; i < dt_TimeFilter.Rows.Count; i++)
                     {
-                        if (Convert.ToDateTime(dt_TimeFilter.Rows[i]["tu_ngay"]).Date < dtp_TuNgay_filter.Value.Date
-                            || Convert.ToDateTime(dt_TimeFilter.Rows[i]["den_ngay"]).Date > dtp_DenNgay_filter.Value.Date)
+                        if (dt_TimeFilter.Rows[i]["den_ngay"].ToString() == "") dtDenTG = DateTime.Now;
+                        else dtDenTG = Convert.ToDateTime(dt_TimeFilter.Rows[i]["den_ngay"]);
+
+                        if ((Convert.ToDateTime(dt_TimeFilter.Rows[i]["tu_ngay"]).Date < dtp_TuNgay_filter.Value.Date
+                            && dtDenTG < dtp_TuNgay_filter.Value.Date) ||
+                            (Convert.ToDateTime(dt_TimeFilter.Rows[i]["tu_ngay"]).Date > dtp_DenNgay_filter.Value.Date
+                            && dtDenTG > dtp_DenNgay_filter.Value.Date))
                         {
                             dt_TimeFilter.Rows[i]["bind"] = false;
                         }
@@ -391,7 +399,11 @@ namespace QLNS.UCs
                     {
                         for (int i = 0; i < dt_TimeFilter.Rows.Count; i++)
                         {
-                            if (Convert.ToDateTime(dt_TimeFilter.Rows[i]["tu_ngay"]).Date < dtp_TuNgay_filter.Value.Date)
+                            if (dt_TimeFilter.Rows[i]["den_ngay"].ToString() == "") dtDenTG = DateTime.Now;
+                            else dtDenTG = Convert.ToDateTime(dt_TimeFilter.Rows[i]["den_ngay"]);
+
+                            if (Convert.ToDateTime(dt_TimeFilter.Rows[i]["tu_ngay"]).Date < dtp_TuNgay_filter.Value.Date
+                                && dtDenTG < dtp_TuNgay_filter.Value.Date)
                             {
                                 dt_TimeFilter.Rows[i]["bind"] = false;
                             }
@@ -406,7 +418,11 @@ namespace QLNS.UCs
                     {
                         for (int i = 0; i < dt_TimeFilter.Rows.Count; i++)
                         {
-                            if (Convert.ToDateTime(dt_TimeFilter.Rows[i]["den_ngay"]).Date > dtp_DenNgay_filter.Value.Date)
+                            if (dt_TimeFilter.Rows[i]["den_ngay"].ToString() == "") dtDenTG = DateTime.Now;
+                            else dtDenTG = Convert.ToDateTime(dt_TimeFilter.Rows[i]["den_ngay"]);
+
+                            if (Convert.ToDateTime(dt_TimeFilter.Rows[i]["tu_ngay"]).Date > dtp_TuNgay_filter.Value.Date
+                                && dtDenTG > dtp_DenNgay_filter.Value.Date)
                             {
                                 dt_TimeFilter.Rows[i]["bind"] = false;
                             }
