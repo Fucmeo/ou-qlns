@@ -38,6 +38,7 @@
             this.TreeV_Ngach_NhomNgach = new System.Windows.Forms.TreeView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLP_ThongTin = new System.Windows.Forms.TableLayoutPanel();
+            this.nup_SoNam = new System.Windows.Forms.NumericUpDown();
             this.lb_SoThang = new System.Windows.Forms.Label();
             this.txt_TenNgach = new System.Windows.Forms.TextBox();
             this.txt_MaNgach = new System.Windows.Forms.TextBox();
@@ -51,7 +52,6 @@
             this.btn_Luu = new System.Windows.Forms.Button();
             this.btn_Huy = new System.Windows.Forms.Button();
             this.btn_Them = new wyDay.Controls.SplitButton();
-            this.nup_SoNam = new System.Windows.Forms.NumericUpDown();
             this.contextMenuStrip1.SuspendLayout();
             this.tableLP_Ngach_NhomNgach.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -66,19 +66,19 @@
             this.TSMI_ThemNhomNgach,
             this.TSMI_ThemNgach});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(202, 52);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(177, 48);
             // 
             // TSMI_ThemNhomNgach
             // 
             this.TSMI_ThemNhomNgach.Name = "TSMI_ThemNhomNgach";
-            this.TSMI_ThemNhomNgach.Size = new System.Drawing.Size(201, 24);
+            this.TSMI_ThemNhomNgach.Size = new System.Drawing.Size(176, 22);
             this.TSMI_ThemNhomNgach.Text = "Thêm nhóm ngạch";
             this.TSMI_ThemNhomNgach.Click += new System.EventHandler(this.TSMI_ThemNhomNgach_Click);
             // 
             // TSMI_ThemNgach
             // 
             this.TSMI_ThemNgach.Name = "TSMI_ThemNgach";
-            this.TSMI_ThemNgach.Size = new System.Drawing.Size(201, 24);
+            this.TSMI_ThemNgach.Size = new System.Drawing.Size(176, 22);
             this.TSMI_ThemNgach.Text = "Thêm ngạch";
             this.TSMI_ThemNgach.Click += new System.EventHandler(this.TSMI_ThemNgach_Click);
             // 
@@ -123,9 +123,9 @@
             // TreeV_Ngach_NhomNgach
             // 
             this.TreeV_Ngach_NhomNgach.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TreeV_Ngach_NhomNgach.Location = new System.Drawing.Point(3, 24);
+            this.TreeV_Ngach_NhomNgach.Location = new System.Drawing.Point(3, 20);
             this.TreeV_Ngach_NhomNgach.Name = "TreeV_Ngach_NhomNgach";
-            this.TreeV_Ngach_NhomNgach.Size = new System.Drawing.Size(248, 567);
+            this.TreeV_Ngach_NhomNgach.Size = new System.Drawing.Size(248, 571);
             this.TreeV_Ngach_NhomNgach.TabIndex = 1;
             this.TreeV_Ngach_NhomNgach.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.TreeV_Ngach_NhomNgach_NodeMouseDoubleClick);
             // 
@@ -158,23 +158,33 @@
             this.tableLP_ThongTin.Controls.Add(this.comB_NhomNgach, 1, 2);
             this.tableLP_ThongTin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLP_ThongTin.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.tableLP_ThongTin.Location = new System.Drawing.Point(3, 24);
+            this.tableLP_ThongTin.Location = new System.Drawing.Point(3, 20);
             this.tableLP_ThongTin.Name = "tableLP_ThongTin";
             this.tableLP_ThongTin.RowCount = 4;
             this.tableLP_ThongTin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLP_ThongTin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLP_ThongTin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLP_ThongTin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLP_ThongTin.Size = new System.Drawing.Size(378, 234);
+            this.tableLP_ThongTin.Size = new System.Drawing.Size(378, 238);
             this.tableLP_ThongTin.TabIndex = 0;
+            // 
+            // nup_SoNam
+            // 
+            this.nup_SoNam.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.nup_SoNam.Enabled = false;
+            this.nup_SoNam.Location = new System.Drawing.Point(122, 195);
+            this.nup_SoNam.Name = "nup_SoNam";
+            this.nup_SoNam.Size = new System.Drawing.Size(120, 24);
+            this.nup_SoNam.TabIndex = 32;
+            this.nup_SoNam.Visible = false;
             // 
             // lb_SoThang
             // 
             this.lb_SoThang.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lb_SoThang.AutoSize = true;
-            this.lb_SoThang.Location = new System.Drawing.Point(3, 183);
+            this.lb_SoThang.Location = new System.Drawing.Point(3, 199);
             this.lb_SoThang.Name = "lb_SoThang";
-            this.lb_SoThang.Size = new System.Drawing.Size(113, 42);
+            this.lb_SoThang.Size = new System.Drawing.Size(111, 17);
             this.lb_SoThang.TabIndex = 10;
             this.lb_SoThang.Text = "Số tháng nâng bậc";
             this.lb_SoThang.Visible = false;
@@ -183,29 +193,29 @@
             // 
             this.txt_TenNgach.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txt_TenNgach.Enabled = false;
-            this.txt_TenNgach.Location = new System.Drawing.Point(122, 73);
+            this.txt_TenNgach.Location = new System.Drawing.Point(122, 76);
             this.txt_TenNgach.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txt_TenNgach.Name = "txt_TenNgach";
-            this.txt_TenNgach.Size = new System.Drawing.Size(253, 28);
+            this.txt_TenNgach.Size = new System.Drawing.Size(253, 24);
             this.txt_TenNgach.TabIndex = 9;
             // 
             // txt_MaNgach
             // 
             this.txt_MaNgach.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txt_MaNgach.Enabled = false;
-            this.txt_MaNgach.Location = new System.Drawing.Point(122, 15);
+            this.txt_MaNgach.Location = new System.Drawing.Point(122, 17);
             this.txt_MaNgach.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txt_MaNgach.Name = "txt_MaNgach";
-            this.txt_MaNgach.Size = new System.Drawing.Size(253, 28);
+            this.txt_MaNgach.Size = new System.Drawing.Size(253, 24);
             this.txt_MaNgach.TabIndex = 8;
             // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 134);
+            this.label3.Location = new System.Drawing.Point(3, 139);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 21);
+            this.label3.Size = new System.Drawing.Size(79, 17);
             this.label3.TabIndex = 6;
             this.label3.Text = "Nhóm ngạch";
             // 
@@ -213,9 +223,9 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 18);
+            this.label2.Location = new System.Drawing.Point(3, 21);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 21);
+            this.label2.Size = new System.Drawing.Size(64, 17);
             this.label2.TabIndex = 4;
             this.label2.Text = "Mã ngạch";
             // 
@@ -223,9 +233,9 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 76);
+            this.label1.Location = new System.Drawing.Point(3, 80);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 21);
+            this.label1.Size = new System.Drawing.Size(28, 17);
             this.label1.TabIndex = 5;
             this.label1.Text = "Tên";
             // 
@@ -238,9 +248,9 @@
             this.comB_NhomNgach.Items.AddRange(new object[] {
             "Biên chế",
             "Hợp đồng"});
-            this.comB_NhomNgach.Location = new System.Drawing.Point(122, 132);
+            this.comB_NhomNgach.Location = new System.Drawing.Point(122, 137);
             this.comB_NhomNgach.Name = "comB_NhomNgach";
-            this.comB_NhomNgach.Size = new System.Drawing.Size(253, 29);
+            this.comB_NhomNgach.Size = new System.Drawing.Size(253, 25);
             this.comB_NhomNgach.TabIndex = 7;
             // 
             // btn_Sua
@@ -326,19 +336,9 @@
             this.btn_Them.UseVisualStyleBackColor = true;
             this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
             // 
-            // nup_SoNam
-            // 
-            this.nup_SoNam.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.nup_SoNam.Enabled = false;
-            this.nup_SoNam.Location = new System.Drawing.Point(122, 190);
-            this.nup_SoNam.Name = "nup_SoNam";
-            this.nup_SoNam.Size = new System.Drawing.Size(120, 28);
-            this.nup_SoNam.TabIndex = 32;
-            this.nup_SoNam.Visible = false;
-            // 
             // Ngach_NhomNgach
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.tableLP_Ngach_NhomNgach);

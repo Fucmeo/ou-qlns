@@ -540,8 +540,8 @@ namespace HDQD.UCs
             #endregion
 
             #region Phu Cap Info
-            DataTable dt = oCNVCPhuCap.GetList_PhuCap_byCNVC(oHopdong.Ma_Tuyen_Dung, oHopdong.Ma_NV);
-            PrepareDTGVSource(dt);
+            dtPhuCap = oCNVCPhuCap.GetList_PhuCap_byCNVC(oHopdong.Ma_Tuyen_Dung, oHopdong.Ma_NV);
+            PrepareDTGVSource(dtPhuCap);
 
             #endregion
         }
@@ -864,20 +864,20 @@ namespace HDQD.UCs
             dr["id"] = row_count_pc;
             dr["loai_pc_id"] = comB_LoaiPhuCap.SelectedValue;
             dr["ten_loai"] = comB_LoaiPhuCap.Text;
-            if (String.IsNullOrEmpty(txt_TienPC.Text))
-                dr["value_khoan"] = DBNull.Value;
-            else
+            if (!String.IsNullOrEmpty(txt_TienPC.Text) && txt_TienPC.Enabled == true)
                 dr["value_khoan"] = Convert.ToDouble(txt_TienPC.Text);
-
-            if (String.IsNullOrEmpty(txt_HeSoPC.Text))
-                dr["value_he_so"] = DBNull.Value;
             else
+                dr["value_khoan"] = DBNull.Value;
+
+            if (!String.IsNullOrEmpty(txt_HeSoPC.Text) && txt_HeSoPC.Enabled == true)
                 dr["value_he_so"] = Convert.ToDouble(txt_HeSoPC.Text);
-
-            if (String.IsNullOrEmpty(nup_Value_PhanTramPC.Text))
-                dr["value_phan_tram"] = DBNull.Value;
             else
+                dr["value_he_so"] = DBNull.Value;
+
+            if (!String.IsNullOrEmpty(nup_Value_PhanTramPC.Text) && nup_Value_PhanTramPC.Enabled == true)
                 dr["value_phan_tram"] = Convert.ToDouble(nup_Value_PhanTramPC.Text);
+            else
+                dr["value_phan_tram"] = DBNull.Value;
 
             dr["phan_tram_huong"] = Convert.ToDouble(nup_PhanTramPC.Value);
 
