@@ -132,29 +132,29 @@ namespace Business.CNVC
                 return false;
         }
 
-        public bool Update()
-        {
-            int check;
-            IDataParameter[] paras = new IDataParameter[10]{
-                new NpgsqlParameter("id",id),
-                new NpgsqlParameter("hop_dong_id",hopdongid),
-                new NpgsqlParameter("ma_quyet_dinh",maquyetdinh),
-                new NpgsqlParameter("ma_nv",manv),
-                new NpgsqlParameter("don_vi_id",donviid),
-                new NpgsqlParameter("chuc_danh_id",chucdanhid),
-                new NpgsqlParameter("chuc_vu_id",chucvuid),
-                new NpgsqlParameter("tu_thoi_gian",tuthoigian),
-                new NpgsqlParameter("den_thoi_gian",denthoigian),
-                new NpgsqlParameter("tinh_trang",tinhtrang)
-            };
-            check = (int)dp.executeScalarProc("sp_update_cnvc_qtr_ctac_ou", paras);
-            if (check > 0)
-            {
-                return true;
-            }
-            else
-                return false;
-        }
+        //public bool Update()
+        //{
+        //    int check;
+        //    IDataParameter[] paras = new IDataParameter[10]{
+        //        new NpgsqlParameter("id",id),
+        //        new NpgsqlParameter("hop_dong_id",hopdongid),
+        //        new NpgsqlParameter("ma_quyet_dinh",maquyetdinh),
+        //        new NpgsqlParameter("ma_nv",manv),
+        //        new NpgsqlParameter("don_vi_id",donviid),
+        //        new NpgsqlParameter("chuc_danh_id",chucdanhid),
+        //        new NpgsqlParameter("chuc_vu_id",chucvuid),
+        //        new NpgsqlParameter("tu_thoi_gian",tuthoigian),
+        //        new NpgsqlParameter("den_thoi_gian",denthoigian),
+        //        new NpgsqlParameter("tinh_trang",tinhtrang)
+        //    };
+        //    check = (int)dp.executeScalarProc("sp_update_cnvc_qtr_ctac_ou", paras);
+        //    if (check > 0)
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //        return false;
+        //}
 
         public bool Update_MaNV(string ma_nv_old)
         {
