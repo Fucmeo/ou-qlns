@@ -27,6 +27,9 @@ namespace HDQD.UCs
         string chuoi_cong_thuc = "";
         string chuoi_cong_thuc_text = "";
 
+        bool IsUpdate = false;
+        string m_ma_qd_old = "";
+
         public QDChung()
         {
             InitializeComponent();
@@ -37,7 +40,7 @@ namespace HDQD.UCs
         {
             InitializeComponent();
             InitObject(false);
-
+            IsUpdate = false;
 
             #region Xử lý dữ liệu cho cbo Loại Quyết Định
             DataTable dt = new DataTable();
@@ -81,6 +84,7 @@ namespace HDQD.UCs
             InitObject(true);
 
             DisplayInfo(p_ma_qd);
+            IsUpdate = true;
         }
 
         private void DisplayInfo(string p_ma_qd)
@@ -91,7 +95,7 @@ namespace HDQD.UCs
                 if (qd_info.Rows.Count == 1)
                 {
                     #region Thông tin Quyết Định
-                    thongTinQuyetDinh1.txt_MaQD.Text = qd_info.Rows[0]["ma_quyet_dinh"].ToString();
+                    m_ma_qd_old = thongTinQuyetDinh1.txt_MaQD.Text = qd_info.Rows[0]["ma_quyet_dinh"].ToString();
                     thongTinQuyetDinh1.txt_TenQD.Text = qd_info.Rows[0]["ten_qd"].ToString();
                     thongTinQuyetDinh1.comB_Loai.SelectedValue = Convert.ToInt32(qd_info.Rows[0]["loai_qd_id"].ToString());
 
@@ -737,25 +741,51 @@ namespace HDQD.UCs
                     #endregion
                 }
 
-                try
+                if (IsUpdate == false)
                 {
-                    if (MessageBox.Show("Bạn thực sự muốn thêm quyết định cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    try
                     {
-                        if (oQuyetDinh.Add_QuyetDinhChung(Tham_Nien_Nang_Bac, Tham_Nien_Nha_Giao, Define_Cong_Thuc, chuoi_cong_thuc_text, chuoi_cong_thuc, 
-                                                            Phan_Tram_Cong_Thuc, Khong_Tinh_Luong,
-                                                            ma_nv.ToArray(), ins_qtr_ctac.ToArray(), don_vi_id.ToArray(), chuc_vu_id.ToArray(), chuc_danh_id.ToArray(),
-                                                            co_phu_cap.ToArray(), loai_pc_id.ToArray(), value_khoan.ToArray(), value_heso.ToArray(),
-                                                            value_phantram.ToArray(), phan_tram.ToArray(), tu_ngay.ToArray(), den_ngay.ToArray(), ghi_chu.ToArray()))
+                        if (MessageBox.Show("Bạn thực sự muốn thêm quyết định cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
-                            MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            if (oQuyetDinh.Add_QuyetDinhChung(Tham_Nien_Nang_Bac, Tham_Nien_Nha_Giao, Define_Cong_Thuc, chuoi_cong_thuc_text, chuoi_cong_thuc,
+                                                                Phan_Tram_Cong_Thuc, Khong_Tinh_Luong,
+                                                                ma_nv.ToArray(), ins_qtr_ctac.ToArray(), don_vi_id.ToArray(), chuc_vu_id.ToArray(), chuc_danh_id.ToArray(),
+                                                                co_phu_cap.ToArray(), loai_pc_id.ToArray(), value_khoan.ToArray(), value_heso.ToArray(),
+                                                                value_phantram.ToArray(), phan_tram.ToArray(), tu_ngay.ToArray(), den_ngay.ToArray(), ghi_chu.ToArray()))
+                            {
+                                MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                                MessageBox.Show("Thao tác thêm thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-                        else
-                            MessageBox.Show("Thao tác thêm thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Thao tác thêm thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                catch (Exception)
+                else
                 {
-                    MessageBox.Show("Thao tác thêm thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    try
+                    {
+                        if (MessageBox.Show("Bạn thực sự muốn cập nhật quyết định cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            if (oQuyetDinh.Update_QuyetDinhChung(m_ma_qd_old, Tham_Nien_Nang_Bac, Tham_Nien_Nha_Giao, Define_Cong_Thuc, chuoi_cong_thuc_text, chuoi_cong_thuc,
+                                                                Phan_Tram_Cong_Thuc, Khong_Tinh_Luong,
+                                                                ma_nv.ToArray(), ins_qtr_ctac.ToArray(), don_vi_id.ToArray(), chuc_vu_id.ToArray(), chuc_danh_id.ToArray(),
+                                                                co_phu_cap.ToArray(), loai_pc_id.ToArray(), value_khoan.ToArray(), value_heso.ToArray(),
+                                                                value_phantram.ToArray(), phan_tram.ToArray(), tu_ngay.ToArray(), den_ngay.ToArray(), ghi_chu.ToArray()))
+                            {
+                                MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                                MessageBox.Show("Thao tác cập nhật thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Thao tác cập nhật thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
             else
