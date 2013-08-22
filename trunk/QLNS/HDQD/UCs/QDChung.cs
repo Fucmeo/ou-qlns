@@ -92,7 +92,7 @@ namespace HDQD.UCs
             try
             {
                 DataTable qd_info = oQuyetDinh.Search_QD_Chung(p_ma_qd);
-                if (qd_info.Rows.Count == 1)
+                if (qd_info.Rows.Count >= 1)
                 {
                     #region Thông tin Quyết Định
                     m_ma_qd_old = thongTinQuyetDinh1.txt_MaQD.Text = qd_info.Rows[0]["ma_quyet_dinh"].ToString();
@@ -143,7 +143,10 @@ namespace HDQD.UCs
                     #endregion
                 }
             }
-            catch { }
+            catch 
+            {
+                MessageBox.Show("Có lỗi xảy ra trong quá trình tải dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void InitObject(bool p_loadcbo_loaiqd)
