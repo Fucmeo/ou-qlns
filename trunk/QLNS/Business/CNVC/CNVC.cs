@@ -322,11 +322,12 @@ namespace Business.CNVC
             return dt;
         }
 
-        public bool AddQtrCTacOU(int p_don_vi_id, int? p_chuc_danh_id, int? p_chuc_vu_id,
-            DateTime p_tu_thoi_gian, DateTime? p_den_thoi_gian, bool p_tinh_trang )
+        public bool AddQtrCTacOU_FromChart(int p_don_vi_id, int? p_chuc_danh_id, int? p_chuc_vu_id,
+            DateTime p_tu_thoi_gian, DateTime? p_den_thoi_gian, bool p_tinh_trang, bool p_tinh_tham_nien_nha_giao,
+            bool p_tinh_tham_nien_nang_bac, bool p_trong_nganh_giao_duc)
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[12]{
+            IDataParameter[] paras = new IDataParameter[10]{
                 new NpgsqlParameter("p_ma_nv",manv), 
                 new NpgsqlParameter("p_don_vi_id",p_don_vi_id), 
                 new NpgsqlParameter("p_chuc_danh_id",p_chuc_danh_id), 
@@ -334,13 +335,12 @@ namespace Business.CNVC
                 new NpgsqlParameter("p_tu_thoi_gian",p_tu_thoi_gian), 
                 new NpgsqlParameter("p_den_thoi_gian",p_den_thoi_gian), 
                 new NpgsqlParameter("p_tinh_trang",p_tinh_trang),
-                new NpgsqlParameter("p_ma_quyet_dinh",null),
-                new NpgsqlParameter("p_ma_hop_dong",null),
-                new NpgsqlParameter("p_ma_quyet_dinh_thoi_nhiem",null),
-                new NpgsqlParameter("p_den_thoi_gian_adj",null),
-                new NpgsqlParameter("p_id_cu",null)
+                new NpgsqlParameter("p_tinh_tham_nien_nha_giao",p_tinh_tham_nien_nha_giao),
+                new NpgsqlParameter("p_tinh_tham_nien_nang_bac",p_tinh_tham_nien_nang_bac),
+                new NpgsqlParameter("p_trong_nganh_giao_duc",p_trong_nganh_giao_duc)
+                
             };
-            check = (int)dp.executeScalarProc("sp_insert_cnvc_tham_nien", paras);
+            check = (int)dp.executeScalarProc("sp_insert_cnvc_qtr_ctac_ou_from_chart", paras);
             if (check > 0)
             {
                 return true;
@@ -349,11 +349,11 @@ namespace Business.CNVC
                 return false;
         }
 
-        public bool UpdateQtrCTacOU(int id, int p_don_vi_id, int? p_chuc_danh_id, int? p_chuc_vu_id,
-            DateTime p_tu_thoi_gian, DateTime? p_den_thoi_gian, bool p_tinh_trang)
+        public bool UpdateQtrCTacOU_Chart(int id, int p_don_vi_id, int? p_chuc_danh_id, int? p_chuc_vu_id,
+            DateTime p_tu_thoi_gian, DateTime? p_den_thoi_gian, bool p_tinh_trang, bool p_thay_doi_dv,bool p_tham_nien_nang_bac , bool p_trong_nganh_gd , bool p_tham_nien_nha_giao)
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[8]{
+            IDataParameter[] paras = new IDataParameter[12]{
                 new NpgsqlParameter("p_id",id), 
                 new NpgsqlParameter("p_ma_nv",manv), 
                 new NpgsqlParameter("p_don_vi_id",p_don_vi_id), 
@@ -361,7 +361,13 @@ namespace Business.CNVC
                 new NpgsqlParameter("p_chuc_vu_id",p_chuc_vu_id), 
                 new NpgsqlParameter("p_tu_thoi_gian",p_tu_thoi_gian), 
                 new NpgsqlParameter("p_den_thoi_gian",p_den_thoi_gian), 
-                new NpgsqlParameter("p_tinh_trang",p_tinh_trang)
+                new NpgsqlParameter("p_tinh_trang",p_tinh_trang),
+                new NpgsqlParameter("p_thay_doi_dv",p_thay_doi_dv),
+                new NpgsqlParameter("p_trong_nganh_gd",p_trong_nganh_gd),
+                new NpgsqlParameter("p_tham_nien_nha_giao",p_tham_nien_nha_giao),
+                new NpgsqlParameter("p_tham_nien_nang_bac",p_tham_nien_nang_bac)
+
+                
             };
             check = (int)dp.executeScalarProc("sp_update_cnvc_qtr_ctac_ou_from_chart", paras);
             if (check > 0)

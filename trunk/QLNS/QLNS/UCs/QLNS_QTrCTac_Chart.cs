@@ -17,6 +17,7 @@ namespace QLNS.UCs
         DateTime? dOldFrom, dOldTo;
         //int nOld_DonViID = 0, nOld_ChucDanhID = 0, nOld_ChucVuID = 0; // id cũ để dùng khi check cần fải filter mới hay o
         //enum RDs_State { All, Active, InActive }; 
+        int nSelectedID, nOldDonViID;
         enum DTPs_State { Both, One, None };
         DTPs_State dtp_state;
         //RDs_State rd_state;
@@ -24,6 +25,7 @@ namespace QLNS.UCs
         Business.DonVi oDonVi;
         Business.ChucDanh oChucDanh;
         Business.ChucVu oChucVu;
+        Business.CNVC.CNVC_QTr_CongTac_OU oCNVC_QTr_CongTac_OU;
         bool bAddFlag;
         HitTestResult result;
 
@@ -34,6 +36,7 @@ namespace QLNS.UCs
             //rd_state = RDs_State.All;
             oCNVC = new Business.CNVC.CNVC();
             oChucDanh = new Business.ChucDanh();
+            oCNVC_QTr_CongTac_OU = new Business.CNVC.CNVC_QTr_CongTac_OU();
             oChucVu = new Business.ChucVu();
             oDonVi = new Business.DonVi();
             oCNVC.MaNV = p_manv;
@@ -155,25 +158,7 @@ namespace QLNS.UCs
 
         }
 
-        private void GetThamNienData()
-        {
-            dt_original = oCNVC.GetThamNienDT();
-            //dt_original = dt_original.AsEnumerable().OrderBy(a => a.Field<DateTime>("tu_ngay")).CopyToDataTable();
-            if (dt_original.Rows.Count > 0)
-            {
-                txt_MaNV.Text = dt_original.AsEnumerable().Select(b => b.Field<string>("ma_nv")).First().ToString();
-                txt_HoTen.Text = dt_original.AsEnumerable().Select(b => b.Field<string>("ten_nv")).First().ToString();
-                dt_binding = dt_original.Copy();
-                dt_CateFilter = dt_original.Copy();
-                dt_TimeFilter = dt_original.Copy();
-            }
-            else
-            {
-                txt_MaNV.Text = "";
-                txt_HoTen.Text = "";
-            }
-        }
-
+     
         private void AddSeries()
         {
             int n = chart_QtrCTac.Series.Count;
@@ -192,6 +177,8 @@ namespace QLNS.UCs
                 chart_QtrCTac.Series[chart_QtrCTac.Series.Count - 1].Label = r.ten_don_vi_viet_tat.ToString();
             }
         }
+
+
 
         private void SetSeriesDataTypes()
         {
@@ -231,13 +218,13 @@ namespace QLNS.UCs
             {
                 DateTime dFrom = Convert.ToDateTime(dt_binding.Rows[i]["tu_thoi_gian"]);
                 DateTime dTo;
-                if (dt_binding.Rows[i]["den_thoi_gian_adj"].ToString() == "")
+                if (dt_binding.Rows[i]["den_thoi_gian"].ToString() == "")
                 {
                     dTo = DateTime.Now;
                 }
                 else
                 {
-                     dTo = Convert.ToDateTime(dt_binding.Rows[i]["den_thoi_gian_adj"]);
+                     dTo = Convert.ToDateTime(dt_binding.Rows[i]["den_thoi_gian"]);
                 }
                 
                 int id = Convert.ToInt32(dt_binding.Rows[i]["id"]);
@@ -279,9 +266,9 @@ namespace QLNS.UCs
             if (dt_binding.AsEnumerable().Where(a => a.Field<Boolean>("bind") == true).Count() > 0)
             {
                 DateTime dmax = DateTime.Now;
-                if (dt_binding.AsEnumerable().Where(a => a.Field<Boolean>("bind") == true && Convert.ToString(a.Field<DateTime?>("den_thoi_gian_adj")) != "").Count() > 0)
+                if (dt_binding.AsEnumerable().Where(a => a.Field<Boolean>("bind") == true && Convert.ToString(a.Field<DateTime?>("den_thoi_gian")) != "").Count() > 0)
                 {
-                     dmax = dt_binding.AsEnumerable().Where(a => a.Field<Boolean>("bind") == true && Convert.ToString(a.Field<DateTime?>("den_thoi_gian_adj")) != "").Select(a => a.Field<DateTime>("den_thoi_gian_adj")).Max();
+                     dmax = dt_binding.AsEnumerable().Where(a => a.Field<Boolean>("bind") == true && Convert.ToString(a.Field<DateTime?>("den_thoi_gian")) != "").Select(a => a.Field<DateTime>("den_thoi_gian")).Max();
                 }
 
 
@@ -352,8 +339,8 @@ namespace QLNS.UCs
                 // Show dialog
                 //MessageBox.Show(DateTime.FromOADate(chart_QtrCTac.Series[result.Series.Name].Points[result.PointIndex].XValue).ToString());
 
-                int? id = Convert.ToInt32(chart_QtrCTac.Series[result.Series.Name].Points[result.PointIndex].Tag);
-                DataRow r = dt_original.AsEnumerable().Where(a => a.Field<int?>("id") == id).CopyToDataTable().Rows[0];
+                nSelectedID = Convert.ToInt32(chart_QtrCTac.Series[result.Series.Name].Points[result.PointIndex].Tag);
+                DataRow r = dt_original.AsEnumerable().Where(a => a.Field<int?>("id") == nSelectedID).CopyToDataTable().Rows[0];
                 BindThongTin(r);
 
             }
@@ -376,10 +363,10 @@ namespace QLNS.UCs
                 dtp_TuNgay.Checked = false;
             }
 
-            if (r["den_thoi_gian_adj"].ToString() != "")
+            if (r["den_thoi_gian"].ToString() != "")
             {
                 dtp_DenNgay.Checked = true;
-                dtp_DenNgay.Value = Convert.ToDateTime(r["den_thoi_gian_adj"]);
+                dtp_DenNgay.Value = Convert.ToDateTime(r["den_thoi_gian"]);
             }
             else
             {
@@ -400,8 +387,21 @@ namespace QLNS.UCs
             if (r["don_vi_id"].ToString() == "")
                 cb_DonVi.SelectedValue = -1;
             else
-                cb_DonVi.SelectedValue = Convert.ToInt32(r["don_vi_id"].ToString());
+            {
 
+                cb_DonVi.SelectedValue = nOldDonViID = Convert.ToInt32(r["don_vi_id"].ToString());
+
+                var vDonViDT = from DataRow row in dt_DonVi.Rows
+                               where Convert.ToInt32(row["id"]) == Convert.ToInt32(r["don_vi_id"].ToString())
+                               select row["tu_ngay"];
+
+
+                foreach (var d in vDonViDT)
+                {
+                    if (d != null && d != DBNull.Value)
+                        txt_NgayThanhLap.Text = Convert.ToDateTime(d).ToShortDateString();
+                }
+            }
             if (r["chuc_danh_id"].ToString() == "")
                 cb_ChucDanh.SelectedValue = -1;
             else
@@ -413,7 +413,31 @@ namespace QLNS.UCs
                 cb_ChucVu.SelectedValue = Convert.ToInt32(r["chuc_vu_id"].ToString());
 
 
+            if (r["tinh_tham_nien_nha_giao"].ToString() != "")
+            {
+                cb_ThamNienNhaGiao.Visible = true;
+                cb_ThamNienNhaGiao.Checked = Convert.ToBoolean(r["tinh_tham_nien_nha_giao"]);
+            }
+            else
+                cb_ThamNienNhaGiao.Visible = false;
 
+            if (r["tinh_tham_nien_nang_bac"].ToString() != "")
+            {
+                cb_ThamNienNangBac.Visible = true;
+                cb_ThamNienNangBac.Checked = Convert.ToBoolean(r["tinh_tham_nien_nang_bac"]);
+            }
+            else
+                cb_ThamNienNangBac.Visible = false;
+
+            if (r["trong_nganh_gd"].ToString() != "")
+            {
+                cb_TrongNganhGD.Visible = true;
+                cb_TrongNganhGD.Checked = Convert.ToBoolean(r["trong_nganh_gd"]);
+            }
+            else
+                cb_TrongNganhGD.Visible = false;
+
+            
 
         }
 
@@ -431,9 +455,11 @@ namespace QLNS.UCs
                 TLP_TinhTrang_Filter.Enabled = chart_QtrCTac.Enabled = 
                  btn_Them.Visible = btn_Sua.Visible = btn_Xoa.Visible = Init;
 
+            cb_ThamNienNangBac.Visible = cb_ThamNienNhaGiao.Visible = cb_TrongNganhGD.Visible = true;
+
             cb_ConHD.Enabled = cb_DonVi.Enabled = cb_ChucVu.Enabled = cb_ChucDanh.Enabled =
-                txt_MaHD.Enabled = txt_MaQD.Enabled = 
                 dtp_TuNgay.Enabled = dtp_DenNgay.Enabled =
+                cb_ThamNienNangBac.Enabled = cb_ThamNienNhaGiao.Enabled = cb_TrongNganhGD.Enabled =    
                 btn_Luu.Visible = btn_Huy.Visible = !Init;
         }
 
@@ -441,6 +467,8 @@ namespace QLNS.UCs
         {
             if (result != null && (result.ChartElementType == ChartElementType.DataPoint || result.ChartElementType == ChartElementType.DataPointLabel))
             {
+                oCNVC_QTr_CongTac_OU.ID = nSelectedID;
+ 
                 EnableControls(false);
                 bAddFlag = false;
             }
@@ -469,13 +497,17 @@ namespace QLNS.UCs
                 int? nChucVuID = Convert.ToInt32(cb_ChucVu.SelectedValue);
                 if (nChucVuID == -1) nChucVuID = null;
 
+                bool bTinhThamNienNhaGiao = cb_ThamNienNhaGiao.Checked;
+                bool bTinhThamNienNangBac = cb_ThamNienNangBac.Checked;
+
+                #region ADD
                 if (bAddFlag)       // thêm
                 {
                     try
                     {
                         if (MessageBox.Show("Bạn muốn thêm quá trình công tác này ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
-                            oCNVC.AddQtrCTacOU(nDonViID, nChucDanhID, nChucVuID,dtTuNgay, dtDenNgay, bConHD);
+                            oCNVC.AddQtrCTacOU_FromChart(nDonViID, nChucDanhID, nChucVuID, dtTuNgay, dtDenNgay, bConHD, bTinhThamNienNhaGiao, bTinhThamNienNangBac, cb_TrongNganhGD.Checked);
                             EnableControls(true);
                             // load lai chart
                             GetData_QtrCTac();
@@ -489,29 +521,53 @@ namespace QLNS.UCs
                         MessageBox.Show("Thêm không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                     }
-                }
+                } 
+                #endregion
+                #region EDIT
+
                 else        // sửa
                 {
-                    try
-                    {
-                        if (MessageBox.Show("Bạn muốn sửa thêm quá trình công tác này ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                        {
-                            int id = Convert.ToInt32(chart_QtrCTac.Series[result.Series.Name].Points[result.PointIndex].Tag);
-                            oCNVC.UpdateQtrCTacOU(id, nDonViID, nChucDanhID, nChucVuID, dtTuNgay, dtDenNgay, bConHD);
-                            EnableControls(true);
-                            // load lai chart
-                            GetThamNienData();
-                            RegenerateChart();
 
-                            MessageBox.Show("Sửa thêm quá trình công tác thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (nOldDonViID == nDonViID || oCNVC_QTr_CongTac_OU.CheckLatestQtrCtac())  // don vi nhu cu HOAC qtr ctac la moi nhat thi dc update
+                    {
+                        try
+                        {
+                            if (MessageBox.Show("Bạn muốn sửa quá trình công tác này ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                            {
+                                int id = Convert.ToInt32(chart_QtrCTac.Series[result.Series.Name].Points[result.PointIndex].Tag);
+                                bool check = oCNVC.UpdateQtrCTacOU_Chart(id, nDonViID, nChucDanhID, nChucVuID, dtTuNgay, dtDenNgay, bConHD, nOldDonViID != nDonViID,
+                                                        bTinhThamNienNangBac,cb_TrongNganhGD.Checked,bTinhThamNienNhaGiao);
+
+                                if (check)
+                                {
+                                    EnableControls(true);
+                                    // load lai chart
+                                    GetData_QtrCTac();
+                                    RegenerateChart();
+
+                                    MessageBox.Show("Sửa quá trình công tác thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Sửa không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }
+                                
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Sửa không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                         }
                     }
-                    catch (Exception)
+                    else // neu don vi nhu cũ thì update thoải mái
                     {
-                        MessageBox.Show("Sửa không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
+                        MessageBox.Show("Quá trình công tác này không thể sửa được.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                }
+
+                    
+                } 
+                #endregion
             }
             else
             {
@@ -522,23 +578,26 @@ namespace QLNS.UCs
 
         private void btn_Xoa_Click(object sender, EventArgs e)
         {
-            if (result != null && (result.ChartElementType == ChartElementType.DataPoint || result.ChartElementType == ChartElementType.DataPointLabel))
+            oCNVC_QTr_CongTac_OU.ID = nSelectedID;
+            if (nSelectedID != null && oCNVC_QTr_CongTac_OU.CheckLatestQtrCtac()
+                && result != null && (result.ChartElementType == ChartElementType.DataPoint || result.ChartElementType == ChartElementType.DataPointLabel))
             {
                 try
                 {
-                    if (MessageBox.Show("Bạn muốn xoá thâm niên này ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show("Bạn muốn xoá quá trình công tác này ?\n Mọi thông tin liên quan đến quá trình công tác này của nhân viên sẽ bị xoá.", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        int id = Convert.ToInt32(chart_QtrCTac.Series[result.Series.Name].Points[result.PointIndex].Tag);
-                        oCNVC.DeleteThamNien(id);
-                        MessageBox.Show("Xoá thâm niên thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        GetThamNienData();
+                        
+                        oCNVC_QTr_CongTac_OU.MaNV = txt_MaNV.Text.Trim();
+                        oCNVC_QTr_CongTac_OU.DeleteFromChart();
+                        MessageBox.Show("Xoá thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        GetData_QtrCTac();
                         RegenerateChart();
                     }
 
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Xoá thâm niên thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Xoá không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 ClearThongTin();
                 EnableControls(true);
@@ -695,8 +754,8 @@ namespace QLNS.UCs
                     for (int i = 0; i < dt_TimeFilter.Rows.Count; i++)
                     {
 
-                        if (dt_TimeFilter.Rows[i]["den_thoi_gian_adj"].ToString() == "") dtDenTG = DateTime.Now;
-                        else dtDenTG = Convert.ToDateTime(dt_TimeFilter.Rows[i]["den_thoi_gian_adj"]);
+                        if (dt_TimeFilter.Rows[i]["den_thoi_gian"].ToString() == "") dtDenTG = DateTime.Now;
+                        else dtDenTG = Convert.ToDateTime(dt_TimeFilter.Rows[i]["den_thoi_gian"]);
 
                         if ((Convert.ToDateTime(dt_TimeFilter.Rows[i]["tu_thoi_gian"]).Date < dtp_TuNgay_filter.Value.Date
                             && dtDenTG < dtp_TuNgay_filter.Value.Date) ||
@@ -717,8 +776,8 @@ namespace QLNS.UCs
                     {
                         for (int i = 0; i < dt_TimeFilter.Rows.Count; i++)
                         {
-                            if (dt_TimeFilter.Rows[i]["den_thoi_gian_adj"].ToString() == "") dtDenTG = DateTime.Now;
-                            else dtDenTG = Convert.ToDateTime(dt_TimeFilter.Rows[i]["den_thoi_gian_adj"]);
+                            if (dt_TimeFilter.Rows[i]["den_thoi_gian"].ToString() == "") dtDenTG = DateTime.Now;
+                            else dtDenTG = Convert.ToDateTime(dt_TimeFilter.Rows[i]["den_thoi_gian"]);
 
                             if (Convert.ToDateTime(dt_TimeFilter.Rows[i]["tu_thoi_gian"]).Date < dtp_TuNgay_filter.Value.Date 
                                  && dtDenTG < dtp_TuNgay_filter.Value.Date)
@@ -736,8 +795,8 @@ namespace QLNS.UCs
                     {
                         for (int i = 0; i < dt_TimeFilter.Rows.Count; i++)
                         {
-                            if (dt_TimeFilter.Rows[i]["den_thoi_gian_adj"].ToString() == "") dtDenTG = DateTime.Now;
-                            else dtDenTG = Convert.ToDateTime(dt_TimeFilter.Rows[i]["den_thoi_gian_adj"]);
+                            if (dt_TimeFilter.Rows[i]["den_thoi_gian"].ToString() == "") dtDenTG = DateTime.Now;
+                            else dtDenTG = Convert.ToDateTime(dt_TimeFilter.Rows[i]["den_thoi_gian"]);
 
                             if (Convert.ToDateTime(dt_TimeFilter.Rows[i]["tu_thoi_gian"]).Date > dtp_TuNgay_filter.Value.Date 
                                 && dtDenTG > dtp_DenNgay_filter.Value.Date)
@@ -762,6 +821,25 @@ namespace QLNS.UCs
                     break;
             }
 
+        }
+
+        private void cb_DonVi_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (cb_DonVi.SelectedIndex != -1)
+            {
+                var vDonViDT = from DataRow row in dt_DonVi.Rows
+                               where Convert.ToInt32(row["id"]) == Convert.ToInt32(cb_DonVi.SelectedValue)
+                               select  row["tu_ngay"] ;
+
+                
+                foreach (var d in vDonViDT)
+                {
+                    if(d != null && d != DBNull.Value)
+                    txt_NgayThanhLap.Text = Convert.ToDateTime(d).ToShortDateString();
+                }
+                    
+
+            }
         }
 
         
