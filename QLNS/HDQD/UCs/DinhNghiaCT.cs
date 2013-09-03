@@ -104,6 +104,8 @@ namespace HDQD.UCs
                 s = s.Remove(LeftBracketsIndex + 1 , i  -1 - LeftBracketsIndex);
                 rtb_CongThuc.Text = s;  
             }
+            rtb_CongThuc.Focus();
+            rtb_CongThuc.SelectionStart = (rtb_CongThuc.Text.Count() - 1) ;
         }
 
         private void rtb_CongThuc_MouseDown(object sender, MouseEventArgs e)

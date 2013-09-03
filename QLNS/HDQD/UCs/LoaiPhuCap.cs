@@ -35,8 +35,8 @@ namespace HDQD.UCs
             {
                 PrepareDataSource();
                 //EditDtgInterface();
-                
             }
+            rdb_Khoan.Checked = rdb_HeSo.Checked = rdb_CongThuc.Checked = false;
         }
 
         #region Private methods
@@ -324,11 +324,36 @@ namespace HDQD.UCs
                     txt_Ten.Text = dtDSLoaiPhuCap.AsEnumerable().Where(a => a.Field<int>("id") == n).Select(a => a.Field<string>("ten_loai")).First();
                     txt_TenVietTat.Text = dtDSLoaiPhuCap.AsEnumerable().Where(a => a.Field<int>("id") == n).Select(a => a.Field<string>("ten_viet_tat")).First();
                     rTB_MoTa.Text = dtDSLoaiPhuCap.AsEnumerable().Where(a => a.Field<int>("id") == n).Select(a => a.Field<string>("mo_ta")).First();
+                    rdb_CongThuc.Checked = rdb_HeSo.Checked = rdb_Khoan.Checked = false;
+                    if (dtDSCachTinhDetail.AsEnumerable().Where(a => a.Field<int?>("loai_pc_id") == n).Count() > 0)
+                    {
+                        switch (Convert.ToInt16(dtDSCachTinhDetail.AsEnumerable().Where(a => a.Field<int?>("loai_pc_id") == n).Select(a => a.Field<int?>("cach_tinh")).First()))
+                        {
+                            case 1:
+                                rdb_Khoan.Checked = true;
+                                break;
+                            case 2:
+                                rdb_HeSo.Checked = true;
+                                break;
+
+                            case 3:
+                                rdb_HeSo.Checked = true;
+                                break;
+
+                            case 4:
+                                rdb_CongThuc.Checked = true;
+                                break;
+
+                            default:
+                                break;
+                        }
+                    }
+                    
                 }
 
-                if (dtDSCachTinhDetail != null && dtDSCachTinhDetail.AsEnumerable().Where(a => a.Field<int>("loai_pc_id") == Convert.ToInt16(lstb_DS.SelectedValue)).Count() > 0)
+                if (dtDSCachTinhDetail != null && dtDSCachTinhDetail.AsEnumerable().Where(a => a.Field<int?>("loai_pc_id") == Convert.ToInt16(lstb_DS.SelectedValue)).Count() > 0)
                 {
-                    BindDataForDTGV(dtDSCachTinhDetail.AsEnumerable().Where(a => a.Field<int>("loai_pc_id") == Convert.ToInt16(lstb_DS.SelectedValue)).CopyToDataTable());
+                    BindDataForDTGV(dtDSCachTinhDetail.AsEnumerable().Where(a => a.Field<int?>("loai_pc_id") == Convert.ToInt16(lstb_DS.SelectedValue)).CopyToDataTable());
                     if (dtgv_DS.DataSource != null)
                         SetupDTGV();
                 }
@@ -367,7 +392,7 @@ namespace HDQD.UCs
             dtgv_DS.Columns["ngay_tao"].Width = 100;
         }
 
-        private void ChangeCachTinhInterface(int nCachTinh)
+        private void ChangeCachTinhInterface(int? nCachTinh)
         {
             switch (nCachTinh)
             {
@@ -402,6 +427,7 @@ namespace HDQD.UCs
                     TLP_CachTinh.RowStyles[0].Height = 1;
                     TLP_CachTinh.RowStyles[1].Height = 99;
                     //rdb_CongThuc.Checked = true;
+                    lb_CongThuc.Visible = rtb_CongThuc.Visible = btn_ThietLap.Visible = true;
                     
                     break;
             }
@@ -510,13 +536,21 @@ namespace HDQD.UCs
 
         private void TSMI_SuaLoaiPC_Click(object sender, EventArgs e)
         {
-            bAddLoaiPCFlag = false;
-            bAddCachTinhFlag = null;
-            LoaiPCControls(true);
-            ButtonControl(false);
-            CachTinhControls(false);
-            //ClearUICachTinh();
-            //ClearUILoaiPC();
+            if (lstb_DS.SelectedItem != null)
+            {
+
+                bAddLoaiPCFlag = false;
+                bAddCachTinhFlag = null;
+                LoaiPCControls(true);
+                ButtonControl(false);
+                CachTinhControls(false);
+                //ClearUICachTinh();
+                //ClearUILoaiPC();
+            }
+            else
+            {
+                MessageBox.Show("Xin vui lòng chọn loại phụ cấp.\n", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
         }
 
@@ -565,6 +599,38 @@ namespace HDQD.UCs
                 CachTinhControls(true);
                 ClearUICachTinh();
                 //ClearUILoaiPC();
+                lstb_DS.Enabled = false;
+
+                if (dtDSCachTinhDetail.AsEnumerable().Where(a => a.Field<int?>("loai_pc_id") == Convert.ToInt16(lstb_DS.SelectedValue)).Select(a => a.Field<int?>("cach_tinh")).Count() > 0)
+                {
+                    int? cach_tinh = dtDSCachTinhDetail.AsEnumerable().Where(a => a.Field<int?>("loai_pc_id") == Convert.ToInt16(lstb_DS.SelectedValue)).Select(a => a.Field<int?>("cach_tinh")).First();
+
+                   // ChangeCachTinhInterface(cach_tinh);
+
+                    if (cach_tinh == 1)
+                    {
+                        rdb_Khoan.Checked = true;
+                        rdb_CongThuc.Enabled = rdb_HeSo.Enabled = false;
+                    }
+                    else if (cach_tinh == 2 || cach_tinh == 3)
+                    {
+                        rdb_HeSo.Checked = true;
+                        rdb_CongThuc.Enabled = rdb_Khoan.Enabled = false;
+                        TLP_CachTinh.Visible = lb_HeSo.Visible = comb_Luong.Visible = true;
+                    }
+                    else if (cach_tinh == 4)
+                    {
+                        rdb_CongThuc.Checked = true;
+                        rdb_HeSo.Enabled = rdb_Khoan.Enabled = false;
+                        TLP_CachTinh.Visible = lb_CongThuc.Visible = rtb_CongThuc.Visible = btn_ThietLap.Visible = true;
+                    }
+                }
+                else
+                {
+                   rdb_CongThuc.Enabled = rdb_HeSo.Enabled = rdb_Khoan.Enabled = true;
+                   lb_HeSo.Visible = comb_Luong.Visible = lb_CongThuc.Visible = rtb_CongThuc.Visible = btn_ThietLap.Visible = false;
+                }
+                
             }
             else
             {
