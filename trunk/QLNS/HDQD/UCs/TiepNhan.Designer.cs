@@ -885,6 +885,7 @@
             this.btn_DungHD.TabIndex = 14;
             this.btn_DungHD.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_DungHD.UseVisualStyleBackColor = true;
+            this.btn_DungHD.Click += new System.EventHandler(this.btn_DungHD_Click);
             // 
             // btn_Them
             // 

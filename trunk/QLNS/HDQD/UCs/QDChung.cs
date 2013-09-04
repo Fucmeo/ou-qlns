@@ -490,20 +490,20 @@ namespace HDQD.UCs
                     {
                         dr["loai_pc_id"] = comB_LoaiPhuCap.SelectedValue;
                         dr["ten_loai"] = comB_LoaiPhuCap.Text;
-                        if (String.IsNullOrEmpty(txt_TienPC.Text))
-                            dr["value_khoan"] = DBNull.Value;
-                        else
+                        if (!String.IsNullOrEmpty(txt_TienPC.Text) && txt_TienPC.Enabled == true)
                             dr["value_khoan"] = Convert.ToDouble(txt_TienPC.Text);
-
-                        if (String.IsNullOrEmpty(txt_HeSoPC.Text))
-                            dr["value_he_so"] = DBNull.Value;
                         else
+                            dr["value_khoan"] = DBNull.Value;
+
+                        if (!String.IsNullOrEmpty(txt_HeSoPC.Text) && txt_HeSoPC.Enabled == true)
                             dr["value_he_so"] = Convert.ToDouble(txt_HeSoPC.Text);
-
-                        if (String.IsNullOrEmpty(nup_Value_PhanTramPC.Text))
-                            dr["value_phan_tram"] = DBNull.Value;
                         else
+                            dr["value_he_so"] = DBNull.Value;
+
+                        if (!String.IsNullOrEmpty(nup_Value_PhanTramPC.Text) && nup_Value_PhanTramPC.Enabled == true)
                             dr["value_phan_tram"] = Convert.ToDouble(nup_Value_PhanTramPC.Text);
+                        else
+                            dr["value_phan_tram"] = DBNull.Value;
 
                         dr["phan_tram_huong"] = Convert.ToDouble(nup_PhanTramPC.Value);
 
@@ -546,13 +546,20 @@ namespace HDQD.UCs
 
         private void btn_DelPC_Click(object sender, EventArgs e)
         {
-            int select_row = Convert.ToInt16(dtgv_DSPhuCap.CurrentRow.Cells["id"].Value.ToString());
-            DataRow[] drr = dtPhuCap.Select("id=" + select_row);
-            foreach (DataRow row in drr)
-                row.Delete();
+            try
+            {
+                int select_row = Convert.ToInt16(dtgv_DSPhuCap.CurrentRow.Cells["id"].Value.ToString());
+                DataRow[] drr = dtPhuCap.Select("id=" + select_row);
+                foreach (DataRow row in drr)
+                    row.Delete();
 
-            dtPhuCap.AcceptChanges();
-            PrepareDTGVSource(dtPhuCap);
+                dtPhuCap.AcceptChanges();
+                PrepareDTGVSource(dtPhuCap);
+            }
+            catch
+            {
+                MessageBox.Show("Vui lòng chọn dòng dữ liệu cần xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void comB_LoaiPhuCap_SelectionChangeCommitted(object sender, EventArgs e)
@@ -872,6 +879,42 @@ namespace HDQD.UCs
             }
         }
 
-        
+        private void btn_DeleteQD_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn thực sự muốn xoá quyết định này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                try
+                {
+                    if (dtPhuCap.Rows.Count > 0 || thongTinQuyetDinh1.txt_MaQD.Text != "")
+                    {
+                        List<string> ma_nv = new List<string>();
+
+                        foreach (DataRow dr in dtPhuCap.Rows)
+                        {
+                            ma_nv.Add(dr["ma_nv"].ToString());
+                        }
+
+                        oQuyetDinh.Ma_Quyet_Dinh = thongTinQuyetDinh1.txt_MaQD.Text;
+
+                        if (oQuyetDinh.Delete(ma_nv.ToArray()))
+                        {
+                            MessageBox.Show("Xoá thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                            MessageBox.Show("Xóa thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                        MessageBox.Show("Không thể thực hiện thao tác xóa quyết định.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Xóa thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+        }
+
     }
 }

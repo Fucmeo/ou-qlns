@@ -28,6 +28,9 @@ namespace HDQD.UCs
         DataTable dtPhuCap;
         int row_count_pc = 0;
 
+        bool IsUpdate = false;
+        string p_ma_tuyen_dung_old = null;
+
         #region Upload file
         Business.FTP oFTP;
         public Business.CNVC.CNVC_File oFile;
@@ -43,16 +46,21 @@ namespace HDQD.UCs
         {
             InitializeComponent();
             InitObject();
+
+            IsUpdate = false;
         }
 
         public TiepNhan(Business.HDQD.CNVC_HopDong p_HopDong, string p_ho, string p_ten)
         {
             InitializeComponent();
             InitObject();
+            IsUpdate = true;
 
             oHopdong = p_HopDong;
             DisplayInfo(p_ho, p_ten);
             LoadFilesDB(); // load danh sach file lien quan den hop dong nay
+
+            p_ma_tuyen_dung_old = oHopdong.Ma_Tuyen_Dung;
         }
 
         private void InitObject()
@@ -562,30 +570,61 @@ namespace HDQD.UCs
 
                 #endregion
 
-                try
+                if (IsUpdate == false)
                 {
-                    if (MessageBox.Show("Bạn thực sự muốn thêm quyết định tiếp nhận cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    try
                     {
-                        //if (oHopdong.Add())
-                        //if (oHopdong.Add_wLuong())
-                        if (oHopdong.Add_wLuong_PhuCap())
+                        if (MessageBox.Show("Bạn thực sự muốn thêm quyết định tiếp nhận cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
-                            MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            bUploadInfoSuccess = true;
-                            ResetInterface();
-                        }
-                        else
-                            MessageBox.Show("Thao tác thêm thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            //if (oHopdong.Add())
+                            //if (oHopdong.Add_wLuong())
+                            if (oHopdong.Add_wLuong_PhuCap())
+                            {
+                                MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                bUploadInfoSuccess = true;
+                                ResetInterface();
+                            }
+                            else
+                                MessageBox.Show("Thao tác thêm thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                        if (Paths != null && Paths.Count > 0 && bUploadInfoSuccess)
-                        {
-                            UploadFile();
+                            if (Paths != null && Paths.Count > 0 && bUploadInfoSuccess)
+                            {
+                                UploadFile();
+                            }
                         }
                     }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Thao tác thêm thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                catch (Exception)
+                else
                 {
-                    MessageBox.Show("Thao tác thêm thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    try
+                    {
+                        if (MessageBox.Show("Bạn thực sự muốn sửa quyết định tiếp nhận cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            //if (oHopdong.Add())
+                            //if (oHopdong.Add_wLuong())
+                            if (oHopdong.Update_wLuong_PhuCap(p_ma_tuyen_dung_old))
+                            {
+                                MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                bUploadInfoSuccess = true;
+                                ResetInterface();
+                            }
+                            else
+                                MessageBox.Show("Thao tác cập nhật thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                            //if (Paths != null && Paths.Count > 0 && bUploadInfoSuccess)
+                            //{
+                            //    UploadFile();
+                            //}
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Thao tác thêm thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
             else
@@ -916,13 +955,25 @@ namespace HDQD.UCs
 
         private void btn_DelPC_Click(object sender, EventArgs e)
         {
-            int select_row = Convert.ToInt16(dtgv_DSPhuCap.CurrentRow.Cells["id"].Value.ToString());
-            DataRow[] drr = dtPhuCap.Select("id=" + select_row);
-            foreach (DataRow row in drr)
-                row.Delete();
+            try
+            {
+                int select_row = Convert.ToInt16(dtgv_DSPhuCap.CurrentRow.Cells["id"].Value.ToString());
+                DataRow[] drr = dtPhuCap.Select("id=" + select_row);
+                foreach (DataRow row in drr)
+                    row.Delete();
 
-            dtPhuCap.AcceptChanges();
-            PrepareDTGVSource(dtPhuCap);
+                dtPhuCap.AcceptChanges();
+                PrepareDTGVSource(dtPhuCap);
+            }
+            catch 
+            {
+                MessageBox.Show("Vui lòng chọn dòng dữ liệu cần xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btn_DungHD_Click(object sender, EventArgs e)
+        {
+
         }
 
         
