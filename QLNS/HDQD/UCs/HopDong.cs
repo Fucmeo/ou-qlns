@@ -426,7 +426,8 @@ namespace HDQD.UCs
 
         private bool CheckInputData()
         {
-            if (thongTinCNVC1.txt_MaNV.Text != "" && txt_MaHD.Text != "" && dtp_TuNgay.Checked == true)
+            if (thongTinCNVC1.txt_MaNV.Text != "" && txt_MaHD.Text != "" && dtp_TuNgay.Checked == true &&
+                    ((dtPhuCap.Rows.Count > 0 && cb_CoPhuCap.Checked == false) || cb_CoPhuCap.Checked == true))
                 return true;
             else
                 return false;
