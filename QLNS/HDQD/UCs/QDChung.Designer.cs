@@ -37,7 +37,7 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_NhapFile = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.btn_DungHD = new System.Windows.Forms.Button();
+            this.btn_DeleteQD = new System.Windows.Forms.Button();
             this.btn_Them = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -195,7 +195,7 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel4.Controls.Add(this.btn_NhapFile, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.btn_DungHD, 2, 0);
+            this.tableLayoutPanel4.Controls.Add(this.btn_DeleteQD, 2, 0);
             this.tableLayoutPanel4.Controls.Add(this.btn_Them, 1, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -231,18 +231,19 @@
             this.imageList1.Images.SetKeyName(3, "Add.png");
             this.imageList1.Images.SetKeyName(4, "Cancel.png");
             // 
-            // btn_DungHD
+            // btn_DeleteQD
             // 
-            this.btn_DungHD.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btn_DungHD.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_DungHD.ImageKey = "Remove Avatar.png";
-            this.btn_DungHD.ImageList = this.imageList1;
-            this.btn_DungHD.Location = new System.Drawing.Point(731, 5);
-            this.btn_DungHD.Name = "btn_DungHD";
-            this.btn_DungHD.Size = new System.Drawing.Size(56, 55);
-            this.btn_DungHD.TabIndex = 17;
-            this.btn_DungHD.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_DungHD.UseVisualStyleBackColor = true;
+            this.btn_DeleteQD.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btn_DeleteQD.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_DeleteQD.ImageKey = "Remove Avatar.png";
+            this.btn_DeleteQD.ImageList = this.imageList1;
+            this.btn_DeleteQD.Location = new System.Drawing.Point(731, 5);
+            this.btn_DeleteQD.Name = "btn_DeleteQD";
+            this.btn_DeleteQD.Size = new System.Drawing.Size(56, 55);
+            this.btn_DeleteQD.TabIndex = 17;
+            this.btn_DeleteQD.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_DeleteQD.UseVisualStyleBackColor = true;
+            this.btn_DeleteQD.Click += new System.EventHandler(this.btn_DeleteQD_Click);
             // 
             // btn_Them
             // 
@@ -1179,7 +1180,7 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Button btn_ThietLap;
         private System.Windows.Forms.Button btn_NhapFile;
-        private System.Windows.Forms.Button btn_DungHD;
+        private System.Windows.Forms.Button btn_DeleteQD;
         private System.Windows.Forms.Button btn_Them;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.ProgressBar pb_Status;

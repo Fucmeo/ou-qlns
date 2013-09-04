@@ -449,6 +449,22 @@ namespace Business.HDQD
             }
         }
 
+        public bool Delete(string[] p_ma_nv)
+        {
+            int check;
+            IDataParameter[] paras = new IDataParameter[2]{
+                new NpgsqlParameter("p_ma_quyet_dinh",ma_qd),
+                new NpgsqlParameter("p_ma_nv",p_ma_nv)
+            };
+            check = (int)dp.executeScalarProc("sp1_delete_quyet_dinh_chung", paras);
+            if (check > 0)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
         public DataTable Search_QD_Chung(string p_ma_qd)
         {
             DataTable dt;
