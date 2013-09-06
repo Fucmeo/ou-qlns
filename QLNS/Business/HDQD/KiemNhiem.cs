@@ -232,7 +232,7 @@ namespace Business.HDQD
 
             IDataParameter[] paras = new IDataParameter[18]{
                 new NpgsqlParameter("ma_nv",manv),
-                new NpgsqlParameter("ma_quyet_dinh",maquyetdinh),
+                new NpgsqlParameter("ma_quyet_dinh",maquyetdinh + "_" + ngayhieulucqd.ToString("ddMMyyyy")),
                 new NpgsqlParameter("ten",ten),
                 new NpgsqlParameter("loai_quyet_dinh_id",loaiquyetdinh),
                 new NpgsqlParameter("mo_ta",mota),
@@ -264,7 +264,7 @@ namespace Business.HDQD
             int check;
             IDataParameter[] paras = new IDataParameter[22]{
                 new NpgsqlParameter("p_ma_nv",manv),
-                new NpgsqlParameter("ma_quyet_dinh",maquyetdinh),
+                new NpgsqlParameter("ma_quyet_dinh",maquyetdinh + "_" + ngayhieulucqd.ToString("ddMMyyyy")),
                 new NpgsqlParameter("ten",ten),
                 new NpgsqlParameter("loai_quyet_dinh_id",loaiquyetdinh),
                 new NpgsqlParameter("mo_ta",mota),

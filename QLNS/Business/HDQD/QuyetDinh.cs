@@ -161,7 +161,7 @@ namespace Business.HDQD
                 new NpgsqlParameter("id_cd_moi",m_IDMoi_CD),
                 new NpgsqlParameter("id_dv_capbac",m_IDDV_CapBac),
                 new NpgsqlParameter("id_dv_cha",m_IDDVCha_CapBac),
-                new NpgsqlParameter("ma_qd",ma_qd + ngay_ky_tu.Value.Day.ToString() + ngay_ky_tu.Value.Month.ToString() + ngay_ky_tu.Value.Year.ToString()),
+                new NpgsqlParameter("ma_qd",ma_qd + "_" + ngay_ky_tu.Value.ToString("ddMMyyyy")),
                 new NpgsqlParameter("ten_qd",ten_qd),
                 new NpgsqlParameter("ngay_ky",ngay_ky),
                 new NpgsqlParameter("ngay_het_han",ngay_ky_den),
@@ -191,7 +191,7 @@ namespace Business.HDQD
                 m_ngay_het_han = ngay_het_han.Value.ToString("d", CultureInfo.CreateSpecificCulture("vi-VN"));
 
             IDataParameter[] paras = new IDataParameter[15]{
-                new NpgsqlParameter("p_ma_qd",ma_qd + ngay_hieu_luc.Value.Day.ToString() + ngay_hieu_luc.Value.Month.ToString() + ngay_hieu_luc.Value.Year.ToString()),
+                new NpgsqlParameter("p_ma_qd",ma_qd + "_" + ngay_hieu_luc.Value.ToString("ddMMyyyy")),
                 new NpgsqlParameter("p_ten_qd",ten_qd),
                 new NpgsqlParameter("p_ma_loai_qd",loai_qd_id),
                 new NpgsqlParameter("p_path",path),
@@ -228,7 +228,7 @@ namespace Business.HDQD
                 m_ngay_het_han = ngay_het_han.Value.ToString("d", CultureInfo.CreateSpecificCulture("vi-VN"));
 
             IDataParameter[] paras = new IDataParameter[14]{
-                new NpgsqlParameter("p_ma_qd",ma_qd + ngay_hieu_luc.Value.Day.ToString() + ngay_hieu_luc.Value.Month.ToString() + ngay_hieu_luc.Value.Year.ToString()),
+                new NpgsqlParameter("p_ma_qd",ma_qd + "_" + ngay_hieu_luc.Value.ToString("ddMMyyyy")),
                 new NpgsqlParameter("p_ten_qd",ten_qd),
                 new NpgsqlParameter("p_ma_loai_qd",loai_qd_id),
                 new NpgsqlParameter("p_path",path),
@@ -259,7 +259,7 @@ namespace Business.HDQD
                                                 int[] m_IDDVCha, string[] m_GhiChu, DateTime[] m_NgayHieuLuc)
         {
             IDataParameter[] paras = new IDataParameter[13]{
-                new NpgsqlParameter("p_ma_qd",ma_qd + ngay_hieu_luc.Value.Day.ToString() + ngay_hieu_luc.Value.Month.ToString() + ngay_hieu_luc.Value.Year.ToString()),
+                new NpgsqlParameter("p_ma_qd",ma_qd + "_" + ngay_hieu_luc.Value.ToString("ddMMyyyy")),
                 new NpgsqlParameter("p_ten_qd",ten_qd),
                 new NpgsqlParameter("path",path),
                 new NpgsqlParameter("path_mo_ta",pathmota),
@@ -320,7 +320,7 @@ namespace Business.HDQD
             }
 
             IDataParameter[] paras = new IDataParameter[34]{
-                new NpgsqlParameter("p_ma_quyet_dinh",ma_qd + ngay_hieu_luc.Value.Day.ToString() + ngay_hieu_luc.Value.Month.ToString() + ngay_hieu_luc.Value.Year.ToString()),
+                new NpgsqlParameter("p_ma_quyet_dinh",ma_qd + "_" + ngay_hieu_luc.Value.ToString("ddMMyyyy")),
                 new NpgsqlParameter("p_ten_quyet_dinh",ten_qd),
                 new NpgsqlParameter("p_loai_qd",loai_qd_id),
                 new NpgsqlParameter("p_ngay_ky", ngay_ky.Value),
@@ -403,7 +403,7 @@ namespace Business.HDQD
 
             IDataParameter[] paras = new IDataParameter[35]{
                 new NpgsqlParameter("p_ma_quyet_dinh_old",p_ma_qd_old),
-                new NpgsqlParameter("p_ma_quyet_dinh_new",ma_qd + ngay_hieu_luc.Value.Day.ToString() + ngay_hieu_luc.Value.Month.ToString() + ngay_hieu_luc.Value.Year.ToString()),
+                new NpgsqlParameter("p_ma_quyet_dinh_new",ma_qd + "_" + ngay_hieu_luc.Value.ToString("ddMMyyyy")),
                 new NpgsqlParameter("p_ten_quyet_dinh",ten_qd),
                 new NpgsqlParameter("p_loai_qd",loai_qd_id),
                 new NpgsqlParameter("p_ngay_ky", ngay_ky.Value),

@@ -95,7 +95,8 @@ namespace HDQD.UCs
                 if (qd_info.Rows.Count >= 1)
                 {
                     #region Thông tin Quyết Định
-                    m_ma_qd_old = thongTinQuyetDinh1.txt_MaQD.Text = qd_info.Rows[0]["ma_quyet_dinh"].ToString();
+                    m_ma_qd_old = qd_info.Rows[0]["ma_quyet_dinh"].ToString();
+                    thongTinQuyetDinh1.txt_MaQD.Text = m_ma_qd_old.Substring(0, m_ma_qd_old.Length - 9);
                     thongTinQuyetDinh1.txt_TenQD.Text = qd_info.Rows[0]["ten_qd"].ToString();
                     thongTinQuyetDinh1.comB_Loai.SelectedValue = Convert.ToInt32(qd_info.Rows[0]["loai_qd_id"].ToString());
 

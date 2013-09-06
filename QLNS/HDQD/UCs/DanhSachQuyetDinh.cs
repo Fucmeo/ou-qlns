@@ -60,25 +60,26 @@ namespace HDQD.UCs
         private void EditDtgInterface()
         {
             // Dat ten cho cac cot
-            dtgv_DSQD.Columns[0].HeaderText = "Mã quyết định";
-            dtgv_DSQD.Columns[0].Width = 100;
-            dtgv_DSQD.Columns[1].HeaderText = "Tên quyết định";
-            dtgv_DSQD.Columns[1].Width = 200;
-            dtgv_DSQD.Columns[2].HeaderText = "Loại qd ID";
-            dtgv_DSQD.Columns[3].HeaderText = "Tên loại quyết định";
-            dtgv_DSQD.Columns[3].Width = 200;
-            dtgv_DSQD.Columns[4].HeaderText = "Mô tả";
-            dtgv_DSQD.Columns[4].Width = 300;
-            dtgv_DSQD.Columns[5].HeaderText = "Path";
-            dtgv_DSQD.Columns[6].HeaderText = "Ngày ký";
-            dtgv_DSQD.Columns[6].Width = 100;
-            dtgv_DSQD.Columns[7].HeaderText = "Ngày hiệu lực";
-            dtgv_DSQD.Columns[7].Width = 100;
-            dtgv_DSQD.Columns[8].HeaderText = "Ngày hết hạn";
-            dtgv_DSQD.Columns[8].Width = 100;
+            dtgv_DSQD.Columns["ma_qd_display"].HeaderText = "Mã quyết định";
+            dtgv_DSQD.Columns["ma_qd_display"].Width = 100;
+            dtgv_DSQD.Columns["ten"].HeaderText = "Tên quyết định";
+            dtgv_DSQD.Columns["ten"].Width = 200;
+            dtgv_DSQD.Columns["loai_qd_id"].HeaderText = "Loại qd ID";
+            dtgv_DSQD.Columns["ten_loai_qd"].HeaderText = "Tên loại quyết định";
+            dtgv_DSQD.Columns["ten_loai_qd"].Width = 200;
+            dtgv_DSQD.Columns["mo_ta"].HeaderText = "Mô tả";
+            dtgv_DSQD.Columns["mo_ta"].Width = 300;
+            dtgv_DSQD.Columns["path"].HeaderText = "Path";
+            dtgv_DSQD.Columns["ngay_ky"].HeaderText = "Ngày ký";
+            dtgv_DSQD.Columns["ngay_ky"].Width = 100;
+            dtgv_DSQD.Columns["ngay_hieu_luc"].HeaderText = "Ngày hiệu lực";
+            dtgv_DSQD.Columns["ngay_hieu_luc"].Width = 100;
+            dtgv_DSQD.Columns["ngay_het_han"].HeaderText = "Ngày hết hạn";
+            dtgv_DSQD.Columns["ngay_het_han"].Width = 100;
             // An cot ID
-            dtgv_DSQD.Columns[2].Visible = false;
-            dtgv_DSQD.Columns[5].Visible = false;
+            dtgv_DSQD.Columns["ma_quyet_dinh"].Visible = false;
+            dtgv_DSQD.Columns["loai_qd_id"].Visible = false;
+            dtgv_DSQD.Columns["path"].Visible = false;
         }
 
         /// <summary>
@@ -89,12 +90,12 @@ namespace HDQD.UCs
         {
             if (row != null)
             {
-                txt_Ma2.Text = row.Cells[0].Value.ToString();
-                txt_Ten2.Text = row.Cells[1].Value.ToString();
-                txt_Loai.Text = row.Cells[3].Value.ToString();
-                txt_NgayKy.Text = row.Cells[6].Value.ToString() == "" ? "" : Convert.ToDateTime(row.Cells[6].Value.ToString()).ToShortDateString();
-                txt_NgayHieuLuc.Text = row.Cells[7].Value.ToString() == "" ? "" : Convert.ToDateTime(row.Cells[7].Value.ToString()).ToShortDateString();
-                txt_NgayHetHan.Text = row.Cells[8].Value.ToString() == "" ? "" : Convert.ToDateTime(row.Cells[8].Value.ToString()).ToShortDateString();
+                txt_Ma2.Text = row.Cells["ma_qd_display"].Value.ToString();
+                txt_Ten2.Text = row.Cells["ten"].Value.ToString();
+                txt_Loai.Text = row.Cells["ten_loai_qd"].Value.ToString();
+                txt_NgayKy.Text = row.Cells["ngay_ky"].Value.ToString() == "" ? "" : Convert.ToDateTime(row.Cells["ngay_ky"].Value.ToString()).ToShortDateString();
+                txt_NgayHieuLuc.Text = row.Cells["ngay_hieu_luc"].Value.ToString() == "" ? "" : Convert.ToDateTime(row.Cells["ngay_hieu_luc"].Value.ToString()).ToShortDateString();
+                txt_NgayHetHan.Text = row.Cells["ngay_het_han"].Value.ToString() == "" ? "" : Convert.ToDateTime(row.Cells["ngay_het_han"].Value.ToString()).ToShortDateString();
             }
         }
 
@@ -244,8 +245,24 @@ namespace HDQD.UCs
                 int loai_qd = Convert.ToInt16(row.Cells["loai_qd_id"].Value.ToString());
                 switch (loai_qd)
                 {
-                    case 10:
+                    case 10: //QĐ Tiếp nhận
                         Show_QD_TiepNhan(row);
+                        break;
+                    case 14: //QĐ THÔI VIỆC
+                        break;
+                    case 16: //QĐ THÀNH LẬP ĐƠN VỊ
+                        break;
+                    case 2: //QĐ BỔ NHIỆM
+                        break;
+                    case 1: //QĐ KIÊM NHIỆM
+                        break;
+                    case 3: //QĐ ĐIỀU ĐỘNG
+                        break;
+                    case 4: //QĐ ĐỔI THÔNG TIN ĐƠN VỊ
+                        break;
+                    case 5: //QĐ TÁCH ĐƠN VỊ
+                        break;
+                    case 9: //QĐ GỘP ĐƠN VỊ
                         break;
                     default:
                         Show_QD_Chung(row);
@@ -316,6 +333,8 @@ namespace HDQD.UCs
                     if (dt.Rows[0]["phan_tram_huong"].ToString() != "")
                         oHopDong.PhanTramHuong = Convert.ToDouble(dt.Rows[0]["phan_tram_huong"].ToString());
                     #endregion
+
+                    oHopDong.Co_Phu_Cap = Convert.ToBoolean(dt.Rows[0]["co_phu_cap"].ToString());
 
                     UCs.TiepNhan tiepnhan = new TiepNhan(oHopDong, cnvc_ho, cnvc_ten);
                     Forms.Popup popup = new Forms.Popup(tiepnhan, "QUẢN LÝ NHÂN SỰ - QUYẾT ĐỊNH TIẾP NHẬN");

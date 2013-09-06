@@ -261,7 +261,7 @@ namespace Business.HDQD
             IDataParameter[] paras = new IDataParameter[29]{
                 new NpgsqlParameter("p_ma_nv",ma_nv),
                 new NpgsqlParameter("p_ma_loai_hd",ma_loai_hd),
-                new NpgsqlParameter("p_ma_tuyen_dung",Ma_Tuyen_Dung + ngay_hieu_luc.Value.Day.ToString() + ngay_hieu_luc.Value.Month.ToString() + ngay_hieu_luc.Value.Year.ToString()),
+                new NpgsqlParameter("p_ma_tuyen_dung",Ma_Tuyen_Dung + "_" + ngay_hieu_luc.Value.ToString("ddMMyyyy")),
                 new NpgsqlParameter("p_la_qd_tiep_nhan",La_QD_Tiep_Nhan),
                 new NpgsqlParameter("p_ten_qd",Ten_Quyet_Dinh),
                 new NpgsqlParameter("p_loai_qd_id",Loai_QD_ID),
@@ -305,7 +305,7 @@ namespace Business.HDQD
                 new NpgsqlParameter("p_ma_nv",ma_nv),
                 new NpgsqlParameter("p_ma_loai_hd",ma_loai_hd),
                 new NpgsqlParameter("p_ma_tuyen_dung_old",p_ma_tuyen_dung_old),
-                new NpgsqlParameter("p_ma_tuyen_dung_new",Ma_Tuyen_Dung + ngay_hieu_luc.Value.Day.ToString() + ngay_hieu_luc.Value.Month.ToString() + ngay_hieu_luc.Value.Year.ToString()),
+                new NpgsqlParameter("p_ma_tuyen_dung_new",Ma_Tuyen_Dung + "_" + ngay_hieu_luc.Value.ToString("ddMMyyyy")),
                 new NpgsqlParameter("p_la_qd_tiep_nhan",La_QD_Tiep_Nhan),
                 new NpgsqlParameter("p_ten_qd",Ten_Quyet_Dinh),
                 new NpgsqlParameter("p_loai_qd_id",Loai_QD_ID),
