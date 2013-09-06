@@ -235,7 +235,7 @@ namespace HDQD.UCs
             thongTinCNVC1.txt_Ho.Text = cnvc_ho;
             thongTinCNVC1.txt_Ten.Text = cnvc_ten;
 
-            thongTinQuyetDinh1.txt_MaQD.Text = oHopdong.Ma_Tuyen_Dung;
+            thongTinQuyetDinh1.txt_MaQD.Text = oHopdong.Ma_Tuyen_Dung.Substring(0, oHopdong.Ma_Tuyen_Dung.Length - 9);
             thongTinQuyetDinh1.txt_TenQD.Text = oHopdong.Ten_Quyet_Dinh;
             thongTinQuyetDinh1.rTB_MoTa.Text = oHopdong.MoTa_QD;
             if (oHopdong.Ngay_Ky != null)
@@ -300,10 +300,14 @@ namespace HDQD.UCs
             #endregion
 
             #region Phu Cap Info
-            Business.HDQD.CNVC_PhuCap oCNVCPhuCap = new Business.HDQD.CNVC_PhuCap();
-            dtPhuCap = oCNVCPhuCap.GetList_PhuCap_byCNVC(oHopdong.Ma_Tuyen_Dung, oHopdong.Ma_NV);
-            PrepareDTGVSource(dtPhuCap);
+            cb_CoPhuCap.Checked = !oHopdong.Co_Phu_Cap;
 
+            if (oHopdong.Co_Phu_Cap == true)
+            {
+                Business.HDQD.CNVC_PhuCap oCNVCPhuCap = new Business.HDQD.CNVC_PhuCap();
+                dtPhuCap = oCNVCPhuCap.GetList_PhuCap_byCNVC(oHopdong.Ma_Tuyen_Dung, oHopdong.Ma_NV);
+                PrepareDTGVSource(dtPhuCap);
+            }
             #endregion
             
         }
@@ -417,7 +421,8 @@ namespace HDQD.UCs
         private void cb_CoPhuCap_CheckedChanged(object sender, EventArgs e)
         {
             comB_LoaiPhuCap.Enabled = txt_TienPC.Enabled = txt_HeSoPC.Enabled = dTP_NgayBatDauPC.Enabled =
-                dTP_NgayHetHanPC.Enabled = nup_PhanTramPC.Enabled = rTB_GhiChuPC.Enabled = dtgv_DSPhuCap.Enabled = nup_Value_PhanTramPC.Enabled = !cb_CoPhuCap.Checked;
+                dTP_NgayHetHanPC.Enabled = nup_PhanTramPC.Enabled = rTB_GhiChuPC.Enabled = dtgv_DSPhuCap.Enabled = nup_Value_PhanTramPC.Enabled =
+                btn_AddPC.Enabled = btn_DelPC.Enabled = !cb_CoPhuCap.Checked;
             EditInterface_LoaiPC();
         }
 

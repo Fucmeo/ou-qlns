@@ -12,7 +12,7 @@ namespace HDQD.UCs
     public partial class DSCNVC : UserControl
     {
         DataTable dtDSCNVC;
-        public enum ParentUC  { BoNhiem,ThoiBoNhiem,QuyetDinhChung, MA , HopDong};
+        public enum ParentUC  { BoNhiem,ThoiBoNhiem,QuyetDinhChung, MA , HopDong, TiepNhan};
         public static ParentUC eParentUC;
         public DSCNVC(DataTable _dtDSCNVC)
         {
@@ -58,6 +58,18 @@ namespace HDQD.UCs
                             //= HDQD.UCs.HopDong.strHoOld 
                             = dtgv_DSCNVC.Rows[e.RowIndex].Cells["ho"].Value.ToString();
                         HDQD.UCs.ThongTinCNVC.strTen 
+                            //= HDQD.UCs.HopDong.strTenOld 
+                            = dtgv_DSCNVC.Rows[e.RowIndex].Cells["ten"].Value.ToString();
+                        break;
+
+                    case ParentUC.TiepNhan:
+                        HDQD.UCs.ThongTinCNVC.strMaNV
+                            //= HDQD.UCs.HopDong.strMaNVOld 
+                            = dtgv_DSCNVC.Rows[e.RowIndex].Cells["ma_nv"].Value.ToString();
+                        HDQD.UCs.ThongTinCNVC.strHo
+                            //= HDQD.UCs.HopDong.strHoOld 
+                            = dtgv_DSCNVC.Rows[e.RowIndex].Cells["ho"].Value.ToString();
+                        HDQD.UCs.ThongTinCNVC.strTen
                             //= HDQD.UCs.HopDong.strTenOld 
                             = dtgv_DSCNVC.Rows[e.RowIndex].Cells["ten"].Value.ToString();
                         break;
@@ -127,6 +139,18 @@ namespace HDQD.UCs
                     break;
 
                 case ParentUC.HopDong:
+                    HDQD.UCs.ThongTinCNVC.strMaNV
+                        //= HDQD.UCs.HopDong.strMaNVOld 
+                        = dtgv_DSCNVC.SelectedRows[0].Cells["ma_nv"].Value.ToString();
+                    HDQD.UCs.ThongTinCNVC.strHo
+                        //= HDQD.UCs.HopDong.strHoOld 
+                        = dtgv_DSCNVC.SelectedRows[0].Cells["ho"].Value.ToString();
+                    HDQD.UCs.ThongTinCNVC.strTen
+                        //= HDQD.UCs.HopDong.strTenOld 
+                        = dtgv_DSCNVC.SelectedRows[0].Cells["ten"].Value.ToString();
+                    break;
+
+                case ParentUC.TiepNhan:
                     HDQD.UCs.ThongTinCNVC.strMaNV
                         //= HDQD.UCs.HopDong.strMaNVOld 
                         = dtgv_DSCNVC.SelectedRows[0].Cells["ma_nv"].Value.ToString();

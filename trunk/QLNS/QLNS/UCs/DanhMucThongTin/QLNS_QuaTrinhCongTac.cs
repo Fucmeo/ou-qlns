@@ -83,10 +83,10 @@ namespace QLNS.UCs.DanhMucThongTin
 
         private void EditDtgInterface_Trong()
         {
-            dtgv_QTCT_Trong.Columns["ma_hop_dong"].HeaderText = "Mã hợp đồng";
-            dtgv_QTCT_Trong.Columns["ma_hop_dong"].Width = 120;
-            dtgv_QTCT_Trong.Columns["ma_quyet_dinh"].HeaderText = "Mã quyết định";
-            dtgv_QTCT_Trong.Columns["ma_quyet_dinh"].Width = 120;
+            dtgv_QTCT_Trong.Columns["ma_hd_display"].HeaderText = "Mã hợp đồng";
+            dtgv_QTCT_Trong.Columns["ma_hd_display"].Width = 120;
+            dtgv_QTCT_Trong.Columns["ma_qd_display"].HeaderText = "Mã quyết định";
+            dtgv_QTCT_Trong.Columns["ma_qd_display"].Width = 120;
             dtgv_QTCT_Trong.Columns["don_vi"].HeaderText = "Tên đơn vị";
             dtgv_QTCT_Trong.Columns["chuc_danh"].HeaderText = "Chức danh";
             dtgv_QTCT_Trong.Columns["chuc_vu"].HeaderText = "Chức vụ";
@@ -101,6 +101,8 @@ namespace QLNS.UCs.DanhMucThongTin
             dtgv_QTCT_Trong.Columns["don_vi_id"].Visible = false;
             dtgv_QTCT_Trong.Columns["chuc_danh_id"].Visible = false;
             dtgv_QTCT_Trong.Columns["chuc_vu_id"].Visible = false;
+            dtgv_QTCT_Trong.Columns["ma_hop_dong"].Visible = false;
+            dtgv_QTCT_Trong.Columns["ma_quyet_dinh"].Visible = false;
         }
 
         private void DisplayInfo(DataGridViewRow row)

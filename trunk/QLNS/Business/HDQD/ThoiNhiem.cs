@@ -123,7 +123,7 @@ namespace Business.HDQD
             int check;
             IDataParameter[] paras = new IDataParameter[11]{
                 new NpgsqlParameter("ma_nv",manv),
-                new NpgsqlParameter("ma_quyet_dinh",maquyetdinh),
+                new NpgsqlParameter("ma_quyet_dinh",maquyetdinh + "_" + ngayhieulucqd.ToString("ddMMyyyy")),
                 new NpgsqlParameter("ten",ten),
                 new NpgsqlParameter("loai_quyet_dinh_id",loaiquyetdinh),
                 new NpgsqlParameter("path",path),

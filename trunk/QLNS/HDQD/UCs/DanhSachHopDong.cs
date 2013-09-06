@@ -106,8 +106,8 @@ namespace HDQD.UCs
             dtgv_DSHD.Columns["id"].HeaderText = "ID";
             dtgv_DSHD.Columns["ma_nv"].HeaderText = "Mã nhân viên";
             dtgv_DSHD.Columns["ma_nv"].Width = 200;
-            dtgv_DSHD.Columns["ma_hop_dong"].HeaderText = "Mã hợp đồng";
-            dtgv_DSHD.Columns["ma_hop_dong"].Width = 200;
+            dtgv_DSHD.Columns["ma_hd_display"].HeaderText = "Mã hợp đồng";
+            dtgv_DSHD.Columns["ma_hd_display"].Width = 200;
             dtgv_DSHD.Columns["ma_loai_hd"].HeaderText = "Mã loại Hợp đồng";
             dtgv_DSHD.Columns["loai_hop_dong"].HeaderText = "Loại hợp đồng";
             dtgv_DSHD.Columns["loai_hop_dong"].Width = 200;
@@ -146,6 +146,8 @@ namespace HDQD.UCs
             dtgv_DSHD.Columns["phan_tram_huong"].Visible = false;
             dtgv_DSHD.Columns["tham_nien_nang_bac"].Visible = false;
             dtgv_DSHD.Columns["tham_nien_gd"].Visible = false;
+            dtgv_DSHD.Columns["co_phu_cap"].Visible = false;
+            dtgv_DSHD.Columns["ma_hop_dong"].Visible = false;
 
         }
 
@@ -163,12 +165,12 @@ namespace HDQD.UCs
         {
             if (row != null)
             {
-                txt_MaNV2.Text = row.Cells[1].Value.ToString();
-                txt_MaHD2.Text = row.Cells[2].Value.ToString();
-                txt_Loai.Text = row.Cells[4].Value.ToString();
-                txt_NgayKy.Text = row.Cells[6].Value.ToString() == "" ? "" : Convert.ToDateTime(row.Cells[6].Value.ToString()).ToShortDateString();
-                txt_NgayHieuLuc.Text = row.Cells[7].Value.ToString() == "" ? "" : Convert.ToDateTime(row.Cells[7].Value.ToString()).ToShortDateString();
-                txt_NgayHetHan.Text = row.Cells[8].Value.ToString() == "" ? "" : Convert.ToDateTime(row.Cells[8].Value.ToString()).ToShortDateString();
+                txt_MaNV2.Text = row.Cells["ma_nv"].Value.ToString();
+                txt_MaHD2.Text = row.Cells["ma_hd_display"].Value.ToString();
+                txt_Loai.Text = row.Cells["loai_hop_dong"].Value.ToString();
+                txt_NgayKy.Text = row.Cells["ngay_ky"].Value.ToString() == "" ? "" : Convert.ToDateTime(row.Cells["ngay_ky"].Value.ToString()).ToShortDateString();
+                txt_NgayHieuLuc.Text = row.Cells["ngay_hieu_luc"].Value.ToString() == "" ? "" : Convert.ToDateTime(row.Cells["ngay_hieu_luc"].Value.ToString()).ToShortDateString();
+                txt_NgayHetHan.Text = row.Cells["ngay_het_han"].Value.ToString() == "" ? "" : Convert.ToDateTime(row.Cells["ngay_het_han"].Value.ToString()).ToShortDateString();
             }
         }
 
@@ -308,6 +310,8 @@ namespace HDQD.UCs
                 if (row.Cells["phan_tram_huong"].Value.ToString() != "")
                     oHopDong.PhanTramHuong = Convert.ToDouble(row.Cells["phan_tram_huong"].Value.ToString());
                 #endregion
+
+                oHopDong.Co_Phu_Cap = Convert.ToBoolean(row.Cells["co_phu_cap"].Value.ToString());
 
                 UCs.HopDong hopdong = new HopDong(oHopDong);
                 Forms.Popup popup = new Forms.Popup(hopdong, "QUẢN LÝ NHÂN SỰ - HỢP ĐỒNG");

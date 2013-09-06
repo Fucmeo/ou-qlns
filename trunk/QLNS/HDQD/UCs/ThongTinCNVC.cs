@@ -59,6 +59,9 @@ namespace HDQD.UCs
                         case "HopDong":
                             UCs.DSCNVC.eParentUC = DSCNVC.ParentUC.HopDong;
                             break;
+                        case "TiepNhan":
+                            UCs.DSCNVC.eParentUC = DSCNVC.ParentUC.TiepNhan;
+                            break;
 
                         default:
                             break;
@@ -72,7 +75,7 @@ namespace HDQD.UCs
                         txt_Ho.Text = strHo;
                         txt_Ten.Text = strTen;
 
-                        if (UCs.DSCNVC.eParentUC != DSCNVC.ParentUC.HopDong)
+                        if (UCs.DSCNVC.eParentUC != DSCNVC.ParentUC.HopDong && UCs.DSCNVC.eParentUC != DSCNVC.ParentUC.TiepNhan)
                         {
                             dtDonViChucVu = oCNVC.GetDonViChucVuForQD();
 
