@@ -406,6 +406,22 @@ namespace Business.HDQD
             return dt;
         }
 
+        public DataTable Search_Dung_HD(string p_ma_hop_dong, string p_ma_nv, string p_ho_nv, string p_ten_nv)
+        {
+            DataTable dt;
+
+            IDataParameter[] paras = new IDataParameter[4]{
+                new NpgsqlParameter("p_ma_hd",p_ma_hop_dong),
+                new NpgsqlParameter("p_ma_nv",p_ma_nv),
+                new NpgsqlParameter("p_ho_nv",p_ho_nv),
+                new NpgsqlParameter("p_ten_nv",p_ten_nv)
+            };
+
+            dt = dp.getDataTableProc("sp1_qsearch_dung_hop_dong", paras);
+
+            return dt;
+        }
+
         public DataTable Search_QD_TiepNhan(string p_ma_qd)
         {
             DataTable dt;
