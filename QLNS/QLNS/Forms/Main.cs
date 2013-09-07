@@ -412,7 +412,7 @@ namespace QLNS.Forms
 
         private void qĐThôiViệcToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            HDQD.UCs.QDChung uc = new HDQD.UCs.QDChung("Thôi việc");
+            HDQD.UCs.QDDungHopDong uc = new HDQD.UCs.QDDungHopDong();
             //uc.thongTinQuyetDinh1.comB_Loai.DataSource = null;
             //uc.thongTinQuyetDinh1.comB_Loai.Items.Add("Thôi việc");
             //uc.thongTinQuyetDinh1.comB_Loai.SelectedIndex = 0;
