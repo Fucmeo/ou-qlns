@@ -70,12 +70,13 @@ namespace HDQD.UCs
                     frPopup.ShowDialog();
                     if (strMaNV != null)
                     {
-                        oCNVC.MaNV = strMaNV;
+                        
                         txt_MaNV.Text = strMaNV;
                         txt_Ho.Text = strHo;
                         txt_Ten.Text = strTen;
 
-                        if (UCs.DSCNVC.eParentUC != DSCNVC.ParentUC.HopDong && UCs.DSCNVC.eParentUC != DSCNVC.ParentUC.TiepNhan)
+                        if ( UCs.DSCNVC.eParentUC != DSCNVC.ParentUC.HopDong 
+                                && UCs.DSCNVC.eParentUC != DSCNVC.ParentUC.TiepNhan)
                         {
                             dtDonViChucVu = oCNVC.GetDonViChucVuForQD();
 

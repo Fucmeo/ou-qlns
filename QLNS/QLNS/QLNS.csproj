@@ -94,6 +94,12 @@
     <Compile Include="UCs\NCKH_ThemNguoi.Designer.cs">
       <DependentUpon>NCKH_ThemNguoi.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCs\QLNS_QTrCTac_Chart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\QLNS_QTrCTac_Chart.Designer.cs">
+      <DependentUpon>QLNS_QTrCTac_Chart.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCs\QLNS_ThamNien.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -310,6 +316,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\NCKH_ThemNguoi.resx">
       <DependentUpon>NCKH_ThemNguoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\QLNS_QTrCTac_Chart.resx">
+      <DependentUpon>QLNS_QTrCTac_Chart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\QLNS_ThamNien.resx">
       <DependentUpon>QLNS_ThamNien.cs</DependentUpon>

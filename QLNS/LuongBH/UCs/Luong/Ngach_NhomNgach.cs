@@ -397,5 +397,7 @@ namespace LuongBH.UCs.Luong
             ptLowerLeft = btn_Them.PointToScreen(ptLowerLeft);
             contextMenuStrip1.Show(ptLowerLeft);
         }
+
+        
     }
 }

@@ -76,6 +76,10 @@ namespace QLNS.Forms
             qĐKhenThưởngNângLươngChuyểnNgạchToolStripMenuItem.Image = ImageL_MenuStripItem.Images["khen thuong.png"];
             tsmi_LoaiQD.Image = ImageL_MenuStripItem.Images["Decision.png"];
 
+            quáTrìnhCôngTácToolStripMenuItem.Image = ImageL_MenuStripItem.Images["Qtr Ctac.png"];
+            thâmNiênNhânViênToolStripMenuItem.Image = ImageL_MenuStripItem.Images["Tham Nien.png"];
+            biểuĐồToolStripMenuItem.Image = ImageL_MenuStripItem.Images["bieu do.png"];
+
            
             
         }
@@ -412,12 +416,15 @@ namespace QLNS.Forms
 
         private void qĐThôiViệcToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            HDQD.UCs.QDDungHopDong uc = new HDQD.UCs.QDDungHopDong();
-            //uc.thongTinQuyetDinh1.comB_Loai.DataSource = null;
-            //uc.thongTinQuyetDinh1.comB_Loai.Items.Add("Thôi việc");
-            //uc.thongTinQuyetDinh1.comB_Loai.SelectedIndex = 0;
-            Forms.Popup f = new Popup("Quyết định thôi việc", uc);
-            f.ShowDialog();
+            //HDQD.UCs.QDDungHopDong uc = new HDQD.UCs.QDDungHopDong();
+            ////uc.thongTinQuyetDinh1.comB_Loai.DataSource = null;
+            ////uc.thongTinQuyetDinh1.comB_Loai.Items.Add("Thôi việc");
+            ////uc.thongTinQuyetDinh1.comB_Loai.SelectedIndex = 0;
+            //Forms.Popup f = new Popup("Quyết định thôi việc", uc);
+            //f.ShowDialog();
+
+
+            MessageBox.Show("Hiện quyết định này đang trong quá trình phát triển.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void qĐNghỉHưuToolStripMenuItem_Click(object sender, EventArgs e)
@@ -441,6 +448,19 @@ namespace QLNS.Forms
         {
             Forms.Popup f = new Popup("Quản lý loại quyết định", new HDQD.UCs.LoaiQuyetDinh());
             //f.WindowState = FormWindowState.Maximized;
+            f.ShowDialog();
+        }
+
+        private void quáTrìnhCôngTácToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Quá trình công tác", new QLNS.UCs.QLNS_QTrCTac_Chart());
+
+            f.ShowDialog();
+        }
+
+        private void thâmNiênNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Thâm niên nhân viên", new QLNS.UCs.QLNS_ThamNien());
             f.ShowDialog();
         }
     }

@@ -238,7 +238,7 @@
             this.tableLP_PhuCap.SetColumnSpan(this.comB_LoaiPhuCap, 2);
             this.comB_LoaiPhuCap.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_LoaiPhuCap.FormattingEnabled = true;
-            this.comB_LoaiPhuCap.Location = new System.Drawing.Point(471, 20);
+            this.comB_LoaiPhuCap.Location = new System.Drawing.Point(471, 22);
             this.comB_LoaiPhuCap.Name = "comB_LoaiPhuCap";
             this.comB_LoaiPhuCap.Size = new System.Drawing.Size(289, 29);
             this.comB_LoaiPhuCap.TabIndex = 1;
@@ -527,7 +527,7 @@
             this.thongTinQuyetDinh1.Size = new System.Drawing.Size(944, 244);
             this.thongTinQuyetDinh1.TabIndex = 1;
             // 
-            // QuyetDinhChung
+            // QuyetDinhPhuCap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -535,7 +535,7 @@
             this.Controls.Add(this.tableLP_QDChung);
             this.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "QuyetDinhChung";
+            this.Name = "QuyetDinhPhuCap";
             this.Size = new System.Drawing.Size(950, 1200);
             this.Load += new System.EventHandler(this.QuyetDinhChung_Load);
             this.tableLP_QDChung.ResumeLayout(false);

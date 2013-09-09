@@ -63,3 +63,4 @@ D:\Job\QLNS\Projects\QLNS\QLNS\bin\Release\ja\Npgsql.resources.dll
 D:\Job\QLNS\Projects\QLNS\QLNS\bin\Release\zh-CN\Npgsql.resources.dll
 D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Release\QLNS.exe
 D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Release\QLNS.pdb
+D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Release\QLNS.UCs.QLNS_QTrCTac_Chart.resources

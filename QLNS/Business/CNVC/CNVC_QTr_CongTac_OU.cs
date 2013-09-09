@@ -201,6 +201,33 @@ namespace Business.CNVC
             return dt;
         }
 
+        public bool CheckLatestQtrCtac()
+        {
+            bool check;
+            IDataParameter[] paras = new IDataParameter[1]{
+                new NpgsqlParameter("p_id",id)                
+            };
+            check = (bool)dp.executeScalarProc("sp1_check_if_lastest_qtrctac", paras);
+
+            return check;
+        }
+
+        public bool DeleteFromChart()
+        {
+            int check;
+            IDataParameter[] paras = new IDataParameter[2]{
+                new NpgsqlParameter("p_id",id),
+                new NpgsqlParameter("p_id",manv)
+            };
+            check = (int)dp.executeScalarProc("sp_delete_cnvc_qtr_ctac_ou_from_chart", paras);
+            if (check > 0)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
         #endregion
     }
 }

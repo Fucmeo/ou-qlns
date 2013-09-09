@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace HDQD
 {
-    static class Program
+    public static class Program
     {
         /// <summary>
         /// The main entry point for the application.
@@ -15,8 +15,10 @@ namespace HDQD
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Forms.Popup(new UCs.QDChung(), "QUẢN LÝ NHÂN SỰ - Loại phụ cấp"));
+            Application.Run(new Forms.Popup(new UCs.HopDong(), "QUẢN LÝ NHÂN SỰ - Loại phụ cấp"));
             //Application.Run(new Forms.Popup(new UCs.BoNhiem(), "QUẢN LÝ NHÂN SỰ - Thành lập đơn vị"));
         }
+
+        public static string ma_nv = "", ho ="", ten=""; // cho viec search nv o phan chart
     }
 }

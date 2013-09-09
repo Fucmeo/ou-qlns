@@ -29,9 +29,8 @@ namespace QLNS.UCs
         bool bAddFlag;
         HitTestResult result;
 
-        public QLNS_QTrCTac_Chart(string p_manv)
+        private void InitObject(string p_manv = null)
         {
-            InitializeComponent();
             dtp_state = DTPs_State.None;
             //rd_state = RDs_State.All;
             oCNVC = new Business.CNVC.CNVC();
@@ -46,19 +45,40 @@ namespace QLNS.UCs
             dt_TimeFilter = new DataTable();
             dt_CateFilter = new DataTable();
             dt_DonVi = new DataTable();
-            dt_ChucDanh = new DataTable();  
+            dt_ChucDanh = new DataTable();
             dt_ChucVu = new DataTable();
+        }
+
+        public QLNS_QTrCTac_Chart(string p_manv)
+        {
+            InitializeComponent();
+            InitObject(p_manv);
+
+        }
+
+        public QLNS_QTrCTac_Chart()
+        {
+            InitializeComponent();
+            InitObject();
 
         }
 
         private void QLNS_QTrCTac_Chart_Load(object sender, EventArgs e)
         {
+           
+
             GetDataSourceForCombo();
             BindDataForCombo();
-            GetData_QtrCTac();
 
-            RegenerateChart();
+            if (oCNVC.MaNV != null)
+            {
+                GetData_QtrCTac();
+                RegenerateChart();
+            }
+            
         }
+
+
 
 
 
@@ -70,8 +90,8 @@ namespace QLNS.UCs
                 if (dt_original.Rows.Count > 0)
                 {
                     txt_MaNV.Text = dt_original.AsEnumerable().Select(b => b.Field<string>("ma_nv")).First().ToString();
-                    txt_HoTen.Text = dt_original.AsEnumerable().Select(b => b.Field<string>("ho")).First().ToString() + " " +
-                        dt_original.AsEnumerable().Select(b => b.Field<string>("ten")).First().ToString();
+                    txt_Ho.Text = dt_original.AsEnumerable().Select(b => b.Field<string>("ho")).First().ToString();
+                    txt_Ten.Text = dt_original.AsEnumerable().Select(b => b.Field<string>("ten")).First().ToString();
                     dt_binding = dt_original.Copy();
                     dt_CateFilter = dt_original.Copy();
                     dt_TimeFilter = dt_original.Copy();
@@ -162,7 +182,7 @@ namespace QLNS.UCs
         private void AddSeries()
         {
             int n = chart_QtrCTac.Series.Count;
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < n; i++) 
             {
                 chart_QtrCTac.Series.RemoveAt(0);
             }
@@ -839,6 +859,45 @@ namespace QLNS.UCs
                 }
                     
 
+            }
+        }
+
+        private void btn_Tim_Click(object sender, EventArgs e)
+        {
+
+            if (!string.IsNullOrWhiteSpace(txt_MaNV.Text) ||( !string.IsNullOrWhiteSpace(txt_Ho.Text) && !string.IsNullOrWhiteSpace(txt_Ten.Text)))
+            {
+                oCNVC.Ho = txt_Ho.Text.Trim();
+                oCNVC.Ten = txt_Ten.Text.Trim();
+                oCNVC.MaNV = string.IsNullOrWhiteSpace(txt_MaNV.Text.Trim()) ? null : txt_MaNV.Text.Trim();
+                DataTable dt;
+  
+                    dt = oCNVC.SearchDataForQD(true);
+              
+                if (dt.Rows.Count > 0)
+                {
+
+                    Forms.Popup frPopup = new Forms.Popup("QUẢN LÝ NHÂN SỰ - DANH SÁCH CNVC", new HDQD.UCs.DSCNVC(dt));
+                    frPopup.ShowDialog();
+                    if (HDQD.Program.ma_nv  != "")
+                    {
+                        gb_Filter.Enabled = gb_Info.Enabled = true;
+                        oCNVC.MaNV =  txt_MaNV.Text = HDQD.Program.ma_nv;
+                        txt_Ho.Text = HDQD.Program.ho;
+                        txt_Ten.Text = HDQD.Program.ten;
+
+                        GetData_QtrCTac();
+                        RegenerateChart();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Nhân viên này khòng còn hợp đồng hoặc không tồn tại trong hệ thống.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Xin vui lòng cung cấp mã nhân viên hoặc họ tên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
