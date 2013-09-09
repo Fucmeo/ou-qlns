@@ -21,7 +21,7 @@ namespace QLNS.UCs
         HitTestResult result;
         bool bNhaGiaoChecked, bCongTacChecked, bNangBacChecked; // bien giu gia tri filter cũ
 
-        public QLNS_ThamNien(string p_manv)
+        public QLNS_ThamNien(string p_manv = null)
         {
             InitializeComponent();
             
@@ -30,8 +30,14 @@ namespace QLNS.UCs
             oCNVC.MaNV = p_manv;
             dOldFrom = dOldTo = null;
             InitTable();
-            RegenerateChart();
+            if (oCNVC.MaNV != null)
+            {
+                GetThamNienData();
+                RegenerateChart();
+            }
         }
+
+
 
         private void GetTable()
         {
@@ -45,21 +51,6 @@ namespace QLNS.UCs
             dt_TimeFilter = new DataTable();
             dt_CateFilter = new DataTable();
 
-            //dt_original.Columns.AddRange(new DataColumn[] { new DataColumn("ma",typeof(string)) ,
-            //                                        new DataColumn("ten",typeof(string)) ,
-            //new DataColumn("loai",typeof(string)) ,
-            //new DataColumn("batdau",typeof(DateTime)) ,
-            //new DataColumn("ketthuc",typeof(DateTime)),
-            //new DataColumn("bind",typeof(Boolean)) });
-
-            //dt_original.Rows.Add(new object[] { "QDBN1", "Quyết định bo nhiem 1", "Bổ nhiệm", new DateTime(2013, 01, 01), new DateTime(2013, 06, 01), true });
-            //dt_original.Rows.Add(new object[] { "QDBN2", "Quyết định bo nhiem 2", "Bổ nhiệm", new DateTime(2013, 03, 01), new DateTime(2013, 07, 01), true });
-            //dt_original.Rows.Add(new object[] { "HD2", "Hợp đồng 2", "Hợp đồng", new DateTime(2013, 01, 01), new DateTime(2013, 12, 31), true });
-            //dt_original.Rows.Add(new object[] { "HD1", "Hợp đồng 1", "Hợp đồng", new DateTime(2012, 01, 01), new DateTime(2012, 12, 31), true });
-            //dt_original.Rows.Add(new object[] { "DH1", "Du học 1", "Du học", new DateTime(2012, 01, 01), new DateTime(2012, 4, 1), true });
-            GetThamNienData();
-          
-            
         }
 
         private void GetThamNienData()
@@ -69,7 +60,8 @@ namespace QLNS.UCs
             if (dt_original.Rows.Count > 0)
             {
                 txt_MaNV.Text = dt_original.AsEnumerable().Select(b => b.Field<string>("ma_nv")).First().ToString();
-                txt_HoTen.Text = dt_original.AsEnumerable().Select(b => b.Field<string>("ten_nv")).First().ToString();
+                txt_Ho.Text = dt_original.AsEnumerable().Select(b => b.Field<string>("ho_nv")).First().ToString();
+                txt_Ten.Text = dt_original.AsEnumerable().Select(b => b.Field<string>("ten_nv")).First().ToString();
                 dt_binding = dt_original.Copy();
                 dt_CateFilter = dt_original.Copy();
                 dt_TimeFilter = dt_original.Copy();
@@ -77,7 +69,7 @@ namespace QLNS.UCs
             else
             {
                 txt_MaNV.Text = "";
-                 txt_HoTen.Text = "";
+                 txt_Ho.Text = txt_Ten.Text = "";
             }
         }
 
@@ -654,6 +646,44 @@ namespace QLNS.UCs
         {
             ClearThongTin();
             EnableControls(true);
+        }
+
+        private void btn_Tim_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txt_MaNV.Text) || (!string.IsNullOrWhiteSpace(txt_Ho.Text) && !string.IsNullOrWhiteSpace(txt_Ten.Text)))
+            {
+                oCNVC.Ho = txt_Ho.Text.Trim();
+                oCNVC.Ten = txt_Ten.Text.Trim();
+                oCNVC.MaNV = string.IsNullOrWhiteSpace(txt_MaNV.Text.Trim()) ? null : txt_MaNV.Text.Trim();
+                DataTable dt;
+
+                dt = oCNVC.SearchDataForQD(true);
+
+                if (dt.Rows.Count > 0)
+                {
+
+                    Forms.Popup frPopup = new Forms.Popup("QUẢN LÝ NHÂN SỰ - DANH SÁCH CNVC", new HDQD.UCs.DSCNVC(dt));
+                    frPopup.ShowDialog();
+                    if (HDQD.Program.ma_nv != "")
+                    {
+                        gb_Filter.Enabled = gb_Info.Enabled = true;
+                        oCNVC.MaNV = txt_MaNV.Text = HDQD.Program.ma_nv;
+                        txt_Ho.Text = HDQD.Program.ho;
+                        txt_Ten.Text = HDQD.Program.ten;
+
+                        GetThamNienData();
+                        RegenerateChart();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Nhân viên này khòng còn hợp đồng hoặc không tồn tại trong hệ thống.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Xin vui lòng cung cấp mã nhân viên hoặc họ tên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
 
