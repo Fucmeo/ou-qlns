@@ -143,6 +143,16 @@ namespace QLNS.UCs.DanhMucThongTin
                     comB_QuocGia.SelectedValue = -1;
                 }
 
+                if (dtCNVC.Rows[0]["ngay_sinh"].ToString() != "")
+                {
+                    dTP_NgaySinh.Value = Convert.ToDateTime(dtCNVC.Rows[0]["ngay_sinh"]);
+                    dTP_NgaySinh.Checked = true;
+                }
+                else
+                {
+                    dTP_NgaySinh.Checked = false;
+                }
+
                 if (dtCNVC.Rows[0]["tinh_thanhpho"].ToString() != "")
                 {
                     comB_Tinh.SelectedValue = Convert.ToInt32(dtCNVC.Rows[0]["tinh_thanhpho"]);
