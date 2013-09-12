@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QLNS_ThongTinNV));
             this.tableLP_ThongTinChinh = new System.Windows.Forms.TableLayoutPanel();
             this.gb_CMND = new System.Windows.Forms.GroupBox();
@@ -51,7 +50,7 @@
             this.gb_ThongTin = new System.Windows.Forms.GroupBox();
             this.tableLP_ThongTinNV = new System.Windows.Forms.TableLayoutPanel();
             this.btn_Huy = new System.Windows.Forms.Button();
-            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
+            this.imageList2 = new System.Windows.Forms.ImageList();
             this.dTP_NgaySinh = new System.Windows.Forms.DateTimePicker();
             this.label19 = new System.Windows.Forms.Label();
             this.tableLP_QuocGia = new System.Windows.Forms.TableLayoutPanel();
@@ -75,7 +74,7 @@
             this.txt_SoSoBHXH = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_DelAvatar = new System.Windows.Forms.Button();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.imageList1 = new System.Windows.Forms.ImageList();
             this.picB_HinhDaiDien = new System.Windows.Forms.PictureBox();
             this.txt_MaSoThue = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
