@@ -116,10 +116,7 @@ namespace HDQD.UCs
                 else
                     oHopdong.Ngay_Ky = null;
 
-                if (dtp_TuNgay.Checked == true)
-                    oHopdong.Ngay_Hieu_Luc = dtp_TuNgay.Value;
-                else
-                    oHopdong.Ngay_Hieu_Luc = null;
+                oHopdong.Ngay_Hieu_Luc = dtp_TuNgay.Value;
 
                 if (dtp_DenNgay.Checked == true)
                     oHopdong.Ngay_Het_Han = dtp_DenNgay.Value;
@@ -426,7 +423,7 @@ namespace HDQD.UCs
 
         private bool CheckInputData()
         {
-            if (thongTinCNVC1.txt_MaNV.Text != "" && txt_MaHD.Text != "" && dtp_TuNgay.Checked == true &&
+            if (thongTinCNVC1.txt_MaNV.Text != "" && txt_MaHD.Text != "" &&
                     ((dtPhuCap.Rows.Count > 0 && cb_CoPhuCap.Checked == false) || cb_CoPhuCap.Checked == true))
                 return true;
             else

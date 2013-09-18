@@ -12,7 +12,7 @@ namespace HDQD.UCs
     public partial class DSCNVC : UserControl
     {
         DataTable dtDSCNVC;
-        public enum ParentUC { BoNhiem, ThoiBoNhiem, QuyetDinhChung, MA, HopDong, TiepNhan};
+        public enum ParentUC { BoNhiem, ThoiBoNhiem, QuyetDinhChung, MA, HopDong, TiepNhan, DungHopDong};
         public static ParentUC eParentUC;
         public DSCNVC(DataTable _dtDSCNVC)
         {
@@ -87,18 +87,48 @@ namespace HDQD.UCs
 
         private void SetupDTGV()
         {
-            dtgv_DSCNVC.Columns["ma_nv"].HeaderText = "Mã nhân viên";
-            dtgv_DSCNVC.Columns["ma_nv"].Width = 150;
-            dtgv_DSCNVC.Columns["ho"].HeaderText = "Họ";
-            dtgv_DSCNVC.Columns["ho"].Width = 300;
-            dtgv_DSCNVC.Columns["ten"].HeaderText = "Tên";
-            dtgv_DSCNVC.Columns["ten"].Width = 200;
-            dtgv_DSCNVC.Columns["dia_chi"].HeaderText = "Địa chỉ";
-            dtgv_DSCNVC.Columns["dia_chi"].Width = 500;
-            dtgv_DSCNVC.Columns["ngay_sinh"].HeaderText = "Ngày sinh";
-            dtgv_DSCNVC.Columns["ngay_sinh"].Width = 150;
-            dtgv_DSCNVC.Columns["gioi_tinh"].HeaderText = "Giới tính";
-            dtgv_DSCNVC.Columns["gioi_tinh"].Width = 50;
+            switch (eParentUC)
+            {
+                case ParentUC.DungHopDong:
+                    dtgv_DSCNVC.Columns["ma_nv"].HeaderText = "Mã nhân viên";
+                    dtgv_DSCNVC.Columns["ma_nv"].Width = 150;
+                    dtgv_DSCNVC.Columns["ho"].HeaderText = "Họ";
+                    dtgv_DSCNVC.Columns["ho"].Width = 300;
+                    dtgv_DSCNVC.Columns["ten"].HeaderText = "Tên";
+                    dtgv_DSCNVC.Columns["ten"].Width = 200;
+                    dtgv_DSCNVC.Columns["ma_hd_display"].HeaderText = "Mã hợp đồng";
+                    dtgv_DSCNVC.Columns["loai_hop_dong"].HeaderText = "Loại hợp đồng";
+                    dtgv_DSCNVC.Columns["ngay_ky"].HeaderText = "Ngày ký";
+                    dtgv_DSCNVC.Columns["ngay_hieu_luc"].HeaderText = "Ngày hiệu lực";
+                    dtgv_DSCNVC.Columns["ngay_het_han"].HeaderText = "Ngày hết hạn";
+                    dtgv_DSCNVC.Columns["ten_chuc_vu"].HeaderText = "Chức vụ";
+                    dtgv_DSCNVC.Columns["ten_chuc_danh"].HeaderText = "Chức danh";
+                    dtgv_DSCNVC.Columns["ten_don_vi"].HeaderText = "Đơn vị";
+
+                    dtgv_DSCNVC.Columns["id"].Visible = false;
+                    dtgv_DSCNVC.Columns["ma_hop_dong"].Visible = false;
+                    dtgv_DSCNVC.Columns["ma_loai_hd"].Visible = false;
+                    dtgv_DSCNVC.Columns["chuc_vu_chinh_id"].Visible = false;
+                    dtgv_DSCNVC.Columns["chuc_danh_chinh_id"].Visible = false;
+                    dtgv_DSCNVC.Columns["don_vi_chinh_id"].Visible = false;
+                    dtgv_DSCNVC.Columns["tinh_trang"].Visible = false;
+                    break;
+                
+                default:
+                    dtgv_DSCNVC.Columns["ma_nv"].HeaderText = "Mã nhân viên";
+                    dtgv_DSCNVC.Columns["ma_nv"].Width = 150;
+                    dtgv_DSCNVC.Columns["ho"].HeaderText = "Họ";
+                    dtgv_DSCNVC.Columns["ho"].Width = 300;
+                    dtgv_DSCNVC.Columns["ten"].HeaderText = "Tên";
+                    dtgv_DSCNVC.Columns["ten"].Width = 200;
+                    dtgv_DSCNVC.Columns["dia_chi"].HeaderText = "Địa chỉ";
+                    dtgv_DSCNVC.Columns["dia_chi"].Width = 500;
+                    dtgv_DSCNVC.Columns["ngay_sinh"].HeaderText = "Ngày sinh";
+                    dtgv_DSCNVC.Columns["ngay_sinh"].Width = 150;
+                    dtgv_DSCNVC.Columns["gioi_tinh"].HeaderText = "Giới tính";
+                    dtgv_DSCNVC.Columns["gioi_tinh"].Width = 50;
+                    break;
+            }
         }
 
         private void btn_Chon_Click(object sender, EventArgs e)

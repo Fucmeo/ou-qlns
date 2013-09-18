@@ -416,15 +416,15 @@ namespace QLNS.Forms
 
         private void qĐThôiViệcToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //HDQD.UCs.QDDungHopDong uc = new HDQD.UCs.QDDungHopDong();
-            ////uc.thongTinQuyetDinh1.comB_Loai.DataSource = null;
-            ////uc.thongTinQuyetDinh1.comB_Loai.Items.Add("Thôi việc");
-            ////uc.thongTinQuyetDinh1.comB_Loai.SelectedIndex = 0;
-            //Forms.Popup f = new Popup("Quyết định thôi việc", uc);
-            //f.ShowDialog();
+            HDQD.UCs.QDDungHopDong uc = new HDQD.UCs.QDDungHopDong();
+            //uc.thongTinQuyetDinh1.comB_Loai.DataSource = null;
+            //uc.thongTinQuyetDinh1.comB_Loai.Items.Add("Thôi việc");
+            //uc.thongTinQuyetDinh1.comB_Loai.SelectedIndex = 0;
+            Forms.Popup f = new Popup("Quyết định thôi việc", uc);
+            f.ShowDialog();
 
 
-            MessageBox.Show("Hiện quyết định này đang trong quá trình phát triển.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //MessageBox.Show("Hiện quyết định này đang trong quá trình phát triển.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void qĐNghỉHưuToolStripMenuItem_Click(object sender, EventArgs e)
