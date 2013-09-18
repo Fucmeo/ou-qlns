@@ -35,12 +35,9 @@ namespace HDQD.UCs
                 dtDSHopDong = oHopDong.Search_Dung_HD(ma_hd, ma_nv, ho_nv, ten_nv);
                 if (dtDSHopDong != null)
                 {
-                    //PrepareDataSource();
-                    //EditDtgInterface();
-                    //if (dtDSHopDong.Rows.Count != 0)
-                    //    ResetInterface(true);
-                    //else
-                    //    ResetInterface(false);
+                    UCs.DSCNVC.eParentUC = DSCNVC.ParentUC.DungHopDong;
+                    Forms.Popup frPopup = new Forms.Popup(new UCs.DSCNVC(dtDSHopDong), "QUẢN LÝ NHÂN SỰ - DANH SÁCH CNVC");
+                    frPopup.ShowDialog();
                 }
             }
             catch { }
