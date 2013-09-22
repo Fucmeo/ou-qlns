@@ -148,7 +148,7 @@
             "Bổ nhiệm",
             "Kiêm nhiệm",
             "Điều động"});
-            this.comB_Loai.Location = new System.Drawing.Point(627, 8);
+            this.comB_Loai.Location = new System.Drawing.Point(627, 6);
             this.comB_Loai.Name = "comB_Loai";
             this.comB_Loai.Size = new System.Drawing.Size(164, 25);
             this.comB_Loai.TabIndex = 2;
@@ -265,13 +265,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         public System.Windows.Forms.TextBox txt_MaQD;
-        private System.Windows.Forms.Label label7;
         public System.Windows.Forms.DateTimePicker dTP_NgayHetHan;
         public System.Windows.Forms.DateTimePicker dTP_NgayKy;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.RichTextBox rTB_MoTa;
         public System.Windows.Forms.Label lbl_LoaiQD;
+        public System.Windows.Forms.Label label7;
 
     }
 }

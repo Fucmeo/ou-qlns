@@ -449,6 +449,30 @@ namespace Business.HDQD
             }
         }
 
+        public bool Update_CNVC_DungHopDong(string p_ma_nv, string p_ma_hop_dong)
+        {
+            IDataParameter[] paras = new IDataParameter[9]{
+                new NpgsqlParameter("p_ma_quyet_dinh",ma_qd + "_" + ngay_hieu_luc.Value.ToString("ddMMyyyy")),
+                new NpgsqlParameter("p_ten_qd",ten_qd),
+                new NpgsqlParameter("p_loai_quyet_dinh_id",loai_qd_id.Value),
+                new NpgsqlParameter("p_mo_ta",mota),
+                new NpgsqlParameter("p_path",path),
+                new NpgsqlParameter("p_ngay_hieu_luc",ngay_hieu_luc.Value),
+                new NpgsqlParameter("p_ngay_ky", ngay_ky.Value),
+                new NpgsqlParameter("p_ma_nv",p_ma_nv),
+                new NpgsqlParameter("p_ma_hop_dong",p_ma_hop_dong)
+            };
+            try
+            {
+                dp.executeScalarProc("sp1_update_cnvc_dung_hopdong", paras);
+                return true;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public bool Delete(string[] p_ma_nv)
         {
             int check;
