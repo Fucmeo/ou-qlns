@@ -75,6 +75,22 @@ namespace HDQD.UCs
                             = dtgv_DSCNVC.Rows[e.RowIndex].Cells["ten"].Value.ToString();
                         break;
 
+                    case ParentUC.DungHopDong:
+                        HDQD.UCs.QDDungHopDong.strHo = dtgv_DSCNVC.Rows[e.RowIndex].Cells["ho"].Value.ToString();
+                        HDQD.UCs.QDDungHopDong.strTen = dtgv_DSCNVC.Rows[e.RowIndex].Cells["ten"].Value.ToString();
+                        HDQD.UCs.QDDungHopDong.strMaNV = dtgv_DSCNVC.Rows[e.RowIndex].Cells["ma_nv"].Value.ToString();
+                        HDQD.UCs.QDDungHopDong.strMaHD = dtgv_DSCNVC.Rows[e.RowIndex].Cells["ma_hop_dong"].Value.ToString();
+                        HDQD.UCs.QDDungHopDong.strMaHD_Display = dtgv_DSCNVC.Rows[e.RowIndex].Cells["ma_hd_display"].Value.ToString();
+                        HDQD.UCs.QDDungHopDong.strLoaiHD = dtgv_DSCNVC.Rows[e.RowIndex].Cells["loai_hop_dong"].Value.ToString();
+                        // ToString("d", CultureInfo.CreateSpecificCulture("vi-VN"))
+                        HDQD.UCs.QDDungHopDong.strNgayKy = dtgv_DSCNVC.Rows[e.RowIndex].Cells["ngay_ky"].Value.ToString();
+                        HDQD.UCs.QDDungHopDong.strNgayHieuLuc = dtgv_DSCNVC.Rows[e.RowIndex].Cells["ngay_hieu_luc"].Value.ToString();
+                        HDQD.UCs.QDDungHopDong.strNgayHetHan = dtgv_DSCNVC.Rows[e.RowIndex].Cells["ngay_het_han"].Value.ToString();
+                        HDQD.UCs.QDDungHopDong.strDonVi = dtgv_DSCNVC.Rows[e.RowIndex].Cells["ten_don_vi"].Value.ToString();
+                        HDQD.UCs.QDDungHopDong.strChucDanh = dtgv_DSCNVC.Rows[e.RowIndex].Cells["ten_chuc_danh"].Value.ToString();
+                        HDQD.UCs.QDDungHopDong.strChucVu = dtgv_DSCNVC.Rows[e.RowIndex].Cells["ten_chuc_vu"].Value.ToString();
+                        break;
+
                     default:
                         break;
                 }
@@ -196,6 +212,21 @@ namespace HDQD.UCs
                         = dtgv_DSCNVC.SelectedRows[0].Cells["ten"].Value.ToString();
                     break;
 
+                case ParentUC.DungHopDong:
+                    HDQD.UCs.QDDungHopDong.strHo = dtgv_DSCNVC.SelectedRows[0].Cells["ho"].Value.ToString();
+                    HDQD.UCs.QDDungHopDong.strTen = dtgv_DSCNVC.SelectedRows[0].Cells["ten"].Value.ToString();
+                    HDQD.UCs.QDDungHopDong.strMaNV = dtgv_DSCNVC.SelectedRows[0].Cells["ma_nv"].Value.ToString();
+                    HDQD.UCs.QDDungHopDong.strMaHD = dtgv_DSCNVC.SelectedRows[0].Cells["ma_hop_dong"].Value.ToString();
+                    HDQD.UCs.QDDungHopDong.strMaHD_Display = dtgv_DSCNVC.SelectedRows[0].Cells["ma_hd_display"].Value.ToString();
+                    HDQD.UCs.QDDungHopDong.strLoaiHD = dtgv_DSCNVC.SelectedRows[0].Cells["loai_hop_dong"].Value.ToString();
+                    // ToString("d", CultureInfo.CreateSpecificCulture("vi-VN"))
+                    HDQD.UCs.QDDungHopDong.strNgayKy = dtgv_DSCNVC.SelectedRows[0].Cells["ngay_ky"].Value.ToString();
+                    HDQD.UCs.QDDungHopDong.strNgayHieuLuc = dtgv_DSCNVC.SelectedRows[0].Cells["ngay_hieu_luc"].Value.ToString();
+                    HDQD.UCs.QDDungHopDong.strNgayHetHan = dtgv_DSCNVC.SelectedRows[0].Cells["ngay_het_han"].Value.ToString();
+                    HDQD.UCs.QDDungHopDong.strDonVi = dtgv_DSCNVC.SelectedRows[0].Cells["ten_don_vi"].Value.ToString();
+                    HDQD.UCs.QDDungHopDong.strChucDanh = dtgv_DSCNVC.SelectedRows[0].Cells["ten_chuc_danh"].Value.ToString();
+                    HDQD.UCs.QDDungHopDong.strChucVu = dtgv_DSCNVC.SelectedRows[0].Cells["ten_chuc_vu"].Value.ToString();
+                    break;
                 default:
                     break;
             }
