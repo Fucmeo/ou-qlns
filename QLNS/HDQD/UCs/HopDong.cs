@@ -478,17 +478,17 @@ namespace HDQD.UCs
         /// </summary>
         private void LoadFilesDB()
         {
-            oFile.MaNV = oHopdong.Ma_NV;
-            oFile.Link = oHopdong.Ma_Tuyen_Dung;
-            oFile.FileType = Business.CNVC.CNVC_File.eFileType.HopDong;
-            try
-            {
-                dtFile = oFile.GetData();
-            }
-            catch (Exception)
-            {
+            //oFile.MaNV = oHopdong.Ma_NV;
+            //oFile.Link = oHopdong.Ma_Tuyen_Dung;
+            //oFile.FileType = Business.CNVC.CNVC_File.eFileType.HopDong;
+            //try
+            //{
+            //    dtFile = oFile.GetData();
+            //}
+            //catch (Exception)
+            //{
                 
-            }
+            //}
              
         }
 
@@ -658,8 +658,8 @@ namespace HDQD.UCs
             }
             else
             {
-                Form f = new Forms.Popup(new UCs.DSTapTin("HopDong", Paths, Desc), "QUẢN LÝ NHÂN SỰ - DANH SÁCH TẬP TIN");
-                f.ShowDialog();
+                //Form f = new Forms.Popup(new UCs.DSTapTin("HopDong", Paths, Desc), "QUẢN LÝ NHÂN SỰ - DANH SÁCH TẬP TIN");
+                //f.ShowDialog();
             }
 
             
@@ -750,31 +750,31 @@ namespace HDQD.UCs
 
         private void bw_upload_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            if (Paths.Where(a => a.Value == false).Select(a => a.Key).ToArray().Length > 0)
-            {
-                MessageBox.Show("Quá trình đăng tập tin lên server thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                lbl_Status.Text = "Đăng hình hoàn tất!";
-            }
+            //if (Paths.Where(a => a.Value == false).Select(a => a.Key).ToArray().Length > 0)
+            //{
+            //    MessageBox.Show("Quá trình đăng tập tin lên server thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    lbl_Status.Text = "Đăng hình hoàn tất!";
+            //}
 
-            oFile.MaNV = oHopdong.Ma_NV;
-            oFile.FileType = Business.CNVC.CNVC_File.eFileType.HopDong;
-            oFile.Link = oHopdong.Ma_Tuyen_Dung;
-            oFile.MoTa = Desc;
-            string[] DeleteFiles = Paths.Where(a => a.Value == null).Select(a => a.Key).ToArray();
+            //oFile.MaNV = oHopdong.Ma_NV;
+            //oFile.FileType = Business.CNVC.CNVC_File.eFileType.HopDong;
+            //oFile.Link = oHopdong.Ma_Tuyen_Dung;
+            //oFile.MoTa = Desc;
+            //string[] DeleteFiles = Paths.Where(a => a.Value == null).Select(a => a.Key).ToArray();
 
-            try
-            {
-                oFile.AddFileArray(ServerPaths);
-                if (DeleteFiles.Length > 0)
-                    oFile.Delete_HD_QD(DeleteFiles);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Quá trình lưu tập tin không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            //try
+            //{
+            //    oFile.AddFileArray(ServerPaths);
+            //    if (DeleteFiles.Length > 0)
+            //        oFile.Delete_HD_QD(DeleteFiles);
+            //}
+            //catch (Exception)
+            //{
+            //    MessageBox.Show("Quá trình lưu tập tin không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
 
-            ((Form)this.Parent.Parent).ControlBox = true;
-            this.Enabled = true;
+            //((Form)this.Parent.Parent).ControlBox = true;
+            //this.Enabled = true;
         }
 
         private void bw_download_DoWork(object sender, DoWorkEventArgs e)
@@ -811,9 +811,9 @@ namespace HDQD.UCs
         {
             lbl_Status.Text = "Tải tập tin hoàn tất!";
 
-            Forms.Popup f = new Forms.Popup(new UCs.DSTapTin("HopDong",Paths, Desc), "QUẢN LÝ NHÂN SỰ - DANH SÁCH TẬP TIN");
-            UCs.DSTapTin.bHopDong = true;
-            f.ShowDialog();
+            //Forms.Popup f = new Forms.Popup(new UCs.DSTapTin("HopDong",Paths, Desc), "QUẢN LÝ NHÂN SỰ - DANH SÁCH TẬP TIN");
+            //UCs.DSTapTin.bHopDong = true;
+            //f.ShowDialog();
         }
 
         private void comb_Luong_SelectedIndexChanged(object sender, EventArgs e)

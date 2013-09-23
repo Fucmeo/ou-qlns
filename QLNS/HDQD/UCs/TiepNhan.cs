@@ -696,17 +696,17 @@ namespace HDQD.UCs
                 lbl_Status.Text = "Đăng hình hoàn tất!";
             }
 
-            oFile.MaNV = oHopdong.Ma_NV;
-            oFile.FileType = Business.CNVC.CNVC_File.eFileType.TiepNhan;
-            oFile.Link = oHopdong.Ma_Hop_Dong;
-            oFile.MoTa = Desc;
+            //oFile.MaNV = oHopdong.Ma_NV;
+            //oFile.FileType = Business.CNVC.CNVC_File.eFileType.TiepNhan;
+            //oFile.Link = oHopdong.Ma_Hop_Dong;
+            //oFile.MoTa = Desc;
             string[] DeleteFiles = Paths.Where(a => a.Value == null).Select(a => a.Key).ToArray();
 
             try
             {
                 oFile.AddFileArray(ServerPaths);
-                if (DeleteFiles.Length > 0)
-                    oFile.Delete_HD_QD(DeleteFiles);
+                //if (DeleteFiles.Length > 0)
+                //    oFile.Delete_HD_QD(DeleteFiles);
             }
             catch (Exception)
             {
@@ -751,9 +751,9 @@ namespace HDQD.UCs
         {
             lbl_Status.Text = "Tải tập tin hoàn tất!";
 
-            Forms.Popup f = new Forms.Popup(new UCs.DSTapTin("TiepNhan", Paths, Desc), "QUẢN LÝ NHÂN SỰ - DANH SÁCH TẬP TIN");
-            UCs.DSTapTin.bHopDong = true;
-            f.ShowDialog();
+            //Forms.Popup f = new Forms.Popup(new UCs.DSTapTin("TiepNhan", Paths, Desc), "QUẢN LÝ NHÂN SỰ - DANH SÁCH TẬP TIN");
+            //UCs.DSTapTin.bHopDong = true;
+            //f.ShowDialog();
         }
 
         private void DownLoadFile()
@@ -794,8 +794,8 @@ namespace HDQD.UCs
                 LoadFilesDB();
                 DownLoadFile();
             }
-            Form f = new Forms.Popup(new UCs.DSTapTin("TiepNhan", Paths, Desc), "QUẢN LÝ NHÂN SỰ - DANH SÁCH TẬP TIN");
-            f.ShowDialog();
+            //Form f = new Forms.Popup(new UCs.DSTapTin("TiepNhan", Paths, Desc), "QUẢN LÝ NHÂN SỰ - DANH SÁCH TẬP TIN");
+            //f.ShowDialog();
         }
 
         /// <summary>
@@ -803,9 +803,9 @@ namespace HDQD.UCs
         /// </summary>
         private void LoadFilesDB()
         {
-            oFile.MaNV = oHopdong.Ma_NV;
-            oFile.Link = oHopdong.Ma_Hop_Dong;
-            oFile.FileType = Business.CNVC.CNVC_File.eFileType.TiepNhan;
+            //oFile.MaNV = oHopdong.Ma_NV;
+            //oFile.Link = oHopdong.Ma_Hop_Dong;
+            //oFile.FileType = Business.CNVC.CNVC_File.eFileType.TiepNhan;
             try
             {
                 dtFile = oFile.GetData();

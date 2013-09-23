@@ -642,8 +642,8 @@ namespace HDQD.UCs
             }
             else
             {
-                Form f = new Forms.Popup(new UCs.DSTapTin("DoiThongTin", Paths, Desc), "QUẢN LÝ NHÂN SỰ - DANH SÁCH TẬP TIN");
-                f.ShowDialog();
+                //Form f = new Forms.Popup(new UCs.DSTapTin("DoiThongTin", Paths, Desc), "QUẢN LÝ NHÂN SỰ - DANH SÁCH TẬP TIN");
+                //f.ShowDialog();
             }
 
 
@@ -793,9 +793,9 @@ namespace HDQD.UCs
         {
             lbl_Status.Text = "Tải tập tin hoàn tất!";
 
-            Forms.Popup f = new Forms.Popup(new UCs.DSTapTin("HopDong", Paths, Desc), "QUẢN LÝ NHÂN SỰ - DANH SÁCH TẬP TIN");
-            UCs.DSTapTin.bHopDong = true;
-            f.ShowDialog();
+            //Forms.Popup f = new Forms.Popup(new UCs.DSTapTin("HopDong", Paths, Desc), "QUẢN LÝ NHÂN SỰ - DANH SÁCH TẬP TIN");
+            //UCs.DSTapTin.bHopDong = true;
+            //f.ShowDialog();
         }
 
         #endregion

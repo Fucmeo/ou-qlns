@@ -1388,9 +1388,9 @@ namespace QLNS.UCs
         {
             if (!string.IsNullOrWhiteSpace(txt_MaNV.Text))
             {
-                UCs.QLNS_TapTin oQLNS_TapTin = new UCs.QLNS_TapTin(txt_MaNV.Text);
-                Forms.Popup fPopup = new Forms.Popup("Tập tin liên quan", oQLNS_TapTin);
-                fPopup.ShowDialog();
+                //UCs.QLNS_TapTin oQLNS_TapTin = new UCs.QLNS_TapTin(txt_MaNV.Text);
+                //Forms.Popup fPopup = new Forms.Popup("Tập tin liên quan", oQLNS_TapTin);
+                //fPopup.ShowDialog();
             }
             else
             {

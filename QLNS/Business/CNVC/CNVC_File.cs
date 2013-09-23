@@ -20,7 +20,11 @@ namespace Business.CNVC
         public CNVC_File()
         {
             dp = new DataProvider.DataProvider();
-            
+            mota = new List<string>();
+            Link = new List<string>();
+            Group = new List<int>();
+            FileName = new List<string>();
+            path = new List<string>();
         }
         
 
@@ -28,7 +32,7 @@ namespace Business.CNVC
 
         #region Properties
 
-        public enum eFileType { HopDong, BoNhiem, ThoiNhiem,DaoTao,BoiDuong, Avatar,TiepNhan };
+        //public enum eFileType { HopDong, BoNhiem, ThoiNhiem,DaoTao,BoiDuong, Avatar,TiepNhan };
 
         private int? id;
 
@@ -46,25 +50,27 @@ namespace Business.CNVC
             set { manv = value; }
         }
 
-        private string mota;
+        private List<string> mota;
 
-        public string MoTa
+        public List<string> MoTa
         {
             get { return mota; }
             set { mota = value; }
         }
 
-        private string path;
+        private List<string> path;
 
-        public string Path
+        public List<string> Path
         {
             get { return path; }
             set { path = value; }
         }
 
-        public eFileType FileType { get; set; }
+        public List<int> Group { get; set; }
 
-        public string Link { get; set; }
+        public List<string> FileName { get; set; }
+
+        public List<string> Link { get; set; }
 
 
         #endregion
@@ -74,12 +80,13 @@ namespace Business.CNVC
         public bool AddFileArray(string[] FilesPath)
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[5]{
+            IDataParameter[] paras = new IDataParameter[6]{
                 new NpgsqlParameter("p_ma_nv",manv), 
                 new NpgsqlParameter("p_path",FilesPath), 
                 new NpgsqlParameter("p_mo_ta",mota),
-                new NpgsqlParameter("p_file_type",FileType.ToString().ToLower()),
-                new NpgsqlParameter("p_link_id",Link)
+                new NpgsqlParameter("p_link",Link),
+                new NpgsqlParameter("p_group",Group),
+                new NpgsqlParameter("p_file_name",FileName)
             };
             check = (int)dp.executeScalarProc("sp_insert_cnvc_file_array", paras);
             if (check > 0)
@@ -105,23 +112,23 @@ namespace Business.CNVC
                 return false;
         }
 
-        public bool Delete_HD_QD(string[] DeletePaths)
-        {
-            int check;
-            IDataParameter[] paras = new IDataParameter[4]{               
-                new NpgsqlParameter("p_path",DeletePaths),
-                new NpgsqlParameter("p_ma_nv",manv),
-                new NpgsqlParameter("p_link",Link),
-                new NpgsqlParameter("p_file_type",FileType.ToString().ToLower())
-            };
-            check = (int)dp.executeScalarProc("sp_delete_cnvc_file_hd_qd", paras);
-            if (check > 0)
-            {
-                return true;
-            }
-            else
-                return false;
-        }
+        //public bool Delete_HD_QD(string[] DeletePaths)
+        //{
+        //    int check;
+        //    IDataParameter[] paras = new IDataParameter[4]{               
+        //        new NpgsqlParameter("p_path",DeletePaths),
+        //        new NpgsqlParameter("p_ma_nv",manv),
+        //        new NpgsqlParameter("p_link",Link),
+        //        new NpgsqlParameter("p_file_type",FileType.ToString().ToLower())
+        //    };
+        //    check = (int)dp.executeScalarProc("sp_delete_cnvc_file_hd_qd", paras);
+        //    if (check > 0)
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //        return false;
+        //}
 
         //public List<CNVC_File> GetData()
         //{
@@ -155,14 +162,38 @@ namespace Business.CNVC
             List<CNVC_File> listFile = new List<CNVC_File>();
             IDataParameter[] paras = new IDataParameter[3]{
                 new NpgsqlParameter("p_ma_nv",manv),
-                new NpgsqlParameter("p_file_type",FileType.ToString().ToLower())    ,
-                new NpgsqlParameter("p_link_id",Link)    
+                new NpgsqlParameter("p_group",Group)    ,
+                new NpgsqlParameter("p_link",Link)    
             };
 
             dt = dp.getDataTableProc("sp_select_cnvc_file", paras);
 
             return dt;
         }
+
+        public DataTable GetFileGroupData()
+        {
+            DataTable dt;
+
+            dt = dp.getDataTable("select * from v_filegroup");
+
+            return dt;
+        }
+
+        public bool AddFileGroup(string name)
+        {
+            int check;
+            IDataParameter[] paras = new IDataParameter[1]{               
+                new NpgsqlParameter("p_ma_nv",name), 
+            };
+            check = (int)dp.executeScalarProc("sp_insert_file_group", paras);
+            if (check > 0)
+            {
+                return true;
+            }
+            else
+                return false;
+        } 
 
         
 

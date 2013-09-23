@@ -87,6 +87,12 @@
     <Compile Include="UCs\Luong\NhomNgach.Designer.cs">
       <DependentUpon>NhomNgach.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCs\Luong\TinhLuong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\Luong\TinhLuong.Designer.cs">
+      <DependentUpon>TinhLuong.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Forms\Popup.resx">
       <DependentUpon>Popup.cs</DependentUpon>
     </EmbeddedResource>
@@ -113,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\Luong\NhomNgach.resx">
       <DependentUpon>NhomNgach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\Luong\TinhLuong.resx">
+      <DependentUpon>TinhLuong.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
