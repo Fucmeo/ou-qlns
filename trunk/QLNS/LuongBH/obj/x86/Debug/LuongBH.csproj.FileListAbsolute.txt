@@ -27,3 +27,4 @@ D:\Job\QLNS\Projects\QLNS\LuongBH\bin\Debug\zh-CN\Npgsql.resources.dll
 D:\Job\QLNS\Projects\QLNS\LuongBH\obj\x86\Debug\LuongBH.exe
 D:\Job\QLNS\Projects\QLNS\LuongBH\obj\x86\Debug\LuongBH.pdb
 D:\Job\QLNS\Projects\QLNS\LuongBH\obj\x86\Debug\LuongBH.csprojResolveAssemblyReference.cache
+D:\Job\QLNS\Projects\QLNS\LuongBH\obj\x86\Debug\LuongBH.UCs.Luong.TinhLuong.resources

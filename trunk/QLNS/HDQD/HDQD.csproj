@@ -153,6 +153,12 @@
     <Compile Include="UCs\ThanhLapDonVi.Designer.cs">
       <DependentUpon>ThanhLapDonVi.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCs\ThemLoaiFile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\ThemLoaiFile.Designer.cs">
+      <DependentUpon>ThemLoaiFile.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCs\ThoiBoNhiem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -242,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\ThanhLapDonVi.resx">
       <DependentUpon>ThanhLapDonVi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\ThemLoaiFile.resx">
+      <DependentUpon>ThemLoaiFile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\ThoiBoNhiem.resx">
       <DependentUpon>ThoiBoNhiem.cs</DependentUpon>

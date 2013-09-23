@@ -268,7 +268,7 @@ namespace QLNS.UCs.DanhMucThongTin
                     else
                         oFile.MaNV = txt_MaNV.Text.Trim();
 
-                    oFile.FileType = CNVC_File.eFileType.Avatar;
+                    //oFile.FileType = CNVC_File.eFileType.Avatar;
 
                     try
                     {
@@ -288,7 +288,7 @@ namespace QLNS.UCs.DanhMucThongTin
                     else
                         oFile.MaNV = txt_MaNV.Text.Trim();
 
-                    oFile.FileType = CNVC_File.eFileType.Avatar;
+                    //oFile.FileType = CNVC_File.eFileType.Avatar;
                     oFile.DeleteAvatar();
                 }
             
@@ -456,7 +456,7 @@ namespace QLNS.UCs.DanhMucThongTin
         {
             AvatarPath[0] = null;
             oFile.MaNV = m_MaNV;
-            oFile.FileType = CNVC_File.eFileType.Avatar;
+            //oFile.FileType = CNVC_File.eFileType.Avatar;
             dtAvatar = oFile.GetData();
             if (dtAvatar != null && dtAvatar.Rows.Count > 0)
             {
