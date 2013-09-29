@@ -92,6 +92,8 @@ namespace QLNS.UCs
             }
             oQLNS_ThongTinNV.gb_CMND.Enabled = oQLNS_ThongTinNV.gb_ThongTin.Enabled = true;
             oQLNS_ThongTinNV.EnableCNVCControl(true);
+            oQLNS_ThongTinNV.pb_Status.Value = 0;
+            oQLNS_ThongTinNV.lbl_Status.Text = "";
            bAddFlag = true;
            Program.selected_ma_nv = "";
         }
@@ -219,7 +221,9 @@ namespace QLNS.UCs
 
             oQLNS_ThongTinNV.picB_HinhDaiDien.Image = null;
 
-            oQLNS_ThongTinNV.dtAvatar.Clear();
+            if(oQLNS_ThongTinNV.dtAvatar != null)
+                oQLNS_ThongTinNV.dtAvatar.Clear();
+
             oQLNS_ThongTinNV.dtCMND.Clear();
             oQLNS_ThongTinNV.dtCNVC.Clear();
 

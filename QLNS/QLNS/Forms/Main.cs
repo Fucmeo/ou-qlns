@@ -79,6 +79,9 @@ namespace QLNS.Forms
             quáTrìnhCôngTácToolStripMenuItem.Image = ImageL_MenuStripItem.Images["Qtr Ctac.png"];
             thâmNiênNhânViênToolStripMenuItem.Image = ImageL_MenuStripItem.Images["Tham Nien.png"];
             biểuĐồToolStripMenuItem.Image = ImageL_MenuStripItem.Images["bieu do.png"];
+            tậpTinToolStripMenuItem.Image = ImageL_MenuStripItem.Images["Quan Ly File.png"];
+
+            
 
            
             
@@ -461,6 +464,12 @@ namespace QLNS.Forms
         private void thâmNiênNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Forms.Popup f = new Popup("Thâm niên nhân viên", new QLNS.UCs.QLNS_ThamNien());
+            f.ShowDialog();
+        }
+
+        private void tậpTinToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Quản lý tập tin", new QLNS.UCs.QLNS_TapTin());
             f.ShowDialog();
         }
     }

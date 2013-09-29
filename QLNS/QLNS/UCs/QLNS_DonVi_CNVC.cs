@@ -48,6 +48,8 @@ namespace QLNS.UCs
         private void TreeV_DonVi_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             Program.selected_ma_nv = "";
+            oQLNS_HienThiThongTin.oQLNS_ThongTinNV.lbl_Status.Text = "";
+            oQLNS_HienThiThongTin.oQLNS_ThongTinNV.pb_Status.Value = 0;
             if (e.Node.IsExpanded)
                 e.Node.Collapse();
             else
@@ -69,6 +71,8 @@ namespace QLNS.UCs
         private void TreeV_CNVC_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             QLNS_HienThiThongTin.bAddFlag = false;
+            oQLNS_HienThiThongTin.oQLNS_ThongTinNV.lbl_Status.Text = "";
+            oQLNS_HienThiThongTin.oQLNS_ThongTinNV.pb_Status.Value = 0;
             if (TreeV_CNVC.SelectedNode != null && Program.selected_ma_nv != TreeV_CNVC.SelectedNode.Name)
             {
                 Program.selected_ma_nv = TreeV_CNVC.SelectedNode.Name;
@@ -83,7 +87,7 @@ namespace QLNS.UCs
                 oQLNS_HienThiThongTin.oQLNS_ThongTinNV.GetCNVC_CMNDInfo(Program.selected_ma_nv);
                 oQLNS_HienThiThongTin.oQLNS_ThongTinNV.FillInfo();
                 oQLNS_HienThiThongTin.oQLNS_ThongTinNV.GetAvatar(Program.selected_ma_nv);
-                if (oQLNS_HienThiThongTin.oQLNS_ThongTinNV.dtAvatar.Rows.Count > 0)
+                if (oQLNS_HienThiThongTin.oQLNS_ThongTinNV.dtAvatar != null && oQLNS_HienThiThongTin.oQLNS_ThongTinNV.dtAvatar.Rows.Count > 0)
                     oQLNS_HienThiThongTin.oQLNS_ThongTinNV.FillAvatar();
             }
         }
@@ -233,6 +237,9 @@ namespace QLNS.UCs
             UpdateTreeVDonVi(listDonVi, null);
             TreeV_DonVi.ExpandAll();
             oQLNS_HienThiThongTin.EmptyAllContent();
+            oQLNS_HienThiThongTin.oQLNS_ThongTinNV.lbl_Status.Text = "";
+            oQLNS_HienThiThongTin.oQLNS_ThongTinNV.pb_Status.Value = 0;
+            
         }
 
         private void TreeV_DonVi_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)

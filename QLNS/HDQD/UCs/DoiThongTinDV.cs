@@ -689,7 +689,6 @@ namespace HDQD.UCs
             ServerPaths = new string[nNewFilesCount];
             try
             {
-                oFTP.oFileCate = FTP.FileCate.HDQD;
                 pb_Status.Value = 0;
                 pb_Status.Maximum = nNewFilesCount;
 
@@ -718,7 +717,7 @@ namespace HDQD.UCs
             {
                 bw_upload.ReportProgress(i + 1);
 
-                ServerPaths[i] = oFTP.UploadFile(NewFiles[i], NewFiles[i].Split('\\').Last(), oQuyetDinh.Ma_Quyet_Dinh);
+                //ServerPaths[i] = oFTP.UploadFile(NewFiles[i], NewFiles[i].Split('\\').Last(), oQuyetDinh.Ma_Quyet_Dinh);
                 Thread.Sleep(100);
 
             }

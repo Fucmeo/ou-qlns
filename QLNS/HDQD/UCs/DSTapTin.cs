@@ -116,10 +116,10 @@ namespace HDQD.UCs
                 switch (UCName)
                 {
                     case "HopDong":
-                        HopDong.Desc = rtb_MoTa.Text;
+                        HopDong.oFile = oCNVCFile;
                         break;
                     case "TiepNhan":
-                        TiepNhan.Desc = rtb_MoTa.Text;
+                        TiepNhan.oFile = oCNVCFile;
                         break;
                     case "DoiThongTin":
                         DoiThongTinDV.Desc = rtb_MoTa.Text;

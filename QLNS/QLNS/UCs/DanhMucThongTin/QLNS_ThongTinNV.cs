@@ -10,6 +10,7 @@ using Business.CNVC;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Net.Mail;
+using System.Threading;
 
 namespace QLNS.UCs.DanhMucThongTin
 {
@@ -23,7 +24,9 @@ namespace QLNS.UCs.DanhMucThongTin
         Business.QuocGia oQuocGia;
         Business.FTP oFTP;
         bool bAddCNVCFlag = false , bAddCMNDFlag = false ;
-        string[] AvatarPath ;
+        string[] ServerPaths; // duong dan file tren server
+        string[] AvatarPath ; // duong dan file tren client
+        int AvatarFileGroup = 4;
 
         public static int nNewTinhTPID = 0;     // ID cua tinh thanh pho moi them vao
         public static int nNewQuocGiaID = 0;     // ID cua quoc gia moi them vao
@@ -226,9 +229,25 @@ namespace QLNS.UCs.DanhMucThongTin
                             MessageBox.Show("Thông tin nhân viên không phù hợp, xin vui lòng xem lại thông tin nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
 
-                        if (bUploadInfoSuccess)
+                        if (bUploadInfoSuccess  )
                         {
-                            UploadAvatar();
+                            // Dang add NV & co hinh HOAC co hinh && hinh cu <> hinh moi
+                            if ( picB_HinhDaiDien.ImageLocation != "" && 
+                                    (QLNS_HienThiThongTin.bAddFlag  ||AvatarPath[0] != picB_HinhDaiDien.ImageLocation) )
+                            {
+                                UploadAvatar();
+                                
+                            }
+                            else if (picB_HinhDaiDien.ImageLocation == "" && AvatarPath[0] != "") //  hinh bi xoa
+                            {
+                                if (Program.selected_ma_nv != "")
+                                    oFile.MaNV = Program.selected_ma_nv;
+                                else
+                                    oFile.MaNV = txt_MaNV.Text.Trim();
+
+                                //oFile.FileType = CNVC_File.eFileType.Avatar;
+                                oFile.DeleteAvatar();
+                            }
                         }
                     }
                     bUploadInfoSuccess = false;
@@ -247,54 +266,25 @@ namespace QLNS.UCs.DanhMucThongTin
 
         private void UploadAvatar()
         {
-            #region Avatar
+            try
+            {
 
-                if (picB_HinhDaiDien.ImageLocation != "" && AvatarPath[0] != picB_HinhDaiDien.ImageLocation)
-                {
-                    string[] ServerPath = new string[1];
+                pb_Status.Value = 0;
+                pb_Status.Maximum = 1;
 
-                    try
-                    {
-                        ServerPath = oFTP.UploadFile(new string[1] { picB_HinhDaiDien.ImageLocation },
-                                                    new string[1] { picB_HinhDaiDien.ImageLocation.Split('\\').Last() }, oFile.MaNV);
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("Quá trình tải hình lên server không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                //this.Enabled = false;
+                ((Form)this.Parent.Parent.Parent.Parent.Parent).ControlBox = false;
+                this.Enabled = false;
+                bw_upload.RunWorkerAsync();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Quá trình tải hình lên server không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ((Form)this.Parent.Parent.Parent.Parent.Parent).ControlBox = true;
+                this.Enabled = true;
+            }
 
-                    if (Program.selected_ma_nv != "")
-                        oFile.MaNV = Program.selected_ma_nv;
-                    else
-                        oFile.MaNV = txt_MaNV.Text.Trim();
-
-                    //oFile.FileType = CNVC_File.eFileType.Avatar;
-
-                    try
-                    {
-                        oFile.AddFileArray(ServerPath);
-
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("Quá trình lưu hình không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-
-                }
-                else if (picB_HinhDaiDien.ImageLocation == "" && AvatarPath[0] != "")
-                {
-                    if (Program.selected_ma_nv != "")
-                        oFile.MaNV = Program.selected_ma_nv;
-                    else
-                        oFile.MaNV = txt_MaNV.Text.Trim();
-
-                    //oFile.FileType = CNVC_File.eFileType.Avatar;
-                    oFile.DeleteAvatar();
-                }
             
-
-
-            #endregion
         }
 
 
@@ -456,7 +446,10 @@ namespace QLNS.UCs.DanhMucThongTin
         {
             AvatarPath[0] = null;
             oFile.MaNV = m_MaNV;
+            oFile.Group.Clear();
+            oFile.Group.Add(AvatarFileGroup);
             //oFile.FileType = CNVC_File.eFileType.Avatar;
+            oFile.Link = null;
             dtAvatar = oFile.GetData();
             if (dtAvatar != null && dtAvatar.Rows.Count > 0)
             {
@@ -959,5 +952,76 @@ namespace QLNS.UCs.DanhMucThongTin
             EnableCNVCControl(false);
             Fill_CNVC_Info();
         }
+
+        private void bw_upload_DoWork(object sender, DoWorkEventArgs e)
+        {
+            for (int i = 0; i < 1; i++)
+            {
+                bw_upload.ReportProgress(i + 1);
+                
+
+                #region Avatar
+
+
+                try
+                {
+                    ServerPaths = oFTP.UploadFile(new string[1] { picB_HinhDaiDien.ImageLocation },
+                                                new string[1] { picB_HinhDaiDien.ImageLocation.Split('\\').Last() }, new int[1] { AvatarFileGroup },
+                                                (Program.selected_ma_nv != "") ? Program.selected_ma_nv : txt_MaNV.Text.Trim());
+                    Thread.Sleep(100);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Quá trình tải hình lên server không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+
+
+                #endregion
+
+            }
+        }
+
+        private void bw_upload_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            // Change the value of the ProgressBar to the BackgroundWorker progress.
+            pb_Status.Value = e.ProgressPercentage;
+            // Set the text.
+            lbl_Status.Text = "Đang đăng tập tin ..." + e.ProgressPercentage.ToString() + " / " + 1.ToString();
+        }
+
+        private void bw_upload_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (ServerPaths.Count() > 0)
+            {
+                MessageBox.Show("Quá trình đăng tập tin lên server thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                lbl_Status.Text = "Đăng hình hoàn tất!";
+
+                try
+                {
+                    oFile = new CNVC_File();
+                    if (Program.selected_ma_nv != "")
+                        oFile.MaNV = Program.selected_ma_nv;
+                    else
+                        oFile.MaNV = txt_MaNV.Text.Trim();
+
+                    oFile.Group.Add(AvatarFileGroup);
+                    oFile.Link.Add(oFile.MaNV);
+                    oFile.MoTa.Add("Hình đại diện");
+
+                    oFile.AddFileArray(ServerPaths);
+
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Quá trình lưu tập tin không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                ((Form)this.Parent.Parent.Parent.Parent.Parent).ControlBox = true;
+                this.Enabled = true;
+                oFile.DisputeObject();
+            }
+        }
+
     }
 }

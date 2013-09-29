@@ -13,20 +13,20 @@ namespace HDQD
         [STAThread]
         static void Main()
         {
-            Business.CNVC.CNVC_File o = new Business.CNVC.CNVC_File();
-            o.Path.Add(@"D:\Entertainment\Pictures\Fashion\54CD3_55euro.jpg");
-            o.MoTa.Add("Mô tả");
-            o.Link.Add("Link HD");
-            o.Group.Add(1);
-            o.FileName.Add("HD Name");
-            o.Path.Add(@"D:\Untitled.png");
-            o.MoTa.Add("Mô tả");
-            o.Link.Add("Link HD");
-            o.Group.Add(1);
-            o.FileName.Add("HD Name");
+            //Business.CNVC.CNVC_File o = new Business.CNVC.CNVC_File();
+            //o.Path.Add(@"D:\Entertainment\Pictures\Fashion\54CD3_55euro.jpg");
+            //o.MoTa.Add("Mô tả");
+            //o.Link.Add("Link HD");
+            //o.Group.Add(1);
+            //o.FileName.Add("HD Name");
+            //o.Path.Add(@"D:\Untitled.png");
+            //o.MoTa.Add("Mô tả");
+            //o.Link.Add("Link HD");
+            //o.Group.Add(1);
+            //o.FileName.Add("HD Name");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Forms.Popup(new UCs.DSTapTin("", o), "QUẢN LÝ NHÂN SỰ - Loại phụ cấp"));
+            Application.Run(new Forms.Popup(new UCs.TiepNhan(),"HD"));
             //Application.Run(new Forms.Popup(new UCs.BoNhiem(), "QUẢN LÝ NHÂN SỰ - Thành lập đơn vị"));
         }
 
