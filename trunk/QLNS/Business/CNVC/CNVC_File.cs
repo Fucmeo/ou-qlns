@@ -77,6 +77,26 @@ namespace Business.CNVC
 
         #region Methods
 
+        public void DisputeObject()
+        {
+            manv = null;
+            if(Link != null)
+                Link.Clear();
+
+            if(Group != null)
+                Group.Clear();
+
+            if(FileName != null)
+                FileName.Clear();
+
+            if(path != null)
+                path.Clear();
+
+            if(mota != null)
+                mota.Clear();       
+        }
+
+
         public bool AddFileArray(string[] FilesPath)
         {
             int check;
@@ -104,6 +124,21 @@ namespace Business.CNVC
                 new NpgsqlParameter("p_ma_nv",manv), 
             };
             check = (int)dp.executeScalarProc("sp_delete_avatar", paras);
+            if (check > 0)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
+        public bool DeleteFile(int[] ids)
+        {
+            int check;
+            IDataParameter[] paras = new IDataParameter[1]{               
+                new NpgsqlParameter("p_id",ids), 
+            };
+            check = (int)dp.executeScalarProc("sp_delete_cnvc_file", paras);
             if (check > 0)
             {
                 return true;
@@ -156,6 +191,8 @@ namespace Business.CNVC
         //    return listFile;
         //}
 
+
+
         public DataTable GetData()
         {
             DataTable dt;
@@ -193,7 +230,26 @@ namespace Business.CNVC
             }
             else
                 return false;
-        } 
+        }
+
+        public bool UpdateFile()
+        {
+            int check;
+            IDataParameter[] paras = new IDataParameter[5]{               
+                new NpgsqlParameter("p_id",id), 
+                new NpgsqlParameter("p_mo_ta",mota[0]), 
+                new NpgsqlParameter("p_link",Link[0]), 
+                new NpgsqlParameter("p_group",Group[0]), 
+                new NpgsqlParameter("p_file_name",FileName[0])
+            };
+            check = (int)dp.executeScalarProc("sp_update_cnvc_file", paras);
+            if (check > 0)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
 
         
 

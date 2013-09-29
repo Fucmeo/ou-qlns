@@ -12,13 +12,13 @@ namespace Business
 {
     public class FTP
     {
-        public enum FileCate { HinhDaiDien, HDQD };
+        public enum FileCate { Avatar, QuyetDinh,NhanXet,ThanhPhanTaiLieu,Other };
         string URI = 
             //"ftp://10.1.12.6/",            
             "ftp://42.112.19.178/",
             globalFolderName, downloadPath  ;
         string UserName = "Administrator",
-            Password = "QLNS@123qlns";
+           Password = "QLNS@123qlns";
             //Password = "A@123456";
 
         public FileCate oFileCate = new FileCate();
@@ -37,7 +37,7 @@ namespace Business
         /// <param name="ServerFilesName">Mang chua ten file (Name + Extension) o may client</param>
         /// <param name="m_Ma">Ma nv hoac ma qd hoac ma hd - dung de dat ten file tren server</param>
         /// <returns>Tra ve mang chua duong dan file tren server, dung de luu xuong DB</returns>
-        public string[] UploadFile(string[] ServerFilesPath, string[] ServerFilesName, string m_Ma)
+        public string[] UploadFile(string[] ServerFilesPath, string[] ServerFilesName,int[] Group, string m_Ma)
         {
             
 
@@ -47,25 +47,28 @@ namespace Business
             int contentLen;
 
             string[] DBPath = new string[ServerFilesName.Length];
-            //oFileCate = FileCate.HinhDaiDien;
-            switch (oFileCate)
-            {
-                case FileCate.HinhDaiDien:
-                    //CreateFTPFolderIfNotExists("hinh_dai_dien");
-                    globalFolderName = "hinh_dai_dien";
-                    break;
-                case FileCate.HDQD:
-                    globalFolderName = "hinh_quyet_dinh";
-                    break;
-                default:
-                    globalFolderName = "hinh_dai_dien";
-                    break;
-            }
-
+     
             Stream strm = null;
             FileStream fs = null;
             for (int i = 0; i < ServerFilesPath.Length; i++)
             {
+                switch (Group[i])
+                {
+                    case 1:
+                        globalFolderName = "hinh_thanh_phan_tai_lieu";
+                        break;
+                    case 2:
+                        //CreateFTPFolderIfNotExists("hinh_dai_dien");
+                        globalFolderName = "hinh_nghi_quyet_qd";
+                        break;
+                    case 3:
+                        globalFolderName = "hinh_nhan_xet";
+                        break;
+                    default:
+                        globalFolderName = "hinh_others";
+                        break;
+                }
+
                 string ServerFileName = MakeFileName(m_Ma, ServerFilesName[i]);
                 FileInfo fileInf = new FileInfo(ServerFilesPath[i]);
 
@@ -137,7 +140,7 @@ namespace Business
         /// <param name="ServerFilesName"></param>
         /// <param name="m_Ma"></param>
         /// <returns></returns>
-        public string UploadFile(string ServerFilesPath, string ServerFilesName, string m_Ma)
+        public string UploadFile(string ServerFilesPath, string ServerFilesName,int Group, string m_Ma)
         {
             // The buffer size is set to 2kb
             int buffLength = 2048;
@@ -145,18 +148,20 @@ namespace Business
             int contentLen;
 
             string DBPath = "";
-            //oFileCate = FileCate.HinhDaiDien;
-            switch (oFileCate)
+            switch (Group)
             {
-                case FileCate.HinhDaiDien:
-                    //CreateFTPFolderIfNotExists("hinh_dai_dien");
-                    globalFolderName = "hinh_dai_dien";
+                case 1:
+                    globalFolderName = "hinh_thanh_phan_tai_lieu";
                     break;
-                case FileCate.HDQD:
-                    globalFolderName = "hinh_quyet_dinh";
+                case 2:
+                    //CreateFTPFolderIfNotExists("hinh_dai_dien");
+                    globalFolderName = "hinh_nghi_quyet_qd";
+                    break;
+                case 3:
+                    globalFolderName = "hinh_nhan_xet";
                     break;
                 default:
-                    globalFolderName = "hinh_dai_dien";
+                    globalFolderName = "hinh_others";
                     break;
             }
 
