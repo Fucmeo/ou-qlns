@@ -18,10 +18,13 @@ namespace HDQD.UCs
         DataTable dtFileGroup;
         public static bool bHopDong = false;
         string UCName;
+        Form fPop;
+        bool bAddFile; // bien de biet nguoi dung co bam save hay o 
 
         public DSTapTin(string _UCName, Business.CNVC.CNVC_File _oCNVCFile)
         {
             InitializeComponent();
+
             oFTP = new Business.FTP();
             dtFileGroup = new DataTable();
             oCNVCFile = _oCNVCFile;
@@ -35,6 +38,31 @@ namespace HDQD.UCs
         private void DSTapTin_Load(object sender, EventArgs e)
         {
             Get_LoadFileGroupTable();
+            fPop = ((Form)this.Parent.Parent);
+            fPop.FormClosed += new FormClosedEventHandler(fPop_FormClosed);
+        }
+
+        void fPop_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (!bAddFile)
+            {
+                switch (UCName)
+                {
+                    case "HopDong":
+                        HopDong.oFile = null;
+                        break;
+                    case "TiepNhan":
+                        TiepNhan.oFile = null;
+                        break;
+                    case "QLNS_TapTin":
+                        oCNVCFile.DisputeObject();
+                        oCNVCFile = null;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            
         }
 
         private void Get_LoadFileGroupTable()
@@ -73,25 +101,6 @@ namespace HDQD.UCs
                     oCNVCFile.Path.AddRange(OFD.FileNames);
                     for (int i = 0; i < OFD.FileNames.Length; i++)
                     {
-                        //// add moi tinh trang exists = false
-                        //switch (UCName)
-                        //{
-                        //    case "HopDong":
-                        //        HopDong.Paths.Add(new KeyValuePair<string, bool?>(OFD.FileNames[i].ToString(), false));
-                        //        break;
-                        //    case "TiepNhan":
-                        //        TiepNhan.Paths.Add(new KeyValuePair<string, bool?>(OFD.FileNames[i].ToString(), false));
-                        //        break;
-                        //    case "DoiThongTin":
-                        //        DoiThongTinDV.Paths.Add(new KeyValuePair<string, bool?>(OFD.FileNames[i].ToString(), false));
-                        //        break;
-                        //    case "ThanhLapDonVi":
-                        //        ThanhLapDonVi.Paths.Add(new KeyValuePair<string, bool?>(OFD.FileNames[i].ToString(), false));
-                        //        break;
-                        //    default:
-                        //        break;
-                        //}
-
                         oCNVCFile.Group.Add(Convert.ToInt16(cb_LoaiTT.SelectedValue));
                         oCNVCFile.Link.Add("");
                         oCNVCFile.MoTa.Add("");
@@ -130,8 +139,8 @@ namespace HDQD.UCs
                     default:
                         break;
                 }
-                    
 
+                bAddFile = true;
                 ((Form)this.Parent.Parent).Close();
                 
             }

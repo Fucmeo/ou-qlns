@@ -128,12 +128,12 @@
             this.tableLP_TapTin.Location = new System.Drawing.Point(0, 0);
             this.tableLP_TapTin.Name = "tableLP_TapTin";
             this.tableLP_TapTin.RowCount = 4;
-            this.tableLP_TapTin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.9F));
-            this.tableLP_TapTin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21F));
-            this.tableLP_TapTin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.7F));
+            this.tableLP_TapTin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.25F));
+            this.tableLP_TapTin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.375F));
+            this.tableLP_TapTin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.75F));
             this.tableLP_TapTin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 31.6F));
             this.tableLP_TapTin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLP_TapTin.Size = new System.Drawing.Size(850, 1000);
+            this.tableLP_TapTin.Size = new System.Drawing.Size(800, 800);
             this.tableLP_TapTin.TabIndex = 2;
             // 
             // gb_ChiTietFile
@@ -142,9 +142,9 @@
             this.gb_ChiTietFile.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gb_ChiTietFile.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gb_ChiTietFile.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.gb_ChiTietFile.Location = new System.Drawing.Point(3, 301);
+            this.gb_ChiTietFile.Location = new System.Drawing.Point(3, 237);
             this.gb_ChiTietFile.Name = "gb_ChiTietFile";
-            this.gb_ChiTietFile.Size = new System.Drawing.Size(844, 203);
+            this.gb_ChiTietFile.Size = new System.Drawing.Size(794, 157);
             this.gb_ChiTietFile.TabIndex = 13;
             this.gb_ChiTietFile.TabStop = false;
             this.gb_ChiTietFile.Text = "Chi tiết tập tin";
@@ -176,7 +176,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.44444F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 55.55556F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(838, 175);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(788, 129);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // rtb_MoTa
@@ -184,11 +184,11 @@
             this.rtb_MoTa.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.rtb_MoTa.Location = new System.Drawing.Point(404, 81);
+            this.rtb_MoTa.Location = new System.Drawing.Point(381, 61);
             this.rtb_MoTa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rtb_MoTa.MaxLength = 50;
             this.rtb_MoTa.Name = "rtb_MoTa";
-            this.rtb_MoTa.Size = new System.Drawing.Size(431, 90);
+            this.rtb_MoTa.Size = new System.Drawing.Size(404, 64);
             this.rtb_MoTa.TabIndex = 49;
             this.rtb_MoTa.Text = "";
             // 
@@ -196,7 +196,7 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(334, 114);
+            this.label6.Location = new System.Drawing.Point(313, 81);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(55, 23);
             this.label6.TabIndex = 48;
@@ -206,7 +206,7 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(14, 114);
+            this.label5.Location = new System.Drawing.Point(12, 81);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(35, 23);
             this.label5.TabIndex = 46;
@@ -215,16 +215,16 @@
             // txt_MaTapTin_Detail
             // 
             this.txt_MaTapTin_Detail.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_MaTapTin_Detail.Location = new System.Drawing.Point(66, 111);
+            this.txt_MaTapTin_Detail.Location = new System.Drawing.Point(62, 78);
             this.txt_MaTapTin_Detail.Name = "txt_MaTapTin_Detail";
-            this.txt_MaTapTin_Detail.Size = new System.Drawing.Size(254, 29);
+            this.txt_MaTapTin_Detail.Size = new System.Drawing.Size(239, 29);
             this.txt_MaTapTin_Detail.TabIndex = 45;
             // 
             // label4
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(344, 27);
+            this.label4.Location = new System.Drawing.Point(323, 17);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(36, 23);
             this.label4.TabIndex = 44;
@@ -233,7 +233,7 @@
             // txt_TenTapTin
             // 
             this.txt_TenTapTin.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_TenTapTin.Location = new System.Drawing.Point(404, 24);
+            this.txt_TenTapTin.Location = new System.Drawing.Point(381, 14);
             this.txt_TenTapTin.Name = "txt_TenTapTin";
             this.txt_TenTapTin.Size = new System.Drawing.Size(322, 29);
             this.txt_TenTapTin.TabIndex = 43;
@@ -242,7 +242,7 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(11, 27);
+            this.label3.Location = new System.Drawing.Point(9, 17);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 23);
             this.label3.TabIndex = 41;
@@ -256,12 +256,12 @@
             this.tableLayoutPanel3.Controls.Add(this.cb_LoaiTT_Detail, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(66, 3);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(62, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 71.71717F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.28283F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(254, 71);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(239, 51);
             this.tableLayoutPanel3.TabIndex = 50;
             // 
             // lbl_ThemLoaiFile
@@ -271,9 +271,9 @@
             this.lbl_ThemLoaiFile.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_ThemLoaiFile.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ThemLoaiFile.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lbl_ThemLoaiFile.Location = new System.Drawing.Point(3, 51);
+            this.lbl_ThemLoaiFile.Location = new System.Drawing.Point(3, 36);
             this.lbl_ThemLoaiFile.Name = "lbl_ThemLoaiFile";
-            this.lbl_ThemLoaiFile.Size = new System.Drawing.Size(111, 18);
+            this.lbl_ThemLoaiFile.Size = new System.Drawing.Size(111, 15);
             this.lbl_ThemLoaiFile.TabIndex = 44;
             this.lbl_ThemLoaiFile.Text = "Thêm loại tập tin";
             this.lbl_ThemLoaiFile.Click += new System.EventHandler(this.lbl_ThemLoaiFile_Click);
@@ -283,9 +283,9 @@
             this.cb_LoaiTT_Detail.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cb_LoaiTT_Detail.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_LoaiTT_Detail.FormattingEnabled = true;
-            this.cb_LoaiTT_Detail.Location = new System.Drawing.Point(3, 12);
+            this.cb_LoaiTT_Detail.Location = new System.Drawing.Point(3, 3);
             this.cb_LoaiTT_Detail.Name = "cb_LoaiTT_Detail";
-            this.cb_LoaiTT_Detail.Size = new System.Drawing.Size(248, 30);
+            this.cb_LoaiTT_Detail.Size = new System.Drawing.Size(233, 30);
             this.cb_LoaiTT_Detail.TabIndex = 43;
             // 
             // gp_TimKiemInfo
@@ -296,7 +296,7 @@
             this.gp_TimKiemInfo.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.gp_TimKiemInfo.Location = new System.Drawing.Point(3, 3);
             this.gp_TimKiemInfo.Name = "gp_TimKiemInfo";
-            this.gp_TimKiemInfo.Size = new System.Drawing.Size(844, 292);
+            this.gp_TimKiemInfo.Size = new System.Drawing.Size(794, 228);
             this.gp_TimKiemInfo.TabIndex = 12;
             this.gp_TimKiemInfo.TabStop = false;
             this.gp_TimKiemInfo.Text = "Thông tin tìm kiếm";
@@ -314,9 +314,9 @@
             this.TLP_TimKiem.Location = new System.Drawing.Point(3, 25);
             this.TLP_TimKiem.Name = "TLP_TimKiem";
             this.TLP_TimKiem.RowCount = 2;
-            this.TLP_TimKiem.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.33333F));
-            this.TLP_TimKiem.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.66666F));
-            this.TLP_TimKiem.Size = new System.Drawing.Size(838, 264);
+            this.TLP_TimKiem.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.39024F));
+            this.TLP_TimKiem.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75.60976F));
+            this.TLP_TimKiem.Size = new System.Drawing.Size(788, 200);
             this.TLP_TimKiem.TabIndex = 0;
             // 
             // TLP_LoaiTimKiem
@@ -334,12 +334,12 @@
             this.TLP_LoaiTimKiem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TLP_LoaiTimKiem.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TLP_LoaiTimKiem.ForeColor = System.Drawing.Color.Black;
-            this.TLP_LoaiTimKiem.Location = new System.Drawing.Point(3, 40);
+            this.TLP_LoaiTimKiem.Location = new System.Drawing.Point(3, 51);
             this.TLP_LoaiTimKiem.Name = "TLP_LoaiTimKiem";
             this.TLP_LoaiTimKiem.RowCount = 2;
-            this.TLP_LoaiTimKiem.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.44444F));
-            this.TLP_LoaiTimKiem.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 55.55556F));
-            this.TLP_LoaiTimKiem.Size = new System.Drawing.Size(832, 221);
+            this.TLP_LoaiTimKiem.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52F));
+            this.TLP_LoaiTimKiem.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48F));
+            this.TLP_LoaiTimKiem.Size = new System.Drawing.Size(782, 146);
             this.TLP_LoaiTimKiem.TabIndex = 2;
             // 
             // groupBox5
@@ -348,9 +348,9 @@
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.groupBox5.Location = new System.Drawing.Point(3, 101);
+            this.groupBox5.Location = new System.Drawing.Point(3, 78);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(826, 117);
+            this.groupBox5.Size = new System.Drawing.Size(776, 65);
             this.groupBox5.TabIndex = 15;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Loại tập tin";
@@ -377,7 +377,7 @@
             this.TLP_TimTheoFile.Name = "TLP_TimTheoFile";
             this.TLP_TimTheoFile.RowCount = 1;
             this.TLP_TimTheoFile.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.TLP_TimTheoFile.Size = new System.Drawing.Size(820, 89);
+            this.TLP_TimTheoFile.Size = new System.Drawing.Size(770, 37);
             this.TLP_TimTheoFile.TabIndex = 0;
             // 
             // cb_LoaiTapTin
@@ -385,16 +385,16 @@
             this.cb_LoaiTapTin.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cb_LoaiTapTin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_LoaiTapTin.FormattingEnabled = true;
-            this.cb_LoaiTapTin.Location = new System.Drawing.Point(73, 32);
+            this.cb_LoaiTapTin.Location = new System.Drawing.Point(68, 3);
             this.cb_LoaiTapTin.Name = "cb_LoaiTapTin";
-            this.cb_LoaiTapTin.Size = new System.Drawing.Size(290, 30);
+            this.cb_LoaiTapTin.Size = new System.Drawing.Size(272, 30);
             this.cb_LoaiTapTin.TabIndex = 40;
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 33);
+            this.label1.Location = new System.Drawing.Point(12, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 23);
             this.label1.TabIndex = 11;
@@ -406,9 +406,10 @@
             this.btn_TimTheoLoaiFile.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_TimTheoLoaiFile.ImageKey = "Search.png";
             this.btn_TimTheoLoaiFile.ImageList = this.imageList1;
-            this.btn_TimTheoLoaiFile.Location = new System.Drawing.Point(711, 21);
+            this.btn_TimTheoLoaiFile.Location = new System.Drawing.Point(666, 3);
+            this.btn_TimTheoLoaiFile.MinimumSize = new System.Drawing.Size(48, 48);
             this.btn_TimTheoLoaiFile.Name = "btn_TimTheoLoaiFile";
-            this.btn_TimTheoLoaiFile.Size = new System.Drawing.Size(48, 47);
+            this.btn_TimTheoLoaiFile.Size = new System.Drawing.Size(48, 48);
             this.btn_TimTheoLoaiFile.TabIndex = 15;
             this.btn_TimTheoLoaiFile.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_TimTheoLoaiFile.UseVisualStyleBackColor = true;
@@ -417,16 +418,16 @@
             // txt_MaTapTin
             // 
             this.txt_MaTapTin.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_MaTapTin.Location = new System.Drawing.Point(427, 30);
+            this.txt_MaTapTin.Location = new System.Drawing.Point(400, 4);
             this.txt_MaTapTin.Name = "txt_MaTapTin";
-            this.txt_MaTapTin.Size = new System.Drawing.Size(209, 29);
+            this.txt_MaTapTin.Size = new System.Drawing.Size(207, 29);
             this.txt_MaTapTin.TabIndex = 12;
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(377, 33);
+            this.label2.Location = new System.Drawing.Point(352, 7);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 23);
             this.label2.TabIndex = 13;
@@ -440,7 +441,7 @@
             this.groupBox4.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.groupBox4.Location = new System.Drawing.Point(3, 3);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(826, 92);
+            this.groupBox4.Size = new System.Drawing.Size(776, 69);
             this.groupBox4.TabIndex = 14;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Nhân viên";
@@ -469,24 +470,24 @@
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(820, 64);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(770, 41);
             this.tableLayoutPanel5.TabIndex = 1;
             // 
             // txt_Ten
             // 
             this.txt_Ten.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_Ten.Location = new System.Drawing.Point(335, 17);
+            this.txt_Ten.Location = new System.Drawing.Point(315, 6);
             this.txt_Ten.Name = "txt_Ten";
-            this.txt_Ten.Size = new System.Drawing.Size(152, 29);
+            this.txt_Ten.Size = new System.Drawing.Size(143, 29);
             this.txt_Ten.TabIndex = 1;
             // 
             // label17
             // 
             this.label17.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(279, 20);
+            this.label17.Location = new System.Drawing.Point(265, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(49, 23);
+            this.label17.Size = new System.Drawing.Size(40, 41);
             this.label17.TabIndex = 1;
             this.label17.Text = "Tên *";
             // 
@@ -494,7 +495,7 @@
             // 
             this.label18.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(8, 20);
+            this.label18.Location = new System.Drawing.Point(6, 9);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(45, 23);
             this.label18.TabIndex = 10;
@@ -503,16 +504,16 @@
             // txt_Ho
             // 
             this.txt_Ho.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_Ho.Location = new System.Drawing.Point(64, 17);
+            this.txt_Ho.Location = new System.Drawing.Point(60, 6);
             this.txt_Ho.Name = "txt_Ho";
-            this.txt_Ho.Size = new System.Drawing.Size(209, 29);
+            this.txt_Ho.Size = new System.Drawing.Size(196, 29);
             this.txt_Ho.TabIndex = 0;
             // 
             // label19
             // 
             this.label19.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(498, 20);
+            this.label19.Location = new System.Drawing.Point(467, 9);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(39, 23);
             this.label19.TabIndex = 0;
@@ -521,9 +522,9 @@
             // txt_MaNV
             // 
             this.txt_MaNV.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_MaNV.Location = new System.Drawing.Point(548, 17);
+            this.txt_MaNV.Location = new System.Drawing.Point(516, 6);
             this.txt_MaNV.Name = "txt_MaNV";
-            this.txt_MaNV.Size = new System.Drawing.Size(148, 29);
+            this.txt_MaNV.Size = new System.Drawing.Size(139, 29);
             this.txt_MaNV.TabIndex = 2;
             // 
             // btn_Tim
@@ -532,9 +533,10 @@
             this.btn_Tim.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Tim.ImageKey = "Business Man Find.png";
             this.btn_Tim.ImageList = this.imageList1;
-            this.btn_Tim.Location = new System.Drawing.Point(735, 8);
+            this.btn_Tim.Location = new System.Drawing.Point(690, 3);
+            this.btn_Tim.MinimumSize = new System.Drawing.Size(48, 48);
             this.btn_Tim.Name = "btn_Tim";
-            this.btn_Tim.Size = new System.Drawing.Size(48, 47);
+            this.btn_Tim.Size = new System.Drawing.Size(48, 48);
             this.btn_Tim.TabIndex = 5;
             this.btn_Tim.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Tim.UseVisualStyleBackColor = true;
@@ -554,16 +556,16 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(832, 31);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(782, 42);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // rd_TheoLoai
             // 
             this.rd_TheoLoai.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rd_TheoLoai.AutoSize = true;
-            this.rd_TheoLoai.Location = new System.Drawing.Point(549, 3);
+            this.rd_TheoLoai.Location = new System.Drawing.Point(512, 7);
             this.rd_TheoLoai.Name = "rd_TheoLoai";
-            this.rd_TheoLoai.Size = new System.Drawing.Size(154, 25);
+            this.rd_TheoLoai.Size = new System.Drawing.Size(154, 27);
             this.rd_TheoLoai.TabIndex = 12;
             this.rd_TheoLoai.Text = "Theo loại tập tin";
             this.rd_TheoLoai.UseVisualStyleBackColor = true;
@@ -574,9 +576,9 @@
             this.rdb_NV.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rdb_NV.AutoSize = true;
             this.rdb_NV.Checked = true;
-            this.rdb_NV.Location = new System.Drawing.Point(136, 3);
+            this.rdb_NV.Location = new System.Drawing.Point(124, 7);
             this.rdb_NV.Name = "rdb_NV";
-            this.rdb_NV.Size = new System.Drawing.Size(148, 25);
+            this.rdb_NV.Size = new System.Drawing.Size(148, 27);
             this.rdb_NV.TabIndex = 11;
             this.rdb_NV.TabStop = true;
             this.rdb_NV.Text = "Theo nhân viên";
@@ -589,11 +591,11 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.groupBox2.Location = new System.Drawing.Point(3, 511);
+            this.groupBox2.Location = new System.Drawing.Point(3, 401);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Size = new System.Drawing.Size(844, 168);
+            this.groupBox2.Size = new System.Drawing.Size(794, 142);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thao tác";
@@ -616,7 +618,7 @@
             this.tableLP_ThaoTac.RowCount = 2;
             this.tableLP_ThaoTac.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLP_ThaoTac.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLP_ThaoTac.Size = new System.Drawing.Size(838, 139);
+            this.tableLP_ThaoTac.Size = new System.Drawing.Size(788, 113);
             this.tableLP_ThaoTac.TabIndex = 0;
             // 
             // btn_Download
@@ -625,9 +627,9 @@
             this.btn_Download.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_Download.ImageKey = "Download.png";
             this.btn_Download.ImageList = this.imageList1;
-            this.btn_Download.Location = new System.Drawing.Point(670, 76);
+            this.btn_Download.Location = new System.Drawing.Point(628, 59);
             this.btn_Download.Name = "btn_Download";
-            this.btn_Download.Size = new System.Drawing.Size(56, 56);
+            this.btn_Download.Size = new System.Drawing.Size(56, 51);
             this.btn_Download.TabIndex = 6;
             this.btn_Download.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Download.UseVisualStyleBackColor = true;
@@ -639,9 +641,9 @@
             this.btn_Sua.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_Sua.ImageKey = "Edit Data.png";
             this.btn_Sua.ImageList = this.imageList1;
-            this.btn_Sua.Location = new System.Drawing.Point(670, 6);
+            this.btn_Sua.Location = new System.Drawing.Point(628, 3);
             this.btn_Sua.Name = "btn_Sua";
-            this.btn_Sua.Size = new System.Drawing.Size(56, 56);
+            this.btn_Sua.Size = new System.Drawing.Size(56, 50);
             this.btn_Sua.TabIndex = 3;
             this.btn_Sua.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Sua.UseVisualStyleBackColor = true;
@@ -653,9 +655,9 @@
             this.btn_Luu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_Luu.ImageKey = "Save.png";
             this.btn_Luu.ImageList = this.imageList1;
-            this.btn_Luu.Location = new System.Drawing.Point(111, 76);
+            this.btn_Luu.Location = new System.Drawing.Point(103, 59);
             this.btn_Luu.Name = "btn_Luu";
-            this.btn_Luu.Size = new System.Drawing.Size(56, 56);
+            this.btn_Luu.Size = new System.Drawing.Size(56, 51);
             this.btn_Luu.TabIndex = 4;
             this.btn_Luu.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Luu.UseVisualStyleBackColor = true;
@@ -667,9 +669,9 @@
             this.btn_Xoa.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_Xoa.ImageKey = "Garbage.png";
             this.btn_Xoa.ImageList = this.imageList1;
-            this.btn_Xoa.Location = new System.Drawing.Point(390, 6);
+            this.btn_Xoa.Location = new System.Drawing.Point(365, 3);
             this.btn_Xoa.Name = "btn_Xoa";
-            this.btn_Xoa.Size = new System.Drawing.Size(56, 56);
+            this.btn_Xoa.Size = new System.Drawing.Size(56, 50);
             this.btn_Xoa.TabIndex = 2;
             this.btn_Xoa.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Xoa.UseVisualStyleBackColor = true;
@@ -681,9 +683,9 @@
             this.btn_Them.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_Them.ImageKey = "Add.png";
             this.btn_Them.ImageList = this.imageList1;
-            this.btn_Them.Location = new System.Drawing.Point(111, 6);
+            this.btn_Them.Location = new System.Drawing.Point(103, 3);
             this.btn_Them.Name = "btn_Them";
-            this.btn_Them.Size = new System.Drawing.Size(56, 56);
+            this.btn_Them.Size = new System.Drawing.Size(56, 50);
             this.btn_Them.TabIndex = 0;
             this.btn_Them.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Them.UseVisualStyleBackColor = true;
@@ -695,9 +697,9 @@
             this.btn_Huy.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_Huy.ImageKey = "Cancel.png";
             this.btn_Huy.ImageList = this.imageList1;
-            this.btn_Huy.Location = new System.Drawing.Point(390, 76);
+            this.btn_Huy.Location = new System.Drawing.Point(365, 59);
             this.btn_Huy.Name = "btn_Huy";
-            this.btn_Huy.Size = new System.Drawing.Size(56, 56);
+            this.btn_Huy.Size = new System.Drawing.Size(56, 51);
             this.btn_Huy.TabIndex = 5;
             this.btn_Huy.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Huy.UseVisualStyleBackColor = true;
@@ -709,9 +711,9 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.groupBox1.Location = new System.Drawing.Point(3, 686);
+            this.groupBox1.Location = new System.Drawing.Point(3, 550);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(844, 311);
+            this.groupBox1.Size = new System.Drawing.Size(794, 247);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh sách tập tin";
@@ -732,14 +734,14 @@
             this.tableLP_DSTapTin.RowCount = 2;
             this.tableLP_DSTapTin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
             this.tableLP_DSTapTin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLP_DSTapTin.Size = new System.Drawing.Size(838, 284);
+            this.tableLP_DSTapTin.Size = new System.Drawing.Size(788, 220);
             this.tableLP_DSTapTin.TabIndex = 0;
             // 
             // lbl_Status
             // 
             this.lbl_Status.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbl_Status.AutoSize = true;
-            this.lbl_Status.Location = new System.Drawing.Point(3, 259);
+            this.lbl_Status.Location = new System.Drawing.Point(3, 198);
             this.lbl_Status.Name = "lbl_Status";
             this.lbl_Status.Size = new System.Drawing.Size(0, 21);
             this.lbl_Status.TabIndex = 47;
@@ -756,13 +758,13 @@
             this.dtgv_DSTapTin.ReadOnly = true;
             this.dtgv_DSTapTin.RowTemplate.Height = 24;
             this.dtgv_DSTapTin.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgv_DSTapTin.Size = new System.Drawing.Size(832, 249);
+            this.dtgv_DSTapTin.Size = new System.Drawing.Size(782, 192);
             this.dtgv_DSTapTin.TabIndex = 1;
             this.dtgv_DSTapTin.SelectionChanged += new System.EventHandler(this.dtgv_DSTapTin_SelectionChanged);
             // 
             // pb_Status
             // 
-            this.pb_Status.Location = new System.Drawing.Point(249, 258);
+            this.pb_Status.Location = new System.Drawing.Point(235, 201);
             this.pb_Status.MarqueeAnimationSpeed = 50;
             this.pb_Status.Name = "pb_Status";
             this.pb_Status.Size = new System.Drawing.Size(265, 16);
@@ -798,7 +800,7 @@
             this.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "QLNS_TapTin";
-            this.Size = new System.Drawing.Size(850, 1000);
+            this.Size = new System.Drawing.Size(800, 800);
             this.Load += new System.EventHandler(this.QLNS_TapTin_Load);
             this.tableLP_TapTin.ResumeLayout(false);
             this.gb_ChiTietFile.ResumeLayout(false);

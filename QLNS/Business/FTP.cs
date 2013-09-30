@@ -19,7 +19,7 @@ namespace Business
             globalFolderName, downloadPath  ;
         string UserName = "Administrator",
            Password = "QLNS@123qlns";
-            //Password = "A@123456";
+           //Password = "A@123456";
 
         public FileCate oFileCate = new FileCate();
         long lFileSizeLimit = 3145728;  // 3 mb
