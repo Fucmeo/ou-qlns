@@ -283,7 +283,7 @@
             this.cb_LoaiTT_Detail.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cb_LoaiTT_Detail.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_LoaiTT_Detail.FormattingEnabled = true;
-            this.cb_LoaiTT_Detail.Location = new System.Drawing.Point(3, 3);
+            this.cb_LoaiTT_Detail.Location = new System.Drawing.Point(3, 5);
             this.cb_LoaiTT_Detail.Name = "cb_LoaiTT_Detail";
             this.cb_LoaiTT_Detail.Size = new System.Drawing.Size(233, 30);
             this.cb_LoaiTT_Detail.TabIndex = 43;
@@ -385,7 +385,7 @@
             this.cb_LoaiTapTin.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cb_LoaiTapTin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_LoaiTapTin.FormattingEnabled = true;
-            this.cb_LoaiTapTin.Location = new System.Drawing.Point(68, 3);
+            this.cb_LoaiTapTin.Location = new System.Drawing.Point(68, 6);
             this.cb_LoaiTapTin.Name = "cb_LoaiTapTin";
             this.cb_LoaiTapTin.Size = new System.Drawing.Size(272, 30);
             this.cb_LoaiTapTin.TabIndex = 40;

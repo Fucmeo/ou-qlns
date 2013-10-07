@@ -281,7 +281,7 @@
             this.tableLP_PhuCap.SetColumnSpan(this.comB_LoaiPhuCap, 2);
             this.comB_LoaiPhuCap.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_LoaiPhuCap.FormattingEnabled = true;
-            this.comB_LoaiPhuCap.Location = new System.Drawing.Point(438, 7);
+            this.comB_LoaiPhuCap.Location = new System.Drawing.Point(438, 9);
             this.comB_LoaiPhuCap.Name = "comB_LoaiPhuCap";
             this.comB_LoaiPhuCap.Size = new System.Drawing.Size(252, 29);
             this.comB_LoaiPhuCap.TabIndex = 1;
@@ -605,7 +605,7 @@
             this.comb_Luong.Items.AddRange(new object[] {
             "Hệ số",
             "Khoán"});
-            this.comb_Luong.Location = new System.Drawing.Point(109, 5);
+            this.comb_Luong.Location = new System.Drawing.Point(109, 7);
             this.comb_Luong.Name = "comb_Luong";
             this.comb_Luong.Size = new System.Drawing.Size(179, 29);
             this.comb_Luong.TabIndex = 33;
@@ -657,7 +657,7 @@
             this.comb_Ngach.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comb_Ngach.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comb_Ngach.FormattingEnabled = true;
-            this.comb_Ngach.Location = new System.Drawing.Point(371, 5);
+            this.comb_Ngach.Location = new System.Drawing.Point(371, 7);
             this.comb_Ngach.Name = "comb_Ngach";
             this.comb_Ngach.Size = new System.Drawing.Size(187, 29);
             this.comb_Ngach.TabIndex = 29;
@@ -678,7 +678,7 @@
             this.comb_Bac.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comb_Bac.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comb_Bac.FormattingEnabled = true;
-            this.comb_Bac.Location = new System.Drawing.Point(691, 5);
+            this.comb_Bac.Location = new System.Drawing.Point(691, 7);
             this.comb_Bac.Name = "comb_Bac";
             this.comb_Bac.Size = new System.Drawing.Size(182, 29);
             this.comb_Bac.TabIndex = 30;
@@ -783,7 +783,7 @@
             this.comB_DonVi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comB_DonVi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_DonVi.FormattingEnabled = true;
-            this.comB_DonVi.Location = new System.Drawing.Point(84, 3);
+            this.comB_DonVi.Location = new System.Drawing.Point(84, 4);
             this.comB_DonVi.Name = "comB_DonVi";
             this.comB_DonVi.Size = new System.Drawing.Size(203, 29);
             this.comB_DonVi.TabIndex = 34;
@@ -803,7 +803,7 @@
             this.comB_ChucVu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comB_ChucVu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_ChucVu.FormattingEnabled = true;
-            this.comB_ChucVu.Location = new System.Drawing.Point(377, 3);
+            this.comB_ChucVu.Location = new System.Drawing.Point(377, 4);
             this.comB_ChucVu.Name = "comB_ChucVu";
             this.comB_ChucVu.Size = new System.Drawing.Size(201, 29);
             this.comB_ChucVu.TabIndex = 35;
@@ -813,7 +813,7 @@
             this.comB_ChucDanh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comB_ChucDanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_ChucDanh.FormattingEnabled = true;
-            this.comB_ChucDanh.Location = new System.Drawing.Point(688, 3);
+            this.comB_ChucDanh.Location = new System.Drawing.Point(688, 4);
             this.comB_ChucDanh.Name = "comB_ChucDanh";
             this.comB_ChucDanh.Size = new System.Drawing.Size(191, 29);
             this.comB_ChucDanh.TabIndex = 36;
