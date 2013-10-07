@@ -248,6 +248,17 @@ namespace Business.CNVC
             return dt;
         }
 
+        public DataTable GetAllCNVC()
+        {
+            DataTable dt;
+
+
+
+            dt = dp.getDataTable("select * from v_cnvc");
+
+            return dt;
+        }
+
         public DataTable SearchDataForQD(bool bIngoreQTCT)
         {
             DataTable dt;

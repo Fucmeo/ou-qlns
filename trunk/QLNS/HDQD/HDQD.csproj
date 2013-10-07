@@ -87,6 +87,12 @@
     <Compile Include="UCs\DoiThongTinDV.Designer.cs">
       <DependentUpon>DoiThongTinDV.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCs\DonViCu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\DonViCu.Designer.cs">
+      <DependentUpon>DonViCu.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCs\DSCNVC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -104,6 +110,12 @@
     </Compile>
     <Compile Include="UCs\HopDong.designer.cs">
       <DependentUpon>HopDong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCs\HopDongCu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\HopDongCu.Designer.cs">
+      <DependentUpon>HopDongCu.cs</DependentUpon>
     </Compile>
     <Compile Include="UCs\LoaiHopDong.cs">
       <SubType>UserControl</SubType>
@@ -189,6 +201,12 @@
     <Compile Include="UCs\TiepNhan.Designer.cs">
       <DependentUpon>TiepNhan.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCs\TiepNhanCu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\TiepNhanCu.Designer.cs">
+      <DependentUpon>TiepNhanCu.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Forms\Popup.resx">
       <DependentUpon>Popup.cs</DependentUpon>
     </EmbeddedResource>
@@ -216,6 +234,9 @@
     <EmbeddedResource Include="UCs\DoiThongTinDV.resx">
       <DependentUpon>DoiThongTinDV.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UCs\DonViCu.resx">
+      <DependentUpon>DonViCu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UCs\DSCNVC.resx">
       <DependentUpon>DSCNVC.cs</DependentUpon>
     </EmbeddedResource>
@@ -224,6 +245,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\HopDong.resx">
       <DependentUpon>HopDong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\HopDongCu.resx">
+      <DependentUpon>HopDongCu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\LoaiHopDong.resx">
       <DependentUpon>LoaiHopDong.cs</DependentUpon>
@@ -266,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\TiepNhan.resx">
       <DependentUpon>TiepNhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\TiepNhanCu.resx">
+      <DependentUpon>TiepNhanCu.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

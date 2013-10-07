@@ -96,10 +96,10 @@
             this.txt_Email = new System.Windows.Forms.TextBox();
             this.txt_DTNha = new System.Windows.Forms.TextBox();
             this.txt_DTDD = new System.Windows.Forms.TextBox();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.bw_upload = new System.ComponentModel.BackgroundWorker();
             this.pb_Status = new System.Windows.Forms.ProgressBar();
             this.lbl_Status = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.bw_upload = new System.ComponentModel.BackgroundWorker();
             this.tableLP_ThongTinChinh.SuspendLayout();
             this.gb_CMND.SuspendLayout();
             this.tableLP_CMND.SuspendLayout();
@@ -210,7 +210,7 @@
             this.comB_CMND_HoChieu.Items.AddRange(new object[] {
             "CMND",
             "Hộ chiếu"});
-            this.comB_CMND_HoChieu.Location = new System.Drawing.Point(571, 49);
+            this.comB_CMND_HoChieu.Location = new System.Drawing.Point(571, 50);
             this.comB_CMND_HoChieu.Name = "comB_CMND_HoChieu";
             this.comB_CMND_HoChieu.Size = new System.Drawing.Size(240, 26);
             this.comB_CMND_HoChieu.TabIndex = 3;
@@ -506,7 +506,7 @@
             this.comB_QuocGia.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_QuocGia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_QuocGia.FormattingEnabled = true;
-            this.comB_QuocGia.Location = new System.Drawing.Point(3, 3);
+            this.comB_QuocGia.Location = new System.Drawing.Point(3, 4);
             this.comB_QuocGia.Name = "comB_QuocGia";
             this.comB_QuocGia.Size = new System.Drawing.Size(236, 26);
             this.comB_QuocGia.TabIndex = 0;
@@ -956,20 +956,6 @@
             this.txt_DTDD.TabIndex = 54;
             this.txt_DTDD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_DTDD_KeyPress);
             // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.Filter = "PNG|*.PNG|GIF|*.GIF|JPEG|*.JPEG|JPG|*.JPG|Pictures Format|*.JPEG;*.PNG;*.GIF;*.JP" +
-    "G";
-            this.openFileDialog1.FilterIndex = 4;
-            this.openFileDialog1.Title = "Chọn hình đại diện";
-            // 
-            // bw_upload
-            // 
-            this.bw_upload.WorkerReportsProgress = true;
-            this.bw_upload.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bw_upload_DoWork);
-            this.bw_upload.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bw_upload_ProgressChanged);
-            this.bw_upload.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bw_upload_RunWorkerCompleted);
-            // 
             // pb_Status
             // 
             this.pb_Status.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -986,6 +972,20 @@
             this.lbl_Status.Name = "lbl_Status";
             this.lbl_Status.Size = new System.Drawing.Size(0, 18);
             this.lbl_Status.TabIndex = 45;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.Filter = "PNG|*.PNG|GIF|*.GIF|JPEG|*.JPEG|JPG|*.JPG|Pictures Format|*.JPEG;*.PNG;*.GIF;*.JP" +
+    "G";
+            this.openFileDialog1.FilterIndex = 4;
+            this.openFileDialog1.Title = "Chọn hình đại diện";
+            // 
+            // bw_upload
+            // 
+            this.bw_upload.WorkerReportsProgress = true;
+            this.bw_upload.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bw_upload_DoWork);
+            this.bw_upload.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bw_upload_ProgressChanged);
+            this.bw_upload.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bw_upload_RunWorkerCompleted);
             // 
             // QLNS_ThongTinNV
             // 

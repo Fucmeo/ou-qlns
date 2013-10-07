@@ -17,7 +17,6 @@ D:\Job\QLNS\Projects\QLNS\HDQD\obj\x86\Debug\HDQD.UCs.QuyetDinhPhuCap.resources
 D:\Job\QLNS\Projects\QLNS\HDQD\obj\x86\Debug\HDQD.UCs.ThanhLapDonVi.resources
 D:\Job\QLNS\Projects\QLNS\HDQD\obj\x86\Debug\HDQD.UCs.ThoiBoNhiem.resources
 D:\Job\QLNS\Projects\QLNS\HDQD\obj\x86\Debug\HDQD.UCs.ThongTinBoNhiem.resources
-D:\Job\QLNS\Projects\QLNS\HDQD\obj\x86\Debug\HDQD.UCs.ThongTinCNVC.resources
 D:\Job\QLNS\Projects\QLNS\HDQD\obj\x86\Debug\HDQD.UCs.ThongTinQuyetDinh.resources
 D:\Job\QLNS\Projects\QLNS\HDQD\obj\x86\Debug\HDQD.UCs.TiepNhan.resources
 D:\Job\QLNS\Projects\QLNS\HDQD\obj\x86\Debug\HDQD.csproj.GenerateResource.Cache
@@ -44,3 +43,7 @@ D:\Job\QLNS\Projects\QLNS\HDQD\obj\x86\Debug\HDQD.exe
 D:\Job\QLNS\Projects\QLNS\HDQD\obj\x86\Debug\HDQD.pdb
 D:\Job\QLNS\Projects\QLNS\HDQD\obj\x86\Debug\HDQD.UCs.QDDungHopDong.resources
 D:\Job\QLNS\Projects\QLNS\HDQD\obj\x86\Debug\HDQD.UCs.ThemLoaiFile.resources
+D:\Job\QLNS\Projects\QLNS\HDQD\obj\x86\Debug\HDQD.UCs.HopDongCu.resources
+D:\Job\QLNS\Projects\QLNS\HDQD\obj\x86\Debug\HDQD.UCs.ThongTinCNVC.resources
+D:\Job\QLNS\Projects\QLNS\HDQD\obj\x86\Debug\HDQD.UCs.DonViCu.resources
+D:\Job\QLNS\Projects\QLNS\HDQD\obj\x86\Debug\HDQD.UCs.TiepNhanCu.resources
