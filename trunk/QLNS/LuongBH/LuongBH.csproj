@@ -11,7 +11,8 @@
     <RootNamespace>LuongBH</RootNamespace>
     <AssemblyName>LuongBH</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -34,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MonthCalendar">
+      <HintPath>..\..\..\..\..\Download\MonthCalendar_src_vs2005\bin\Release\MonthCalendar.dll</HintPath>
+    </Reference>
     <Reference Include="SplitButton">
       <HintPath>bin\Debug\SplitButton.dll</HintPath>
     </Reference>
@@ -63,6 +67,12 @@
     <Compile Include="UCs\Luong\BacHeSo.Designer.cs">
       <DependentUpon>BacHeSo.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCs\Luong\ChamCong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\Luong\ChamCong.Designer.cs">
+      <DependentUpon>ChamCong.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCs\Luong\LuongToiThieu.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -80,6 +90,24 @@
     </Compile>
     <Compile Include="UCs\Luong\Ngach_NhomNgach.Designer.cs">
       <DependentUpon>Ngach_NhomNgach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCs\Luong\NgayCong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\Luong\NgayCong.Designer.cs">
+      <DependentUpon>NgayCong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCs\Luong\NgayPhep.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\Luong\NgayPhep.Designer.cs">
+      <DependentUpon>NgayPhep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCs\Luong\NghiPhep.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\Luong\NghiPhep.Designer.cs">
+      <DependentUpon>NghiPhep.cs</DependentUpon>
     </Compile>
     <Compile Include="UCs\Luong\NhomNgach.cs">
       <SubType>UserControl</SubType>
@@ -104,9 +132,13 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="UCs\Luong\BacHeSo.resx">
       <DependentUpon>BacHeSo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\Luong\ChamCong.resx">
+      <DependentUpon>ChamCong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\Luong\LuongToiThieu.resx">
       <DependentUpon>LuongToiThieu.cs</DependentUpon>
@@ -117,12 +149,22 @@
     <EmbeddedResource Include="UCs\Luong\Ngach_NhomNgach.resx">
       <DependentUpon>Ngach_NhomNgach.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UCs\Luong\NgayCong.resx">
+      <DependentUpon>NgayCong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\Luong\NgayPhep.resx">
+      <DependentUpon>NgayPhep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\Luong\NghiPhep.resx">
+      <DependentUpon>NghiPhep.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UCs\Luong\NhomNgach.resx">
       <DependentUpon>NhomNgach.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\Luong\TinhLuong.resx">
       <DependentUpon>TinhLuong.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -140,6 +182,10 @@
     <ProjectReference Include="..\Business\Business.csproj">
       <Project>{BE6A57C0-9563-47D1-B910-A25B573C1944}</Project>
       <Name>Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HDQD\HDQD.csproj">
+      <Project>{7B751014-E742-455D-8DD8-6E1E9E5D9156}</Project>
+      <Name>HDQD</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
