@@ -128,3 +128,5 @@ D:\Job\QLNS\Projects\QLNS\QLNS\bin\Debug\zh-CN\Npgsql.resources.dll
 D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.exe
 D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.pdb
 D:\Job\QLNS\Projects\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_QTrCTac_Chart.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\bin\Debug\QLNS.exe.config
+D:\Job\QLNS\Projects\QLNS\QLNS\bin\Debug\MonthCalendar.dll
