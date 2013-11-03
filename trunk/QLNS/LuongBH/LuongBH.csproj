@@ -35,8 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MonthCalendar">
-      <HintPath>..\..\..\..\..\Download\MonthCalendar_src_vs2005\bin\Release\MonthCalendar.dll</HintPath>
+    <Reference Include="MonthCalendar, Version=1.8.2.0, Culture=neutral, PublicKeyToken=9d22151b1b463438, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Download\MonthCalendar.dll</HintPath>
     </Reference>
     <Reference Include="SplitButton">
       <HintPath>bin\Debug\SplitButton.dll</HintPath>

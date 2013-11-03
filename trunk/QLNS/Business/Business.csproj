@@ -32,11 +32,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Security">
-      <HintPath>C:\Program Files (x86)\PostgreSQL\Npgsql\ms.net4.0\Mono.Security.dll</HintPath>
+      <HintPath>..\..\..\..\..\Software\Database\npgsql\Npgsql2.0.12.0-bin-ms.net4.0\Mono.Security.dll</HintPath>
     </Reference>
-    <Reference Include="Npgsql, Version=2.0.12.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\PostgreSQL\Npgsql\ms.net4.0\Npgsql.dll</HintPath>
+    <Reference Include="Npgsql">
+      <HintPath>..\..\..\..\..\Software\Database\npgsql\Npgsql2.0.12.0-bin-ms.net4.0\Npgsql.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -86,6 +85,8 @@
     <Compile Include="HinhThucDaoTao.cs" />
     <Compile Include="LoaiHopDong.cs" />
     <Compile Include="Luong\BacHeSo.cs" />
+    <Compile Include="Luong\ChamCong.cs" />
+    <Compile Include="Luong\LoaiNgayPhep.cs" />
     <Compile Include="Luong\LuongToiThieu.cs" />
     <Compile Include="Luong\Ngach.cs" />
     <Compile Include="Luong\NhomNgach.cs" />

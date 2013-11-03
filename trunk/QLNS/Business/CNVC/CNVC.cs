@@ -471,6 +471,42 @@ namespace Business.CNVC
             return dt;
         }
 
+        public DataTable SearchNVForNgayPhep(int DV_ID,int CV_ID , int CD_ID , string Ho, string Ten , string MaNV)
+        {
+            DataTable dt;
+
+            IDataParameter[] paras = new IDataParameter[6]{
+                new NpgsqlParameter("p_donvi_id",DV_ID) ,              
+                new NpgsqlParameter("p_chucvu_id",CV_ID) ,
+                new NpgsqlParameter("p_chucdanh_id",CD_ID) ,
+                new NpgsqlParameter("p_ma_nv",Ho) ,
+                new NpgsqlParameter("p_ho",Ten) ,
+                new NpgsqlParameter("p_ten",MaNV) 
+            };
+
+            dt = dp.getDataTableProc("sp1_search_nv_for_ngayphep", paras);
+
+            return dt;
+        }
+
+        public bool AddNgayPhep(string[] p_ma_nv, int p_from, int p_to, double so_ngay)
+        {
+            int check;
+            IDataParameter[] paras = new IDataParameter[4]{
+                new NpgsqlParameter("p_manv",p_ma_nv), 
+                new NpgsqlParameter("p_tu_nam",p_from), 
+                new NpgsqlParameter("p_den_nam",p_to), 
+                new NpgsqlParameter("p_so_ngay",so_ngay)
+            };
+            check = (int)dp.executeScalarProc("sp2_insert_so_ngay_phep", paras);
+            if (check > 0)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
         #endregion
 
 

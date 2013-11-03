@@ -32,20 +32,22 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NgayPhep));
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.TLP_NgayCong = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.dtgv_ThongTinNP = new System.Windows.Forms.DataGridView();
             this.btn_Them = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtp_DenNam = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txt_SoNP = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtp_TuNam = new System.Windows.Forms.DateTimePicker();
             this.gb_TimKiem = new System.Windows.Forms.GroupBox();
             this.TLP_TimKiem = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.lsb_KQ = new System.Windows.Forms.ListBox();
+            this.comB_ChucVu = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.comB_DonVi = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -53,27 +55,25 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.comB_ChucDanh = new System.Windows.Forms.ComboBox();
+            this.txt_Ho = new System.Windows.Forms.TextBox();
+            this.txt_Ten = new System.Windows.Forms.TextBox();
+            this.txt_MaNV = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.lsb_DSNV = new System.Windows.Forms.ListBox();
+            this.btn_Select = new System.Windows.Forms.Button();
+            this.btn_Delete = new System.Windows.Forms.Button();
+            this.btn_SelectAll = new System.Windows.Forms.Button();
+            this.btn_Search = new System.Windows.Forms.Button();
             this.TLP_NgayCong.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_ThongTinNP)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.gb_TimKiem.SuspendLayout();
             this.TLP_TimKiem.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // imageList1
@@ -104,21 +104,49 @@
             this.TLP_NgayCong.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.46626F));
             this.TLP_NgayCong.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.0184F));
             this.TLP_NgayCong.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.822086F));
-            this.TLP_NgayCong.Size = new System.Drawing.Size(821, 652);
+            this.TLP_NgayCong.Size = new System.Drawing.Size(998, 706);
             this.TLP_NgayCong.TabIndex = 1;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.dtgv_ThongTinNP);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox4.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.groupBox4.Location = new System.Drawing.Point(3, 354);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(992, 159);
+            this.groupBox4.TabIndex = 62;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Thông tin ngày phép nhân viên";
+            // 
+            // dtgv_ThongTinNP
+            // 
+            this.dtgv_ThongTinNP.AllowUserToAddRows = false;
+            this.dtgv_ThongTinNP.AllowUserToDeleteRows = false;
+            this.dtgv_ThongTinNP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgv_ThongTinNP.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgv_ThongTinNP.Location = new System.Drawing.Point(3, 24);
+            this.dtgv_ThongTinNP.Name = "dtgv_ThongTinNP";
+            this.dtgv_ThongTinNP.ReadOnly = true;
+            this.dtgv_ThongTinNP.RowTemplate.Height = 24;
+            this.dtgv_ThongTinNP.Size = new System.Drawing.Size(986, 132);
+            this.dtgv_ThongTinNP.TabIndex = 0;
             // 
             // btn_Them
             // 
             this.btn_Them.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Them.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Them.Enabled = false;
             this.btn_Them.ImageKey = "Save.png";
             this.btn_Them.ImageList = this.imageList1;
-            this.btn_Them.Location = new System.Drawing.Point(382, 603);
+            this.btn_Them.Location = new System.Drawing.Point(471, 652);
             this.btn_Them.Name = "btn_Them";
-            this.btn_Them.Size = new System.Drawing.Size(56, 46);
+            this.btn_Them.Size = new System.Drawing.Size(56, 51);
             this.btn_Them.TabIndex = 61;
             this.btn_Them.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Them.UseVisualStyleBackColor = true;
+            this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
             // 
             // groupBox1
             // 
@@ -126,9 +154,9 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.groupBox1.Location = new System.Drawing.Point(3, 480);
+            this.groupBox1.Location = new System.Drawing.Point(3, 519);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(815, 117);
+            this.groupBox1.Size = new System.Drawing.Size(992, 127);
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin ngày phép";
@@ -140,12 +168,12 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.Controls.Add(this.dateTimePicker2, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.dtp_DenNam, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label8, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.textBox4, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.txt_SoNP, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.label7, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.dateTimePicker1, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.dtp_TuNam, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel2.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -155,24 +183,26 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(809, 90);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(986, 100);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // dateTimePicker2
+            // dtp_DenNam
             // 
-            this.dateTimePicker2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.dateTimePicker2.CustomFormat = "yyyy";
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(609, 8);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(197, 28);
-            this.dateTimePicker2.TabIndex = 60;
+            this.dtp_DenNam.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.dtp_DenNam.CustomFormat = "yyyy";
+            this.dtp_DenNam.Enabled = false;
+            this.dtp_DenNam.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_DenNam.Location = new System.Drawing.Point(741, 11);
+            this.dtp_DenNam.Name = "dtp_DenNam";
+            this.dtp_DenNam.Size = new System.Drawing.Size(197, 28);
+            this.dtp_DenNam.TabIndex = 60;
+            this.dtp_DenNam.ValueChanged += new System.EventHandler(this.dtp_DenNam_ValueChanged);
             // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(70, 12);
+            this.label3.Location = new System.Drawing.Point(92, 14);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 21);
             this.label3.TabIndex = 47;
@@ -182,40 +212,43 @@
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(49, 57);
+            this.label8.Location = new System.Drawing.Point(71, 64);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(103, 21);
             this.label8.TabIndex = 49;
             this.label8.Text = "Số ngày phép";
             // 
-            // textBox4
+            // txt_SoNP
             // 
-            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(205, 53);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(196, 28);
-            this.textBox4.TabIndex = 58;
+            this.txt_SoNP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_SoNP.Enabled = false;
+            this.txt_SoNP.Location = new System.Drawing.Point(249, 61);
+            this.txt_SoNP.Name = "txt_SoNP";
+            this.txt_SoNP.Size = new System.Drawing.Size(240, 28);
+            this.txt_SoNP.TabIndex = 58;
+            this.txt_SoNP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_SoNP_KeyPress);
             // 
             // label7
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(468, 12);
+            this.label7.Location = new System.Drawing.Point(578, 14);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(73, 21);
             this.label7.TabIndex = 48;
             this.label7.Text = "Đến năm";
             // 
-            // dateTimePicker1
+            // dtp_TuNam
             // 
-            this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.dateTimePicker1.CustomFormat = "yyyy";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(205, 8);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(196, 28);
-            this.dateTimePicker1.TabIndex = 59;
+            this.dtp_TuNam.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.dtp_TuNam.CustomFormat = "yyyy";
+            this.dtp_TuNam.Enabled = false;
+            this.dtp_TuNam.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_TuNam.Location = new System.Drawing.Point(249, 11);
+            this.dtp_TuNam.Name = "dtp_TuNam";
+            this.dtp_TuNam.Size = new System.Drawing.Size(196, 28);
+            this.dtp_TuNam.TabIndex = 59;
+            this.dtp_TuNam.ValueChanged += new System.EventHandler(this.dtp_TuNam_ValueChanged);
             // 
             // gb_TimKiem
             // 
@@ -225,7 +258,7 @@
             this.gb_TimKiem.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.gb_TimKiem.Location = new System.Drawing.Point(3, 3);
             this.gb_TimKiem.Name = "gb_TimKiem";
-            this.gb_TimKiem.Size = new System.Drawing.Size(815, 319);
+            this.gb_TimKiem.Size = new System.Drawing.Size(992, 345);
             this.gb_TimKiem.TabIndex = 24;
             this.gb_TimKiem.TabStop = false;
             this.gb_TimKiem.Text = "Thông tin tìm kiếm";
@@ -234,14 +267,14 @@
             // 
             this.TLP_TimKiem.ColumnCount = 7;
             this.TLP_TimKiem.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.02362F));
-            this.TLP_TimKiem.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.18171F));
-            this.TLP_TimKiem.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.944376F));
-            this.TLP_TimKiem.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.21508F));
-            this.TLP_TimKiem.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.49691F));
-            this.TLP_TimKiem.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.765142F));
-            this.TLP_TimKiem.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.97406F));
+            this.TLP_TimKiem.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.09736F));
+            this.TLP_TimKiem.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.172414F));
+            this.TLP_TimKiem.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.95335F));
+            this.TLP_TimKiem.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.86207F));
+            this.TLP_TimKiem.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.41785F));
+            this.TLP_TimKiem.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.05071F));
             this.TLP_TimKiem.Controls.Add(this.groupBox2, 4, 0);
-            this.TLP_TimKiem.Controls.Add(this.comboBox2, 1, 1);
+            this.TLP_TimKiem.Controls.Add(this.comB_ChucVu, 1, 1);
             this.TLP_TimKiem.Controls.Add(this.label11, 0, 0);
             this.TLP_TimKiem.Controls.Add(this.comB_DonVi, 1, 0);
             this.TLP_TimKiem.Controls.Add(this.label1, 0, 1);
@@ -249,15 +282,15 @@
             this.TLP_TimKiem.Controls.Add(this.label4, 0, 3);
             this.TLP_TimKiem.Controls.Add(this.label5, 0, 4);
             this.TLP_TimKiem.Controls.Add(this.label6, 2, 3);
-            this.TLP_TimKiem.Controls.Add(this.comboBox1, 1, 2);
-            this.TLP_TimKiem.Controls.Add(this.textBox1, 1, 3);
-            this.TLP_TimKiem.Controls.Add(this.textBox2, 3, 3);
-            this.TLP_TimKiem.Controls.Add(this.textBox3, 1, 4);
+            this.TLP_TimKiem.Controls.Add(this.comB_ChucDanh, 1, 2);
+            this.TLP_TimKiem.Controls.Add(this.txt_Ho, 1, 3);
+            this.TLP_TimKiem.Controls.Add(this.txt_Ten, 3, 3);
+            this.TLP_TimKiem.Controls.Add(this.txt_MaNV, 1, 4);
             this.TLP_TimKiem.Controls.Add(this.groupBox3, 6, 0);
-            this.TLP_TimKiem.Controls.Add(this.button1, 5, 1);
-            this.TLP_TimKiem.Controls.Add(this.button2, 5, 5);
-            this.TLP_TimKiem.Controls.Add(this.button3, 5, 2);
-            this.TLP_TimKiem.Controls.Add(this.button4, 1, 5);
+            this.TLP_TimKiem.Controls.Add(this.btn_Select, 5, 1);
+            this.TLP_TimKiem.Controls.Add(this.btn_Delete, 5, 5);
+            this.TLP_TimKiem.Controls.Add(this.btn_SelectAll, 5, 2);
+            this.TLP_TimKiem.Controls.Add(this.btn_Search, 1, 5);
             this.TLP_TimKiem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TLP_TimKiem.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TLP_TimKiem.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -265,59 +298,60 @@
             this.TLP_TimKiem.Location = new System.Drawing.Point(3, 24);
             this.TLP_TimKiem.Name = "TLP_TimKiem";
             this.TLP_TimKiem.RowCount = 6;
+            this.TLP_TimKiem.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.83648F));
+            this.TLP_TimKiem.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.3522F));
+            this.TLP_TimKiem.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.61006F));
+            this.TLP_TimKiem.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.09434F));
             this.TLP_TimKiem.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.TLP_TimKiem.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.TLP_TimKiem.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.TLP_TimKiem.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.TLP_TimKiem.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.TLP_TimKiem.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.TLP_TimKiem.Size = new System.Drawing.Size(809, 292);
+            this.TLP_TimKiem.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.69811F));
+            this.TLP_TimKiem.Size = new System.Drawing.Size(986, 318);
             this.TLP_TimKiem.TabIndex = 0;
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.listBox1);
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.lsb_KQ);
             this.groupBox2.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.groupBox2.Location = new System.Drawing.Point(386, 3);
+            this.groupBox2.Location = new System.Drawing.Point(406, 3);
             this.groupBox2.Name = "groupBox2";
             this.TLP_TimKiem.SetRowSpan(this.groupBox2, 6);
-            this.groupBox2.Size = new System.Drawing.Size(176, 286);
+            this.groupBox2.Size = new System.Drawing.Size(247, 312);
             this.groupBox2.TabIndex = 59;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Kết quả";
             // 
-            // listBox1
+            // lsb_KQ
             // 
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 21;
-            this.listBox1.Location = new System.Drawing.Point(3, 24);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(170, 259);
-            this.listBox1.TabIndex = 0;
+            this.lsb_KQ.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lsb_KQ.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lsb_KQ.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lsb_KQ.FormattingEnabled = true;
+            this.lsb_KQ.ItemHeight = 21;
+            this.lsb_KQ.Location = new System.Drawing.Point(3, 24);
+            this.lsb_KQ.Name = "lsb_KQ";
+            this.lsb_KQ.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.lsb_KQ.Size = new System.Drawing.Size(241, 285);
+            this.lsb_KQ.TabIndex = 0;
             // 
-            // comboBox2
+            // comB_ChucVu
             // 
-            this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.TLP_TimKiem.SetColumnSpan(this.comboBox2, 2);
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(92, 57);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(173, 29);
-            this.comboBox2.TabIndex = 56;
+            this.comB_ChucVu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.TLP_TimKiem.SetColumnSpan(this.comB_ChucVu, 2);
+            this.comB_ChucVu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comB_ChucVu.FormattingEnabled = true;
+            this.comB_ChucVu.Location = new System.Drawing.Point(111, 56);
+            this.comB_ChucVu.Name = "comB_ChucVu";
+            this.comB_ChucVu.Size = new System.Drawing.Size(182, 29);
+            this.comB_ChucVu.TabIndex = 56;
             // 
             // label11
             // 
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(3, 13);
+            this.label11.Location = new System.Drawing.Point(3, 11);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(56, 21);
             this.label11.TabIndex = 46;
@@ -329,16 +363,16 @@
             this.TLP_TimKiem.SetColumnSpan(this.comB_DonVi, 2);
             this.comB_DonVi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_DonVi.FormattingEnabled = true;
-            this.comB_DonVi.Location = new System.Drawing.Point(92, 9);
+            this.comB_DonVi.Location = new System.Drawing.Point(111, 9);
             this.comB_DonVi.Name = "comB_DonVi";
-            this.comB_DonVi.Size = new System.Drawing.Size(173, 29);
+            this.comB_DonVi.Size = new System.Drawing.Size(182, 29);
             this.comB_DonVi.TabIndex = 45;
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 61);
+            this.label1.Location = new System.Drawing.Point(3, 58);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(66, 21);
             this.label1.TabIndex = 48;
@@ -348,9 +382,9 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 99);
+            this.label2.Location = new System.Drawing.Point(3, 111);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 42);
+            this.label2.Size = new System.Drawing.Size(84, 21);
             this.label2.TabIndex = 49;
             this.label2.Text = "Chức danh";
             // 
@@ -358,7 +392,7 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 157);
+            this.label4.Location = new System.Drawing.Point(3, 162);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(30, 21);
             this.label4.TabIndex = 51;
@@ -368,7 +402,7 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 205);
+            this.label5.Location = new System.Drawing.Point(3, 211);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(37, 21);
             this.label5.TabIndex = 52;
@@ -378,155 +412,131 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(231, 157);
+            this.label6.Location = new System.Drawing.Point(249, 162);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(33, 21);
             this.label6.TabIndex = 53;
             this.label6.Text = "Tên";
             // 
-            // comboBox1
+            // comB_ChucDanh
             // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.TLP_TimKiem.SetColumnSpan(this.comboBox1, 2);
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(92, 105);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(173, 29);
-            this.comboBox1.TabIndex = 55;
+            this.comB_ChucDanh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.TLP_TimKiem.SetColumnSpan(this.comB_ChucDanh, 2);
+            this.comB_ChucDanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comB_ChucDanh.FormattingEnabled = true;
+            this.comB_ChucDanh.Location = new System.Drawing.Point(111, 109);
+            this.comB_ChucDanh.Name = "comB_ChucDanh";
+            this.comB_ChucDanh.Size = new System.Drawing.Size(182, 29);
+            this.comB_ChucDanh.TabIndex = 55;
             // 
-            // textBox1
+            // txt_Ho
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(92, 154);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(133, 28);
-            this.textBox1.TabIndex = 47;
+            this.txt_Ho.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_Ho.Location = new System.Drawing.Point(111, 158);
+            this.txt_Ho.Name = "txt_Ho";
+            this.txt_Ho.Size = new System.Drawing.Size(132, 28);
+            this.txt_Ho.TabIndex = 47;
             // 
-            // textBox2
+            // txt_Ten
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(271, 154);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(109, 28);
-            this.textBox2.TabIndex = 57;
+            this.txt_Ten.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_Ten.Location = new System.Drawing.Point(299, 158);
+            this.txt_Ten.Name = "txt_Ten";
+            this.txt_Ten.Size = new System.Drawing.Size(101, 28);
+            this.txt_Ten.TabIndex = 57;
             // 
-            // textBox3
+            // txt_MaNV
             // 
-            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(92, 202);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(133, 28);
-            this.textBox3.TabIndex = 58;
+            this.txt_MaNV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_MaNV.Location = new System.Drawing.Point(111, 208);
+            this.txt_MaNV.Name = "txt_MaNV";
+            this.txt_MaNV.Size = new System.Drawing.Size(132, 28);
+            this.txt_MaNV.TabIndex = 58;
             // 
             // groupBox3
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.listBox2);
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.lsb_DSNV);
             this.groupBox3.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.groupBox3.Location = new System.Drawing.Point(647, 3);
+            this.groupBox3.Location = new System.Drawing.Point(741, 3);
             this.groupBox3.Name = "groupBox3";
             this.TLP_TimKiem.SetRowSpan(this.groupBox3, 6);
-            this.groupBox3.Size = new System.Drawing.Size(159, 286);
+            this.groupBox3.Size = new System.Drawing.Size(242, 312);
             this.groupBox3.TabIndex = 60;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Danh sách NV";
             // 
-            // listBox2
+            // lsb_DSNV
             // 
-            this.listBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox2.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 21;
-            this.listBox2.Location = new System.Drawing.Point(3, 24);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(153, 259);
-            this.listBox2.TabIndex = 0;
+            this.lsb_DSNV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lsb_DSNV.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lsb_DSNV.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lsb_DSNV.FormattingEnabled = true;
+            this.lsb_DSNV.ItemHeight = 21;
+            this.lsb_DSNV.Location = new System.Drawing.Point(3, 24);
+            this.lsb_DSNV.Name = "lsb_DSNV";
+            this.lsb_DSNV.Size = new System.Drawing.Size(236, 285);
+            this.lsb_DSNV.TabIndex = 0;
+            this.lsb_DSNV.SelectedIndexChanged += new System.EventHandler(this.lsb_DSNV_SelectedIndexChanged);
             // 
-            // button1
+            // btn_Select
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.ImageKey = "ArrowHead-Right.png";
-            this.button1.ImageList = this.imageList1;
-            this.button1.Location = new System.Drawing.Point(576, 51);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(56, 42);
-            this.button1.TabIndex = 62;
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_Select.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Select.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Select.ImageKey = "ArrowHead-Right.png";
+            this.btn_Select.ImageList = this.imageList1;
+            this.btn_Select.Location = new System.Drawing.Point(669, 46);
+            this.btn_Select.Name = "btn_Select";
+            this.btn_Select.Size = new System.Drawing.Size(56, 45);
+            this.btn_Select.TabIndex = 62;
+            this.btn_Select.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Select.UseVisualStyleBackColor = true;
+            this.btn_Select.Click += new System.EventHandler(this.btn_Select_Click);
             // 
-            // button2
+            // btn_Delete
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.ImageKey = "Remove Avatar.png";
-            this.button2.ImageList = this.imageList1;
-            this.button2.Location = new System.Drawing.Point(576, 243);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(56, 46);
-            this.button2.TabIndex = 63;
-            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_Delete.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Delete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Delete.ImageKey = "Remove Avatar.png";
+            this.btn_Delete.ImageList = this.imageList1;
+            this.btn_Delete.Location = new System.Drawing.Point(669, 255);
+            this.btn_Delete.Name = "btn_Delete";
+            this.btn_Delete.Size = new System.Drawing.Size(56, 56);
+            this.btn_Delete.TabIndex = 63;
+            this.btn_Delete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Delete.UseVisualStyleBackColor = true;
+            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
-            // button3
+            // btn_SelectAll
             // 
-            this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.ImageKey = "Follow Right.png";
-            this.button3.ImageList = this.imageList1;
-            this.button3.Location = new System.Drawing.Point(576, 99);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(56, 42);
-            this.button3.TabIndex = 64;
-            this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button3.UseVisualStyleBackColor = true;
+            this.btn_SelectAll.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_SelectAll.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_SelectAll.ImageKey = "Follow Right.png";
+            this.btn_SelectAll.ImageList = this.imageList1;
+            this.btn_SelectAll.Location = new System.Drawing.Point(669, 97);
+            this.btn_SelectAll.Name = "btn_SelectAll";
+            this.btn_SelectAll.Size = new System.Drawing.Size(56, 49);
+            this.btn_SelectAll.TabIndex = 64;
+            this.btn_SelectAll.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_SelectAll.UseVisualStyleBackColor = true;
+            this.btn_SelectAll.Click += new System.EventHandler(this.btn_SelectAll_Click);
             // 
-            // button4
+            // btn_Search
             // 
-            this.button4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.ImageKey = "Search.png";
-            this.button4.ImageList = this.imageList1;
-            this.button4.Location = new System.Drawing.Point(130, 243);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(56, 46);
-            this.button4.TabIndex = 65;
-            this.button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.dataGridView1);
-            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.groupBox4.Location = new System.Drawing.Point(3, 328);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(815, 146);
-            this.groupBox4.TabIndex = 62;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Thông tin ngày phép nhân viên";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 24);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(809, 119);
-            this.dataGridView1.TabIndex = 0;
+            this.btn_Search.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Search.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Search.ImageKey = "Search.png";
+            this.btn_Search.ImageList = this.imageList1;
+            this.btn_Search.Location = new System.Drawing.Point(149, 255);
+            this.btn_Search.Name = "btn_Search";
+            this.btn_Search.Size = new System.Drawing.Size(56, 56);
+            this.btn_Search.TabIndex = 65;
+            this.btn_Search.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Search.UseVisualStyleBackColor = true;
+            this.btn_Search.Click += new System.EventHandler(this.button4_Click);
             // 
             // NgayPhep
             // 
@@ -537,8 +547,11 @@
             this.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "NgayPhep";
-            this.Size = new System.Drawing.Size(821, 652);
+            this.Size = new System.Drawing.Size(998, 706);
+            this.Load += new System.EventHandler(this.NgayPhep_Load);
             this.TLP_NgayCong.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_ThongTinNP)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
@@ -547,8 +560,6 @@
             this.TLP_TimKiem.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -560,17 +571,17 @@
         private System.Windows.Forms.Button btn_Them;
         public System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtp_DenNam;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txt_SoNP;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtp_TuNam;
         public System.Windows.Forms.GroupBox gb_TimKiem;
         private System.Windows.Forms.TableLayoutPanel TLP_TimKiem;
         public System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ListBox lsb_KQ;
+        private System.Windows.Forms.ComboBox comB_ChucVu;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox comB_DonVi;
         private System.Windows.Forms.Label label1;
@@ -578,17 +589,17 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.ComboBox comB_ChucDanh;
+        private System.Windows.Forms.TextBox txt_Ho;
+        private System.Windows.Forms.TextBox txt_Ten;
+        private System.Windows.Forms.TextBox txt_MaNV;
         public System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ListBox lsb_DSNV;
+        private System.Windows.Forms.Button btn_Select;
+        private System.Windows.Forms.Button btn_Delete;
+        private System.Windows.Forms.Button btn_SelectAll;
+        private System.Windows.Forms.Button btn_Search;
         public System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtgv_ThongTinNP;
     }
 }
