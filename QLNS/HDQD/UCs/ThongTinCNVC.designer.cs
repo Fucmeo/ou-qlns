@@ -133,7 +133,6 @@
             this.btn_Tim.TabIndex = 5;
             this.btn_Tim.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Tim.UseVisualStyleBackColor = true;
-            this.btn_Tim.Visible = false;
             this.btn_Tim.Click += new System.EventHandler(this.btn_Tim_Click);
             // 
             // imageList1
@@ -263,10 +262,10 @@
         public System.Windows.Forms.TextBox txt_MaNV;
         public System.Windows.Forms.ComboBox comB_DonVi;
         public System.Windows.Forms.ComboBox comB_ChucVu;
-        private System.Windows.Forms.Button btn_Tim;
         private System.Windows.Forms.ImageList imageList1;
         public System.Windows.Forms.TextBox txt_HoTen;
         public System.Windows.Forms.TextBox txt_Ho;
         public System.Windows.Forms.TextBox txt_Ten;
+        public System.Windows.Forms.Button btn_Tim;
     }
 }
