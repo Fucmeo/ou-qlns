@@ -507,6 +507,37 @@ namespace Business.CNVC
                 return false;
         }
 
+        public DataTable GetNgayCong()
+        {
+            DataTable dt = new DataTable();
+
+
+
+            dt = dp.getDataTable("select * from v_ngaycong");
+
+            return dt;
+        }
+
+        public bool AddNgayCong(int so_ngay, int tu_thang,int den_thang,string ghi_chu)
+        {
+            int check;
+            IDataParameter[] paras = new IDataParameter[4]{
+                new NpgsqlParameter("p_so_ngay",so_ngay), 
+                new NpgsqlParameter("p_tu_thoi_gian",tu_thang), 
+                new NpgsqlParameter("p_den_thoi_gian",den_thang), 
+                new NpgsqlParameter("p_ghi_chu",ghi_chu) 
+               
+            };
+            check = (int)dp.executeScalarProc("sp1_insert_ngay_cong", paras);
+            if (check > 0)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
+
         #endregion
 
 
