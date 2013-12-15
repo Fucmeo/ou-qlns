@@ -21,6 +21,7 @@ namespace QLNS.UCs.DanhMucThongTin
         Business.TinhTP oTinhTP;
         Business.QuocGia oQuocGia;
         public DataTable dtTinhTP, dtQuocGia, dtDaoTaoBoiDuong, dtDaoTao, dtBoiDuong, dtHinhThuc, dtVanBang , dtMoHinh;
+        Business.FTP oFTP;
 
         bool bAddDaoTaoFlag = false;
         bool bAddBoiDuongFlag = false;
@@ -31,9 +32,16 @@ namespace QLNS.UCs.DanhMucThongTin
 
         List<KeyValuePair<GroupBox, float>> lst_gb;
 
+        // KHANG - UPLOAD FILE
+        public static DataTable dtFile;
+        string[] ServerPaths_DaoTao, ServerPaths_BoiDuong;
+        int nNewFilesCount_DaoTao, nNewFilesCount_BoiDuong;         // so file add new
+        string[] dbPaths;
+
         public QLNS_DaoTaoBoiDuong()
         {
             InitializeComponent();
+            dtFile = new DataTable();
             oCNVC_DaoTaoBoiDuong = new CNVC_DaoTaoBoiDuong();
             oHinhThucDaoTao = new Business.HinhThucDaoTao();
             oVanBangChinhQuy = new Business.VanBangChinhQuy();
@@ -48,6 +56,7 @@ namespace QLNS.UCs.DanhMucThongTin
             dtMoHinh = new DataTable();
             oTinhTP = new Business.TinhTP();
             oQuocGia = new Business.QuocGia();
+            oFTP = new Business.FTP();
 
             lst_gb = new List<KeyValuePair<GroupBox, float>>();
             lst_gb.Add(new KeyValuePair<GroupBox, float>(groupb_DaoTao, float.Parse("50")));
@@ -907,7 +916,12 @@ namespace QLNS.UCs.DanhMucThongTin
                                     GetDaoTaoInputData();
                                     oCNVC_DaoTaoBoiDuong.Add();
 
-                                    // load lai dtgv_CMND
+                                    if (CNVC_DaoTaoBoiDuong.oFile_DaoTao.Path.Count > 0 )
+                                    {
+                                        UploadFile_DaoTao();
+                                    }
+
+                                    // load lai dtgv_BoiDuong
                                     GetDaoTaoBoiDuongInfo(Program.selected_ma_nv);
                                     dtgv_DaoTao.DataSource = dtDaoTao;
                                     Setup_dtgv_DaoTao();
@@ -961,6 +975,64 @@ namespace QLNS.UCs.DanhMucThongTin
             }
 
             
+            #endregion
+        }
+
+        private void UploadFile_DaoTao()
+        {
+            #region HD
+
+            nNewFilesCount_DaoTao = CNVC_DaoTaoBoiDuong.oFile_DaoTao.Path.Count;
+            ServerPaths_DaoTao = new string[nNewFilesCount_DaoTao];
+            try
+            {
+
+                pb_Status_DaoTao.Value = 0;
+                pb_Status_DaoTao.Maximum = nNewFilesCount_DaoTao;
+
+                //this.Enabled = false;
+                ((Form)this.Parent.Parent.Parent.Parent.Parent).ControlBox = false;
+                this.Enabled = false;
+                bw_upload_DaoTao.RunWorkerAsync();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Quá trình tải hình lên server không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ((Form)this.Parent.Parent).ControlBox = true;
+                this.Enabled = true;
+            }
+
+
+
+            #endregion
+        }
+
+        private void UploadFile_BoiDuong()
+        {
+            #region HD
+
+            nNewFilesCount_BoiDuong = CNVC_DaoTaoBoiDuong.oFile_BoiDuong.Path.Count;
+            ServerPaths_BoiDuong = new string[nNewFilesCount_BoiDuong];
+            try
+            {
+
+                pb_Status_BoiDuong.Value = 0;
+                pb_Status_BoiDuong.Maximum = nNewFilesCount_BoiDuong;
+
+                //this.Enabled = false;
+                ((Form)this.Parent.Parent.Parent.Parent.Parent).ControlBox = false;
+                this.Enabled = false;
+                bw_upload_BoiDuong.RunWorkerAsync();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Quá trình tải hình lên server không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ((Form)this.Parent.Parent).ControlBox = true;
+                this.Enabled = true;
+            }
+
+
+
             #endregion
         }
 
@@ -1253,6 +1325,11 @@ namespace QLNS.UCs.DanhMucThongTin
                                     GetBoiDuongInputData();
                                     oCNVC_DaoTaoBoiDuong.Add();
 
+                                    if (CNVC_DaoTaoBoiDuong.oFile_BoiDuong.Path.Count > 0)
+                                    {
+                                        UploadFile_BoiDuong();
+                                    }
+
                                     // load lai dtgv_CMND
                                     GetDaoTaoBoiDuongInfo(Program.selected_ma_nv);
                                     dtgv_BoiDuong.DataSource = dtBoiDuong;
@@ -1378,10 +1455,123 @@ namespace QLNS.UCs.DanhMucThongTin
 
         private void lb_TapTin_Click(object sender, EventArgs e)
         {
-            //HDQD.Forms.Popup f = new HDQD.Forms.Popup(new HDQD.UCs.DSTapTin(), "QUẢN LÝ NHÂN SỰ - TẬP TIN VĂN BẰNG");
-            //HDQD.UCs.DSTapTin.bHopDong = true;
-            //f.ShowDialog();
+            HDQD.UCs.DSTapTin oDSTapTin = new HDQD.UCs.DSTapTin("QLNS_DaoTao", CNVC_DaoTaoBoiDuong.oFile_DaoTao);
+            oDSTapTin.txt_MaTapTin.Enabled = false;
+            Form f = new Forms.Popup( "QUẢN LÝ NHÂN SỰ - DANH SÁCH TẬP TIN",oDSTapTin);
+            f.ShowDialog();
         }
+
+        private void bw_upload_DaoTao_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+            for (int i = 0; i < nNewFilesCount_DaoTao; i++)
+            {
+                bw_upload_DaoTao.ReportProgress(i + 1);
+
+                ServerPaths_DaoTao[i] = oFTP.UploadFile(CNVC_DaoTaoBoiDuong.oFile_DaoTao.Path[i], 
+                                    CNVC_DaoTaoBoiDuong.oFile_DaoTao.Path[i].Split('\\').Last(),
+                                    CNVC_DaoTaoBoiDuong.oFile_DaoTao.Group[i], oCNVC_DaoTaoBoiDuong.MaNV);
+                Thread.Sleep(100);
+
+            }
+        }
+
+        private void bw_upload_DaoTao_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            // Change the value of the ProgressBar to the BackgroundWorker progress.
+            pb_Status_DaoTao.Value = e.ProgressPercentage;
+            // Set the text.
+            lbl_Status_DaoTao.Text = "Đang đăng tập tin ..." + e.ProgressPercentage.ToString() + " / " + nNewFilesCount_DaoTao.ToString();
+        }
+
+        private void bw_upload_DaoTao_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (CNVC_DaoTaoBoiDuong.oFile_DaoTao.Path.Count > 0)
+            {
+                MessageBox.Show("Quá trình đăng tập tin lên server thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                lbl_Status_DaoTao.Text = "Đăng hình hoàn tất!";
+
+                try
+                {
+                    for (int i = 0; i < CNVC_DaoTaoBoiDuong.oFile_DaoTao.Path.Count; i++)
+                    {
+                        CNVC_DaoTaoBoiDuong.oFile_DaoTao.Link[i] = oCNVC_DaoTaoBoiDuong.MaNV;
+                    }
+                    CNVC_DaoTaoBoiDuong.oFile_DaoTao.MaNV = oCNVC_DaoTaoBoiDuong.MaNV;
+                    CNVC_DaoTaoBoiDuong.oFile_DaoTao.AddFileArray(ServerPaths_DaoTao);
+
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Quá trình lưu tập tin không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                ((Form)this.Parent.Parent.Parent.Parent.Parent).ControlBox = true;
+                this.Enabled = true;
+                CNVC_DaoTaoBoiDuong.oFile_DaoTao.DisputeObject();
+            }
+
+        }
+
+        private void lb_BoiDuong_TapTin_Click(object sender, EventArgs e)
+        {
+            HDQD.UCs.DSTapTin oDSTapTin = new HDQD.UCs.DSTapTin("QLNS_BoiDuong", CNVC_DaoTaoBoiDuong.oFile_BoiDuong);
+            oDSTapTin.txt_MaTapTin.Enabled = false;
+            Form f = new Forms.Popup("QUẢN LÝ NHÂN SỰ - DANH SÁCH TẬP TIN", oDSTapTin);
+            f.ShowDialog();
+        }
+
+        private void bw_upload_BoiDuong_DoWork(object sender, DoWorkEventArgs e)
+        {
+            for (int i = 0; i < nNewFilesCount_BoiDuong; i++)
+            {
+                bw_upload_BoiDuong.ReportProgress(i + 1);
+
+                ServerPaths_BoiDuong[i] = oFTP.UploadFile(CNVC_DaoTaoBoiDuong.oFile_BoiDuong.Path[i],
+                                    CNVC_DaoTaoBoiDuong.oFile_BoiDuong.Path[i].Split('\\').Last(),
+                                    CNVC_DaoTaoBoiDuong.oFile_BoiDuong.Group[i], oCNVC_DaoTaoBoiDuong.MaNV);
+                Thread.Sleep(100);
+
+            }
+        }
+
+        private void bw_upload_BoiDuong_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            // Change the value of the ProgressBar to the BackgroundWorker progress.
+            pb_Status_BoiDuong.Value = e.ProgressPercentage;
+            // Set the text.
+            lb_Status_BoiDuong.Text = "Đang đăng tập tin ..." + e.ProgressPercentage.ToString() + " / " + nNewFilesCount_BoiDuong.ToString();
+        }
+
+        private void bw_upload_BoiDuong_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (CNVC_DaoTaoBoiDuong.oFile_BoiDuong.Path.Count > 0)
+            {
+                MessageBox.Show("Quá trình đăng tập tin lên server thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                lb_Status_BoiDuong.Text = "Đăng hình hoàn tất!";
+
+                try
+                {
+                    for (int i = 0; i < CNVC_DaoTaoBoiDuong.oFile_BoiDuong.Path.Count; i++)
+                    {
+                        CNVC_DaoTaoBoiDuong.oFile_BoiDuong.Link[i] = oCNVC_DaoTaoBoiDuong.MaNV;
+                    }
+                    CNVC_DaoTaoBoiDuong.oFile_BoiDuong.MaNV = oCNVC_DaoTaoBoiDuong.MaNV;
+                    CNVC_DaoTaoBoiDuong.oFile_BoiDuong.AddFileArray(ServerPaths_BoiDuong);
+
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Quá trình lưu tập tin không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                ((Form)this.Parent.Parent.Parent.Parent.Parent).ControlBox = true;
+                this.Enabled = true;
+                CNVC_DaoTaoBoiDuong.oFile_BoiDuong.DisputeObject();
+            }
+        }
+
+
     }
 }
 

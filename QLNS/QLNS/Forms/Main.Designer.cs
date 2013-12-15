@@ -80,6 +80,7 @@
             this.tsmi_LoaiHD = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_LoaiPC = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_LoaiQD = new System.Windows.Forms.ToolStripMenuItem();
+            this.tậpTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_BaoCao = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_ThongTinTK = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_ThongTin = new System.Windows.Forms.ToolStripMenuItem();
@@ -90,7 +91,10 @@
             this.ImageL_MenuStrip = new System.Windows.Forms.ImageList(this.components);
             this.tableLP_Main = new System.Windows.Forms.TableLayoutPanel();
             this.ImageL_MenuStripItem = new System.Windows.Forms.ImageList(this.components);
-            this.tậpTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lươngPhụCấpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ngàyCôngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.chấmCôngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ngàyPhépToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -469,6 +473,11 @@
             // tsmi_QLL
             // 
             this.tsmi_QLL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(49)))), ((int)(((byte)(123)))));
+            this.tsmi_QLL.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lươngPhụCấpToolStripMenuItem1,
+            this.ngàyCôngToolStripMenuItem,
+            this.chấmCôngToolStripMenuItem,
+            this.ngàyPhépToolStripMenuItem});
             this.tsmi_QLL.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tsmi_QLL.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.tsmi_QLL.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -640,6 +649,15 @@
             this.tsmi_LoaiQD.Text = "Loại quyết định";
             this.tsmi_LoaiQD.Click += new System.EventHandler(this.tsmi_LoaiQD_Click);
             // 
+            // tậpTinToolStripMenuItem
+            // 
+            this.tậpTinToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(55)))), ((int)(((byte)(78)))));
+            this.tậpTinToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tậpTinToolStripMenuItem.Name = "tậpTinToolStripMenuItem";
+            this.tậpTinToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
+            this.tậpTinToolStripMenuItem.Text = "Tập tin";
+            this.tậpTinToolStripMenuItem.Click += new System.EventHandler(this.tậpTinToolStripMenuItem_Click);
+            // 
             // tsmi_BaoCao
             // 
             this.tsmi_BaoCao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(125)))), ((int)(((byte)(202)))));
@@ -782,14 +800,41 @@
             this.ImageL_MenuStripItem.Images.SetKeyName(32, "bieu do.png");
             this.ImageL_MenuStripItem.Images.SetKeyName(33, "Quan Ly File.png");
             // 
-            // tậpTinToolStripMenuItem
+            // lươngPhụCấpToolStripMenuItem1
             // 
-            this.tậpTinToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(55)))), ((int)(((byte)(78)))));
-            this.tậpTinToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.tậpTinToolStripMenuItem.Name = "tậpTinToolStripMenuItem";
-            this.tậpTinToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
-            this.tậpTinToolStripMenuItem.Text = "Tập tin";
-            this.tậpTinToolStripMenuItem.Click += new System.EventHandler(this.tậpTinToolStripMenuItem_Click);
+            this.lươngPhụCấpToolStripMenuItem1.BackColor = System.Drawing.Color.YellowGreen;
+            this.lươngPhụCấpToolStripMenuItem1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lươngPhụCấpToolStripMenuItem1.Name = "lươngPhụCấpToolStripMenuItem1";
+            this.lươngPhụCấpToolStripMenuItem1.Size = new System.Drawing.Size(191, 26);
+            this.lươngPhụCấpToolStripMenuItem1.Text = "Lương & Phụ Cấp";
+            this.lươngPhụCấpToolStripMenuItem1.Click += new System.EventHandler(this.lươngPhụCấpToolStripMenuItem1_Click);
+            // 
+            // ngàyCôngToolStripMenuItem
+            // 
+            this.ngàyCôngToolStripMenuItem.BackColor = System.Drawing.Color.YellowGreen;
+            this.ngàyCôngToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ngàyCôngToolStripMenuItem.Name = "ngàyCôngToolStripMenuItem";
+            this.ngàyCôngToolStripMenuItem.Size = new System.Drawing.Size(191, 26);
+            this.ngàyCôngToolStripMenuItem.Text = "Ngày công";
+            this.ngàyCôngToolStripMenuItem.Click += new System.EventHandler(this.ngàyCôngToolStripMenuItem_Click);
+            // 
+            // chấmCôngToolStripMenuItem
+            // 
+            this.chấmCôngToolStripMenuItem.BackColor = System.Drawing.Color.YellowGreen;
+            this.chấmCôngToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.chấmCôngToolStripMenuItem.Name = "chấmCôngToolStripMenuItem";
+            this.chấmCôngToolStripMenuItem.Size = new System.Drawing.Size(191, 26);
+            this.chấmCôngToolStripMenuItem.Text = "Chấm công";
+            this.chấmCôngToolStripMenuItem.Click += new System.EventHandler(this.chấmCôngToolStripMenuItem_Click);
+            // 
+            // ngàyPhépToolStripMenuItem
+            // 
+            this.ngàyPhépToolStripMenuItem.BackColor = System.Drawing.Color.YellowGreen;
+            this.ngàyPhépToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ngàyPhépToolStripMenuItem.Name = "ngàyPhépToolStripMenuItem";
+            this.ngàyPhépToolStripMenuItem.Size = new System.Drawing.Size(191, 26);
+            this.ngàyPhépToolStripMenuItem.Text = "Ngày phép";
+            this.ngàyPhépToolStripMenuItem.Click += new System.EventHandler(this.ngàyPhépToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -880,6 +925,10 @@
         private System.Windows.Forms.ToolStripMenuItem quáTrìnhCôngTácToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thâmNiênNhânViênToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tậpTinToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lươngPhụCấpToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem ngàyCôngToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem chấmCôngToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ngàyPhépToolStripMenuItem;
 
 
 

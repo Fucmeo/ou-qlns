@@ -33,11 +33,11 @@
             this.tableLP_DSTapTin = new System.Windows.Forms.TableLayoutPanel();
             this.tableLP_ChiTietFile = new System.Windows.Forms.TableLayoutPanel();
             this.tableLP_ThaoTac = new System.Windows.Forms.TableLayoutPanel();
-            this.btn_DownLoad = new System.Windows.Forms.Button();
+            this.btn_Them = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.btn_Luu = new System.Windows.Forms.Button();
             this.btn_Xoa = new System.Windows.Forms.Button();
-            this.btn_Them = new System.Windows.Forms.Button();
+            this.btn_DownLoad = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lsb_DSFile = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -120,21 +120,20 @@
             this.tableLP_ThaoTac.Size = new System.Drawing.Size(312, 150);
             this.tableLP_ThaoTac.TabIndex = 3;
             // 
-            // btn_DownLoad
+            // btn_Them
             // 
-            this.btn_DownLoad.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_DownLoad.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_DownLoad.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_DownLoad.ImageKey = "Download.png";
-            this.btn_DownLoad.ImageList = this.imageList1;
-            this.btn_DownLoad.Location = new System.Drawing.Point(245, 49);
-            this.btn_DownLoad.Name = "btn_DownLoad";
-            this.btn_DownLoad.Size = new System.Drawing.Size(56, 52);
-            this.btn_DownLoad.TabIndex = 6;
-            this.btn_DownLoad.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_DownLoad.UseVisualStyleBackColor = true;
-            this.btn_DownLoad.Visible = false;
-            this.btn_DownLoad.Click += new System.EventHandler(this.btn_DownLoad_Click);
+            this.btn_Them.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Them.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Them.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_Them.ImageKey = "Add.png";
+            this.btn_Them.ImageList = this.imageList1;
+            this.btn_Them.Location = new System.Drawing.Point(11, 49);
+            this.btn_Them.Name = "btn_Them";
+            this.btn_Them.Size = new System.Drawing.Size(56, 52);
+            this.btn_Them.TabIndex = 1;
+            this.btn_Them.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Them.UseVisualStyleBackColor = true;
+            this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
             // 
             // imageList1
             // 
@@ -177,20 +176,21 @@
             this.btn_Xoa.UseVisualStyleBackColor = true;
             this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
             // 
-            // btn_Them
+            // btn_DownLoad
             // 
-            this.btn_Them.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Them.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Them.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_Them.ImageKey = "Add.png";
-            this.btn_Them.ImageList = this.imageList1;
-            this.btn_Them.Location = new System.Drawing.Point(11, 49);
-            this.btn_Them.Name = "btn_Them";
-            this.btn_Them.Size = new System.Drawing.Size(56, 52);
-            this.btn_Them.TabIndex = 1;
-            this.btn_Them.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Them.UseVisualStyleBackColor = true;
-            this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
+            this.btn_DownLoad.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_DownLoad.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_DownLoad.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_DownLoad.ImageKey = "Download.png";
+            this.btn_DownLoad.ImageList = this.imageList1;
+            this.btn_DownLoad.Location = new System.Drawing.Point(245, 49);
+            this.btn_DownLoad.Name = "btn_DownLoad";
+            this.btn_DownLoad.Size = new System.Drawing.Size(56, 52);
+            this.btn_DownLoad.TabIndex = 6;
+            this.btn_DownLoad.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_DownLoad.UseVisualStyleBackColor = true;
+            this.btn_DownLoad.Visible = false;
+            this.btn_DownLoad.Click += new System.EventHandler(this.btn_DownLoad_Click);
             // 
             // groupBox2
             // 
@@ -385,9 +385,9 @@
             // 
             // OFD
             // 
-            this.OFD.Filter = "PNG|*.PNG|GIF|*.GIF|JPEG|*.JPEG|JPG|*.JPG|Pictures Format|*.JPEG;*.PNG;*.GIF;*.JP" +
-    "G";
-            this.OFD.FilterIndex = 5;
+            this.OFD.Filter = "PNG|*.PNG|GIF|*.GIF|JPEG|*.JPEG|JPG|*.JPG|PDF Files|*.pdf|Pictures Format|*.JPEG;" +
+                "*.PNG;*.GIF;*.JPG";
+            this.OFD.FilterIndex = 6;
             this.OFD.Multiselect = true;
             this.OFD.Title = "Chọn tập tin để tải lên...";
             // 

@@ -15,6 +15,10 @@ namespace LuongBH.UCs.Luong
         DataTable dtNgayNghi , dtLoaiNgayPhep;
         Business.Luong.ChamCong oChamCong;
         Business.Luong.LoaiNgayPhep oLoaiNgayPhep;
+
+        static List<string> lFrom = new List<string>(); // list tu ngay khi break ngay nghi theo month
+        static List<string> lTo = new List<string>(); // list den ngay khi break ngay nghi theo month
+        static List<int> lWorkingDays = new List<int>(); // list working days khi break ngay nghi theo month
         public ChamCong()
         {
             InitializeComponent();
@@ -71,6 +75,7 @@ namespace LuongBH.UCs.Luong
                 }
                 else
                 {
+                    UIControls(true);
                     MessageBox.Show("Không tìm thấy thông tin ngày nghỉ của nhân viên " + oThongTinCNVC.txt_HoTen.Text, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 
@@ -168,19 +173,32 @@ namespace LuongBH.UCs.Luong
 
         }
 
+        public static  double GetBusinessDays(DateTime startD, DateTime endD)
+        {
+            double calcBusinessDays =
+                1 + ((endD - startD).TotalDays * 5 -
+                (startD.DayOfWeek - endD.DayOfWeek) * 2) / 7;
+
+            if ((int)endD.DayOfWeek == 6) calcBusinessDays--;
+            if ((int)startD.DayOfWeek == 0) calcBusinessDays--;
+
+            return calcBusinessDays;
+        }
+
         private void btn_Luu_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn muốn thêm ngày nghỉ cho nhân viên " + oThongTinCNVC.txt_MaNV.Text, "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 oChamCong.LoaiNgayPhepID = Convert.ToInt16(cb_LoaiNgayPhep.SelectedValue);
-                oChamCong.TuNgay = dtp_TuNGay.Value;
-                oChamCong.DenNgay = dtp_DenNgay.Value;
                 oChamCong.IsUngTruoc = cb_UngNP.Checked;
                 oChamCong.GhiChu = rTB_GhiChu.Text;
 
+                BreakDateByMonth(dtp_TuNGay.Value, dtp_DenNgay.Value);
+
+                
                 try
                 {
-                    oChamCong.Add(oThongTinCNVC.txt_MaNV.Text);
+                    oChamCong.Add(oThongTinCNVC.txt_MaNV.Text, lFrom,lTo,lWorkingDays);
                     MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     UIControls(true);
                     GetAndBindMonthCalendar();
@@ -191,6 +209,25 @@ namespace LuongBH.UCs.Luong
                 }
             }
             
+        }
+
+        public static void BreakDateByMonth(DateTime start, DateTime end)
+        {
+            DateTime EndofMonth = new DateTime(start.Year, start.Month, DateTime.DaysInMonth(start.Year, start.Month));
+            if (EndofMonth >= end)
+            {
+                lFrom.Add(start.ToShortDateString());
+                lTo.Add(end.ToShortDateString());
+                lWorkingDays.Add(Convert.ToInt16(GetBusinessDays(start, end)));
+            }
+            else
+            {
+                lFrom.Add(start.ToShortDateString());
+                lTo.Add(EndofMonth.ToShortDateString());
+                lWorkingDays.Add(Convert.ToInt16(GetBusinessDays(start, EndofMonth)));
+                BreakDateByMonth(EndofMonth.AddDays(1), end);
+            }
+
         }
 
         private void dtp_TuNGay_ValueChanged(object sender, EventArgs e)
@@ -241,6 +278,11 @@ namespace LuongBH.UCs.Luong
             }
 
             return false;
+        }
+
+        private void btn_Huy_Click(object sender, EventArgs e)
+        {
+            UIControls(true);
         }
     }
 }

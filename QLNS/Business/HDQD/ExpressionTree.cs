@@ -130,7 +130,8 @@ namespace Business.HDQD
                 CreateSubTree(operatorStack, nodeStack);
 
             obtn = nodeStack.Peek();
-            TreeNodeCount = infixExpression.Split(' ').Except(new string[2]{"(",")"}.AsEnumerable()).Count();
+            //TreeNodeCount = infixExpression.Split(' ').Except(new string[2]{"(",")"}.AsEnumerable()).Count();
+            TreeNodeCount = infixExpression.Split(' ').Count();
             return obtn;
         }
 

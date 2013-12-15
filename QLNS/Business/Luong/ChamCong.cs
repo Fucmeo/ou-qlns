@@ -45,14 +45,15 @@ namespace Business.Luong
             return dt;
         }
 
-        public bool Add(string pMaNV)
+        public bool Add(string pMaNV,List<string> lFrom,List<string> lTo,List<int> pWorkingDay)
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[6]{
+            IDataParameter[] paras = new IDataParameter[7]{
                 new NpgsqlParameter("p_manv",pMaNV),
                 new NpgsqlParameter("p_loai_ngay_phep_id",LoaiNgayPhepID),
-                new NpgsqlParameter("tu_ngay",TuNgay),
-                new NpgsqlParameter("den_ngay",DenNgay),
+                new NpgsqlParameter("p_tu_ngay",lFrom.ToArray()),
+                new NpgsqlParameter("p_den_ngay",lTo.ToArray()),
+                new NpgsqlParameter("pWorkingDay",pWorkingDay.ToArray()),
                 new NpgsqlParameter("p_is_ung_truoc",IsUngTruoc),
                 new NpgsqlParameter("p_ghi_chu",GhiChu)
             };

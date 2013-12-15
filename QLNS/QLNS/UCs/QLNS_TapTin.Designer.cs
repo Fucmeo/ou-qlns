@@ -181,9 +181,9 @@
             // 
             // rtb_MoTa
             // 
-            this.rtb_MoTa.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtb_MoTa.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.rtb_MoTa.Location = new System.Drawing.Point(381, 61);
             this.rtb_MoTa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rtb_MoTa.MaxLength = 50;

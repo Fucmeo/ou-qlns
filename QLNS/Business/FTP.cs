@@ -204,7 +204,6 @@ namespace Business
             catch (Exception)
             {
 
-                throw;
             }
             finally
             {
