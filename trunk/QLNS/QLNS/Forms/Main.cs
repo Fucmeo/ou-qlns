@@ -472,5 +472,30 @@ namespace QLNS.Forms
             Forms.Popup f = new Popup("Quản lý tập tin", new QLNS.UCs.QLNS_TapTin());
             f.ShowDialog();
         }
+
+
+        private void lươngPhụCấpToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Tính lương", new LuongBH.UCs.Luong.TinhLuong());
+            f.ShowDialog();
+        }
+
+        private void ngàyCôngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Quản lý ngày công", new LuongBH.UCs.Luong.NgayCong());
+            f.ShowDialog();
+        }
+
+        private void chấmCôngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Chấm công", new LuongBH.UCs.Luong.ChamCong());
+            f.ShowDialog();
+        }
+
+        private void ngàyPhépToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Ngày phép", new LuongBH.UCs.Luong.NgayPhep());
+            f.ShowDialog();
+        }
     }
 }

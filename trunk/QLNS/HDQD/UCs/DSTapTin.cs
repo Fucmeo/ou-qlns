@@ -32,6 +32,10 @@ namespace HDQD.UCs
             {
                 AddFiles();
             }
+            else
+            {
+                oCNVCFile = new Business.CNVC.CNVC_File();
+            }
             UCName = _UCName;
         }
 
@@ -129,6 +133,12 @@ namespace HDQD.UCs
                         break;
                     case "TiepNhan":
                         TiepNhan.oFile = oCNVCFile;
+                        break;
+                    case "QLNS_DaoTao":
+                        Business.CNVC.CNVC_DaoTaoBoiDuong.oFile_DaoTao = oCNVCFile;
+                        break;
+                    case "QLNS_BoiDuong":
+                        Business.CNVC.CNVC_DaoTaoBoiDuong.oFile_BoiDuong = oCNVCFile;
                         break;
                     case "DoiThongTin":
                         DoiThongTinDV.Desc = rtb_MoTa.Text;

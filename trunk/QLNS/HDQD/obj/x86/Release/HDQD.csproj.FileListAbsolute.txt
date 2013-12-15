@@ -45,3 +45,6 @@ D:\Job\QLNS\Projects\QLNS\HDQD\obj\x86\Release\HDQD.exe
 D:\Job\QLNS\Projects\QLNS\HDQD\obj\x86\Release\HDQD.pdb
 D:\Job\QLNS\Projects\QLNS\HDQD\obj\x86\Release\HDQD.UCs.QDDungHopDong.resources
 D:\Job\QLNS\Projects\QLNS\HDQD\obj\x86\Release\HDQD.UCs.ThemLoaiFile.resources
+D:\Job\QLNS\Projects\QLNS\HDQD\obj\x86\Release\HDQD.UCs.DonViCu.resources
+D:\Job\QLNS\Projects\QLNS\HDQD\obj\x86\Release\HDQD.UCs.HopDongCu.resources
+D:\Job\QLNS\Projects\QLNS\HDQD\obj\x86\Release\HDQD.UCs.TiepNhanCu.resources

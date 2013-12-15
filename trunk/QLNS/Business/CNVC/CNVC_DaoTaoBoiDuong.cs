@@ -25,6 +25,10 @@ namespace Business.CNVC
 
         #region Properties
 
+        public static CNVC_File oFile_DaoTao { get; set; }
+
+        public static CNVC_File oFile_BoiDuong { get; set; }
+
         private int? id;
 
         public int? ID
