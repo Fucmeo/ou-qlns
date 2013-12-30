@@ -18,6 +18,7 @@ namespace QLNS
             //Application.Run(new Forms.Popup("",(new UCs.QLNS_TapTin())));
             Application.Run(new Forms.Main(new UCs.QLNS_HienThiThongTin()));
             //Application.Run(new Forms.Popup("test", new UCs.DanhMucThongTin.QLNS_NghienCuuKH()));
+            //Application.Run(new Forms.Form1());
         }
 
         public static string selected_ma_nv = "";   // bien toan cuc ma_nv su dung khi hien thi thong tin nv

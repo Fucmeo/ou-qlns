@@ -110,6 +110,7 @@
             this.TLP_ProgressBar = new System.Windows.Forms.TableLayoutPanel();
             this.pb_Status = new System.Windows.Forms.ProgressBar();
             this.lbl_Status = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tableLP_HopDong.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLP_ChiTietHopDong.SuspendLayout();
@@ -194,6 +195,7 @@
             this.tableLP_ChiTietHopDong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.28378F));
             this.tableLP_ChiTietHopDong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.13759F));
             this.tableLP_ChiTietHopDong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.24079F));
+            this.tableLP_ChiTietHopDong.Controls.Add(this.checkBox1, 4, 2);
             this.tableLP_ChiTietHopDong.Controls.Add(this.groupBox3, 0, 6);
             this.tableLP_ChiTietHopDong.Controls.Add(this.label2, 0, 7);
             this.tableLP_ChiTietHopDong.Controls.Add(this.rTB_GhiChu, 1, 7);
@@ -328,7 +330,7 @@
             this.tableLP_PhuCap.SetColumnSpan(this.comB_LoaiPhuCap, 2);
             this.comB_LoaiPhuCap.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_LoaiPhuCap.FormattingEnabled = true;
-            this.comB_LoaiPhuCap.Location = new System.Drawing.Point(489, 14);
+            this.comB_LoaiPhuCap.Location = new System.Drawing.Point(489, 15);
             this.comB_LoaiPhuCap.Name = "comB_LoaiPhuCap";
             this.comB_LoaiPhuCap.Size = new System.Drawing.Size(252, 28);
             this.comB_LoaiPhuCap.TabIndex = 1;
@@ -436,9 +438,9 @@
             // 
             // TLP_HienThiLoaiPC
             // 
-            this.TLP_HienThiLoaiPC.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TLP_HienThiLoaiPC.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.TLP_HienThiLoaiPC.ColumnCount = 4;
             this.tableLP_PhuCap.SetColumnSpan(this.TLP_HienThiLoaiPC, 6);
             this.TLP_HienThiLoaiPC.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.20172F));
@@ -659,7 +661,7 @@
             this.comb_Luong.Items.AddRange(new object[] {
             "Hệ số",
             "Khoán"});
-            this.comb_Luong.Location = new System.Drawing.Point(121, 6);
+            this.comb_Luong.Location = new System.Drawing.Point(121, 8);
             this.comb_Luong.Name = "comb_Luong";
             this.comb_Luong.Size = new System.Drawing.Size(201, 28);
             this.comb_Luong.TabIndex = 33;
@@ -708,7 +710,7 @@
             this.comb_Ngach.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comb_Ngach.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comb_Ngach.FormattingEnabled = true;
-            this.comb_Ngach.Location = new System.Drawing.Point(414, 6);
+            this.comb_Ngach.Location = new System.Drawing.Point(414, 8);
             this.comb_Ngach.Name = "comb_Ngach";
             this.comb_Ngach.Size = new System.Drawing.Size(209, 28);
             this.comb_Ngach.TabIndex = 29;
@@ -728,7 +730,7 @@
             this.comb_Bac.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comb_Bac.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comb_Bac.FormattingEnabled = true;
-            this.comb_Bac.Location = new System.Drawing.Point(771, 6);
+            this.comb_Bac.Location = new System.Drawing.Point(771, 8);
             this.comb_Bac.Name = "comb_Bac";
             this.comb_Bac.Size = new System.Drawing.Size(202, 28);
             this.comb_Bac.TabIndex = 30;
@@ -830,7 +832,7 @@
             this.comB_DonVi.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_DonVi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_DonVi.FormattingEnabled = true;
-            this.comB_DonVi.Location = new System.Drawing.Point(122, 126);
+            this.comB_DonVi.Location = new System.Drawing.Point(122, 128);
             this.comB_DonVi.Name = "comB_DonVi";
             this.comB_DonVi.Size = new System.Drawing.Size(203, 28);
             this.comB_DonVi.TabIndex = 6;
@@ -869,7 +871,7 @@
             this.comB_LoaiHD.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_LoaiHD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_LoaiHD.FormattingEnabled = true;
-            this.comB_LoaiHD.Location = new System.Drawing.Point(449, 6);
+            this.comB_LoaiHD.Location = new System.Drawing.Point(449, 7);
             this.comB_LoaiHD.Name = "comB_LoaiHD";
             this.comB_LoaiHD.Size = new System.Drawing.Size(204, 28);
             this.comB_LoaiHD.TabIndex = 1;
@@ -989,7 +991,7 @@
             this.comB_ChucVu.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_ChucVu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_ChucVu.FormattingEnabled = true;
-            this.comB_ChucVu.Location = new System.Drawing.Point(122, 168);
+            this.comB_ChucVu.Location = new System.Drawing.Point(122, 170);
             this.comB_ChucVu.Name = "comB_ChucVu";
             this.comB_ChucVu.Size = new System.Drawing.Size(203, 28);
             this.comB_ChucVu.TabIndex = 7;
@@ -1009,7 +1011,7 @@
             this.comB_ChucDanh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_ChucDanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_ChucDanh.FormattingEnabled = true;
-            this.comB_ChucDanh.Location = new System.Drawing.Point(449, 168);
+            this.comB_ChucDanh.Location = new System.Drawing.Point(449, 170);
             this.comB_ChucDanh.Name = "comB_ChucDanh";
             this.comB_ChucDanh.Size = new System.Drawing.Size(204, 28);
             this.comB_ChucDanh.TabIndex = 8;
@@ -1054,9 +1056,9 @@
             // 
             // TLP_ProgressBar
             // 
-            this.TLP_ProgressBar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TLP_ProgressBar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.TLP_ProgressBar.ColumnCount = 2;
             this.TLP_ProgressBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.75453F));
             this.TLP_ProgressBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.24548F));
@@ -1087,6 +1089,18 @@
             this.lbl_Status.Name = "lbl_Status";
             this.lbl_Status.Size = new System.Drawing.Size(0, 24);
             this.lbl_Status.TabIndex = 1;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.checkBox1.AutoSize = true;
+            this.tableLP_ChiTietHopDong.SetColumnSpan(this.checkBox1, 2);
+            this.checkBox1.Location = new System.Drawing.Point(659, 92);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(143, 24);
+            this.checkBox1.TabIndex = 42;
+            this.checkBox1.Text = "Đóng bảo hiểm";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // HopDongCu
             // 
@@ -1203,5 +1217,6 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

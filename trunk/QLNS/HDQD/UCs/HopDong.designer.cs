@@ -106,6 +106,7 @@
             this.lbl_Status = new System.Windows.Forms.Label();
             this.bw_upload = new System.ComponentModel.BackgroundWorker();
             this.bw_download = new System.ComponentModel.BackgroundWorker();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tableLP_HopDong.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLP_ChiTietHopDong.SuspendLayout();
@@ -171,6 +172,7 @@
             this.tableLP_ChiTietHopDong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.28378F));
             this.tableLP_ChiTietHopDong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.13759F));
             this.tableLP_ChiTietHopDong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.24079F));
+            this.tableLP_ChiTietHopDong.Controls.Add(this.checkBox1, 4, 2);
             this.tableLP_ChiTietHopDong.Controls.Add(this.groupBox3, 0, 5);
             this.tableLP_ChiTietHopDong.Controls.Add(this.label2, 0, 6);
             this.tableLP_ChiTietHopDong.Controls.Add(this.rTB_GhiChu, 1, 6);
@@ -271,6 +273,7 @@
             this.rTB_GhiChuPC.Size = new System.Drawing.Size(480, 50);
             this.rTB_GhiChuPC.TabIndex = 6;
             this.rTB_GhiChuPC.Text = "";
+            this.rTB_GhiChuPC.TextChanged += new System.EventHandler(this.rTB_GhiChuPC_TextChanged);
             // 
             // label15
             // 
@@ -411,9 +414,9 @@
             // 
             // TLP_HienThiLoaiPC
             // 
-            this.TLP_HienThiLoaiPC.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TLP_HienThiLoaiPC.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.TLP_HienThiLoaiPC.ColumnCount = 4;
             this.tableLP_PhuCap.SetColumnSpan(this.TLP_HienThiLoaiPC, 6);
             this.TLP_HienThiLoaiPC.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.20172F));
@@ -1014,9 +1017,9 @@
             // 
             // TLP_ProgressBar
             // 
-            this.TLP_ProgressBar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TLP_ProgressBar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.TLP_ProgressBar.ColumnCount = 2;
             this.TLP_ProgressBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.75453F));
             this.TLP_ProgressBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.24548F));
@@ -1061,6 +1064,18 @@
             this.bw_download.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bw_download_DoWork);
             this.bw_download.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bw_download_ProgressChanged);
             this.bw_download.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bw_download_RunWorkerCompleted);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.checkBox1.AutoSize = true;
+            this.tableLP_ChiTietHopDong.SetColumnSpan(this.checkBox1, 2);
+            this.checkBox1.Location = new System.Drawing.Point(659, 96);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(138, 25);
+            this.checkBox1.TabIndex = 38;
+            this.checkBox1.Text = "Đóng bảo hiểm";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // HopDong
             // 
@@ -1174,5 +1189,6 @@
         private System.Windows.Forms.TextBox txt_Luong_PC;
         private System.Windows.Forms.CheckBox cb_ThamNienNB;
         private System.Windows.Forms.CheckBox cb_ThamNienNG;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
