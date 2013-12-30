@@ -1075,5 +1075,10 @@ namespace HDQD.UCs
             catch { }
         }
 
+        private void rTB_GhiChuPC_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

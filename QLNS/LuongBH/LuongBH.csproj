@@ -62,6 +62,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UCs\BaoHiem\LoaiBaoHiem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\BaoHiem\LoaiBaoHiem.Designer.cs">
+      <DependentUpon>LoaiBaoHiem.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCs\Luong\BacHeSo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -135,6 +141,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UCs\BaoHiem\LoaiBaoHiem.resx">
+      <DependentUpon>LoaiBaoHiem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UCs\Luong\BacHeSo.resx">
       <DependentUpon>BacHeSo.cs</DependentUpon>
     </EmbeddedResource>
@@ -176,9 +185,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UCs\BaoHiem\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Business\Business.csproj">
       <Project>{BE6A57C0-9563-47D1-B910-A25B573C1944}</Project>
