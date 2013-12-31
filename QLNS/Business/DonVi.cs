@@ -222,6 +222,37 @@ namespace Business
             return dt;
         }
 
+        public DataTable GetInActiveDonVi()
+        {
+            DataTable dt = new DataTable();
+
+            dt = dp.getDataTable("select * from v_don_vi_ngung_hd");
+
+            return dt;
+        }
+
+        public DataTable GetDonVi_All()
+        {
+            DataTable dt = new DataTable();
+
+            dt = dp.getDataTable("select * from v_don_vi_all");
+
+            return dt;
+        }
+
+        public DataTable GetDonVi_New(int p_don_vi_id_old)
+        {
+            DataTable dt;
+
+            IDataParameter[] paras = new IDataParameter[1]{
+                new NpgsqlParameter("p_don_vi_old",p_don_vi_id_old)               
+            };
+
+            dt = dp.getDataTableProc("sp1_qsearch_don_vi_moi", paras);
+
+            return dt;
+        }
+
         #endregion
     }
 }
