@@ -15,7 +15,7 @@ namespace LuongBH
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LuongBH.Form1(new UCs.Luong.NgayCong()));
+            Application.Run(new LuongBH.Form1(new UCs.Luong.TinhLuong()));
         }
     }
 }

@@ -870,6 +870,32 @@
             this.textBox1.Size = new System.Drawing.Size(173, 25);
             this.textBox1.TabIndex = 44;
             // 
+<<<<<<< .mine
+            // cb_ThamNienNG
+            // 
+            this.cb_ThamNienNG.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cb_ThamNienNG.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.cb_ThamNienNG, 2);
+            this.cb_ThamNienNG.Location = new System.Drawing.Point(293, 74);
+            this.cb_ThamNienNG.Name = "cb_ThamNienNG";
+            this.cb_ThamNienNG.Size = new System.Drawing.Size(215, 27);
+            this.cb_ThamNienNG.TabIndex = 41;
+            this.cb_ThamNienNG.Text = "Tính thâm niên nhà giáo";
+            this.cb_ThamNienNG.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.checkBox1.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.checkBox1, 2);
+            this.checkBox1.Location = new System.Drawing.Point(585, 74);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(148, 27);
+            this.checkBox1.TabIndex = 46;
+            this.checkBox1.Text = "Đóng bảo hiểm";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+=======
             // cb_ThamNienNG
             // 
             this.cb_ThamNienNG.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -894,6 +920,7 @@
             this.checkBox1.Text = "Đóng bảo hiểm";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
+>>>>>>> .r244
             // TLP_Button
             // 
             this.TLP_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 

@@ -37,3 +37,5 @@ D:\Job\QLNS\Projects\QLNS\LuongBH\obj\x86\Debug\LuongBH.csproj.GenerateResource.
 D:\Job\QLNS\Projects\QLNS\LuongBH\obj\x86\Debug\LuongBH.exe
 D:\Job\QLNS\Projects\QLNS\LuongBH\obj\x86\Debug\LuongBH.pdb
 D:\Job\QLNS\Projects\QLNS\LuongBH\obj\x86\Debug\LuongBH.UCs.BaoHiem.LoaiBaoHiem.resources
+D:\Job\QLNS\Projects\QLNS\LuongBH\obj\x86\Debug\LuongBH.UCs.BaoHiem.CongThucBH.resources
+D:\Job\QLNS\Projects\QLNS\LuongBH\obj\x86\Debug\LuongBH.UCs.Luong.TinhBaoHiem.resources
