@@ -342,6 +342,49 @@ namespace Business.HDQD
                 return false;
         }
 
+        public bool Add_HopDongOld(int[] p_don_vi_chinh_id, int[] p_chuc_vu_chinh_id, int[] p_chuc_danh_chinh_id)
+        {
+            int check;
+            IDataParameter[] paras = new IDataParameter[29]{
+                new NpgsqlParameter("p_ma_nv",ma_nv),
+                new NpgsqlParameter("p_ma_loai_hd",ma_loai_hd),
+                new NpgsqlParameter("p_ma_tuyen_dung",Ma_Tuyen_Dung + "_" + ngay_hieu_luc.Value.ToString("ddMMyyyy")),
+                new NpgsqlParameter("p_la_qd_tiep_nhan",La_QD_Tiep_Nhan),
+                new NpgsqlParameter("p_ten_qd",Ten_Quyet_Dinh),
+                new NpgsqlParameter("p_loai_qd_id",Loai_QD_ID),
+                new NpgsqlParameter("p_co_thoi_han",co_thoi_han),
+                new NpgsqlParameter("p_ngay_ky",ngay_ky),
+                new NpgsqlParameter("p_ngay_hieu_luc",ngay_hieu_luc),
+                new NpgsqlParameter("p_ngay_het_han",ngay_het_han),
+                new NpgsqlParameter("p_chuc_vu_chinh_id",p_chuc_vu_chinh_id),
+                new NpgsqlParameter("p_don_vi_chinh_id",p_don_vi_chinh_id),
+                new NpgsqlParameter("p_chuc_danh_chinh_id",p_chuc_danh_chinh_id),
+                new NpgsqlParameter("p_ghi_chu",ghi_chu),
+                new NpgsqlParameter("p_khoan_or_heso",Khoan_or_HeSo),
+                new NpgsqlParameter("p_luong_khoan",Luong_Khoan),
+                new NpgsqlParameter("p_heso_luong_id",BacHeSo_ID),
+                new NpgsqlParameter("p_phan_tram_huong_luong",PhanTramHuong),
+                new NpgsqlParameter("p_co_phu_cap",Co_Phu_Cap),
+                new NpgsqlParameter("p_loai_phu_cap_id",Loai_Phu_Cap_ID),
+                new NpgsqlParameter("p_value_khoan",Value_Khoan),
+                new NpgsqlParameter("p_value_he_so",Value_HeSo),
+                new NpgsqlParameter("p_value_phan_tram",Value_PhanTram),
+                new NpgsqlParameter("p_phan_tram_huong_pc",PC_PhanTramHuong),
+                new NpgsqlParameter("p_tu_ngay_pc",PC_TuNgay),
+                new NpgsqlParameter("p_den_ngay_pc",PC_DenNgay),
+                new NpgsqlParameter("p_ghi_chu_pc",PC_GhiChu),
+                new NpgsqlParameter("p_tham_nien_nang_bac",Tham_nien_nang_bac),
+                new NpgsqlParameter("p_tham_nien_gd",Tham_nien_nha_giao)
+            };
+            check = (int)dp.executeScalarProc("sp1_insert_cnvc_tuyen_dung_dvold", paras);
+            if (check > 0)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
         //public bool Update()
         //{
         //    int check;

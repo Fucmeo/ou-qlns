@@ -35,6 +35,10 @@ namespace HDQD.UCs
         DataTable dtPhuCap;
         int row_count_pc = 0;
 
+        public static int[] nSelectedChucVuID;
+        public static int[] nSelectedChucDanhID;
+        public static int[] nSelectedDonViID;
+
         Business.HDQD.CNVC_PhuCap oCNVCPhuCap;
 
         bool IsUpdate = false;
@@ -515,19 +519,235 @@ namespace HDQD.UCs
                     MessageBox.Show("Loại quyết định: " + loai_qd + "\nMã quyết định: " + ma_qd + "\nTên quyết định: " + ten_qd + "\nNgày hiệu lực: " + ngay_hieu_luc_qd.ToString("d", CultureInfo.CreateSpecificCulture("vi-VN")) + "\nVui lòng chọn đơn vị phù hợp.",
                                     "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    Forms.Popup frPopup = new Forms.Popup(new UCs.DonViCu(dt_donvi_new), "Danh sách đơn vị");
+                    Forms.Popup frPopup = new Forms.Popup(new UCs.DonViCu(dt_donvi_new, dtp_DenNgay.Checked, dtp_DenNgay.Value), "Danh sách đơn vị");
                     frPopup.ShowDialog();
 
-
+                    if (nSelectedDonViID.Count() == nSelectedChucDanhID.Count() && nSelectedDonViID.Count() == nSelectedChucVuID.Count())
+                    {
+                        GatherInfo();
+                        try
+                        {
+                            if (MessageBox.Show("Bạn thực sự muốn thêm hợp đồng cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                            {
+                                if (oHopdong.Add_HopDongOld(nSelectedDonViID, nSelectedChucVuID, nSelectedChucDanhID))
+                                {
+                                    MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    ResetInterface();
+                                }
+                                else
+                                    MessageBox.Show("Thao tác thêm thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Thao tác thêm thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                        MessageBox.Show("Có lỗi xảy ra! Vui lòng kiểm tra lại thông tin.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
 
                     #endregion
                 }
+                else //Insert 1 donvi
+                {
+                    GatherInfo();
+                    oHopdong.Don_Vi_ID = Convert.ToInt16(comB_DonVi.SelectedValue);
+                    
+                    if (comB_ChucDanh.Text != "")
+                        oHopdong.Chuc_Danh_ID = Convert.ToInt16(comB_ChucDanh.SelectedValue);
+                    else
+                        oHopdong.Chuc_Danh_ID = null;
 
+                    if (comB_ChucVu.Text != "")
+                        oHopdong.Chuc_Vu_ID = Convert.ToInt16(comB_ChucVu.SelectedValue);
+                    else
+                        oHopdong.Chuc_Vu_ID = null;
+
+                    try
+                    {
+                        if (MessageBox.Show("Bạn thực sự muốn thêm hợp đồng cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            if (oHopdong.Add_wLuong_PhuCap())
+                            {
+                                MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                ResetInterface();
+                            }
+                            else
+                                MessageBox.Show("Thao tác thêm thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Thao tác thêm thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
 
             }
             else
                 MessageBox.Show("Có lỗi xảy ra! Vui lòng kiểm tra lại thông tin.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void GatherInfo()
+        {
+            oHopdong.Ma_NV = thongTinCNVC1.txt_MaNV.Text;
+
+            oHopdong.Ma_Tuyen_Dung = txt_MaHD.Text;
+            oHopdong.Ma_Loai_HD = Convert.ToInt16(comB_LoaiHD.SelectedValue);
+
+            oHopdong.La_QD_Tiep_Nhan = false;
+            oHopdong.Ten_Quyet_Dinh = null;
+            oHopdong.Loai_QD_ID = null;
+
+            oHopdong.Co_Thoi_Han = cb_ThoiHan.Checked;
+
+            if (dTP_NgayKy.Checked == true)
+                oHopdong.Ngay_Ky = dTP_NgayKy.Value;
+            else
+                oHopdong.Ngay_Ky = null;
+
+            oHopdong.Ngay_Hieu_Luc = dtp_TuNgay.Value;
+
+            if (dtp_DenNgay.Checked == true)
+                oHopdong.Ngay_Het_Han = dtp_DenNgay.Value;
+            else
+                oHopdong.Ngay_Het_Han = null;
+
+            ////if (comB_DonVi.SelectedText != "")
+            //oHopdong.Don_Vi_ID = Convert.ToInt16(comB_DonVi.SelectedValue);
+            ////else
+            ////    oHopdong.Don_Vi_ID = null;
+
+            //if (comB_ChucDanh.Text != "")
+            //    oHopdong.Chuc_Danh_ID = Convert.ToInt16(comB_ChucDanh.SelectedValue);
+            //else
+            //    oHopdong.Chuc_Danh_ID = null;
+
+            //if (comB_ChucVu.Text != "")
+            //    oHopdong.Chuc_Vu_ID = Convert.ToInt16(comB_ChucVu.SelectedValue);
+            //else
+            //    oHopdong.Chuc_Vu_ID = null;
+
+            oHopdong.Ghi_Chu = rTB_GhiChu.Text;
+
+            oHopdong.Tham_nien_nang_bac = cb_ThamNienNB.Checked;
+            oHopdong.Tham_nien_nha_giao = cb_ThamNienNG.Checked;
+
+            #region Lương Info
+            if (comb_Luong.SelectedIndex == 0)      // he so
+            {
+                oHopdong.Khoan_or_HeSo = true;
+                oHopdong.Luong_Khoan = null;
+                oHopdong.BacHeSo_ID = Convert.ToInt32(comb_Bac.SelectedValue.ToString());
+                oHopdong.PhanTramHuong = Convert.ToDouble(nup_PhanTram.Value);
+            }
+            else
+            {
+                oHopdong.Khoan_or_HeSo = false;
+                oHopdong.Luong_Khoan = Convert.ToDouble(txt_Tien.Text);
+                oHopdong.BacHeSo_ID = null;
+                oHopdong.PhanTramHuong = Convert.ToDouble(nup_PhanTram.Value);
+            }
+
+            #endregion
+
+            #region Phu cap Info
+            oHopdong.Co_Phu_Cap = !cb_CoPhuCap.Checked;
+
+            List<int> loai_pc_id = new List<int>();
+            List<double> value_khoan = new List<double>();
+            List<double> value_heso = new List<double>();
+            List<double> value_phantram = new List<double>();
+            List<double> phan_tram = new List<double>();
+            List<DateTime> tu_ngay = new List<DateTime>();
+            List<DateTime> den_ngay = new List<DateTime>();
+            List<string> ghi_chu = new List<string>();
+
+            foreach (DataRow dr in dtPhuCap.Rows)
+            {
+                int loaipc_id = Convert.ToInt16(dr["loai_pc_id"].ToString());
+                loai_pc_id.Add(loaipc_id);
+
+                int cach_tinh = Convert.ToInt16((from c in dtLoaiPC.AsEnumerable()
+                                                 where c.Field<int>("id") == loaipc_id
+                                                 select c.Field<int>("cach_tinh")).ElementAt(0).ToString());
+
+                switch (cach_tinh)
+                {
+                    case 1:
+                        if (dr["value_khoan"].ToString() == "")
+                            value_khoan.Add(-1);
+                        else
+                            value_khoan.Add(Convert.ToDouble(dr["value_khoan"].ToString()));
+
+                        value_heso.Add(-1);
+                        value_phantram.Add(-1);
+                        break;
+                    case 2:
+                        value_khoan.Add(-1);
+
+                        if (dr["value_he_so"].ToString() == "")
+                            value_heso.Add(-1);
+                        else
+                            value_heso.Add(Convert.ToDouble(dr["value_he_so"].ToString()));
+
+                        value_phantram.Add(-1);
+                        break;
+                    case 3:
+                        value_khoan.Add(-1);
+
+                        if (dr["value_he_so"].ToString() == "")
+                            value_heso.Add(-1);
+                        else
+                            value_heso.Add(Convert.ToDouble(dr["value_he_so"].ToString()));
+
+                        value_phantram.Add(-1);
+                        break;
+                    case 4:
+                        value_khoan.Add(-1);
+                        value_heso.Add(-1);
+
+                        if (dr["value_phan_tram"].ToString() == "")
+                            value_phantram.Add(-1);
+                        else
+                            value_phantram.Add(Convert.ToDouble(dr["value_phan_tram"].ToString()));
+                        break;
+                    default:
+                        break;
+                }
+                phan_tram.Add(Convert.ToDouble(dr["phan_tram_huong"].ToString()));
+                tu_ngay.Add(Convert.ToDateTime(dr["tu_ngay"].ToString()).Date);
+
+                if (dr["den_ngay"].ToString() == "")
+                    den_ngay.Add(Convert.ToDateTime("01/01/1901").Date);
+                else
+                    den_ngay.Add(Convert.ToDateTime(dr["den_ngay"].ToString()).Date);
+
+                ghi_chu.Add(dr["ghi_chu"].ToString());
+            }
+
+            oHopdong.Loai_Phu_Cap_ID = loai_pc_id.ToArray();
+            oHopdong.Value_Khoan = value_khoan.ToArray();
+            oHopdong.Value_HeSo = value_heso.ToArray();
+            oHopdong.Value_PhanTram = value_phantram.ToArray();
+            oHopdong.PC_PhanTramHuong = phan_tram.ToArray();
+            oHopdong.PC_TuNgay = tu_ngay.ToArray();
+            oHopdong.PC_DenNgay = den_ngay.ToArray();
+            oHopdong.PC_GhiChu = ghi_chu.ToArray();
+
+            #endregion
+        }
+
+        private void ResetInterface()
+        {
+            thongTinCNVC1.txt_MaNV.Text = "";
+            thongTinCNVC1.txt_Ho.Text = thongTinCNVC1.txt_Ten.Text = thongTinCNVC1.comB_ChucVu.Text = thongTinCNVC1.comB_DonVi.Text = "";
+
+            txt_MaHD.Text = txt_HeSo.Text = txt_Tien.Text
+                = txt_TienPC.Text = txt_HeSoPC.Text = rTB_GhiChuPC.Text
+                //= txt_HeSoLuong.Text = txt_PhanTram.Text 
+                = rTB_GhiChu.Text = "";
+            dtp_DenNgay.Checked = dTP_NgayKy.Checked = dtp_TuNgay.Checked = false;
         }
 
         private bool CheckInputData()
