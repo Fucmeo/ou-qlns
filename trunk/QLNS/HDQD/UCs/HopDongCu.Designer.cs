@@ -335,6 +335,7 @@
             this.cb_CoPhuCap.TabIndex = 0;
             this.cb_CoPhuCap.Text = "Không có phụ cấp";
             this.cb_CoPhuCap.UseVisualStyleBackColor = true;
+            this.cb_CoPhuCap.CheckedChanged += new System.EventHandler(this.cb_CoPhuCap_CheckedChanged);
             // 
             // comB_LoaiPhuCap
             // 
@@ -346,6 +347,7 @@
             this.comB_LoaiPhuCap.Name = "comB_LoaiPhuCap";
             this.comB_LoaiPhuCap.Size = new System.Drawing.Size(252, 25);
             this.comB_LoaiPhuCap.TabIndex = 1;
+            this.comB_LoaiPhuCap.SelectionChangeCommitted += new System.EventHandler(this.comB_LoaiPhuCap_SelectionChangeCommitted);
             // 
             // label16
             // 
@@ -588,6 +590,7 @@
             this.btn_DelPC.TabIndex = 44;
             this.btn_DelPC.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_DelPC.UseVisualStyleBackColor = true;
+            this.btn_DelPC.Click += new System.EventHandler(this.btn_DelPC_Click);
             // 
             // btn_AddPC
             // 
@@ -601,6 +604,7 @@
             this.btn_AddPC.TabIndex = 45;
             this.btn_AddPC.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_AddPC.UseVisualStyleBackColor = true;
+            this.btn_AddPC.Click += new System.EventHandler(this.btn_AddPC_Click);
             // 
             // label2
             // 
@@ -677,6 +681,7 @@
             this.comb_Luong.Name = "comb_Luong";
             this.comb_Luong.Size = new System.Drawing.Size(201, 25);
             this.comb_Luong.TabIndex = 33;
+            this.comb_Luong.SelectedIndexChanged += new System.EventHandler(this.comb_Luong_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -726,6 +731,7 @@
             this.comb_Ngach.Name = "comb_Ngach";
             this.comb_Ngach.Size = new System.Drawing.Size(209, 25);
             this.comb_Ngach.TabIndex = 29;
+            this.comb_Ngach.SelectedIndexChanged += new System.EventHandler(this.comb_Ngach_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -746,6 +752,7 @@
             this.comb_Bac.Name = "comb_Bac";
             this.comb_Bac.Size = new System.Drawing.Size(202, 25);
             this.comb_Bac.TabIndex = 30;
+            this.comb_Bac.SelectedIndexChanged += new System.EventHandler(this.comb_Bac_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -802,6 +809,7 @@
             this.btn_Them.TabIndex = 11;
             this.btn_Them.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Them.UseVisualStyleBackColor = true;
+            this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
             // 
             // btn_NhapFile
             // 
@@ -848,6 +856,7 @@
             this.comB_DonVi.Name = "comB_DonVi";
             this.comB_DonVi.Size = new System.Drawing.Size(203, 25);
             this.comB_DonVi.TabIndex = 6;
+            this.comB_DonVi.SelectedIndexChanged += new System.EventHandler(this.comB_DonVi_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -867,6 +876,7 @@
             this.txt_MaHD.Name = "txt_MaHD";
             this.txt_MaHD.Size = new System.Drawing.Size(203, 23);
             this.txt_MaHD.TabIndex = 0;
+            this.txt_MaHD.TextChanged += new System.EventHandler(this.txt_MaHD_TextChanged);
             // 
             // label4
             // 
@@ -1112,6 +1122,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "HopDongCu";
             this.Size = new System.Drawing.Size(1000, 1100);
+            this.Load += new System.EventHandler(this.HopDongCu_Load);
             this.tableLP_HopDong.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.tableLP_ChiTietHopDong.ResumeLayout(false);
