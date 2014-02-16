@@ -22,7 +22,7 @@ namespace Business
            //Password = "A@123456";
 
         public FileCate oFileCate = new FileCate();
-        long lFileSizeLimit = 3145728;  // 3 mb
+        long lFileSizeLimit = 5242880;  // 5 mb
         public FTP()
         {
             //downloadPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);

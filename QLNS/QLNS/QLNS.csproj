@@ -435,6 +435,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BaoCao\BaoCao.csproj">
+      <Project>{36142E16-6BD2-4AA8-87B2-E925F6AE3508}</Project>
+      <Name>BaoCao</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Business\Business.csproj">
       <Project>{BE6A57C0-9563-47D1-B910-A25B573C1944}</Project>
       <Name>Business</Name>
