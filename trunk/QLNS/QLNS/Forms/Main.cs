@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using HDQD;
 using LuongBH;
+using BaoCao;
 
 namespace QLNS.Forms
 {
@@ -495,6 +496,35 @@ namespace QLNS.Forms
         private void ngàyPhépToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Forms.Popup f = new Popup("Ngày phép", new LuongBH.UCs.Luong.NgayPhep());
+            f.ShowDialog();
+        }
+
+        private void tableLP_Main_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void hợpĐồngChoĐơnVịCũToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Hợp đồng cho đơn vị cũ", new HDQD.UCs.HopDongCu());
+            f.ShowDialog();
+        }
+
+        private void nhânViênTheoLoạiHợpĐồngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Báo cáo nhân viên theo loại hợp đồng", new BaoCao.UCs.NVTheo_LoaiHD());
+            f.ShowDialog();
+        }
+
+        private void nhânViênTheoĐơnVịToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Báo cáo nhân viên theo đơn vị", new BaoCao.UCs.NVTheo_DV());
+            f.ShowDialog();
+        }
+
+        private void nhânViênTheoChứcDanhChúcVụToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Báo cáo nhân viên theo chức danh - chức vụ", new BaoCao.UCs.NVTheo_CD_CV());
             f.ShowDialog();
         }
     }

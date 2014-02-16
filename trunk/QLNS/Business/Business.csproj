@@ -86,6 +86,7 @@
     <Compile Include="HinhThucDaoTao.cs" />
     <Compile Include="LoaiHopDong.cs" />
     <Compile Include="Luong\BacHeSo.cs" />
+    <Compile Include="Luong\BaoHiem.cs" />
     <Compile Include="Luong\ChamCong.cs" />
     <Compile Include="Luong\LoaiNgayPhep.cs" />
     <Compile Include="Luong\LuongToiThieu.cs" />
