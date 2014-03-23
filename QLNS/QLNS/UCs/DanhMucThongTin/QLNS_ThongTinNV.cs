@@ -231,23 +231,33 @@ namespace QLNS.UCs.DanhMucThongTin
 
                         if (bUploadInfoSuccess  )
                         {
-                            // Dang add NV & co hinh HOAC co hinh && hinh cu <> hinh moi
-                            if ( picB_HinhDaiDien.ImageLocation != "" && 
-                                    (QLNS_HienThiThongTin.bAddFlag  ||AvatarPath[0] != picB_HinhDaiDien.ImageLocation) )
+                            if ((picB_HinhDaiDien.ImageLocation == "" || picB_HinhDaiDien.ImageLocation == null)
+                                        && (AvatarPath[0] == "" || AvatarPath[0] == null))
                             {
-                                UploadAvatar();
-                                
+                               // no ava ==> do nothing 
                             }
-                            else if (picB_HinhDaiDien.ImageLocation == "" && AvatarPath[0] != "") //  hinh bi xoa
+                            else
                             {
-                                if (Program.selected_ma_nv != "")
-                                    oFile.MaNV = Program.selected_ma_nv;
-                                else
-                                    oFile.MaNV = txt_MaNV.Text.Trim();
+                                // Dang add NV & co hinh HOAC co hinh && hinh cu <> hinh moi
+                                if (picB_HinhDaiDien.ImageLocation != "" && picB_HinhDaiDien.ImageLocation != null &&
+                                        (QLNS_HienThiThongTin.bAddFlag || AvatarPath[0] != picB_HinhDaiDien.ImageLocation))
+                                {
+                                    UploadAvatar();
 
-                                //oFile.FileType = CNVC_File.eFileType.Avatar;
-                                oFile.DeleteAvatar();
+                                }
+                                else if (picB_HinhDaiDien.ImageLocation == "" && picB_HinhDaiDien.ImageLocation == null
+                                            && AvatarPath[0] != "") //  hinh bi xoa
+                                {
+                                    if (Program.selected_ma_nv != "")
+                                        oFile.MaNV = Program.selected_ma_nv;
+                                    else
+                                        oFile.MaNV = txt_MaNV.Text.Trim();
+
+                                    //oFile.FileType = CNVC_File.eFileType.Avatar;
+                                    oFile.DeleteAvatar();
+                                }
                             }
+                            
                         }
                     }
                     bUploadInfoSuccess = false;
