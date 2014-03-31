@@ -23,45 +23,49 @@ namespace QLNS.UCs
 
         private void btn_Them_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txt_TenQuocGia.Text))
+            if (MessageBox.Show("Thêm Quốc gia?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                oQuocGia.TenQuocGia = txt_TenQuocGia.Text;
-
-                try
+                if (!string.IsNullOrWhiteSpace(txt_TenQuocGia.Text))
                 {
-                    int i = oQuocGia.AddWithReturnID();
-                    MessageBox.Show("Thao tác thêm thành công.\r\n", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if (i != 0) // them thanh cong
+                    oQuocGia.TenQuocGia = txt_TenQuocGia.Text;
+
+                    try
                     {
-                        switch (UCCallerName)
+                        int i = oQuocGia.AddWithReturnID();
+                        MessageBox.Show("Thao tác thêm thành công.\r\n", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (i != 0) // them thanh cong
                         {
-                            case "QLNS_ThongTinNV":
-                                QLNS.UCs.DanhMucThongTin.QLNS_ThongTinNV.nNewQuocGiaID = i;
-                                break;
-                            case "QLNS_ThongTinNV_Phu":
-                                QLNS.UCs.DanhMucThongTin.QLNS_ThongTinNV_Phu.nNewQuocGiaID = i;
-                                break;
-                            case "QLNS_LichSuBanThan":
-                                QLNS.UCs.DanhMucThongTin.QLNS_LichSuBanThan.nNewQuocGiaID = i;
-                                break;
-                            case "QLNS_DaoTaoBoiDuong":
-                                QLNS.UCs.DanhMucThongTin.QLNS_DaoTaoBoiDuong.nNewQuocGiaID = i;
-                                break;
-                            default:
-                                break;
+                            switch (UCCallerName)
+                            {
+                                case "QLNS_ThongTinNV":
+                                    QLNS.UCs.DanhMucThongTin.QLNS_ThongTinNV.nNewQuocGiaID = i;
+                                    break;
+                                case "QLNS_ThongTinNV_Phu":
+                                    QLNS.UCs.DanhMucThongTin.QLNS_ThongTinNV_Phu.nNewQuocGiaID = i;
+                                    break;
+                                case "QLNS_LichSuBanThan":
+                                    QLNS.UCs.DanhMucThongTin.QLNS_LichSuBanThan.nNewQuocGiaID = i;
+                                    break;
+                                case "QLNS_DaoTaoBoiDuong":
+                                    QLNS.UCs.DanhMucThongTin.QLNS_DaoTaoBoiDuong.nNewQuocGiaID = i;
+                                    break;
+                                default:
+                                    break;
+                            }
+                            ((Form)this.Parent.Parent).Close();
                         }
-                        ((Form)this.Parent.Parent).Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Thao tác thêm không thành công.\r\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("Thao tác thêm không thành công.\r\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Xin vui lòng điền tên quốc gia.\r\n", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            else
-            {
-                MessageBox.Show("Xin vui lòng điền tên quốc gia.\r\n", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            
         }
     }
 }

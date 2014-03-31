@@ -23,38 +23,42 @@ namespace QLNS.UCs
 
         private void btn_Them_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txt_TenDanToc.Text))
+            if ( MessageBox.Show("Thêm Dân tộc?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                oDanToc.TenDanToc = txt_TenDanToc.Text;
-
-                try
+                if (!string.IsNullOrWhiteSpace(txt_TenDanToc.Text))
                 {
-                    int i = oDanToc.AddWithReturnID();
-                    MessageBox.Show("Thao tác thêm thành công.\r\n", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if (i != 0) // them thanh cong
+                    oDanToc.TenDanToc = txt_TenDanToc.Text;
+
+                    try
                     {
-                        switch (UCCallerName)
+                        int i = oDanToc.AddWithReturnID();
+                        MessageBox.Show("Thao tác thêm thành công.\r\n", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (i != 0) // them thanh cong
                         {
-                            
-                            case "QLNS_ThongTinNV_Phu":
-                                QLNS.UCs.DanhMucThongTin.QLNS_ThongTinNV_Phu.nNewDanTocID = i;
-                                break;
-                            
-                            default:
-                                break;
+                            switch (UCCallerName)
+                            {
+
+                                case "QLNS_ThongTinNV_Phu":
+                                    QLNS.UCs.DanhMucThongTin.QLNS_ThongTinNV_Phu.nNewDanTocID = i;
+                                    break;
+
+                                default:
+                                    break;
+                            }
+                            ((Form)this.Parent.Parent).Close();
                         }
-                        ((Form)this.Parent.Parent).Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Thao tác thêm không thành công.\r\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("Thao tác thêm không thành công.\r\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Xin vui lòng điền tên dân tộc.\r\n", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            else
-            {
-                MessageBox.Show("Xin vui lòng điền tên dân tộc.\r\n", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            
         }
     }
 }

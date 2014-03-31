@@ -147,6 +147,12 @@
     <Compile Include="UCs\QDChung.Designer.cs">
       <DependentUpon>QDChung.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCs\QDDiDuong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\QDDiDuong.Designer.cs">
+      <DependentUpon>QDDiDuong.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCs\QDDungHopDong.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -263,6 +269,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\QDChung.resx">
       <DependentUpon>QDChung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\QDDiDuong.resx">
+      <DependentUpon>QDDiDuong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\QDDungHopDong.resx">
       <DependentUpon>QDDungHopDong.cs</DependentUpon>

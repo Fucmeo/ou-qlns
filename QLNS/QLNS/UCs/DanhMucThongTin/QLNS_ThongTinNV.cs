@@ -245,7 +245,7 @@ namespace QLNS.UCs.DanhMucThongTin
                                     UploadAvatar();
 
                                 }
-                                else if (picB_HinhDaiDien.ImageLocation == "" && picB_HinhDaiDien.ImageLocation == null
+                                else if ((picB_HinhDaiDien.ImageLocation == "" || picB_HinhDaiDien.ImageLocation == null)
                                             && AvatarPath[0] != "") //  hinh bi xoa
                                 {
                                     if (Program.selected_ma_nv != "")

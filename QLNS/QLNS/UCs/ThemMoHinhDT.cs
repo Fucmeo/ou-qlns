@@ -22,37 +22,41 @@ namespace QLNS.UCs
 
         private void btn_Them_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txt_Ten.Text))
+            if ( MessageBox.Show("Thêm Mô hình đào tạo ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                oMoHinhDT.TenMoHinh = txt_Ten.Text;
-                oMoHinhDT.MoTa = rTB_MoTa.Text;
-                try
+                if (!string.IsNullOrWhiteSpace(txt_Ten.Text))
                 {
-                    int i = oMoHinhDT.AddWithReturnID();
-                    MessageBox.Show("Thao tác thêm thành công.\r\n", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if (i != 0) // them thanh cong
+                    oMoHinhDT.TenMoHinh = txt_Ten.Text;
+                    oMoHinhDT.MoTa = rTB_MoTa.Text;
+                    try
                     {
-                        switch (UCCallerName)
+                        int i = oMoHinhDT.AddWithReturnID();
+                        MessageBox.Show("Thao tác thêm thành công.\r\n", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (i != 0) // them thanh cong
                         {
-                            case "QLNS_TrinhDo_ChuyenMon":
-                                QLNS.UCs.DanhMucThongTin.QLNS_TrinhDo_ChuyenMon.nNewMoHinhID = i;
-                                break;
+                            switch (UCCallerName)
+                            {
+                                case "QLNS_TrinhDo_ChuyenMon":
+                                    QLNS.UCs.DanhMucThongTin.QLNS_TrinhDo_ChuyenMon.nNewMoHinhID = i;
+                                    break;
 
-                            default:
-                                break;
+                                default:
+                                    break;
+                            }
+                            ((Form)this.Parent.Parent).Close();
                         }
-                        ((Form)this.Parent.Parent).Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Thao tác thêm không thành công.\r\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("Thao tác thêm không thành công.\r\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Xin vui lòng điền tên mô hình.\r\n", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            else
-            {
-                MessageBox.Show("Xin vui lòng điền tên mô hình.\r\n", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            
         }
     }
 }

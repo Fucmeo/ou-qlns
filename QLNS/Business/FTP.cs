@@ -14,15 +14,15 @@ namespace Business
     {
         public enum FileCate { Avatar, QuyetDinh,NhanXet,ThanhPhanTaiLieu,Other };
         string URI = 
-            //"ftp://10.1.12.6/",            
-            "ftp://42.112.19.178/",
+           "ftp://10.1.12.6/",         // ou    
+            //"ftp://42.112.19.178/",         // FTECH
             globalFolderName, downloadPath  ;
         string UserName = "Administrator",
-           Password = "QLNS@123qlns";
-           //Password = "A@123456";
+        //   Password = "QLNS@123qlns";   // FTECH
+        Password = "A@123456";      // ou 
 
         public FileCate oFileCate = new FileCate();
-        long lFileSizeLimit = 5242880;  // 5 mb
+        long lFileSizeLimit = 10485760;  // 10 mb
         public FTP()
         {
             //downloadPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
