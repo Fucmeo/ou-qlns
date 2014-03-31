@@ -34,53 +34,57 @@ namespace QLNS.UCs
 
         private void btn_Them_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txt_Ten.Text))
+            if (MessageBox.Show("Thêm Tỉnh / Thành phố?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                oTinhTP.TenTinhTP = txt_Ten.Text;
-                oTinhTP.MoTa = rTB_GhiChu.Text;
-                if (Convert.ToInt32(comB_QuocGia.SelectedValue) != -1)
-                    oTinhTP.QuocGiaID = Convert.ToInt32(comB_QuocGia.SelectedValue);
-                else
-                    oTinhTP.QuocGiaID = null;
-                
-                try
+                if (!string.IsNullOrWhiteSpace(txt_Ten.Text))
                 {
-                    int i = oTinhTP.AddWithReturnID();
-                    MessageBox.Show("Thao tác thêm thành công.\r\n", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if (i != 0) // them thanh cong
+                    oTinhTP.TenTinhTP = txt_Ten.Text;
+                    oTinhTP.MoTa = rTB_GhiChu.Text;
+                    if (Convert.ToInt32(comB_QuocGia.SelectedValue) != -1)
+                        oTinhTP.QuocGiaID = Convert.ToInt32(comB_QuocGia.SelectedValue);
+                    else
+                        oTinhTP.QuocGiaID = null;
+
+                    try
                     {
-                        switch (UCCallerName)
+                        int i = oTinhTP.AddWithReturnID();
+                        MessageBox.Show("Thao tác thêm thành công.\r\n", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (i != 0) // them thanh cong
                         {
-                            case "QLNS_ThongTinNV":
-                                QLNS.UCs.DanhMucThongTin.QLNS_ThongTinNV.nNewTinhTPID = i;
-                                break;
-                            case "QLNS_TrinhDo_ChuyenMon":
-                                QLNS.UCs.DanhMucThongTin.QLNS_TrinhDo_ChuyenMon.nNewTinhTPID = i;
-                                break;
-                            case "QLNS_LichSuBanThan":
-                                QLNS.UCs.DanhMucThongTin.QLNS_LichSuBanThan.nNewTinhTPID = i;
-                                break;
-                            case "QLNS_ThongTinNV_Phu":
-                                QLNS.UCs.DanhMucThongTin.QLNS_ThongTinNV_Phu.nNewTinhTPID = i;
-                                break;
-                            case "QLNS_DaoTaoBoiDuong":
-                                QLNS.UCs.DanhMucThongTin.QLNS_DaoTaoBoiDuong.nNewTinhTPID = i;
-                                break;
-                            default:
-                                break;
+                            switch (UCCallerName)
+                            {
+                                case "QLNS_ThongTinNV":
+                                    QLNS.UCs.DanhMucThongTin.QLNS_ThongTinNV.nNewTinhTPID = i;
+                                    break;
+                                case "QLNS_TrinhDo_ChuyenMon":
+                                    QLNS.UCs.DanhMucThongTin.QLNS_TrinhDo_ChuyenMon.nNewTinhTPID = i;
+                                    break;
+                                case "QLNS_LichSuBanThan":
+                                    QLNS.UCs.DanhMucThongTin.QLNS_LichSuBanThan.nNewTinhTPID = i;
+                                    break;
+                                case "QLNS_ThongTinNV_Phu":
+                                    QLNS.UCs.DanhMucThongTin.QLNS_ThongTinNV_Phu.nNewTinhTPID = i;
+                                    break;
+                                case "QLNS_DaoTaoBoiDuong":
+                                    QLNS.UCs.DanhMucThongTin.QLNS_DaoTaoBoiDuong.nNewTinhTPID = i;
+                                    break;
+                                default:
+                                    break;
+                            }
+                            ((Form)this.Parent.Parent).Close();
                         }
-                        ((Form)this.Parent.Parent).Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Thao tác thêm không thành công.\r\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("Thao tác thêm không thành công.\r\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Xin vui lòng điền tên tỉnh thành phố.\r\n", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            else
-            {
-                MessageBox.Show("Xin vui lòng điền tên tỉnh thành phố.\r\n", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            
         }
 
         private void ThemTinhTP_Load(object sender, EventArgs e)

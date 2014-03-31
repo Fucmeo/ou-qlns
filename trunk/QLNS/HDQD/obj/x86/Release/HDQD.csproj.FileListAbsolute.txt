@@ -48,3 +48,4 @@ D:\Job\QLNS\Projects\QLNS\HDQD\obj\x86\Release\HDQD.UCs.ThemLoaiFile.resources
 D:\Job\QLNS\Projects\QLNS\HDQD\obj\x86\Release\HDQD.UCs.DonViCu.resources
 D:\Job\QLNS\Projects\QLNS\HDQD\obj\x86\Release\HDQD.UCs.HopDongCu.resources
 D:\Job\QLNS\Projects\QLNS\HDQD\obj\x86\Release\HDQD.UCs.TiepNhanCu.resources
+D:\Job\QLNS\Projects\QLNS\HDQD\obj\x86\Release\HDQD.UCs.QDDiDuong.resources
