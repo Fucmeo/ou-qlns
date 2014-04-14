@@ -26,7 +26,7 @@ namespace HDQD
             //o.FileName.Add("HD Name");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Forms.Popup(new UCs.HopDongCu(),"HD"));
+            Application.Run(new Forms.Popup(new UCs.QDDiDuong(),"HD"));
             //Application.Run(new Forms.Popup(new UCs.BoNhiem(), "QUẢN LÝ NHÂN SỰ - Thành lập đơn vị"));
         }
 
