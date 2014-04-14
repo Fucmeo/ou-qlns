@@ -72,6 +72,7 @@
     <Compile Include="DanToc.cs" />
     <Compile Include="DonVi.cs" />
     <Compile Include="FTP.cs" />
+    <Compile Include="HDQD\QDDiDuong.cs" />
     <Compile Include="HDQD\QD_File.cs" />
     <Compile Include="HDQD\CNVC_HopDong.cs" />
     <Compile Include="HDQD\CNVC_PhuCap.cs" />
