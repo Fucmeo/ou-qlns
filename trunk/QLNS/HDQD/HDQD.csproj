@@ -35,7 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="SplitButton">
-      <HintPath>bin\Debug\SplitButton.dll</HintPath>
+      <HintPath>..\LuongBH\bin\Debug\SplitButton.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -68,6 +68,12 @@
     </Compile>
     <Compile Include="UCs\DanhSachHopDong.designer.cs">
       <DependentUpon>DanhSachHopDong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCs\DanhSachQDDiDuong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\DanhSachQDDiDuong.Designer.cs">
+      <DependentUpon>DanhSachQDDiDuong.cs</DependentUpon>
     </Compile>
     <Compile Include="UCs\DanhSachQuyetDinh.cs">
       <SubType>UserControl</SubType>
@@ -230,6 +236,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\DanhSachHopDong.resx">
       <DependentUpon>DanhSachHopDong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\DanhSachQDDiDuong.resx">
+      <DependentUpon>DanhSachQDDiDuong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\DanhSachQuyetDinh.resx">
       <DependentUpon>DanhSachQuyetDinh.cs</DependentUpon>
