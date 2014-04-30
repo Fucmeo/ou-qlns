@@ -38,41 +38,37 @@
             this.btn_Them = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tableLP_ThongTinChiTiet = new System.Windows.Forms.TableLayoutPanel();
-            this.txt_NgayKy = new System.Windows.Forms.TextBox();
-            this.txt_Ten2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.txt_Ma2 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.txt_NgayKy = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dtgv_DSQD = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLP_ThongTinTimKiem = new System.Windows.Forms.TableLayoutPanel();
-            this.txt_Ten = new System.Windows.Forms.TextBox();
-            this.txt_Ma = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btn_Tim = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.dTP_TuNgay = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.tableLP_TuNgayDenNgay = new System.Windows.Forms.TableLayoutPanel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.comB_Loai = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-            this.label9 = new System.Windows.Forms.Label();
-            this.comB_Loai = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.tableLP_TuNgayDenNgay = new System.Windows.Forms.TableLayoutPanel();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dTP_TuNgay = new System.Windows.Forms.DateTimePicker();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txt_Ma = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btn_Tim = new System.Windows.Forms.Button();
             this.tableLP_DSQD.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -81,8 +77,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_DSQD)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tableLP_ThongTinTimKiem.SuspendLayout();
-            this.tableLP_TuNgayDenNgay.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.tableLP_TuNgayDenNgay.SuspendLayout();
             this.SuspendLayout();
             // 
             // imageList1
@@ -191,14 +187,12 @@
             this.tableLP_ThongTinChiTiet.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tableLP_ThongTinChiTiet.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLP_ThongTinChiTiet.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
-            this.tableLP_ThongTinChiTiet.Controls.Add(this.textBox3, 3, 1);
-            this.tableLP_ThongTinChiTiet.Controls.Add(this.label11, 2, 1);
-            this.tableLP_ThongTinChiTiet.Controls.Add(this.txt_Ten2, 3, 0);
             this.tableLP_ThongTinChiTiet.Controls.Add(this.txt_Ma2, 1, 0);
             this.tableLP_ThongTinChiTiet.Controls.Add(this.label7, 0, 0);
-            this.tableLP_ThongTinChiTiet.Controls.Add(this.label8, 2, 0);
             this.tableLP_ThongTinChiTiet.Controls.Add(this.label10, 0, 1);
             this.tableLP_ThongTinChiTiet.Controls.Add(this.txt_NgayKy, 1, 1);
+            this.tableLP_ThongTinChiTiet.Controls.Add(this.label11, 2, 0);
+            this.tableLP_ThongTinChiTiet.Controls.Add(this.textBox3, 3, 0);
             this.tableLP_ThongTinChiTiet.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLP_ThongTinChiTiet.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLP_ThongTinChiTiet.Location = new System.Drawing.Point(3, 25);
@@ -209,23 +203,24 @@
             this.tableLP_ThongTinChiTiet.Size = new System.Drawing.Size(934, 109);
             this.tableLP_ThongTinChiTiet.TabIndex = 1;
             // 
-            // txt_NgayKy
+            // textBox3
             // 
-            this.txt_NgayKy.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_NgayKy.Location = new System.Drawing.Point(143, 67);
-            this.txt_NgayKy.Name = "txt_NgayKy";
-            this.txt_NgayKy.ReadOnly = true;
-            this.txt_NgayKy.Size = new System.Drawing.Size(234, 29);
-            this.txt_NgayKy.TabIndex = 36;
+            this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox3.Location = new System.Drawing.Point(609, 12);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(234, 29);
+            this.textBox3.TabIndex = 39;
             // 
-            // txt_Ten2
+            // label11
             // 
-            this.txt_Ten2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_Ten2.Location = new System.Drawing.Point(609, 12);
-            this.txt_Ten2.Name = "txt_Ten2";
-            this.txt_Ten2.ReadOnly = true;
-            this.txt_Ten2.Size = new System.Drawing.Size(234, 29);
-            this.txt_Ten2.TabIndex = 34;
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(469, 15);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(60, 23);
+            this.label11.TabIndex = 38;
+            this.label11.Text = "Đơn vị";
             // 
             // txt_Ma2
             // 
@@ -246,16 +241,6 @@
             this.label7.TabIndex = 3;
             this.label7.Text = "Mã";
             // 
-            // label8
-            // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(469, 15);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(36, 23);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "Tên";
-            // 
             // label10
             // 
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -265,6 +250,15 @@
             this.label10.Size = new System.Drawing.Size(71, 23);
             this.label10.TabIndex = 8;
             this.label10.Text = "Ngày ký";
+            // 
+            // txt_NgayKy
+            // 
+            this.txt_NgayKy.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_NgayKy.Location = new System.Drawing.Point(143, 67);
+            this.txt_NgayKy.Name = "txt_NgayKy";
+            this.txt_NgayKy.ReadOnly = true;
+            this.txt_NgayKy.Size = new System.Drawing.Size(234, 29);
+            this.txt_NgayKy.TabIndex = 36;
             // 
             // groupBox2
             // 
@@ -316,10 +310,8 @@
             this.tableLP_ThongTinTimKiem.Controls.Add(this.label14, 0, 3);
             this.tableLP_ThongTinTimKiem.Controls.Add(this.tableLP_TuNgayDenNgay, 1, 2);
             this.tableLP_ThongTinTimKiem.Controls.Add(this.textBox2, 1, 1);
-            this.tableLP_ThongTinTimKiem.Controls.Add(this.txt_Ten, 3, 0);
             this.tableLP_ThongTinTimKiem.Controls.Add(this.txt_Ma, 1, 0);
             this.tableLP_ThongTinTimKiem.Controls.Add(this.label1, 0, 0);
-            this.tableLP_ThongTinTimKiem.Controls.Add(this.label4, 2, 0);
             this.tableLP_ThongTinTimKiem.Controls.Add(this.label2, 0, 1);
             this.tableLP_ThongTinTimKiem.Controls.Add(this.textBox1, 3, 1);
             this.tableLP_ThongTinTimKiem.Controls.Add(this.label13, 2, 1);
@@ -338,174 +330,29 @@
             this.tableLP_ThongTinTimKiem.Size = new System.Drawing.Size(934, 251);
             this.tableLP_ThongTinTimKiem.TabIndex = 0;
             // 
-            // txt_Ten
+            // label9
             // 
-            this.txt_Ten.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_Ten.Location = new System.Drawing.Point(619, 8);
-            this.txt_Ten.Name = "txt_Ten";
-            this.txt_Ten.Size = new System.Drawing.Size(234, 29);
-            this.txt_Ten.TabIndex = 1;
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(3, 206);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(60, 23);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "Đơn vị";
             // 
-            // txt_Ma
+            // comB_Loai
             // 
-            this.txt_Ma.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_Ma.Location = new System.Drawing.Point(142, 8);
-            this.txt_Ma.Name = "txt_Ma";
-            this.txt_Ma.Size = new System.Drawing.Size(234, 29);
-            this.txt_Ma.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 23);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Mã quyết định";
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(468, 11);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(122, 23);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Tên quyết định";
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 103);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(71, 23);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Ngày ký";
-            // 
-            // btn_Tim
-            // 
-            this.btn_Tim.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Tim.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Tim.ImageKey = "Business Man Find.png";
-            this.btn_Tim.ImageList = this.imageList1;
-            this.btn_Tim.Location = new System.Drawing.Point(514, 191);
-            this.btn_Tim.Name = "btn_Tim";
-            this.btn_Tim.Size = new System.Drawing.Size(52, 54);
-            this.btn_Tim.TabIndex = 3;
-            this.btn_Tim.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Tim.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox1.Location = new System.Drawing.Point(619, 53);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(234, 29);
-            this.textBox1.TabIndex = 9;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox2.Location = new System.Drawing.Point(142, 53);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(234, 29);
-            this.textBox2.TabIndex = 8;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 56);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(114, 23);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Mã nhân viên";
-            // 
-            // label13
-            // 
-            this.label13.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(468, 56);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(140, 23);
-            this.label13.TabIndex = 11;
-            this.label13.Text = "Họ tên nhân viên";
-            // 
-            // label14
-            // 
-            this.label14.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(3, 151);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(117, 23);
-            this.label14.TabIndex = 13;
-            this.label14.Text = "Ngày công tác";
-            // 
-            // dTP_TuNgay
-            // 
-            this.dTP_TuNgay.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.dTP_TuNgay.Checked = false;
-            this.dTP_TuNgay.CustomFormat = "dd/MM/yyyy";
-            this.dTP_TuNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dTP_TuNgay.Location = new System.Drawing.Point(515, 7);
-            this.dTP_TuNgay.Name = "dTP_TuNgay";
-            this.dTP_TuNgay.ShowCheckBox = true;
-            this.dTP_TuNgay.Size = new System.Drawing.Size(196, 29);
-            this.dTP_TuNgay.TabIndex = 0;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(397, 10);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 23);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Đến ngày";
-            // 
-            // label6
-            // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 10);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(70, 23);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Từ ngày";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.dateTimePicker1.Checked = false;
-            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(121, 7);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.ShowCheckBox = true;
-            this.dateTimePicker1.Size = new System.Drawing.Size(196, 29);
-            this.dateTimePicker1.TabIndex = 9;
-            // 
-            // tableLP_TuNgayDenNgay
-            // 
-            this.tableLP_TuNgayDenNgay.ColumnCount = 4;
-            this.tableLP_ThongTinTimKiem.SetColumnSpan(this.tableLP_TuNgayDenNgay, 3);
-            this.tableLP_TuNgayDenNgay.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLP_TuNgayDenNgay.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
-            this.tableLP_TuNgayDenNgay.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLP_TuNgayDenNgay.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
-            this.tableLP_TuNgayDenNgay.Controls.Add(this.dateTimePicker1, 0, 0);
-            this.tableLP_TuNgayDenNgay.Controls.Add(this.label6, 0, 0);
-            this.tableLP_TuNgayDenNgay.Controls.Add(this.label3, 2, 0);
-            this.tableLP_TuNgayDenNgay.Controls.Add(this.dTP_TuNgay, 3, 0);
-            this.tableLP_TuNgayDenNgay.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLP_TuNgayDenNgay.Location = new System.Drawing.Point(142, 93);
-            this.tableLP_TuNgayDenNgay.Name = "tableLP_TuNgayDenNgay";
-            this.tableLP_TuNgayDenNgay.RowCount = 1;
-            this.tableLP_TuNgayDenNgay.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLP_TuNgayDenNgay.Size = new System.Drawing.Size(789, 44);
-            this.tableLP_TuNgayDenNgay.TabIndex = 12;
+            this.comB_Loai.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.comB_Loai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comB_Loai.FormattingEnabled = true;
+            this.comB_Loai.Items.AddRange(new object[] {
+            "Bổ nhiệm",
+            "Kiêm nhiệm",
+            "Điều động"});
+            this.comB_Loai.Location = new System.Drawing.Point(142, 205);
+            this.comB_Loai.Name = "comB_Loai";
+            this.comB_Loai.Size = new System.Drawing.Size(234, 30);
+            this.comB_Loai.TabIndex = 15;
             // 
             // tableLayoutPanel1
             // 
@@ -571,48 +418,156 @@
             this.dateTimePicker3.Size = new System.Drawing.Size(196, 29);
             this.dateTimePicker3.TabIndex = 0;
             // 
-            // label9
+            // label14
             // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(3, 206);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(60, 23);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "Đơn vị";
+            this.label14.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(3, 151);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(117, 23);
+            this.label14.TabIndex = 13;
+            this.label14.Text = "Ngày công tác";
             // 
-            // comB_Loai
+            // tableLP_TuNgayDenNgay
             // 
-            this.comB_Loai.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.comB_Loai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comB_Loai.FormattingEnabled = true;
-            this.comB_Loai.Items.AddRange(new object[] {
-            "Bổ nhiệm",
-            "Kiêm nhiệm",
-            "Điều động"});
-            this.comB_Loai.Location = new System.Drawing.Point(142, 203);
-            this.comB_Loai.Name = "comB_Loai";
-            this.comB_Loai.Size = new System.Drawing.Size(234, 30);
-            this.comB_Loai.TabIndex = 15;
+            this.tableLP_TuNgayDenNgay.ColumnCount = 4;
+            this.tableLP_ThongTinTimKiem.SetColumnSpan(this.tableLP_TuNgayDenNgay, 3);
+            this.tableLP_TuNgayDenNgay.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLP_TuNgayDenNgay.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.tableLP_TuNgayDenNgay.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLP_TuNgayDenNgay.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.tableLP_TuNgayDenNgay.Controls.Add(this.dateTimePicker1, 0, 0);
+            this.tableLP_TuNgayDenNgay.Controls.Add(this.label6, 0, 0);
+            this.tableLP_TuNgayDenNgay.Controls.Add(this.label3, 2, 0);
+            this.tableLP_TuNgayDenNgay.Controls.Add(this.dTP_TuNgay, 3, 0);
+            this.tableLP_TuNgayDenNgay.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLP_TuNgayDenNgay.Location = new System.Drawing.Point(142, 93);
+            this.tableLP_TuNgayDenNgay.Name = "tableLP_TuNgayDenNgay";
+            this.tableLP_TuNgayDenNgay.RowCount = 1;
+            this.tableLP_TuNgayDenNgay.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLP_TuNgayDenNgay.Size = new System.Drawing.Size(789, 44);
+            this.tableLP_TuNgayDenNgay.TabIndex = 12;
             // 
-            // label11
+            // dateTimePicker1
             // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(469, 70);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(60, 23);
-            this.label11.TabIndex = 38;
-            this.label11.Text = "Đơn vị";
+            this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.dateTimePicker1.Checked = false;
+            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(121, 7);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.ShowCheckBox = true;
+            this.dateTimePicker1.Size = new System.Drawing.Size(196, 29);
+            this.dateTimePicker1.TabIndex = 9;
             // 
-            // textBox3
+            // label6
             // 
-            this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox3.Location = new System.Drawing.Point(609, 67);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(234, 29);
-            this.textBox3.TabIndex = 39;
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 10);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(70, 23);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Từ ngày";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(397, 10);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(82, 23);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Đến ngày";
+            // 
+            // dTP_TuNgay
+            // 
+            this.dTP_TuNgay.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.dTP_TuNgay.Checked = false;
+            this.dTP_TuNgay.CustomFormat = "dd/MM/yyyy";
+            this.dTP_TuNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dTP_TuNgay.Location = new System.Drawing.Point(515, 7);
+            this.dTP_TuNgay.Name = "dTP_TuNgay";
+            this.dTP_TuNgay.ShowCheckBox = true;
+            this.dTP_TuNgay.Size = new System.Drawing.Size(196, 29);
+            this.dTP_TuNgay.TabIndex = 0;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox2.Location = new System.Drawing.Point(142, 53);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(234, 29);
+            this.textBox2.TabIndex = 8;
+            // 
+            // txt_Ma
+            // 
+            this.txt_Ma.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_Ma.Location = new System.Drawing.Point(142, 8);
+            this.txt_Ma.Name = "txt_Ma";
+            this.txt_Ma.Size = new System.Drawing.Size(234, 29);
+            this.txt_Ma.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(121, 23);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Mã quyết định";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 56);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(114, 23);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Mã nhân viên";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox1.Location = new System.Drawing.Point(619, 53);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(234, 29);
+            this.textBox1.TabIndex = 9;
+            // 
+            // label13
+            // 
+            this.label13.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(468, 56);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(140, 23);
+            this.label13.TabIndex = 11;
+            this.label13.Text = "Họ tên nhân viên";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 103);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(71, 23);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Ngày ký";
+            // 
+            // btn_Tim
+            // 
+            this.btn_Tim.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Tim.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Tim.ImageKey = "Business Man Find.png";
+            this.btn_Tim.ImageList = this.imageList1;
+            this.btn_Tim.Location = new System.Drawing.Point(514, 191);
+            this.btn_Tim.Name = "btn_Tim";
+            this.btn_Tim.Size = new System.Drawing.Size(52, 54);
+            this.btn_Tim.TabIndex = 3;
+            this.btn_Tim.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Tim.UseVisualStyleBackColor = true;
             // 
             // DanhSachQDDiDuong
             // 
@@ -634,10 +589,10 @@
             this.groupBox1.ResumeLayout(false);
             this.tableLP_ThongTinTimKiem.ResumeLayout(false);
             this.tableLP_ThongTinTimKiem.PerformLayout();
-            this.tableLP_TuNgayDenNgay.ResumeLayout(false);
-            this.tableLP_TuNgayDenNgay.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.tableLP_TuNgayDenNgay.ResumeLayout(false);
+            this.tableLP_TuNgayDenNgay.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -653,19 +608,15 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TableLayoutPanel tableLP_ThongTinChiTiet;
         private System.Windows.Forms.TextBox txt_NgayKy;
-        private System.Windows.Forms.TextBox txt_Ten2;
         private System.Windows.Forms.TextBox txt_Ma2;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dtgv_DSQD;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TableLayoutPanel tableLP_ThongTinTimKiem;
-        private System.Windows.Forms.TextBox txt_Ten;
         private System.Windows.Forms.TextBox txt_Ma;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btn_Tim;
         private System.Windows.Forms.TextBox textBox2;
