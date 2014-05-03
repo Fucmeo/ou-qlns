@@ -129,3 +129,5 @@ D:\Job\QLNS\Projects\QLNS\QLNS\QLNS\bin\Debug\LuongBH.pdb
 D:\Job\QLNS\Projects\QLNS\QLNS\QLNS\bin\Debug\Business.pdb
 D:\Job\QLNS\Projects\QLNS\QLNS\QLNS\bin\Debug\DataProvider.pdb
 D:\Job\QLNS\Projects\QLNS\QLNS\QLNS\bin\Debug\SystemConfig.pdb
+D:\Job\QLNS\Projects\QLNS\QLNS\QLNS\bin\Debug\Npgsql.dll
+D:\Job\QLNS\Projects\QLNS\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_QuocGiaTP.resources
