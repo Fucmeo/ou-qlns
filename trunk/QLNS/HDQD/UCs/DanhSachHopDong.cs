@@ -105,7 +105,10 @@ namespace HDQD.UCs
             // Dat ten cho cac cot
             dtgv_DSHD.Columns["id"].HeaderText = "ID";
             dtgv_DSHD.Columns["ma_nv"].HeaderText = "Mã nhân viên";
-            dtgv_DSHD.Columns["ma_nv"].Width = 200;
+            //dtgv_DSHD.Columns["ma_nv"].Width = 200;
+            dtgv_DSHD.Columns["ho"].HeaderText = "Họ nhân viên";
+            dtgv_DSHD.Columns["ho"].Width = 200;
+            dtgv_DSHD.Columns["ten"].HeaderText = "Tên nhân viên";
             dtgv_DSHD.Columns["ma_hd_display"].HeaderText = "Mã hợp đồng";
             dtgv_DSHD.Columns["ma_hd_display"].Width = 200;
             dtgv_DSHD.Columns["ma_loai_hd"].HeaderText = "Mã loại Hợp đồng";
@@ -166,6 +169,7 @@ namespace HDQD.UCs
             if (row != null)
             {
                 txt_MaNV2.Text = row.Cells["ma_nv"].Value.ToString();
+                txt_HoTenNV.Text = row.Cells["ho"].Value.ToString().Trim() + " " + row.Cells["ten"].Value.ToString().Trim();
                 txt_MaHD2.Text = row.Cells["ma_hd_display"].Value.ToString();
                 txt_Loai.Text = row.Cells["loai_hop_dong"].Value.ToString();
                 txt_NgayKy.Text = row.Cells["ngay_ky"].Value.ToString() == "" ? "" : Convert.ToDateTime(row.Cells["ngay_ky"].Value.ToString()).ToShortDateString();

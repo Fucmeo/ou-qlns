@@ -426,7 +426,7 @@ namespace HDQD.UCs
         private void ResetInterface()
         {
             thongTinCNVC1.txt_MaNV.Text = "";
-            thongTinCNVC1.txt_Ho.Text = thongTinCNVC1.txt_Ten.Text = thongTinCNVC1.comB_ChucVu.Text = thongTinCNVC1.comB_DonVi.Text = "";
+            thongTinCNVC1.txt_HoTen.Text = thongTinCNVC1.txt_Ho.Text = thongTinCNVC1.txt_Ten.Text = thongTinCNVC1.comB_ChucVu.Text = thongTinCNVC1.comB_DonVi.Text = "";
             
             txt_MaHD.Text = txt_HeSo.Text = txt_Tien.Text
                 = txt_TienPC.Text = txt_HeSoPC.Text = rTB_GhiChuPC.Text
@@ -471,13 +471,14 @@ namespace HDQD.UCs
 
         private void DisplayInfo()
         {
-            thongTinCNVC1.txt_MaNV.Text = oHopdong.Ma_NV;
             // thông tin Họ tên NV.
             cnvc = new Business.CNVC.CNVC();
             cnvc.MaNV = oHopdong.Ma_NV;
             DataTable dtHoTenNV = cnvc.Search_Ho_Ten();
-            thongTinCNVC1.txt_Ho.Text = dtHoTenNV.Rows[0]["ho"].ToString();
-            thongTinCNVC1.txt_Ten.Text = dtHoTenNV.Rows[0]["ten"].ToString();
+            //thongTinCNVC1.txt_Ho.Text = dtHoTenNV.Rows[0]["ho"].ToString();
+            //thongTinCNVC1.txt_Ten.Text = dtHoTenNV.Rows[0]["ten"].ToString();
+            thongTinCNVC1.txt_HoTen.Text = dtHoTenNV.Rows[0]["ho"].ToString().Trim() + " " + dtHoTenNV.Rows[0]["ten"].ToString().Trim();
+            thongTinCNVC1.txt_MaNV.Text = oHopdong.Ma_NV;
 
             txt_MaHD.Text = oHopdong.Ma_Tuyen_Dung.Substring(0, oHopdong.Ma_Tuyen_Dung.Length - 9);
             rTB_GhiChu.Text = oHopdong.Ghi_Chu;

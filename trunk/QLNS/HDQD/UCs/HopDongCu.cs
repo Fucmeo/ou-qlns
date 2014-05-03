@@ -162,7 +162,7 @@ namespace HDQD.UCs
                 comB_DonVi.DataSource = dtDonVi;
                 comB_DonVi.DisplayMember = "ten_don_vi";
                 comB_DonVi.ValueMember = "id";
-                Fill_Date_DonVi();
+                Fill_Info_DonVi();
 
                 comB_LoaiPhuCap.DataSource = dtLoaiPC;
                 comB_LoaiPhuCap.DisplayMember = "ten_loai";
@@ -175,18 +175,19 @@ namespace HDQD.UCs
             }
         }
 
-        private void Fill_Date_DonVi()
+        private void Fill_Info_DonVi()
         {
             try
             {
                 int m_don_vi_id = Convert.ToInt32(comB_DonVi.SelectedValue.ToString());
                 var result = (from c in dtDonVi.AsEnumerable()
                               where c.Field<int>("id") == m_don_vi_id
-                              select new { id = c.Field<int>("id"), tu_ngay = c.Field<DateTime>("tu_ngay"), den_ngay = c.Field<DateTime?>("den_ngay") }
+                              select new { id = c.Field<int>("id"), ten_dv_cha = c.Field<string>("don_vi_cha"), tu_ngay = c.Field<DateTime>("tu_ngay"), den_ngay = c.Field<DateTime?>("den_ngay") }
                                   ).ToList();
 
                 DataTable dt = ToDataTable(result);
 
+                txt_DonViTrucThuoc.Text = dt.Rows[0]["ten_dv_cha"].ToString();
                 txt_TuNgay_DV.Text = Convert.ToDateTime(dt.Rows[0]["tu_ngay"].ToString()).ToString("d", CultureInfo.CreateSpecificCulture("vi-VN"));
                 txt_DenNgay_DV.Text = Convert.ToDateTime(dt.Rows[0]["den_ngay"].ToString()).ToString("d", CultureInfo.CreateSpecificCulture("vi-VN"));
 
@@ -397,7 +398,7 @@ namespace HDQD.UCs
 
         private void comB_DonVi_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Fill_Date_DonVi();
+            Fill_Info_DonVi();
         }
 
         private void btn_AddPC_Click(object sender, EventArgs e)
