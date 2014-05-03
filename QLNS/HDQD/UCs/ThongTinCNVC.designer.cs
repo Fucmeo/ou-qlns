@@ -103,21 +103,21 @@
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.ForeColor = System.Drawing.Color.Black;
             this.tableLayoutPanel1.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 24);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 20);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.47826F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 56.52174F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(668, 87);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(668, 91);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 8);
+            this.label5.Location = new System.Drawing.Point(16, 11);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 21);
+            this.label5.Size = new System.Drawing.Size(53, 17);
             this.label5.TabIndex = 10;
             this.label5.Text = "Họ tên*";
             // 
@@ -127,7 +127,7 @@
             this.btn_Tim.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Tim.ImageKey = "Business Man Find.png";
             this.btn_Tim.ImageList = this.imageList1;
-            this.btn_Tim.Location = new System.Drawing.Point(554, 40);
+            this.btn_Tim.Location = new System.Drawing.Point(554, 42);
             this.btn_Tim.Name = "btn_Tim";
             this.btn_Tim.Size = new System.Drawing.Size(48, 44);
             this.btn_Tim.TabIndex = 5;
@@ -145,9 +145,9 @@
             // 
             this.txt_HoTen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.txt_HoTen, 2);
-            this.txt_HoTen.Location = new System.Drawing.Point(88, 4);
+            this.txt_HoTen.Location = new System.Drawing.Point(88, 7);
             this.txt_HoTen.Name = "txt_HoTen";
-            this.txt_HoTen.Size = new System.Drawing.Size(228, 28);
+            this.txt_HoTen.Size = new System.Drawing.Size(228, 24);
             this.txt_HoTen.TabIndex = 12;
             this.txt_HoTen.TextChanged += new System.EventHandler(this.txt_HoTen_TextChanged);
             // 
@@ -155,9 +155,9 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 51);
+            this.label3.Location = new System.Drawing.Point(20, 56);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 21);
+            this.label3.Size = new System.Drawing.Size(44, 17);
             this.label3.TabIndex = 2;
             this.label3.Text = "Đơn vị";
             // 
@@ -167,9 +167,9 @@
             this.comB_DonVi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_DonVi.Enabled = false;
             this.comB_DonVi.FormattingEnabled = true;
-            this.comB_DonVi.Location = new System.Drawing.Point(88, 49);
+            this.comB_DonVi.Location = new System.Drawing.Point(88, 54);
             this.comB_DonVi.Name = "comB_DonVi";
-            this.comB_DonVi.Size = new System.Drawing.Size(164, 29);
+            this.comB_DonVi.Size = new System.Drawing.Size(164, 25);
             this.comB_DonVi.TabIndex = 3;
             this.comB_DonVi.SelectionChangeCommitted += new System.EventHandler(this.comB_DonVi_SelectionChangeCommitted);
             // 
@@ -177,18 +177,18 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(262, 41);
+            this.label4.Location = new System.Drawing.Point(261, 56);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 42);
+            this.label4.Size = new System.Drawing.Size(52, 17);
             this.label4.TabIndex = 3;
             this.label4.Text = "Chức vụ";
             // 
             // txt_Ten
             // 
             this.txt_Ten.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_Ten.Location = new System.Drawing.Point(662, 48);
+            this.txt_Ten.Location = new System.Drawing.Point(662, 53);
             this.txt_Ten.Name = "txt_Ten";
-            this.txt_Ten.Size = new System.Drawing.Size(3, 28);
+            this.txt_Ten.Size = new System.Drawing.Size(3, 24);
             this.txt_Ten.TabIndex = 13;
             this.txt_Ten.Visible = false;
             // 
@@ -198,27 +198,27 @@
             this.comB_ChucVu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_ChucVu.Enabled = false;
             this.comB_ChucVu.FormattingEnabled = true;
-            this.comB_ChucVu.Location = new System.Drawing.Point(322, 49);
+            this.comB_ChucVu.Location = new System.Drawing.Point(322, 54);
             this.comB_ChucVu.Name = "comB_ChucVu";
-            this.comB_ChucVu.Size = new System.Drawing.Size(172, 29);
+            this.comB_ChucVu.Size = new System.Drawing.Size(172, 25);
             this.comB_ChucVu.TabIndex = 4;
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(389, 8);
+            this.label1.Location = new System.Drawing.Point(393, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 21);
+            this.label1.Size = new System.Drawing.Size(30, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã ";
             // 
             // txt_Ho
             // 
             this.txt_Ho.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_Ho.Location = new System.Drawing.Point(662, 4);
+            this.txt_Ho.Location = new System.Drawing.Point(662, 7);
             this.txt_Ho.Name = "txt_Ho";
-            this.txt_Ho.Size = new System.Drawing.Size(3, 28);
+            this.txt_Ho.Size = new System.Drawing.Size(3, 24);
             this.txt_Ho.TabIndex = 14;
             this.txt_Ho.Visible = false;
             // 
@@ -226,14 +226,14 @@
             // 
             this.txt_MaNV.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txt_MaNV.Enabled = false;
-            this.txt_MaNV.Location = new System.Drawing.Point(500, 4);
+            this.txt_MaNV.Location = new System.Drawing.Point(500, 7);
             this.txt_MaNV.Name = "txt_MaNV";
-            this.txt_MaNV.Size = new System.Drawing.Size(156, 28);
+            this.txt_MaNV.Size = new System.Drawing.Size(156, 24);
             this.txt_MaNV.TabIndex = 2;
             // 
             // ThongTinCNVC
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.tableLP_ThongTinCNVC);
