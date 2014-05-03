@@ -14,6 +14,7 @@ namespace HDQD.UCs
     {
         Business.ChucVu oChucvu;
         Business.HDQD.QDDiDuong oQDDiDuong;
+        DataTable dtDiDuongDetail;
 
         public QDDiDuong()
         {
@@ -43,6 +44,21 @@ namespace HDQD.UCs
             }
 
         }
+
+        private void PrepTbl_DiDuongDetail()
+        {
+            dtDiDuongDetail = new DataTable();
+            dtDiDuongDetail.Columns.Add("seq_id", typeof(int));
+            dtDiDuongDetail.Columns.Add("ptdc_id", typeof(int));
+            dtDiDuongDetail.Columns.Add("di_or_den", typeof(int));
+            dtDiDuongDetail.Columns.Add("dia_diem", typeof(string));
+            dtDiDuongDetail.Columns.Add("ngay_khoi_hanh", typeof(DateTime));
+            dtDiDuongDetail.Columns.Add("so_ngay_cong_tac", typeof(double));
+            dtDiDuongDetail.Columns.Add("ly_do_luu_tru", typeof(string));
+            dtDiDuongDetail.Columns.Add("ghi_chu", typeof(string));
+
+        }
+
         #endregion
 
 
