@@ -38,6 +38,9 @@
     <ApplicationIcon>couple.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="SplitButton">
+      <HintPath>..\HDQD\bin\Debug\SplitButton.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
@@ -102,6 +105,12 @@
     </Compile>
     <Compile Include="UCs\QLNS_QTrCTac_Chart.Designer.cs">
       <DependentUpon>QLNS_QTrCTac_Chart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCs\QLNS_QuocGiaTP.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\QLNS_QuocGiaTP.Designer.cs">
+      <DependentUpon>QLNS_QuocGiaTP.cs</DependentUpon>
     </Compile>
     <Compile Include="UCs\QLNS_ThamNien.cs">
       <SubType>UserControl</SubType>
@@ -322,6 +331,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\QLNS_QTrCTac_Chart.resx">
       <DependentUpon>QLNS_QTrCTac_Chart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\QLNS_QuocGiaTP.resx">
+      <DependentUpon>QLNS_QuocGiaTP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\QLNS_ThamNien.resx">
       <DependentUpon>QLNS_ThamNien.cs</DependentUpon>
