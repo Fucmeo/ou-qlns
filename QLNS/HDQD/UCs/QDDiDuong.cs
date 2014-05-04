@@ -96,12 +96,115 @@ namespace HDQD.UCs
             return m_sum;
         }
 
+        private bool CheckInputData()
+        {
+            if (dtp_TuNgay.Checked == true && dtp_DenNgay.Checked == true &&
+                    !String.IsNullOrEmpty(txt_MSQD.Text) && !String.IsNullOrEmpty(thongTinCNVC1.txt_MaNV.Text))
+                return true;
+            else
+                return false;
+        }
+
+        private void ResetInterface()
+        {
+            thongTinCNVC1.txt_MaNV.Text = "";
+            thongTinCNVC1.txt_HoTen.Text = thongTinCNVC1.txt_Ho.Text = thongTinCNVC1.txt_Ten.Text = thongTinCNVC1.comB_ChucVu.Text = thongTinCNVC1.comB_DonVi.Text = "";
+
+            txt_MSQD.Text = txt_NoiCongTac.Text = txt_CongVanSo.Text
+                = rtb_GhiChu.Text = txt_Luong.Text = txt_CongTacPhi.Text
+                = txt_SoNgayCongTac.Text = txt_DiaChi.Text 
+                = rtB_LyDoLuuTru.Text = "";
+            dtp_NgayCongVan.Checked = dtp_TuNgay.Checked = dtp_DenNgay.Checked = dtp_Ngay.Checked = false;
+        }
+
         #endregion
 
 
         private void btn_Them_Click(object sender, EventArgs e)
         {
+            if (CheckInputData())
+            {
+                oQDDiDuong = new Business.HDQD.QDDiDuong();
 
+                oQDDiDuong.Ma_Quyet_Dinh = txt_MSQD.Text.Trim();
+                oQDDiDuong.Ma_NV = thongTinCNVC1.txt_MaNV.Text.Trim();
+                if (comB_ChucVu.Text != "")
+                    oQDDiDuong.ChucVu_ID = Convert.ToInt32(comB_ChucVu.SelectedValue);
+                else
+                    oQDDiDuong.ChucVu_ID = -1;
+
+                oQDDiDuong.NoiCongTac = txt_NoiCongTac.Text.Trim();
+                oQDDiDuong.CongVanSo = txt_CongVanSo.Text.Trim();
+
+                if (dtp_NgayCongVan.Checked == true)
+                    oQDDiDuong.CongVanNgay = dtp_NgayCongVan.Value;
+                else
+                    oQDDiDuong.CongVanNgay = null;
+
+                oQDDiDuong.TuNgay = dtp_TuNgay.Value;
+                oQDDiDuong.DenNgay = dtp_DenNgay.Value;
+
+                oQDDiDuong.TienLuong = Convert.ToDouble(txt_Luong.Text == null ? "0" : txt_Luong.Text);
+                oQDDiDuong.CongTacPhi = Convert.ToDouble(txt_CongTacPhi.Text == null ? "0" : txt_CongTacPhi.Text);
+
+                oQDDiDuong.GhiChu = rtb_GhiChu.Text;
+
+                oQDDiDuong.Path = null;
+
+                #region QDDiDuongDetail
+                List<int> m_seq_id = new List<int>();
+                List<int> m_ptdc_id = new List<int>();
+                List<int> m_di_or_den = new List<int>();
+                List<string> m_dia_diem = new List<string>();
+                List<DateTime> m_ngay_khoi_hanh = new List<DateTime>();
+                List<double> m_so_ngay_ct = new List<double>();
+                List<string> m_ly_do_luu_tru = new List<string>();
+                List<string> m_ghi_chu_detail = new List<string>();
+
+                foreach (DataRow dr in dtDiDuongDetail.Rows)
+                {
+                    m_seq_id.Add(Convert.ToInt32(dr["seq_id"].ToString()));
+                    m_ptdc_id.Add(Convert.ToInt32(dr["ptdc_id"].ToString()));
+                    m_di_or_den.Add(Convert.ToInt32(dr["di_or_den"].ToString()));
+                    m_dia_diem.Add(dr["dia_diem"].ToString());
+                    m_ngay_khoi_hanh.Add(Convert.ToDateTime(dr["ngay_khoi_hanh"].ToString(), CultureInfo.CreateSpecificCulture("vi-VN")));
+                    m_so_ngay_ct.Add(Convert.ToDouble(dr["so_ngay_cong_tac"].ToString()));
+                    m_ly_do_luu_tru.Add(dr["ly_do_luu_tru"].ToString());
+                    m_ghi_chu_detail.Add(dr["ghi_chu"].ToString());
+                }
+
+                oQDDiDuong.SEQ_ID = m_seq_id.ToArray();
+                oQDDiDuong.PTDC_ID = m_ptdc_id.ToArray();
+                oQDDiDuong.Di_Or_Den = m_di_or_den.ToArray();
+                oQDDiDuong.DiaDiem = m_dia_diem.ToArray();
+                oQDDiDuong.NgayKhoiHanh = m_ngay_khoi_hanh.ToArray();
+                oQDDiDuong.SoNgayCT = m_so_ngay_ct.ToArray();
+                oQDDiDuong.LyDoLuuTru = m_ly_do_luu_tru.ToArray();
+                oQDDiDuong.GhiChu_Detail = m_ghi_chu_detail.ToArray();
+
+                #endregion
+
+                try
+                {
+                    if (MessageBox.Show("Bạn thực sự muốn thêm giấy đi đường cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        if (oQDDiDuong.Add_Giay_Di_Duong())
+                        {
+                            MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //bUploadInfoSuccess = true;
+                            ResetInterface();
+                        }
+                        else
+                            MessageBox.Show("Thao tác thêm thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Thao tác thêm thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void QDDiDuong_Load(object sender, EventArgs e)
@@ -159,7 +262,7 @@ namespace HDQD.UCs
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Có lỗi trong quá trình nhập liệu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
