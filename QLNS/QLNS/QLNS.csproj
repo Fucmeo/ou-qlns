@@ -39,7 +39,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="SplitButton">
-      <HintPath>..\HDQD\bin\Debug\SplitButton.dll</HintPath>
+      <HintPath>..\..\..\New folder\QLNS\QLNS\bin\Debug\SplitButton.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -99,6 +99,12 @@
     </Compile>
     <Compile Include="UCs\NCKH_ThemNguoi.Designer.cs">
       <DependentUpon>NCKH_ThemNguoi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCs\QLNS_LoaiDonVi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\QLNS_LoaiDonVi.Designer.cs">
+      <DependentUpon>QLNS_LoaiDonVi.cs</DependentUpon>
     </Compile>
     <Compile Include="UCs\QLNS_QTrCTac_Chart.cs">
       <SubType>UserControl</SubType>
@@ -328,6 +334,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\NCKH_ThemNguoi.resx">
       <DependentUpon>NCKH_ThemNguoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\QLNS_LoaiDonVi.resx">
+      <DependentUpon>QLNS_LoaiDonVi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\QLNS_QTrCTac_Chart.resx">
       <DependentUpon>QLNS_QTrCTac_Chart.cs</DependentUpon>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="NVTheo_HocHam_HocVi_GioiTinh" targetNamespace="http://tempuri.org/NVTheo_HocHam_HocVi_GioiTinh.xsd" xmlns:mstns="http://tempuri.org/NVTheo_HocHam_HocVi_GioiTinh.xsd" xmlns="http://tempuri.org/NVTheo_HocHam_HocVi_GioiTinh.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="NVTheo_HocHam_HocVi_GioiTinh" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="NVTheo_HocHam_HocVi_GioiTinh" msprop:Generator_UserDSName="NVTheo_HocHam_HocVi_GioiTinh">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="don_vi" msprop:Generator_ColumnVarNameInTable="columndon_vi" msprop:Generator_ColumnPropNameInRow="don_vi" msprop:Generator_ColumnPropNameInTable="don_viColumn" msprop:Generator_UserColumnName="don_vi" type="xs:string" minOccurs="0" />
+              <xs:element name="ma_nv" msprop:Generator_ColumnVarNameInTable="columnma_nv" msprop:Generator_ColumnPropNameInRow="ma_nv" msprop:Generator_ColumnPropNameInTable="ma_nvColumn" msprop:Generator_UserColumnName="ma_nv" type="xs:string" minOccurs="0" />
+              <xs:element name="chuc_danh" msprop:Generator_ColumnVarNameInTable="columnchuc_danh" msprop:Generator_ColumnPropNameInRow="chuc_danh" msprop:Generator_ColumnPropNameInTable="chuc_danhColumn" msprop:Generator_UserColumnName="chuc_danh" type="xs:string" minOccurs="0" />
+              <xs:element name="hoc_ham" msprop:Generator_ColumnVarNameInTable="columnhoc_ham" msprop:Generator_ColumnPropNameInRow="hoc_ham" msprop:Generator_ColumnPropNameInTable="hoc_hamColumn" msprop:Generator_UserColumnName="hoc_ham" type="xs:string" minOccurs="0" />
+              <xs:element name="hoc_vi" msprop:Generator_ColumnVarNameInTable="columnhoc_vi" msprop:Generator_ColumnPropNameInRow="hoc_vi" msprop:Generator_ColumnPropNameInTable="hoc_viColumn" msprop:Generator_UserColumnName="hoc_vi" type="xs:string" minOccurs="0" />
+              <xs:element name="gioi_tinh" msprop:Generator_ColumnVarNameInTable="columngioi_tinh" msprop:Generator_ColumnPropNameInRow="gioi_tinh" msprop:Generator_ColumnPropNameInTable="gioi_tinhColumn" msprop:Generator_UserColumnName="gioi_tinh" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

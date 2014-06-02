@@ -83,8 +83,8 @@
             this.thongTinCNVC1 = new HDQD.UCs.ThongTinCNVC();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.TLP_QDDiDuong.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_DSDiDuongDetail)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -321,7 +321,7 @@
             this.comB_PhuongTien.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_PhuongTien.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_PhuongTien.FormattingEnabled = true;
-            this.comB_PhuongTien.Location = new System.Drawing.Point(181, 49);
+            this.comB_PhuongTien.Location = new System.Drawing.Point(181, 47);
             this.comB_PhuongTien.Name = "comB_PhuongTien";
             this.comB_PhuongTien.Size = new System.Drawing.Size(252, 29);
             this.comB_PhuongTien.TabIndex = 49;
@@ -334,7 +334,7 @@
             this.comB_NoiDiNoiDen.Items.AddRange(new object[] {
             "Nơi đi",
             "Nơi đến"});
-            this.comB_NoiDiNoiDen.Location = new System.Drawing.Point(181, 8);
+            this.comB_NoiDiNoiDen.Location = new System.Drawing.Point(181, 6);
             this.comB_NoiDiNoiDen.Name = "comB_NoiDiNoiDen";
             this.comB_NoiDiNoiDen.Size = new System.Drawing.Size(252, 29);
             this.comB_NoiDiNoiDen.TabIndex = 48;
@@ -620,7 +620,7 @@
             this.comB_ChucVu.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_ChucVu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_ChucVu.FormattingEnabled = true;
-            this.comB_ChucVu.Location = new System.Drawing.Point(713, 129);
+            this.comB_ChucVu.Location = new System.Drawing.Point(713, 127);
             this.comB_ChucVu.Name = "comB_ChucVu";
             this.comB_ChucVu.Size = new System.Drawing.Size(252, 29);
             this.comB_ChucVu.TabIndex = 49;
@@ -735,7 +735,7 @@
             this.thongTinCNVC1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.thongTinCNVC1.Name = "thongTinCNVC1";
             this.tableLayoutPanel4.SetRowSpan(this.thongTinCNVC1, 2);
-            this.thongTinCNVC1.Size = new System.Drawing.Size(587, 127);
+            this.thongTinCNVC1.Size = new System.Drawing.Size(586, 127);
             this.thongTinCNVC1.TabIndex = 51;
             // 
             // listBox1
@@ -743,9 +743,9 @@
             this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 22;
-            this.listBox1.Location = new System.Drawing.Point(596, 3);
+            this.listBox1.Location = new System.Drawing.Point(595, 3);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(475, 78);
+            this.listBox1.Size = new System.Drawing.Size(476, 78);
             this.listBox1.TabIndex = 52;
             // 
             // tableLayoutPanel5
@@ -756,36 +756,36 @@
             this.tableLayoutPanel5.Controls.Add(this.button2, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.button1, 1, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(596, 87);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(595, 87);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(475, 45);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(476, 45);
             this.tableLayoutPanel5.TabIndex = 53;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.ImageKey = "Cancel.png";
-            this.button1.ImageList = this.imageList1;
-            this.button1.Location = new System.Drawing.Point(331, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(50, 39);
-            this.button1.TabIndex = 47;
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
             this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button2.ImageKey = "ArrowHead-Right.png";
             this.button2.ImageList = this.imageList1;
-            this.button2.Location = new System.Drawing.Point(93, 3);
+            this.button2.Location = new System.Drawing.Point(94, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(50, 39);
             this.button2.TabIndex = 48;
             this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button1.ImageKey = "Cancel.png";
+            this.button1.ImageList = this.imageList1;
+            this.button1.Location = new System.Drawing.Point(332, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(50, 39);
+            this.button1.TabIndex = 47;
+            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // QDDiDuong
             // 

@@ -73,6 +73,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>NVTheo_DV.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSet\NVTheo_HocHam_HocVi_GioiTinh.cs">
+      <DependentUpon>NVTheo_HocHam_HocVi_GioiTinh.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataSet\NVTheo_HocHam_HocVi_GioiTinh.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NVTheo_HocHam_HocVi_GioiTinh.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSet\NVTheo_LoaiHD.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -82,6 +91,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>NVTheo_LoaiQD.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\NV_MoHinh_HinhThuc.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NV_MoHinh_HinhThuc.xsd</DependentUpon>
     </Compile>
     <Compile Include="Reports\Footer.cs">
       <AutoGen>True</AutoGen>
@@ -120,6 +134,12 @@
       <DependentUpon>NVTheo_DV.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reports\NVTheo_HocHam_HocVi_GioiTinh.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NVTheo_HocHam_HocVi_GioiTinh.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\NVTheo_LoaiHD.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -130,6 +150,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>NVTheo_LoaiQD.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\NV_MoHinh_HinhThuc.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NV_MoHinh_HinhThuc.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="UCs\NVTheo_CD_CV.cs">
@@ -144,6 +170,12 @@
     <Compile Include="UCs\NVTheo_DV.Designer.cs">
       <DependentUpon>NVTheo_DV.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCs\NVTheo_HocHam_HocVi_GioiTinh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\NVTheo_HocHam_HocVi_GioiTinh.Designer.cs">
+      <DependentUpon>NVTheo_HocHam_HocVi_GioiTinh.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCs\NVTheo_LoaiHD.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -155,6 +187,12 @@
     </Compile>
     <Compile Include="UCs\NVTheo_LoaiQD.Designer.cs">
       <DependentUpon>NVTheo_LoaiQD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCs\NV_MoHinh_HinhThuc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\NV_MoHinh_HinhThuc.Designer.cs">
+      <DependentUpon>NV_MoHinh_HinhThuc.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Reports\Footer.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -185,6 +223,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>NVTheo_DV.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NVTheo_HocHam_HocVi_GioiTinh.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>NVTheo_HocHam_HocVi_GioiTinh.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\NVTheo_LoaiHD.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>NVTheo_LoaiHD.cs</LastGenOutput>
@@ -193,17 +235,27 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>NVTheo_LoaiQD.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NV_MoHinh_HinhThuc.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>NV_MoHinh_HinhThuc.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="UCs\NVTheo_CD_CV.resx">
       <DependentUpon>NVTheo_CD_CV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\NVTheo_DV.resx">
       <DependentUpon>NVTheo_DV.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UCs\NVTheo_HocHam_HocVi_GioiTinh.resx">
+      <DependentUpon>NVTheo_HocHam_HocVi_GioiTinh.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UCs\NVTheo_LoaiHD.resx">
       <DependentUpon>NVTheo_LoaiHD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\NVTheo_LoaiQD.resx">
       <DependentUpon>NVTheo_LoaiQD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\NV_MoHinh_HinhThuc.resx">
+      <DependentUpon>NV_MoHinh_HinhThuc.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config">
       <SubType>Designer</SubType>
@@ -230,6 +282,17 @@
     <None Include="DataSet\NVTheo_DV.xss">
       <DependentUpon>NVTheo_DV.xsd</DependentUpon>
     </None>
+    <None Include="DataSet\NVTheo_HocHam_HocVi_GioiTinh.xsc">
+      <DependentUpon>NVTheo_HocHam_HocVi_GioiTinh.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\NVTheo_HocHam_HocVi_GioiTinh.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>NVTheo_HocHam_HocVi_GioiTinh.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\NVTheo_HocHam_HocVi_GioiTinh.xss">
+      <DependentUpon>NVTheo_HocHam_HocVi_GioiTinh.xsd</DependentUpon>
+    </None>
     <None Include="DataSet\NVTheo_LoaiHD.xsc">
       <DependentUpon>NVTheo_LoaiHD.xsd</DependentUpon>
     </None>
@@ -251,6 +314,17 @@
     </None>
     <None Include="DataSet\NVTheo_LoaiQD.xss">
       <DependentUpon>NVTheo_LoaiQD.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\NV_MoHinh_HinhThuc.xsc">
+      <DependentUpon>NV_MoHinh_HinhThuc.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\NV_MoHinh_HinhThuc.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>NV_MoHinh_HinhThuc.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\NV_MoHinh_HinhThuc.xss">
+      <DependentUpon>NV_MoHinh_HinhThuc.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

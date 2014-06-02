@@ -39,7 +39,15 @@ D:\Job\QLNS\Projects\QLNS\QLNS\BaoCao\bin\Debug\SystemConfig.dll
 D:\Job\QLNS\Projects\QLNS\QLNS\BaoCao\bin\Debug\Mono.Security.dll
 D:\Job\QLNS\Projects\QLNS\QLNS\BaoCao\bin\Debug\Business.pdb
 D:\Job\QLNS\Projects\QLNS\QLNS\BaoCao\bin\Debug\DataProvider.pdb
+D:\Job\QLNS\Projects\QLNS\QLNS\BaoCao\bin\Debug\Npgsql.pdb
+D:\Job\QLNS\Projects\QLNS\QLNS\BaoCao\bin\Debug\Npgsql.xml
 D:\Job\QLNS\Projects\QLNS\QLNS\BaoCao\bin\Debug\SystemConfig.pdb
+D:\Job\QLNS\Projects\QLNS\QLNS\BaoCao\bin\Debug\de\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS\QLNS\BaoCao\bin\Debug\es\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS\QLNS\BaoCao\bin\Debug\fi\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS\QLNS\BaoCao\bin\Debug\fr\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS\QLNS\BaoCao\bin\Debug\ja\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS\QLNS\BaoCao\bin\Debug\zh-CN\Npgsql.resources.dll
 D:\Job\QLNS\Projects\QLNS\QLNS\BaoCao\obj\x86\Debug\BaoCao.csprojResolveAssemblyReference.cache
 D:\Job\QLNS\Projects\QLNS\QLNS\BaoCao\obj\x86\Debug\BaoCao.Form1.resources
 D:\Job\QLNS\Projects\QLNS\QLNS\BaoCao\obj\x86\Debug\BaoCao.Properties.Resources.resources
@@ -50,3 +58,5 @@ D:\Job\QLNS\Projects\QLNS\QLNS\BaoCao\obj\x86\Debug\BaoCao.UCs.NVTheo_LoaiQD.res
 D:\Job\QLNS\Projects\QLNS\QLNS\BaoCao\obj\x86\Debug\BaoCao.csproj.GenerateResource.Cache
 D:\Job\QLNS\Projects\QLNS\QLNS\BaoCao\obj\x86\Debug\BaoCao.exe
 D:\Job\QLNS\Projects\QLNS\QLNS\BaoCao\obj\x86\Debug\BaoCao.pdb
+D:\Job\QLNS\Projects\QLNS\QLNS\BaoCao\obj\x86\Debug\BaoCao.UCs.NVTheo_HocHam_HocVi_GioiTinh.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\BaoCao\obj\x86\Debug\BaoCao.UCs.NV_MoHinh_HinhThuc.resources
