@@ -189,23 +189,26 @@ namespace LuongBH.UCs.Luong
             {
                 if (AddEditNhomNgach)       // Nhom ngach
                 {
-                    if (!string.IsNullOrWhiteSpace(txt_TenNgach.Text) &&
-                        MessageBox.Show("Bạn muốn thêm nhóm ngạch này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (!string.IsNullOrWhiteSpace(txt_TenNgach.Text))
                     {
-                        oNhomNgach.TenNhomNgach = txt_TenNgach.Text.Trim();
-                        try
+                        if (MessageBox.Show("Bạn muốn thêm nhóm ngạch này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
-                            oNhomNgach.Add();
-                            GetNgach_NhomNgach();
-                            UpdateTreeVDonVi();
-                            FillNhomNgachCombo();
-                            MessageBox.Show("Thêm nhóm ngạch thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            ResetInterface(true);
+                            oNhomNgach.TenNhomNgach = txt_TenNgach.Text.Trim();
+                            try
+                            {
+                                oNhomNgach.Add();
+                                GetNgach_NhomNgach();
+                                UpdateTreeVDonVi();
+                                FillNhomNgachCombo();
+                                MessageBox.Show("Thêm nhóm ngạch thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                ResetInterface(true);
+                            }
+                            catch (Exception)
+                            {
+                                MessageBox.Show("Thêm nhóm ngạch không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
                         }
-                        catch (Exception)
-                        {
-                            MessageBox.Show("Thêm nhóm ngạch không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
+                        
                     }
                     else
                     {
@@ -214,26 +217,29 @@ namespace LuongBH.UCs.Luong
                 }
                 else        // Ngach
                 {
-                    if (!string.IsNullOrWhiteSpace(txt_TenNgach.Text) && !string.IsNullOrWhiteSpace(txt_MaNgach.Text) &&
-                        MessageBox.Show("Bạn muốn thêm ngạch này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (!string.IsNullOrWhiteSpace(txt_TenNgach.Text) && !string.IsNullOrWhiteSpace(txt_MaNgach.Text))
                     {
-                        oNgach.TenNgach = txt_TenNgach.Text.Trim();
-                        oNgach.MaNgach = txt_MaNgach.Text.Trim();
-                        oNgach.NhomNgachID = Convert.ToInt32(comB_NhomNgach.SelectedValue);
-                        oNgach.SoThangNangBac = Convert.ToInt16(nup_SoNam.Value);
-                        try
+                        if (MessageBox.Show("Bạn muốn thêm ngạch này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
-                            oNgach.Add();
-                            GetNgach_NhomNgach();
-                            UpdateTreeVDonVi();
-                            FillNhomNgachCombo();
-                            MessageBox.Show("Thêm ngạch thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            ResetInterface(true);
+                            oNgach.TenNgach = txt_TenNgach.Text.Trim();
+                            oNgach.MaNgach = txt_MaNgach.Text.Trim();
+                            oNgach.NhomNgachID = Convert.ToInt32(comB_NhomNgach.SelectedValue);
+                            oNgach.SoThangNangBac = Convert.ToInt16(nup_SoNam.Value);
+                            try
+                            {
+                                oNgach.Add();
+                                GetNgach_NhomNgach();
+                                UpdateTreeVDonVi();
+                                FillNhomNgachCombo();
+                                MessageBox.Show("Thêm ngạch thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                ResetInterface(true);
+                            }
+                            catch (Exception)
+                            {
+                                MessageBox.Show("Thêm ngạch không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
                         }
-                        catch (Exception)
-                        {
-                            MessageBox.Show("Thêm ngạch không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
+                       
                     }
                     else
                     {
@@ -250,23 +256,26 @@ namespace LuongBH.UCs.Luong
             {
                 if (AddEditNhomNgach)       // Nhom ngach
                 {
-                    if (!string.IsNullOrWhiteSpace(txt_TenNgach.Text) &&
-                        MessageBox.Show("Bạn muốn sửa nhóm ngạch này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (!string.IsNullOrWhiteSpace(txt_TenNgach.Text)  )
                     {
-                        oNhomNgach.TenNhomNgach = txt_TenNgach.Text.Trim();
-                        oNhomNgach.ID = Convert.ToInt32(SelectedNode.Name);
-                        try
+                        if (MessageBox.Show("Bạn muốn sửa nhóm ngạch này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
-                            oNhomNgach.Update();
-                            GetNgach_NhomNgach();
-                            UpdateTreeVDonVi();
-                            MessageBox.Show("sửa nhóm ngạch thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            ResetInterface(true);
+                            oNhomNgach.TenNhomNgach = txt_TenNgach.Text.Trim();
+                            oNhomNgach.ID = Convert.ToInt32(SelectedNode.Name);
+                            try
+                            {
+                                oNhomNgach.Update();
+                                GetNgach_NhomNgach();
+                                UpdateTreeVDonVi();
+                                MessageBox.Show("sửa nhóm ngạch thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                ResetInterface(true);
+                            }
+                            catch (Exception)
+                            {
+                                MessageBox.Show("sửa nhóm ngạch không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
                         }
-                        catch (Exception)
-                        {
-                            MessageBox.Show("sửa nhóm ngạch không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
+                        
                     }
                     else
                     {
@@ -275,26 +284,29 @@ namespace LuongBH.UCs.Luong
                 }
                 else        // Ngach
                 {
-                    if (!string.IsNullOrWhiteSpace(txt_TenNgach.Text) && !string.IsNullOrWhiteSpace(txt_MaNgach.Text) &&
-                        MessageBox.Show("Bạn muốn sửa ngạch này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (!string.IsNullOrWhiteSpace(txt_TenNgach.Text) && !string.IsNullOrWhiteSpace(txt_MaNgach.Text) )
                     {
-                        oNgach.TenNgach = txt_TenNgach.Text.Trim();
-                        oNgach.MaNgach = SelectedNode.Name.ToString();
-                        oNgach.NhomNgachID = Convert.ToInt32(comB_NhomNgach.SelectedValue);
-                        oNgach.SoThangNangBac = Convert.ToInt16(nup_SoNam.Value);
-                        try
+                        if (MessageBox.Show("Bạn muốn sửa ngạch này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
-                            if(txt_MaNgach.Text == SelectedNode.Name.ToString()) oNgach.Update(null);
-                            else oNgach.Update(txt_MaNgach.Text.Trim());
-                            GetNgach_NhomNgach();
-                            UpdateTreeVDonVi();
-                            MessageBox.Show("sửa ngạch thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            ResetInterface(true);
+                            oNgach.TenNgach = txt_TenNgach.Text.Trim();
+                            oNgach.MaNgach = SelectedNode.Name.ToString();
+                            oNgach.NhomNgachID = Convert.ToInt32(comB_NhomNgach.SelectedValue);
+                            oNgach.SoThangNangBac = Convert.ToInt16(nup_SoNam.Value);
+                            try
+                            {
+                                if (txt_MaNgach.Text == SelectedNode.Name.ToString()) oNgach.Update(null);
+                                else oNgach.Update(txt_MaNgach.Text.Trim());
+                                GetNgach_NhomNgach();
+                                UpdateTreeVDonVi();
+                                MessageBox.Show("sửa ngạch thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                ResetInterface(true);
+                            }
+                            catch (Exception)
+                            {
+                                MessageBox.Show("sửa ngạch không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
                         }
-                        catch (Exception)
-                        {
-                            MessageBox.Show("sửa ngạch không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
+                        
                     }
                     else
                     {

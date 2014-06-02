@@ -68,6 +68,22 @@ namespace Business
             return dt;
         }
 
+        public DataTable NV_Theo_HocHam_HocVi_GioiTinh(List<int> lstDV, List<int> lstChucDanh, List<int> lstHocHam)
+        {
+            DataTable dt = new DataTable();
+
+            IDataParameter[] paras = new IDataParameter[4]{
+                new NpgsqlParameter("p_dv_id",lstDV == null ? null : lstDV.ToArray()),
+                new NpgsqlParameter("p_cd_id",lstChucDanh),
+                new NpgsqlParameter("p_hoc_ham_id",lstHocHam),
+                new NpgsqlParameter("p_hoc_vi_id",null)
+            };
+
+            dt = dp.getDataTableProc("sp4_bc_so_luong_cnvc_hocham_hocvi_gioitinh", paras);
+
+            return dt;
+        }
+
         public DataTable NV_Theo_LoaiQD(List<int> lstLoaiQD, DateTime? tu_ngay, DateTime? den_ngay)
         {
             DataTable dt = new DataTable();
@@ -79,6 +95,20 @@ namespace Business
             };
 
             dt = dp.getDataTableProc("sp4_bc_cnvc_by_loai_qd", paras);
+
+            return dt;
+        }
+
+        public DataTable NV_Theo_HinhThuc_MoHinh(List<int> lstMoHinh, List<int> lstHinhThuc)
+        {
+            DataTable dt = new DataTable();
+
+            IDataParameter[] paras = new IDataParameter[2]{
+                new NpgsqlParameter("p_mo_hinh_id",lstMoHinh == null ? null : lstMoHinh.ToArray()),
+                new NpgsqlParameter("p_hinh_thuc_id",lstHinhThuc == null ? null : lstHinhThuc.ToArray())
+            };
+
+            dt = dp.getDataTableProc("sp4_bc_nv_mo_hinh_hinh_thuc_dao_tao", paras);
 
             return dt;
         }

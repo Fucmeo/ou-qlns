@@ -122,6 +122,22 @@ namespace Business
             return dt;
         }
 
+        public List<QuocGia> GetList()
+        {
+            DataTable dt = new DataTable();
+            List<QuocGia> listDonVi = new List<QuocGia>();
+
+            dt = dp.getDataTable("select * from v_quoc_gia");
+            listDonVi = dt.AsEnumerable().Select(row =>
+                 new QuocGia
+                 {
+                     ID = row.Field<int>("id"),
+                     TenQuocGia = row.Field<string>("ten_quoc_gia")
+                 }).ToList();
+
+            return listDonVi;
+        }
+
 
         #endregion
     }

@@ -82,7 +82,7 @@ namespace QLNS.Forms
             biểuĐồToolStripMenuItem.Image = ImageL_MenuStripItem.Images["bieu do.png"];
             tậpTinToolStripMenuItem.Image = ImageL_MenuStripItem.Images["Quan Ly File.png"];
 
-            
+            thànhPhốQuốcGiaToolStripMenuItem.Image = ImageL_MenuStripItem.Images["don vi.png"];
 
            
             
@@ -525,6 +525,18 @@ namespace QLNS.Forms
         private void nhânViênTheoChứcDanhChúcVụToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Forms.Popup f = new Popup("Báo cáo nhân viên theo chức danh - chức vụ", new BaoCao.UCs.NVTheo_CD_CV());
+            f.ShowDialog();
+        }
+
+        private void thànhPhốQuốcGiaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Quản lý thành phố - quốc gia", new QLNS.UCs.QLNS_QuocGiaTP());
+            f.ShowDialog();
+        }
+
+        private void nhânViênHọcTậpTạiNướcNgoàiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Báo cáo nhân viên học tập tại nước ngoài", new BaoCao.UCs.NV_MoHinh_HinhThuc());
             f.ShowDialog();
         }
     }

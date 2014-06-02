@@ -13,7 +13,7 @@ namespace QLNS.UCs
     public partial class QLNS_DSTinh : UserControl
     {
         bool check_all = false;
-        TinhTP tinhtp;
+        Business.TinhTP tinhtp;
         string ma_tinhtp = "";
         string ten_tinhtp = "";
         DataTable dsTinhTP;

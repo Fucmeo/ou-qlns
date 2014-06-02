@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ngach_NhomNgach));
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip();
             this.TSMI_ThemNhomNgach = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMI_ThemNgach = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLP_Ngach_NhomNgach = new System.Windows.Forms.TableLayoutPanel();
@@ -47,7 +46,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comB_NhomNgach = new System.Windows.Forms.ComboBox();
             this.btn_Sua = new System.Windows.Forms.Button();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.imageList1 = new System.Windows.Forms.ImageList();
             this.btn_Xoa = new System.Windows.Forms.Button();
             this.btn_Luu = new System.Windows.Forms.Button();
             this.btn_Huy = new System.Windows.Forms.Button();
@@ -127,6 +126,7 @@
             this.TreeV_Ngach_NhomNgach.Name = "TreeV_Ngach_NhomNgach";
             this.TreeV_Ngach_NhomNgach.Size = new System.Drawing.Size(248, 567);
             this.TreeV_Ngach_NhomNgach.TabIndex = 1;
+            this.TreeV_Ngach_NhomNgach.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.TreeV_Ngach_NhomNgach_NodeMouseDoubleClick);
             // 
             // groupBox2
             // 

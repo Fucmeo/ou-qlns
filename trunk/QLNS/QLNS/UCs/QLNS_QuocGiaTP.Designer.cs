@@ -36,13 +36,13 @@
             this.TSMI_ThemTP = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLP_Ngach_NhomNgach = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.TreeV_Ngach_NhomNgach = new System.Windows.Forms.TreeView();
+            this.TreeV_QuocGiaTP = new System.Windows.Forms.TreeView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLP_ThongTin = new System.Windows.Forms.TableLayoutPanel();
-            this.txt_TenNgach = new System.Windows.Forms.TextBox();
+            this.txt_Ten = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comB_NhomNgach = new System.Windows.Forms.ComboBox();
+            this.comB_QuocGia = new System.Windows.Forms.ComboBox();
             this.btn_Sua = new System.Windows.Forms.Button();
             this.btn_Xoa = new System.Windows.Forms.Button();
             this.btn_Luu = new System.Windows.Forms.Button();
@@ -78,12 +78,14 @@
             this.TSMI_ThemQuocGia.Name = "TSMI_ThemQuocGia";
             this.TSMI_ThemQuocGia.Size = new System.Drawing.Size(186, 24);
             this.TSMI_ThemQuocGia.Text = "Thêm quốc gia";
+            this.TSMI_ThemQuocGia.Click += new System.EventHandler(this.TSMI_ThemQuocGia_Click);
             // 
             // TSMI_ThemTP
             // 
             this.TSMI_ThemTP.Name = "TSMI_ThemTP";
             this.TSMI_ThemTP.Size = new System.Drawing.Size(186, 24);
             this.TSMI_ThemTP.Text = "Thêm thành phố";
+            this.TSMI_ThemTP.Click += new System.EventHandler(this.TSMI_ThemTP_Click);
             // 
             // tableLP_Ngach_NhomNgach
             // 
@@ -113,7 +115,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.TreeV_Ngach_NhomNgach);
+            this.groupBox1.Controls.Add(this.TreeV_QuocGiaTP);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.Turquoise;
@@ -125,13 +127,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Quốc gia - Thành phố";
             // 
-            // TreeV_Ngach_NhomNgach
+            // TreeV_QuocGiaTP
             // 
-            this.TreeV_Ngach_NhomNgach.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TreeV_Ngach_NhomNgach.Location = new System.Drawing.Point(3, 25);
-            this.TreeV_Ngach_NhomNgach.Name = "TreeV_Ngach_NhomNgach";
-            this.TreeV_Ngach_NhomNgach.Size = new System.Drawing.Size(300, 391);
-            this.TreeV_Ngach_NhomNgach.TabIndex = 1;
+            this.TreeV_QuocGiaTP.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TreeV_QuocGiaTP.Location = new System.Drawing.Point(3, 25);
+            this.TreeV_QuocGiaTP.Name = "TreeV_QuocGiaTP";
+            this.TreeV_QuocGiaTP.Size = new System.Drawing.Size(300, 391);
+            this.TreeV_QuocGiaTP.TabIndex = 1;
+            this.TreeV_QuocGiaTP.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.TreeV_QuocGiaTP_NodeMouseDoubleClick);
             // 
             // groupBox2
             // 
@@ -153,10 +156,10 @@
             this.tableLP_ThongTin.ColumnCount = 2;
             this.tableLP_ThongTin.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.74603F));
             this.tableLP_ThongTin.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.25397F));
-            this.tableLP_ThongTin.Controls.Add(this.txt_TenNgach, 1, 0);
+            this.tableLP_ThongTin.Controls.Add(this.txt_Ten, 1, 0);
             this.tableLP_ThongTin.Controls.Add(this.label3, 0, 1);
             this.tableLP_ThongTin.Controls.Add(this.label1, 0, 0);
-            this.tableLP_ThongTin.Controls.Add(this.comB_NhomNgach, 1, 1);
+            this.tableLP_ThongTin.Controls.Add(this.comB_QuocGia, 1, 1);
             this.tableLP_ThongTin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLP_ThongTin.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLP_ThongTin.Location = new System.Drawing.Point(3, 25);
@@ -168,15 +171,15 @@
             this.tableLP_ThongTin.Size = new System.Drawing.Size(458, 155);
             this.tableLP_ThongTin.TabIndex = 0;
             // 
-            // txt_TenNgach
+            // txt_Ten
             // 
-            this.txt_TenNgach.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_TenNgach.Enabled = false;
-            this.txt_TenNgach.Location = new System.Drawing.Point(148, 24);
-            this.txt_TenNgach.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.txt_TenNgach.Name = "txt_TenNgach";
-            this.txt_TenNgach.Size = new System.Drawing.Size(253, 29);
-            this.txt_TenNgach.TabIndex = 9;
+            this.txt_Ten.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_Ten.Enabled = false;
+            this.txt_Ten.Location = new System.Drawing.Point(148, 24);
+            this.txt_Ten.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txt_Ten.Name = "txt_Ten";
+            this.txt_Ten.Size = new System.Drawing.Size(253, 29);
+            this.txt_Ten.TabIndex = 9;
             // 
             // label3
             // 
@@ -201,19 +204,19 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Tên";
             // 
-            // comB_NhomNgach
+            // comB_QuocGia
             // 
-            this.comB_NhomNgach.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.comB_NhomNgach.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comB_NhomNgach.Enabled = false;
-            this.comB_NhomNgach.FormattingEnabled = true;
-            this.comB_NhomNgach.Items.AddRange(new object[] {
+            this.comB_QuocGia.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.comB_QuocGia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comB_QuocGia.Enabled = false;
+            this.comB_QuocGia.FormattingEnabled = true;
+            this.comB_QuocGia.Items.AddRange(new object[] {
             "Biên chế",
             "Hợp đồng"});
-            this.comB_NhomNgach.Location = new System.Drawing.Point(148, 103);
-            this.comB_NhomNgach.Name = "comB_NhomNgach";
-            this.comB_NhomNgach.Size = new System.Drawing.Size(253, 30);
-            this.comB_NhomNgach.TabIndex = 7;
+            this.comB_QuocGia.Location = new System.Drawing.Point(148, 103);
+            this.comB_QuocGia.Name = "comB_QuocGia";
+            this.comB_QuocGia.Size = new System.Drawing.Size(253, 30);
+            this.comB_QuocGia.TabIndex = 7;
             // 
             // btn_Sua
             // 
@@ -227,6 +230,7 @@
             this.btn_Sua.TabIndex = 4;
             this.btn_Sua.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Sua.UseVisualStyleBackColor = true;
+            this.btn_Sua.Click += new System.EventHandler(this.btn_Sua_Click);
             // 
             // btn_Xoa
             // 
@@ -240,6 +244,7 @@
             this.btn_Xoa.TabIndex = 7;
             this.btn_Xoa.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Xoa.UseVisualStyleBackColor = true;
+            this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
             // 
             // btn_Luu
             // 
@@ -254,6 +259,7 @@
             this.btn_Luu.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Luu.UseVisualStyleBackColor = true;
             this.btn_Luu.Visible = false;
+            this.btn_Luu.Click += new System.EventHandler(this.btn_Luu_Click);
             // 
             // btn_Huy
             // 
@@ -268,6 +274,7 @@
             this.btn_Huy.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Huy.UseVisualStyleBackColor = true;
             this.btn_Huy.Visible = false;
+            this.btn_Huy.Click += new System.EventHandler(this.btn_Huy_Click);
             // 
             // btn_Them
             // 
@@ -290,9 +297,10 @@
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.tableLP_Ngach_NhomNgach);
             this.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "QLNS_QuocGiaTP";
             this.Size = new System.Drawing.Size(782, 425);
+            this.Load += new System.EventHandler(this.QLNS_QuocGiaTP_Load);
             this.contextMenuStrip1.ResumeLayout(false);
             this.tableLP_Ngach_NhomNgach.ResumeLayout(false);
             this.tableLP_Ngach_NhomNgach.PerformLayout();
@@ -312,13 +320,13 @@
         private System.Windows.Forms.ToolStripMenuItem TSMI_ThemTP;
         private System.Windows.Forms.TableLayoutPanel tableLP_Ngach_NhomNgach;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TreeView TreeV_Ngach_NhomNgach;
+        private System.Windows.Forms.TreeView TreeV_QuocGiaTP;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TableLayoutPanel tableLP_ThongTin;
-        private System.Windows.Forms.TextBox txt_TenNgach;
+        private System.Windows.Forms.TextBox txt_Ten;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comB_NhomNgach;
+        private System.Windows.Forms.ComboBox comB_QuocGia;
         private System.Windows.Forms.Button btn_Sua;
         private System.Windows.Forms.Button btn_Xoa;
         private System.Windows.Forms.Button btn_Luu;

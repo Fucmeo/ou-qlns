@@ -210,7 +210,7 @@
             this.comB_CMND_HoChieu.Items.AddRange(new object[] {
             "CMND",
             "Hộ chiếu"});
-            this.comB_CMND_HoChieu.Location = new System.Drawing.Point(571, 50);
+            this.comB_CMND_HoChieu.Location = new System.Drawing.Point(571, 49);
             this.comB_CMND_HoChieu.Name = "comB_CMND_HoChieu";
             this.comB_CMND_HoChieu.Size = new System.Drawing.Size(240, 26);
             this.comB_CMND_HoChieu.TabIndex = 3;
@@ -506,7 +506,7 @@
             this.comB_QuocGia.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_QuocGia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_QuocGia.FormattingEnabled = true;
-            this.comB_QuocGia.Location = new System.Drawing.Point(3, 4);
+            this.comB_QuocGia.Location = new System.Drawing.Point(3, 3);
             this.comB_QuocGia.Name = "comB_QuocGia";
             this.comB_QuocGia.Size = new System.Drawing.Size(236, 26);
             this.comB_QuocGia.TabIndex = 0;
@@ -852,8 +852,7 @@
             this.comB_GioiTinh.FormattingEnabled = true;
             this.comB_GioiTinh.Items.AddRange(new object[] {
             "Nam",
-            "Nữ",
-            " "});
+            "Nữ"});
             this.comB_GioiTinh.Location = new System.Drawing.Point(134, 251);
             this.comB_GioiTinh.Name = "comB_GioiTinh";
             this.comB_GioiTinh.Size = new System.Drawing.Size(87, 26);
@@ -976,7 +975,7 @@
             // openFileDialog1
             // 
             this.openFileDialog1.Filter = "PNG|*.PNG|GIF|*.GIF|JPEG|*.JPEG|JPG|*.JPG|Pictures Format|*.JPEG;*.PNG;*.GIF;*.JP" +
-    "G";
+                "G";
             this.openFileDialog1.FilterIndex = 4;
             this.openFileDialog1.Title = "Chọn hình đại diện";
             // 

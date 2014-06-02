@@ -15,7 +15,7 @@ namespace QLNS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Forms.Popup("",(new UCs.QLNS_TapTin())));
+            //Application.Run(new Forms.Popup("",(new UCs.QLNS_QuocGiaTP())));
             Application.Run(new Forms.Main(new UCs.QLNS_HienThiThongTin()));
             //Application.Run(new Forms.Popup("test", new UCs.DanhMucThongTin.QLNS_NghienCuuKH()));
             //Application.Run(new Forms.Form1());

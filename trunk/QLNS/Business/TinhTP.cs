@@ -110,7 +110,7 @@ namespace Business
                 new NpgsqlParameter("p_id",id)
             };
 
-            check = (int)dp.executeScalarProc("sp_delete_tinhtp", paras);
+            check = (int)dp.executeScalarProc("sp_delete_tinh_thanhpho", paras);
             if (check > 0)
                 return true;
             else
@@ -157,6 +157,24 @@ namespace Business
             dt = dp.getDataTable("select * from v_tinhtp_compact");
 
             return dt;
+        }
+
+        public List<TinhTP> GetList()
+        {
+            DataTable dt = new DataTable();
+            List<TinhTP> listDonVi = new List<TinhTP>();
+
+            dt = dp.getDataTable("select * from v_tinhtp");
+            listDonVi = dt.AsEnumerable().Select(row =>
+                 new TinhTP
+                 {
+                     ID = row.Field<int>("id"),
+                     TenTinhTP = row.Field<string>("ten_tinh_tp"),
+                     MoTa = row.Field<string>("mo_ta"),
+                     QuocGiaID = row.Field<int?>("quoc_gia_id"),
+                 }).ToList();
+
+            return listDonVi;
         }
 
         #endregion
