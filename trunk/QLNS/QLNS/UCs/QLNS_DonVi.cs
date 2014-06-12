@@ -13,6 +13,7 @@ namespace QLNS.UCs
     public partial class QLNS_DonVi : UserControl
     {
         Business.DonVi donvi;
+        Business.LoaiDonVi oLoaiDonVi;
 
         bool AddFlag;   // xac dinh thao tac add hay edit
 
@@ -20,6 +21,7 @@ namespace QLNS.UCs
         {
             InitializeComponent();
             donvi = new DonVi();
+            oLoaiDonVi = new LoaiDonVi();
         }
 
         private void QLNS_DonVi_Load(object sender, EventArgs e)
@@ -30,6 +32,18 @@ namespace QLNS.UCs
                 PrepareDataSource(dt);
                 EditDtgInterface();
             }
+
+            DataTable dt2 = oLoaiDonVi.GetList();
+            if (dt2 != null)
+            {
+                DataRow dr = dt2.NewRow();
+                dt2.Rows.Add(dr);
+
+                comb_LoaiDV.DataSource = dt2;
+                comb_LoaiDV.DisplayMember = "ten_loai_don_vi";
+                comb_LoaiDV.ValueMember = "id";
+            }
+
 
             ResetInterface(true);
 
@@ -44,6 +58,8 @@ namespace QLNS.UCs
             dtgv_DSDonVi.DataSource = bs;
         }
 
+
+
         private void EditDtgInterface()
         {
             // Dat ten cho cac cot
@@ -56,10 +72,12 @@ namespace QLNS.UCs
             dtgv_DSDonVi.Columns[6].HeaderText = "Đến ngày";
             dtgv_DSDonVi.Columns[7].HeaderText = "Hoạt động";
             dtgv_DSDonVi.Columns[8].HeaderText = "Ghi chú";
+            dtgv_DSDonVi.Columns[10].HeaderText = "Loại đơn vị";
 
             // An cac cot ID
             dtgv_DSDonVi.Columns[0].Visible = false;
             dtgv_DSDonVi.Columns[3].Visible = false;
+            dtgv_DSDonVi.Columns[9].Visible = false;
         }
 
         private void DisplayInfo(DataGridViewRow row)
@@ -70,6 +88,8 @@ namespace QLNS.UCs
                 txt_Ten.Text = row.Cells[2].Value.ToString();
                 rTB_GhiChu.Text = row.Cells[8].Value.ToString();
                 comB_TrucThuoc.Text = row.Cells[4].Value.ToString();
+
+                comb_LoaiDV.Text = row.Cells[10].Value.ToString();
 
                 if (Convert.ToBoolean(row.Cells[7].Value) == true)
                     cb_HoatDong.Checked = true;
@@ -213,6 +233,8 @@ namespace QLNS.UCs
                             dvtructhuoc = Convert.ToInt16(comB_TrucThuoc.SelectedValue);
                         }
 
+                        
+
                         DateTime? tungay = null;
                         if (dTP_TuNgay.Checked == true)
                             tungay = dTP_TuNgay.Value;
@@ -228,6 +250,15 @@ namespace QLNS.UCs
                         donvi = new DonVi(id, tendvviettat, tendv, dvtructhuoc, tungay, denngay, hoatdong, ghichu);
                         try
                         {
+                            if (comb_LoaiDV.SelectedValue.ToString() != "")
+                            {
+                                donvi.loaidvid = Convert.ToInt16(comb_LoaiDV.SelectedValue);
+                            }
+                            else
+                            {
+                                donvi.loaidvid = null;
+                            }
+
                             donvi.Add();
                             MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -248,7 +279,7 @@ namespace QLNS.UCs
                 #region thao tac sua
                 else                // thao tac sua
                 {
-                    if (MessageBox.Show("Bạn thực sự muốn sửa ngành này ?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show("Bạn thực sự muốn sửa đơn vị này ?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         int? id = Convert.ToInt16(dtgv_DSDonVi.CurrentRow.Cells[0].Value.ToString());
                         string tendvviettat = txt_TenVietTat.Text;
@@ -278,6 +309,15 @@ namespace QLNS.UCs
                         {
                             try
                             {
+                                if (comb_LoaiDV.SelectedValue.ToString() != "")
+                                {
+                                    donvi.loaidvid = Convert.ToInt16(comb_LoaiDV.SelectedValue);
+                                }
+                                else
+                                {
+                                    donvi.loaidvid = null;
+                                }
+
                                 donvi.Update();
                                 MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -298,7 +338,7 @@ namespace QLNS.UCs
                 #endregion
             }
             else
-                MessageBox.Show("Tên ngành không được rỗng, xin vui lòng cung cấp tên ngành", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Tên đơn vị không được rỗng, xin vui lòng cung cấp tên ngành", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

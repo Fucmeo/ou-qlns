@@ -107,6 +107,8 @@ namespace Business
             set { ghichu = value; }
         }
 
+        public int? loaidvid { get; set; }
+
         #endregion
 
         #region Methods
@@ -114,14 +116,15 @@ namespace Business
         public bool Add()
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[7]{
+            IDataParameter[] paras = new IDataParameter[8]{
                 new NpgsqlParameter("ten_don_vi_viet_tat",tendvviettat),
                 new NpgsqlParameter("ten_don_vi",tendonvi),
                 new NpgsqlParameter("don_vi_cha_id",dvchaid),
                 new NpgsqlParameter("tu_ngay",tungay),
                 new NpgsqlParameter("den_ngay",denngay),
                 new NpgsqlParameter("is_active",isactive),
-                new NpgsqlParameter("ghi_chu",ghichu)
+                new NpgsqlParameter("ghi_chu",ghichu),
+                new NpgsqlParameter("p_loai_don_vi_id",loaidvid)
             };
             check = (int)dp.executeScalarProc("sp_insert_don_vi", paras);
             if (check > 0)
@@ -135,7 +138,7 @@ namespace Business
         public bool Update()
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[8]{
+            IDataParameter[] paras = new IDataParameter[9]{
                 new NpgsqlParameter("id",id),
                 new NpgsqlParameter("ten_don_vi_viet_tat",tendvviettat),
                 new NpgsqlParameter("ten_don_vi",tendonvi),
@@ -143,7 +146,8 @@ namespace Business
                 new NpgsqlParameter("tu_ngay",tungay),
                 new NpgsqlParameter("den_ngay",denngay),
                 new NpgsqlParameter("is_active",isactive),
-                new NpgsqlParameter("ghi_chu",ghichu)
+                new NpgsqlParameter("ghi_chu",ghichu),
+                new NpgsqlParameter("p_loai_don_vi_id",loaidvid)
             };
             check = (int)dp.executeScalarProc("sp_update_don_vi", paras);
             if (check > 0)

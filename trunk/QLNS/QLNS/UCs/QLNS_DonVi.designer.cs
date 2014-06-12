@@ -45,6 +45,8 @@
             this.dtgv_DSDonVi = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLP_ChiTietDonVi = new System.Windows.Forms.TableLayoutPanel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comb_LoaiDV = new System.Windows.Forms.ComboBox();
             this.txt_TenVietTat = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_Ten = new System.Windows.Forms.TextBox();
@@ -55,11 +57,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.dTP_TuNgay = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
-            this.cb_HoatDong = new System.Windows.Forms.CheckBox();
             this.dTP_DenNgay = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cb_HoatDong = new System.Windows.Forms.CheckBox();
             this.tableLP_DonVi.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tableLP_ThaoTac.SuspendLayout();
@@ -281,7 +281,7 @@
             this.tableLP_ChiTietDonVi.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.12121F));
             this.tableLP_ChiTietDonVi.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.21212F));
             this.tableLP_ChiTietDonVi.Controls.Add(this.label5, 4, 1);
-            this.tableLP_ChiTietDonVi.Controls.Add(this.comboBox1, 5, 1);
+            this.tableLP_ChiTietDonVi.Controls.Add(this.comb_LoaiDV, 5, 1);
             this.tableLP_ChiTietDonVi.Controls.Add(this.txt_TenVietTat, 3, 0);
             this.tableLP_ChiTietDonVi.Controls.Add(this.label1, 0, 0);
             this.tableLP_ChiTietDonVi.Controls.Add(this.txt_Ten, 1, 0);
@@ -305,6 +305,26 @@
             this.tableLP_ChiTietDonVi.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.91667F));
             this.tableLP_ChiTietDonVi.Size = new System.Drawing.Size(744, 294);
             this.tableLP_ChiTietDonVi.TabIndex = 3;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(497, 124);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(80, 46);
+            this.label5.TabIndex = 33;
+            this.label5.Text = "Loại đơn vị";
+            // 
+            // comb_LoaiDV
+            // 
+            this.comb_LoaiDV.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.comb_LoaiDV.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comb_LoaiDV.FormattingEnabled = true;
+            this.comb_LoaiDV.Location = new System.Drawing.Point(587, 132);
+            this.comb_LoaiDV.Name = "comb_LoaiDV";
+            this.comb_LoaiDV.Size = new System.Drawing.Size(154, 30);
+            this.comb_LoaiDV.TabIndex = 32;
             // 
             // txt_TenVietTat
             // 
@@ -406,18 +426,6 @@
             this.label6.TabIndex = 29;
             this.label6.Text = "Đến ngày";
             // 
-            // cb_HoatDong
-            // 
-            this.cb_HoatDong.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.cb_HoatDong.AutoSize = true;
-            this.tableLP_ChiTietDonVi.SetColumnSpan(this.cb_HoatDong, 2);
-            this.cb_HoatDong.Location = new System.Drawing.Point(497, 231);
-            this.cb_HoatDong.Name = "cb_HoatDong";
-            this.cb_HoatDong.Size = new System.Drawing.Size(112, 27);
-            this.cb_HoatDong.TabIndex = 5;
-            this.cb_HoatDong.Text = "Hoạt động";
-            this.cb_HoatDong.UseVisualStyleBackColor = true;
-            // 
             // dTP_DenNgay
             // 
             this.dTP_DenNgay.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -439,25 +447,17 @@
             this.label8.TabIndex = 31;
             this.label8.Text = "Ghi chú";
             // 
-            // label5
+            // cb_HoatDong
             // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(497, 124);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 46);
-            this.label5.TabIndex = 33;
-            this.label5.Text = "Loại đơn vị";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(587, 132);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(154, 30);
-            this.comboBox1.TabIndex = 32;
+            this.cb_HoatDong.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cb_HoatDong.AutoSize = true;
+            this.tableLP_ChiTietDonVi.SetColumnSpan(this.cb_HoatDong, 2);
+            this.cb_HoatDong.Location = new System.Drawing.Point(497, 231);
+            this.cb_HoatDong.Name = "cb_HoatDong";
+            this.cb_HoatDong.Size = new System.Drawing.Size(112, 27);
+            this.cb_HoatDong.TabIndex = 5;
+            this.cb_HoatDong.Text = "Hoạt động";
+            this.cb_HoatDong.UseVisualStyleBackColor = true;
             // 
             // QLNS_DonVi
             // 
@@ -514,6 +514,6 @@
         private System.Windows.Forms.Button btn_Xoa;
         private System.Windows.Forms.Button btn_Sua;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comb_LoaiDV;
     }
 }
