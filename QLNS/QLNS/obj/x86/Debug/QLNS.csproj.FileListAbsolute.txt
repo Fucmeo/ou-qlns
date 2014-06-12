@@ -139,3 +139,4 @@ D:\Job\QLNS\Projects\QLNS\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.ThemTinhTP.resources
 D:\Job\QLNS\Projects\QLNS\QLNS\QLNS\obj\x86\Debug\QLNS.csproj.GenerateResource.Cache
 D:\Job\QLNS\Projects\QLNS\QLNS\QLNS\obj\x86\Debug\QLNS.exe
 D:\Job\QLNS\Projects\QLNS\QLNS\QLNS\obj\x86\Debug\QLNS.pdb
+D:\Job\QLNS\Projects\QLNS\QLNS\QLNS\obj\x86\Debug\QLNS.UCs.QLNS_LoaiDonVi.resources
