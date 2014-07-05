@@ -122,9 +122,9 @@ namespace Business.CNVC
 
         public string Quan_Huyen { get; set; }
 
-        public int Tinh_ThanhPho { get; set; }
+        public int? Tinh_ThanhPho { get; set; }
 
-        public int Quoc_Gia { get; set; }
+        public int? Quoc_Gia { get; set; }
 
         private string thanhvientochucxh;
 

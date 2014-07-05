@@ -86,7 +86,8 @@ namespace LuongBH.UCs.Luong
             {
                 txt_Bac.Text = row.Cells["bac"].Value.ToString();
                 txt_HeSo.Text = row.Cells["he_so"].Value.ToString();
-                comB_TenNgach.SelectedValue = row.Cells["ten_ngach"].Value.ToString();
+                //comB_TenNgach.SelectedValue = row.Cells["ten_ngach"].Value.ToString();
+                comB_TenNgach.Text = row.Cells["ten_ngach"].Value.ToString();
                 txt_MaNgach.Text = row.Cells["ma_ngach"].Value.ToString();
 
                 try

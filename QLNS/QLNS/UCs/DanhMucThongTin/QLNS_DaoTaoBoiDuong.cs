@@ -916,7 +916,7 @@ namespace QLNS.UCs.DanhMucThongTin
                                     GetDaoTaoInputData();
                                     oCNVC_DaoTaoBoiDuong.Add();
 
-                                    if (CNVC_DaoTaoBoiDuong.oFile_DaoTao.Path.Count > 0 )
+                                    if (CNVC_DaoTaoBoiDuong.oFile_DaoTao != null && CNVC_DaoTaoBoiDuong.oFile_DaoTao.Path.Count > 0)
                                     {
                                         UploadFile_DaoTao();
                                     }
@@ -1325,7 +1325,7 @@ namespace QLNS.UCs.DanhMucThongTin
                                     GetBoiDuongInputData();
                                     oCNVC_DaoTaoBoiDuong.Add();
 
-                                    if (CNVC_DaoTaoBoiDuong.oFile_BoiDuong.Path.Count > 0)
+                                    if (CNVC_DaoTaoBoiDuong.oFile_BoiDuong != null && CNVC_DaoTaoBoiDuong.oFile_BoiDuong.Path.Count > 0)
                                     {
                                         UploadFile_BoiDuong();
                                     }

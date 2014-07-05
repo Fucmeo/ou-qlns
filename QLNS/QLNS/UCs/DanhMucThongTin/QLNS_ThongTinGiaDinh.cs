@@ -332,8 +332,14 @@ namespace QLNS.UCs.DanhMucThongTin
                         oQHeGiaDinh.Quan_Huyen = txt_Quan.Text;
                         if (comB_Tinh.Text != "")
                             oQHeGiaDinh.Tinh_ThanhPho = Convert.ToInt32(comB_Tinh.SelectedValue);
+                        else
+                            oQHeGiaDinh.Tinh_ThanhPho = null;
+
                         if (comB_QuocGia.Text != "")
                             oQHeGiaDinh.Quoc_Gia = Convert.ToInt32(comB_QuocGia.SelectedValue);
+                        else
+                            oQHeGiaDinh.Quoc_Gia = null;
+
                         oQHeGiaDinh.Is_Dang_vien = cb_LaDangVien.Checked;
 
                         #region thao tac them

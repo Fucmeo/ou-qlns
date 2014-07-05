@@ -165,6 +165,12 @@
     <Compile Include="UCs\QDDungHopDong.Designer.cs">
       <DependentUpon>QDDungHopDong.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCs\QDKhenThuong_ChuyenNgach.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\QDKhenThuong_ChuyenNgach.Designer.cs">
+      <DependentUpon>QDKhenThuong_ChuyenNgach.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCs\QuyetDinhPhuCap.cs">
       <SubType>UserControl</SubType>
     </Compile>

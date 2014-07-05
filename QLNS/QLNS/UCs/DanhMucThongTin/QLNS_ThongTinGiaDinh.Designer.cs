@@ -52,7 +52,6 @@
             this.txt_SoNha = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLP_ThongTinCaNhan = new System.Windows.Forms.TableLayoutPanel();
-            this.cb_LaDangVien = new System.Windows.Forms.CheckBox();
             this.comB_MoiQH = new System.Windows.Forms.ComboBox();
             this.rTB_ThanhVienToChuc = new System.Windows.Forms.RichTextBox();
             this.txt_Ho = new System.Windows.Forms.TextBox();
@@ -67,7 +66,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.cb_ThanNhanNuocNgoai = new System.Windows.Forms.CheckBox();
             this.txt_NamSinh = new System.Windows.Forms.TextBox();
             this.txt_Ten = new System.Windows.Forms.TextBox();
             this.txt_NgheNghiep = new System.Windows.Forms.TextBox();
@@ -76,6 +74,8 @@
             this.txt_DVCongTac = new System.Windows.Forms.TextBox();
             this.txt_HocTap = new System.Windows.Forms.TextBox();
             this.rTB_GhiChu = new System.Windows.Forms.RichTextBox();
+            this.cb_ThanNhanNuocNgoai = new System.Windows.Forms.CheckBox();
+            this.cb_LaDangVien = new System.Windows.Forms.CheckBox();
             this.tableLP_GiaDinh_BanThan.SuspendLayout();
             this.gb_QHGD.SuspendLayout();
             this.tableLP_QuanHeGD.SuspendLayout();
@@ -434,18 +434,6 @@
             this.tableLP_ThongTinCaNhan.Size = new System.Drawing.Size(976, 402);
             this.tableLP_ThongTinCaNhan.TabIndex = 0;
             // 
-            // cb_LaDangVien
-            // 
-            this.cb_LaDangVien.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.cb_LaDangVien.AutoSize = true;
-            this.cb_LaDangVien.Enabled = false;
-            this.cb_LaDangVien.Location = new System.Drawing.Point(490, 15);
-            this.cb_LaDangVien.Name = "cb_LaDangVien";
-            this.cb_LaDangVien.Size = new System.Drawing.Size(120, 25);
-            this.cb_LaDangVien.TabIndex = 17;
-            this.cb_LaDangVien.Text = "Là Đảng viên";
-            this.cb_LaDangVien.UseVisualStyleBackColor = true;
-            // 
             // comB_MoiQH
             // 
             this.comB_MoiQH.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -596,18 +584,6 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "Tên";
             // 
-            // cb_ThanNhanNuocNgoai
-            // 
-            this.cb_ThanNhanNuocNgoai.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.cb_ThanNhanNuocNgoai.AutoSize = true;
-            this.cb_ThanNhanNuocNgoai.Enabled = false;
-            this.cb_ThanNhanNuocNgoai.Location = new System.Drawing.Point(636, 15);
-            this.cb_ThanNhanNuocNgoai.Name = "cb_ThanNhanNuocNgoai";
-            this.cb_ThanNhanNuocNgoai.Size = new System.Drawing.Size(187, 25);
-            this.cb_ThanNhanNuocNgoai.TabIndex = 1;
-            this.cb_ThanNhanNuocNgoai.Text = "Thân nhân nước ngoài";
-            this.cb_ThanNhanNuocNgoai.UseVisualStyleBackColor = true;
-            // 
             // txt_NamSinh
             // 
             this.txt_NamSinh.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -688,6 +664,30 @@
             this.rTB_GhiChu.Size = new System.Drawing.Size(337, 116);
             this.rTB_GhiChu.TabIndex = 11;
             this.rTB_GhiChu.Text = "";
+            // 
+            // cb_ThanNhanNuocNgoai
+            // 
+            this.cb_ThanNhanNuocNgoai.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cb_ThanNhanNuocNgoai.AutoSize = true;
+            this.cb_ThanNhanNuocNgoai.Enabled = false;
+            this.cb_ThanNhanNuocNgoai.Location = new System.Drawing.Point(636, 15);
+            this.cb_ThanNhanNuocNgoai.Name = "cb_ThanNhanNuocNgoai";
+            this.cb_ThanNhanNuocNgoai.Size = new System.Drawing.Size(187, 25);
+            this.cb_ThanNhanNuocNgoai.TabIndex = 1;
+            this.cb_ThanNhanNuocNgoai.Text = "Thân nhân nước ngoài";
+            this.cb_ThanNhanNuocNgoai.UseVisualStyleBackColor = true;
+            // 
+            // cb_LaDangVien
+            // 
+            this.cb_LaDangVien.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cb_LaDangVien.AutoSize = true;
+            this.cb_LaDangVien.Enabled = false;
+            this.cb_LaDangVien.Location = new System.Drawing.Point(490, 15);
+            this.cb_LaDangVien.Name = "cb_LaDangVien";
+            this.cb_LaDangVien.Size = new System.Drawing.Size(120, 25);
+            this.cb_LaDangVien.TabIndex = 17;
+            this.cb_LaDangVien.Text = "Là Đảng viên";
+            this.cb_LaDangVien.UseVisualStyleBackColor = true;
             // 
             // QLNS_ThongTinGiaDinh
             // 

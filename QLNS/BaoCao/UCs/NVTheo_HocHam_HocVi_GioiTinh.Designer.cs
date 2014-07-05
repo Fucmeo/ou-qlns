@@ -35,8 +35,6 @@
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.gp_ThongTinFilter = new System.Windows.Forms.GroupBox();
             this.TLP_ThongTinBH = new System.Windows.Forms.TableLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.clb_HocVi = new System.Windows.Forms.CheckedListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.clb_HocHam = new System.Windows.Forms.CheckedListBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -120,8 +118,6 @@
             this.TLP_ThongTinBH.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.4023F));
             this.TLP_ThongTinBH.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.18391F));
             this.TLP_ThongTinBH.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.52311F));
-            this.TLP_ThongTinBH.Controls.Add(this.label3, 2, 1);
-            this.TLP_ThongTinBH.Controls.Add(this.clb_HocVi, 3, 1);
             this.TLP_ThongTinBH.Controls.Add(this.label1, 2, 0);
             this.TLP_ThongTinBH.Controls.Add(this.clb_HocHam, 3, 0);
             this.TLP_ThongTinBH.Controls.Add(this.label5, 0, 1);
@@ -139,28 +135,6 @@
             this.TLP_ThongTinBH.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.TLP_ThongTinBH.Size = new System.Drawing.Size(392, 592);
             this.TLP_ThongTinBH.TabIndex = 1;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(207, 421);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 46);
-            this.label3.TabIndex = 27;
-            this.label3.Text = "Học vị";
-            // 
-            // clb_HocVi
-            // 
-            this.clb_HocVi.CheckOnClick = true;
-            this.clb_HocVi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.clb_HocVi.FormattingEnabled = true;
-            this.clb_HocVi.HorizontalScrollbar = true;
-            this.clb_HocVi.Location = new System.Drawing.Point(254, 299);
-            this.clb_HocVi.Name = "clb_HocVi";
-            this.clb_HocVi.Size = new System.Drawing.Size(135, 290);
-            this.clb_HocVi.TabIndex = 28;
-            this.clb_HocVi.SelectedIndexChanged += new System.EventHandler(this.clb_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -283,8 +257,6 @@
         private System.Windows.Forms.CheckedListBox clb_DonVi;
         private System.Windows.Forms.Button btn_BaoCao;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.CheckedListBox clb_HocVi;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckedListBox clb_HocHam;
     }

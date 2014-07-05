@@ -312,9 +312,9 @@
             // 
             // TLP_HienThiLoaiPC
             // 
-            this.TLP_HienThiLoaiPC.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TLP_HienThiLoaiPC.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.TLP_HienThiLoaiPC.ColumnCount = 4;
             this.tableLP_PhuCap.SetColumnSpan(this.TLP_HienThiLoaiPC, 6);
             this.TLP_HienThiLoaiPC.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.20172F));

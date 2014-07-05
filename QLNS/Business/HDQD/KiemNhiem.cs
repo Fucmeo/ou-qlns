@@ -211,6 +211,8 @@ namespace Business.HDQD
             set { dendonvi = value; }
         }
 
+        public int[] DenChucDanh { get; set; }
+
         private int[] denchucvu;
 
         public int[] DenChucVu
