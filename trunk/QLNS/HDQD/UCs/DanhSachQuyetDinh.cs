@@ -236,11 +236,13 @@ namespace HDQD.UCs
                 //} 
                 #endregion
 
-                string SelectedText = Convert.ToString(comB_Loai.SelectedText);
+                string SelectedText = Convert.ToString(comB_Loai.Text);
                 HDQD.Forms.Popup f;
-                if (SelectedText == "Kiêm nhiệm" || SelectedText == "Bổ nhiệm" || SelectedText == "Điều động" || SelectedText == "Quyết định chung")
+                if (SelectedText == "Kiêm nhiệm" || SelectedText == "Bổ nhiệm" || SelectedText == "Điều động"
+                        || SelectedText == "Đi du học" || SelectedText == "Nghỉ thai sản" || SelectedText == "Nghỉ không lương"
+                        || SelectedText == "Đi du lịch" || SelectedText == "Thôi việc" || SelectedText == "Nghỉ hưu")
                 {
-                    f = new Forms.Popup(new HDQD.UCs.QDChung(), "QUẢN LÝ NHÂN SỰ - QUYẾT ĐỊNH KIÊM NHIỆM - ĐIỀU ĐỘNG");
+                    f = new Forms.Popup(new HDQD.UCs.QDChung(SelectedText), "QUẢN LÝ NHÂN SỰ - QUYẾT ĐỊNH " + SelectedText.ToUpper());
                     f.ShowDialog();
                 }
                 else if (SelectedText == "Đổi thông tin đơn vị")
@@ -261,6 +263,16 @@ namespace HDQD.UCs
                 else if (SelectedText == "Tiếp nhận")
                 {
                     f = new Forms.Popup(new HDQD.UCs.TiepNhan(), "QUẢN LÝ NHÂN SỰ - QUYẾT ĐỊNH TIẾP NHẬN");
+                    f.ShowDialog();
+                }
+                else if (SelectedText == "Quyết định chung")
+                {
+                    f = new Forms.Popup(new HDQD.UCs.QDChung(), "QUẢN LÝ NHÂN SỰ - QUYẾT ĐỊNH CHUNG");
+                    f.ShowDialog();
+                }
+                else if (SelectedText == "Thành lập đơn vị")
+                {
+                    f = new Forms.Popup(new HDQD.UCs.ThanhLapDonVi(), "QUẢN LÝ NHÂN SỰ - QUYẾT ĐỊNH THÀNH LẬP ĐƠN VỊ");
                     f.ShowDialog();
                 }
 

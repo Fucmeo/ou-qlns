@@ -68,6 +68,15 @@ namespace HDQD.UCs
                 case "Nghỉ hưu":
                     dt.Rows.Add(new object[2] { 15, "Nghỉ hưu" });
                     break;
+                case "Kiêm nhiệm":
+                    dt.Rows.Add(new object[2] { 1, "Kiêm nhiệm" });
+                    break;
+                case "Bổ nhiệm":
+                    dt.Rows.Add(new object[2] { 2, "Bổ nhiệm" });
+                    break;
+                case "Điều động":
+                    dt.Rows.Add(new object[2] { 3, "Điều động" });
+                    break;
                 default:
                     break;
             }
