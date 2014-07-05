@@ -49,6 +49,8 @@
             this.comB_DonVi = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.comB_ChucVu = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comB_ChucDanh = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.tableLP_BoNhiem.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -75,6 +77,8 @@
             this.tableLP_BoNhiem.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.21212F));
             this.tableLP_BoNhiem.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.12121F));
             this.tableLP_BoNhiem.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.21212F));
+            this.tableLP_BoNhiem.Controls.Add(this.label1, 4, 0);
+            this.tableLP_BoNhiem.Controls.Add(this.comB_ChucDanh, 5, 0);
             this.tableLP_BoNhiem.Controls.Add(this.groupBox2, 0, 1);
             this.tableLP_BoNhiem.Controls.Add(this.label3, 0, 0);
             this.tableLP_BoNhiem.Controls.Add(this.comB_DonVi, 1, 0);
@@ -153,7 +157,7 @@
             this.comB_LoaiPhuCap.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_LoaiPhuCap.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_LoaiPhuCap.FormattingEnabled = true;
-            this.comB_LoaiPhuCap.Location = new System.Drawing.Point(449, 10);
+            this.comB_LoaiPhuCap.Location = new System.Drawing.Point(449, 12);
             this.comB_LoaiPhuCap.Name = "comB_LoaiPhuCap";
             this.comB_LoaiPhuCap.Size = new System.Drawing.Size(202, 29);
             this.comB_LoaiPhuCap.TabIndex = 1;
@@ -217,7 +221,7 @@
             this.comB_HeSoTienMat.Items.AddRange(new object[] {
             "Hệ số",
             "Tiền mặt"});
-            this.comB_HeSoTienMat.Location = new System.Drawing.Point(122, 59);
+            this.comB_HeSoTienMat.Location = new System.Drawing.Point(122, 61);
             this.comB_HeSoTienMat.Name = "comB_HeSoTienMat";
             this.comB_HeSoTienMat.Size = new System.Drawing.Size(202, 29);
             this.comB_HeSoTienMat.TabIndex = 3;
@@ -290,7 +294,7 @@
             this.comB_DonVi.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_DonVi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_DonVi.FormattingEnabled = true;
-            this.comB_DonVi.Location = new System.Drawing.Point(123, 8);
+            this.comB_DonVi.Location = new System.Drawing.Point(123, 6);
             this.comB_DonVi.Name = "comB_DonVi";
             this.comB_DonVi.Size = new System.Drawing.Size(204, 29);
             this.comB_DonVi.TabIndex = 0;
@@ -310,10 +314,30 @@
             this.comB_ChucVu.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_ChucVu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_ChucVu.FormattingEnabled = true;
-            this.comB_ChucVu.Location = new System.Drawing.Point(453, 8);
+            this.comB_ChucVu.Location = new System.Drawing.Point(453, 6);
             this.comB_ChucVu.Name = "comB_ChucVu";
             this.comB_ChucVu.Size = new System.Drawing.Size(204, 29);
             this.comB_ChucVu.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(678, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(84, 21);
+            this.label1.TabIndex = 29;
+            this.label1.Text = "Chức danh";
+            // 
+            // comB_ChucDanh
+            // 
+            this.comB_ChucDanh.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.comB_ChucDanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comB_ChucDanh.FormattingEnabled = true;
+            this.comB_ChucDanh.Location = new System.Drawing.Point(783, 6);
+            this.comB_ChucDanh.Name = "comB_ChucDanh";
+            this.comB_ChucDanh.Size = new System.Drawing.Size(204, 29);
+            this.comB_ChucDanh.TabIndex = 28;
             // 
             // ThongTinBoNhiem
             // 
@@ -359,6 +383,8 @@
         public System.Windows.Forms.RichTextBox rTB_GhiChu;
         public System.Windows.Forms.TextBox txt_PhuCap;
         public System.Windows.Forms.CheckBox cb_CoPhuCap;
+        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.ComboBox comB_ChucDanh;
 
     }
 }

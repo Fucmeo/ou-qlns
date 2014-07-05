@@ -197,41 +197,73 @@ namespace HDQD.UCs
         {
             if (comB_Loai.Text != "")
             {
-                int index = Convert.ToInt16(comB_Loai.SelectedValue);
-                HDQD.Forms.Popup f;
-                switch (index)
-                {
-                    case 5: //tách đơn vị
-                        f = new Forms.Popup(new HDQD.UCs.M_A(true), "QUẢN LÝ NHÂN SỰ - QUYẾT ĐỊNH TÁCH ĐƠN VỊ");
-                        f.ShowDialog();
-                        break;
-                    case 9: //gộp đơn vị
-                        f = new Forms.Popup(new HDQD.UCs.M_A(false), "QUẢN LÝ NHÂN SỰ - QUYẾT ĐỊNH GỘP ĐƠN VỊ");
-                        f.ShowDialog();
-                        break;
-                    case 1:
-                    case 2:
-                    case 3:
-                        f = new Forms.Popup(new HDQD.UCs.BoNhiem(), "QUẢN LÝ NHÂN SỰ - QUYẾT ĐỊNH BỔ NHIỆM");
-                        f.ShowDialog();
-                        break;
-                    case 4:
-                        f = new Forms.Popup(new HDQD.UCs.DoiThongTinDV(), "QUẢN LÝ NHÂN SỰ - QUYẾT ĐỊNH ĐỔI THÔNG TIN ĐƠN VỊ");
-                        f.ShowDialog();
-                        break;
-                    case 6:
-                    case 7:
-                        f = new Forms.Popup(new HDQD.UCs.ThoiBoNhiem(), "QUẢN LÝ NHÂN SỰ - QUYẾT ĐỊNH THÔI BỔ NHIỆM");
-                        f.ShowDialog();
-                        break;
-                    case 8:
-                        f = new Forms.Popup(new HDQD.UCs.QuyetDinhPhuCap(), "QUẢN LÝ NHÂN SỰ - QUYẾT ĐỊNH CHUNG");
-                        f.ShowDialog();
-                        break;
 
-                    default:
-                        break;
+                #region comment do o su dung index nua
+                //int index = Convert.ToInt16(comB_Loai.SelectedValue);
+                //HDQD.Forms.Popup f;
+                //switch (index)
+                //{
+                //    case 5: //tách đơn vị
+                //        f = new Forms.Popup(new HDQD.UCs.M_A(true), "QUẢN LÝ NHÂN SỰ - QUYẾT ĐỊNH TÁCH ĐƠN VỊ");
+                //        f.ShowDialog();
+                //        break;
+                //    case 9: //gộp đơn vị
+                //        f = new Forms.Popup(new HDQD.UCs.M_A(false), "QUẢN LÝ NHÂN SỰ - QUYẾT ĐỊNH GỘP ĐƠN VỊ");
+                //        f.ShowDialog();
+                //        break;
+                //    case 1:
+                //    case 2:
+                //    case 3:
+                //        f = new Forms.Popup(new HDQD.UCs.BoNhiem(), "QUẢN LÝ NHÂN SỰ - QUYẾT ĐỊNH BỔ NHIỆM");
+                //        f.ShowDialog();
+                //        break;
+                //    case 4:
+                //        f = new Forms.Popup(new HDQD.UCs.DoiThongTinDV(), "QUẢN LÝ NHÂN SỰ - QUYẾT ĐỊNH ĐỔI THÔNG TIN ĐƠN VỊ");
+                //        f.ShowDialog();
+                //        break;
+                //    case 6:
+                //    case 7:
+                //        f = new Forms.Popup(new HDQD.UCs.ThoiBoNhiem(), "QUẢN LÝ NHÂN SỰ - QUYẾT ĐỊNH THÔI BỔ NHIỆM");
+                //        f.ShowDialog();
+                //        break;
+                //    case 8:
+                //        f = new Forms.Popup(new HDQD.UCs.QuyetDinhPhuCap(), "QUẢN LÝ NHÂN SỰ - QUYẾT ĐỊNH CHUNG");
+                //        f.ShowDialog();
+                //        break;
+
+                //    default:
+                //        break;
+                //} 
+                #endregion
+
+                string SelectedText = Convert.ToString(comB_Loai.SelectedText);
+                HDQD.Forms.Popup f;
+                if (SelectedText == "Kiêm nhiệm" || SelectedText == "Bổ nhiệm" || SelectedText == "Điều động" || SelectedText == "Quyết định chung")
+                {
+                    f = new Forms.Popup(new HDQD.UCs.QDChung(), "QUẢN LÝ NHÂN SỰ - QUYẾT ĐỊNH KIÊM NHIỆM - ĐIỀU ĐỘNG");
+                    f.ShowDialog();
                 }
+                else if (SelectedText == "Đổi thông tin đơn vị")
+                {
+                    f = new Forms.Popup(new HDQD.UCs.DoiThongTinDV(), "QUẢN LÝ NHÂN SỰ - QUYẾT ĐỊNH ĐỔI THÔNG TIN ĐƠN VỊ");
+                    f.ShowDialog();
+                }
+                else if (SelectedText == "Tách đơn vị") 
+                {
+                    f = new Forms.Popup(new HDQD.UCs.M_A(true), "QUẢN LÝ NHÂN SỰ - QUYẾT ĐỊNH TÁCH ĐƠN VỊ");
+                    f.ShowDialog();
+                }
+                else if (SelectedText == "Gộp đơn vị")
+                {
+                    f = new Forms.Popup(new HDQD.UCs.M_A(false), "QUẢN LÝ NHÂN SỰ - QUYẾT ĐỊNH GỘP ĐƠN VỊ");
+                    f.ShowDialog();
+                }
+                else if (SelectedText == "Tiếp nhận")
+                {
+                    f = new Forms.Popup(new HDQD.UCs.TiepNhan(), "QUẢN LÝ NHÂN SỰ - QUYẾT ĐỊNH TIẾP NHẬN");
+                    f.ShowDialog();
+                }
+
             }
             else
                 MessageBox.Show("Vui lòng chọn một loại quyết định", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

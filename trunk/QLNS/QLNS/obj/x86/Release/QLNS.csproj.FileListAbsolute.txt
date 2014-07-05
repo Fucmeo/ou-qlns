@@ -139,3 +139,4 @@ D:\Job\QLNS\Projects\QLNS\QLNS\QLNS\bin\Release\fi\Npgsql.resources.dll
 D:\Job\QLNS\Projects\QLNS\QLNS\QLNS\bin\Release\fr\Npgsql.resources.dll
 D:\Job\QLNS\Projects\QLNS\QLNS\QLNS\bin\Release\ja\Npgsql.resources.dll
 D:\Job\QLNS\Projects\QLNS\QLNS\QLNS\bin\Release\zh-CN\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS\QLNS\QLNS\obj\x86\Release\QLNS.UCs.QLNS_LoaiDonVi.resources

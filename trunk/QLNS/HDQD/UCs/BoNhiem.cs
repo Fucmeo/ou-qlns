@@ -30,12 +30,15 @@ namespace HDQD.UCs
 
         private bool CompareCNVCInfo()
         {
+            /*
             if (strLoaiQD != "Bổ nhiệm" && (thongTinCNVC1.comB_ChucVu.SelectedValue.ToString() == thongTinBoNhiem1.comB_ChucVu.SelectedValue.ToString())
                     && (thongTinCNVC1.comB_DonVi.SelectedValue.ToString() == thongTinBoNhiem1.comB_DonVi.SelectedValue.ToString()))
             {
                 return false;
             }
-            return (!(strMaNVOld != thongTinCNVC1.txt_MaNV.Text || strHoOld != thongTinCNVC1.txt_Ho.Text || strTenOld != thongTinCNVC1.txt_Ten.Text));
+            return (!(strMaNVOld != thongTinCNVC1.txt_MaNV.Text));
+             */
+            return true;
         }
 
         private void btn_Them_Click(object sender, EventArgs e)
@@ -56,6 +59,7 @@ namespace HDQD.UCs
                     dtgv_DS.Rows[new_index].Cells["ten_chuc_vu"].Value = thongTinBoNhiem1.comB_ChucVu.Text;
                     dtgv_DS.Rows[new_index].Cells["don_vi_id"].Value = thongTinBoNhiem1.comB_DonVi.SelectedValue;
                     dtgv_DS.Rows[new_index].Cells["chuc_vu_id"].Value = thongTinBoNhiem1.comB_ChucVu.SelectedValue;
+                    dtgv_DS.Rows[new_index].Cells["chuc_danh_id"].Value = thongTinBoNhiem1.comB_ChucDanh.SelectedValue;
 
 
                    
@@ -143,8 +147,10 @@ namespace HDQD.UCs
             dtgv_DS.Columns.Add("ten", "Tên");
             dtgv_DS.Columns.Add("don_vi_id", "");
             dtgv_DS.Columns.Add("chuc_vu_id", "");
+            dtgv_DS.Columns.Add("chuc_danh_id", "");
             dtgv_DS.Columns.Add("ten_don_vi", "Đơn vị mới");
             dtgv_DS.Columns.Add("ten_chuc_vu", "Chức vụ mới");
+            dtgv_DS.Columns.Add("ten_chuc_danh", "Chức danh mới");
             dtgv_DS.Columns.Add("tu_don_vi_id", "");
             dtgv_DS.Columns.Add("tu_chuc_vu_id", "");
             dtgv_DS.Columns.Add("tu_ten_don_vi", "Từ đơn vị");
@@ -275,6 +281,7 @@ namespace HDQD.UCs
                     oKiemNhiem.MaNV[i] = Convert.ToString(dgv.Rows[i].Cells["ma_nv"].Value);
                     oKiemNhiem.DenDonVi[i] = Convert.ToInt32(dgv.Rows[i].Cells["don_vi_id"].Value);
                     oKiemNhiem.DenChucVu[i] = Convert.ToInt32(dgv.Rows[i].Cells["chuc_vu_id"].Value);
+                    oKiemNhiem.DenChucDanh[i] = Convert.ToInt32(dgv.Rows[i].Cells["chuc_danh_id"].Value);
 
                     if (strLoaiQD == "Điều động")
                     {

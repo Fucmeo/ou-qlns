@@ -14,12 +14,14 @@ namespace HDQD.UCs
     {
         DonVi oDonVi;
         ChucVu oChucVu;
+        ChucDanh oChucDanh;
         Business.HDQD.LoaiPhuCap oLoaiPhuCap;
         public ThongTinBoNhiem()
         {
             InitializeComponent();
             oDonVi = new DonVi();
             oChucVu = new ChucVu();
+            oChucDanh = new ChucDanh();
             oLoaiPhuCap = new Business.HDQD.LoaiPhuCap();
         }
 
@@ -27,7 +29,20 @@ namespace HDQD.UCs
         {
             PrepareSourceDonViCombo();
             PrepareSourceChucVuCombo();
+            PrepareSourceChucDanhCombo();
             PrepareSourceLoaiPhuCapCombo();
+        }
+
+        private void PrepareSourceChucDanhCombo()
+        {
+            DataTable dtChucDanh = oChucDanh.GetList();
+            if (dtChucDanh.Rows.Count > 0)
+            {
+                comB_ChucDanh.DataSource = dtChucDanh;
+                comB_ChucDanh.DisplayMember = "ten_chuc_danh";
+                comB_ChucDanh.ValueMember = "id";
+            }
+
         }
 
         private void PrepareSourceDonViCombo()
