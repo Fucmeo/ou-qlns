@@ -15,5 +15,10 @@ namespace HDQD.UCs
         {
             InitializeComponent();
         }
+
+        private void btn_Tim_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -89,6 +89,7 @@ namespace HDQD.UCs
             if (CheckInputData())
             {
                 #region Quyet Dinh Info
+                oQuyetDinh = new Business.HDQD.QuyetDinh();
                 oQuyetDinh.Ma_Quyet_Dinh = thongTinQuyetDinh1.txt_MaQD.Text;
                 oQuyetDinh.Ten_Quyet_Dinh = thongTinQuyetDinh1.txt_TenQD.Text;
                 try

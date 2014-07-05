@@ -24,7 +24,7 @@ namespace Business.HDQD
         #region Properties
         public int id { get; set; }
         public string Ma_Quyet_Dinh { get; set; }
-        public string Ma_NV { get; set; }
+        public string[] Ma_NV { get; set; }
         public int CNVC_QD_ID { get; set; }
         public int? ChucVu_ID { get; set; }
         public string ChucVu { get; set; }
