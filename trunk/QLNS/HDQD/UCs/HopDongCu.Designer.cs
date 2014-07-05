@@ -974,6 +974,7 @@
             this.dtp_TuNgay.Name = "dtp_TuNgay";
             this.dtp_TuNgay.Size = new System.Drawing.Size(204, 23);
             this.dtp_TuNgay.TabIndex = 4;
+            this.dtp_TuNgay.ValueChanged += new System.EventHandler(this.dtp_TuNgay_ValueChanged);
             // 
             // label12
             // 

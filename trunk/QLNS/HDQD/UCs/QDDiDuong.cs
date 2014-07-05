@@ -127,7 +127,16 @@ namespace HDQD.UCs
                 oQDDiDuong = new Business.HDQD.QDDiDuong();
 
                 oQDDiDuong.Ma_Quyet_Dinh = txt_MSQD.Text.Trim();
-                oQDDiDuong.Ma_NV = thongTinCNVC1.txt_MaNV.Text.Trim();
+                //oQDDiDuong.Ma_NV = thongTinCNVC1.txt_MaNV.Text.Trim();
+
+                string[] m_ma_nv = new string[lb_NV.Items.Count];
+                for (int i = 0; i < lb_NV.Items.Count; i++)
+                {
+                    int index = lb_NV.Items[i].ToString().IndexOf("-");
+                    m_ma_nv[i] = lb_NV.Items[i].ToString().Substring(index + 2).Trim();
+                }
+                oQDDiDuong.Ma_NV = m_ma_nv;
+
                 if (comB_ChucVu.Text != "")
                     oQDDiDuong.ChucVu_ID = Convert.ToInt32(comB_ChucVu.SelectedValue);
                 else
@@ -335,6 +344,30 @@ namespace HDQD.UCs
         private void txt_CongTacPhi_Leave(object sender, EventArgs e)
         {
             txt_TongCong.Text = TinhTongTien().ToString("#,#");
+        }
+
+        private void btn_Cancel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_AddNV_Click(object sender, EventArgs e)
+        {
+            lb_NV.Items.Add(thongTinCNVC1.txt_HoTen.Text.Trim());
+            //nv_arr.Add(thongTinCNVC1.txt_MaNV.Text);
+        }
+
+        private void btn_RemoveNV_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                lb_NV.Items.Remove(lb_NV.SelectedItem);
+            }
+            catch
+            {
+                MessageBox.Show("Vui lòng chọn dòng dữ liệu cần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
     }
 }

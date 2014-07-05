@@ -568,6 +568,7 @@
             this.btn_Tim.TabIndex = 3;
             this.btn_Tim.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Tim.UseVisualStyleBackColor = true;
+            this.btn_Tim.Click += new System.EventHandler(this.btn_Tim_Click);
             // 
             // DanhSachQDDiDuong
             // 

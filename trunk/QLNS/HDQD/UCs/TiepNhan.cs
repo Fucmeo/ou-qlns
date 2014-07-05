@@ -78,6 +78,14 @@ namespace HDQD.UCs
             PreapreDataSource();
             Prepare_Data_BacHeSo();
             PrepareDataTablePhuCap();
+            thongTinQuyetDinh1.dTP_NgayHieuLuc.ValueChanged += dTP_NgayHieuLuc_ValueChanged;
+        }
+
+        void dTP_NgayHieuLuc_ValueChanged(object sender, EventArgs e)
+        {
+            string m_ma_ngach = comb_Ngach.SelectedValue.ToString();
+            DateTime m_tu_ngay_select = thongTinQuyetDinh1.dTP_NgayHieuLuc.Value;
+            LoadDataForCbo_BacHeso(m_ma_ngach, m_tu_ngay_select);
         }
 
         private void TiepNhan_Load(object sender, EventArgs e)
@@ -180,8 +188,23 @@ namespace HDQD.UCs
             {
                 string m_ma_ngach = comb_Ngach.SelectedValue.ToString();
 
-                var result = (from c in dtBacHeSo.AsEnumerable()
+                /*var result = (from c in dtBacHeSo.AsEnumerable()
                               where c.Field<string>("ma_ngach") == m_ma_ngach && c.Field<bool>("tinh_trang") == true
+                              select new { id = c.Field<int>("id"), bac = c.Field<int>("bac"), he_so = c.Field<double>("he_so") }
+                                  ).ToList();
+                */
+
+                DateTime m_tu_ngay_select = thongTinQuyetDinh1.dTP_NgayHieuLuc.Value;
+
+                var result = (from c in dtBacHeSo.AsEnumerable()
+                              where c.Field<string>("ma_ngach") == m_ma_ngach && m_tu_ngay_select >= c.Field<DateTime>("tu_ngay") && m_tu_ngay_select <= c.Field<DateTime?>("den_ngay")
+                              orderby c.Field<int>("bac")
+                              select new { id = c.Field<int>("id"), bac = c.Field<int>("bac"), he_so = c.Field<double>("he_so") }
+                                  ).ToList();
+                if (result.Count == 0)
+                    result = (from c in dtBacHeSo.AsEnumerable()
+                              where c.Field<string>("ma_ngach") == m_ma_ngach && c.Field<bool>("tinh_trang") == true && m_tu_ngay_select >= c.Field<DateTime>("tu_ngay")
+                              orderby c.Field<int>("bac")
                               select new { id = c.Field<int>("id"), bac = c.Field<int>("bac"), he_so = c.Field<double>("he_so") }
                                   ).ToList();
 
@@ -191,16 +214,21 @@ namespace HDQD.UCs
                 comb_Bac.DisplayMember = "bac";
                 comb_Bac.ValueMember = "id";
 
+                if (result.Count != 0)
+                {
+                    int m_id = Convert.ToInt32(comb_Bac.SelectedValue.ToString());
 
-                int m_id = Convert.ToInt32(comb_Bac.SelectedValue.ToString());
+                    var result1 = (from c in dtBacHeSo.AsEnumerable()
+                                   where c.Field<int>("id") == m_id
+                                   select c.Field<double>("he_so"));
 
-                var result1 = (from c in dtBacHeSo.AsEnumerable()
-                               where c.Field<int>("id") == m_id
-                               select c.Field<double>("he_so"));
+                    double m_he_so = result1.ElementAt<double>(0);
 
-                double m_he_so = result1.ElementAt<double>(0);
-
-                txt_HeSo.Text = m_he_so.ToString();
+                    txt_HeSo.Text = m_he_so.ToString();
+                }
+                else
+                    txt_HeSo.Text = "";
+                
             }
             catch { }
         }
@@ -210,6 +238,7 @@ namespace HDQD.UCs
             try
             {
                 var result = (from c in dtBacHeSo.AsEnumerable()
+                              orderby c.Field<string>("ten_ngach")
                               select new { ma_ngach = c.Field<string>("ma_ngach"), ten_ngach = c.Field<string>("ten_ngach") }
                               ).Distinct().ToList();
 
@@ -376,12 +405,31 @@ namespace HDQD.UCs
 
         private void comb_Ngach_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string m_ma_ngach = comb_Ngach.SelectedValue.ToString();
+            DateTime m_tu_ngay_select = thongTinQuyetDinh1.dTP_NgayHieuLuc.Value;
+            LoadDataForCbo_BacHeso(m_ma_ngach, m_tu_ngay_select);
+        }
+
+        private void LoadDataForCbo_BacHeso(string p_ma_ngach, DateTime p_tu_ngay)
+        {
             try
             {
-                string m_ma_ngach = comb_Ngach.SelectedValue.ToString();
+                /*var result = (from c in dtBacHeSo.AsEnumerable()
+                              where c.Field<string>("ma_ngach") == m_ma_ngach && c.Field<bool>("tinh_trang") == true
+                              select new { id = c.Field<int>("id"), bac = c.Field<int>("bac"), he_so = c.Field<double>("he_so") }
+                                  ).ToList();
+                */
+
 
                 var result = (from c in dtBacHeSo.AsEnumerable()
-                              where c.Field<string>("ma_ngach") == m_ma_ngach && c.Field<bool>("tinh_trang") == true
+                              where c.Field<string>("ma_ngach") == p_ma_ngach && p_tu_ngay >= c.Field<DateTime>("tu_ngay") && p_tu_ngay <= c.Field<DateTime?>("den_ngay")
+                              orderby c.Field<int>("bac")
+                              select new { id = c.Field<int>("id"), bac = c.Field<int>("bac"), he_so = c.Field<double>("he_so") }
+                                  ).ToList();
+                if (result.Count == 0)
+                    result = (from c in dtBacHeSo.AsEnumerable()
+                              where c.Field<string>("ma_ngach") == p_ma_ngach && c.Field<bool>("tinh_trang") == true && p_tu_ngay >= c.Field<DateTime>("tu_ngay")
+                              orderby c.Field<int>("bac")
                               select new { id = c.Field<int>("id"), bac = c.Field<int>("bac"), he_so = c.Field<double>("he_so") }
                                   ).ToList();
 
@@ -390,10 +438,17 @@ namespace HDQD.UCs
                 comb_Bac.DataSource = dt;
                 comb_Bac.DisplayMember = "bac";
                 comb_Bac.ValueMember = "id";
-            }
-            catch { }
-        }
 
+                if (result.Count == 0)
+                {
+                    txt_HeSo.Text = "";
+                }
+
+            }
+            catch
+            { }
+        }
+        
         private void comb_Bac_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -423,6 +478,8 @@ namespace HDQD.UCs
         {
             if (CheckInputData())
             {
+                oHopdong = new Business.HDQD.CNVC_HopDong();
+
                 bool bUploadInfoSuccess = false;    // KHANG : dung de biet upload info thanh cong 
                 // neu thanh cong moi upload file
                 oHopdong.Ma_NV = thongTinCNVC1.txt_MaNV.Text;
