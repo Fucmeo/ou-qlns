@@ -22,6 +22,7 @@ namespace HDQD.UCs
         Business.CNVC.CNVC cnvc;
         Business.Luong.BacHeSo oBacHeSo;
         DataTable dtBacHeSo;
+        DataTable dtDSDonVi;
 
         DataTable dtLoaiPC;
 
@@ -74,6 +75,7 @@ namespace HDQD.UCs
             oFTP = new Business.FTP();
 
             dtLoaiPC = oLoaiPC.GetList_Cbo();
+            dtDSDonVi = new DataTable();
 
             PreapreDataSource();
             Prepare_Data_BacHeSo();
@@ -163,7 +165,8 @@ namespace HDQD.UCs
                 comB_ChucVu.DisplayMember = "ten_chuc_vu";
                 comB_ChucVu.ValueMember = "id";
 
-                comB_DonVi.DataSource = oDonvi.GetActiveDonVi();
+                dtDSDonVi = oDonvi.GetActiveDonVi();
+                comB_DonVi.DataSource = dtDSDonVi;
                 comB_DonVi.DisplayMember = "ten_don_vi";
                 comB_DonVi.ValueMember = "id";
 
@@ -824,11 +827,32 @@ namespace HDQD.UCs
 
         private bool CheckInputData()
         {
-            if (thongTinCNVC1.txt_MaNV.Text != "" && thongTinQuyetDinh1.txt_MaQD.Text != "" && thongTinQuyetDinh1.txt_TenQD.Text != "" &&
-                    ((dtPhuCap.Rows.Count > 0 && cb_CoPhuCap.Checked == false) || cb_CoPhuCap.Checked == true))
-                return true;
-            else
+            try
+            {
+                var result = (from c in dtDSDonVi.AsEnumerable()
+                              where c.Field<int>("id") == Convert.ToInt32(comB_DonVi.SelectedValue.ToString())
+                              select new { tu_ngay = c.Field<DateTime>("tu_ngay") }).ToList();
+
+                //DataTable dt = ToDataTable(result);
+
+                if (thongTinQuyetDinh1.dTP_NgayHieuLuc.Value >= result[0].tu_ngay)
+                {
+                    if (thongTinCNVC1.txt_MaNV.Text != "" && thongTinQuyetDinh1.txt_MaQD.Text != "" && thongTinQuyetDinh1.txt_TenQD.Text != "" &&
+                            ((dtPhuCap.Rows.Count > 0 && cb_CoPhuCap.Checked == false) || cb_CoPhuCap.Checked == true))
+                        return true;
+                    else
+                        return false;
+                }
+                else
+                {
+                    MessageBox.Show("Thời gian bắt đầu hợp đồng sớm hơn thời gian đơn vị bắt đầu hoạt động. Vui lòng kiểm tra lại thông tin.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
                 return false;
+            }
         }
 
         private void comB_LoaiPhuCap_SelectionChangeCommitted(object sender, EventArgs e)

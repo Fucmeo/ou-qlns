@@ -38,6 +38,8 @@ namespace HDQD.UCs
         public static int[] nSelectedChucVuID;
         public static int[] nSelectedChucDanhID;
         public static int[] nSelectedDonViID;
+        public static bool nChange_DenNgay = false;
+        public static DateTime ndtp_DenNgay_Change;
 
         Business.HDQD.CNVC_PhuCap oCNVCPhuCap;
 
@@ -557,45 +559,93 @@ namespace HDQD.UCs
 
                     DataTable dt_donvi_new = oDonvi.GetDonVi_New(selected_donvi);
 
-                    string loai_qd = (from c in dt_donvi_new.AsEnumerable()
-                                      select c.Field<string>("ten_loai_qd")).ElementAt(0).ToString();
-                    string ten_qd = (from c in dt_donvi_new.AsEnumerable()
-                                     select c.Field<string>("ten_qd")).ElementAt(0).ToString();
-                    string ma_qd = (from c in dt_donvi_new.AsEnumerable()
-                                    select c.Field<string>("ma_quyet_dinh")).ElementAt(0).ToString();
-                    DateTime ngay_hieu_luc_qd = (from c in dt_donvi_new.AsEnumerable()
-                                                 select c.Field<DateTime>("ngay_hieu_luc_qd")).ElementAt(0);
-
-                    MessageBox.Show("Loại quyết định: " + loai_qd + "\nMã quyết định: " + ma_qd + "\nTên quyết định: " + ten_qd + "\nNgày hiệu lực: " + ngay_hieu_luc_qd.ToString("d", CultureInfo.CreateSpecificCulture("vi-VN")) + "\nVui lòng chọn đơn vị phù hợp.",
-                                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    Forms.Popup frPopup = new Forms.Popup(new UCs.DonViCu(dt_donvi_new, dtp_DenNgay.Checked, dtp_DenNgay.Value), "Danh sách đơn vị");
-                    frPopup.ShowDialog();
-
-                    if (nSelectedDonViID.Count() == nSelectedChucDanhID.Count() && nSelectedDonViID.Count() == nSelectedChucVuID.Count())
+                    if (dt_donvi_new.Rows.Count > 0)
                     {
-                        GatherInfo();
-                        try
+                        string loai_qd = (from c in dt_donvi_new.AsEnumerable()
+                                          select c.Field<string>("ten_loai_qd")).ElementAt(0).ToString();
+                        string ten_qd = (from c in dt_donvi_new.AsEnumerable()
+                                         select c.Field<string>("ten_qd")).ElementAt(0).ToString();
+                        string ma_qd = (from c in dt_donvi_new.AsEnumerable()
+                                        select c.Field<string>("ma_quyet_dinh")).ElementAt(0).ToString();
+                        DateTime ngay_hieu_luc_qd = (from c in dt_donvi_new.AsEnumerable()
+                                                     select c.Field<DateTime>("ngay_hieu_luc_qd")).ElementAt(0);
+
+                        MessageBox.Show("Loại quyết định: " + loai_qd + "\nMã quyết định: " + ma_qd + "\nTên quyết định: " + ten_qd + "\nNgày hiệu lực: " + ngay_hieu_luc_qd.ToString("d", CultureInfo.CreateSpecificCulture("vi-VN")) + "\nVui lòng chọn đơn vị phù hợp.",
+                                        "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        Forms.Popup frPopup = new Forms.Popup(new UCs.DonViCu(dt_donvi_new, dtp_DenNgay.Checked, dtp_DenNgay.Value), "Danh sách đơn vị");
+                        frPopup.ShowDialog();
+
+                        if (nSelectedDonViID.Count() == nSelectedChucDanhID.Count() && nSelectedDonViID.Count() == nSelectedChucVuID.Count())
                         {
-                            if (MessageBox.Show("Bạn thực sự muốn thêm hợp đồng cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                            GatherInfo();
+                            if (nChange_DenNgay == true)
+                                oHopdong.Ngay_Het_Han = ndtp_DenNgay_Change;
+                            try
                             {
-                                if (oHopdong.Add_HopDongOld(nSelectedDonViID, nSelectedChucVuID, nSelectedChucDanhID))
+                                if (MessageBox.Show("Bạn thực sự muốn thêm hợp đồng cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                                 {
-                                    MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    ResetInterface();
+                                    if (oHopdong.Add_HopDongOld(nSelectedDonViID, nSelectedChucVuID, nSelectedChucDanhID))
+                                    {
+                                        MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        ResetInterface();
+                                    }
+                                    else
+                                        MessageBox.Show("Thao tác thêm thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
-                                else
-                                    MessageBox.Show("Thao tác thêm thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            catch (Exception)
+                            {
+                                MessageBox.Show("Thao tác thêm thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
-                        catch (Exception)
-                        {
-                            MessageBox.Show("Thao tác thêm thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                        else
+                            MessageBox.Show("Có lỗi xảy ra! Vui lòng kiểm tra lại thông tin.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
-                        MessageBox.Show("Có lỗi xảy ra! Vui lòng kiểm tra lại thông tin.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    {
+                        try
+                        {
+                            if (MessageBox.Show("Không thể tìm thấy đơn vị mới hơn đơn vị được chọn, và thời gian hợp đồng kết thúc lớn hơn thời gian đơn vị ngừng hoạt động. Bạn có muốn thay đổi thời gian hợp đồng kết thúc bằng thời gian đơn vị ngừng hoạt động?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                            {
+                                GatherInfo();
+                                oHopdong.Ngay_Het_Han = dtp_donvi_denngay; //update ngay het han = ngay het han cua don vi
+                                oHopdong.Don_Vi_ID = Convert.ToInt16(comB_DonVi.SelectedValue);
 
+                                if (comB_ChucDanh.Text != "")
+                                    oHopdong.Chuc_Danh_ID = Convert.ToInt16(comB_ChucDanh.SelectedValue);
+                                else
+                                    oHopdong.Chuc_Danh_ID = null;
+
+                                if (comB_ChucVu.Text != "")
+                                    oHopdong.Chuc_Vu_ID = Convert.ToInt16(comB_ChucVu.SelectedValue);
+                                else
+                                    oHopdong.Chuc_Vu_ID = null;
+
+                                try
+                                {
+                                    if (MessageBox.Show("Bạn thực sự muốn thêm hợp đồng cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                    {
+                                        if (oHopdong.Add_wLuong_PhuCap())
+                                        {
+                                            MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                            ResetInterface();
+                                        }
+                                        else
+                                            MessageBox.Show("Thao tác thêm thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    }
+                                }
+                                catch (Exception)
+                                {
+                                    MessageBox.Show("Thao tác thêm thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Có lỗi xảy ra!" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
 
                     #endregion
                 }

@@ -29,6 +29,7 @@ namespace HDQD.UCs
         DataTable dtBacHeSo;
 
         DataTable dtLoaiPC;
+        DataTable dtDSDonVi;
 
         DataTable dtPhuCap;
         int row_count_pc = 0;
@@ -82,6 +83,7 @@ namespace HDQD.UCs
             oCNVCPhuCap = new Business.HDQD.CNVC_PhuCap();
 
             dtLoaiPC = oLoaiPC.GetList_Cbo();
+            dtDSDonVi = new DataTable();
 
             PreapreDataSource();
             Prepare_Data_BacHeSo();
@@ -447,11 +449,32 @@ namespace HDQD.UCs
 
         private bool CheckInputData()
         {
-            if (thongTinCNVC1.txt_MaNV.Text != "" && txt_MaHD.Text != "" &&
-                    ((dtPhuCap.Rows.Count > 0 && cb_CoPhuCap.Checked == false) || cb_CoPhuCap.Checked == true))
-                return true;
-            else
+            try
+            {
+                var result = (from c in dtDSDonVi.AsEnumerable()
+                              where c.Field<int>("id") == Convert.ToInt32(comB_DonVi.SelectedValue.ToString())
+                              select new { tu_ngay = c.Field<DateTime>("tu_ngay") }).ToList();
+
+                //DataTable dt = ToDataTable(result);
+
+                if (dtp_TuNgay.Value >= result[0].tu_ngay)
+                {
+                    if (thongTinCNVC1.txt_MaNV.Text != "" && txt_MaHD.Text != "" &&
+                            ((dtPhuCap.Rows.Count > 0 && cb_CoPhuCap.Checked == false) || cb_CoPhuCap.Checked == true))
+                        return true;
+                    else
+                        return false;
+                }
+                else
+                {
+                    MessageBox.Show("Thời gian bắt đầu hợp đồng sớm hơn thời gian đơn vị bắt đầu hoạt động. Vui lòng kiểm tra lại thông tin.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
                 return false;
+            }
         }
         private void ResetInterface()
         {
@@ -481,7 +504,8 @@ namespace HDQD.UCs
                 comB_ChucVu.DisplayMember = "ten_chuc_vu";
                 comB_ChucVu.ValueMember = "id";
 
-                comB_DonVi.DataSource = oDonvi.GetActiveDonVi();
+                dtDSDonVi = oDonvi.GetActiveDonVi();
+                comB_DonVi.DataSource = dtDSDonVi;
                 comB_DonVi.DisplayMember = "ten_don_vi";
                 comB_DonVi.ValueMember = "id";
 

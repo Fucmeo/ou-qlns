@@ -431,12 +431,14 @@ namespace Business.HDQD
                 return false;
         }
 
-        public DataTable Search_HD(string p_ma_nv, string p_ma_hop_dong, int? p_ma_loai_hd, bool? p_co_thoi_han, DateTime? p_ngay_ky_tu, DateTime? p_ngay_ky_den)
+        public DataTable Search_HD(string p_ma_nv, string p_ho, string p_ten, string p_ma_hop_dong, int? p_ma_loai_hd, bool? p_co_thoi_han, DateTime? p_ngay_ky_tu, DateTime? p_ngay_ky_den)
         {
             DataTable dt;
 
-            IDataParameter[] paras = new IDataParameter[6]{
+            IDataParameter[] paras = new IDataParameter[8]{
                 new NpgsqlParameter("p_ma_nv",p_ma_nv),
+                new NpgsqlParameter("p_ho_nv",p_ho),
+                new NpgsqlParameter("p_ten_nv",p_ten),
                 new NpgsqlParameter("p_ma_hd",p_ma_hop_dong),
                 new NpgsqlParameter("p_loai_hd",p_ma_loai_hd),
                 new NpgsqlParameter("p_co_thoi_han",p_co_thoi_han),
