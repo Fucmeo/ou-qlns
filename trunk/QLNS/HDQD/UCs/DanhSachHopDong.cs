@@ -28,7 +28,10 @@ namespace HDQD.UCs
         private void btn_Tim_Click(object sender, EventArgs e)
         {
             string ma_nv = txt_MaNV.Text == "" ? null : txt_MaNV.Text;
+            string ho_nv = txt_Ho.Text == "" ? null : txt_Ho.Text;
+            string ten_nv = txt_Ten.Text == "" ? null : txt_Ten.Text;
             string ma_hd = txt_MaHD.Text == "" ? null : txt_MaHD.Text;
+
             int? ma_loai_hd = null;
             if (comB_Loai.Text != "")
                 ma_loai_hd = Convert.ToInt16(comB_Loai.SelectedValue);
@@ -51,7 +54,7 @@ namespace HDQD.UCs
 
             try
             {
-                dtDSHopDong = oHopDong.Search_HD(ma_nv, ma_hd, ma_loai_hd, co_thoi_han, ngay_ky_tu, ngay_ky_den);
+                dtDSHopDong = oHopDong.Search_HD(ma_nv, ho_nv, ten_nv, ma_hd, ma_loai_hd, co_thoi_han, ngay_ky_tu, ngay_ky_den);
                 //dtDSHopDong = oHopDong.Search_HD(ma_nv, ma_hd, ma_loai_hd, ngay_ky_tu, ngay_ky_den);
                 if (dtDSHopDong != null)
                 {
@@ -186,7 +189,10 @@ namespace HDQD.UCs
             Business.HDQD.CNVC_HopDong hopdong = new Business.HDQD.CNVC_HopDong();    // khong dung chung oChucVu duoc ???
             
             string ma_nv = txt_MaNV.Text == "" ? null : txt_MaNV.Text;
+            string ho_nv = txt_Ho.Text == "" ? null : txt_Ho.Text;
+            string ten_nv = txt_Ten.Text == "" ? null : txt_Ten.Text;
             string ma_hd = txt_MaHD.Text == "" ? null : txt_MaHD.Text;
+
             int? ma_loai_hd = null;
             if (comB_Loai.Text != "")
                 ma_loai_hd = Convert.ToInt16(comB_Loai.SelectedValue);
@@ -207,7 +213,7 @@ namespace HDQD.UCs
                 ngay_ky_den = dTP_DenNgay.Value;
             }
 
-            dtDSHopDong = hopdong.Search_HD(ma_nv, ma_hd, ma_loai_hd, co_thoi_han, ngay_ky_tu, ngay_ky_den);
+            dtDSHopDong = hopdong.Search_HD(ma_nv, ho_nv, ten_nv, ma_hd, ma_loai_hd, co_thoi_han, ngay_ky_tu, ngay_ky_den);
             //dtDSHopDong = hopdong.Search_HD(ma_nv, ma_hd, ma_loai_hd, ngay_ky_tu, ngay_ky_den);
             PrepareDataSource();
 
