@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QDKhenThuong_ChuyenNgach));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TLP_KhenThuong_ChuyenNgach = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLP_PhuCap = new System.Windows.Forms.TableLayoutPanel();
@@ -247,6 +247,8 @@
             this.txt_TienPC.Name = "txt_TienPC";
             this.txt_TienPC.Size = new System.Drawing.Size(259, 29);
             this.txt_TienPC.TabIndex = 1;
+            this.txt_TienPC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Tien_KeyPress);
+            this.txt_TienPC.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_Tien_KeyUp);
             // 
             // label20
             // 
@@ -435,8 +437,8 @@
             this.dtgv_DSPhuCap.AllowUserToAddRows = false;
             this.dtgv_DSPhuCap.AllowUserToDeleteRows = false;
             this.dtgv_DSPhuCap.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Gainsboro;
-            this.dtgv_DSPhuCap.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
+            this.dtgv_DSPhuCap.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgv_DSPhuCap.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
@@ -541,7 +543,6 @@
             // 
             this.btn_NhapFile.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_NhapFile.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_NhapFile.Enabled = false;
             this.btn_NhapFile.ImageKey = "Document-Add.png";
             this.btn_NhapFile.ImageList = this.imageList1;
             this.btn_NhapFile.Location = new System.Drawing.Point(637, 4);
@@ -556,7 +557,6 @@
             // 
             this.btn_Them.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btn_Them.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Them.Enabled = false;
             this.btn_Them.ImageKey = "Save.png";
             this.btn_Them.ImageList = this.imageList1;
             this.btn_Them.Location = new System.Drawing.Point(270, 4);
@@ -735,6 +735,8 @@
             this.txt_Tien.Name = "txt_Tien";
             this.txt_Tien.Size = new System.Drawing.Size(165, 29);
             this.txt_Tien.TabIndex = 34;
+            this.txt_Tien.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Tien_KeyPress);
+            this.txt_Tien.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_Tien_KeyUp);
             // 
             // lbl_SoTien
             // 
@@ -790,8 +792,8 @@
             this.dtgv_Luong.AllowUserToAddRows = false;
             this.dtgv_Luong.AllowUserToDeleteRows = false;
             this.dtgv_Luong.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gainsboro;
-            this.dtgv_Luong.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gainsboro;
+            this.dtgv_Luong.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dtgv_Luong.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
