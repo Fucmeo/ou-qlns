@@ -452,6 +452,7 @@
             this.dtgv_DSPhuCap.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgv_DSPhuCap.Size = new System.Drawing.Size(791, 177);
             this.dtgv_DSPhuCap.TabIndex = 46;
+            this.dtgv_DSPhuCap.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_DSPhuCap_CellClick);
             // 
             // btn_EditPC
             // 
@@ -807,6 +808,7 @@
             this.dtgv_Luong.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgv_Luong.Size = new System.Drawing.Size(791, 153);
             this.dtgv_Luong.TabIndex = 49;
+            this.dtgv_Luong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_Luong_CellClick);
             // 
             // label10
             // 
