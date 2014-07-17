@@ -75,12 +75,47 @@ namespace HDQD.UCs
 
          void SetupDTGV_Luong()
          {
+             dtgv_Luong.Columns["khoan_or_heso"].HeaderText = "Khoán/Hệ số";
+             dtgv_Luong.Columns["luong_khoan"].HeaderText = "Lương khoán";
+             dtgv_Luong.Columns["phan_tram_huong"].HeaderText = "Phần trăm hưởng";
+             dtgv_Luong.Columns["tu_ngay"].HeaderText = "Từ ngày";
+             dtgv_Luong.Columns["den_ngay"].HeaderText = "Đến ngày";
+             dtgv_Luong.Columns["ma_tuyen_dung"].HeaderText = "Mã hợp đồng";
+             dtgv_Luong.Columns["la_qd_tiep_nhan"].HeaderText = "Là quyết định tiếp nhận";
+             dtgv_Luong.Columns["ma_ngach"].HeaderText = "Mã ngạch";
+             dtgv_Luong.Columns["bac"].HeaderText = "Bậc";
+             dtgv_Luong.Columns["he_so"].HeaderText = "Hệ số";
+             dtgv_Luong.Columns["ten_ngach"].HeaderText = "Tên ngạch";
+             dtgv_Luong.Columns["loai_hop_dong"].HeaderText = "Loại hợp đồng";
 
+
+             dtgv_Luong.Columns["ngach_bac_heso_id"].Visible
+                 = dtgv_Luong.Columns["tuyen_dung_id"].Visible
+                 = dtgv_Luong.Columns["den_ngay_adj_is_null"].Visible
+                 = dtgv_Luong.Columns["co_thoi_han"].Visible
+                 = dtgv_Luong.Columns["ma_nv"].Visible    
+             =false;
          }
 
          void SetupDTGV_PC()
          {
+             dtgv_DSPhuCap.Columns["value_khoan"].HeaderText = "Tiền khoán";
+             dtgv_DSPhuCap.Columns["value_he_so"].HeaderText = "Hệ số";
+             dtgv_DSPhuCap.Columns["value_phan_tram"].HeaderText = "Phần trăm theo công thức";
+             dtgv_DSPhuCap.Columns["phan_tram_huong"].HeaderText = "Phần trăm hưởng";
+             dtgv_DSPhuCap.Columns["tu_ngay"].HeaderText = "Từ ngày";
+             dtgv_DSPhuCap.Columns["den_ngay"].HeaderText = "Đến ngày";
+             dtgv_DSPhuCap.Columns["ghi_chu"].HeaderText = "Ghi chú";
+             dtgv_DSPhuCap.Columns["ma_tuyen_dung"].HeaderText = "Mã hợp đồng";
+             dtgv_DSPhuCap.Columns["ten_loai"].HeaderText = "Tên loại phụ cấp";
+             dtgv_DSPhuCap.Columns["chuoi_cong_thuc_text"].HeaderText = "Công thức";
 
+             dtgv_DSPhuCap.Columns["pc_id"].Visible =
+                 dtgv_DSPhuCap.Columns["cnvc_tuyen_dung_id"].Visible =
+                 dtgv_DSPhuCap.Columns["loai_pc_id"].Visible =
+                 dtgv_DSPhuCap.Columns["la_qd_tiep_nhan"].Visible =
+                 dtgv_DSPhuCap.Columns["p_den_ngay_adj_pc_is_null"].Visible =
+                  false;
          }
 
          void GetThongTin_Luong()
@@ -429,6 +464,67 @@ namespace HDQD.UCs
                  //txt_Tien.Text = Convert.ToDouble(txt_Tien.Text).ToString("#,#", CultureInfo.InvariantCulture);
                  txt.Text = Convert.ToDouble(txt.Text.Replace(",", "")).ToString("#,#");
                  txt.SelectionStart = txt.TextLength;
+             }
+         }
+
+         private void dtgv_Luong_CellClick(object sender, DataGridViewCellEventArgs e)
+         {
+             if (bLoad_Luong_Complete)
+             {
+                 if (dtgv_Luong.SelectedRows != null && dtgv_Luong.SelectedRows.Count >0)
+                 {
+                     DataGridViewRow r =  dtgv_Luong.SelectedRows[0];
+
+                     comb_Luong.Text = r.Cells["khoan_or_heso"].Value.ToString();
+                     txt_Tien.Text = r.Cells["luong_khoan"].Value.ToString();
+                     comb_Ngach.Text = r.Cells["ma_ngach"].Value.ToString();
+                     comb_Bac.Text = r.Cells["bac"].Value.ToString();
+                     txt_HeSo.Text = r.Cells["he_so"].Value.ToString();
+                     nup_PhanTram.Value = Convert.ToInt16(r.Cells["phan_tram_huong"].Value);
+                     dtp_TuNgay_Luong.Value = Convert.ToDateTime(r.Cells["tu_ngay"].Value);
+
+                     if (r.Cells["den_ngay"].Value.ToString() != "")
+                     {
+                         dtp_DenNgay_Luong.Checked = true;
+                         dtp_DenNgay_Luong.Value = Convert.ToDateTime(r.Cells["den_ngay"].Value);
+                     }
+                     else
+                     {
+                         dtp_DenNgay_Luong.Checked = false;
+                     }
+                 }
+             }
+         }
+
+         private void dtgv_DSPhuCap_CellClick(object sender, DataGridViewCellEventArgs e)
+         {
+             if (bLoad_PC_Complete)
+             {
+                 if (dtgv_DSPhuCap.SelectedRows != null && dtgv_DSPhuCap.SelectedRows.Count > 0)
+                 {
+                     DataGridViewRow r = dtgv_DSPhuCap.SelectedRows[0];
+
+                     comB_LoaiPhuCap.Text = r.Cells["ten_loai"].Value.ToString();
+                     //txt_Luong_PC.Text = r.Cells["value_khoan"].Value.ToString();
+                     txt_CongThucPC.Text = r.Cells["chuoi_cong_thuc_text"].Value.ToString();
+                     txt_TienPC.Text = r.Cells["value_khoan"].Value.ToString();
+                     rTB_GhiChuPC.Text = r.Cells["ghi_chu"].Value.ToString();
+
+                     nup_PhanTramPC.Value = Convert.ToInt16(r.Cells["phan_tram_huong"].Value);
+                     nup_Value_PhanTramPC.Value = Convert.ToInt16(r.Cells["value_phan_tram"].Value);
+
+                     dTP_NgayBatDauPC.Value = Convert.ToDateTime(r.Cells["tu_ngay"].Value);
+
+                     if (r.Cells["den_ngay"].Value.ToString() != "")
+                     {
+                         dTP_NgayHetHanPC.Checked = true;
+                         dTP_NgayHetHanPC.Value = Convert.ToDateTime(r.Cells["den_ngay"].Value);
+                     }
+                     else
+                     {
+                         dTP_NgayHetHanPC.Checked = false;
+                     }
+                 }
              }
          }
 	}
