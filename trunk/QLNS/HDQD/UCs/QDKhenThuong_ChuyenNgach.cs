@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Business;
+using System.Reflection;
 
 namespace HDQD.UCs
 {
@@ -144,7 +145,7 @@ namespace HDQD.UCs
                  dtgv_DSPhuCap.DataSource = dtPhuCap;
                  dtgv_DSPhuCap.ClearSelection();
                  SetupDTGV_PC();
-                 bLoad_PC_Complete = false;
+                 bLoad_PC_Complete = true;
              }
              catch (Exception)
              {
@@ -174,16 +175,18 @@ namespace HDQD.UCs
                  dtBacHeSo = oBacHeSo.GetData();
                  if (dtBacHeSo.Rows.Count >0)
                  {
-                     DataTable dtMaNgach = dtBacHeSo.Columns["ma_ngach"].Table;
+
+
+                     DataTable dtMaNgach = dtBacHeSo.DefaultView.ToTable(true, "ma_ngach"); 
                      comb_Ngach.DataSource = dtMaNgach;
                      comb_Ngach.ValueMember = "ma_ngach";
                          comb_Ngach.DisplayMember = "ma_ngach";
 
 
-                     DataTable dtBac = dtBacHeSo.Columns["bac"].Table;
+                         DataTable dtBac = dtBacHeSo.DefaultView.ToTable(true,new string[2]{ "bac","id"}); 
                      comb_Bac.DataSource = dtBac;
                      comb_Bac.DisplayMember = "bac";
-                     comb_Bac.ValueMember = "bac";
+                     comb_Bac.ValueMember = "id";
                  }
 
              }
@@ -192,6 +195,57 @@ namespace HDQD.UCs
              }
              
          }
+
+         #region Convert List to Data Table
+         private DataTable ToDataTable<T>(List<T> items)
+         {
+             var table = new DataTable(typeof(T).Name);
+
+             PropertyInfo[] props = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
+
+             foreach (PropertyInfo prop in props)
+             {
+                 Type t = GetCoreType(prop.PropertyType);
+                 table.Columns.Add(prop.Name, t);
+             }
+
+             foreach (T item in items)
+             {
+                 var values = new object[props.Length];
+
+                 for (int i = 0; i < props.Length; i++)
+                 {
+                     values[i] = props[i].GetValue(item, null);
+                 }
+
+                 table.Rows.Add(values);
+             }
+
+             return table;
+         }
+         public static Type GetCoreType(Type t)
+         {
+             if (t != null && IsNullable(t))
+             {
+                 if (!t.IsValueType)
+                 {
+                     return t;
+                 }
+                 else
+                 {
+                     return Nullable.GetUnderlyingType(t);
+                 }
+             }
+             else
+             {
+                 return t;
+             }
+         }
+         public static bool IsNullable(Type t)
+         {
+             return !t.IsValueType || (t.IsGenericType && t.GetGenericTypeDefinition() == typeof(Nullable<>));
+         }
+         #endregion
 
          private void QDKhenThuong_ChuyenNgach_Load(object sender, EventArgs e)
          {
@@ -260,10 +314,13 @@ namespace HDQD.UCs
          {
              dTP_NgayBatDauPC.Enabled = dTP_NgayHetHanPC.Enabled = nup_PhanTramPC.Enabled
                  = nup_Value_PhanTramPC.Enabled = txt_TienPC.Enabled
-                 = nup_PhanTramPC.Enabled 
+                 = nup_PhanTramPC.Enabled
+                 = txt_HeSoPC.Enabled 
                  = rTB_GhiChuPC.Enabled = bEnable;
 
              dtgv_DSPhuCap.Enabled = btn_AddPC.Visible = !bEnable;
+
+             EditInterface_LoaiPC();
 
 
          }
@@ -280,39 +337,125 @@ namespace HDQD.UCs
 
          }
 
+         private void EditInterface_LoaiPC()
+         {
+             try
+             {
+                 int id = Convert.ToInt16(comB_LoaiPhuCap.SelectedValue.ToString());
+                 int cach_tinh = Convert.ToInt16((from c in dtLoaiPC.AsEnumerable()
+                                                  where c.Field<int>("id") == id
+                                                  select c.Field<int>("cach_tinh")).ElementAt(0).ToString());
+
+                 string cong_thuc = (from c in dtLoaiPC.AsEnumerable()
+                                     where c.Field<int>("id") == id
+                                     select c.Field<string>("chuoi_cong_thuc")).ElementAt(0).ToString();
+                 switch (cach_tinh)
+                 {
+                     case 1:
+                         txt_TienPC.Enabled = true;
+                         txt_HeSoPC.Enabled = false;
+                         txt_HeSoPC.Text = "";
+                         nup_Value_PhanTramPC.Enabled = false;
+                         nup_Value_PhanTramPC.Value = 0;
+                         break;
+                     case 2:
+                         txt_TienPC.Text = "";
+                         txt_TienPC.Enabled = false;
+                         txt_HeSoPC.Enabled = true;
+                         txt_Luong_PC.Text = "Lương cơ bản";
+                         nup_Value_PhanTramPC.Enabled = false;
+                         nup_Value_PhanTramPC.Value = 0;
+                         break;
+                     case 3:
+                         txt_TienPC.Text = "";
+                         txt_TienPC.Enabled = false;
+                         txt_HeSoPC.Enabled = true;
+                         txt_Luong_PC.Text = "Lương tối thiểu";
+                         nup_Value_PhanTramPC.Enabled = false;
+                         nup_Value_PhanTramPC.Value = 0;
+                         break;
+                     case 4:
+                         txt_TienPC.Text = "";
+                         txt_HeSoPC.Text = "";
+                         txt_TienPC.Enabled = false;
+                         txt_HeSoPC.Enabled = false;
+                         nup_Value_PhanTramPC.Enabled = true;
+                         txt_CongThucPC.Text = cong_thuc;
+                         break;
+                     default:
+                         break;
+                 }
+             }
+             catch { }
+         }
+
          private void btn_Edit_Luong_Click(object sender, EventArgs e)
          {
-             if (btn_Edit_Luong.ImageKey == "Edit Data.png")
+             if (dtgv_Luong.SelectedRows != null && dtgv_Luong.SelectedRows.Count > 0)
              {
-                 EnableLuongObjects(true);
-                 ChangeLuongButtonImage(false);
-             }
-             else // save
-             {
-                 if (dtgv_Luong.SelectedRows != null && dtgv_Luong.SelectedRows.Count > 0
-                    && MessageBox.Show("Bạn thực sự muốn sửa thông tin lương cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                 if (btn_Edit_Luong.ImageKey == "Edit Data.png")
                  {
-
-                     try
-                     {
-                         
-                         
-                         MessageBox.Show("Thêm thành công.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                         EnableLuongObjects(false);
-                         ChangeLuongButtonImage(true);
-                     }
-                     catch (Exception)
-                     {
-                         MessageBox.Show("Thông tin lương chưa phù hợp, xin vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                     }
-
-
-                     
+                     EnableLuongObjects(true);
+                     ChangeLuongButtonImage(false);
                  }
+                 else // save
+                 {
+                     if (MessageBox.Show("Bạn thực sự muốn sửa thông tin lương cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                     {
+                         try
+                         {
+                             int id = Convert.ToInt16(dtgv_Luong.SelectedRows[0].Cells["tuyen_dung_id"].Value);
+
+                             DataRow r = dtLuong.Select("tuyen_dung_id = " + id).First();
+
+                             r["khoan_or_heso"] = comb_Luong.Text;
+                             if (comb_Luong.Text == "Khoán")
+                             {
+                                 r["luong_khoan"] = Convert.ToDecimal(txt_Tien.Text);
+                                 r["ten_ngach"] = DBNull.Value;
+                                 r["bac"] = DBNull.Value;
+                                 r["he_so"] = DBNull.Value;
+                                 r["ma_ngach"] = DBNull.Value;
+                             }
+                             else
+                             {
+                                 r["luong_khoan"] = DBNull.Value;
+                                 r["ten_ngach"] = dtBacHeSo.Select("id = " + comb_Bac.SelectedValue).First()["ten_ngach"];
+                                 r["bac"] = comb_Bac.Text;
+                                 r["he_so"] = txt_HeSo.Text;
+                                 r["ma_ngach"] = comb_Ngach.Text;
+                             }
+
+                             r["phan_tram_huong"] = nup_PhanTram.Value;
+                             r["tu_ngay"] = dtp_TuNgay_Luong.Value;
+
+                             if (dtp_DenNgay_Luong.Checked)
+                             {
+                                 if (dtp_DenNgay_Luong.Value < dtp_TuNgay_Luong.Value)
+                                     throw new ArgumentException();
+                                 r["den_ngay"] = dtp_DenNgay_Luong.Value;
+                             }
+                             else
+                                 r["den_ngay"] = DBNull.Value;
 
 
-                 
+                             MessageBox.Show("Sửa thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                             EnableLuongObjects(false);
+                             ChangeLuongButtonImage(true);
+                             Clear_Luong_Interface();
+                         }
+                         catch (ArgumentException)
+                         {
+                             MessageBox.Show("Thông tin ngày hưởng lương chưa phù hợp, xin vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                         }
+                         catch (Exception)
+                         {
+                             MessageBox.Show("Thông tin lương chưa phù hợp, xin vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                         }
+                     }
+                 }
              }
+             
          }
 
          private void btn_Del_Luong_Click(object sender, EventArgs e)
@@ -324,6 +467,11 @@ namespace HDQD.UCs
                  {
                      try
                      {
+                         int id = Convert.ToInt16(dtgv_Luong.SelectedRows[0].Cells["tuyen_dung_id"].Value);
+
+                         DataRow r = dtLuong.Select("tuyen_dung_id = " + id).First();
+                         dtLuong.Rows.Remove(r);
+                         Clear_Luong_Interface();
 
 
                          MessageBox.Show("Xoá thành công.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -346,73 +494,193 @@ namespace HDQD.UCs
          {
              if (btn_EditPC.ImageKey == "Edit Data.png")
              {
-                 EnablePCObjects(true);
-                 ChangePCButtonImage(false);
-                 bAddPC = false;
+                 if (dtgv_DSPhuCap.SelectedRows != null && dtgv_DSPhuCap.SelectedRows.Count > 0)
+                 {
+                     EnablePCObjects(true);
+                     ChangePCButtonImage(false);
+                     bAddPC = false;
+                 }
+
              }
              else       // save
              {
-                 if (dtgv_DSPhuCap.SelectedRows != null && dtgv_DSPhuCap.SelectedRows.Count > 0)
+
+                 if (bAddPC) // Add
                  {
-                     if (bAddPC) // Add
+                     #region Adding
+
+                     if (MessageBox.Show("Bạn thực sự muốn thêm thông tin phụ cấp cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                      {
-
-                         if (MessageBox.Show("Bạn thực sự muốn thêm thông tin phụ cấp cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                         try
                          {
-                             try
+                             DataRow newrow = dtPhuCap.NewRow();
+                             newrow["tu_ngay"] = Convert.ToDateTime(dTP_NgayBatDauPC.Value);
+                             if (dTP_NgayHetHanPC.Checked)
                              {
+                                 if (dTP_NgayHetHanPC.Value < dTP_NgayBatDauPC.Value)
+                                     throw new ArgumentException();
+
+                                 newrow["den_ngay"] = Convert.ToDateTime(dTP_NgayHetHanPC.Value);
+                             }
+                             else
+                                 newrow["den_ngay"] = DBNull.Value;
+
+                             newrow["loai_pc_id"] = comB_LoaiPhuCap.SelectedValue;
+                             newrow["ten_loai"] = comB_LoaiPhuCap.Text;
+                             newrow["phan_tram_huong"] = nup_PhanTramPC.Value;
+                             newrow["ghi_chu"] = rTB_GhiChuPC.Text;
+                             newrow["p_den_ngay_adj_pc_is_null"] = false;
+
+                             int id = Convert.ToInt16(comB_LoaiPhuCap.SelectedValue.ToString());
+
+                             int cach_tinh = Convert.ToInt16((from c in dtLoaiPC.AsEnumerable()
+                                                              where c.Field<int>("id") == id
+                                                              select c.Field<int>("cach_tinh")).ElementAt(0).ToString());
+
+                             switch (cach_tinh)
+                             {
+                                 case 1:
+                                     newrow["value_khoan"] = Convert.ToDecimal(txt_TienPC.Text);
+                                     newrow["value_he_so"] = DBNull.Value;
+                                     newrow["value_phan_tram"] = DBNull.Value;
+                                     break;
+                                 case 2:
+                                     newrow["value_khoan"] = DBNull.Value;
+                                     newrow["value_he_so"] = (txt_HeSoPC.Text);
+                                     newrow["value_phan_tram"] = DBNull.Value;
+                                     break;
+                                 case 3:
+                                     newrow["value_khoan"] = DBNull.Value;
+                                     newrow["value_he_so"] = (txt_HeSoPC.Text);
+                                     newrow["value_phan_tram"] = DBNull.Value;
+                                     break;
+                                 case 4:
+                                     newrow["value_khoan"] = DBNull.Value;
+                                     newrow["value_he_so"] = DBNull.Value;
+                                     newrow["value_phan_tram"] = nup_Value_PhanTramPC.Value;
+                                     break;
+                                 default:
+                                     break;
+                             }
+
+                             dtPhuCap.Rows.Add(newrow);
+
+                             MessageBox.Show("Thêm thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                             
+                             ChangePCButtonImage(true);
+                             comB_LoaiPhuCap.Enabled = false;
+                             EnablePCObjects(false);
+
+                             txt_TienPC.Enabled = txt_HeSoPC.Enabled = nup_Value_PhanTramPC.Enabled = false;
 
 
-                                 MessageBox.Show("Thêm thành công.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                 EnablePCObjects(false);
-                                 ChangePCButtonImage(true);
-                                 comB_LoaiPhuCap.Enabled = false;
-                             }
-                             catch (Exception)
-                             {
-                                 MessageBox.Show("Thông tin phụ cấp  chưa phù hợp, xin vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                             }
                          }
-
-                     }
-                     else // Edit
-                     {
-                         if (MessageBox.Show("Bạn thực sự muốn sửa thông tin phụ cấp cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                         catch (ArgumentException)
                          {
-                             try
-                             {
-
-
-                                 MessageBox.Show("Sửa thành công.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                 EnablePCObjects(false);
-                                 ChangePCButtonImage(true);
-                             }
-                             catch (Exception)
-                             {
-                                 MessageBox.Show("Thông tin phụ cấp  chưa phù hợp, xin vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                             }
+                             MessageBox.Show("Thông tin ngày hưởng phụ cấp chưa phù hợp, xin vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                         }
+                         catch (Exception)
+                         {
+                             MessageBox.Show("Thông tin phụ cấp  chưa phù hợp, xin vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                          }
                      }
+                     #endregion
 
-
-                     
                  }
-                 
-             }
-             
+                 else // Edit
+                 {
+                     #region Edit
+                     if (MessageBox.Show("Bạn thực sự muốn sửa thông tin phụ cấp cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                     {
+                         try
+                         {
+                             int id = Convert.ToInt16(dtgv_DSPhuCap.SelectedRows[0].Cells["pc_id"].Value);
 
+                             DataRow r = dtPhuCap.Select("pc_id = " + id).First();
+                             r["tu_ngay"] = Convert.ToDateTime(dTP_NgayBatDauPC.Value);
+                             if (dTP_NgayHetHanPC.Checked)
+                             {
+                                 if (dTP_NgayHetHanPC.Value < dTP_NgayBatDauPC.Value)
+                                     throw new ArgumentException();
+
+                                 r["den_ngay"] = Convert.ToDateTime(dTP_NgayHetHanPC.Value);
+                             }
+                             else
+                                 r["den_ngay"] = DBNull.Value;
+
+                             r["loai_pc_id"] = comB_LoaiPhuCap.SelectedValue;
+                             r["ten_loai"] = comB_LoaiPhuCap.Text;
+                             r["phan_tram_huong"] = nup_PhanTramPC.Value;
+                             r["ghi_chu"] = rTB_GhiChuPC.Text;
+                             r["p_den_ngay_adj_pc_is_null"] = false;
+
+                             int loai_pc_id = Convert.ToInt16(comB_LoaiPhuCap.SelectedValue.ToString());
+
+                             int cach_tinh = Convert.ToInt16((from c in dtLoaiPC.AsEnumerable()
+                                                              where c.Field<int>("id") == loai_pc_id
+                                                              select c.Field<int>("cach_tinh")).ElementAt(0).ToString());
+
+                             switch (cach_tinh)
+                             {
+                                 case 1:
+                                     r["value_khoan"] = Convert.ToDecimal(txt_TienPC.Text);
+                                     r["value_he_so"] = DBNull.Value;
+                                     r["value_phan_tram"] = DBNull.Value;
+                                     break;
+                                 case 2:
+                                     r["value_khoan"] = DBNull.Value;
+                                     r["value_he_so"] = (txt_HeSoPC.Text);
+                                     r["value_phan_tram"] = DBNull.Value;
+                                     break;
+                                 case 3:
+                                     r["value_khoan"] = DBNull.Value;
+                                     r["value_he_so"] = (txt_HeSoPC.Text);
+                                     r["value_phan_tram"] = DBNull.Value;
+                                     break;
+                                 case 4:
+                                     r["value_khoan"] = DBNull.Value;
+                                     r["value_he_so"] = DBNull.Value;
+                                     r["value_phan_tram"] = nup_Value_PhanTramPC.Value;
+                                     break;
+                                 default:
+                                     break;
+                             }
+
+                             MessageBox.Show("Sửa thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                             EnablePCObjects(false);
+                             ChangePCButtonImage(true);
+                         }
+                         catch (ArgumentException)
+                         {
+                             MessageBox.Show("Thông tin ngày hưởng phụ cấp chưa phù hợp, xin vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                         }
+                         catch (Exception)
+                         {
+                             MessageBox.Show("Thông tin phụ cấp  chưa phù hợp, xin vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                         }
+                     }
+                     #endregion
+                 }
+
+
+             }
+           
          }
 
          private void btn_DelPC_Click(object sender, EventArgs e)
          {
              if (btn_DelPC.ImageKey == "Garbage.png")
              {
-                 if (dtgv_Luong.SelectedRows != null && dtgv_Luong.SelectedRows.Count > 0
+                 if (dtgv_DSPhuCap.SelectedRows != null && dtgv_DSPhuCap.SelectedRows.Count > 0
                     && MessageBox.Show("Bạn thực sự muốn xoá thông tin  phụ cấp cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                  {
                      try
                      {
+                         int id = Convert.ToInt16(dtgv_DSPhuCap.SelectedRows[0].Cells["pc_id"].Value);
 
+                         DataRow r = dtPhuCap.Select("pc_id = " + id).First();
+                         dtPhuCap.Rows.Remove(r);
+                         Clear_PC_Interface();
 
                          MessageBox.Show("Xoá thành công.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                      }
@@ -441,6 +709,7 @@ namespace HDQD.UCs
                  bAddPC = true;
 
                  comB_LoaiPhuCap.Enabled = true;
+                 Clear_PC_Interface();
              }
 
          }
@@ -461,7 +730,6 @@ namespace HDQD.UCs
                 e.KeyCode != Keys.Left && e.KeyCode != Keys.Right &&
                 e.KeyCode != Keys.Up && e.KeyCode != Keys.Down)
              {
-                 //txt_Tien.Text = Convert.ToDouble(txt_Tien.Text).ToString("#,#", CultureInfo.InvariantCulture);
                  txt.Text = Convert.ToDouble(txt.Text.Replace(",", "")).ToString("#,#");
                  txt.SelectionStart = txt.TextLength;
              }
@@ -500,31 +768,142 @@ namespace HDQD.UCs
          {
              if (bLoad_PC_Complete)
              {
-                 if (dtgv_DSPhuCap.SelectedRows != null && dtgv_DSPhuCap.SelectedRows.Count > 0)
+                 try
                  {
-                     DataGridViewRow r = dtgv_DSPhuCap.SelectedRows[0];
-
-                     comB_LoaiPhuCap.Text = r.Cells["ten_loai"].Value.ToString();
-                     //txt_Luong_PC.Text = r.Cells["value_khoan"].Value.ToString();
-                     txt_CongThucPC.Text = r.Cells["chuoi_cong_thuc_text"].Value.ToString();
-                     txt_TienPC.Text = r.Cells["value_khoan"].Value.ToString();
-                     rTB_GhiChuPC.Text = r.Cells["ghi_chu"].Value.ToString();
-
-                     nup_PhanTramPC.Value = Convert.ToInt16(r.Cells["phan_tram_huong"].Value);
-                     nup_Value_PhanTramPC.Value = Convert.ToInt16(r.Cells["value_phan_tram"].Value);
-
-                     dTP_NgayBatDauPC.Value = Convert.ToDateTime(r.Cells["tu_ngay"].Value);
-
-                     if (r.Cells["den_ngay"].Value.ToString() != "")
+                     if (dtgv_DSPhuCap.SelectedRows != null && dtgv_DSPhuCap.SelectedRows.Count > 0)
                      {
-                         dTP_NgayHetHanPC.Checked = true;
-                         dTP_NgayHetHanPC.Value = Convert.ToDateTime(r.Cells["den_ngay"].Value);
-                     }
-                     else
-                     {
-                         dTP_NgayHetHanPC.Checked = false;
+                         DataGridViewRow r = dtgv_DSPhuCap.SelectedRows[0];
+
+                         txt_Luong_PC.Text = ""; // set o comB_LoaiPhuCap index changed
+                         comB_LoaiPhuCap.Text = r.Cells["ten_loai"].Value.ToString();
+                         
+                         txt_CongThucPC.Text = r.Cells["chuoi_cong_thuc_text"].Value.ToString();
+                         txt_TienPC.Text = r.Cells["value_khoan"].Value.ToString();
+                         txt_HeSoPC.Text = r.Cells["value_he_so"].Value.ToString();
+                         if (txt_TienPC.Text != "")
+                             txt_TienPC.Text = Convert.ToDouble(txt_TienPC.Text.Replace(",", "")).ToString("#,#");
+
+                         rTB_GhiChuPC.Text = r.Cells["ghi_chu"].Value.ToString();
+
+                         if (r.Cells["phan_tram_huong"].Value != DBNull.Value)
+                         {
+                             nup_PhanTramPC.Value = Convert.ToDecimal(r.Cells["phan_tram_huong"].Value);
+                         }
+                         else
+                         {
+                             nup_PhanTramPC.Value = 0;
+                         }
+
+                         if (r.Cells["value_phan_tram"].Value != DBNull.Value)
+                         {
+                             nup_Value_PhanTramPC.Value = Convert.ToDecimal(r.Cells["value_phan_tram"].Value);
+                         }
+                         else
+                         {
+                             nup_Value_PhanTramPC.Value = 0;
+                         }
+
+
+                         dTP_NgayBatDauPC.Value = Convert.ToDateTime(r.Cells["tu_ngay"].Value);
+
+                         if (r.Cells["den_ngay"].Value.ToString() != "")
+                         {
+                             dTP_NgayHetHanPC.Checked = true;
+                             dTP_NgayHetHanPC.Value = Convert.ToDateTime(r.Cells["den_ngay"].Value);
+                         }
+                         else
+                         {
+                             dTP_NgayHetHanPC.Checked = false;
+                         }
                      }
                  }
+                 catch (Exception)
+                 {
+                    
+                 }
+                 
+             }
+         }
+
+         private void comb_Ngach_SelectedIndexChanged(object sender, EventArgs e)
+         {
+             string m_ma_ngach = comb_Ngach.SelectedValue.ToString();
+             DateTime m_tu_ngay_select = dtp_TuNgay_Luong.Value;
+             LoadDataForCbo_BacHeso(m_ma_ngach, m_tu_ngay_select);
+         }
+
+         private void LoadDataForCbo_BacHeso(string p_ma_ngach, DateTime p_tu_ngay)
+         {
+             try
+             {
+                 var result = (from c in dtBacHeSo.AsEnumerable()
+                               where c.Field<string>("ma_ngach") == p_ma_ngach && p_tu_ngay >= c.Field<DateTime>("tu_ngay") && p_tu_ngay <= c.Field<DateTime?>("den_ngay")
+                               orderby c.Field<int>("bac")
+                               select new { id = c.Field<int>("id"), bac = c.Field<int>("bac"), he_so = c.Field<double>("he_so") }
+                                   ).ToList();
+                 if (result.Count == 0)
+                     result = (from c in dtBacHeSo.AsEnumerable()
+                               where c.Field<string>("ma_ngach") == p_ma_ngach && c.Field<bool>("tinh_trang") == true && p_tu_ngay >= c.Field<DateTime>("tu_ngay")
+                               orderby c.Field<int>("bac")
+                               select new { id = c.Field<int>("id"), bac = c.Field<int>("bac"), he_so = c.Field<double>("he_so") }
+                                   ).ToList();
+
+                 DataTable dt = ToDataTable(result);
+
+                 comb_Bac.DataSource = dt;
+                 comb_Bac.DisplayMember = "bac";
+                 comb_Bac.ValueMember = "id";
+
+                 if (result.Count == 0)
+                 {
+                     txt_HeSo.Text = "";
+                 }
+
+             }
+             catch
+             { }
+         }
+
+         private void comb_Bac_SelectedIndexChanged(object sender, EventArgs e)
+         {
+             try
+             {
+                 int m_id = Convert.ToInt32(comb_Bac.SelectedValue.ToString());
+
+                 var result = (from c in dtBacHeSo.AsEnumerable()
+                               where c.Field<int>("id") == m_id
+                               select c.Field<double>("he_so"));
+
+                 double m_he_so = result.ElementAt<double>(0);
+
+                 txt_HeSo.Text = m_he_so.ToString();
+             }
+             catch
+             {
+                 txt_HeSo.Text = "";
+             }
+         }
+
+         private void comb_Luong_SelectionChangeCommitted(object sender, EventArgs e)
+         {
+             if (comb_Luong.Text == "Khoán")
+             {
+                 txt_Tien.Enabled = true;
+                 comb_Bac.Enabled = comb_Ngach.Enabled = false;
+             }
+             else
+             {
+                 txt_Tien.Enabled = false;
+                 comb_Bac.Enabled = comb_Ngach.Enabled = true;
+             }
+         }
+
+         private void comB_LoaiPhuCap_SelectedIndexChanged(object sender, EventArgs e)
+         {
+             if (comB_LoaiPhuCap.Enabled)
+             {
+                 EditInterface_LoaiPC();
+                 
              }
          }
 	}

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QDKhenThuong_ChuyenNgach));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TLP_KhenThuong_ChuyenNgach = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLP_PhuCap = new System.Windows.Forms.TableLayoutPanel();
@@ -362,6 +362,7 @@
             this.comB_LoaiPhuCap.Name = "comB_LoaiPhuCap";
             this.comB_LoaiPhuCap.Size = new System.Drawing.Size(252, 30);
             this.comB_LoaiPhuCap.TabIndex = 1;
+            this.comB_LoaiPhuCap.SelectedIndexChanged += new System.EventHandler(this.comB_LoaiPhuCap_SelectedIndexChanged);
             // 
             // label16
             // 
@@ -437,8 +438,8 @@
             this.dtgv_DSPhuCap.AllowUserToAddRows = false;
             this.dtgv_DSPhuCap.AllowUserToDeleteRows = false;
             this.dtgv_DSPhuCap.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
-            this.dtgv_DSPhuCap.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Gainsboro;
+            this.dtgv_DSPhuCap.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dtgv_DSPhuCap.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
@@ -706,6 +707,7 @@
             this.comb_Ngach.Name = "comb_Ngach";
             this.comb_Ngach.Size = new System.Drawing.Size(137, 30);
             this.comb_Ngach.TabIndex = 29;
+            this.comb_Ngach.SelectedIndexChanged += new System.EventHandler(this.comb_Ngach_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -727,6 +729,7 @@
             this.comb_Bac.Name = "comb_Bac";
             this.comb_Bac.Size = new System.Drawing.Size(169, 30);
             this.comb_Bac.TabIndex = 30;
+            this.comb_Bac.SelectedIndexChanged += new System.EventHandler(this.comb_Bac_SelectedIndexChanged);
             // 
             // txt_Tien
             // 
@@ -762,6 +765,7 @@
             this.comb_Luong.Name = "comb_Luong";
             this.comb_Luong.Size = new System.Drawing.Size(169, 30);
             this.comb_Luong.TabIndex = 33;
+            this.comb_Luong.SelectionChangeCommitted += new System.EventHandler(this.comb_Luong_SelectionChangeCommitted);
             // 
             // btn_Add_Luong
             // 
@@ -793,8 +797,8 @@
             this.dtgv_Luong.AllowUserToAddRows = false;
             this.dtgv_Luong.AllowUserToDeleteRows = false;
             this.dtgv_Luong.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gainsboro;
-            this.dtgv_Luong.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Gainsboro;
+            this.dtgv_Luong.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dtgv_Luong.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
