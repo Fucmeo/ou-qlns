@@ -416,6 +416,7 @@ namespace HDQD.UCs
                                  r["bac"] = DBNull.Value;
                                  r["he_so"] = DBNull.Value;
                                  r["ma_ngach"] = DBNull.Value;
+                                 r["ngach_bac_heso_id"] = DBNull.Value;
                              }
                              else
                              {
@@ -424,6 +425,7 @@ namespace HDQD.UCs
                                  r["bac"] = comb_Bac.Text;
                                  r["he_so"] = txt_HeSo.Text;
                                  r["ma_ngach"] = comb_Ngach.Text;
+                                 r["ngach_bac_heso_id"] = Convert.ToInt32(comb_Bac.SelectedValue);
                              }
 
                              r["phan_tram_huong"] = nup_PhanTram.Value;
@@ -649,6 +651,8 @@ namespace HDQD.UCs
                              MessageBox.Show("Sửa thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                              EnablePCObjects(false);
                              ChangePCButtonImage(true);
+
+                             txt_TienPC.Enabled = txt_HeSoPC.Enabled = nup_Value_PhanTramPC.Enabled = false;
                          }
                          catch (ArgumentException)
                          {
@@ -697,6 +701,8 @@ namespace HDQD.UCs
                  EnablePCObjects(false);
                  ChangePCButtonImage(true);
                  comB_LoaiPhuCap.Enabled = false;
+
+                 txt_TienPC.Enabled = txt_HeSoPC.Enabled = nup_Value_PhanTramPC.Enabled = false;
              }
          }
 
@@ -890,9 +896,11 @@ namespace HDQD.UCs
              {
                  txt_Tien.Enabled = true;
                  comb_Bac.Enabled = comb_Ngach.Enabled = false;
+
              }
              else
              {
+                 txt_Tien.Text = "";
                  txt_Tien.Enabled = false;
                  comb_Bac.Enabled = comb_Ngach.Enabled = true;
              }
@@ -905,6 +913,146 @@ namespace HDQD.UCs
                  EditInterface_LoaiPC();
                  
              }
+         }
+
+         private void btn_Them_Click(object sender, EventArgs e)
+         {
+             if (btn_Edit_Luong.ImageKey != "Save.png" && btn_EditPC.ImageKey != "Save.png")
+             {
+                 if (thongTinQuyetDinh1.txt_MaQD.Text != "" && thongTinQuyetDinh1.txt_TenQD.Text != "")
+                 {
+                     if (MessageBox.Show("Bạn thực sự muốn lưu thông tin lương và phụ cấp cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                     {
+                         try
+                         {
+                             #region Get thong tin luong
+
+                             int Luong_Rows = dtLuong.Rows.Count;
+
+                             string[] khoan_or_heso = new string[Luong_Rows];
+                             string[] luong_khoan = new string[Luong_Rows];
+                             string[] phan_tram_huong = new string[Luong_Rows];
+                             DateTime[] tu_ngay = new DateTime[Luong_Rows];
+                             DateTime[] den_ngay = new DateTime[Luong_Rows];
+                             int[] tuyen_dung_id = new int[Luong_Rows];
+                             string[] ngach_bac_heso_id = new string[Luong_Rows];
+                             bool[] den_ngay_adj_is_null = new bool[Luong_Rows];
+                             string ma_nv = thongTinCNVC1.txt_MaNV.Text;
+
+                             for (int i = 0; i < Luong_Rows; i++)
+                             {
+                                 DataRow r = dtLuong.Rows[i];
+
+                                 khoan_or_heso[i] = r["khoan_or_heso"].ToString();
+                                 if (r["luong_khoan"].ToString() != "")
+                                     luong_khoan[i] = Convert.ToString(r["luong_khoan"]);
+                                 else
+                                     luong_khoan[i] = null;
+
+                                 phan_tram_huong[i] = r["phan_tram_huong"].ToString();
+                                 tu_ngay[i] = Convert.ToDateTime(r["tu_ngay"].ToString()).Date;
+
+                                 if (r["den_ngay"].ToString() != "")
+                                     den_ngay[i] = Convert.ToDateTime(r["den_ngay"].ToString()).Date;
+                                 else
+                                     den_ngay[i] = Convert.ToDateTime("01/01/1901").Date;
+
+                                 tuyen_dung_id[i] = Convert.ToInt32(r["tuyen_dung_id"]);
+                                 if (r["ngach_bac_heso_id"] != DBNull.Value)
+                                 {
+                                     ngach_bac_heso_id[i] = Convert.ToString(r["ngach_bac_heso_id"]);
+                                 }
+                                 else
+                                 {
+                                     ngach_bac_heso_id[i] = null;
+                                 }
+                                 
+                                 den_ngay_adj_is_null[i] = Convert.ToBoolean(r["den_ngay_adj_is_null"]);
+                             }
+
+                             #endregion
+
+                             #region Get thong tin pc
+
+                             int PC_Rows = dtPhuCap.Rows.Count;
+
+                             string[] value_khoan = new string[PC_Rows];
+                             string[] value_he_so = new string[PC_Rows];
+                             string[] value_phan_tram = new string[PC_Rows];
+                             string[] phan_tram_huong_pc = new string[PC_Rows];
+                             DateTime[] tu_ngay_pc = new DateTime[PC_Rows];
+                             DateTime[] den_ngay_pc = new DateTime[PC_Rows];
+                             string[] ghi_chu = new string[PC_Rows];
+                             int[] pc_id = new int[PC_Rows];
+                             int[] cnvc_tuyen_dung_id = new int[PC_Rows];
+                             int[] loai_pc_id = new int[PC_Rows];
+                             bool[] p_den_ngay_adj_pc_is_null = new bool[PC_Rows];
+
+                             for (int i = 0; i < PC_Rows; i++)
+                             {
+                                 DataRow r = dtPhuCap.Rows[i];
+
+                                 if (r["value_khoan"].ToString() != "")
+                                     value_khoan[i] = Convert.ToString(r["value_khoan"]);
+                                 else
+                                     value_khoan[i] = null;
+
+                                 if (r["value_he_so"].ToString() != "")
+                                     value_he_so[i] = Convert.ToString(r["value_he_so"]);
+                                 else
+                                     value_he_so[i] = null;
+
+                                 if (r["value_phan_tram"].ToString() != "")
+                                     value_phan_tram[i] = Convert.ToString(r["value_phan_tram"]);
+                                 else
+                                     value_phan_tram[i] = null;
+
+                                 if (r["phan_tram_huong"].ToString() != "")
+                                     phan_tram_huong_pc[i] = Convert.ToString(r["phan_tram_huong"]);
+                                 else
+                                     phan_tram_huong_pc[i] = null;
+
+
+                                 tu_ngay_pc[i] = Convert.ToDateTime(r["tu_ngay"].ToString()).Date;
+                                 if (r["den_ngay"].ToString() != "")
+                                     den_ngay_pc[i] = Convert.ToDateTime(r["den_ngay"].ToString()).Date;
+                                 else
+                                     den_ngay_pc[i] = Convert.ToDateTime("01/01/1901").Date;
+
+                                 ghi_chu[i] = r["ghi_chu"].ToString();
+
+                                 loai_pc_id[i] = Convert.ToInt32(r["loai_pc_id"]);
+                                 pc_id[i] = Convert.ToInt32(r["pc_id"]);
+                                 cnvc_tuyen_dung_id[i] = Convert.ToInt32(r["cnvc_tuyen_dung_id"]);
+                                 p_den_ngay_adj_pc_is_null[i] = Convert.ToBoolean(r["p_den_ngay_adj_pc_is_null"]);
+                             }
+
+                             #endregion
+
+                             oTinhLuong.UpdateLuong_PC(ma_nv, tuyen_dung_id, khoan_or_heso, luong_khoan, ngach_bac_heso_id, phan_tram_huong
+                                                        , tu_ngay, den_ngay, den_ngay_adj_is_null, pc_id, cnvc_tuyen_dung_id
+                                                        , value_khoan, value_he_so, value_phan_tram, phan_tram_huong_pc
+                                                        , loai_pc_id, tu_ngay_pc, den_ngay_pc, p_den_ngay_adj_pc_is_null, ghi_chu);
+
+                             MessageBox.Show("Lưu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                         }
+                         catch (Exception)
+                         {
+                             MessageBox.Show("Lưu không thành công, xin vui lòng thử lại sau.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                         }
+                     }
+                     
+                 }
+                 else
+                 {
+                     MessageBox.Show("Thông tin mã / tên quyết định không được để trống.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                 }
+             }
+             else
+             {
+                 MessageBox.Show("Có thông tin lương / phụ cấp chưa được lưu, xin vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+             }
+             
          }
 	}
 }
