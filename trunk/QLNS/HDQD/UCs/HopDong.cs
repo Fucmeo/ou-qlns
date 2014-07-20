@@ -16,7 +16,7 @@ namespace HDQD.UCs
     public partial class HopDong : UserControl
     {
         Business.HDQD.CNVC_HopDong oHopdong;
-        Business.HDQD.LoaiHopDong oLoaihopdong;
+        Business.HDQD.LoaiHopDong oLoaihopdong;       
         Business.ChucDanh oChucdanh;
         Business.ChucVu oChucvu;
         Business.DonVi oDonvi;
@@ -322,6 +322,7 @@ namespace HDQD.UCs
         }
 
         #region Private Methods
+
 
         #region Convert List to Data Table
         private DataTable ToDataTable<T>(List<T> items)
@@ -881,7 +882,7 @@ namespace HDQD.UCs
                 e.KeyCode != Keys.Up && e.KeyCode != Keys.Down)
             {
                 //txt_Tien.Text = Convert.ToDouble(txt_Tien.Text).ToString("#,#", CultureInfo.InvariantCulture);
-                txt_Tien.Text = Convert.ToDouble(txt_Tien.Text).ToString("#,#");
+                txt_Tien.Text = Convert.ToDouble(txt_Tien.Text.Replace(",", "")).ToString("#,#");
                 txt_Tien.SelectionStart = txt_Tien.TextLength;
             }
         }
@@ -1105,7 +1106,7 @@ namespace HDQD.UCs
                 e.KeyCode != Keys.Left && e.KeyCode != Keys.Right &&
                 e.KeyCode != Keys.Up && e.KeyCode != Keys.Down)
             {
-                txt_TienPC.Text = Convert.ToDouble(txt_TienPC.Text).ToString("#,#");
+                txt_TienPC.Text = Convert.ToDouble(txt_TienPC.Text.Replace(",", "")).ToString("#,#");
                 txt_TienPC.SelectionStart = txt_TienPC.TextLength;
             }
         }

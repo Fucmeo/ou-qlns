@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Business;
 using System.Reflection;
+using System.Threading;
 
 namespace HDQD.UCs
 {
@@ -18,6 +19,7 @@ namespace HDQD.UCs
         
 
         Business.HDQD.LoaiPhuCap oLoaiPC;
+        Business.HDQD.LoaiQuyetDinh oLoaiQuyetDinh;
         Business.Luong.TinhLuong oTinhLuong;
         Business.CNVC.CNVC cnvc;
         Business.FTP oFTP;
@@ -54,7 +56,7 @@ namespace HDQD.UCs
              dtPhuCap = new DataTable();
              dtLoaiPC = new DataTable();
              dtLuong = new DataTable();
-
+             oLoaiQuyetDinh = new Business.HDQD.LoaiQuyetDinh();
 
              thongTinCNVC1.txt_HoTen.KeyUp += new KeyEventHandler(txt_HoTen_KeyUp);
          }
@@ -252,6 +254,24 @@ namespace HDQD.UCs
              InitObject();
              LoadCombo_NgachBac();
              LoadCombo_LoaiPC();
+             LoadCombo_LoaiQD();
+         }
+
+         void LoadCombo_LoaiQD()
+         {
+             try
+             {
+                 DataTable dt = oLoaiQuyetDinh.GetList_Compact();
+                 thongTinQuyetDinh1.comB_Loai.DataSource = dt;
+                 thongTinQuyetDinh1.comB_Loai.DisplayMember = "ten_loai";
+                 thongTinQuyetDinh1.comB_Loai.ValueMember = "id";
+             }
+             catch (Exception)
+             {
+                 
+             }
+             
+
          }
 
          void Clear_Luong_Interface()
@@ -915,6 +935,21 @@ namespace HDQD.UCs
              }
          }
 
+         void ClearAllInterface()
+         {
+             thongTinCNVC1.txt_MaNV.Text = thongTinCNVC1.txt_HoTen.Text  = "";
+
+             thongTinQuyetDinh1.txt_MaQD.Text = thongTinQuyetDinh1.txt_TenQD.Text = thongTinQuyetDinh1.rTB_MoTa.Text = "";
+             thongTinQuyetDinh1.dTP_NgayHetHan.Checked = false;
+
+             dtgv_DSPhuCap.DataSource = null;
+             dtgv_Luong.DataSource = null;
+             Clear_Luong_Interface();
+             Clear_PC_Interface();
+             dtLuong = new DataTable();
+             dtPhuCap = new DataTable();
+         }
+
          private void btn_Them_Click(object sender, EventArgs e)
          {
              if (btn_Edit_Luong.ImageKey != "Save.png" && btn_EditPC.ImageKey != "Save.png")
@@ -923,6 +958,7 @@ namespace HDQD.UCs
                  {
                      if (MessageBox.Show("Bạn thực sự muốn lưu thông tin lương và phụ cấp cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                      {
+                         
                          try
                          {
                              #region Get thong tin luong
@@ -1029,12 +1065,42 @@ namespace HDQD.UCs
 
                              #endregion
 
+                             #region Get thong tin QD
+
+                             string ma_qd = thongTinQuyetDinh1.txt_MaQD.Text;
+                             string ten_qd = thongTinQuyetDinh1.txt_TenQD.Text;
+                             string mo_ta = thongTinQuyetDinh1.rTB_MoTa.Text;
+
+                             int loai_qd_id = Convert.ToInt32(thongTinQuyetDinh1.comB_Loai.SelectedValue);
+                             DateTime tu_ngay_qd = thongTinQuyetDinh1.dTP_NgayHieuLuc.Value;
+
+                             DateTime den_ngay_qd;
+                             if(thongTinQuyetDinh1.dTP_NgayHetHan.Checked)
+                                  den_ngay_qd =thongTinQuyetDinh1.dTP_NgayHetHan.Value;
+                             else
+                                  den_ngay_qd = Convert.ToDateTime("01/01/1901").Date;
+
+                             DateTime ngay_ky = thongTinQuyetDinh1.dTP_NgayKy.Value;
+
+                             #endregion
+
                              oTinhLuong.UpdateLuong_PC(ma_nv, tuyen_dung_id, khoan_or_heso, luong_khoan, ngach_bac_heso_id, phan_tram_huong
                                                         , tu_ngay, den_ngay, den_ngay_adj_is_null, pc_id, cnvc_tuyen_dung_id
                                                         , value_khoan, value_he_so, value_phan_tram, phan_tram_huong_pc
-                                                        , loai_pc_id, tu_ngay_pc, den_ngay_pc, p_den_ngay_adj_pc_is_null, ghi_chu);
+                                                        , loai_pc_id, tu_ngay_pc, den_ngay_pc, p_den_ngay_adj_pc_is_null, ghi_chu
+                                                        ,ma_qd,ten_qd,loai_qd_id,tu_ngay_qd,den_ngay_qd,ngay_ky,mo_ta);
+
+
+
+                             if (oFile.Path.Count > 0 )
+                             {
+                                 UploadFile();
+                             }
+
+                             ClearAllInterface();
 
                              MessageBox.Show("Lưu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                          }
                          catch (Exception)
                          {
@@ -1054,5 +1120,95 @@ namespace HDQD.UCs
              }
              
          }
+
+         private void btn_NhapFile_Click(object sender, EventArgs e)
+         {
+             UCs.DSTapTin oDSTapTin = new UCs.DSTapTin("QDKhenThuong_ChuyenNgach", oFile);
+             oDSTapTin.txt_MaTapTin.Enabled = false;
+             Form f = new Forms.Popup(oDSTapTin, "QUẢN LÝ NHÂN SỰ - DANH SÁCH TẬP TIN");
+             f.ShowDialog();
+         }
+
+         private void UploadFile()
+         {
+             #region HD
+
+             nNewFilesCount = oFile.Path.Count;
+             ServerPaths = new string[nNewFilesCount];
+             try
+             {
+
+                 pb_Status.Value = 0;
+                 pb_Status.Maximum = nNewFilesCount;
+
+                 //this.Enabled = false;
+                 ((Form)this.Parent.Parent).ControlBox = false;
+                 this.Enabled = false;
+                 bw_upload.RunWorkerAsync();
+             }
+             catch (Exception)
+             {
+                 MessageBox.Show("Quá trình tải hình lên server không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                 ((Form)this.Parent.Parent).ControlBox = true;
+                 this.Enabled = true;
+             }
+
+
+
+             #endregion
+         }
+
+         private void bw_upload_DoWork(object sender, DoWorkEventArgs e)
+         {
+
+             for (int i = 0; i < nNewFilesCount; i++)
+             {
+                 bw_upload.ReportProgress(i + 1);
+
+                 ServerPaths[i] = oFTP.UploadFile(oFile.Path[i], oFile.Path[i].Split('\\').Last(), oFile.Group[i], thongTinQuyetDinh1.txt_MaQD.Text);
+                 Thread.Sleep(100);
+
+             }
+         }
+
+         private void bw_upload_ProgressChanged(object sender, ProgressChangedEventArgs e)
+         {
+             // Change the value of the ProgressBar to the BackgroundWorker progress.
+             pb_Status.Value = e.ProgressPercentage;
+             // Set the text.
+             lbl_Status.Text = "Đang đăng tập tin ..." + e.ProgressPercentage.ToString() + " / " + nNewFilesCount.ToString();
+         }
+
+         private void bw_upload_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+         {
+             if (oFile.Path.Count > 0)
+             {
+                 MessageBox.Show("Quá trình đăng tập tin lên server thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                 lbl_Status.Text = "Đăng hình hoàn tất!";
+
+                 try
+                 {
+                     for (int i = 0; i < oFile.Path.Count; i++)
+                     {
+                         oFile.Link[i] = thongTinQuyetDinh1.txt_MaQD.Text;
+                     }
+                     oFile.MaNV = thongTinCNVC1.txt_MaNV.Text;
+                     oFile.AddFileArray(ServerPaths);
+
+                 }
+                 catch (Exception)
+                 {
+                     MessageBox.Show("Quá trình lưu tập tin không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                 }
+
+                 ((Form)this.Parent.Parent).ControlBox = true;
+                 this.Enabled = true;
+                 oFile.DisputeObject();
+             }
+
+
+
+         }
+
 	}
 }
