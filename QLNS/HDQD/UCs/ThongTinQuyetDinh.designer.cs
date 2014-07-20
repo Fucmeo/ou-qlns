@@ -52,6 +52,8 @@
             // 
             this.groupBox1.Controls.Add(this.tableLayoutPanel1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.SkyBlue;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(800, 150);
@@ -84,40 +86,42 @@
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 20);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 24);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(794, 127);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(794, 123);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // rTB_MoTa
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.rTB_MoTa, 2);
+            this.tableLayoutPanel1.SetColumnSpan(this.rTB_MoTa, 5);
             this.rTB_MoTa.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rTB_MoTa.Location = new System.Drawing.Point(77, 79);
+            this.rTB_MoTa.Location = new System.Drawing.Point(77, 75);
             this.rTB_MoTa.Name = "rTB_MoTa";
-            this.rTB_MoTa.Size = new System.Drawing.Size(280, 45);
+            this.rTB_MoTa.Size = new System.Drawing.Size(714, 45);
             this.rTB_MoTa.TabIndex = 6;
             this.rTB_MoTa.Text = "";
             // 
             // txt_TenQD
             // 
             this.txt_TenQD.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_TenQD.Location = new System.Drawing.Point(363, 7);
+            this.txt_TenQD.Location = new System.Drawing.Point(363, 4);
             this.txt_TenQD.Name = "txt_TenQD";
-            this.txt_TenQD.Size = new System.Drawing.Size(162, 24);
+            this.txt_TenQD.Size = new System.Drawing.Size(162, 28);
             this.txt_TenQD.TabIndex = 1;
             // 
             // label6
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(285, 10);
+            this.label6.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label6.Location = new System.Drawing.Point(281, 7);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(38, 17);
+            this.label6.Size = new System.Drawing.Size(45, 21);
             this.label6.TabIndex = 14;
             this.label6.Text = "Tên *";
             // 
@@ -125,18 +129,20 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 10);
+            this.label1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label1.Location = new System.Drawing.Point(14, 7);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 17);
+            this.label1.Size = new System.Drawing.Size(45, 21);
             this.label1.TabIndex = 1;
             this.label1.Text = "Mã *";
             // 
             // txt_MaQD
             // 
             this.txt_MaQD.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_MaQD.Location = new System.Drawing.Point(77, 7);
+            this.txt_MaQD.Location = new System.Drawing.Point(77, 4);
             this.txt_MaQD.Name = "txt_MaQD";
-            this.txt_MaQD.Size = new System.Drawing.Size(162, 24);
+            this.txt_MaQD.Size = new System.Drawing.Size(162, 28);
             this.txt_MaQD.TabIndex = 1;
             // 
             // comB_Loai
@@ -148,18 +154,20 @@
             "Bổ nhiệm",
             "Kiêm nhiệm",
             "Điều động"});
-            this.comB_Loai.Location = new System.Drawing.Point(627, 6);
+            this.comB_Loai.Location = new System.Drawing.Point(627, 5);
             this.comB_Loai.Name = "comB_Loai";
-            this.comB_Loai.Size = new System.Drawing.Size(164, 25);
+            this.comB_Loai.Size = new System.Drawing.Size(164, 29);
             this.comB_Loai.TabIndex = 2;
             // 
             // lbl_LoaiQD
             // 
             this.lbl_LoaiQD.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_LoaiQD.AutoSize = true;
-            this.lbl_LoaiQD.Location = new System.Drawing.Point(555, 10);
+            this.lbl_LoaiQD.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_LoaiQD.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbl_LoaiQD.Location = new System.Drawing.Point(551, 7);
             this.lbl_LoaiQD.Name = "lbl_LoaiQD";
-            this.lbl_LoaiQD.Size = new System.Drawing.Size(41, 17);
+            this.lbl_LoaiQD.Size = new System.Drawing.Size(50, 21);
             this.lbl_LoaiQD.TabIndex = 18;
             this.lbl_LoaiQD.Text = "Loại *";
             // 
@@ -167,9 +175,11 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(11, 48);
+            this.label3.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label3.Location = new System.Drawing.Point(4, 43);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 17);
+            this.label3.Size = new System.Drawing.Size(65, 21);
             this.label3.TabIndex = 3;
             this.label3.Text = "Ngày ký";
             // 
@@ -178,19 +188,22 @@
             this.dTP_NgayKy.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dTP_NgayKy.Checked = false;
             this.dTP_NgayKy.CustomFormat = "dd/MM/yyyy";
+            this.dTP_NgayKy.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dTP_NgayKy.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dTP_NgayKy.Location = new System.Drawing.Point(77, 45);
+            this.dTP_NgayKy.Location = new System.Drawing.Point(77, 40);
             this.dTP_NgayKy.Name = "dTP_NgayKy";
-            this.dTP_NgayKy.Size = new System.Drawing.Size(162, 24);
+            this.dTP_NgayKy.Size = new System.Drawing.Size(162, 28);
             this.dTP_NgayKy.TabIndex = 3;
             // 
             // label4
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(257, 48);
+            this.label4.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label4.Location = new System.Drawing.Point(252, 36);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 17);
+            this.label4.Size = new System.Drawing.Size(104, 36);
             this.label4.TabIndex = 4;
             this.label4.Text = "Ngày hiệu lực *";
             // 
@@ -199,19 +212,22 @@
             this.dTP_NgayHieuLuc.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dTP_NgayHieuLuc.Checked = false;
             this.dTP_NgayHieuLuc.CustomFormat = "dd/MM/yyyy";
+            this.dTP_NgayHieuLuc.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dTP_NgayHieuLuc.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dTP_NgayHieuLuc.Location = new System.Drawing.Point(363, 45);
+            this.dTP_NgayHieuLuc.Location = new System.Drawing.Point(363, 40);
             this.dTP_NgayHieuLuc.Name = "dTP_NgayHieuLuc";
-            this.dTP_NgayHieuLuc.Size = new System.Drawing.Size(162, 24);
+            this.dTP_NgayHieuLuc.Size = new System.Drawing.Size(162, 28);
             this.dTP_NgayHieuLuc.TabIndex = 4;
             // 
             // label7
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(534, 48);
+            this.label7.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label7.Location = new System.Drawing.Point(538, 36);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(83, 17);
+            this.label7.Size = new System.Drawing.Size(76, 36);
             this.label7.TabIndex = 15;
             this.label7.Text = "Ngày hết hạn";
             // 
@@ -220,26 +236,29 @@
             this.dTP_NgayHetHan.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dTP_NgayHetHan.Checked = false;
             this.dTP_NgayHetHan.CustomFormat = "dd/MM/yyyy";
+            this.dTP_NgayHetHan.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dTP_NgayHetHan.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dTP_NgayHetHan.Location = new System.Drawing.Point(627, 45);
+            this.dTP_NgayHetHan.Location = new System.Drawing.Point(627, 40);
             this.dTP_NgayHetHan.Name = "dTP_NgayHetHan";
             this.dTP_NgayHetHan.ShowCheckBox = true;
-            this.dTP_NgayHetHan.Size = new System.Drawing.Size(164, 24);
+            this.dTP_NgayHetHan.Size = new System.Drawing.Size(164, 28);
             this.dTP_NgayHetHan.TabIndex = 5;
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 93);
+            this.label2.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label2.Location = new System.Drawing.Point(11, 87);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 17);
+            this.label2.Size = new System.Drawing.Size(52, 21);
             this.label2.TabIndex = 19;
             this.label2.Text = "Mô tả";
             // 
             // ThongTinQuyetDinh
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.groupBox1);

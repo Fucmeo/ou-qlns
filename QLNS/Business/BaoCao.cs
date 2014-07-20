@@ -53,14 +53,15 @@ namespace Business
             return dt;
         }
 
-        public DataTable NV_Theo_DV(List<int> lstLoaiDV, DateTime? tu_ngay, DateTime? den_ngay)
+        public DataTable NV_Theo_DV(List<int> lstLoaiDV, DateTime? tu_ngay, DateTime? den_ngay, bool? con_hd)
         {
             DataTable dt = new DataTable();
 
-            IDataParameter[] paras = new IDataParameter[3]{
+            IDataParameter[] paras = new IDataParameter[4]{
                 new NpgsqlParameter("p_dv_id",lstLoaiDV == null ? null : lstLoaiDV.ToArray()),
                 new NpgsqlParameter("p_tu_ngay",tu_ngay),
-                new NpgsqlParameter("p_den_ngay",den_ngay)
+                new NpgsqlParameter("p_den_ngay",den_ngay),
+                new NpgsqlParameter("p_con_hd",con_hd)
             };
 
             dt = dp.getDataTableProc("sp4_bc_cnvc_by_dv", paras);

@@ -58,6 +58,9 @@ namespace HDQD.UCs
                     case "TiepNhan":
                         TiepNhan.oFile = null;
                         break;
+                    case "QDKhenThuong_ChuyenNgach":
+                        QDKhenThuong_ChuyenNgach.oFile = null;
+                        break;
                     case "QLNS_TapTin":
                         oCNVCFile.DisputeObject();
                         oCNVCFile = null;
@@ -114,7 +117,7 @@ namespace HDQD.UCs
                 }
                 else
                 {
-                    MessageBox.Show("Tập tin không được lớn hơn 3 MB.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Tập tin không được lớn hơn 10 MB.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 
             }
@@ -142,6 +145,9 @@ namespace HDQD.UCs
                         break;
                     case "DoiThongTin":
                         DoiThongTinDV.Desc = rtb_MoTa.Text;
+                        break;
+                    case "QDKhenThuong_ChuyenNgach":
+                        QDKhenThuong_ChuyenNgach.oFile = oCNVCFile;
                         break;
                     case "ThanhLapDonVi":
                         ThanhLapDonVi.Desc = rtb_MoTa.Text;

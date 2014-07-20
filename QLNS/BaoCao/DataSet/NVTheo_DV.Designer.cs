@@ -285,10 +285,6 @@ namespace BaoCao.DataSet {
             
             private global::System.Data.DataColumn columnten;
             
-            private global::System.Data.DataColumn columnchuc_danh;
-            
-            private global::System.Data.DataColumn columnchuc_vu;
-            
             private global::System.Data.DataColumn columntu_thoi_gian;
             
             private global::System.Data.DataColumn columnden_thoi_gian;
@@ -354,22 +350,6 @@ namespace BaoCao.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn chuc_danhColumn {
-                get {
-                    return this.columnchuc_danh;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn chuc_vuColumn {
-                get {
-                    return this.columnchuc_vu;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn tu_thoi_gianColumn {
                 get {
                     return this.columntu_thoi_gian;
@@ -429,14 +409,12 @@ namespace BaoCao.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DataTable11Row AddDataTable11Row(string ma_nv, string ho, string ten, string chuc_danh, string chuc_vu, System.DateTime tu_thoi_gian, System.DateTime den_thoi_gian, string dv_) {
+            public DataTable11Row AddDataTable11Row(string ma_nv, string ho, string ten, System.DateTime tu_thoi_gian, System.DateTime den_thoi_gian, string dv_) {
                 DataTable11Row rowDataTable11Row = ((DataTable11Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ma_nv,
                         ho,
                         ten,
-                        chuc_danh,
-                        chuc_vu,
                         tu_thoi_gian,
                         den_thoi_gian,
                         dv_};
@@ -465,8 +443,6 @@ namespace BaoCao.DataSet {
                 this.columnma_nv = base.Columns["ma_nv"];
                 this.columnho = base.Columns["ho"];
                 this.columnten = base.Columns["ten"];
-                this.columnchuc_danh = base.Columns["chuc_danh"];
-                this.columnchuc_vu = base.Columns["chuc_vu"];
                 this.columntu_thoi_gian = base.Columns["tu_thoi_gian"];
                 this.columnden_thoi_gian = base.Columns["den_thoi_gian"];
                 this.columndv_ = base.Columns["dv "];
@@ -481,10 +457,6 @@ namespace BaoCao.DataSet {
                 base.Columns.Add(this.columnho);
                 this.columnten = new global::System.Data.DataColumn("ten", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnten);
-                this.columnchuc_danh = new global::System.Data.DataColumn("chuc_danh", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnchuc_danh);
-                this.columnchuc_vu = new global::System.Data.DataColumn("chuc_vu", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnchuc_vu);
                 this.columntu_thoi_gian = new global::System.Data.DataColumn("tu_thoi_gian", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntu_thoi_gian);
                 this.columnden_thoi_gian = new global::System.Data.DataColumn("den_thoi_gian", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
@@ -682,38 +654,6 @@ namespace BaoCao.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string chuc_danh {
-                get {
-                    try {
-                        return ((string)(this[this.tableDataTable11.chuc_danhColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'chuc_danh\' in table \'DataTable11\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDataTable11.chuc_danhColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string chuc_vu {
-                get {
-                    try {
-                        return ((string)(this[this.tableDataTable11.chuc_vuColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'chuc_vu\' in table \'DataTable11\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDataTable11.chuc_vuColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public System.DateTime tu_thoi_gian {
                 get {
                     try {
@@ -794,30 +734,6 @@ namespace BaoCao.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SettenNull() {
                 this[this.tableDataTable11.tenColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Ischuc_danhNull() {
-                return this.IsNull(this.tableDataTable11.chuc_danhColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setchuc_danhNull() {
-                this[this.tableDataTable11.chuc_danhColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Ischuc_vuNull() {
-                return this.IsNull(this.tableDataTable11.chuc_vuColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setchuc_vuNull() {
-                this[this.tableDataTable11.chuc_vuColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

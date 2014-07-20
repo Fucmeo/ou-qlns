@@ -292,6 +292,9 @@
     <EmbeddedResource Include="UCs\QDDungHopDong.resx">
       <DependentUpon>QDDungHopDong.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UCs\QDKhenThuong_ChuyenNgach.resx">
+      <DependentUpon>QDKhenThuong_ChuyenNgach.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UCs\QuyetDinhPhuCap.resx">
       <DependentUpon>QuyetDinhPhuCap.cs</DependentUpon>
     </EmbeddedResource>
