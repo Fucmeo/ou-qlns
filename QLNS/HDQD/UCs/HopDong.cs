@@ -910,7 +910,7 @@ namespace HDQD.UCs
                               orderby c.Field<int>("bac")
                               select new { id = c.Field<int>("id"), bac = c.Field<int>("bac"), he_so = c.Field<double>("he_so") }
                                   ).ToList();
-                if (result.Count == 0)
+                 if (result.Count == 0)
                     result = (from c in dtBacHeSo.AsEnumerable()
                               where c.Field<string>("ma_ngach") == p_ma_ngach && c.Field<bool>("tinh_trang") == true && p_tu_ngay >= c.Field<DateTime>("tu_ngay")
                               orderby c.Field<int>("bac")
