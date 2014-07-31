@@ -240,13 +240,13 @@ namespace HDQD.UCs
         {
             if (dtgv_DSHD.CurrentRow != null)
             {
-                if (MessageBox.Show("Bạn thực sự muốn xoá quyết định này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Bạn thực sự muốn xoá hợp đồng này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     try
                     {
-                        oHopDong.Ma_NV = dtgv_DSHD.CurrentRow.Cells[1].Value.ToString();
-                        oHopDong.Ma_Hop_Dong = dtgv_DSHD.CurrentRow.Cells[2].Value.ToString();
-                        if (oHopDong.Delete())
+                        string m_ma_nv = dtgv_DSHD.CurrentRow.Cells["ma_nv"].Value.ToString();
+                        string m_ma_tuyen_dung = dtgv_DSHD.CurrentRow.Cells["ma_hop_dong"].Value.ToString();
+                        if (oHopDong.Delete(m_ma_nv, m_ma_tuyen_dung))
                         {
                             MessageBox.Show("Xoá thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
