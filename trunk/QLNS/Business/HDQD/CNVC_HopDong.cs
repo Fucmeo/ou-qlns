@@ -480,14 +480,14 @@ namespace Business.HDQD
             return dt;
         }
 
-        public bool Delete()
+        public bool Delete(string p_ma_nv, string p_ma_tuyen_dung)
         {
             int check;
             IDataParameter[] paras = new IDataParameter[2]{
-                new NpgsqlParameter("p_ma_nv",ma_nv),
-                new NpgsqlParameter("p_ma_hop_dong",ma_hop_dong)
+                new NpgsqlParameter("p_ma_nv",p_ma_nv),
+                new NpgsqlParameter("p_ma_tuyen_dung",p_ma_tuyen_dung)
             };
-            check = (int)dp.executeScalarProc("sp1_delete_cnvc_hop_dong", paras);
+            check = (int)dp.executeScalarProc("sp1_delete_cnvc_tuyen_dung", paras);
             if (check > 0)
             {
                 return true;

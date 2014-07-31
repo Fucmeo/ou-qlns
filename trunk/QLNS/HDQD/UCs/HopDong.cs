@@ -1172,5 +1172,31 @@ namespace HDQD.UCs
             LoadDataForCbo_BacHeso(m_ma_ngach, m_tu_ngay_select);
         }
 
+        private void btn_Delete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (p_ma_tuyen_dung_old != null)
+                {
+                    if (MessageBox.Show("Bạn thực sự muốn xoá hợp đồng này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {                        
+                        oHopdong = new Business.HDQD.CNVC_HopDong();
+                        oHopdong.Delete(thongTinCNVC1.txt_MaNV.Text, p_ma_tuyen_dung_old);
+
+                        MessageBox.Show("Xoá thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);                        
+                    }
+                    else
+                        MessageBox.Show("Xoá không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);                        
+                }
+                else
+                    MessageBox.Show("Hợp đồng chưa được nhập. Không thể xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi xảy ra!\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);                        
+            }
+        }
+
+
     }
 }
