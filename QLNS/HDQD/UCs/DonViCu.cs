@@ -40,7 +40,7 @@ namespace HDQD.UCs
             mList_chuc_danh_selected = new List<int>();
         }
 
-        public DonViCu(DataTable p_dt_don_vi, bool p_cb_den_ngay_HD, DateTime p_den_ngay_HD)
+        public DonViCu(DataTable p_dt_don_vi, bool p_cb_den_ngay_HD, DateTime p_den_ngay_HD, int p_selected_donvi_ori, int p_chuc_vu_ori, int p_chuc_danh_ori)
         {
             InitializeComponent();
             InitObject();
@@ -48,6 +48,10 @@ namespace HDQD.UCs
             m_Don_vi = p_dt_don_vi;
             m_cb_den_ngay_HD = p_cb_den_ngay_HD;
             m_den_ngay_HD = p_den_ngay_HD;
+
+            mList_don_vi_selected.Add(p_selected_donvi_ori);
+            mList_chuc_vu_selected.Add(p_chuc_vu_ori);
+            mList_chuc_danh_selected.Add(p_chuc_danh_ori);
 
             if (m_cb_den_ngay_HD == true)
             {
