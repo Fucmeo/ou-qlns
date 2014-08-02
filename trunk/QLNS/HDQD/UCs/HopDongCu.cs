@@ -573,7 +573,19 @@ namespace HDQD.UCs
                         MessageBox.Show("Loại quyết định: " + loai_qd + "\nMã quyết định: " + ma_qd + "\nTên quyết định: " + ten_qd + "\nNgày hiệu lực: " + ngay_hieu_luc_qd.ToString("d", CultureInfo.CreateSpecificCulture("vi-VN")) + "\nVui lòng chọn đơn vị phù hợp.",
                                         "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        Forms.Popup frPopup = new Forms.Popup(new UCs.DonViCu(dt_donvi_new, dtp_DenNgay.Checked, dtp_DenNgay.Value), "Danh sách đơn vị");
+                        int m_chuc_vu_ori = -1;
+                        int m_chuc_danh_ori = -1;
+                        if (comB_ChucVu.Text != "")
+                            m_chuc_vu_ori = Convert.ToInt32(comB_ChucVu.SelectedValue.ToString());
+                        else
+                            m_chuc_vu_ori = -1;
+
+                        if (comB_ChucDanh.Text != "")
+                            m_chuc_danh_ori = Convert.ToInt32(comB_ChucDanh.SelectedValue.ToString());
+                        else
+                            m_chuc_danh_ori = -1;
+
+                        Forms.Popup frPopup = new Forms.Popup(new UCs.DonViCu(dt_donvi_new, dtp_DenNgay.Checked, dtp_DenNgay.Value, selected_donvi, m_chuc_vu_ori, m_chuc_danh_ori), "Danh sách đơn vị");
                         frPopup.ShowDialog();
 
                         if (nSelectedDonViID.Count() == nSelectedChucDanhID.Count() && nSelectedDonViID.Count() == nSelectedChucVuID.Count())
@@ -584,7 +596,7 @@ namespace HDQD.UCs
                             try
                             {
                                 if (MessageBox.Show("Bạn thực sự muốn thêm hợp đồng cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                                {
+                                {                               
                                     if (oHopdong.Add_HopDongOld(nSelectedDonViID, nSelectedChucVuID, nSelectedChucDanhID))
                                     {
                                         MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

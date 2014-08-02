@@ -526,97 +526,105 @@ namespace HDQD.UCs
 
         private void DisplayInfo()
         {
-            // thông tin Họ tên NV.
-            cnvc = new Business.CNVC.CNVC();
-            cnvc.MaNV = oHopdong.Ma_NV;
-            DataTable dtHoTenNV = cnvc.Search_Ho_Ten();
-            //thongTinCNVC1.txt_Ho.Text = dtHoTenNV.Rows[0]["ho"].ToString();
-            //thongTinCNVC1.txt_Ten.Text = dtHoTenNV.Rows[0]["ten"].ToString();
-            thongTinCNVC1.txt_HoTen.Text = dtHoTenNV.Rows[0]["ho"].ToString().Trim() + " " + dtHoTenNV.Rows[0]["ten"].ToString().Trim();
-            thongTinCNVC1.txt_MaNV.Text = oHopdong.Ma_NV;
-
-            txt_MaHD.Text = oHopdong.Ma_Tuyen_Dung.Substring(0, oHopdong.Ma_Tuyen_Dung.Length - 9);
-            rTB_GhiChu.Text = oHopdong.Ghi_Chu;
-
-            if (oHopdong.Ngay_Ky != null)
-            {
-                dTP_NgayKy.Checked = true;
-                dTP_NgayKy.Value = oHopdong.Ngay_Ky.Value;
-            }
-            if (oHopdong.Ngay_Hieu_Luc != null)
-            {
-                dtp_TuNgay.Checked = true;
-                dtp_TuNgay.Value = oHopdong.Ngay_Hieu_Luc.Value;
-            }
-            if (oHopdong.Ngay_Het_Han != null)
-            {
-                dtp_DenNgay.Checked = true;
-                dtp_DenNgay.Value = oHopdong.Ngay_Het_Han.Value;
-            }
-
-            //Xử lý combo box
-            if (oHopdong.Chuc_Danh_ID != null)
-                comB_ChucDanh.SelectedValue = oHopdong.Chuc_Danh_ID;
-            if (oHopdong.Chuc_Vu_ID != null)
-                comB_ChucVu.SelectedValue = oHopdong.Chuc_Vu_ID;
-            if (oHopdong.Don_Vi_ID != null)
-                comB_DonVi.SelectedValue = oHopdong.Don_Vi_ID;
-            if (oHopdong.Ma_Loai_HD != null)
-                comB_LoaiHD.SelectedValue = oHopdong.Ma_Loai_HD;
-            //if (oHopdong.ThuViec_ChinhThuc == true) //chính thức
-            //    comB_ThuViecChinhThuc.Text = "Chính thức";
-            //else
-            //    comB_ThuViecChinhThuc.Text = "Thử việc";
-
-            cb_ThoiHan.Checked = oHopdong.Co_Thoi_Han.Value;
-
             try
             {
-                cb_ThamNienNB.Checked = oHopdong.Tham_nien_nang_bac;
-                cb_ThamNienNG.Checked = oHopdong.Tham_nien_nha_giao;
+                // thông tin Họ tên NV.
+                cnvc = new Business.CNVC.CNVC();
+                cnvc.MaNV = oHopdong.Ma_NV;
+                DataTable dtHoTenNV = cnvc.Search_Ho_Ten();
+                //thongTinCNVC1.txt_Ho.Text = dtHoTenNV.Rows[0]["ho"].ToString();
+                //thongTinCNVC1.txt_Ten.Text = dtHoTenNV.Rows[0]["ten"].ToString();
+                thongTinCNVC1.txt_HoTen.Text = dtHoTenNV.Rows[0]["ho"].ToString().Trim() + " " + dtHoTenNV.Rows[0]["ten"].ToString().Trim();
+                thongTinCNVC1.txt_MaNV.Text = oHopdong.Ma_NV;
+
+                txt_MaHD.Text = oHopdong.Ma_Tuyen_Dung.Substring(0, oHopdong.Ma_Tuyen_Dung.Length - 9);
+                rTB_GhiChu.Text = oHopdong.Ghi_Chu;
+
+                if (oHopdong.Ngay_Ky != null)
+                {
+                    dTP_NgayKy.Checked = true;
+                    dTP_NgayKy.Value = oHopdong.Ngay_Ky.Value;
+                }
+                if (oHopdong.Ngay_Hieu_Luc != null)
+                {
+                    dtp_TuNgay.Checked = true;
+                    dtp_TuNgay.Value = oHopdong.Ngay_Hieu_Luc.Value;
+                }
+                if (oHopdong.Ngay_Het_Han != null)
+                {
+                    dtp_DenNgay.Checked = true;
+                    dtp_DenNgay.Value = oHopdong.Ngay_Het_Han.Value;
+                }
+
+                //Xử lý combo box
+                if (oHopdong.Chuc_Danh_ID != null)
+                    comB_ChucDanh.SelectedValue = oHopdong.Chuc_Danh_ID;
+                if (oHopdong.Chuc_Vu_ID != null)
+                    comB_ChucVu.SelectedValue = oHopdong.Chuc_Vu_ID;
+                if (oHopdong.Don_Vi_ID != null)
+                    comB_DonVi.SelectedValue = oHopdong.Don_Vi_ID;
+                if (oHopdong.Ma_Loai_HD != null)
+                    comB_LoaiHD.SelectedValue = oHopdong.Ma_Loai_HD;
+                //if (oHopdong.ThuViec_ChinhThuc == true) //chính thức
+                //    comB_ThuViecChinhThuc.Text = "Chính thức";
+                //else
+                //    comB_ThuViecChinhThuc.Text = "Thử việc";
+
+                cb_ThoiHan.Checked = oHopdong.Co_Thoi_Han.Value;
+
+                try
+                {
+                    cb_ThamNienNB.Checked = oHopdong.Tham_nien_nang_bac;
+                    cb_ThamNienNG.Checked = oHopdong.Tham_nien_nha_giao;
+                }
+                catch { }
+
+                #region Luong Info
+                txt_Tien.Text = oHopdong.Luong_Khoan.ToString();
+                nup_PhanTram.Value = Convert.ToDecimal(oHopdong.PhanTramHuong.Value);
+                if (oHopdong.Khoan_or_HeSo == true)
+                    comb_Luong.Text = "Hệ số";
+                else
+                    comb_Luong.Text = "Khoán";
+
+                if (oHopdong.BacHeSo_ID != null)
+                {
+                    var result = (from c in dtBacHeSo.AsEnumerable()
+                                  where c.Field<int>("id") == oHopdong.BacHeSo_ID //&& c.Field<bool>("tinh_trang") == true
+                                  select c.Field<string>("ma_ngach")
+                                );
+
+                    string ma_ngach = result.ElementAt(0).ToString();
+
+                    comb_Ngach.SelectedValue = ma_ngach;
+                    comb_Bac.SelectedValue = oHopdong.BacHeSo_ID;
+
+                    var result1 = (from c in dtBacHeSo.AsEnumerable()
+                                   where c.Field<int>("id") == oHopdong.BacHeSo_ID
+                                   select c.Field<double>("he_so"));
+
+                    double m_he_so = result1.ElementAt<double>(0);
+
+                    txt_HeSo.Text = m_he_so.ToString();
+                }
+                #endregion
+
+                #region Phu Cap Info
+                cb_CoPhuCap.Checked = !oHopdong.Co_Phu_Cap;
+
+                if (oHopdong.Co_Phu_Cap == true)
+                {
+                    dtPhuCap = oCNVCPhuCap.GetList_PhuCap_byCNVC(oHopdong.Ma_Tuyen_Dung, oHopdong.Ma_NV);
+                    PrepareDTGVSource(dtPhuCap);
+                }
+
+                #endregion
+
             }
-            catch { }
-
-            #region Luong Info
-            txt_Tien.Text = oHopdong.Luong_Khoan.ToString();
-            nup_PhanTram.Value = Convert.ToDecimal(oHopdong.PhanTramHuong.Value);
-            if (oHopdong.Khoan_or_HeSo == true)
-                comb_Luong.Text = "Hệ số";
-            else
-                comb_Luong.Text = "Khoán";
-
-            if (oHopdong.BacHeSo_ID != null)
+            catch (Exception ex)
             {
-                var result = (from c in dtBacHeSo.AsEnumerable()
-                              where c.Field<int>("id") == oHopdong.BacHeSo_ID && c.Field<bool>("tinh_trang") == true
-                              select c.Field<string>("ma_ngach")
-                            );
-
-                string ma_ngach = result.ElementAt(0).ToString();
-
-                comb_Ngach.SelectedValue = ma_ngach;
-                comb_Bac.SelectedValue = oHopdong.BacHeSo_ID;
-
-                var result1 = (from c in dtBacHeSo.AsEnumerable()
-                               where c.Field<int>("id") == oHopdong.BacHeSo_ID
-                               select c.Field<double>("he_so"));
-
-                double m_he_so = result1.ElementAt<double>(0);
-
-                txt_HeSo.Text = m_he_so.ToString();
+                MessageBox.Show("Có lỗi xảy ra!\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            #endregion
-
-            #region Phu Cap Info
-            cb_CoPhuCap.Checked = !oHopdong.Co_Phu_Cap;
-
-            if (oHopdong.Co_Phu_Cap == true)
-            {
-                dtPhuCap = oCNVCPhuCap.GetList_PhuCap_byCNVC(oHopdong.Ma_Tuyen_Dung, oHopdong.Ma_NV);
-                PrepareDTGVSource(dtPhuCap);
-            }
-
-            #endregion
         }
 
         private void PrepareDataTablePhuCap()
