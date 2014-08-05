@@ -539,5 +539,11 @@ namespace QLNS.Forms
             Forms.Popup f = new Popup("Báo cáo nhân viên học tập tại nước ngoài", new BaoCao.UCs.NV_MoHinh_HinhThuc());
             f.ShowDialog();
         }
+
+        private void qĐKhenThưởngNângLươngChuyểnNgạchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Quyết định khen thưởng - chuyển ngạch", new HDQD.UCs.QDKhenThuong_ChuyenNgach());
+            f.ShowDialog();
+        }
     }
 }
