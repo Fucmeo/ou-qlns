@@ -261,6 +261,7 @@ namespace HDQD.UCs
 
                 oKiemNhiem.MaNV = new string[RowsCount];
                 oKiemNhiem.DenChucVu = new int[RowsCount];
+                oKiemNhiem.DenChucDanh = new int[RowsCount];
                 oKiemNhiem.DenDonVi = new int[RowsCount];
                 oKiemNhiem.LoaiPhuCap = new int[RowsCount];
                 oKiemNhiem.PhuCap = new string[RowsCount];
@@ -293,7 +294,7 @@ namespace HDQD.UCs
                         }
                         else        // convert null to int >> 0 => vua dieu dong vua bo nhiem
                         {
-                            throw new Exception();
+                            //throw new Exception();
                         }
                         
                     }

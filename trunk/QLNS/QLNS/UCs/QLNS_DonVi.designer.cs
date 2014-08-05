@@ -321,7 +321,7 @@
             this.comb_LoaiDV.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comb_LoaiDV.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comb_LoaiDV.FormattingEnabled = true;
-            this.comb_LoaiDV.Location = new System.Drawing.Point(587, 132);
+            this.comb_LoaiDV.Location = new System.Drawing.Point(587, 134);
             this.comb_LoaiDV.Name = "comb_LoaiDV";
             this.comb_LoaiDV.Size = new System.Drawing.Size(154, 30);
             this.comb_LoaiDV.TabIndex = 32;
@@ -390,7 +390,7 @@
             this.comB_TrucThuoc.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_TrucThuoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_TrucThuoc.FormattingEnabled = true;
-            this.comB_TrucThuoc.Location = new System.Drawing.Point(587, 36);
+            this.comB_TrucThuoc.Location = new System.Drawing.Point(587, 34);
             this.comB_TrucThuoc.Name = "comB_TrucThuoc";
             this.comB_TrucThuoc.Size = new System.Drawing.Size(154, 30);
             this.comB_TrucThuoc.TabIndex = 2;

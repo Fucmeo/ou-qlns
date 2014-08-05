@@ -486,6 +486,7 @@
             this.qĐKhenThưởngNângLươngChuyểnNgạchToolStripMenuItem.Name = "qĐKhenThưởngNângLươngChuyểnNgạchToolStripMenuItem";
             this.qĐKhenThưởngNângLươngChuyểnNgạchToolStripMenuItem.Size = new System.Drawing.Size(402, 26);
             this.qĐKhenThưởngNângLươngChuyểnNgạchToolStripMenuItem.Text = "QĐ Khen Thưởng/ Nâng lương/Chuyển ngạch";
+            this.qĐKhenThưởngNângLươngChuyểnNgạchToolStripMenuItem.Click += new System.EventHandler(this.qĐKhenThưởngNângLươngChuyểnNgạchToolStripMenuItem_Click);
             // 
             // tsmi_QLL
             // 

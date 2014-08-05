@@ -15,6 +15,7 @@ namespace HDQD.UCs
     public partial class QDKhenThuong_ChuyenNgach : UserControl
     {
         bool bAddPC; // de phan biet dang add hay edit PC
+        bool bAddLuong; // de phan biet dang add hay edit Luong
         bool bLoad_Luong_Complete , bLoad_PC_Complete;
         
 
@@ -295,6 +296,8 @@ namespace HDQD.UCs
                  = nup_PhanTram.Enabled = dtp_TuNgay_Luong.Enabled = dtp_DenNgay_Luong.Enabled
                  = bEnable;
 
+             //btn_Add_Luong.Visible = !bEnable;
+
              dtgv_Luong.Enabled = !bEnable;
          }
 
@@ -347,7 +350,7 @@ namespace HDQD.UCs
 
          private void cb_ThayDoiLuong_CheckedChanged(object sender, EventArgs e)
          {
-             btn_Edit_Luong.Enabled = btn_Del_Luong.Enabled = cb_ThayDoiLuong.Checked;
+             btn_Add_Luong.Enabled = btn_Edit_Luong.Enabled = btn_Del_Luong.Enabled = cb_ThayDoiLuong.Checked;
          }
 
          private void cb_ThayDoiPC_CheckedChanged(object sender, EventArgs e)
@@ -417,64 +420,109 @@ namespace HDQD.UCs
                  {
                      EnableLuongObjects(true);
                      ChangeLuongButtonImage(false);
+                     bAddLuong = false;
                  }
                  else // save
                  {
-                     if (MessageBox.Show("Bạn thực sự muốn sửa thông tin lương cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                     if (bAddLuong)
                      {
-                         try
+                         #region Them
+
+                         if (MessageBox.Show("Bạn thực sự muốn thêm thông tin lương cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                          {
-                             int id = Convert.ToInt16(dtgv_Luong.SelectedRows[0].Cells["tuyen_dung_id"].Value);
-
-                             DataRow r = dtLuong.Select("tuyen_dung_id = " + id).First();
-
-                             r["khoan_or_heso"] = comb_Luong.Text;
-                             if (comb_Luong.Text == "Khoán")
+                             try
                              {
-                                 r["luong_khoan"] = Convert.ToDecimal(txt_Tien.Text);
-                                 r["ten_ngach"] = DBNull.Value;
-                                 r["bac"] = DBNull.Value;
-                                 r["he_so"] = DBNull.Value;
-                                 r["ma_ngach"] = DBNull.Value;
-                                 r["ngach_bac_heso_id"] = DBNull.Value;
+                                 DataRow newrow = dtPhuCap.NewRow();
+                                 
+
+
+                                 dtPhuCap.Rows.Add(newrow);
+
+                                 MessageBox.Show("Thêm thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                 ChangePCButtonImage(true);
+                                 comB_LoaiPhuCap.Enabled = false;
+                                 EnablePCObjects(false);
+
+                                 txt_TienPC.Enabled = txt_HeSoPC.Enabled = nup_Value_PhanTramPC.Enabled = false;
+
+
                              }
-                             else
+                             catch (ArgumentException)
                              {
-                                 r["luong_khoan"] = DBNull.Value;
-                                 r["ten_ngach"] = dtBacHeSo.Select("id = " + comb_Bac.SelectedValue).First()["ten_ngach"];
-                                 r["bac"] = comb_Bac.Text;
-                                 r["he_so"] = txt_HeSo.Text;
-                                 r["ma_ngach"] = comb_Ngach.Text;
-                                 r["ngach_bac_heso_id"] = Convert.ToInt32(comb_Bac.SelectedValue);
+                                 MessageBox.Show("Thông tin ngày hưởng lương chưa phù hợp, xin vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                              }
-
-                             r["phan_tram_huong"] = nup_PhanTram.Value;
-                             r["tu_ngay"] = dtp_TuNgay_Luong.Value;
-
-                             if (dtp_DenNgay_Luong.Checked)
+                             catch (Exception)
                              {
-                                 if (dtp_DenNgay_Luong.Value < dtp_TuNgay_Luong.Value)
-                                     throw new ArgumentException();
-                                 r["den_ngay"] = dtp_DenNgay_Luong.Value;
+                                 MessageBox.Show("Thông tin lương  chưa phù hợp, xin vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                              }
-                             else
-                                 r["den_ngay"] = DBNull.Value;
 
-
-                             MessageBox.Show("Sửa thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                             EnableLuongObjects(false);
-                             ChangeLuongButtonImage(true);
-                             Clear_Luong_Interface();
-                         }
-                         catch (ArgumentException)
-                         {
-                             MessageBox.Show("Thông tin ngày hưởng lương chưa phù hợp, xin vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                         }
-                         catch (Exception)
-                         {
-                             MessageBox.Show("Thông tin lương chưa phù hợp, xin vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                         #endregion
                          }
                      }
+                     else       // sua 
+                     {
+                         #region Sua
+
+                         if (MessageBox.Show("Bạn thực sự muốn sửa thông tin lương cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                         {
+                             try
+                             {
+                                 int id = Convert.ToInt16(dtgv_Luong.SelectedRows[0].Cells["tuyen_dung_id"].Value);
+
+                                 DataRow r = dtLuong.Select("tuyen_dung_id = " + id).First();
+
+                                 r["khoan_or_heso"] = comb_Luong.Text;
+                                 if (comb_Luong.Text == "Khoán")
+                                 {
+                                     r["luong_khoan"] = Convert.ToDecimal(txt_Tien.Text);
+                                     r["ten_ngach"] = DBNull.Value;
+                                     r["bac"] = DBNull.Value;
+                                     r["he_so"] = DBNull.Value;
+                                     r["ma_ngach"] = DBNull.Value;
+                                     r["ngach_bac_heso_id"] = DBNull.Value;
+                                 }
+                                 else
+                                 {
+                                     r["luong_khoan"] = DBNull.Value;
+                                     r["ten_ngach"] = dtBacHeSo.Select("id = " + comb_Bac.SelectedValue).First()["ten_ngach"];
+                                     r["bac"] = comb_Bac.Text;
+                                     r["he_so"] = txt_HeSo.Text;
+                                     r["ma_ngach"] = comb_Ngach.Text;
+                                     r["ngach_bac_heso_id"] = Convert.ToInt32(comb_Bac.SelectedValue);
+                                 }
+
+                                 r["phan_tram_huong"] = nup_PhanTram.Value;
+                                 r["tu_ngay"] = dtp_TuNgay_Luong.Value;
+
+                                 if (dtp_DenNgay_Luong.Checked)
+                                 {
+                                     if (dtp_DenNgay_Luong.Value < dtp_TuNgay_Luong.Value)
+                                         throw new ArgumentException();
+                                     r["den_ngay"] = dtp_DenNgay_Luong.Value;
+                                 }
+                                 else
+                                     r["den_ngay"] = DBNull.Value;
+
+
+                                 MessageBox.Show("Sửa thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                 EnableLuongObjects(false);
+                                 ChangeLuongButtonImage(true);
+                                 Clear_Luong_Interface();
+                             }
+                             catch (ArgumentException)
+                             {
+                                 MessageBox.Show("Thông tin ngày hưởng lương chưa phù hợp, xin vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                             }
+                             catch (Exception)
+                             {
+                                 MessageBox.Show("Thông tin lương chưa phù hợp, xin vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                             }
+                         }
+                         #endregion
+                     }
+                     
+                     
                  }
              }
              
@@ -1208,6 +1256,19 @@ namespace HDQD.UCs
 
 
 
+         }
+
+         private void btn_Add_Luong_Click(object sender, EventArgs e)
+         {
+             if (btn_Add_Luong.ImageKey == "Add.png")
+             {
+                 EnableLuongObjects(true);
+                 ChangeLuongButtonImage(false);
+                 bAddLuong = true;
+
+                 //comB_LoaiPhuCap.Enabled = true;
+                 Clear_Luong_Interface();
+             }
          }
 
 	}
