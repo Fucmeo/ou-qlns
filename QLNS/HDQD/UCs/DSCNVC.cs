@@ -33,9 +33,9 @@ namespace HDQD.UCs
                 switch (eParentUC)
                 {
                     case ParentUC.BoNhiem:
-                        HDQD.UCs.ThongTinCNVC.strMaNV = HDQD.UCs.BoNhiem.strMaNVOld = dtgv_DSCNVC.Rows[e.RowIndex].Cells["ma_nv"].Value.ToString();
-                        HDQD.UCs.ThongTinCNVC.strHo = HDQD.UCs.BoNhiem.strHoOld = dtgv_DSCNVC.Rows[e.RowIndex].Cells["ho"].Value.ToString();
-                        HDQD.UCs.ThongTinCNVC.strTen = HDQD.UCs.BoNhiem.strTenOld = dtgv_DSCNVC.Rows[e.RowIndex].Cells["ten"].Value.ToString();
+                        HDQD.UCs.ThongTinCNVC.strMaNV = HDQD.UCs.DieuDong.strMaNVOld = dtgv_DSCNVC.Rows[e.RowIndex].Cells["ma_nv"].Value.ToString();
+                        HDQD.UCs.ThongTinCNVC.strHo = HDQD.UCs.DieuDong.strHoOld = dtgv_DSCNVC.Rows[e.RowIndex].Cells["ho"].Value.ToString();
+                        HDQD.UCs.ThongTinCNVC.strTen = HDQD.UCs.DieuDong.strTenOld = dtgv_DSCNVC.Rows[e.RowIndex].Cells["ten"].Value.ToString();
                         break;
 
                     case ParentUC.ThoiBoNhiem:
@@ -171,9 +171,9 @@ namespace HDQD.UCs
                     break;
 
                 case ParentUC.BoNhiem:
-                    HDQD.UCs.ThongTinCNVC.strMaNV = HDQD.UCs.BoNhiem.strMaNVOld = dtgv_DSCNVC.SelectedRows[0].Cells["ma_nv"].Value.ToString();
-                    HDQD.UCs.ThongTinCNVC.strHo = HDQD.UCs.BoNhiem.strHoOld = dtgv_DSCNVC.SelectedRows[0].Cells["ho"].Value.ToString();
-                    HDQD.UCs.ThongTinCNVC.strTen = HDQD.UCs.BoNhiem.strTenOld = dtgv_DSCNVC.SelectedRows[0].Cells["ten"].Value.ToString();
+                    HDQD.UCs.ThongTinCNVC.strMaNV = HDQD.UCs.DieuDong.strMaNVOld = dtgv_DSCNVC.SelectedRows[0].Cells["ma_nv"].Value.ToString();
+                    HDQD.UCs.ThongTinCNVC.strHo = HDQD.UCs.DieuDong.strHoOld = dtgv_DSCNVC.SelectedRows[0].Cells["ho"].Value.ToString();
+                    HDQD.UCs.ThongTinCNVC.strTen = HDQD.UCs.DieuDong.strTenOld = dtgv_DSCNVC.SelectedRows[0].Cells["ten"].Value.ToString();
                     break;
 
                 case ParentUC.ThoiBoNhiem:
