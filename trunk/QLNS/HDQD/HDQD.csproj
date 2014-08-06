@@ -57,11 +57,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UCs\BoNhiem.cs">
+    <Compile Include="UCs\DieuDong.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UCs\BoNhiem.designer.cs">
-      <DependentUpon>BoNhiem.cs</DependentUpon>
+    <Compile Include="UCs\DieuDong.designer.cs">
+      <DependentUpon>DieuDong.cs</DependentUpon>
     </Compile>
     <Compile Include="UCs\DanhSachHopDong.cs">
       <SubType>UserControl</SubType>
@@ -237,8 +237,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UCs\BoNhiem.resx">
-      <DependentUpon>BoNhiem.cs</DependentUpon>
+    <EmbeddedResource Include="UCs\DieuDong.resx">
+      <DependentUpon>DieuDong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\DanhSachHopDong.resx">
       <DependentUpon>DanhSachHopDong.cs</DependentUpon>

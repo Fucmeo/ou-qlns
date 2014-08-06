@@ -190,7 +190,7 @@ namespace QLNS.Forms
 
         private void tsmi_QLHD_KiemNhiem_Click(object sender, EventArgs e)
         {
-            Forms.Popup f = new Popup("Quyết định Bổ nhiệm / Kiệm nhiệm / Điều động", new HDQD.UCs.BoNhiem());
+            Forms.Popup f = new Popup("Quyết định Bổ nhiệm / Kiệm nhiệm / Điều động", new HDQD.UCs.DieuDong());
             f.WindowState = FormWindowState.Maximized;
             f.ShowDialog();
         }
