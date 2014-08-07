@@ -73,6 +73,8 @@ namespace HDQD.UCs
 
                      Clear_PC_Interface();
                      GetThongTin_PC();
+
+                     LoadCombo_MaHD();
                  }
              }
          }
@@ -92,6 +94,9 @@ namespace HDQD.UCs
              dtgv_Luong.Columns["ten_ngach"].HeaderText = "Tên ngạch";
              dtgv_Luong.Columns["loai_hop_dong"].HeaderText = "Loại hợp đồng";
 
+             dtgv_Luong.Columns["ngay_ky"].HeaderText = "Ngày ký hợp đồng";
+             dtgv_Luong.Columns["ngay_hieu_luc"].HeaderText = "Ngày hiệu lực hợp đồng";
+             dtgv_Luong.Columns["ngay_het_han_td"].HeaderText = "Ngày hết hạn hợp đồng";
 
              dtgv_Luong.Columns["ngach_bac_heso_id"].Visible
                  = dtgv_Luong.Columns["tuyen_dung_id"].Visible
@@ -153,6 +158,26 @@ namespace HDQD.UCs
              catch (Exception)
              {
                  MessageBox.Show("Không thể lấy thông tin phụ cấp của nhân viên này, xin vui lòng thử lại sau.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+             }
+         }
+
+         void LoadCombo_MaHD()
+         {
+             try
+             {
+                 if (dtLuong.Rows.Count > 0)
+                 {
+                     DataTable dtMaHD = dtLuong.AsDataView().ToTable(true, "ma_tuyen_dung");
+
+                     comb_MaTuyenDung.DataSource = dtMaHD;
+                     comb_MaTuyenDung.DisplayMember = "ma_tuyen_dung";
+                     comb_MaTuyenDung.ValueMember = "ma_tuyen_dung";
+                 }
+                 
+             }
+             catch (Exception)
+             {
+
              }
          }
 
@@ -308,12 +333,13 @@ namespace HDQD.UCs
              {
                  btn_Edit_Luong.ImageKey = "Edit Data.png";
                  btn_Del_Luong.ImageKey = "Garbage.png";
+                 btn_Add_Luong.Visible = true;
              }
              else
              {
                  btn_Edit_Luong.ImageKey = "Save.png";
                  btn_Del_Luong.ImageKey = "Cancel.png";
-                 
+                 btn_Add_Luong.Visible = false;
              }
          }
 
@@ -557,6 +583,8 @@ namespace HDQD.UCs
              {
                  EnableLuongObjects(false);
                  ChangeLuongButtonImage(true);
+
+                 comb_MaTuyenDung.Enabled = false;
              }
          }
 
@@ -824,6 +852,19 @@ namespace HDQD.UCs
                      txt_HeSo.Text = r.Cells["he_so"].Value.ToString();
                      nup_PhanTram.Value = Convert.ToInt16(r.Cells["phan_tram_huong"].Value);
                      dtp_TuNgay_Luong.Value = Convert.ToDateTime(r.Cells["tu_ngay"].Value);
+                     dtp_NgayKyHD.Value = Convert.ToDateTime(r.Cells["ngay_ky"].Value);
+                     dtp_NgayBatDauHD.Value = Convert.ToDateTime(r.Cells["ngay_hieu_luc"].Value);
+                     comb_MaTuyenDung.Text = r.Cells["ma_tuyen_dung"].Value.ToString();
+
+                     if (r.Cells["ngay_het_han_td"].Value.ToString() != "")
+                     {
+                         dtp_NgayKetThucHD.Checked = true;
+                         dtp_NgayKetThucHD.Value = Convert.ToDateTime(r.Cells["ngay_het_han_td"].Value);
+                     }
+                     else
+                     {
+                         dtp_NgayKetThucHD.Checked = false;
+                     }
 
                      if (r.Cells["den_ngay"].Value.ToString() != "")
                      {
@@ -1266,9 +1307,41 @@ namespace HDQD.UCs
                  ChangeLuongButtonImage(false);
                  bAddLuong = true;
 
+                 comb_MaTuyenDung.Enabled = true;
+
                  //comB_LoaiPhuCap.Enabled = true;
                  Clear_Luong_Interface();
              }
+         }
+
+         private void comb_MaTuyenDung_SelectedIndexChanged(object sender, EventArgs e)
+         {
+             if (bAddLuong == true && comb_MaTuyenDung.Enabled == true)
+             {
+                 dtp_NgayKyHD.Value = Convert.ToDateTime((from c in dtLuong.AsEnumerable()
+                                                  where c.Field<string>("ma_tuyen_dung") == comb_MaTuyenDung.Text
+                                                  select c.Field<DateTime>("ngay_ky")).ElementAt(0).ToString());
+
+                 dtp_NgayBatDauHD.Value = Convert.ToDateTime((from c in dtLuong.AsEnumerable()
+                                                          where c.Field<string>("ma_tuyen_dung") == comb_MaTuyenDung.Text
+                                                              select c.Field<DateTime>("ngay_hieu_luc")).ElementAt(0).ToString());
+
+                 string dt = (from c in dtLuong.AsEnumerable()
+                                                    where c.Field<string>("ma_tuyen_dung") == comb_MaTuyenDung.Text
+                                                    select c.Field<string>("ngay_het_han_td")).ElementAt(0);
+
+                 if (dt != null && dt != "")
+                 {
+                     dtp_NgayKetThucHD.Value = Convert.ToDateTime(dt);
+                     dtp_NgayKetThucHD.Checked = true;
+                 }
+                 else
+                 {
+                     dtp_NgayKetThucHD.Checked = false;
+                 }
+
+             }
+
          }
 
 	}
