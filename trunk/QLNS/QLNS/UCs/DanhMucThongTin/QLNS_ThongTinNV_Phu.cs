@@ -426,29 +426,33 @@ namespace QLNS.UCs.DanhMucThongTin
             {
                 var ids = from c in dtTinhTP.AsEnumerable()
                           where c.Field<int>("id") == v
-                          select c.Field<int>("quoc_gia_id");
+                          select c.Field<int?>("quoc_gia_id");
 
-                int quoc_gia_id = ids.ElementAt<int>(0);
+                int? quoc_gia_id = ids.ElementAt<int?>(0);
 
-                switch (((ComboBox)sender).Name)
+                if (quoc_gia_id != null)
                 {
-                    case "comB_QueTinh":
-                        comB_QueQuan_QuocGia.SelectedValue = quoc_gia_id;
-                        ExcludeTinhData(comB_QueTinh,quoc_gia_id, v);
-                        break;
+                    switch (((ComboBox)sender).Name)
+                    {
+                        case "comB_QueTinh":
+                            comB_QueQuan_QuocGia.SelectedValue = quoc_gia_id;
+                            ExcludeTinhData(comB_QueTinh, quoc_gia_id, v);
+                            break;
 
-                    case "comB_NoiSinhTinh":
-                        comB_NoiSinh_QuocGia.SelectedValue = quoc_gia_id;
-                        ExcludeTinhData(comB_NoiSinhTinh, quoc_gia_id, v);
-                        break;
+                        case "comB_NoiSinhTinh":
+                            comB_NoiSinh_QuocGia.SelectedValue = quoc_gia_id;
+                            ExcludeTinhData(comB_NoiSinhTinh, quoc_gia_id, v);
+                            break;
 
-                    case "comB_HoKhauTinh":
-                        comB_HoKhau_QuocGia.SelectedValue = quoc_gia_id;
-                        ExcludeTinhData(comB_HoKhauTinh, quoc_gia_id, v);
-                        break;
-                    default:
-                        break;
+                        case "comB_HoKhauTinh":
+                            comB_HoKhau_QuocGia.SelectedValue = quoc_gia_id;
+                            ExcludeTinhData(comB_HoKhauTinh, quoc_gia_id, v);
+                            break;
+                        default:
+                            break;
+                    }
                 }
+                
             }
         }
 
