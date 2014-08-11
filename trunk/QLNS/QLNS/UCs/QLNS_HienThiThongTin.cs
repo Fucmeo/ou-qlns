@@ -1742,6 +1742,10 @@ namespace QLNS.UCs
                             oQLNS_DaoTaoBoiDuong.FillBoiDuongData();
                             oQLNS_DaoTaoBoiDuong.FillDaoTaoData();
                         }
+                        else
+                        {
+                                
+                        }
                         break;
 
                     case "5. Trình độ văn hoá":
