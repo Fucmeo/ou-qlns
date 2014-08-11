@@ -74,10 +74,18 @@ namespace QLNS.UCs.DanhMucThongTin
                 {
                     dtDaoTao = t.CopyToDataTable();
                 }
+                else
+                {
+                    dtDaoTao = new DataTable();
+                }
                 t = dtDaoTaoBoiDuong.AsEnumerable().Where(a => a.Field<int?>("hinh_thuc_dao_tao_id").ToString() == "");
                 if (t.Count() > 0)
                 {
                     dtBoiDuong = t.CopyToDataTable();
+                }
+                else
+                {
+                    dtBoiDuong = new DataTable();
                 }
 
             }
@@ -460,6 +468,10 @@ namespace QLNS.UCs.DanhMucThongTin
                 dtgv_DaoTao.DataSource = dt;
                 Setup_dtgv_DaoTao();
             }
+            else
+            {
+                dtgv_DaoTao.DataSource = null;
+            }
         }
 
         public void FillBoiDuongData()
@@ -470,6 +482,10 @@ namespace QLNS.UCs.DanhMucThongTin
                 dtgv_BoiDuong.Columns.Clear();
                 dtgv_BoiDuong.DataSource = dt;
                 Setup_dtgv_BoiDuong();
+            }
+            else
+            {
+                dtgv_BoiDuong.DataSource = null;
             }
         }
 

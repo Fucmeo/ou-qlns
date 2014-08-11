@@ -59,6 +59,8 @@ namespace HDQD.UCs
              dtLuong = new DataTable();
              oLoaiQuyetDinh = new Business.HDQD.LoaiQuyetDinh();
 
+             bAddPC = bAddLuong = bLoad_Luong_Complete = bLoad_PC_Complete = false;
+
              thongTinCNVC1.txt_HoTen.KeyUp += new KeyEventHandler(txt_HoTen_KeyUp);
          }
 
@@ -100,6 +102,7 @@ namespace HDQD.UCs
 
              dtgv_Luong.Columns["ngach_bac_heso_id"].Visible
                  = dtgv_Luong.Columns["tuyen_dung_id"].Visible
+                 = dtgv_Luong.Columns["luong_id"].Visible
                  = dtgv_Luong.Columns["den_ngay_adj_is_null"].Visible
                  = dtgv_Luong.Columns["co_thoi_han"].Visible
                  = dtgv_Luong.Columns["ma_nv"].Visible    
@@ -302,13 +305,25 @@ namespace HDQD.UCs
 
          void Clear_Luong_Interface()
          {
+             dtgv_Luong.DataSource = null;
              txt_Tien.Text = txt_HeSo.Text = "";
              nup_PhanTram.Value = 100;
 
          }
 
+         void Clear_NV_Interface()
+         {
+             thongTinCNVC1.txt_MaNV.Text = thongTinCNVC1.txt_HoTen.Text = "";
+         }
+
+         void Clear_QD_Interface()
+         {
+             thongTinQuyetDinh1.txt_MaQD.Text = thongTinQuyetDinh1.txt_TenQD.Text = thongTinQuyetDinh1.rTB_MoTa.Text = "";
+         }
+
          void Clear_PC_Interface()
          {
+             dtgv_DSPhuCap.DataSource = null;
              nup_PhanTramPC.Value = nup_Value_PhanTramPC.Value = 100;
              txt_HeSoPC.Text = txt_TienPC.Text = txt_CongThucPC.Text
                  = rTB_GhiChuPC.Text =  txt_Luong_PC.Text = "";
@@ -454,15 +469,56 @@ namespace HDQD.UCs
                      {
                          #region Them
 
+                         if (!dtp_DenNgay_Luong.Checked)
+                         {
+                             MessageBox.Show("Thông tin ngày hết hạn hưởng lương chưa được chọn, NV này sẽ được hưởng lương vĩnh viễn.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                         }
+
                          if (MessageBox.Show("Bạn thực sự muốn thêm thông tin lương cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                          {
                              try
                              {
-                                 DataRow newrow = dtPhuCap.NewRow();
-                                 
+                                 DataRow newrow = dtLuong.NewRow();
 
+                                 newrow["khoan_or_heso"] = comb_Luong.Text;
+                                 if (comb_Luong.Text == "Khoán")
+                                 {
+                                     newrow["luong_khoan"] = Convert.ToDecimal(txt_Tien.Text);
+                                     newrow["ten_ngach"] = DBNull.Value;
+                                     newrow["bac"] = DBNull.Value;
+                                     newrow["he_so"] = DBNull.Value;
+                                     newrow["ma_ngach"] = DBNull.Value;
+                                     newrow["ngach_bac_heso_id"] = DBNull.Value;
+                                 }
+                                 else
+                                 {
+                                     newrow["luong_khoan"] = DBNull.Value;
+                                     newrow["ten_ngach"] = dtBacHeSo.Select("id = " + comb_Bac.SelectedValue).First()["ten_ngach"];
+                                     newrow["bac"] = comb_Bac.Text;
+                                     newrow["he_so"] = txt_HeSo.Text;
+                                     newrow["ma_ngach"] = comb_Ngach.Text;
+                                     newrow["ngach_bac_heso_id"] = Convert.ToInt32(comb_Bac.SelectedValue);
+                                 }
 
-                                 dtPhuCap.Rows.Add(newrow);
+                                 newrow["phan_tram_huong"] = nup_PhanTram.Value;
+                                 newrow["tu_ngay"] = dtp_TuNgay_Luong.Value;
+
+                                 if (dtp_DenNgay_Luong.Checked)
+                                 {
+                                     if (dtp_DenNgay_Luong.Value < dtp_TuNgay_Luong.Value)
+                                         throw new ArgumentException();
+                                     newrow["den_ngay"] = dtp_DenNgay_Luong.Value;
+                                 }
+                                 else
+                                 {
+
+                                     newrow["den_ngay"] = DBNull.Value;
+                                 }
+
+                                 newrow["tuyen_dung_id"] = Convert.ToInt32(comb_MaTuyenDung.SelectedValue);
+                                 newrow["luong_id"] = DBNull.Value;
+
+                                 dtLuong.Rows.Add(newrow);
 
                                  MessageBox.Show("Thêm thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -483,8 +539,9 @@ namespace HDQD.UCs
                                  MessageBox.Show("Thông tin lương  chưa phù hợp, xin vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                              }
 
-                         #endregion
+
                          }
+                         #endregion
                      }
                      else       // sua 
                      {
@@ -1024,20 +1081,20 @@ namespace HDQD.UCs
              }
          }
 
-         void ClearAllInterface()
-         {
-             thongTinCNVC1.txt_MaNV.Text = thongTinCNVC1.txt_HoTen.Text  = "";
+         //void ClearAllInterface()
+         //{
+         //    thongTinCNVC1.txt_MaNV.Text = thongTinCNVC1.txt_HoTen.Text = "";
 
-             thongTinQuyetDinh1.txt_MaQD.Text = thongTinQuyetDinh1.txt_TenQD.Text = thongTinQuyetDinh1.rTB_MoTa.Text = "";
-             thongTinQuyetDinh1.dTP_NgayHetHan.Checked = false;
+         //    thongTinQuyetDinh1.txt_MaQD.Text = thongTinQuyetDinh1.txt_TenQD.Text = thongTinQuyetDinh1.rTB_MoTa.Text = "";
+         //    thongTinQuyetDinh1.dTP_NgayHetHan.Checked = false;
 
-             dtgv_DSPhuCap.DataSource = null;
-             dtgv_Luong.DataSource = null;
-             Clear_Luong_Interface();
-             Clear_PC_Interface();
-             dtLuong = new DataTable();
-             dtPhuCap = new DataTable();
-         }
+         //    dtgv_DSPhuCap.DataSource = null;
+         //    dtgv_Luong.DataSource = null;
+         //    Clear_Luong_Interface();
+         //    Clear_PC_Interface();
+         //    dtLuong = new DataTable();
+         //    dtPhuCap = new DataTable();
+         //}
 
          private void btn_Them_Click(object sender, EventArgs e)
          {
@@ -1060,6 +1117,7 @@ namespace HDQD.UCs
                              DateTime[] tu_ngay = new DateTime[Luong_Rows];
                              DateTime[] den_ngay = new DateTime[Luong_Rows];
                              int[] tuyen_dung_id = new int[Luong_Rows];
+                             int?[] luong_id = new int?[Luong_Rows];
                              string[] ngach_bac_heso_id = new string[Luong_Rows];
                              bool[] den_ngay_adj_is_null = new bool[Luong_Rows];
                              string ma_nv = thongTinCNVC1.txt_MaNV.Text;
@@ -1083,6 +1141,8 @@ namespace HDQD.UCs
                                      den_ngay[i] = Convert.ToDateTime("01/01/1901").Date;
 
                                  tuyen_dung_id[i] = Convert.ToInt32(r["tuyen_dung_id"]);
+                                 luong_id[i] = Convert.ToInt32(r["luong_id"]);
+
                                  if (r["ngach_bac_heso_id"] != DBNull.Value)
                                  {
                                      ngach_bac_heso_id[i] = Convert.ToString(r["ngach_bac_heso_id"]);
@@ -1173,7 +1233,7 @@ namespace HDQD.UCs
 
                              #endregion
 
-                             oTinhLuong.UpdateLuong_PC(ma_nv, tuyen_dung_id, khoan_or_heso, luong_khoan, ngach_bac_heso_id, phan_tram_huong
+                             oTinhLuong.UpdateLuong_PC(ma_nv, luong_id, tuyen_dung_id, khoan_or_heso, luong_khoan, ngach_bac_heso_id, phan_tram_huong
                                                         , tu_ngay, den_ngay, den_ngay_adj_is_null, pc_id, cnvc_tuyen_dung_id
                                                         , value_khoan, value_he_so, value_phan_tram, phan_tram_huong_pc
                                                         , loai_pc_id, tu_ngay_pc, den_ngay_pc, p_den_ngay_adj_pc_is_null, ghi_chu
@@ -1186,7 +1246,7 @@ namespace HDQD.UCs
                                  UploadFile();
                              }
 
-                             ClearAllInterface();
+                             ResetAll();
 
                              MessageBox.Show("Lưu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -1208,6 +1268,16 @@ namespace HDQD.UCs
                  MessageBox.Show("Có thông tin lương / phụ cấp chưa được lưu, xin vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
              }
              
+         }
+
+         void ResetAll()
+         {
+             InitObject();
+
+             Clear_Luong_Interface();
+             Clear_PC_Interface();
+             Clear_QD_Interface();
+             Clear_NV_Interface();
          }
 
          private void btn_NhapFile_Click(object sender, EventArgs e)
