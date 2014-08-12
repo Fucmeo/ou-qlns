@@ -16,7 +16,7 @@ namespace HDQD.UCs
     {
         bool bAddPC; // de phan biet dang add hay edit PC
         bool bAddLuong; // de phan biet dang add hay edit Luong
-        bool bLoad_Luong_Complete , bLoad_PC_Complete;
+        bool bLoad_Luong_Complete , bLoad_PC_Complete , bLoad_MaHD_Complete; 
         
 
         Business.HDQD.LoaiPhuCap oLoaiPC;
@@ -170,11 +170,19 @@ namespace HDQD.UCs
              {
                  if (dtLuong.Rows.Count > 0)
                  {
-                     DataTable dtMaHD = dtLuong.AsDataView().ToTable(true, "ma_tuyen_dung");
+                     bLoad_MaHD_Complete = false;
+                     DataTable dtMaHD = dtLuong.AsDataView().ToTable(true, new string[2] {"ma_tuyen_dung" ,"tuyen_dung_id"});
 
                      comb_MaTuyenDung.DataSource = dtMaHD;
                      comb_MaTuyenDung.DisplayMember = "ma_tuyen_dung";
-                     comb_MaTuyenDung.ValueMember = "ma_tuyen_dung";
+                     comb_MaTuyenDung.ValueMember = "tuyen_dung_id";
+                     bLoad_MaHD_Complete = true;
+                     if (dtMaHD.Rows.Count > 0)
+                     {
+                         comb_MaTuyenDung.SelectedIndex = -1;
+                         comb_MaTuyenDung.SelectedIndex = 0;
+                         
+                     }
                  }
                  
              }
@@ -305,7 +313,7 @@ namespace HDQD.UCs
 
          void Clear_Luong_Interface()
          {
-             dtgv_Luong.DataSource = null;
+            
              txt_Tien.Text = txt_HeSo.Text = "";
              nup_PhanTram.Value = 100;
 
@@ -323,7 +331,6 @@ namespace HDQD.UCs
 
          void Clear_PC_Interface()
          {
-             dtgv_DSPhuCap.DataSource = null;
              nup_PhanTramPC.Value = nup_Value_PhanTramPC.Value = 100;
              txt_HeSoPC.Text = txt_TienPC.Text = txt_CongThucPC.Text
                  = rTB_GhiChuPC.Text =  txt_Luong_PC.Text = "";
@@ -455,159 +462,173 @@ namespace HDQD.UCs
 
          private void btn_Edit_Luong_Click(object sender, EventArgs e)
          {
-             if (dtgv_Luong.SelectedRows != null && dtgv_Luong.SelectedRows.Count > 0)
+
+             if (btn_Edit_Luong.ImageKey == "Edit Data.png")
              {
-                 if (btn_Edit_Luong.ImageKey == "Edit Data.png")
+                 if (dtgv_Luong.SelectedRows != null && dtgv_Luong.SelectedRows.Count > 0)
                  {
                      EnableLuongObjects(true);
                      ChangeLuongButtonImage(false);
                      bAddLuong = false;
                  }
-                 else // save
-                 {
-                     if (bAddLuong)
-                     {
-                         #region Them
-
-                         if (!dtp_DenNgay_Luong.Checked)
-                         {
-                             MessageBox.Show("Thông tin ngày hết hạn hưởng lương chưa được chọn, NV này sẽ được hưởng lương vĩnh viễn.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                         }
-
-                         if (MessageBox.Show("Bạn thực sự muốn thêm thông tin lương cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                         {
-                             try
-                             {
-                                 DataRow newrow = dtLuong.NewRow();
-
-                                 newrow["khoan_or_heso"] = comb_Luong.Text;
-                                 if (comb_Luong.Text == "Khoán")
-                                 {
-                                     newrow["luong_khoan"] = Convert.ToDecimal(txt_Tien.Text);
-                                     newrow["ten_ngach"] = DBNull.Value;
-                                     newrow["bac"] = DBNull.Value;
-                                     newrow["he_so"] = DBNull.Value;
-                                     newrow["ma_ngach"] = DBNull.Value;
-                                     newrow["ngach_bac_heso_id"] = DBNull.Value;
-                                 }
-                                 else
-                                 {
-                                     newrow["luong_khoan"] = DBNull.Value;
-                                     newrow["ten_ngach"] = dtBacHeSo.Select("id = " + comb_Bac.SelectedValue).First()["ten_ngach"];
-                                     newrow["bac"] = comb_Bac.Text;
-                                     newrow["he_so"] = txt_HeSo.Text;
-                                     newrow["ma_ngach"] = comb_Ngach.Text;
-                                     newrow["ngach_bac_heso_id"] = Convert.ToInt32(comb_Bac.SelectedValue);
-                                 }
-
-                                 newrow["phan_tram_huong"] = nup_PhanTram.Value;
-                                 newrow["tu_ngay"] = dtp_TuNgay_Luong.Value;
-
-                                 if (dtp_DenNgay_Luong.Checked)
-                                 {
-                                     if (dtp_DenNgay_Luong.Value < dtp_TuNgay_Luong.Value)
-                                         throw new ArgumentException();
-                                     newrow["den_ngay"] = dtp_DenNgay_Luong.Value;
-                                 }
-                                 else
-                                 {
-
-                                     newrow["den_ngay"] = DBNull.Value;
-                                 }
-
-                                 newrow["tuyen_dung_id"] = Convert.ToInt32(comb_MaTuyenDung.SelectedValue);
-                                 newrow["luong_id"] = DBNull.Value;
-
-                                 dtLuong.Rows.Add(newrow);
-
-                                 MessageBox.Show("Thêm thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                                 ChangePCButtonImage(true);
-                                 comB_LoaiPhuCap.Enabled = false;
-                                 EnablePCObjects(false);
-
-                                 txt_TienPC.Enabled = txt_HeSoPC.Enabled = nup_Value_PhanTramPC.Enabled = false;
-
-
-                             }
-                             catch (ArgumentException)
-                             {
-                                 MessageBox.Show("Thông tin ngày hưởng lương chưa phù hợp, xin vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                             }
-                             catch (Exception)
-                             {
-                                 MessageBox.Show("Thông tin lương  chưa phù hợp, xin vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                             }
-
-
-                         }
-                         #endregion
-                     }
-                     else       // sua 
-                     {
-                         #region Sua
-
-                         if (MessageBox.Show("Bạn thực sự muốn sửa thông tin lương cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                         {
-                             try
-                             {
-                                 int id = Convert.ToInt16(dtgv_Luong.SelectedRows[0].Cells["tuyen_dung_id"].Value);
-
-                                 DataRow r = dtLuong.Select("tuyen_dung_id = " + id).First();
-
-                                 r["khoan_or_heso"] = comb_Luong.Text;
-                                 if (comb_Luong.Text == "Khoán")
-                                 {
-                                     r["luong_khoan"] = Convert.ToDecimal(txt_Tien.Text);
-                                     r["ten_ngach"] = DBNull.Value;
-                                     r["bac"] = DBNull.Value;
-                                     r["he_so"] = DBNull.Value;
-                                     r["ma_ngach"] = DBNull.Value;
-                                     r["ngach_bac_heso_id"] = DBNull.Value;
-                                 }
-                                 else
-                                 {
-                                     r["luong_khoan"] = DBNull.Value;
-                                     r["ten_ngach"] = dtBacHeSo.Select("id = " + comb_Bac.SelectedValue).First()["ten_ngach"];
-                                     r["bac"] = comb_Bac.Text;
-                                     r["he_so"] = txt_HeSo.Text;
-                                     r["ma_ngach"] = comb_Ngach.Text;
-                                     r["ngach_bac_heso_id"] = Convert.ToInt32(comb_Bac.SelectedValue);
-                                 }
-
-                                 r["phan_tram_huong"] = nup_PhanTram.Value;
-                                 r["tu_ngay"] = dtp_TuNgay_Luong.Value;
-
-                                 if (dtp_DenNgay_Luong.Checked)
-                                 {
-                                     if (dtp_DenNgay_Luong.Value < dtp_TuNgay_Luong.Value)
-                                         throw new ArgumentException();
-                                     r["den_ngay"] = dtp_DenNgay_Luong.Value;
-                                 }
-                                 else
-                                     r["den_ngay"] = DBNull.Value;
-
-
-                                 MessageBox.Show("Sửa thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                 EnableLuongObjects(false);
-                                 ChangeLuongButtonImage(true);
-                                 Clear_Luong_Interface();
-                             }
-                             catch (ArgumentException)
-                             {
-                                 MessageBox.Show("Thông tin ngày hưởng lương chưa phù hợp, xin vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                             }
-                             catch (Exception)
-                             {
-                                 MessageBox.Show("Thông tin lương chưa phù hợp, xin vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                             }
-                         }
-                         #endregion
-                     }
-                     
-                     
-                 }
              }
+             else // save
+             {
+                 if (bAddLuong)
+                 {
+                     #region Them
+
+                     if (!dtp_DenNgay_Luong.Checked)
+                     {
+                         MessageBox.Show("Thông tin ngày hết hạn hưởng lương chưa được chọn, NV này sẽ được hưởng lương vĩnh viễn.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                     }
+
+                     if (MessageBox.Show("Bạn thực sự muốn thêm thông tin lương cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                     {
+                         try
+                         {
+                             DataRow newrow = dtLuong.NewRow();
+
+                             newrow["khoan_or_heso"] = comb_Luong.Text;
+                             if (comb_Luong.Text == "Khoán")
+                             {
+                                 newrow["luong_khoan"] = Convert.ToDecimal(txt_Tien.Text);
+                                 newrow["ten_ngach"] = DBNull.Value;
+                                 newrow["bac"] = DBNull.Value;
+                                 newrow["he_so"] = DBNull.Value;
+                                 newrow["ma_ngach"] = DBNull.Value;
+                                 newrow["ngach_bac_heso_id"] = DBNull.Value;
+                             }
+                             else
+                             {
+                                 newrow["luong_khoan"] = DBNull.Value;
+                                 newrow["ten_ngach"] = dtBacHeSo.Select("id = " + comb_Bac.SelectedValue).First()["ten_ngach"];
+                                 newrow["bac"] = comb_Bac.Text;
+                                 newrow["he_so"] = txt_HeSo.Text;
+                                 newrow["ma_ngach"] = comb_Ngach.Text;
+                                 newrow["ngach_bac_heso_id"] = Convert.ToInt32(comb_Bac.SelectedValue);
+                             }
+
+                             newrow["phan_tram_huong"] = nup_PhanTram.Value;
+                             newrow["tu_ngay"] = dtp_TuNgay_Luong.Value;
+
+                             newrow["ngay_ky"] = dtp_NgayKyHD.Value;
+                             newrow["ngay_hieu_luc"] = dtp_NgayBatDauHD.Value;
+
+                             if (dtp_NgayKetThucHD.Checked)
+                             {
+                                 newrow["ngay_het_han_td"] = dtp_NgayKetThucHD.Value;
+                             }
+                             else
+                             {
+
+                                 newrow["ngay_het_han_td"] = DBNull.Value;
+                             }
+
+                             if (dtp_DenNgay_Luong.Checked)
+                             {
+                                 if (dtp_DenNgay_Luong.Value < dtp_TuNgay_Luong.Value)
+                                     throw new ArgumentException();
+                                 newrow["den_ngay"] = dtp_DenNgay_Luong.Value;
+                             }
+                             else
+                             {
+
+                                 newrow["den_ngay"] = DBNull.Value;
+                             }
+
+                             newrow["tuyen_dung_id"] = Convert.ToInt32(comb_MaTuyenDung.SelectedValue);
+                             newrow["luong_id"] = DBNull.Value;
+                             newrow["den_ngay_adj_is_null"] = true;
+
+                             dtLuong.Rows.Add(newrow);
+
+                             MessageBox.Show("Thêm thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                             ChangeLuongButtonImage(true);
+                             comb_MaTuyenDung.Enabled = false;
+                             EnableLuongObjects(false);
+
+
+                         }
+                         catch (ArgumentException)
+                         {
+                             MessageBox.Show("Thông tin ngày hưởng lương chưa phù hợp, xin vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                         }
+                         catch (Exception)
+                         {
+                             MessageBox.Show("Thông tin lương  chưa phù hợp, xin vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                         }
+
+
+                     }
+                     #endregion
+                 }
+                 else       // sua 
+                 {
+                     #region Sua
+
+                     if (MessageBox.Show("Bạn thực sự muốn sửa thông tin lương cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                     {
+                         try
+                         {
+                             int id = Convert.ToInt16(dtgv_Luong.SelectedRows[0].Cells["tuyen_dung_id"].Value);
+
+                             DataRow r = dtLuong.Select("tuyen_dung_id = " + id).First();
+
+                             r["khoan_or_heso"] = comb_Luong.Text;
+                             if (comb_Luong.Text == "Khoán")
+                             {
+                                 r["luong_khoan"] = Convert.ToDecimal(txt_Tien.Text);
+                                 r["ten_ngach"] = DBNull.Value;
+                                 r["bac"] = DBNull.Value;
+                                 r["he_so"] = DBNull.Value;
+                                 r["ma_ngach"] = DBNull.Value;
+                                 r["ngach_bac_heso_id"] = DBNull.Value;
+                             }
+                             else
+                             {
+                                 r["luong_khoan"] = DBNull.Value;
+                                 r["ten_ngach"] = dtBacHeSo.Select("id = " + comb_Bac.SelectedValue).First()["ten_ngach"];
+                                 r["bac"] = comb_Bac.Text;
+                                 r["he_so"] = txt_HeSo.Text;
+                                 r["ma_ngach"] = comb_Ngach.Text;
+                                 r["ngach_bac_heso_id"] = Convert.ToInt32(comb_Bac.SelectedValue);
+                             }
+
+                             r["phan_tram_huong"] = nup_PhanTram.Value;
+                             r["tu_ngay"] = dtp_TuNgay_Luong.Value;
+
+                             if (dtp_DenNgay_Luong.Checked)
+                             {
+                                 if (dtp_DenNgay_Luong.Value < dtp_TuNgay_Luong.Value)
+                                     throw new ArgumentException();
+                                 r["den_ngay"] = dtp_DenNgay_Luong.Value;
+                             }
+                             else
+                                 r["den_ngay"] = DBNull.Value;
+
+
+                             MessageBox.Show("Sửa thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                             EnableLuongObjects(false);
+                             ChangeLuongButtonImage(true);
+                             Clear_Luong_Interface();
+                         }
+                         catch (ArgumentException)
+                         {
+                             MessageBox.Show("Thông tin ngày hưởng lương chưa phù hợp, xin vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                         }
+                         catch (Exception)
+                         {
+                             MessageBox.Show("Thông tin lương chưa phù hợp, xin vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                         }
+                     }
+                     #endregion
+                 }
+
+
+             }
+             
              
          }
 
@@ -1141,7 +1162,16 @@ namespace HDQD.UCs
                                      den_ngay[i] = Convert.ToDateTime("01/01/1901").Date;
 
                                  tuyen_dung_id[i] = Convert.ToInt32(r["tuyen_dung_id"]);
-                                 luong_id[i] = Convert.ToInt32(r["luong_id"]);
+
+                                 if (Convert.ToString(r["luong_id"]) == "")
+                                 {
+                                     luong_id[i] = null;
+                                 }
+                                 else
+                                 {
+                                     luong_id[i] = Convert.ToInt32(r["luong_id"]);
+                                 }
+                                 
 
                                  if (r["ngach_bac_heso_id"] != DBNull.Value)
                                  {
@@ -1278,6 +1308,10 @@ namespace HDQD.UCs
              Clear_PC_Interface();
              Clear_QD_Interface();
              Clear_NV_Interface();
+
+             dtgv_Luong.DataSource = null;
+             dtgv_DSPhuCap.DataSource = null;
+
          }
 
          private void btn_NhapFile_Click(object sender, EventArgs e)
@@ -1386,29 +1420,33 @@ namespace HDQD.UCs
 
          private void comb_MaTuyenDung_SelectedIndexChanged(object sender, EventArgs e)
          {
-             if (bAddLuong == true && comb_MaTuyenDung.Enabled == true)
+             if (bLoad_MaHD_Complete)
              {
-                 dtp_NgayKyHD.Value = Convert.ToDateTime((from c in dtLuong.AsEnumerable()
-                                                  where c.Field<string>("ma_tuyen_dung") == comb_MaTuyenDung.Text
-                                                  select c.Field<DateTime>("ngay_ky")).ElementAt(0).ToString());
-
-                 dtp_NgayBatDauHD.Value = Convert.ToDateTime((from c in dtLuong.AsEnumerable()
-                                                          where c.Field<string>("ma_tuyen_dung") == comb_MaTuyenDung.Text
-                                                              select c.Field<DateTime>("ngay_hieu_luc")).ElementAt(0).ToString());
-
-                 string dt = (from c in dtLuong.AsEnumerable()
-                                                    where c.Field<string>("ma_tuyen_dung") == comb_MaTuyenDung.Text
-                                                    select c.Field<string>("ngay_het_han_td")).ElementAt(0);
-
-                 if (dt != null && dt != "")
+                 if (dtLuong.Rows.Count >0)
                  {
-                     dtp_NgayKetThucHD.Value = Convert.ToDateTime(dt);
-                     dtp_NgayKetThucHD.Checked = true;
+                     dtp_NgayKyHD.Value = Convert.ToDateTime((from c in dtLuong.AsEnumerable()
+                                                              where c.Field<string>("ma_tuyen_dung") == comb_MaTuyenDung.Text
+                                                              select c.Field<DateTime>("ngay_ky")).ElementAt(0).ToString());
+
+                     dtp_NgayBatDauHD.Value = Convert.ToDateTime((from c in dtLuong.AsEnumerable()
+                                                                  where c.Field<string>("ma_tuyen_dung") == comb_MaTuyenDung.Text
+                                                                  select c.Field<DateTime>("ngay_hieu_luc")).ElementAt(0).ToString());
+
+                     DateTime? dt = (from c in dtLuong.AsEnumerable()
+                                     where c.Field<string>("ma_tuyen_dung") == comb_MaTuyenDung.Text
+                                     select c.Field<DateTime?>("ngay_het_han_td")).ElementAt(0);
+
+                     if (dt != null)
+                     {
+                         dtp_NgayKetThucHD.Value = Convert.ToDateTime(dt);
+                         dtp_NgayKetThucHD.Checked = true;
+                     }
+                     else
+                     {
+                         dtp_NgayKetThucHD.Checked = false;
+                     }
                  }
-                 else
-                 {
-                     dtp_NgayKetThucHD.Checked = false;
-                 }
+                 
 
              }
 
