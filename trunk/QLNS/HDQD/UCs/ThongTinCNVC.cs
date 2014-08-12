@@ -19,6 +19,11 @@ namespace HDQD.UCs
         public static string strHo, strTen;
         DataTable dtDonViChucVu;
         DataTable dtCNVC;
+        bool b_SearchQtrCtacOu = false;
+        Business.CNVC.CNVC_QTr_CongTac_OU oQtrCtacOU;
+        public DataTable dtDSQtrCTac;
+        HDQD.UCs.DieuDong oDieuDong;
+
         public ThongTinCNVC()
         {
             InitializeComponent();
@@ -26,8 +31,41 @@ namespace HDQD.UCs
             dtCNVC = new DataTable();
         }
 
+        public void Set_IsSearchQtrCtac(bool p_IsSearchQtrCtac, HDQD.UCs.DieuDong p_DieuDong)
+        {
+            oQtrCtacOU = new Business.CNVC.CNVC_QTr_CongTac_OU();
+            oDieuDong = p_DieuDong;
+            dtDSQtrCTac = new DataTable();
+            b_SearchQtrCtacOu = p_IsSearchQtrCtac;
+        }
+
         private void btn_Tim_Click(object sender, EventArgs e)
         {
+
+            if (b_SearchQtrCtacOu == true && oQtrCtacOU != null)
+            {
+                try
+                {
+                    oQtrCtacOU.MaNV = txt_MaNV.Text;
+                    dtDSQtrCTac = oQtrCtacOU.GetData();
+                    oDieuDong.Fill_QtrCtacGridview(dtDSQtrCTac);
+
+                    //if (dtDSQtrCTac.Rows.Count > 0)
+                    //{
+                    //    //fill data into Qtr Ctac gridview
+                    //    oDieuDong.Fill_QtrCtacGridview(dtDSQtrCTac);
+                    //}
+                    //else
+                    //{ 
+                    //    //Not found data
+                    //    MessageBox.Show("Không tìm thấy quá trình công tác cho nhân viên được chọn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    //}
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Có lỗi xảy ra.\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
 
             //if (!string.IsNullOrWhiteSpace(txt_Ho.Text) && !string.IsNullOrWhiteSpace(txt_Ten.Text))
             //{

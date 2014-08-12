@@ -15,19 +15,318 @@ namespace HDQD.UCs
         Business.FTP oFTP;
         DonVi oDonVi;
         ChucVu oChucVu;
+        ChucDanh oChucDanh;
         Business.HDQD.KiemNhiem oKiemNhiem;
+        Business.CNVC.CNVC_QTr_CongTac_OU oQtrCTacOU;
         string strLoaiQD = "Bổ nhiệm";  // moi lan thay doi combo loai QD se set value cho bien nay, default la Bo nhiem
         public static string strMaNVOld, strHoOld, strTenOld; // gia tri ho ten luc moi tim, dung de so sanh khi nhap phong TH ng dung sua thong tin sau khi tim duoc cnvc
                                                                 // se duoc gan khi double click nv o gridview ds
+        DataTable dtDSDieuDong;
+        int row_count_dd = 0;
+
         public DieuDong()
         {
             InitializeComponent();
             oDonVi = new DonVi();
             oChucVu = new ChucVu();
-            oKiemNhiem = new Business.HDQD.KiemNhiem();
+            oChucDanh = new ChucDanh();
+            //oKiemNhiem = new Business.HDQD.KiemNhiem();
             oFTP = new Business.FTP();
+            InitObjects();
         }
+
+        private void InitObjects()
+        {
+            oQtrCTacOU = new Business.CNVC.CNVC_QTr_CongTac_OU();
+            thongTinCNVC1.Set_IsSearchQtrCtac(true, this);
+            PrepareSourceLoaiQuyetDinh();
+            PrepareDataTableDSDieuDong();
+            PreapreDataSource();
+        }
+
+        public void Fill_QtrCtacGridview(DataTable p_DSQtrCtac)
+        {
+            try
+            {
+                if (p_DSQtrCtac.Rows.Count > 0)
+                {
+                    dtg_DSQtrCtac.DataSource = p_DSQtrCtac;
+                    
+                    EditDtgInterface();
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy quá trình công tác cho nhân viên được chọn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    dtg_DSQtrCtac.DataSource = null;
+                    dtg_DSQtrCtac.Rows.Clear();
+                    //dtg_DSQtrCtac.Refresh();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi xảy ra.\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         
+
+        private void btn_Nhap_Click(object sender, EventArgs e)
+        {
+            if (CheckInputData())
+            {
+                try
+                {
+                    oKiemNhiem = new Business.HDQD.KiemNhiem();
+                    oKiemNhiem.MaQuyetDinh = thongTinQuyetDinh1.txt_MaQD.Text.Trim();
+                    oKiemNhiem.Ten = thongTinQuyetDinh1.txt_TenQD.Text.Trim();
+                    oKiemNhiem.LoaiQuyetDinh = Convert.ToInt32(thongTinQuyetDinh1.comB_Loai.SelectedValue.ToString());
+                    oKiemNhiem.NgayKy = thongTinQuyetDinh1.dTP_NgayKy.Value;
+                    oKiemNhiem.NgayHieuLucQD = thongTinQuyetDinh1.dTP_NgayHieuLuc.Value;
+                    if (thongTinQuyetDinh1.dTP_NgayHetHan.Checked)
+                        oKiemNhiem.NgayHetHanQD = thongTinQuyetDinh1.dTP_NgayHetHan.Value;
+                    else
+                        oKiemNhiem.NgayHetHanQD = null;
+                    oKiemNhiem.MoTa = thongTinQuyetDinh1.rTB_MoTa.Text.Trim();
+                    oKiemNhiem.Path = null;
+
+                    #region Dieu Dong Cong Tac
+                    List<int> qtr_ctac_id = new List<int>();
+                    List<string> ma_nv = new List<string>();
+                    List<int> don_vi_id = new List<int>();
+                    List<int> chuc_vu_id = new List<int>();
+                    List<int> chuc_danh_id = new List<int>();
+                    List<DateTime> tu_ngay = new List<DateTime>();
+                    List<DateTime> den_ngay = new List<DateTime>();
+
+                    foreach (DataRow dr in dtDSDieuDong.Rows)
+                    {
+                        qtr_ctac_id.Add(Convert.ToInt32(dr["qtr_ctac_id"].ToString()));
+                        ma_nv.Add(dr["ma_nv"].ToString());
+                        don_vi_id.Add(Convert.ToInt32(dr["don_vi_id"].ToString()));
+                        chuc_vu_id.Add(Convert.ToInt32(dr["chuc_vu_id"].ToString()));
+                        chuc_danh_id.Add(Convert.ToInt32(dr["chuc_danh_id"].ToString()));
+
+                        tu_ngay.Add(Convert.ToDateTime(dr["tu_ngay"].ToString()).Date);
+
+                        if (dr["den_ngay"].ToString() == "")
+                            den_ngay.Add(Convert.ToDateTime("01/01/1901").Date);
+                        else
+                            den_ngay.Add(Convert.ToDateTime(dr["den_ngay"].ToString()).Date);
+                    }
+
+                    #endregion
+
+                    if (MessageBox.Show("Bạn thực sự muốn thêm quyết định điều động cho (các) nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        if (oKiemNhiem.AddDieuDong(qtr_ctac_id.ToArray(), ma_nv.ToArray(), don_vi_id.ToArray(), chuc_vu_id.ToArray(), chuc_danh_id.ToArray(), tu_ngay.ToArray(), den_ngay.ToArray()))
+                        {
+                            MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //ResetInterface();
+                        }
+                        else
+                            MessageBox.Show("Thao tác thêm thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Có lỗi xảy ra.\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        #region Private methods
+        private bool CheckInputData()
+        {
+            if (!String.IsNullOrEmpty(thongTinQuyetDinh1.txt_MaQD.Text))
+                return true;
+            else
+                return false;
+        }
+        private void PrepareSourceLoaiQuyetDinh()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("loai_quyet_dinh_id", typeof(int));
+            dt.Columns.Add("ten_loai_quyet_dinh", typeof(string));
+
+            //dt.Rows.Add(new object[2] { 1, "Bổ nhiệm" });
+            //dt.Rows.Add(new object[2] { 2, "Kiêm nhiệm" });
+            dt.Rows.Add(new object[2] { 3, "Điều động" });
+
+            thongTinQuyetDinh1.comB_Loai.DataSource = dt;
+            thongTinQuyetDinh1.comB_Loai.DisplayMember = "ten_loai_quyet_dinh";
+            thongTinQuyetDinh1.comB_Loai.ValueMember = "loai_quyet_dinh_id";
+        }
+
+        private void EditDtgInterface()
+        {
+            // Dat ten cho cac cot
+            dtg_DSQtrCtac.Columns["ma_hd_display"].HeaderText = "Mã hợp đồng";
+            dtg_DSQtrCtac.Columns["ma_qd_display"].HeaderText = "Mã quyết định";
+            dtg_DSQtrCtac.Columns["don_vi"].HeaderText = "Đơn vị";
+            dtg_DSQtrCtac.Columns["don_vi"].Width = 200;
+            dtg_DSQtrCtac.Columns["chuc_danh"].HeaderText = "Chức danh";
+            dtg_DSQtrCtac.Columns["chuc_vu"].HeaderText = "Chức vụ";
+            dtg_DSQtrCtac.Columns["tu_thoi_gian"].HeaderText = "Từ ngày";
+            dtg_DSQtrCtac.Columns["den_thoi_gian"].HeaderText = "Đến ngày";
+            dtg_DSQtrCtac.Columns["tinh_trang"].HeaderText = "Tình trạng";
+
+            // An dtgv_DSLoaiQD ID
+            dtg_DSQtrCtac.Columns["id"].Visible = false;
+            dtg_DSQtrCtac.Columns["ma_hop_dong"].Visible = false;
+            dtg_DSQtrCtac.Columns["ma_quyet_dinh"].Visible = false;
+            dtg_DSQtrCtac.Columns["ma_nv"].Visible = false;
+            dtg_DSQtrCtac.Columns["don_vi_id"].Visible = false;
+            dtg_DSQtrCtac.Columns["chuc_danh_id"].Visible = false;
+            dtg_DSQtrCtac.Columns["chuc_vu_id"].Visible = false;
+        }
+
+        private void PrepareDataTableDSDieuDong()
+        {
+            dtDSDieuDong = new DataTable();
+            row_count_dd = 0;
+            dtDSDieuDong.Columns.Add("qtr_ctac_id", typeof(int));
+            dtDSDieuDong.Columns.Add("ma_nv", typeof(string));
+            dtDSDieuDong.Columns.Add("ho_ten", typeof(string));
+            dtDSDieuDong.Columns.Add("don_vi_id", typeof(int));
+            dtDSDieuDong.Columns.Add("don_vi", typeof(string));
+            dtDSDieuDong.Columns.Add("chuc_vu_id", typeof(int));
+            dtDSDieuDong.Columns.Add("chuc_vu", typeof(string));
+            dtDSDieuDong.Columns.Add("chuc_danh_id", typeof(int));
+            dtDSDieuDong.Columns.Add("chuc_danh", typeof(string));
+            dtDSDieuDong.Columns.Add("tu_ngay", typeof(DateTime));
+            dtDSDieuDong.Columns.Add("den_ngay", typeof(DateTime));
+        }
+
+        private void PrepareDTGVSource(DataTable dt)
+        {
+            BindingSource bs = new BindingSource();
+            bs.DataSource = dt;
+            dtgv_DS.DataSource = bs;
+            EditDtgInterface_DSDieuDong();
+        }
+
+        private void EditDtgInterface_DSDieuDong()
+        {
+            // Dat ten cho cac cot
+            dtgv_DS.Columns["ma_nv"].HeaderText = "Mã nhân viên";
+            dtgv_DS.Columns["ho_ten"].HeaderText = "Họ tên";
+            dtgv_DS.Columns["don_vi"].HeaderText = "Đơn vị";
+            dtgv_DS.Columns["chuc_danh"].HeaderText = "Chức danh";
+            dtgv_DS.Columns["chuc_vu"].HeaderText = "Chức vụ";
+            dtgv_DS.Columns["tu_ngay"].HeaderText = "Từ ngày";
+            dtgv_DS.Columns["den_ngay"].HeaderText = "Đến ngày";
+
+            // An cac cot ID
+            dtgv_DS.Columns["qtr_ctac_id"].Visible = false;
+            dtgv_DS.Columns["don_vi_id"].Visible = false;
+            dtgv_DS.Columns["chuc_danh_id"].Visible = false;
+            dtgv_DS.Columns["chuc_vu_id"].Visible = false;
+        }
+
+        private void PreapreDataSource()
+        {
+            try
+            {
+                comB_ChucDanh.DataSource = oChucDanh.GetList();
+                comB_ChucDanh.DisplayMember = "ten_chuc_danh";
+                comB_ChucDanh.ValueMember = "id";
+
+                comB_ChucVu.DataSource = oChucVu.GetList();
+                comB_ChucVu.DisplayMember = "ten_chuc_vu";
+                comB_ChucVu.ValueMember = "id";
+
+                comB_DonVi.DataSource = oDonVi.GetActiveDonVi();
+                comB_DonVi.DisplayMember = "ten_don_vi";
+                comB_DonVi.ValueMember = "id";
+
+            }
+            catch (Exception)
+            {
+
+            }
+
+        }
+
+        #endregion
+
+        private void btn_Them_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //string tmp = dtg_DSQtrCtac.SelectedRows[0].Cells["id"].ToString();
+
+                oQtrCTacOU.ID = Convert.ToInt32(dtg_DSQtrCtac.SelectedRows[0].Cells["id"].Value.ToString());
+                if (oQtrCTacOU.CheckLatestQtrCtac() == true)
+                {
+                    DataRow dr = dtDSDieuDong.NewRow();
+                    dr["qtr_ctac_id"] = Convert.ToInt32(dtg_DSQtrCtac.SelectedRows[0].Cells["id"].Value.ToString());
+                    dr["ma_nv"] = dtg_DSQtrCtac.CurrentRow.Cells["ma_nv"].Value.ToString();
+                    dr["ho_ten"] = thongTinCNVC1.txt_Ho.Text.Trim() + " " + thongTinCNVC1.txt_Ten.Text.Trim();
+                    dr["don_vi_id"] = Convert.ToInt32(comB_DonVi.SelectedValue.ToString());
+                    dr["don_vi"] = comB_DonVi.Text;
+                    if (comB_ChucDanh.Text != "")
+                    {
+                        dr["chuc_danh_id"] = Convert.ToInt16(comB_ChucDanh.SelectedValue);
+                        dr["chuc_danh"] = comB_ChucDanh.Text;
+                    }
+                    else
+                    {
+                        dr["chuc_danh_id"] = -1;
+                        dr["chuc_danh"] = "";
+                    }
+
+                    if (comB_ChucVu.Text != "")
+                    {
+                        dr["chuc_vu_id"] = Convert.ToInt16(comB_ChucVu.SelectedValue);
+                        dr["chuc_vu"] = comB_ChucVu.Text;
+                    }
+                    else
+                    {
+                        dr["chuc_vu_id"] = -1;
+                        dr["chuc_vu"] = "";
+                    }
+
+                    dr["tu_ngay"] = dtp_TuNgayDD.Value;
+                    if (dtp_DenNgayDD.Checked == true)
+                        dr["den_ngay"] = dtp_DenNgayDD.Value;
+                    else
+                        dr["den_ngay"] = DBNull.Value;
+
+                    dtDSDieuDong.Rows.Add(dr);
+                    row_count_dd++;
+
+                    PrepareDTGVSource(dtDSDieuDong);
+                }
+                else
+                    MessageBox.Show("Không thể thực hiện quyết định điều động trên quá trình công tác này của nhân viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi xảy ra.\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void btn_Huy_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int select_row = Convert.ToInt16(dtgv_DS.CurrentRow.Cells["qtr_ctac_id"].Value.ToString());
+                DataRow[] drr = dtDSDieuDong.Select("qtr_ctac_id=" + select_row);
+                foreach (DataRow row in drr)
+                    row.Delete();
+
+                dtDSDieuDong.AcceptChanges();
+                PrepareDTGVSource(dtDSDieuDong);
+            }
+            catch
+            {
+                MessageBox.Show("Vui lòng chọn dòng dữ liệu cần xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
         #region Code cũ
         /*
         private bool CompareCNVCInfo()
