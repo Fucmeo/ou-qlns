@@ -81,7 +81,7 @@ namespace Business.HDQD
             get { return ngayhieulucqd; }
             set { ngayhieulucqd = value; }
         }
-
+        public DateTime NgayKy { get; set; }
 
         private DateTime? ngayhethanqd;
 
@@ -261,32 +261,64 @@ namespace Business.HDQD
                 return false;
         }
 
-        public bool AddDieuDong()
+        #region Backup
+        //public bool AddDieuDong()
+        //{
+        //    int check;
+        //    IDataParameter[] paras = new IDataParameter[22]{
+        //        new NpgsqlParameter("p_ma_nv",manv),
+        //        new NpgsqlParameter("ma_quyet_dinh",maquyetdinh + "_" + ngayhieulucqd.ToString("ddMMyyyy")),
+        //        new NpgsqlParameter("ten",ten),
+        //        new NpgsqlParameter("loai_quyet_dinh_id",loaiquyetdinh),
+        //        new NpgsqlParameter("mo_ta",mota),
+        //        new NpgsqlParameter("path",path),                
+        //        new NpgsqlParameter("path_mo_ta",pathmota),
+        //        new NpgsqlParameter("ngay_hieu_luc_qd",ngayhieulucqd),
+        //        new NpgsqlParameter("ngay_het_han_qd",ngayhethanqd),
+        //        new NpgsqlParameter("ngay_tao_qd",ngaytaoqd),
+        //        new NpgsqlParameter("loai_phu_cap_id",loaiphucap),
+        //        new NpgsqlParameter("phu_cap",phucap),
+        //        new NpgsqlParameter("heso_tienmat",heso_tienmat),
+        //        new NpgsqlParameter("ngay_bat_dau_pc",ngaybatdau.Select( a => a.ToString("d", CultureInfo.CreateSpecificCulture("en-NZ"))).ToArray()),  // format : mm/dd/yyyy),
+        //        new NpgsqlParameter("ngay_het_han_pc",ngayhethanpc.Select( a => a.ToString("d", CultureInfo.CreateSpecificCulture("en-NZ"))).ToArray()),  // format : mm/dd/yyyy),
+        //        new NpgsqlParameter("ngay_tao_pc",ngaytaopc.Select( a => a.ToString("d", CultureInfo.CreateSpecificCulture("en-NZ"))).ToArray()),  // format : mm/dd/yyyy),
+        //        new NpgsqlParameter("ghi_chu_pc",ghichu),
+        //        new NpgsqlParameter("tu_don_vi_id",tudonvi),
+        //        new NpgsqlParameter("tu_chuc_vu_id",tuchucvu),
+        //        new NpgsqlParameter("den_don_vi_id",dendonvi),
+        //        new NpgsqlParameter("den_chuc_vu_id",denchucvu),
+        //        new NpgsqlParameter("p_chuc_danh_id",chucdanh)
+        //    };
+        //    check = (int)dp.executeScalarProc("sp1_insert_dieu_dong", paras);
+        //    if (check > 0)
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //        return false;
+        //}
+        #endregion
+
+
+        public bool AddDieuDong(int[] p_qtr_ctac_id, string[] p_ma_nv, int[] p_don_vi_id, int[] p_chuc_vu_id, int[] p_chuc_danh_id, DateTime[] p_tu_ngay, DateTime[] p_den_ngay)
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[22]{
-                new NpgsqlParameter("p_ma_nv",manv),
-                new NpgsqlParameter("ma_quyet_dinh",maquyetdinh + "_" + ngayhieulucqd.ToString("ddMMyyyy")),
-                new NpgsqlParameter("ten",ten),
-                new NpgsqlParameter("loai_quyet_dinh_id",loaiquyetdinh),
-                new NpgsqlParameter("mo_ta",mota),
-                new NpgsqlParameter("path",path),                
-                new NpgsqlParameter("path_mo_ta",pathmota),
-                new NpgsqlParameter("ngay_hieu_luc_qd",ngayhieulucqd),
-                new NpgsqlParameter("ngay_het_han_qd",ngayhethanqd),
-                new NpgsqlParameter("ngay_tao_qd",ngaytaoqd),
-                new NpgsqlParameter("loai_phu_cap_id",loaiphucap),
-                new NpgsqlParameter("phu_cap",phucap),
-                new NpgsqlParameter("heso_tienmat",heso_tienmat),
-                new NpgsqlParameter("ngay_bat_dau_pc",ngaybatdau.Select( a => a.ToString("d", CultureInfo.CreateSpecificCulture("en-NZ"))).ToArray()),  // format : mm/dd/yyyy),
-                new NpgsqlParameter("ngay_het_han_pc",ngayhethanpc.Select( a => a.ToString("d", CultureInfo.CreateSpecificCulture("en-NZ"))).ToArray()),  // format : mm/dd/yyyy),
-                new NpgsqlParameter("ngay_tao_pc",ngaytaopc.Select( a => a.ToString("d", CultureInfo.CreateSpecificCulture("en-NZ"))).ToArray()),  // format : mm/dd/yyyy),
-                new NpgsqlParameter("ghi_chu_pc",ghichu),
-                new NpgsqlParameter("tu_don_vi_id",tudonvi),
-                new NpgsqlParameter("tu_chuc_vu_id",tuchucvu),
-                new NpgsqlParameter("den_don_vi_id",dendonvi),
-                new NpgsqlParameter("den_chuc_vu_id",denchucvu),
-                new NpgsqlParameter("p_chuc_danh_id",chucdanh)
+            IDataParameter[] paras = new IDataParameter[15]{
+                new NpgsqlParameter("p_ma_quyet_dinh",maquyetdinh + "_" + ngayhieulucqd.ToString("ddMMyyyy")),
+                new NpgsqlParameter("p_ten_quyet_dinh",ten),
+                new NpgsqlParameter("p_loai_qd",loaiquyetdinh),
+                new NpgsqlParameter("p_ngay_ky",NgayKy),
+                new NpgsqlParameter("p_ngay_hieu_luc",ngayhieulucqd),
+                new NpgsqlParameter("p_ngay_het_han",ngayhethanqd),
+                new NpgsqlParameter("p_mo_ta",mota),
+                new NpgsqlParameter("p_path",path),
+                new NpgsqlParameter("p_qtr_ctac_id",p_qtr_ctac_id),
+                new NpgsqlParameter("p_ma_nv",p_ma_nv),
+                new NpgsqlParameter("p_don_vi_id",p_don_vi_id),
+                new NpgsqlParameter("p_chuc_vu_id",p_chuc_vu_id),
+                new NpgsqlParameter("p_chuc_danh_id",p_chuc_danh_id),
+                new NpgsqlParameter("p_tu_ngay",p_tu_ngay),
+                new NpgsqlParameter("p_den_ngay",p_den_ngay)
             };
             check = (int)dp.executeScalarProc("sp1_insert_dieu_dong", paras);
             if (check > 0)
