@@ -244,6 +244,7 @@ namespace HDQD.UCs
                 comB_DonVi.DataSource = dtDonVi;
                 comB_DonVi.DisplayMember = "ten_don_vi";
                 comB_DonVi.ValueMember = "id";
+                Fill_Info_DonVi();
 
             }
             catch (Exception)
@@ -265,9 +266,17 @@ namespace HDQD.UCs
 
                 DataTable dt = ToDataTable(result);
 
-                //txt_DonViTrucThuoc.Text = dt.Rows[0]["ten_dv_cha"].ToString();
-                txt_TuNgay_DV.Text = Convert.ToDateTime(dt.Rows[0]["tu_ngay"].ToString()).ToString("d", CultureInfo.CreateSpecificCulture("vi-VN"));
-                txt_DenNgay_DV.Text = Convert.ToDateTime(dt.Rows[0]["den_ngay"].ToString()).ToString("d", CultureInfo.CreateSpecificCulture("vi-VN"));
+                txt_DonViTrucThuoc.Text = dt.Rows[0]["ten_dv_cha"].ToString();
+
+                if (dt.Rows[0]["tu_ngay"].ToString() != "")
+                    txt_TuNgay_DV.Text = Convert.ToDateTime(dt.Rows[0]["tu_ngay"].ToString()).ToString("d", CultureInfo.CreateSpecificCulture("vi-VN"));
+                else
+                    txt_TuNgay_DV.Text = "";
+
+                if (dt.Rows[0]["den_ngay"].ToString() != "")
+                    txt_DenNgay_DV.Text = Convert.ToDateTime(dt.Rows[0]["den_ngay"].ToString()).ToString("d", CultureInfo.CreateSpecificCulture("vi-VN"));
+                else
+                    txt_DenNgay_DV.Text = "";
 
             }
             catch { }
@@ -404,7 +413,7 @@ namespace HDQD.UCs
 
         private void comB_DonVi_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Fill_Info_DonVi();
+            Fill_Info_DonVi();
         }
 
         #region Code cũ
