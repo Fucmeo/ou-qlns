@@ -58,7 +58,7 @@ namespace Business.Luong
             return this.dp.getDataTableProc("sp2_cal_phucap_by_nv", commandParameters);
         }
 
-        public bool UpdateLuong_PC(string ma_nv, int[] tuyen_dung_id, string[] khoan_hs,
+        public bool UpdateLuong_PC(string ma_nv, int[] luong_id, int[] tuyen_dung_id, string[] khoan_hs,
                         string[] luong_khoan, string[] ngach_bac_hs_id,
                         string[] phan_tram_huong_luong, DateTime[] tu_ngay_luong, DateTime[] den_ngay_luong, 
                         bool[] den_ngay_adj_luong_is_null, int[] pc_id, int[] tuyen_dung_pc_id,
@@ -71,6 +71,7 @@ namespace Business.Luong
             IDataParameter[] commandParameters = new IDataParameter[] 
             { 
                 new NpgsqlParameter("p_ma_nv", ma_nv), 
+                new NpgsqlParameter("p_luong_id", luong_id), 
                 new NpgsqlParameter("p_tuyen_dung_luong_id", tuyen_dung_id), 
                 new NpgsqlParameter("p_khoan_or_heso_luong", khoan_hs), 
                 new NpgsqlParameter("p_luong_khoan", luong_khoan), 
