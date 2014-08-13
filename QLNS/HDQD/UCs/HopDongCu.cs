@@ -190,8 +190,15 @@ namespace HDQD.UCs
                 DataTable dt = ToDataTable(result);
 
                 txt_DonViTrucThuoc.Text = dt.Rows[0]["ten_dv_cha"].ToString();
-                txt_TuNgay_DV.Text = Convert.ToDateTime(dt.Rows[0]["tu_ngay"].ToString()).ToString("d", CultureInfo.CreateSpecificCulture("vi-VN"));
-                txt_DenNgay_DV.Text = Convert.ToDateTime(dt.Rows[0]["den_ngay"].ToString()).ToString("d", CultureInfo.CreateSpecificCulture("vi-VN"));
+                if (dt.Rows[0]["tu_ngay"].ToString() != "")
+                    txt_TuNgay_DV.Text = Convert.ToDateTime(dt.Rows[0]["tu_ngay"].ToString()).ToString("d", CultureInfo.CreateSpecificCulture("vi-VN"));
+                else
+                    txt_TuNgay_DV.Text = "";
+
+                if (dt.Rows[0]["den_ngay"].ToString() != "")
+                    txt_DenNgay_DV.Text = Convert.ToDateTime(dt.Rows[0]["den_ngay"].ToString()).ToString("d", CultureInfo.CreateSpecificCulture("vi-VN"));
+                else
+                    txt_DenNgay_DV.Text = "";
 
             }
             catch { }
