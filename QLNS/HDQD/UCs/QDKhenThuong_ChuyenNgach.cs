@@ -1138,7 +1138,7 @@ namespace HDQD.UCs
                              DateTime[] tu_ngay = new DateTime[Luong_Rows];
                              DateTime[] den_ngay = new DateTime[Luong_Rows];
                              int[] tuyen_dung_id = new int[Luong_Rows];
-                             int?[] luong_id = new int?[Luong_Rows];
+                             int[] luong_id = new int[Luong_Rows];
                              string[] ngach_bac_heso_id = new string[Luong_Rows];
                              bool[] den_ngay_adj_is_null = new bool[Luong_Rows];
                              string ma_nv = thongTinCNVC1.txt_MaNV.Text;
@@ -1165,7 +1165,7 @@ namespace HDQD.UCs
 
                                  if (Convert.ToString(r["luong_id"]) == "")
                                  {
-                                     luong_id[i] = null;
+                                     luong_id[i] = -1;
                                  }
                                  else
                                  {
