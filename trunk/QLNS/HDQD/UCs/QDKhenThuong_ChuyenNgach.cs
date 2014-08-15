@@ -16,7 +16,7 @@ namespace HDQD.UCs
     {
         bool bAddPC; // de phan biet dang add hay edit PC
         bool bAddLuong; // de phan biet dang add hay edit Luong
-        bool bLoad_Luong_Complete , bLoad_PC_Complete , bLoad_MaHD_Complete; 
+        bool bLoad_Luong_Complete, bLoad_PC_Complete, bLoad_MaHD_Complete, bLoad_MaHD_PC_Complete; 
         
 
         Business.HDQD.LoaiPhuCap oLoaiPC;
@@ -43,6 +43,23 @@ namespace HDQD.UCs
         {
             InitializeComponent();
 		}
+
+         private void InitObject_AfterSaving()
+         {
+
+             oTinhLuong = new Business.Luong.TinhLuong();
+             oFTP = new Business.FTP();
+             oFile = new Business.CNVC.CNVC_File();
+             oBacHeSo = new Business.Luong.BacHeSo();
+             dtFile = new DataTable();
+             oLoaiPC = new Business.HDQD.LoaiPhuCap();
+             dtPhuCap = new DataTable();
+             dtLuong = new DataTable();
+             oLoaiQuyetDinh = new Business.HDQD.LoaiQuyetDinh();
+
+             bAddPC = bAddLuong = bLoad_Luong_Complete = bLoad_PC_Complete = false;
+
+         }
 
          private void InitObject()
          {
@@ -77,7 +94,13 @@ namespace HDQD.UCs
                      GetThongTin_PC();
 
                      LoadCombo_MaHD();
+                     LoadCombo_MaHD_PC();
+
+                     comb_MaTuyenDung.DataSource = null;
+                     comb_MaHD_PC.DataSource = null;
                  }
+
+
              }
          }
 
@@ -122,6 +145,10 @@ namespace HDQD.UCs
              dtgv_DSPhuCap.Columns["ten_loai"].HeaderText = "Tên loại phụ cấp";
              dtgv_DSPhuCap.Columns["chuoi_cong_thuc_text"].HeaderText = "Công thức";
 
+             dtgv_DSPhuCap.Columns["ngay_ky"].HeaderText = "Ngày ký HĐ";
+             dtgv_DSPhuCap.Columns["ngay_hieu_luc"].HeaderText = "Ngày bắt đầu HĐ";
+             dtgv_DSPhuCap.Columns["ngay_het_han_td"].HeaderText = "Ngày hết hạn HĐ";
+
              dtgv_DSPhuCap.Columns["pc_id"].Visible =
                  dtgv_DSPhuCap.Columns["cnvc_tuyen_dung_id"].Visible =
                  dtgv_DSPhuCap.Columns["loai_pc_id"].Visible =
@@ -161,6 +188,34 @@ namespace HDQD.UCs
              catch (Exception)
              {
                  MessageBox.Show("Không thể lấy thông tin phụ cấp của nhân viên này, xin vui lòng thử lại sau.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+             }
+         }
+
+         void LoadCombo_MaHD_PC()
+         {
+             try
+             {
+                 if (dtPhuCap.Rows.Count > 0)
+                 {
+                     bLoad_MaHD_PC_Complete = false;
+                     DataTable dtMaHD_PC = dtPhuCap.AsDataView().ToTable(true, new string[2] { "ma_tuyen_dung", "cnvc_tuyen_dung_id" });
+
+                     comb_MaHD_PC.DataSource = dtMaHD_PC;
+                     comb_MaHD_PC.DisplayMember = "ma_tuyen_dung";
+                     comb_MaHD_PC.ValueMember = "cnvc_tuyen_dung_id";
+                     bLoad_MaHD_PC_Complete = true;
+                     if (dtMaHD_PC.Rows.Count > 0)
+                     {
+                         comb_MaHD_PC.SelectedIndex = -1;
+                         comb_MaHD_PC.SelectedIndex = 0;
+
+                     }
+                 }
+
+             }
+             catch (Exception)
+             {
+
              }
          }
 
@@ -568,6 +623,11 @@ namespace HDQD.UCs
                  {
                      #region Sua
 
+                     if (!dtp_DenNgay_Luong.Checked)
+                     {
+                         MessageBox.Show("Thông tin ngày hết hạn hưởng lương chưa được chọn, NV này sẽ được hưởng lương vĩnh viễn.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                     }
+
                      if (MessageBox.Show("Bạn thực sự muốn sửa thông tin lương cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                      {
                          try
@@ -685,6 +745,11 @@ namespace HDQD.UCs
                  {
                      #region Adding
 
+                     if (!dTP_NgayHetHanPC.Checked)
+                     {
+                         MessageBox.Show("Thông tin ngày hết hạn hưởng phụ cấp chưa được chọn, NV này sẽ được hưởng phụ cấp vĩnh viễn.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                     }
+
                      if (MessageBox.Show("Bạn thực sự muốn thêm thông tin phụ cấp cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                      {
                          try
@@ -706,6 +771,21 @@ namespace HDQD.UCs
                              newrow["phan_tram_huong"] = nup_PhanTramPC.Value;
                              newrow["ghi_chu"] = rTB_GhiChuPC.Text;
                              newrow["p_den_ngay_adj_pc_is_null"] = false;
+
+                             newrow["ma_tuyen_dung"] = comb_MaHD_PC.Text;
+                             newrow["cnvc_tuyen_dung_id"] = Convert.ToInt32(comb_MaHD_PC.SelectedValue);
+                             newrow["ngay_ky"] = dtp_NgayKyHD_PC.Value;
+                             newrow["ngay_hieu_luc"] = dtp_NgayBatDauHD_PC.Value;
+
+                             if (dtp_NgayKetThucHD_PC.Checked)
+                             {
+                                 newrow["ngay_het_han_td"] = dtp_NgayKetThucHD_PC.Value;
+                             }
+                             else
+                             {
+
+                                 newrow["ngay_het_han_td"] = DBNull.Value;
+                             }
 
                              int id = Convert.ToInt16(comB_LoaiPhuCap.SelectedValue.ToString());
 
@@ -745,6 +825,7 @@ namespace HDQD.UCs
                              
                              ChangePCButtonImage(true);
                              comB_LoaiPhuCap.Enabled = false;
+                             comb_MaHD_PC.Enabled = false;
                              EnablePCObjects(false);
 
                              txt_TienPC.Enabled = txt_HeSoPC.Enabled = nup_Value_PhanTramPC.Enabled = false;
@@ -766,6 +847,11 @@ namespace HDQD.UCs
                  else // Edit
                  {
                      #region Edit
+                     if (!dTP_NgayHetHanPC.Checked)
+                     {
+                         MessageBox.Show("Thông tin ngày hết hạn hưởng phụ cấp chưa được chọn, NV này sẽ được hưởng phụ cấp vĩnh viễn.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                     }
+
                      if (MessageBox.Show("Bạn thực sự muốn sửa thông tin phụ cấp cho nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                      {
                          try
@@ -875,6 +961,7 @@ namespace HDQD.UCs
                  EnablePCObjects(false);
                  ChangePCButtonImage(true);
                  comB_LoaiPhuCap.Enabled = false;
+                 comb_MaHD_PC.Enabled = false;
 
                  txt_TienPC.Enabled = txt_HeSoPC.Enabled = nup_Value_PhanTramPC.Enabled = false;
              }
@@ -889,7 +976,13 @@ namespace HDQD.UCs
                  bAddPC = true;
 
                  comB_LoaiPhuCap.Enabled = true;
+                 comb_MaHD_PC.Enabled = true;
                  Clear_PC_Interface();
+
+                 if (comb_MaHD_PC.Items.Count > 0)
+                 {
+                     comb_MaHD_PC.SelectedIndex = 0;
+                 }
              }
 
          }
@@ -977,6 +1070,20 @@ namespace HDQD.UCs
                              txt_TienPC.Text = Convert.ToDouble(txt_TienPC.Text.Replace(",", "")).ToString("#,#");
 
                          rTB_GhiChuPC.Text = r.Cells["ghi_chu"].Value.ToString();
+
+                         dtp_NgayKyHD_PC.Value = Convert.ToDateTime(r.Cells["ngay_ky"].Value);
+                         dtp_NgayBatDauHD_PC.Value = Convert.ToDateTime(r.Cells["ngay_hieu_luc"].Value);
+                         comb_MaHD_PC.Text = r.Cells["ma_tuyen_dung"].Value.ToString();
+
+                         if (r.Cells["ngay_het_han_td"].Value.ToString() != "")
+                         {
+                             dtp_NgayKetThucHD_PC.Checked = true;
+                             dtp_NgayKetThucHD_PC.Value = Convert.ToDateTime(r.Cells["ngay_het_han_td"].Value);
+                         }
+                         else
+                         {
+                             dtp_NgayKetThucHD_PC.Checked = false;
+                         }
 
                          if (r.Cells["phan_tram_huong"].Value != DBNull.Value)
                          {
@@ -1237,7 +1344,16 @@ namespace HDQD.UCs
                                  ghi_chu[i] = r["ghi_chu"].ToString();
 
                                  loai_pc_id[i] = Convert.ToInt32(r["loai_pc_id"]);
-                                 pc_id[i] = Convert.ToInt32(r["pc_id"]);
+
+                                 if (Convert.ToString(r["pc_id"]) == "")
+                                 {
+                                     pc_id[i] = -1;   
+                                 }
+                                 else
+                                 {
+                                     pc_id[i] = Convert.ToInt32(r["pc_id"]);
+                                 }
+                                 
                                  cnvc_tuyen_dung_id[i] = Convert.ToInt32(r["cnvc_tuyen_dung_id"]);
                                  p_den_ngay_adj_pc_is_null[i] = Convert.ToBoolean(r["p_den_ngay_adj_pc_is_null"]);
                              }
@@ -1302,13 +1418,14 @@ namespace HDQD.UCs
 
          void ResetAll()
          {
-             InitObject();
+             InitObject_AfterSaving();
 
              Clear_Luong_Interface();
              Clear_PC_Interface();
              Clear_QD_Interface();
              Clear_NV_Interface();
 
+             cb_ThayDoiLuong.Checked = cb_ThayDoiPC.Checked = false;
              dtgv_Luong.DataSource = null;
              dtgv_DSPhuCap.DataSource = null;
 
@@ -1415,6 +1532,11 @@ namespace HDQD.UCs
 
                  //comB_LoaiPhuCap.Enabled = true;
                  Clear_Luong_Interface();
+
+                 if (comb_MaTuyenDung.Items.Count > 0)
+                 {
+                     comb_MaTuyenDung.SelectedIndex = 0;
+                 }
              }
          }
 
@@ -1450,6 +1572,39 @@ namespace HDQD.UCs
 
              }
 
+         }
+
+         private void comb_MaHD_PC_SelectedIndexChanged(object sender, EventArgs e)
+         {
+             if (bLoad_MaHD_PC_Complete)
+             {
+                 if (dtPhuCap.Rows.Count > 0)
+                 {
+                     dtp_NgayKyHD_PC.Value = Convert.ToDateTime((from c in dtPhuCap.AsEnumerable()
+                                                              where c.Field<string>("ma_tuyen_dung") == comb_MaHD_PC.Text
+                                                              select c.Field<DateTime>("ngay_ky")).ElementAt(0).ToString());
+
+                     dtp_NgayBatDauHD_PC.Value = Convert.ToDateTime((from c in dtPhuCap.AsEnumerable()
+                                                                  where c.Field<string>("ma_tuyen_dung") == comb_MaHD_PC.Text
+                                                                  select c.Field<DateTime>("ngay_hieu_luc")).ElementAt(0).ToString());
+
+                     DateTime? dt = (from c in dtPhuCap.AsEnumerable()
+                                     where c.Field<string>("ma_tuyen_dung") == comb_MaHD_PC.Text
+                                     select c.Field<DateTime?>("ngay_het_han_td")).ElementAt(0);
+
+                     if (dt != null)
+                     {
+                         dtp_NgayKetThucHD_PC.Value = Convert.ToDateTime(dt);
+                         dtp_NgayKetThucHD_PC.Checked = true;
+                     }
+                     else
+                     {
+                         dtp_NgayKetThucHD_PC.Checked = false;
+                     }
+                 }
+
+
+             }
          }
 
 	}
