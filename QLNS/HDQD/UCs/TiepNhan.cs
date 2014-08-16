@@ -242,13 +242,14 @@ namespace HDQD.UCs
             {
                 var result = (from c in dtBacHeSo.AsEnumerable()
                               orderby c.Field<string>("ten_ngach")
-                              select new { ma_ngach = c.Field<string>("ma_ngach"), ten_ngach = c.Field<string>("ten_ngach") }
+                              select new { ma_ngach = c.Field<string>("ma_ngach"), ten_ngach = c.Field<string>("ten_ngach"), ngach_display = c.Field<string>("ma_ngach") + " - " + c.Field<string>("ten_ngach") }
                               ).Distinct().ToList();
 
                 DataTable dt = ToDataTable(result);
 
                 comb_Ngach.DataSource = dt;
-                comb_Ngach.DisplayMember = "ten_ngach";
+                //comb_Ngach.DisplayMember = "ten_ngach";
+                comb_Ngach.DisplayMember = "ngach_display";
                 comb_Ngach.ValueMember = "ma_ngach";
             }
             catch { }
@@ -523,6 +524,7 @@ namespace HDQD.UCs
                 oHopdong.Ghi_Chu = thongTinQuyetDinh1.rTB_MoTa.Text;
                 oHopdong.Tham_nien_nang_bac = cb_ThamNienNB.Checked;
                 oHopdong.Tham_nien_nha_giao = cb_ThamNienNG.Checked;
+                oHopdong.Dong_bao_hiem = cb_DongBaoHiem.Checked;
 
                 #region Lương Info
                 if (comb_Luong.SelectedIndex == 0)      // he so

@@ -195,6 +195,7 @@ namespace Business.HDQD
 
         public bool Tham_nien_nang_bac { get; set; }
         public bool Tham_nien_nha_giao { get; set; }
+        public bool Dong_bao_hiem { get; set; }
         #endregion
 
         #region Methods
@@ -258,7 +259,7 @@ namespace Business.HDQD
         public bool Add_wLuong_PhuCap()
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[29]{
+            IDataParameter[] paras = new IDataParameter[30]{
                 new NpgsqlParameter("p_ma_nv",ma_nv),
                 new NpgsqlParameter("p_ma_loai_hd",ma_loai_hd),
                 new NpgsqlParameter("p_ma_tuyen_dung",Ma_Tuyen_Dung + "_" + ngay_hieu_luc.Value.ToString("ddMMyyyy")),
@@ -287,7 +288,8 @@ namespace Business.HDQD
                 new NpgsqlParameter("p_den_ngay_pc",PC_DenNgay),
                 new NpgsqlParameter("p_ghi_chu_pc",PC_GhiChu),
                 new NpgsqlParameter("p_tham_nien_nang_bac",Tham_nien_nang_bac),
-                new NpgsqlParameter("p_tham_nien_gd",Tham_nien_nha_giao)
+                new NpgsqlParameter("p_tham_nien_gd",Tham_nien_nha_giao),
+                new NpgsqlParameter("p_dong_bao_hiem",Dong_bao_hiem),
             };
             check = (int)dp.executeScalarProc("sp1_insert_cnvc_tuyen_dung", paras);
             if (check > 0)
@@ -301,7 +303,7 @@ namespace Business.HDQD
         public bool Update_wLuong_PhuCap(string p_ma_tuyen_dung_old)
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[30]{
+            IDataParameter[] paras = new IDataParameter[31]{
                 new NpgsqlParameter("p_ma_nv",ma_nv),
                 new NpgsqlParameter("p_ma_loai_hd",ma_loai_hd),
                 new NpgsqlParameter("p_ma_tuyen_dung_old",p_ma_tuyen_dung_old),
@@ -331,7 +333,8 @@ namespace Business.HDQD
                 new NpgsqlParameter("p_den_ngay_pc",PC_DenNgay),
                 new NpgsqlParameter("p_ghi_chu_pc",PC_GhiChu),
                 new NpgsqlParameter("p_tham_nien_nang_bac",Tham_nien_nang_bac),
-                new NpgsqlParameter("p_tham_nien_gd",Tham_nien_nha_giao)
+                new NpgsqlParameter("p_tham_nien_gd",Tham_nien_nha_giao),
+                new NpgsqlParameter("p_dong_bao_hiem",Dong_bao_hiem)
             };
             check = (int)dp.executeScalarProc("sp1_update_cnvc_tuyen_dung", paras);
             if (check > 0)
@@ -345,7 +348,7 @@ namespace Business.HDQD
         public bool Add_HopDongOld(int[] p_don_vi_chinh_id, int[] p_chuc_vu_chinh_id, int[] p_chuc_danh_chinh_id)
         {
             int check;
-            IDataParameter[] paras = new IDataParameter[29]{
+            IDataParameter[] paras = new IDataParameter[30]{
                 new NpgsqlParameter("p_ma_nv",ma_nv),
                 new NpgsqlParameter("p_ma_loai_hd",ma_loai_hd),
                 new NpgsqlParameter("p_ma_tuyen_dung",Ma_Tuyen_Dung + "_" + ngay_hieu_luc.Value.ToString("ddMMyyyy")),
@@ -374,7 +377,8 @@ namespace Business.HDQD
                 new NpgsqlParameter("p_den_ngay_pc",PC_DenNgay),
                 new NpgsqlParameter("p_ghi_chu_pc",PC_GhiChu),
                 new NpgsqlParameter("p_tham_nien_nang_bac",Tham_nien_nang_bac),
-                new NpgsqlParameter("p_tham_nien_gd",Tham_nien_nha_giao)
+                new NpgsqlParameter("p_tham_nien_gd",Tham_nien_nha_giao),
+                new NpgsqlParameter("p_dong_bao_hiem",Dong_bao_hiem)
             };
             check = (int)dp.executeScalarProc("sp1_insert_cnvc_tuyen_dung_dvold", paras);
             if (check > 0)
