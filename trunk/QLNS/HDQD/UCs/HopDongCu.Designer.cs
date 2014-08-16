@@ -39,7 +39,7 @@
             this.tableLP_ChiTietHopDong = new System.Windows.Forms.TableLayoutPanel();
             this.label27 = new System.Windows.Forms.Label();
             this.txt_DonViTrucThuoc = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.cb_DongBaoHiem = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tableLP_PhuCap = new System.Windows.Forms.TableLayoutPanel();
             this.rTB_GhiChuPC = new System.Windows.Forms.RichTextBox();
@@ -201,7 +201,7 @@
             this.tableLP_ChiTietHopDong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.24079F));
             this.tableLP_ChiTietHopDong.Controls.Add(this.label27, 0, 4);
             this.tableLP_ChiTietHopDong.Controls.Add(this.txt_DonViTrucThuoc, 1, 4);
-            this.tableLP_ChiTietHopDong.Controls.Add(this.checkBox1, 4, 2);
+            this.tableLP_ChiTietHopDong.Controls.Add(this.cb_DongBaoHiem, 4, 2);
             this.tableLP_ChiTietHopDong.Controls.Add(this.groupBox3, 0, 6);
             this.tableLP_ChiTietHopDong.Controls.Add(this.label2, 0, 7);
             this.tableLP_ChiTietHopDong.Controls.Add(this.rTB_GhiChu, 1, 7);
@@ -269,17 +269,17 @@
             this.txt_DonViTrucThuoc.Size = new System.Drawing.Size(203, 23);
             this.txt_DonViTrucThuoc.TabIndex = 44;
             // 
-            // checkBox1
+            // cb_DongBaoHiem
             // 
-            this.checkBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.checkBox1.AutoSize = true;
-            this.tableLP_ChiTietHopDong.SetColumnSpan(this.checkBox1, 2);
-            this.checkBox1.Location = new System.Drawing.Point(659, 95);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(123, 21);
-            this.checkBox1.TabIndex = 42;
-            this.checkBox1.Text = "Đóng bảo hiểm";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.cb_DongBaoHiem.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cb_DongBaoHiem.AutoSize = true;
+            this.tableLP_ChiTietHopDong.SetColumnSpan(this.cb_DongBaoHiem, 2);
+            this.cb_DongBaoHiem.Location = new System.Drawing.Point(659, 95);
+            this.cb_DongBaoHiem.Name = "cb_DongBaoHiem";
+            this.cb_DongBaoHiem.Size = new System.Drawing.Size(123, 21);
+            this.cb_DongBaoHiem.TabIndex = 42;
+            this.cb_DongBaoHiem.Text = "Đóng bảo hiểm";
+            this.cb_DongBaoHiem.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -369,7 +369,7 @@
             this.tableLP_PhuCap.SetColumnSpan(this.comB_LoaiPhuCap, 2);
             this.comB_LoaiPhuCap.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_LoaiPhuCap.FormattingEnabled = true;
-            this.comB_LoaiPhuCap.Location = new System.Drawing.Point(489, 18);
+            this.comB_LoaiPhuCap.Location = new System.Drawing.Point(489, 16);
             this.comB_LoaiPhuCap.Name = "comB_LoaiPhuCap";
             this.comB_LoaiPhuCap.Size = new System.Drawing.Size(252, 25);
             this.comB_LoaiPhuCap.TabIndex = 1;
@@ -703,7 +703,7 @@
             this.comb_Luong.Items.AddRange(new object[] {
             "Hệ số",
             "Khoán"});
-            this.comb_Luong.Location = new System.Drawing.Point(121, 11);
+            this.comb_Luong.Location = new System.Drawing.Point(121, 9);
             this.comb_Luong.Name = "comb_Luong";
             this.comb_Luong.Size = new System.Drawing.Size(201, 25);
             this.comb_Luong.TabIndex = 33;
@@ -753,7 +753,7 @@
             this.comb_Ngach.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comb_Ngach.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comb_Ngach.FormattingEnabled = true;
-            this.comb_Ngach.Location = new System.Drawing.Point(414, 11);
+            this.comb_Ngach.Location = new System.Drawing.Point(414, 9);
             this.comb_Ngach.Name = "comb_Ngach";
             this.comb_Ngach.Size = new System.Drawing.Size(209, 25);
             this.comb_Ngach.TabIndex = 29;
@@ -774,7 +774,7 @@
             this.comb_Bac.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comb_Bac.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comb_Bac.FormattingEnabled = true;
-            this.comb_Bac.Location = new System.Drawing.Point(771, 11);
+            this.comb_Bac.Location = new System.Drawing.Point(771, 9);
             this.comb_Bac.Name = "comb_Bac";
             this.comb_Bac.Size = new System.Drawing.Size(202, 25);
             this.comb_Bac.TabIndex = 30;
@@ -878,7 +878,7 @@
             this.comB_DonVi.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_DonVi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_DonVi.FormattingEnabled = true;
-            this.comB_DonVi.Location = new System.Drawing.Point(122, 132);
+            this.comB_DonVi.Location = new System.Drawing.Point(122, 130);
             this.comB_DonVi.Name = "comB_DonVi";
             this.comB_DonVi.Size = new System.Drawing.Size(203, 25);
             this.comB_DonVi.TabIndex = 6;
@@ -919,7 +919,7 @@
             this.comB_LoaiHD.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_LoaiHD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_LoaiHD.FormattingEnabled = true;
-            this.comB_LoaiHD.Location = new System.Drawing.Point(449, 10);
+            this.comB_LoaiHD.Location = new System.Drawing.Point(449, 8);
             this.comB_LoaiHD.Name = "comB_LoaiHD";
             this.comB_LoaiHD.Size = new System.Drawing.Size(204, 25);
             this.comB_LoaiHD.TabIndex = 1;
@@ -1068,7 +1068,7 @@
             this.comB_ChucDanh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_ChucDanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_ChucDanh.FormattingEnabled = true;
-            this.comB_ChucDanh.Location = new System.Drawing.Point(778, 174);
+            this.comB_ChucDanh.Location = new System.Drawing.Point(778, 172);
             this.comB_ChucDanh.Name = "comB_ChucDanh";
             this.comB_ChucDanh.Size = new System.Drawing.Size(204, 25);
             this.comB_ChucDanh.TabIndex = 8;
@@ -1088,7 +1088,7 @@
             this.comB_ChucVu.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_ChucVu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_ChucVu.FormattingEnabled = true;
-            this.comB_ChucVu.Location = new System.Drawing.Point(449, 174);
+            this.comB_ChucVu.Location = new System.Drawing.Point(449, 172);
             this.comB_ChucVu.Name = "comB_ChucVu";
             this.comB_ChucVu.Size = new System.Drawing.Size(203, 25);
             this.comB_ChucVu.TabIndex = 7;
@@ -1269,7 +1269,7 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.TextBox txt_TuNgay_DV;
         private System.Windows.Forms.TextBox txt_DenNgay_DV;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox cb_DongBaoHiem;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.TextBox txt_DonViTrucThuoc;
         private System.Windows.Forms.Button btn_Delete;
