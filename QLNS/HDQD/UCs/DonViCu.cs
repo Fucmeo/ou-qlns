@@ -18,6 +18,8 @@ namespace HDQD.UCs
         Business.ChucVu oChucvu;
         Business.DonVi oDonVi;
 
+        bool m_cb_Dieu_Dong = false;
+
         DataTable m_Don_vi;
         DateTime m_den_ngay_HD;
         bool m_cb_den_ngay_HD;
@@ -28,8 +30,12 @@ namespace HDQD.UCs
 
         int m_don_vi_selected;
         DateTime? m_dTP_ngay_het_han_dv_selected;
+        DateTime m_dTP_tu_ngay_dv_selected;
         int m_chuc_vu_selected;
         int m_chuc_danh_selected;
+
+        int m_DD_qtr_ctac_id;
+        string m_DD_ma_nv = "";
         
         public DonViCu()
         {
@@ -44,6 +50,7 @@ namespace HDQD.UCs
         {
             InitializeComponent();
             InitObject();
+            m_cb_Dieu_Dong = false;
 
             m_Don_vi = p_dt_don_vi;
             m_cb_den_ngay_HD = p_cb_den_ngay_HD;
@@ -60,6 +67,31 @@ namespace HDQD.UCs
             else
             {
                 lbl_DenNgayHD.Text = "Thời gian kết thúc hợp đồng: (không có)";
+            }
+        }
+
+        public DonViCu(DataTable p_dt_don_vi, bool p_cb_den_ngay_QD, DateTime? p_den_ngay_QD, int p_DD_qtr_congtac_id, string p_DD_ma_nv)
+        {
+            InitializeComponent();
+            InitObject();
+            m_cb_Dieu_Dong = true;
+
+            m_Don_vi = p_dt_don_vi;
+            m_cb_den_ngay_HD = p_cb_den_ngay_QD;
+            if (p_cb_den_ngay_QD == true)
+                m_den_ngay_HD = p_den_ngay_QD.Value;
+            else
+                m_den_ngay_HD = Convert.ToDateTime("01/01/1901");
+            m_DD_qtr_ctac_id = p_DD_qtr_congtac_id;
+            m_DD_ma_nv = p_DD_ma_nv;
+
+            if (m_cb_den_ngay_HD == true)
+            {
+                lbl_DenNgayHD.Text = "Thời gian kết thúc quyết định: " + m_den_ngay_HD.ToString("d", CultureInfo.CreateSpecificCulture("vi-VN"));
+            }
+            else
+            {
+                lbl_DenNgayHD.Text = "Thời gian kết thúc quyết định: (không có)";
             }
         }
 
@@ -204,10 +236,12 @@ namespace HDQD.UCs
 
                     var result = (from c in m_Don_vi.AsEnumerable()
                                   where c.Field<int>("id") == m_don_vi_selected
-                                  select new { den_ngay = c.Field<DateTime?>("den_ngay") }
+                                  select new { tu_ngay = c.Field<DateTime>("tu_ngay"), den_ngay = c.Field<DateTime?>("den_ngay") }
                                       ).ToList();
 
                     DataTable dt_tmp = ToDataTable(result);
+
+                    m_dTP_tu_ngay_dv_selected = Convert.ToDateTime(dt_tmp.Rows[0]["tu_ngay"].ToString());
 
                     if (dt_tmp.Rows[0]["den_ngay"].ToString() != "")
                         m_dTP_ngay_het_han_dv_selected = Convert.ToDateTime(dt_tmp.Rows[0]["den_ngay"].ToString());
@@ -243,92 +277,189 @@ namespace HDQD.UCs
 
         private void btn_Them_Click(object sender, EventArgs e)
         {
-            if (lsb_DonVi.Items.Count > 0 && m_don_vi_selected != -1)
+            if (m_cb_Dieu_Dong == true)
             {
-                if (!mList_don_vi_selected.Contains(m_don_vi_selected))
+                #region Dieu dong tai Don vi cu
+                if (lsb_DonVi.Items.Count > 0 && m_don_vi_selected != -1)
                 {
-                    mList_don_vi_selected.Add(m_don_vi_selected);
-                    mList_chuc_vu_selected.Add(m_chuc_vu_selected);
-                    mList_chuc_danh_selected.Add(m_chuc_danh_selected);
-                }
-
-                if ((m_den_ngay_HD > m_dTP_ngay_het_han_dv_selected || m_cb_den_ngay_HD == false) && m_dTP_ngay_het_han_dv_selected != null)
-                {
-                    //more don_vi
-                    try
+                    if (!DieuDong.don_vi_id.Contains(m_don_vi_selected))
                     {
-                        DataTable dt_donvi_new = oDonVi.GetDonVi_New(m_don_vi_selected);
-
-                        if (dt_donvi_new.Rows.Count > 0)
-                        {
-                            string loai_qd = (from c in dt_donvi_new.AsEnumerable()
-                                              select c.Field<string>("ten_loai_qd")).ElementAt(0).ToString();
-                            string ten_qd = (from c in dt_donvi_new.AsEnumerable()
-                                             select c.Field<string>("ten_qd")).ElementAt(0).ToString();
-                            string ma_qd = (from c in dt_donvi_new.AsEnumerable()
-                                            select c.Field<string>("ma_quyet_dinh")).ElementAt(0).ToString();
-                            DateTime ngay_hieu_luc_qd = (from c in dt_donvi_new.AsEnumerable()
-                                                         select c.Field<DateTime>("ngay_hieu_luc_qd")).ElementAt(0);
-
-                            MessageBox.Show("Loại quyết định: " + loai_qd + "\nMã quyết định: " + ma_qd + "\nTên quyết định: " + ten_qd + "\nNgày hiệu lực: " + ngay_hieu_luc_qd.ToString("d", CultureInfo.CreateSpecificCulture("vi-VN")) + "\nVui lòng chọn đơn vị phù hợp.",
-                                            "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                            m_Don_vi = dt_donvi_new;
-                            PrepateDataDonVi(dt_donvi_new);
-
-                            lsb_DonVi.Items.Clear();
-                            m_don_vi_selected = -1;
-                        }
+                        DieuDong.qtr_ctac_id.Add(m_DD_qtr_ctac_id);
+                        DieuDong.ma_nv.Add(m_DD_ma_nv);
+                        DieuDong.don_vi_id.Add(m_don_vi_selected);
+                        DieuDong.chuc_vu_id.Add(m_chuc_vu_selected);
+                        DieuDong.chuc_danh_id.Add(m_chuc_danh_selected);
+                        DieuDong.tu_ngay.Add(m_dTP_tu_ngay_dv_selected);
+                        if (m_dTP_ngay_het_han_dv_selected != null)
+                            DieuDong.den_ngay.Add(m_dTP_ngay_het_han_dv_selected.Value);
                         else
+                            DieuDong.den_ngay.Add(Convert.ToDateTime("01/01/1901").Date);
+                    }
+
+                    if ((m_den_ngay_HD > m_dTP_ngay_het_han_dv_selected || m_cb_den_ngay_HD == false) && m_dTP_ngay_het_han_dv_selected != null)
+                    {
+                        #region MyRegion
+                        //more don_vi
+                        try
                         {
-                            try
+                            DataTable dt_donvi_new = oDonVi.GetDonVi_New(m_don_vi_selected);
+
+                            if (dt_donvi_new.Rows.Count > 0)
                             {
-                                if (MessageBox.Show("Không thể tìm thấy đơn vị mới hơn đơn vị được chọn, và thời gian hợp đồng kết thúc lớn hơn thời gian đơn vị ngừng hoạt động. Bạn có muốn thay đổi thời gian hợp đồng kết thúc bằng thời gian đơn vị ngừng hoạt động?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                string loai_qd = (from c in dt_donvi_new.AsEnumerable()
+                                                  select c.Field<string>("ten_loai_qd")).ElementAt(0).ToString();
+                                string ten_qd = (from c in dt_donvi_new.AsEnumerable()
+                                                 select c.Field<string>("ten_qd")).ElementAt(0).ToString();
+                                string ma_qd = (from c in dt_donvi_new.AsEnumerable()
+                                                select c.Field<string>("ma_quyet_dinh")).ElementAt(0).ToString();
+                                DateTime ngay_hieu_luc_qd = (from c in dt_donvi_new.AsEnumerable()
+                                                             select c.Field<DateTime>("ngay_hieu_luc_qd")).ElementAt(0);
+
+                                MessageBox.Show("Loại quyết định: " + loai_qd + "\nMã quyết định: " + ma_qd + "\nTên quyết định: " + ten_qd + "\nNgày hiệu lực: " + ngay_hieu_luc_qd.ToString("d", CultureInfo.CreateSpecificCulture("vi-VN")) + "\nVui lòng chọn đơn vị phù hợp.",
+                                                "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                m_Don_vi = dt_donvi_new;
+                                PrepateDataDonVi(dt_donvi_new);
+
+                                lsb_DonVi.Items.Clear();
+                                m_don_vi_selected = -1;
+                            }
+                            else
+                            {
+                                try
                                 {
-                                    //final
-                                    int i = mList_don_vi_selected.Count;
-                                    HopDongCu.nSelectedChucDanhID = new int[i];
-                                    HopDongCu.nSelectedChucVuID = new int[i];
-                                    HopDongCu.nSelectedDonViID = new int[i];
+                                    if (MessageBox.Show("Không thể tìm thấy đơn vị mới hơn đơn vị được chọn, và thời gian hợp đồng kết thúc lớn hơn thời gian đơn vị ngừng hoạt động. Bạn có muốn thay đổi thời gian hợp đồng kết thúc bằng thời gian đơn vị ngừng hoạt động?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                    {
+                                        //final
+                                        DieuDong.qtr_ctac_id.Add(m_DD_qtr_ctac_id);
+                                        DieuDong.ma_nv.Add(m_DD_ma_nv);
+                                        DieuDong.don_vi_id.Add(m_don_vi_selected);
+                                        DieuDong.chuc_vu_id.Add(m_chuc_vu_selected);
+                                        DieuDong.chuc_danh_id.Add(m_chuc_danh_selected);
+                                        DieuDong.tu_ngay.Add(m_dTP_tu_ngay_dv_selected);
+                                        if (m_dTP_ngay_het_han_dv_selected != null)
+                                            DieuDong.den_ngay.Add(m_dTP_ngay_het_han_dv_selected.Value);
+                                        else
+                                            DieuDong.den_ngay.Add(Convert.ToDateTime("01/01/1901").Date);
 
-                                    HopDongCu.nSelectedChucDanhID = mList_chuc_danh_selected.ToArray();
-                                    HopDongCu.nSelectedChucVuID = mList_chuc_vu_selected.ToArray();
-                                    HopDongCu.nSelectedDonViID = mList_don_vi_selected.ToArray();
-
-                                    HopDongCu.nChange_DenNgay = true;
-                                    HopDongCu.ndtp_DenNgay_Change = m_dTP_ngay_het_han_dv_selected.Value;
-
-                                    ((Form)this.Parent.Parent).Close();
+                                        ((Form)this.Parent.Parent).Close();
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show("Có lỗi xảy ra!" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                             }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show("Có lỗi xảy ra!" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
                         }
+                        catch
+                        {
+                            MessageBox.Show("Có lỗi xảy ra trong quá trình tìm kiếm đơn vị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        #endregion
+                        
                     }
-                    catch 
+                    else
                     {
-                        MessageBox.Show("Có lỗi xảy ra trong quá trình tìm kiếm đơn vị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //final
+                        ((Form)this.Parent.Parent).Close();
                     }
                 }
                 else
-                {
-                    //final
-                    int i = mList_don_vi_selected.Count;
-                    HopDongCu.nSelectedChucDanhID = new int[i];
-                    HopDongCu.nSelectedChucVuID = new int[i];
-                    HopDongCu.nSelectedDonViID = new int[i];
+                    MessageBox.Show("Vui lòng chọn một đơn vị trước khi lưu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                #endregion
 
-                    HopDongCu.nSelectedChucDanhID = mList_chuc_danh_selected.ToArray();
-                    HopDongCu.nSelectedChucVuID = mList_chuc_vu_selected.ToArray();
-                    HopDongCu.nSelectedDonViID = mList_don_vi_selected.ToArray();
-
-                    ((Form)this.Parent.Parent).Close();
-                }
             }
             else
-                MessageBox.Show("Vui lòng chọn một đơn vị trước khi lưu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            {
+                #region Hop Dong tai Don vi cu
+                if (lsb_DonVi.Items.Count > 0 && m_don_vi_selected != -1)
+                {
+                    if (!mList_don_vi_selected.Contains(m_don_vi_selected))
+                    {
+                        mList_don_vi_selected.Add(m_don_vi_selected);
+                        mList_chuc_vu_selected.Add(m_chuc_vu_selected);
+                        mList_chuc_danh_selected.Add(m_chuc_danh_selected);
+                    }
+
+                    if ((m_den_ngay_HD > m_dTP_ngay_het_han_dv_selected || m_cb_den_ngay_HD == false) && m_dTP_ngay_het_han_dv_selected != null)
+                    {
+                        //more don_vi
+                        try
+                        {
+                            DataTable dt_donvi_new = oDonVi.GetDonVi_New(m_don_vi_selected);
+
+                            if (dt_donvi_new.Rows.Count > 0)
+                            {
+                                string loai_qd = (from c in dt_donvi_new.AsEnumerable()
+                                                  select c.Field<string>("ten_loai_qd")).ElementAt(0).ToString();
+                                string ten_qd = (from c in dt_donvi_new.AsEnumerable()
+                                                 select c.Field<string>("ten_qd")).ElementAt(0).ToString();
+                                string ma_qd = (from c in dt_donvi_new.AsEnumerable()
+                                                select c.Field<string>("ma_quyet_dinh")).ElementAt(0).ToString();
+                                DateTime ngay_hieu_luc_qd = (from c in dt_donvi_new.AsEnumerable()
+                                                             select c.Field<DateTime>("ngay_hieu_luc_qd")).ElementAt(0);
+
+                                MessageBox.Show("Loại quyết định: " + loai_qd + "\nMã quyết định: " + ma_qd + "\nTên quyết định: " + ten_qd + "\nNgày hiệu lực: " + ngay_hieu_luc_qd.ToString("d", CultureInfo.CreateSpecificCulture("vi-VN")) + "\nVui lòng chọn đơn vị phù hợp.",
+                                                "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                m_Don_vi = dt_donvi_new;
+                                PrepateDataDonVi(dt_donvi_new);
+
+                                lsb_DonVi.Items.Clear();
+                                m_don_vi_selected = -1;
+                            }
+                            else
+                            {
+                                try
+                                {
+                                    if (MessageBox.Show("Không thể tìm thấy đơn vị mới hơn đơn vị được chọn, và thời gian hợp đồng kết thúc lớn hơn thời gian đơn vị ngừng hoạt động. Bạn có muốn thay đổi thời gian hợp đồng kết thúc bằng thời gian đơn vị ngừng hoạt động?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                    {
+                                        //final
+                                        int i = mList_don_vi_selected.Count;
+                                        HopDongCu.nSelectedChucDanhID = new int[i];
+                                        HopDongCu.nSelectedChucVuID = new int[i];
+                                        HopDongCu.nSelectedDonViID = new int[i];
+
+                                        HopDongCu.nSelectedChucDanhID = mList_chuc_danh_selected.ToArray();
+                                        HopDongCu.nSelectedChucVuID = mList_chuc_vu_selected.ToArray();
+                                        HopDongCu.nSelectedDonViID = mList_don_vi_selected.ToArray();
+
+                                        HopDongCu.nChange_DenNgay = true;
+                                        HopDongCu.ndtp_DenNgay_Change = m_dTP_ngay_het_han_dv_selected.Value;
+
+                                        ((Form)this.Parent.Parent).Close();
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show("Có lỗi xảy ra!" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                            }
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Có lỗi xảy ra trong quá trình tìm kiếm đơn vị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        //final
+                        int i = mList_don_vi_selected.Count;
+                        HopDongCu.nSelectedChucDanhID = new int[i];
+                        HopDongCu.nSelectedChucVuID = new int[i];
+                        HopDongCu.nSelectedDonViID = new int[i];
+
+                        HopDongCu.nSelectedChucDanhID = mList_chuc_danh_selected.ToArray();
+                        HopDongCu.nSelectedChucVuID = mList_chuc_vu_selected.ToArray();
+                        HopDongCu.nSelectedDonViID = mList_don_vi_selected.ToArray();
+
+                        ((Form)this.Parent.Parent).Close();
+                    }
+                }
+                else
+                    MessageBox.Show("Vui lòng chọn một đơn vị trước khi lưu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                #endregion
+            }
         }
 
         private void comB_DonVi_SelectionChangeCommitted(object sender, EventArgs e)

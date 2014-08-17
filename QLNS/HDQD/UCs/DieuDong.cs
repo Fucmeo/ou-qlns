@@ -27,6 +27,14 @@ namespace HDQD.UCs
         int row_count_dd = 0;
         DataTable dtDonVi;
 
+        public static List<int> qtr_ctac_id = new List<int>();
+        public static List<string> ma_nv = new List<string>();
+        public static List<int> don_vi_id = new List<int>();
+        public static List<int> chuc_vu_id = new List<int>();
+        public static List<int> chuc_danh_id = new List<int>();
+        public static List<DateTime> tu_ngay = new List<DateTime>();
+        public static List<DateTime> den_ngay = new List<DateTime>();
+
         public DieuDong()
         {
             InitializeComponent();
@@ -93,28 +101,94 @@ namespace HDQD.UCs
                     oKiemNhiem.Path = null;
 
                     #region Dieu Dong Cong Tac
-                    List<int> qtr_ctac_id = new List<int>();
-                    List<string> ma_nv = new List<string>();
-                    List<int> don_vi_id = new List<int>();
-                    List<int> chuc_vu_id = new List<int>();
-                    List<int> chuc_danh_id = new List<int>();
-                    List<DateTime> tu_ngay = new List<DateTime>();
-                    List<DateTime> den_ngay = new List<DateTime>();
+                    qtr_ctac_id = new List<int>();
+                    ma_nv = new List<string>();
+                    don_vi_id = new List<int>();
+                    chuc_vu_id = new List<int>();
+                    chuc_danh_id = new List<int>();
+                    tu_ngay = new List<DateTime>();
+                    den_ngay = new List<DateTime>();
 
                     foreach (DataRow dr in dtDSDieuDong.Rows)
                     {
-                        qtr_ctac_id.Add(Convert.ToInt32(dr["qtr_ctac_id"].ToString()));
-                        ma_nv.Add(dr["ma_nv"].ToString());
-                        don_vi_id.Add(Convert.ToInt32(dr["don_vi_id"].ToString()));
-                        chuc_vu_id.Add(Convert.ToInt32(dr["chuc_vu_id"].ToString()));
-                        chuc_danh_id.Add(Convert.ToInt32(dr["chuc_danh_id"].ToString()));
-
-                        tu_ngay.Add(Convert.ToDateTime(dr["tu_ngay"].ToString()).Date);
+                        DateTime? m_dt_dv_denngay = null;
+                        DateTime? m_dt_dieudong_denngay = null;
+                        bool m_cb_dieudong_denngay = false;
 
                         if (dr["den_ngay"].ToString() == "")
-                            den_ngay.Add(Convert.ToDateTime("01/01/1901").Date);
+                        {
+                            m_dt_dieudong_denngay = null;
+                            m_cb_dieudong_denngay = false;
+                        }
                         else
-                            den_ngay.Add(Convert.ToDateTime(dr["den_ngay"].ToString()).Date);
+                        {
+                            m_dt_dieudong_denngay = Convert.ToDateTime(dr["den_ngay"].ToString());
+                            m_cb_dieudong_denngay = true;
+                        }
+
+                        int m_selected_donvi = Convert.ToInt32(dr["don_vi_id"].ToString());
+                        var result = (from c in dtDonVi.AsEnumerable()
+                                      where c.Field<int>("id") == m_selected_donvi
+                                      select new { den_ngay = c.Field<DateTime?>("den_ngay") }
+                                        ).ToList();
+                        DataTable dt = ToDataTable(result);
+                        if (dt.Rows[0]["den_ngay"].ToString() != "")
+                            m_dt_dv_denngay = Convert.ToDateTime(dt.Rows[0]["den_ngay"].ToString());
+                        else
+                            m_dt_dv_denngay = null;
+
+                        if (m_dt_dieudong_denngay > m_dt_dv_denngay || (m_dt_dieudong_denngay == null && m_dt_dv_denngay != null)) //insert multiple don vi
+                        {
+                            #region Insert multiple Don vi
+                            DataTable dt_donvi_new = oDonVi.GetDonVi_New(m_selected_donvi);
+                            if (dt_donvi_new.Rows.Count > 0)
+                            {
+                                string loai_qd = (from c in dt_donvi_new.AsEnumerable()
+                                                  select c.Field<string>("ten_loai_qd")).ElementAt(0).ToString();
+                                string ten_qd = (from c in dt_donvi_new.AsEnumerable()
+                                                 select c.Field<string>("ten_qd")).ElementAt(0).ToString();
+                                string ma_qd = (from c in dt_donvi_new.AsEnumerable()
+                                                select c.Field<string>("ma_quyet_dinh")).ElementAt(0).ToString();
+                                DateTime ngay_hieu_luc_qd = (from c in dt_donvi_new.AsEnumerable()
+                                                             select c.Field<DateTime>("ngay_hieu_luc_qd")).ElementAt(0);
+
+                                MessageBox.Show("Loại quyết định: " + loai_qd + "\nMã quyết định: " + ma_qd + "\nTên quyết định: " + ten_qd + "\nNgày hiệu lực: " + ngay_hieu_luc_qd.ToString("d", CultureInfo.CreateSpecificCulture("vi-VN")) + "\nVui lòng chọn đơn vị phù hợp.",
+                                                "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                int m_qtr_congtac_id_ori = Convert.ToInt32(dr["qtr_ctac_id"].ToString());
+                                string m_ma_nv_ori = dr["ma_nv"].ToString();
+
+                                qtr_ctac_id.Add(m_qtr_congtac_id_ori);
+                                ma_nv.Add(m_ma_nv_ori);
+                                don_vi_id.Add(Convert.ToInt32(dr["don_vi_id"].ToString()));
+                                chuc_vu_id.Add(Convert.ToInt32(dr["chuc_vu_id"].ToString()));
+                                chuc_danh_id.Add(Convert.ToInt32(dr["chuc_danh_id"].ToString()));
+                                tu_ngay.Add(Convert.ToDateTime(dr["tu_ngay"].ToString()).Date);
+                                den_ngay.Add(ngay_hieu_luc_qd.AddDays(-1));
+
+                                Forms.Popup frPopup = new Forms.Popup(new UCs.DonViCu(dt_donvi_new, m_cb_dieudong_denngay, m_dt_dieudong_denngay, m_qtr_congtac_id_ori, m_ma_nv_ori), "Danh sách đơn vị");
+                                frPopup.ShowDialog();
+                            }
+
+
+                            #endregion
+                            
+                        }
+                        else if (m_dt_dieudong_denngay <= m_dt_dv_denngay || m_dt_dv_denngay == null) //insert 1 don vi
+                        {
+                            qtr_ctac_id.Add(Convert.ToInt32(dr["qtr_ctac_id"].ToString()));
+                            ma_nv.Add(dr["ma_nv"].ToString());
+                            don_vi_id.Add(Convert.ToInt32(dr["don_vi_id"].ToString()));
+                            chuc_vu_id.Add(Convert.ToInt32(dr["chuc_vu_id"].ToString()));
+                            chuc_danh_id.Add(Convert.ToInt32(dr["chuc_danh_id"].ToString()));
+
+                            tu_ngay.Add(Convert.ToDateTime(dr["tu_ngay"].ToString()).Date);
+
+                            if (dr["den_ngay"].ToString() == "")
+                                den_ngay.Add(Convert.ToDateTime("01/01/1901").Date);
+                            else
+                                den_ngay.Add(Convert.ToDateTime(dr["den_ngay"].ToString()).Date);
+                        }
                     }
 
                     #endregion
