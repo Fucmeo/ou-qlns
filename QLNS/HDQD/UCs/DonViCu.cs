@@ -290,10 +290,17 @@ namespace HDQD.UCs
                         DieuDong.chuc_vu_id.Add(m_chuc_vu_selected);
                         DieuDong.chuc_danh_id.Add(m_chuc_danh_selected);
                         DieuDong.tu_ngay.Add(m_dTP_tu_ngay_dv_selected);
-                        if (m_dTP_ngay_het_han_dv_selected != null)
-                            DieuDong.den_ngay.Add(m_dTP_ngay_het_han_dv_selected.Value);
+                        if ((m_den_ngay_HD > m_dTP_ngay_het_han_dv_selected || m_cb_den_ngay_HD == false) && m_dTP_ngay_het_han_dv_selected != null)
+                        {
+                            if (m_dTP_ngay_het_han_dv_selected != null)
+                                DieuDong.den_ngay.Add(m_dTP_ngay_het_han_dv_selected.Value);
+                            else
+                                DieuDong.den_ngay.Add(Convert.ToDateTime("01/01/1901").Date);
+                        }
                         else
-                            DieuDong.den_ngay.Add(Convert.ToDateTime("01/01/1901").Date);
+                        {
+                            DieuDong.den_ngay.Add(m_den_ngay_HD);
+                        }
                     }
 
                     if ((m_den_ngay_HD > m_dTP_ngay_het_han_dv_selected || m_cb_den_ngay_HD == false) && m_dTP_ngay_het_han_dv_selected != null)
