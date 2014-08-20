@@ -83,7 +83,7 @@ namespace QLNS.Forms
             tậpTinToolStripMenuItem.Image = ImageL_MenuStripItem.Images["Quan Ly File.png"];
 
             thànhPhốQuốcGiaToolStripMenuItem.Image = ImageL_MenuStripItem.Images["don vi.png"];
-
+            qĐĐiềuĐộngToolStripMenuItem.Image = ImageL_MenuStripItem.Images["Myspace.png"];
            
             
         }
@@ -543,6 +543,12 @@ namespace QLNS.Forms
         private void qĐKhenThưởngNângLươngChuyểnNgạchToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Forms.Popup f = new Popup("Quyết định khen thưởng - chuyển ngạch", new HDQD.UCs.QDKhenThuong_ChuyenNgach());
+            f.ShowDialog();
+        }
+
+        private void qĐĐiềuĐộngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Quyết định điều động", new HDQD.UCs.DieuDong());
             f.ShowDialog();
         }
     }

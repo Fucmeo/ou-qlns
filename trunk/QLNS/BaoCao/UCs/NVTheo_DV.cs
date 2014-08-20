@@ -79,7 +79,7 @@ namespace BaoCao.UCs
             {
 
                 DataTable dt_NV = oBaoCao.NV_Theo_DV(SelectedDV, dt_tu_ngay, dt_den_ngay, con_hd);
-                DataSet.NVTheo_DV ds = new DataSet.NVTheo_DV();
+                //DataSet.NVTheo_DV ds = new DataSet.NVTheo_DV();
                 Reports.NVTheo_DV rpt = new Reports.NVTheo_DV();
 
                 rpt.SetDataSource(dt_NV);

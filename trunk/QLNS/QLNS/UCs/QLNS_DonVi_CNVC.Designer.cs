@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QLNS_DonVi_CNVC));
             this.tableLP_DV_CNVC = new System.Windows.Forms.TableLayoutPanel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gb_NV = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.TreeV_CNVC = new System.Windows.Forms.TreeView();
             this.txt_TimCNVC = new System.Windows.Forms.TextBox();
@@ -44,7 +44,7 @@
             this.btn_LamTuoi = new System.Windows.Forms.Button();
             this.btn_TimDonVi = new System.Windows.Forms.Button();
             this.tableLP_DV_CNVC.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.gb_NV.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -55,7 +55,7 @@
             this.tableLP_DV_CNVC.ColumnCount = 2;
             this.tableLP_DV_CNVC.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLP_DV_CNVC.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLP_DV_CNVC.Controls.Add(this.groupBox2, 1, 0);
+            this.tableLP_DV_CNVC.Controls.Add(this.gb_NV, 1, 0);
             this.tableLP_DV_CNVC.Controls.Add(this.groupBox1, 0, 0);
             this.tableLP_DV_CNVC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLP_DV_CNVC.Location = new System.Drawing.Point(0, 0);
@@ -65,16 +65,16 @@
             this.tableLP_DV_CNVC.Size = new System.Drawing.Size(700, 650);
             this.tableLP_DV_CNVC.TabIndex = 0;
             // 
-            // groupBox2
+            // gb_NV
             // 
-            this.groupBox2.Controls.Add(this.tableLayoutPanel4);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(353, 3);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(344, 644);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Nhân viên";
+            this.gb_NV.Controls.Add(this.tableLayoutPanel4);
+            this.gb_NV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gb_NV.Location = new System.Drawing.Point(353, 3);
+            this.gb_NV.Name = "gb_NV";
+            this.gb_NV.Size = new System.Drawing.Size(344, 644);
+            this.gb_NV.TabIndex = 3;
+            this.gb_NV.TabStop = false;
+            this.gb_NV.Text = "Nhân viên (0)";
             // 
             // tableLayoutPanel4
             // 
@@ -231,7 +231,7 @@
             this.Size = new System.Drawing.Size(700, 650);
             this.Load += new System.EventHandler(this.QLNS_DonVi_CNVC_Load);
             this.tableLP_DV_CNVC.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
+            this.gb_NV.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -244,7 +244,7 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLP_DV_CNVC;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gb_NV;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;

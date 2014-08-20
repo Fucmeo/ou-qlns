@@ -92,6 +92,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>NVTheo_LoaiQD.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSet\NV_BoNoiVu.cs">
+      <DependentUpon>NV_BoNoiVu.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataSet\NV_BoNoiVu.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NV_BoNoiVu.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSet\NV_MoHinh_HinhThuc.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -152,6 +161,12 @@
       <DependentUpon>NVTheo_LoaiQD.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reports\NV_BoNoiVu.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NV_BoNoiVu.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\NV_MoHinh_HinhThuc.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -187,6 +202,12 @@
     </Compile>
     <Compile Include="UCs\NVTheo_LoaiQD.Designer.cs">
       <DependentUpon>NVTheo_LoaiQD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCs\NV_BoNoiVu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\NV_BoNoiVu.Designer.cs">
+      <DependentUpon>NV_BoNoiVu.cs</DependentUpon>
     </Compile>
     <Compile Include="UCs\NV_MoHinh_HinhThuc.cs">
       <SubType>UserControl</SubType>
@@ -235,6 +256,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>NVTheo_LoaiQD.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NV_BoNoiVu.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>NV_BoNoiVu.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\NV_MoHinh_HinhThuc.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>NV_MoHinh_HinhThuc.cs</LastGenOutput>
@@ -253,6 +278,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\NVTheo_LoaiQD.resx">
       <DependentUpon>NVTheo_LoaiQD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\NV_BoNoiVu.resx">
+      <DependentUpon>NV_BoNoiVu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCs\NV_MoHinh_HinhThuc.resx">
       <DependentUpon>NV_MoHinh_HinhThuc.cs</DependentUpon>
@@ -314,6 +342,17 @@
     </None>
     <None Include="DataSet\NVTheo_LoaiQD.xss">
       <DependentUpon>NVTheo_LoaiQD.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\NV_BoNoiVu.xsc">
+      <DependentUpon>NV_BoNoiVu.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\NV_BoNoiVu.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>NV_BoNoiVu.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\NV_BoNoiVu.xss">
+      <DependentUpon>NV_BoNoiVu.xsd</DependentUpon>
     </None>
     <None Include="DataSet\NV_MoHinh_HinhThuc.xsc">
       <DependentUpon>NV_MoHinh_HinhThuc.xsd</DependentUpon>

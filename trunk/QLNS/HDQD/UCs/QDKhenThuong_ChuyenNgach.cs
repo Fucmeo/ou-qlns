@@ -87,6 +87,9 @@ namespace HDQD.UCs
              {
                  if (thongTinCNVC1.txt_MaNV.Text != "")
                  {
+                     comb_MaTuyenDung.DataSource = null;
+                     comb_MaHD_PC.DataSource = null;
+
                      Clear_Luong_Interface();
                      GetThongTin_Luong();
 
@@ -96,8 +99,7 @@ namespace HDQD.UCs
                      LoadCombo_MaHD();
                      LoadCombo_MaHD_PC();
 
-                     comb_MaTuyenDung.DataSource = null;
-                     comb_MaHD_PC.DataSource = null;
+                     
                  }
 
 
@@ -271,10 +273,16 @@ namespace HDQD.UCs
                  {
 
 
-                     DataTable dtMaNgach = dtBacHeSo.DefaultView.ToTable(true, "ma_ngach"); 
+                     DataTable dtMaNgach = dtBacHeSo.DefaultView.ToTable(true, new string[2] { "ma_ngach", "ten_ngach" });
+                     dtMaNgach.Columns.Add("ma_ten_ngach", typeof(string), "ma_ngach + '-' + ten_ngach");
+
+                     DataView dv = dtMaNgach.AsDataView();
+                     dv.Sort= "ten_ngach";
+                     dtMaNgach = dv.ToTable();
+
                      comb_Ngach.DataSource = dtMaNgach;
                      comb_Ngach.ValueMember = "ma_ngach";
-                         comb_Ngach.DisplayMember = "ma_ngach";
+                     comb_Ngach.DisplayMember = "ma_ten_ngach";
 
 
                          DataTable dtBac = dtBacHeSo.DefaultView.ToTable(true,new string[2]{ "bac","id"}); 
