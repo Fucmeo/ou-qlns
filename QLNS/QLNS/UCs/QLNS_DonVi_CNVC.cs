@@ -57,8 +57,15 @@ namespace QLNS.UCs
 
             dtDSCNVC = oDonVi.GetCNVCList(e.Node.Name);
             nSelectedDVID = Convert.ToInt32(e.Node.Name);
+            gb_NV.Text = "Nhân viên" + " (" + dtDSCNVC.Rows.Count + ")";
+
             if (dtDSCNVC != null && dtDSCNVC.Rows.Count > 0)
             {
+                DataView dv = dtDSCNVC.AsDataView();
+                dv.Sort = "ho , ten ";
+                dtDSCNVC = dv.ToTable();
+
+
                 FillTreeVCNVC();
                 oQLNS_HienThiThongTin.EmptyAllContent();
             }

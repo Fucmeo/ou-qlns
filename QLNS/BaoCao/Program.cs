@@ -15,7 +15,7 @@ namespace BaoCao
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1(new UCs.NVTheo_DV()));
+            Application.Run(new Form1(new UCs.NV_BoNoiVu()));
         }
     }
 }

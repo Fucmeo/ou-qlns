@@ -65,6 +65,7 @@
             this.quyếtĐịnhCôngNhậnChứcDanhGiảngViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.qĐChungToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.qĐKhenThưởngNângLươngChuyểnNgạchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.qĐĐiềuĐộngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_QLL = new System.Windows.Forms.ToolStripMenuItem();
             this.lươngPhụCấpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ngàyCôngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -225,7 +226,8 @@
             this.quyếtĐịnhThôiViệcNghỉHưuToolStripMenuItem,
             this.quyếtĐịnhCôngNhậnChứcDanhGiảngViênToolStripMenuItem,
             this.qĐChungToolStripMenuItem,
-            this.qĐKhenThưởngNângLươngChuyểnNgạchToolStripMenuItem});
+            this.qĐKhenThưởngNângLươngChuyểnNgạchToolStripMenuItem,
+            this.qĐĐiềuĐộngToolStripMenuItem});
             this.tsmi_QLHD.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tsmi_QLHD.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.tsmi_QLHD.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -486,7 +488,17 @@
             this.qĐKhenThưởngNângLươngChuyểnNgạchToolStripMenuItem.Name = "qĐKhenThưởngNângLươngChuyểnNgạchToolStripMenuItem";
             this.qĐKhenThưởngNângLươngChuyểnNgạchToolStripMenuItem.Size = new System.Drawing.Size(402, 26);
             this.qĐKhenThưởngNângLươngChuyểnNgạchToolStripMenuItem.Text = "QĐ Khen Thưởng/ Nâng lương/Chuyển ngạch";
+            this.qĐKhenThưởngNângLươngChuyểnNgạchToolStripMenuItem.Visible = false;
             this.qĐKhenThưởngNângLươngChuyểnNgạchToolStripMenuItem.Click += new System.EventHandler(this.qĐKhenThưởngNângLươngChuyểnNgạchToolStripMenuItem_Click);
+            // 
+            // qĐĐiềuĐộngToolStripMenuItem
+            // 
+            this.qĐĐiềuĐộngToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(55)))), ((int)(((byte)(78)))));
+            this.qĐĐiềuĐộngToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.qĐĐiềuĐộngToolStripMenuItem.Name = "qĐĐiềuĐộngToolStripMenuItem";
+            this.qĐĐiềuĐộngToolStripMenuItem.Size = new System.Drawing.Size(402, 26);
+            this.qĐĐiềuĐộngToolStripMenuItem.Text = "QĐ Điều động";
+            this.qĐĐiềuĐộngToolStripMenuItem.Click += new System.EventHandler(this.qĐĐiềuĐộngToolStripMenuItem_Click);
             // 
             // tsmi_QLL
             // 
@@ -906,6 +918,7 @@
             this.ImageL_MenuStripItem.Images.SetKeyName(32, "bieu do.png");
             this.ImageL_MenuStripItem.Images.SetKeyName(33, "Quan Ly File.png");
             this.ImageL_MenuStripItem.Images.SetKeyName(34, "don vi.png");
+            this.ImageL_MenuStripItem.Images.SetKeyName(35, "Myspace.png");
             // 
             // Main
             // 
@@ -922,7 +935,7 @@
             this.MinimumSize = new System.Drawing.Size(944, 766);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "QUẢN LÝ NHÂN SỰ";
+            this.Text = "QUAN LY NHAN SU";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Main_Load);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Main_KeyUp);
@@ -1006,6 +1019,7 @@
         private System.Windows.Forms.ToolStripMenuItem nhânViênTheoChứcDanhChúcVụToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thànhPhốQuốcGiaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nhânViênHọcTậpTạiNướcNgoàiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem qĐĐiềuĐộngToolStripMenuItem;
 
 
 

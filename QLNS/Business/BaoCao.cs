@@ -114,6 +114,32 @@ namespace Business
             return dt;
         }
 
+        public DataTable NV_ThongTinChinh(string p_ma_nv)
+        {
+            DataTable dt = new DataTable();
+
+            IDataParameter[] paras = new IDataParameter[1]{
+                new NpgsqlParameter("p_ma_nv",p_ma_nv)
+            };
+
+            dt = dp.getDataTableProc("sp_select_cnvc", paras);
+
+            return dt;
+        }
+
+        public DataTable NV_CMND(string p_ma_nv)
+        {
+            DataTable dt = new DataTable();
+
+            IDataParameter[] paras = new IDataParameter[1]{
+                new NpgsqlParameter("p_ma_nv",p_ma_nv)
+            };
+
+            dt = dp.getDataTableProc("sp_select_cnvc_cmnd_hochieu", paras);
+
+            return dt;
+        }
+
         #endregion
     }
 }

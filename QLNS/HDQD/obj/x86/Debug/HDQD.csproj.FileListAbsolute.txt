@@ -1,5 +1,3 @@
-D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\obj\x86\Debug\HDQD.exe
-D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\obj\x86\Debug\HDQD.pdb
 D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\bin\Debug\HDQD.exe
 D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\bin\Debug\HDQD.pdb
 D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\bin\Debug\Business.dll
@@ -22,6 +20,7 @@ D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\bin\Debug\zh-CN\Npgsql.resources.dll
 D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\obj\x86\Debug\HDQD.csprojResolveAssemblyReference.cache
 D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\obj\x86\Debug\HDQD.Forms.Popup.resources
 D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\obj\x86\Debug\HDQD.Properties.Resources.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\obj\x86\Debug\HDQD.UCs.DieuDong.resources
 D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\obj\x86\Debug\HDQD.UCs.DanhSachHopDong.resources
 D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\obj\x86\Debug\HDQD.UCs.DanhSachQDDiDuong.resources
 D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\obj\x86\Debug\HDQD.UCs.DanhSachQuyetDinh.resources
@@ -50,4 +49,5 @@ D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\obj\x86\Debug\HDQD.UCs.ThongTinQuyetDinh.res
 D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\obj\x86\Debug\HDQD.UCs.TiepNhan.resources
 D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\obj\x86\Debug\HDQD.UCs.TiepNhanCu.resources
 D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\obj\x86\Debug\HDQD.csproj.GenerateResource.Cache
-D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\obj\x86\Debug\HDQD.UCs.DieuDong.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\obj\x86\Debug\HDQD.exe
+D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\obj\x86\Debug\HDQD.pdb
