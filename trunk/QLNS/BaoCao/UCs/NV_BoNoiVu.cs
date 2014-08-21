@@ -13,19 +13,27 @@ namespace BaoCao.UCs
     {
         Business.DonVi oDonVi;
         Business.BaoCao oBaoCao;
+        Business.CNVC.CNVC oCNVC;
+        Business.CNVC.CNVC_CMND_HoChieu oCNVC_CMND_HoChieu;
+        Business.CNVC.CNVC_ThongTinPhu oCNVC_ThongTinPhu;
 
         public NV_BoNoiVu()
         {
             InitializeComponent();
             oDonVi = new Business.DonVi();
+            oCNVC = new Business.CNVC.CNVC();
+            oCNVC_CMND_HoChieu = new Business.CNVC.CNVC_CMND_HoChieu();
+            oCNVC_ThongTinPhu = new Business.CNVC.CNVC_ThongTinPhu();
+
+
             oBaoCao = new Business.BaoCao();
         }
 
         private void NV_BoNoiVu_Load(object sender, EventArgs e)
         {
-            DataTable dt_NV = new DataTable();
+            oCNVC.MaNV = oCNVC_CMND_HoChieu.MaNV = oCNVC_ThongTinPhu.MaNV = "12333";
 
-            DataTable dt_ThongTinChinh = oBaoCao.NV_ThongTinChinh("12333");
+            DataTable dt_ThongTinChinh = oCNVC.GetData();
             dt_ThongTinChinh.Columns.Add("ho_ten",typeof(string));
             dt_ThongTinChinh.Rows[0]["ho_ten"] = dt_ThongTinChinh.Rows[0]["ho"].ToString().ToUpper() + " " + dt_ThongTinChinh.Rows[0]["ten"].ToString().ToUpper();
             dt_ThongTinChinh.Columns.Add("ngay_sinh_only", typeof(string));
@@ -40,12 +48,9 @@ namespace BaoCao.UCs
                 dt_ThongTinChinh.Rows[0]["nam_sinh"] = ngay_sinh.Value.Year.ToString();
             }
 
+            DataTable dt_CMND = oCNVC_CMND_HoChieu.GetData();
 
-            
-
-            //dt_ThongTinChinh.Columns["
-
-            DataTable dt_CMND = oBaoCao.NV_CMND("12333");
+            DataTable dt_ThongTinPhu = oCNVC_ThongTinPhu.GetData();
 
             /*
             var result = from thongtinchinh in dt_ThongTinChinh.AsEnumerable()
@@ -65,6 +70,7 @@ namespace BaoCao.UCs
 
             rpt.Database.Tables["ThongTinChinh"].SetDataSource(dt_ThongTinChinh);
             rpt.Database.Tables["CMND_HoChieu"].SetDataSource(dt_CMND);
+            rpt.Database.Tables["ThongTinPhu"].SetDataSource(dt_ThongTinPhu);
 
             //rpt.SetDataSource(dt_ThongTinChinh);
             //rpt.SetDataSource(dt_CMND);
