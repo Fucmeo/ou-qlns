@@ -16,6 +16,7 @@ namespace BaoCao.UCs
         Business.CNVC.CNVC oCNVC;
         Business.CNVC.CNVC_CMND_HoChieu oCNVC_CMND_HoChieu;
         Business.CNVC.CNVC_ThongTinPhu oCNVC_ThongTinPhu;
+        Business.CNVC.CNVC_ThongTinTuyenDung oCNVC_ThongTinTuyenDung;
 
         public NV_BoNoiVu()
         {
@@ -24,14 +25,14 @@ namespace BaoCao.UCs
             oCNVC = new Business.CNVC.CNVC();
             oCNVC_CMND_HoChieu = new Business.CNVC.CNVC_CMND_HoChieu();
             oCNVC_ThongTinPhu = new Business.CNVC.CNVC_ThongTinPhu();
-
-
-            oBaoCao = new Business.BaoCao();
+            oCNVC_ThongTinTuyenDung = new Business.CNVC.CNVC_ThongTinTuyenDung();
         }
 
         private void NV_BoNoiVu_Load(object sender, EventArgs e)
         {
-            oCNVC.MaNV = oCNVC_CMND_HoChieu.MaNV = oCNVC_ThongTinPhu.MaNV = "12333";
+            oCNVC.MaNV = oCNVC_CMND_HoChieu.MaNV = oCNVC_ThongTinPhu.MaNV =
+                    oCNVC_ThongTinTuyenDung.MaNV = "ĐHM091039";
+           
 
             DataTable dt_ThongTinChinh = oCNVC.GetData();
             dt_ThongTinChinh.Columns.Add("ho_ten",typeof(string));
@@ -52,6 +53,8 @@ namespace BaoCao.UCs
 
             DataTable dt_ThongTinPhu = oCNVC_ThongTinPhu.GetData();
 
+            DataTable dt_ThongTinTuyenDung = oCNVC_ThongTinTuyenDung.GetData();
+
             /*
             var result = from thongtinchinh in dt_ThongTinChinh.AsEnumerable()
                          join cmnd in dt_CMND.AsEnumerable()
@@ -71,6 +74,7 @@ namespace BaoCao.UCs
             rpt.Database.Tables["ThongTinChinh"].SetDataSource(dt_ThongTinChinh);
             rpt.Database.Tables["CMND_HoChieu"].SetDataSource(dt_CMND);
             rpt.Database.Tables["ThongTinPhu"].SetDataSource(dt_ThongTinPhu);
+            rpt.Database.Tables["ThongTinTuyenDung"].SetDataSource(dt_ThongTinTuyenDung);
 
             //rpt.SetDataSource(dt_ThongTinChinh);
             //rpt.SetDataSource(dt_CMND);
