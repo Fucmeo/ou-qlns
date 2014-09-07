@@ -51,3 +51,4 @@ D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\obj\x86\Debug\HDQD.UCs.TiepNhanCu.resources
 D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\obj\x86\Debug\HDQD.csproj.GenerateResource.Cache
 D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\obj\x86\Debug\HDQD.exe
 D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\obj\x86\Debug\HDQD.pdb
+D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\obj\x86\Debug\HDQD.UCs.ChuyenNgachNhanh.resources

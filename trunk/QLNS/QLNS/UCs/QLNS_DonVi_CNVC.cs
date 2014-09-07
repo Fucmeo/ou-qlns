@@ -55,7 +55,17 @@ namespace QLNS.UCs
             else
                 e.Node.Expand();
 
-            dtDSCNVC = oDonVi.GetCNVCList(e.Node.Name);
+            if (cb_ShowAll.Checked)
+            {
+                dtDSCNVC = oDonVi.GetCNVCList_All(Convert.ToInt32(e.Node.Name));
+                
+            }
+            else
+            {
+                dtDSCNVC = oDonVi.GetCNVCList(e.Node.Name);
+
+            }
+
             nSelectedDVID = Convert.ToInt32(e.Node.Name);
             gb_NV.Text = "Nhân viên" + " (" + dtDSCNVC.Rows.Count + ")";
 
@@ -246,12 +256,46 @@ namespace QLNS.UCs
             oQLNS_HienThiThongTin.EmptyAllContent();
             oQLNS_HienThiThongTin.oQLNS_ThongTinNV.lbl_Status.Text = "";
             oQLNS_HienThiThongTin.oQLNS_ThongTinNV.pb_Status.Value = 0;
-            
+
+            gb_NV.Text = "Nhân viên" + " (0)";
         }
 
         private void TreeV_DonVi_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             nSelectedDVID = Convert.ToInt32(e.Node.Name);
+        }
+
+        private void cb_ShowAll_CheckedChanged(object sender, EventArgs e)
+        {
+            if (nSelectedDVID > 0)
+            {
+                if (cb_ShowAll.Checked)
+                {
+                    dtDSCNVC = oDonVi.GetCNVCList_All(Convert.ToInt32(nSelectedDVID));
+
+                }
+                else
+                {
+                    dtDSCNVC = oDonVi.GetCNVCList(nSelectedDVID.ToString());
+                }
+
+                gb_NV.Text = "Nhân viên" + " (" + dtDSCNVC.Rows.Count + ")";
+
+                if (dtDSCNVC != null && dtDSCNVC.Rows.Count > 0)
+                {
+                    DataView dv = dtDSCNVC.AsDataView();
+                    dv.Sort = "ho , ten ";
+                    dtDSCNVC = dv.ToTable();
+
+
+                    FillTreeVCNVC();
+                    oQLNS_HienThiThongTin.EmptyAllContent();
+                }
+                else
+                {
+                    TreeV_CNVC.Nodes.Clear();
+                }
+            }
         }
 
         
