@@ -36,8 +36,6 @@
             this.TLP_KhenThuong_ChuyenNgach = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dtgv_Luong = new System.Windows.Forms.DataGridView();
-            this.thongTinCNVC1 = new HDQD.UCs.ThongTinCNVC();
-            this.thongTinQuyetDinh1 = new HDQD.UCs.ThongTinQuyetDinh();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pb_Status = new System.Windows.Forms.ProgressBar();
             this.lbl_Status = new System.Windows.Forms.Label();
@@ -67,11 +65,13 @@
             this.txt_BacCu = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txt_NgayNgachCu = new System.Windows.Forms.TextBox();
             this.txt_HeSoCu = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lb_DSCNVC = new System.Windows.Forms.ListBox();
+            this.dtp_NgayCu = new System.Windows.Forms.DateTimePicker();
+            this.thongTinCNVC1 = new HDQD.UCs.ThongTinCNVC();
+            this.thongTinQuyetDinh1 = new HDQD.UCs.ThongTinQuyetDinh();
             this.TLP_KhenThuong_ChuyenNgach.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_Luong)).BeginInit();
@@ -157,32 +157,6 @@
             this.dtgv_Luong.Size = new System.Drawing.Size(988, 209);
             this.dtgv_Luong.TabIndex = 50;
             // 
-            // thongTinCNVC1
-            // 
-            this.thongTinCNVC1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.thongTinCNVC1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.thongTinCNVC1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.thongTinCNVC1.Location = new System.Drawing.Point(3, 6);
-            this.thongTinCNVC1.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
-            this.thongTinCNVC1.Name = "thongTinCNVC1";
-            this.thongTinCNVC1.Size = new System.Drawing.Size(994, 113);
-            this.thongTinCNVC1.TabIndex = 0;
-            // 
-            // thongTinQuyetDinh1
-            // 
-            this.thongTinQuyetDinh1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.thongTinQuyetDinh1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.thongTinQuyetDinh1.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.thongTinQuyetDinh1.Location = new System.Drawing.Point(3, 749);
-            this.thongTinQuyetDinh1.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
-            this.thongTinQuyetDinh1.Name = "thongTinQuyetDinh1";
-            this.thongTinQuyetDinh1.Size = new System.Drawing.Size(994, 153);
-            this.thongTinQuyetDinh1.TabIndex = 1;
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
@@ -266,7 +240,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 365F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(994, 365);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
@@ -383,7 +357,7 @@
             this.comb_NgachMoi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comb_NgachMoi.Enabled = false;
             this.comb_NgachMoi.FormattingEnabled = true;
-            this.comb_NgachMoi.Location = new System.Drawing.Point(100, 85);
+            this.comb_NgachMoi.Location = new System.Drawing.Point(100, 82);
             this.comb_NgachMoi.Name = "comb_NgachMoi";
             this.comb_NgachMoi.Size = new System.Drawing.Size(261, 30);
             this.comb_NgachMoi.TabIndex = 31;
@@ -424,7 +398,7 @@
             this.comb_BacMoi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comb_BacMoi.Enabled = false;
             this.comb_BacMoi.FormattingEnabled = true;
-            this.comb_BacMoi.Location = new System.Drawing.Point(100, 150);
+            this.comb_BacMoi.Location = new System.Drawing.Point(100, 147);
             this.comb_BacMoi.Name = "comb_BacMoi";
             this.comb_BacMoi.Size = new System.Drawing.Size(261, 30);
             this.comb_BacMoi.TabIndex = 33;
@@ -449,8 +423,9 @@
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.31417F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.68583F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.83607F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.16393F));
+            this.tableLayoutPanel3.Controls.Add(this.dtp_NgayCu, 1, 5);
             this.tableLayoutPanel3.Controls.Add(this.txt_DV, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.lbl_SoTien, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.txt_CV, 1, 1);
@@ -460,7 +435,6 @@
             this.tableLayoutPanel3.Controls.Add(this.txt_BacCu, 1, 3);
             this.tableLayoutPanel3.Controls.Add(this.label3, 0, 3);
             this.tableLayoutPanel3.Controls.Add(this.label4, 0, 5);
-            this.tableLayoutPanel3.Controls.Add(this.txt_NgayNgachCu, 1, 5);
             this.tableLayoutPanel3.Controls.Add(this.txt_HeSoCu, 1, 4);
             this.tableLayoutPanel3.Controls.Add(this.label8, 0, 4);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -483,9 +457,9 @@
             // 
             this.txt_DV.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txt_DV.Enabled = false;
-            this.txt_DV.Location = new System.Drawing.Point(119, 12);
+            this.txt_DV.Location = new System.Drawing.Point(93, 12);
             this.txt_DV.Name = "txt_DV";
-            this.txt_DV.Size = new System.Drawing.Size(183, 29);
+            this.txt_DV.Size = new System.Drawing.Size(209, 29);
             this.txt_DV.TabIndex = 36;
             // 
             // lbl_SoTien
@@ -502,9 +476,9 @@
             // 
             this.txt_CV.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txt_CV.Enabled = false;
-            this.txt_CV.Location = new System.Drawing.Point(119, 66);
+            this.txt_CV.Location = new System.Drawing.Point(93, 66);
             this.txt_CV.Name = "txt_CV";
-            this.txt_CV.Size = new System.Drawing.Size(183, 29);
+            this.txt_CV.Size = new System.Drawing.Size(209, 29);
             this.txt_CV.TabIndex = 38;
             // 
             // label1
@@ -521,9 +495,9 @@
             // 
             this.txt_NgachCu.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txt_NgachCu.Enabled = false;
-            this.txt_NgachCu.Location = new System.Drawing.Point(119, 120);
+            this.txt_NgachCu.Location = new System.Drawing.Point(93, 120);
             this.txt_NgachCu.Name = "txt_NgachCu";
-            this.txt_NgachCu.Size = new System.Drawing.Size(183, 29);
+            this.txt_NgachCu.Size = new System.Drawing.Size(209, 29);
             this.txt_NgachCu.TabIndex = 40;
             // 
             // label2
@@ -540,9 +514,9 @@
             // 
             this.txt_BacCu.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txt_BacCu.Enabled = false;
-            this.txt_BacCu.Location = new System.Drawing.Point(119, 174);
+            this.txt_BacCu.Location = new System.Drawing.Point(93, 174);
             this.txt_BacCu.Name = "txt_BacCu";
-            this.txt_BacCu.Size = new System.Drawing.Size(183, 29);
+            this.txt_BacCu.Size = new System.Drawing.Size(209, 29);
             this.txt_BacCu.TabIndex = 42;
             // 
             // label3
@@ -559,28 +533,19 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 275);
+            this.label4.Location = new System.Drawing.Point(3, 270);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 46);
+            this.label4.Size = new System.Drawing.Size(61, 57);
             this.label4.TabIndex = 45;
             this.label4.Text = "Ngày được hưởng";
-            // 
-            // txt_NgayNgachCu
-            // 
-            this.txt_NgayNgachCu.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_NgayNgachCu.Enabled = false;
-            this.txt_NgayNgachCu.Location = new System.Drawing.Point(119, 284);
-            this.txt_NgayNgachCu.Name = "txt_NgayNgachCu";
-            this.txt_NgayNgachCu.Size = new System.Drawing.Size(183, 29);
-            this.txt_NgayNgachCu.TabIndex = 44;
             // 
             // txt_HeSoCu
             // 
             this.txt_HeSoCu.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txt_HeSoCu.Enabled = false;
-            this.txt_HeSoCu.Location = new System.Drawing.Point(119, 228);
+            this.txt_HeSoCu.Location = new System.Drawing.Point(93, 228);
             this.txt_HeSoCu.Name = "txt_HeSoCu";
-            this.txt_HeSoCu.Size = new System.Drawing.Size(183, 29);
+            this.txt_HeSoCu.Size = new System.Drawing.Size(209, 29);
             this.txt_HeSoCu.TabIndex = 46;
             // 
             // label8
@@ -621,6 +586,44 @@
             this.lb_DSCNVC.Size = new System.Drawing.Size(289, 327);
             this.lb_DSCNVC.TabIndex = 0;
             this.lb_DSCNVC.SelectedIndexChanged += new System.EventHandler(this.lb_DSCNVC_SelectedIndexChanged);
+            // 
+            // dtp_NgayCu
+            // 
+            this.dtp_NgayCu.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.dtp_NgayCu.Checked = false;
+            this.dtp_NgayCu.CustomFormat = "dd/MM/yyyy";
+            this.dtp_NgayCu.Enabled = false;
+            this.dtp_NgayCu.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_NgayCu.Location = new System.Drawing.Point(93, 284);
+            this.dtp_NgayCu.Name = "dtp_NgayCu";
+            this.dtp_NgayCu.Size = new System.Drawing.Size(164, 29);
+            this.dtp_NgayCu.TabIndex = 58;
+            // 
+            // thongTinCNVC1
+            // 
+            this.thongTinCNVC1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.thongTinCNVC1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.thongTinCNVC1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.thongTinCNVC1.Location = new System.Drawing.Point(3, 6);
+            this.thongTinCNVC1.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.thongTinCNVC1.Name = "thongTinCNVC1";
+            this.thongTinCNVC1.Size = new System.Drawing.Size(994, 113);
+            this.thongTinCNVC1.TabIndex = 0;
+            // 
+            // thongTinQuyetDinh1
+            // 
+            this.thongTinQuyetDinh1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.thongTinQuyetDinh1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.thongTinQuyetDinh1.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.thongTinQuyetDinh1.Location = new System.Drawing.Point(3, 749);
+            this.thongTinQuyetDinh1.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.thongTinQuyetDinh1.Name = "thongTinQuyetDinh1";
+            this.thongTinQuyetDinh1.Size = new System.Drawing.Size(994, 153);
+            this.thongTinQuyetDinh1.TabIndex = 1;
             // 
             // ChuyenNgachNhanh
             // 
@@ -672,7 +675,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.TextBox txt_DV;
         private System.Windows.Forms.Label lbl_SoTien;
-        private System.Windows.Forms.TextBox txt_NgayNgachCu;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txt_BacCu;
         private System.Windows.Forms.Label label3;
@@ -693,5 +695,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txt_HeSoMoi;
         private System.Windows.Forms.Label label9;
+        public System.Windows.Forms.DateTimePicker dtp_NgayCu;
     }
 }

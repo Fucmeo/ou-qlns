@@ -310,11 +310,21 @@ namespace HDQD.UCs
                 string ten_ma = lb_DSCNVC.SelectedItem.ToString();
                 string ma_nv = ten_ma.Substring(ten_ma.IndexOf("-")).Replace("- ","");
 
-                foreach (KeyValuePair<string,string> kvp in kvpDV)
+                #region Ngach Cu
+                foreach (KeyValuePair<string, string> kvp in kvpDV)
                 {
                     if (kvp.Key == ma_nv)
                     {
                         txt_DV.Text = kvp.Value;
+                        break;
+                    }
+                }
+
+                foreach (KeyValuePair<string, string> kvp in kvpCV)
+                {
+                    if (kvp.Key == ma_nv)
+                    {
+                        txt_CV.Text = kvp.Value;
                         break;
                     }
                 }
@@ -327,6 +337,34 @@ namespace HDQD.UCs
                         break;
                     }
                 }
+
+                foreach (KeyValuePair<string, int> kvp in kvpBacCu)
+                {
+                    if (kvp.Key == ma_nv)
+                    {
+                        txt_BacCu.Text = kvp.Value.ToString();
+                        break;
+                    }
+                }
+
+                foreach (KeyValuePair<string, double> kvp in kvpHSCu)
+                {
+                    if (kvp.Key == ma_nv)
+                    {
+                        txt_HeSoCu.Text = kvp.Value.ToString();
+                        break;
+                    }
+                }
+
+                foreach (KeyValuePair<string, DateTime> kvp in kvpNgayHuongCu)
+                {
+                    if (kvp.Key == ma_nv)
+                    {
+                        dtp_NgayCu.Value = kvp.Value;
+                        break;
+                    }
+                } 
+                #endregion
             }
         }
     }
