@@ -490,6 +490,11 @@ namespace HDQD.UCs
             Fill_Info_DonVi();
         }
 
+        private void btn_NhapFile_Click(object sender, EventArgs e)
+        {
+
+        }
+
         #region Code cũ
         /*
         private bool CompareCNVCInfo()

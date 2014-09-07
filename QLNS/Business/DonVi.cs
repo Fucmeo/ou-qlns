@@ -199,6 +199,19 @@ namespace Business
             return dt;
         }
 
+        public DataTable GetCNVCList_All(int dv_id)
+        {
+            DataTable dt = new DataTable();
+
+            IDataParameter[] paras = new IDataParameter[1]{
+                new NpgsqlParameter("p_dv_id",dv_id)               
+            };
+
+            dt = dp.getDataTableProc("sp_select_cnvc_from_dvid", paras);
+
+            return dt;
+        }
+
         public DataTable GetDonViDetailList()
         {
             DataTable dt = new DataTable();

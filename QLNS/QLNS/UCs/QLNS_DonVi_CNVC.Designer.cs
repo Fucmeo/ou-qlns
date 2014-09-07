@@ -37,6 +37,7 @@
             this.txt_TimCNVC = new System.Windows.Forms.TextBox();
             this.btn_TimCNVC = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.cb_ShowAll = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.txt_TimDonVi = new System.Windows.Forms.TextBox();
@@ -79,11 +80,12 @@
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 2;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.28994F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.71006F));
             this.tableLayoutPanel4.Controls.Add(this.TreeV_CNVC, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.txt_TimCNVC, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.btn_TimCNVC, 0, 2);
+            this.tableLayoutPanel4.Controls.Add(this.cb_ShowAll, 1, 2);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 25);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -122,7 +124,7 @@
             this.btn_TimCNVC.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_TimCNVC.ImageKey = "Business Man Find(1).png";
             this.btn_TimCNVC.ImageList = this.imageList1;
-            this.btn_TimCNVC.Location = new System.Drawing.Point(59, 544);
+            this.btn_TimCNVC.Location = new System.Drawing.Point(24, 544);
             this.btn_TimCNVC.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.btn_TimCNVC.Name = "btn_TimCNVC";
             this.btn_TimCNVC.Size = new System.Drawing.Size(50, 50);
@@ -137,6 +139,17 @@
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "Business Man Find(1).png");
             this.imageList1.Images.SetKeyName(1, "Refresh.png");
+            // 
+            // cb_ShowAll
+            // 
+            this.cb_ShowAll.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cb_ShowAll.Location = new System.Drawing.Point(101, 533);
+            this.cb_ShowAll.Name = "cb_ShowAll";
+            this.cb_ShowAll.Size = new System.Drawing.Size(154, 72);
+            this.cb_ShowAll.TabIndex = 3;
+            this.cb_ShowAll.Text = "Hiển thị tất cả nhân viên";
+            this.cb_ShowAll.UseVisualStyleBackColor = true;
+            this.cb_ShowAll.CheckedChanged += new System.EventHandler(this.cb_ShowAll_CheckedChanged);
             // 
             // groupBox1
             // 
@@ -256,6 +269,7 @@
         public System.Windows.Forms.TextBox txt_TimDonVi;
         private System.Windows.Forms.ImageList imageList1;
         public System.Windows.Forms.Button btn_LamTuoi;
+        private System.Windows.Forms.CheckBox cb_ShowAll;
 
     }
 }
