@@ -92,13 +92,10 @@ namespace HDQD.UCs
                 {
                     if (!lstMaNV.Contains(thongTinCNVC1.txt_MaNV.Text))
                     {
-                        lstMaNV.Add(thongTinCNVC1.txt_MaNV.Text);
 
-                        lb_DSCNVC.Items.Add(thongTinCNVC1.txt_HoTen.Text);
-
-                        GetThongTin_Luong(thongTinCNVC1.txt_MaNV.Text);
                         GetChucDanh_ChucVu(thongTinCNVC1.txt_MaNV.Text);
-                        
+                        GetThongTin_Luong(thongTinCNVC1.txt_MaNV.Text);
+
 
                         
 
@@ -124,7 +121,7 @@ namespace HDQD.UCs
 
 
                     DataTable dtMaNgach = dtBacHeSo.DefaultView.ToTable(true, new string[2] { "ma_ngach", "ten_ngach" });
-                    dtMaNgach.Columns.Add("ma_ten_ngach", typeof(string), "ma_ngach + '-' + ten_ngach");
+                    dtMaNgach.Columns.Add("ma_ten_ngach", typeof(string), "ten_ngach + '-' + ma_ngach");
 
                     DataView dv = dtMaNgach.AsDataView();
                     dv.Sort = "ten_ngach";
@@ -206,10 +203,14 @@ namespace HDQD.UCs
                 kvpBacCu.Add(new KeyValuePair<string, int>(ma_nv, bac));
                 kvpHSCu.Add(new KeyValuePair<string, double>(ma_nv, hs));
                 kvpNgayHuongCu.Add(new KeyValuePair<string, DateTime>(ma_nv, tu_ngay));
+
+                lstMaNV.Add(thongTinCNVC1.txt_MaNV.Text);
+
+                lb_DSCNVC.Items.Add(thongTinCNVC1.txt_HoTen.Text);
             }
             catch (Exception)
             {
-                MessageBox.Show("Không thể lấy thông tin ngạch bậc của nhân viên này, có thể do nhân viên này không có lương hệ số, xin vui lòng thử lại sau.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Không thể lấy thông tin ngạch bậc của nhân viên "+ma_nv+ " , có thể do nhân viên này không có lương hệ số, xin vui lòng thử lại sau.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -310,30 +311,46 @@ namespace HDQD.UCs
                 string ten_ma = lb_DSCNVC.SelectedItem.ToString();
                 string ma_nv = ten_ma.Substring(ten_ma.IndexOf("-")).Replace("- ","");
 
+
+
                 #region Ngach Cu
-                foreach (KeyValuePair<string, string> kvp in kvpDV)
+
+                for (int i = 0; i < kvpDV.Count; i++)
                 {
-                    if (kvp.Key == ma_nv)
+                    if (kvpDV[i].Key == ma_nv)
                     {
-                        txt_DV.Text = kvp.Value;
+                        txt_DV.Text = kvpDV[i].Value;
                         break;
+                    }
+
+                    if (i + 1 == kvpDV.Count)
+                    {
+                        txt_DV.Text = "";   
                     }
                 }
 
-                foreach (KeyValuePair<string, string> kvp in kvpCV)
+                for (int i = 0; i < kvpCV.Count; i++)
                 {
-                    if (kvp.Key == ma_nv)
+                    if (kvpCV[i].Key == ma_nv)
                     {
-                        txt_CV.Text = kvp.Value;
+                        txt_CV.Text = kvpCV[i].Value;
                         break;
                     }
+
+                    if (i + 1 == kvpCV.Count)
+                    {
+                        txt_CV.Text = "";
+                    }
                 }
+
+               
 
                 foreach (KeyValuePair<string, string> kvp in kvpNgachCu)
                 {
                     if (kvp.Key == ma_nv)
                     {
                         txt_NgachCu.Text = kvp.Value;
+                        comb_NgachMoi.Text = kvp.Value;
                         break;
                     }
                 }
@@ -365,7 +382,249 @@ namespace HDQD.UCs
                     }
                 } 
                 #endregion
+
+                #region Ngach Moi
+
+                for (int i = 0; i < kvpNgayHuongMoi.Count; i++)
+                {
+                    if (kvpNgayHuongMoi[i].Key == ma_nv)
+                    {
+                        dtp_NgayBatDau.Value= kvpNgayHuongMoi[i].Value;
+                        break;
+                    }
+
+                }
+
+                for (int i = 0; i < kvpBacMoi.Count; i++)
+                {
+                    if (kvpBacMoi[i].Key == ma_nv)
+                    {
+                        comb_BacMoi.SelectedValue = kvpBacMoi[i].Value.ToString();
+                        break;
+                    }
+
+                }
+                
+                #endregion
             }
         }
+
+        private void btn_DelNV_Click(object sender, EventArgs e)
+        {
+            if (lb_DSCNVC.SelectedIndex != -1 &&
+                MessageBox.Show("Bạn thực sự muốn xoá nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                string ten_ma = lb_DSCNVC.SelectedItem.ToString();
+                string ma_nv = ten_ma.Substring(ten_ma.IndexOf("-")).Replace("- ","");
+                RemoveNVFromKVP(ma_nv);
+                lb_DSCNVC.Items.Remove(ten_ma);
+            }
+        }
+
+        void RemoveNVFromKVP(string ma_nv)
+        {
+            #region Ngach Cu
+            foreach (KeyValuePair<string, string> kvp in kvpDV)
+            {
+                if (kvp.Key == ma_nv)
+                {
+                    kvpDV.Remove(kvp);
+                    break;
+                }
+            }
+
+            foreach (KeyValuePair<string, string> kvp in kvpCV)
+            {
+                if (kvp.Key == ma_nv)
+                {
+                    kvpCV.Remove(kvp);
+                    break;
+                }
+            }
+
+            foreach (KeyValuePair<string, string> kvp in kvpNgachCu)
+            {
+                if (kvp.Key == ma_nv)
+                {
+                    kvpNgachCu.Remove(kvp);
+                    break;
+                }
+            }
+
+            foreach (KeyValuePair<string, int> kvp in kvpBacCu)
+            {
+                if (kvp.Key == ma_nv)
+                {
+                    kvpBacCu.Remove(kvp);
+                    break;
+                }
+            }
+
+            foreach (KeyValuePair<string, double> kvp in kvpHSCu)
+            {
+                if (kvp.Key == ma_nv)
+                {
+                    kvpHSCu.Remove(kvp);
+                    break;
+                }
+            }
+
+            foreach (KeyValuePair<string, DateTime> kvp in kvpNgayHuongCu)
+            {
+                if (kvp.Key == ma_nv)
+                {
+                    kvpNgayHuongCu.Remove(kvp);
+                    break;
+                }
+            }
+            #endregion
+
+            #region Ngach Moi
+
+            foreach (KeyValuePair<string, int> kvp in kvpBacMoi)
+            {
+                if (kvp.Key == ma_nv)
+                {
+                    kvpBacMoi.Remove(kvp);
+                    break;
+                }
+            }
+
+            foreach (KeyValuePair<string, double> kvp in kvpHSMoi)
+            {
+                if (kvp.Key == ma_nv)
+                {
+                    kvpHSMoi.Remove(kvp);
+                    break;
+                }
+            }
+
+            foreach (KeyValuePair<string, string> kvp in kvpNgachMoi)
+            {
+                if (kvp.Key == ma_nv)
+                {
+                    kvpNgachMoi.Remove(kvp);
+                    break;
+                }
+            }
+
+            foreach (KeyValuePair<string, DateTime> kvp in kvpNgayHuongMoi)
+            {
+                if (kvp.Key == ma_nv)
+                {
+                    kvpNgayHuongMoi.Remove(kvp);
+                    break;
+                }
+            } 
+
+            #endregion
+
+
+        }
+
+        void EnableNgachMoi(bool enable)
+        {
+            comb_BacMoi.Enabled = dtp_NgayBatDau.Enabled = enable;
+
+            thongTinCNVC1.Enabled = lb_DSCNVC.Enabled =  btn_DelNV.Enabled
+                = btn_Them.Enabled = btn_NhapFile.Enabled = !enable;
+
+            if (enable)
+            {
+                btn_Edit_Luong.ImageKey = "Save.png";
+                btn_Del_Luong.ImageKey = "Cancel.png";
+            }
+            else
+            {
+                btn_Edit_Luong.ImageKey = "Edit Data.png";
+                btn_Del_Luong.ImageKey = "Garbage.png";
+            }
+        }
+
+        private void btn_Edit_Luong_Click(object sender, EventArgs e)
+        {
+            if (btn_Edit_Luong.ImageKey == "Edit Data.png")
+            {
+                EnableNgachMoi(true);
+            }
+            else
+            {
+                string ten_ma = lb_DSCNVC.SelectedItem.ToString();
+                string ma_nv = ten_ma.Substring(ten_ma.IndexOf("-")).Replace("- ", "");
+
+                int bac_id = Convert.ToInt32(comb_BacMoi.SelectedValue);
+                DateTime dt = dtp_NgayBatDau.Value;
+
+                if (kvpNgayHuongMoi.Count == 0)
+                {
+                    kvpNgayHuongMoi.Add(new KeyValuePair<string, DateTime>(ma_nv, dt));
+                }
+                else
+                {
+                    for (int i = 0; i < kvpNgayHuongMoi.Count; i++)
+                    {
+                        if (kvpNgayHuongMoi[i].Key == ma_nv)
+                        {
+                            kvpNgayHuongMoi[i] = new KeyValuePair<string, DateTime>(ma_nv, dt);
+                            break;
+                        }
+
+                        if (i + 1 == kvpNgayHuongMoi.Count) // add moi
+                        {
+                            kvpNgayHuongMoi.Add(new KeyValuePair<string, DateTime>(ma_nv, dt));
+                        }
+                    }
+                }
+
+                if (kvpBacMoi.Count == 0)
+                {
+                    kvpBacMoi.Add(new KeyValuePair<string, int>(ma_nv, bac_id));
+                }
+                else
+                {
+                    for (int i = 0; i < kvpBacMoi.Count; i++)
+                    {
+                        if (kvpBacMoi[i].Key == ma_nv)
+                        {
+                            kvpBacMoi[i] = new KeyValuePair<string, int>(ma_nv, bac_id);
+                            break;
+                        }
+
+                        if (i + 1 == kvpBacMoi.Count) // add moi
+                        {
+                            kvpBacMoi.Add(new KeyValuePair<string, int>(ma_nv, bac_id));
+                        }
+                    }
+                }
+
+                
+
+                EnableNgachMoi(false);
+            }
+
+
+        }
+
+        private void comb_BacMoi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int m_id = Convert.ToInt32(comb_BacMoi.SelectedValue.ToString());
+
+                var result = (from c in dtBacHeSo.AsEnumerable()
+                              where c.Field<int>("id") == m_id
+                              select c.Field<double>("he_so"));
+
+                double m_he_so = result.ElementAt<double>(0);
+
+                txt_HeSoMoi.Text = m_he_so.ToString();
+            }
+            catch
+            {
+                txt_HeSoMoi.Text = "";
+            }
+        }
+
+
     }
 }
