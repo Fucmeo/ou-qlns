@@ -106,5 +106,29 @@ namespace Business.Luong
         }
 
 
+        public bool Update_ChuyenNgachNhanh(string[] ma_nv, int[] luong_id, DateTime[] tu_ngay_luong, int[] ngach_bac_hs_id,
+                                    string ma_qd, string ten_qd, int loai_qd_id, DateTime tu_ngay_qd,
+                                    DateTime den_ngay_qd, DateTime ngay_ky, string mo_ta_qd)
+        {
+            IDataParameter[] commandParameters = new IDataParameter[] 
+            { 
+                new NpgsqlParameter("p_ma_nv", ma_nv), 
+                 new NpgsqlParameter("p_luong_id", luong_id), 
+                 new NpgsqlParameter("p_ngach_bac_heso_luong_id", ngach_bac_hs_id), 
+                 new NpgsqlParameter("p_tu_ngay_luong", tu_ngay_luong),
+                 new NpgsqlParameter("p_ma_qd", ma_qd), 
+                new NpgsqlParameter("p_ten_qd", ten_qd), 
+                new NpgsqlParameter("p_loai_qd_id", loai_qd_id), 
+                new NpgsqlParameter("p_tu_ngay_qd", tu_ngay_qd),
+                new NpgsqlParameter("p_den_ngay_qd", den_ngay_qd), 
+                new NpgsqlParameter("p_ngay_ky_qd", ngay_ky), 
+                new NpgsqlParameter("p_mo_ta_qd", mo_ta_qd)
+            };
+
+            int num = (int)this.dp.executeScalarProc("sp1_update_chuyen_ngach_nhanh", commandParameters);
+            return (num > 0);
+        }
+
+
     }
 }

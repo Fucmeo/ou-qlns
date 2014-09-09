@@ -31,6 +31,7 @@ namespace HDQD.UCs
         List<KeyValuePair<string, string>> kvpDV;
         List<KeyValuePair<string, string>> kvpCV;
         List<KeyValuePair<string, string>> kvpNgachCu;
+        List<KeyValuePair<string, int>> kvpLuongID;
         List<KeyValuePair<string, int>> kvpBacCu;
         List<KeyValuePair<string, double>> kvpHSCu;
         List<KeyValuePair<string, DateTime>> kvpNgayHuongCu;
@@ -64,6 +65,7 @@ namespace HDQD.UCs
             dtFile = new DataTable();
             dtQtrCtac = new DataTable();
 
+            kvpLuongID = new List<KeyValuePair<string, int>>();
             kvpDV = new List<KeyValuePair<string, string>>();
             kvpCV = new List<KeyValuePair<string, string>>();
             kvpBacCu = new List<KeyValuePair<string, int>>();
@@ -190,6 +192,10 @@ namespace HDQD.UCs
                                 where n.Field<int>("id") == bac_hs_id
                            select n.Field<int>("bac")).First();
 
+                int luong_id = (from n in dtLuong.AsEnumerable()
+                                where n.Field<int?>("ngach_bac_heso_id") != null
+                                select n.Field<int>("luong_id")).First();
+
                 double hs = (from n in dtBacHeSo.AsEnumerable()
                               where n.Field<int>("id") == bac_hs_id
                              select n.Field<double>("he_so")).First();
@@ -200,9 +206,12 @@ namespace HDQD.UCs
                                 ).First();
 
                 kvpNgachCu.Add(new KeyValuePair<string,string>(ma_nv,ngach));
-                kvpBacCu.Add(new KeyValuePair<string, int>(ma_nv, bac));
+                kvpBacCu.Add(new KeyValuePair<string, int>(ma_nv, bac_hs_id));
+                kvpLuongID.Add(new KeyValuePair<string, int>(ma_nv, luong_id));
                 kvpHSCu.Add(new KeyValuePair<string, double>(ma_nv, hs));
                 kvpNgayHuongCu.Add(new KeyValuePair<string, DateTime>(ma_nv, tu_ngay));
+
+                kvpBacMoi.Add(new KeyValuePair<string, int>(ma_nv, bac_hs_id));
 
                 lstMaNV.Add(thongTinCNVC1.txt_MaNV.Text);
 
@@ -359,7 +368,11 @@ namespace HDQD.UCs
                 {
                     if (kvp.Key == ma_nv)
                     {
-                        txt_BacCu.Text = kvp.Value.ToString();
+                        int bac = (from n in dtBacHeSo.AsEnumerable()
+                                   where n.Field<int>("id") == kvp.Value
+                                   select n.Field<int>("bac")).First();
+
+                        txt_BacCu.Text = bac.ToString();
                         break;
                     }
                 }
@@ -418,12 +431,23 @@ namespace HDQD.UCs
                 string ma_nv = ten_ma.Substring(ten_ma.IndexOf("-")).Replace("- ","");
                 RemoveNVFromKVP(ma_nv);
                 lb_DSCNVC.Items.Remove(ten_ma);
+                lstMaNV.Remove(ma_nv);
             }
         }
 
         void RemoveNVFromKVP(string ma_nv)
         {
             #region Ngach Cu
+
+            foreach (KeyValuePair<string, int> kvp in kvpLuongID)
+            {
+                if (kvp.Key == ma_nv)
+                {
+                    kvpLuongID.Remove(kvp);
+                    break;
+                }
+            }
+
             foreach (KeyValuePair<string, string> kvp in kvpDV)
             {
                 if (kvp.Key == ma_nv)
@@ -529,15 +553,15 @@ namespace HDQD.UCs
             thongTinCNVC1.Enabled = lb_DSCNVC.Enabled =  btn_DelNV.Enabled
                 = btn_Them.Enabled = btn_NhapFile.Enabled = !enable;
 
+            btn_Del_Luong.Visible = enable;
+
             if (enable)
             {
                 btn_Edit_Luong.ImageKey = "Save.png";
-                btn_Del_Luong.ImageKey = "Cancel.png";
             }
             else
             {
                 btn_Edit_Luong.ImageKey = "Edit Data.png";
-                btn_Del_Luong.ImageKey = "Garbage.png";
             }
         }
 
@@ -622,6 +646,116 @@ namespace HDQD.UCs
             catch
             {
                 txt_HeSoMoi.Text = "";
+            }
+        }
+
+        private void btn_Del_Luong_Click(object sender, EventArgs e)
+        {
+            EnableNgachMoi(false);
+            comb_BacMoi.Text = txt_BacCu.Text;
+            txt_HeSoMoi.Text = txt_HeSoCu.Text;
+        }
+
+        bool CheckNgachMoi_NgachCu()
+        {
+            for (int i = 0; i < kvpBacCu.Count; i++)
+            {
+                if (kvpBacCu[i].Key == kvpBacMoi[i].Key && kvpBacCu[i].Value == kvpBacMoi[i].Value) // ngach khong thay doi
+                {
+                    return false;
+                }
+            }
+            return true;
+
+        }
+
+        private void btn_Them_Click(object sender, EventArgs e)
+        {
+            if (btn_Edit_Luong.ImageKey != "Save.png")
+            {
+                if (thongTinQuyetDinh1.txt_MaQD.Text != "" && thongTinQuyetDinh1.txt_TenQD.Text != "")
+                {
+                    if (CheckNgachMoi_NgachCu())
+                    {
+                        if (MessageBox.Show("Bạn thực sự muốn lưu thông tin lương ngạch cho các nhân viên này?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+
+                            try
+                            {
+                                #region Get thong tin luong
+
+                                int n = kvpLuongID.Count;
+
+                                int[] luong_id = new int[n];
+                                string[] ma_nv = new string[n];
+                                int[] ngach_bac_heso_id = new int[n];
+                                DateTime[] tu_ngay_luong = new DateTime[n];
+
+                                for (int i = 0; i < n; i++)
+                                {
+                                    luong_id[i] = kvpLuongID[i].Value;
+                                    ma_nv[i] = lstMaNV[i].ToString();
+                                    ngach_bac_heso_id[i] = kvpBacMoi[i].Value;
+                                    tu_ngay_luong[i] = kvpNgayHuongMoi[i].Value;
+                                }
+
+                                #endregion
+
+
+
+                                #region Get thong tin QD
+
+                                string ma_qd = thongTinQuyetDinh1.txt_MaQD.Text;
+                                string ten_qd = thongTinQuyetDinh1.txt_TenQD.Text;
+                                string mo_ta = thongTinQuyetDinh1.rTB_MoTa.Text;
+
+                                int loai_qd_id = Convert.ToInt32(thongTinQuyetDinh1.comB_Loai.SelectedValue);
+                                DateTime tu_ngay_qd = thongTinQuyetDinh1.dTP_NgayHieuLuc.Value;
+
+                                DateTime den_ngay_qd;
+                                if (thongTinQuyetDinh1.dTP_NgayHetHan.Checked)
+                                    den_ngay_qd = thongTinQuyetDinh1.dTP_NgayHetHan.Value;
+                                else
+                                    den_ngay_qd = Convert.ToDateTime("01/01/1901").Date;
+
+                                DateTime ngay_ky = thongTinQuyetDinh1.dTP_NgayKy.Value;
+
+                                #endregion
+
+                                oTinhLuong.Update_ChuyenNgachNhanh(ma_nv, luong_id, tu_ngay_luong, ngach_bac_heso_id
+                                                           , ma_qd, ten_qd, loai_qd_id, tu_ngay_qd, den_ngay_qd, ngay_ky, mo_ta);
+
+
+
+                                if (oFile.Path.Count > 0)
+                                {
+                                    //UploadFile();
+                                }
+
+                                //ResetAll();
+
+                                MessageBox.Show("Lưu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            }
+                            catch (Exception)
+                            {
+                                MessageBox.Show("Lưu không thành công, xin vui lòng thử lại sau.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Có thông tin ngạch chưa được thay đổi, xin vui lòng kiểm tra lại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Thông tin mã / tên quyết định không được để trống.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Có thông tin lương ngạch chưa được lưu, xin vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
