@@ -61,6 +61,9 @@ namespace HDQD.UCs
                     case "QDKhenThuong_ChuyenNgach":
                         QDKhenThuong_ChuyenNgach.oFile = null;
                         break;
+                    case "ChuyenNgachNhanh":
+                        ChuyenNgachNhanh.oFile = null;
+                        break;
                     case "QLNS_TapTin":
                         oCNVCFile.DisputeObject();
                         oCNVCFile = null;
@@ -148,6 +151,9 @@ namespace HDQD.UCs
                         break;
                     case "QDKhenThuong_ChuyenNgach":
                         QDKhenThuong_ChuyenNgach.oFile = oCNVCFile;
+                        break;
+                    case "ChuyenNgachNhanh":
+                        ChuyenNgachNhanh.oFile = oCNVCFile;
                         break;
                     case "ThanhLapDonVi":
                         ThanhLapDonVi.Desc = rtb_MoTa.Text;

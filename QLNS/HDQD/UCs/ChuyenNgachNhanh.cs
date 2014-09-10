@@ -53,6 +53,36 @@ namespace HDQD.UCs
             InitializeComponent();
         }
 
+        void InitObject_AfterSaving()
+        {
+            lstMaNV = new List<string>();
+            oTinhLuong = new Business.Luong.TinhLuong();
+            oFTP = new Business.FTP();
+            oFile = new Business.CNVC.CNVC_File();
+            oCNVC_QTr_CongTac_OU = new Business.CNVC.CNVC_QTr_CongTac_OU();
+            oBacHeSo = new Business.Luong.BacHeSo();
+            dtFile = new DataTable();
+
+            dtQtrCtac = new DataTable();
+
+            kvpLuongID = new List<KeyValuePair<string, int>>();
+            kvpDV = new List<KeyValuePair<string, string>>();
+            kvpCV = new List<KeyValuePair<string, string>>();
+            kvpBacCu = new List<KeyValuePair<string, int>>();
+            kvpNgachCu = new List<KeyValuePair<string, string>>();
+            kvpHSCu = new List<KeyValuePair<string, double>>();
+            kvpNgayHuongCu = new List<KeyValuePair<string, DateTime>>();
+
+            kvpBacMoi = new List<KeyValuePair<string, int>>();
+            kvpNgachMoi = new List<KeyValuePair<string, string>>();
+            kvpHSMoi = new List<KeyValuePair<string, double>>();
+            kvpNgayHuongMoi = new List<KeyValuePair<string, DateTime>>();
+
+            dtLuong = new DataTable();
+
+            oLoaiQuyetDinh = new Business.HDQD.LoaiQuyetDinh();
+        }
+
         private void InitObject()
         {
             lstMaNV = new List<string>();
@@ -111,6 +141,18 @@ namespace HDQD.UCs
         {
             InitObject();
             LoadCombo_NgachBac();
+
+            thongTinQuyetDinh1.comB_Loai.DataSource = null;
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("ten_loai_quyet_dinh", typeof(string));
+            dt.Columns.Add("loai_quyet_dinh_id", typeof(int));
+
+            dt.Rows.Add(new object[2]{"Chuyển ngạch",17});
+
+            thongTinQuyetDinh1.comB_Loai.DataSource = dt;
+            thongTinQuyetDinh1.comB_Loai.DisplayMember = "ten_loai_quyet_dinh";
+            thongTinQuyetDinh1.comB_Loai.ValueMember = "loai_quyet_dinh_id";
         }
 
         void LoadCombo_NgachBac()
@@ -179,9 +221,18 @@ namespace HDQD.UCs
             {
                 dtLuong = oTinhLuong.GetThongTinLuong_ByNV(ma_nv);
 
+                int luong_id = (from n in dtLuong.AsEnumerable()
+                                where n.Field<int?>("ngach_bac_heso_id") != null
+                                select n.Field<int>("luong_id")).Max();
+
                 int bac_hs_id = (from l in dtLuong.AsEnumerable()
-                                 where l.Field<int?>("ngach_bac_heso_id") != null
+                                 where l.Field<int?>("luong_id") == luong_id
                                  select l.Field<int>("ngach_bac_heso_id")
+                                ).First();
+
+                DateTime tu_ngay = (from l in dtLuong.AsEnumerable()
+                                    where l.Field<int?>("luong_id") == luong_id
+                                    select l.Field<DateTime>("tu_ngay")
                                 ).First();
 
                 string ngach = (from n in dtBacHeSo.AsEnumerable()
@@ -192,18 +243,13 @@ namespace HDQD.UCs
                                 where n.Field<int>("id") == bac_hs_id
                            select n.Field<int>("bac")).First();
 
-                int luong_id = (from n in dtLuong.AsEnumerable()
-                                where n.Field<int?>("ngach_bac_heso_id") != null
-                                select n.Field<int>("luong_id")).First();
+                
 
                 double hs = (from n in dtBacHeSo.AsEnumerable()
                               where n.Field<int>("id") == bac_hs_id
                              select n.Field<double>("he_so")).First();
 
-                DateTime tu_ngay = (from l in dtLuong.AsEnumerable()
-                                    where l.Field<int?>("ngach_bac_heso_id") != null
-                                    select l.Field<DateTime>("tu_ngay")
-                                ).First();
+                
 
                 kvpNgachCu.Add(new KeyValuePair<string,string>(ma_nv,ngach));
                 kvpBacCu.Add(new KeyValuePair<string, int>(ma_nv, bac_hs_id));
@@ -219,7 +265,7 @@ namespace HDQD.UCs
             }
             catch (Exception)
             {
-                MessageBox.Show("Không thể lấy thông tin ngạch bậc của nhân viên "+ma_nv+ " , có thể do nhân viên này không có lương hệ số, xin vui lòng thử lại sau.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Không thể lấy thông tin ngạch bậc của nhân viên "+ma_nv+ " , có thể do nhân viên này không có lương hệ số, xin vui lòng thử lại.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -729,10 +775,12 @@ namespace HDQD.UCs
 
                                 if (oFile.Path.Count > 0)
                                 {
-                                    //UploadFile();
+                                    UploadFile();
                                 }
 
-                                //ResetAll();
+                                InitObject_AfterSaving();
+                                EnableNgachMoi(false);
+                                ClearInterface();
 
                                 MessageBox.Show("Lưu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -757,6 +805,108 @@ namespace HDQD.UCs
             {
                 MessageBox.Show("Có thông tin lương ngạch chưa được lưu, xin vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void ClearInterface()
+        {
+            txt_BacCu.Text = txt_CV.Text = txt_DV.Text = txt_HeSoCu.Text =
+                   txt_HeSoMoi.Text = txt_NgachCu.Text = thongTinCNVC1.txt_HoTen.Text =
+                   thongTinCNVC1.txt_MaNV.Text = thongTinQuyetDinh1.txt_MaQD.Text=
+                   thongTinQuyetDinh1.txt_TenQD.Text = thongTinQuyetDinh1.rTB_MoTa.Text="";
+
+            lb_DSCNVC.Items.Clear();
+        }
+
+
+
+        private void bw_upload_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+            for (int i = 0; i < nNewFilesCount; i++)
+            {
+                bw_upload.ReportProgress(i + 1);
+
+                ServerPaths[i] = oFTP.UploadFile(oFile.Path[i], oFile.Path[i].Split('\\').Last(), oFile.Group[i], thongTinQuyetDinh1.txt_MaQD.Text);
+                Thread.Sleep(100);
+
+            }
+        }
+
+        private void bw_upload_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            // Change the value of the ProgressBar to the BackgroundWorker progress.
+            pb_Status.Value = e.ProgressPercentage;
+            // Set the text.
+            lbl_Status.Text = "Đang đăng tập tin ..." + e.ProgressPercentage.ToString() + " / " + nNewFilesCount.ToString();
+        }
+
+        private void bw_upload_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (oFile.Path.Count > 0)
+            {
+                MessageBox.Show("Quá trình đăng tập tin lên server thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                lbl_Status.Text = "Đăng hình hoàn tất!";
+
+                try
+                {
+                    for (int i = 0; i < oFile.Path.Count; i++)
+                    {
+                        oFile.Link[i] = thongTinQuyetDinh1.txt_MaQD.Text;
+                    }
+                    oFile.MaNV = thongTinCNVC1.txt_MaNV.Text;
+                    oFile.AddFileArray(ServerPaths);
+
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Quá trình lưu tập tin không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                ((Form)this.Parent.Parent).ControlBox = true;
+                this.Enabled = true;
+                oFile.DisputeObject();
+            }
+
+
+
+        }
+
+        private void UploadFile()
+        {
+            #region HD
+
+            nNewFilesCount = oFile.Path.Count;
+            ServerPaths = new string[nNewFilesCount];
+            try
+            {
+
+                pb_Status.Value = 0;
+                pb_Status.Maximum = nNewFilesCount;
+
+                //this.Enabled = false;
+                ((Form)this.Parent.Parent).ControlBox = false;
+                this.Enabled = false;
+                bw_upload.RunWorkerAsync();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Quá trình tải hình lên server không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ((Form)this.Parent.Parent).ControlBox = true;
+                this.Enabled = true;
+            }
+
+
+
+            #endregion
+        }
+
+
+        private void btn_NhapFile_Click(object sender, EventArgs e)
+        {
+            UCs.DSTapTin oDSTapTin = new UCs.DSTapTin("ChuyenNgachNhanh", oFile);
+            oDSTapTin.txt_MaTapTin.Enabled = false;
+            Form f = new Forms.Popup(oDSTapTin, "QUẢN LÝ NHÂN SỰ - DANH SÁCH TẬP TIN");
+            f.ShowDialog();
         }
 
 

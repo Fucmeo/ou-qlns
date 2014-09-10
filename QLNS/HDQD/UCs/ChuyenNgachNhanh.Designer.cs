@@ -96,6 +96,9 @@
             // bw_upload
             // 
             this.bw_upload.WorkerReportsProgress = true;
+            this.bw_upload.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bw_upload_DoWork);
+            this.bw_upload.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bw_upload_ProgressChanged);
+            this.bw_upload.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bw_upload_RunWorkerCompleted);
             // 
             // TLP_KhenThuong_ChuyenNgach
             // 
@@ -212,7 +215,7 @@
             this.btn_NhapFile.TabIndex = 13;
             this.btn_NhapFile.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_NhapFile.UseVisualStyleBackColor = true;
-            this.btn_NhapFile.Visible = false;
+            this.btn_NhapFile.Click += new System.EventHandler(this.btn_NhapFile_Click);
             // 
             // tableLayoutPanel2
             // 
