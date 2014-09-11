@@ -117,6 +117,26 @@ namespace Business.CNVC
                 return false;
         }
 
+        public bool AddCNVCArrayFileArray(string[] FilesPath, string[] ma_nv)
+        {
+            int check;
+            IDataParameter[] paras = new IDataParameter[6]{
+                new NpgsqlParameter("p_ma_nv",ma_nv), 
+                new NpgsqlParameter("p_path",FilesPath), 
+                new NpgsqlParameter("p_mo_ta",mota),
+                new NpgsqlParameter("p_link",Link),
+                new NpgsqlParameter("p_group",Group),
+                new NpgsqlParameter("p_file_name",FileName)
+            };
+            check = (int)dp.executeScalarProc("sp_insert_cnvc_array_file_array", paras);
+            if (check > 0)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
         public bool DeleteAvatar()
         {
             int check;
