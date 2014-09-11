@@ -22,6 +22,8 @@ namespace HDQD.UCs
         public static Business.CNVC.CNVC_File oFile;
         List<string> lstMaNV;
 
+        bool bUploadFileComplete = false;
+
         Business.Luong.BacHeSo oBacHeSo;
         DataTable dtBacHeSo;
         DataTable dtLuong;
@@ -777,10 +779,12 @@ namespace HDQD.UCs
                                 {
                                     UploadFile();
                                 }
+                                else
+                                {
+                                    ResetAll();
+                                }
 
-                                InitObject_AfterSaving();
-                                EnableNgachMoi(false);
-                                ClearInterface();
+                                
 
                                 MessageBox.Show("Lưu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -805,6 +809,15 @@ namespace HDQD.UCs
             {
                 MessageBox.Show("Có thông tin lương ngạch chưa được lưu, xin vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        void ResetAll()
+        {
+            InitObject_AfterSaving();
+            EnableNgachMoi(false);
+            ClearInterface();
+
+            pb_Status.Value = 0;
         }
 
         private void ClearInterface()
@@ -853,8 +866,9 @@ namespace HDQD.UCs
                     {
                         oFile.Link[i] = thongTinQuyetDinh1.txt_MaQD.Text;
                     }
-                    oFile.MaNV = thongTinCNVC1.txt_MaNV.Text;
-                    oFile.AddFileArray(ServerPaths);
+                    //oFile.MaNV = thongTinCNVC1.txt_MaNV.Text;
+                    //oFile.AddFileArray(ServerPaths);
+                    oFile.AddCNVCArrayFileArray(ServerPaths, lstMaNV.ToArray());
 
                 }
                 catch (Exception)
@@ -865,6 +879,8 @@ namespace HDQD.UCs
                 ((Form)this.Parent.Parent).ControlBox = true;
                 this.Enabled = true;
                 oFile.DisputeObject();
+
+                ResetAll();
             }
 
 
@@ -893,6 +909,7 @@ namespace HDQD.UCs
                 MessageBox.Show("Quá trình tải hình lên server không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ((Form)this.Parent.Parent).ControlBox = true;
                 this.Enabled = true;
+                ResetAll();
             }
 
 

@@ -268,8 +268,18 @@ namespace HDQD.UCs
             {
                 try
                 {
-                    pb_Preview.Image = Image.FromFile(lsb_DSFile.SelectedItem.ToString());
-                    pb_Preview.ImageLocation = lsb_DSFile.SelectedItem.ToString();
+                    if (lsb_DSFile.SelectedItem.ToString().ToLower().Contains(".pdf"))
+                    {
+                        pb_Preview.Image =  null;
+                        pb_Preview.ImageLocation = null;
+                    }
+                    else
+                    {
+                        pb_Preview.Image = Image.FromFile(lsb_DSFile.SelectedItem.ToString());
+                        pb_Preview.ImageLocation = lsb_DSFile.SelectedItem.ToString();
+                    }
+
+                    
                     int idx = oCNVCFile.Path.IndexOf(lsb_DSFile.SelectedItem.ToString());
                     txt_MaTapTin.Text = oCNVCFile.Link[idx].ToString();
                     txt_TenTapTin.Text = oCNVCFile.FileName[idx].ToString();
