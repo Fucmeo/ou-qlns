@@ -542,13 +542,19 @@ namespace QLNS.Forms
 
         private void qĐKhenThưởngNângLươngChuyểnNgạchToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Forms.Popup f = new Popup("Quyết định khen thưởng - chuyển ngạch", new HDQD.UCs.QDKhenThuong_ChuyenNgach());
+            Forms.Popup f = new Popup("Quyết định nâng bậc nhanh", new HDQD.UCs.ChuyenNgachNhanh());
             f.ShowDialog();
         }
 
         private void qĐĐiềuĐộngToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Forms.Popup f = new Popup("Quyết định điều động", new HDQD.UCs.DieuDong());
+            f.ShowDialog();
+        }
+
+        private void qĐKhenThưởngChuyểnNgạchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Quyết định khen thưởng/chuyển ngạch", new HDQD.UCs.QDKhenThuong_ChuyenNgach());
             f.ShowDialog();
         }
     }

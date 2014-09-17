@@ -598,34 +598,36 @@ namespace QLNS.UCs
 
         private void btn_Xoa_Click(object sender, EventArgs e)
         {
-            oCNVC_QTr_CongTac_OU.ID = nSelectedID;
-            if (nSelectedID != null && oCNVC_QTr_CongTac_OU.CheckLatestQtrCtac()
-                && result != null && (result.ChartElementType == ChartElementType.DataPoint || result.ChartElementType == ChartElementType.DataPointLabel))
-            {
-                try
-                {
-                    if (MessageBox.Show("Bạn muốn xoá quá trình công tác này ?\n Mọi thông tin liên quan đến quá trình công tác này của nhân viên sẽ bị xoá.", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        
-                        oCNVC_QTr_CongTac_OU.MaNV = txt_MaNV.Text.Trim();
-                        oCNVC_QTr_CongTac_OU.DeleteFromChart();
-                        MessageBox.Show("Xoá thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        GetData_QtrCTac();
-                        RegenerateChart();
-                    }
+            // tam thoi disable chuc nang del lien quan den chuyen ngach
 
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Xoá không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                ClearThongTin();
-                EnableControls(true);
-            }
-            else
-            {
-                MessageBox.Show("Xin chọn giai đoạn muốn xoá", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            //oCNVC_QTr_CongTac_OU.ID = nSelectedID;
+            //if (nSelectedID != null && oCNVC_QTr_CongTac_OU.CheckLatestQtrCtac()
+            //    && result != null && (result.ChartElementType == ChartElementType.DataPoint || result.ChartElementType == ChartElementType.DataPointLabel))
+            //{
+            //    try
+            //    {
+            //        if (MessageBox.Show("Bạn muốn xoá quá trình công tác này ?\n Mọi thông tin liên quan đến quá trình công tác này của nhân viên sẽ bị xoá.", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            //        {
+
+            //            oCNVC_QTr_CongTac_OU.MaNV = txt_MaNV.Text.Trim();
+            //            oCNVC_QTr_CongTac_OU.DeleteFromChart();
+            //            MessageBox.Show("Xoá thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //            GetData_QtrCTac();
+            //            RegenerateChart();
+            //        }
+
+            //    }
+            //    catch (Exception)
+            //    {
+            //        MessageBox.Show("Xoá không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    }
+            //    ClearThongTin();
+            //    EnableControls(true);
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Xin chọn giai đoạn muốn xoá", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
         }
 
         private void btn_Huy_Click(object sender, EventArgs e)
