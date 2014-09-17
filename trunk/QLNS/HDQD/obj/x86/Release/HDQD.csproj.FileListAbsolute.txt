@@ -102,3 +102,4 @@ D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\bin\Release\zh-CN\Npgsql.resources.dll
 D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\obj\x86\Release\HDQD.exe
 D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\obj\x86\Release\HDQD.UCs.QDKhenThuong_ChuyenNgach.resources
 D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\obj\x86\Release\HDQD.UCs.DieuDong.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\obj\x86\Release\HDQD.UCs.ChuyenNgachNhanh.resources

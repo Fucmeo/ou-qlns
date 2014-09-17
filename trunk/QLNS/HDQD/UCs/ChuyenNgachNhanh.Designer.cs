@@ -33,6 +33,8 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.bw_upload = new System.ComponentModel.BackgroundWorker();
             this.TLP_KhenThuong_ChuyenNgach = new System.Windows.Forms.TableLayoutPanel();
+            this.thongTinCNVC1 = new HDQD.UCs.ThongTinCNVC();
+            this.thongTinQuyetDinh1 = new HDQD.UCs.ThongTinQuyetDinh();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pb_Status = new System.Windows.Forms.ProgressBar();
             this.lbl_Status = new System.Windows.Forms.Label();
@@ -69,8 +71,6 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_DelNV = new System.Windows.Forms.Button();
             this.lb_DSCNVC = new System.Windows.Forms.ListBox();
-            this.thongTinCNVC1 = new HDQD.UCs.ThongTinCNVC();
-            this.thongTinQuyetDinh1 = new HDQD.UCs.ThongTinQuyetDinh();
             this.TLP_KhenThuong_ChuyenNgach.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -120,6 +120,32 @@
             this.TLP_KhenThuong_ChuyenNgach.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.TLP_KhenThuong_ChuyenNgach.Size = new System.Drawing.Size(1000, 800);
             this.TLP_KhenThuong_ChuyenNgach.TabIndex = 1;
+            // 
+            // thongTinCNVC1
+            // 
+            this.thongTinCNVC1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.thongTinCNVC1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.thongTinCNVC1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.thongTinCNVC1.Location = new System.Drawing.Point(3, 6);
+            this.thongTinCNVC1.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.thongTinCNVC1.Name = "thongTinCNVC1";
+            this.thongTinCNVC1.Size = new System.Drawing.Size(994, 122);
+            this.thongTinCNVC1.TabIndex = 0;
+            // 
+            // thongTinQuyetDinh1
+            // 
+            this.thongTinQuyetDinh1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.thongTinQuyetDinh1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.thongTinQuyetDinh1.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.thongTinQuyetDinh1.Location = new System.Drawing.Point(3, 537);
+            this.thongTinQuyetDinh1.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.thongTinQuyetDinh1.Name = "thongTinQuyetDinh1";
+            this.thongTinQuyetDinh1.Size = new System.Drawing.Size(994, 164);
+            this.thongTinQuyetDinh1.TabIndex = 1;
             // 
             // tableLayoutPanel1
             // 
@@ -322,7 +348,7 @@
             this.comb_NgachMoi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comb_NgachMoi.Enabled = false;
             this.comb_NgachMoi.FormattingEnabled = true;
-            this.comb_NgachMoi.Location = new System.Drawing.Point(100, 90);
+            this.comb_NgachMoi.Location = new System.Drawing.Point(100, 92);
             this.comb_NgachMoi.Name = "comb_NgachMoi";
             this.comb_NgachMoi.Size = new System.Drawing.Size(261, 30);
             this.comb_NgachMoi.TabIndex = 31;
@@ -363,7 +389,7 @@
             this.comb_BacMoi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comb_BacMoi.Enabled = false;
             this.comb_BacMoi.FormattingEnabled = true;
-            this.comb_BacMoi.Location = new System.Drawing.Point(100, 160);
+            this.comb_BacMoi.Location = new System.Drawing.Point(100, 162);
             this.comb_BacMoi.Name = "comb_BacMoi";
             this.comb_BacMoi.Size = new System.Drawing.Size(261, 30);
             this.comb_BacMoi.TabIndex = 33;
@@ -593,32 +619,6 @@
             this.lb_DSCNVC.Size = new System.Drawing.Size(283, 289);
             this.lb_DSCNVC.TabIndex = 1;
             this.lb_DSCNVC.SelectedIndexChanged += new System.EventHandler(this.lb_DSCNVC_SelectedIndexChanged);
-            // 
-            // thongTinCNVC1
-            // 
-            this.thongTinCNVC1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.thongTinCNVC1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.thongTinCNVC1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.thongTinCNVC1.Location = new System.Drawing.Point(3, 6);
-            this.thongTinCNVC1.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
-            this.thongTinCNVC1.Name = "thongTinCNVC1";
-            this.thongTinCNVC1.Size = new System.Drawing.Size(994, 122);
-            this.thongTinCNVC1.TabIndex = 0;
-            // 
-            // thongTinQuyetDinh1
-            // 
-            this.thongTinQuyetDinh1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.thongTinQuyetDinh1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.thongTinQuyetDinh1.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.thongTinQuyetDinh1.Location = new System.Drawing.Point(3, 537);
-            this.thongTinQuyetDinh1.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
-            this.thongTinQuyetDinh1.Name = "thongTinQuyetDinh1";
-            this.thongTinQuyetDinh1.Size = new System.Drawing.Size(994, 164);
-            this.thongTinQuyetDinh1.TabIndex = 1;
             // 
             // ChuyenNgachNhanh
             // 

@@ -358,7 +358,7 @@
             this.cb_DonVi_Filter.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cb_DonVi_Filter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_DonVi_Filter.FormattingEnabled = true;
-            this.cb_DonVi_Filter.Location = new System.Drawing.Point(97, 7);
+            this.cb_DonVi_Filter.Location = new System.Drawing.Point(97, 5);
             this.cb_DonVi_Filter.Name = "cb_DonVi_Filter";
             this.cb_DonVi_Filter.Size = new System.Drawing.Size(308, 29);
             this.cb_DonVi_Filter.TabIndex = 39;
@@ -455,7 +455,7 @@
             this.cb_ChucDanh_Filter.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cb_ChucDanh_Filter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_ChucDanh_Filter.FormattingEnabled = true;
-            this.cb_ChucDanh_Filter.Location = new System.Drawing.Point(97, 62);
+            this.cb_ChucDanh_Filter.Location = new System.Drawing.Point(97, 60);
             this.cb_ChucDanh_Filter.Name = "cb_ChucDanh_Filter";
             this.cb_ChucDanh_Filter.Size = new System.Drawing.Size(308, 29);
             this.cb_ChucDanh_Filter.TabIndex = 37;
@@ -477,7 +477,7 @@
             this.tableLayoutPanel4.SetColumnSpan(this.cb_ChucVu_Filter, 2);
             this.cb_ChucVu_Filter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_ChucVu_Filter.FormattingEnabled = true;
-            this.cb_ChucVu_Filter.Location = new System.Drawing.Point(495, 7);
+            this.cb_ChucVu_Filter.Location = new System.Drawing.Point(495, 5);
             this.cb_ChucVu_Filter.Name = "cb_ChucVu_Filter";
             this.cb_ChucVu_Filter.Size = new System.Drawing.Size(298, 29);
             this.cb_ChucVu_Filter.TabIndex = 36;
@@ -706,6 +706,7 @@
             // btn_Xoa
             // 
             this.btn_Xoa.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Xoa.Enabled = false;
             this.btn_Xoa.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_Xoa.ImageKey = "Garbage.png";
             this.btn_Xoa.ImageList = this.imageList1;
@@ -715,6 +716,7 @@
             this.btn_Xoa.TabIndex = 4;
             this.btn_Xoa.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Xoa.UseVisualStyleBackColor = true;
+            this.btn_Xoa.Visible = false;
             this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
             // 
             // btn_Sua
@@ -759,7 +761,7 @@
             this.cb_DonVi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_DonVi.Enabled = false;
             this.cb_DonVi.FormattingEnabled = true;
-            this.cb_DonVi.Location = new System.Drawing.Point(101, 38);
+            this.cb_DonVi.Location = new System.Drawing.Point(101, 40);
             this.cb_DonVi.Name = "cb_DonVi";
             this.cb_DonVi.Size = new System.Drawing.Size(253, 29);
             this.cb_DonVi.TabIndex = 26;
@@ -807,7 +809,7 @@
             this.cb_ChucVu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_ChucVu.Enabled = false;
             this.cb_ChucVu.FormattingEnabled = true;
-            this.cb_ChucVu.Location = new System.Drawing.Point(458, 38);
+            this.cb_ChucVu.Location = new System.Drawing.Point(458, 40);
             this.cb_ChucVu.Name = "cb_ChucVu";
             this.cb_ChucVu.Size = new System.Drawing.Size(191, 29);
             this.cb_ChucVu.TabIndex = 27;
@@ -844,7 +846,7 @@
             this.cb_ChucDanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_ChucDanh.Enabled = false;
             this.cb_ChucDanh.FormattingEnabled = true;
-            this.cb_ChucDanh.Location = new System.Drawing.Point(763, 38);
+            this.cb_ChucDanh.Location = new System.Drawing.Point(763, 40);
             this.cb_ChucDanh.Name = "cb_ChucDanh";
             this.cb_ChucDanh.Size = new System.Drawing.Size(222, 29);
             this.cb_ChucDanh.TabIndex = 33;

@@ -14,14 +14,14 @@ namespace Business
     {
         public enum FileCate { Avatar, QuyetDinh,NhanXet,ThanhPhanTaiLieu,Other };
         string URI = 
-           //"ftp://10.1.12.6/",         // ou    
+           "ftp://10.1.12.6/",         // ou    
             //"ftp://42.112.19.178/",         // FTECH
-            "ftp://localhost/",         // localhost
+            //"ftp://localhost/",         // localhost
             globalFolderName, downloadPath  ;
         string UserName = "Administrator",
         //   Password = "QLNS@123qlns";   // FTECH
-        //Password = "A@123456";      // ou 
-        Password = "79184551";      // ou 
+        Password = "A@123456";      // ou 
+        //Password = "79184551";      // localhost 
 
         public FileCate oFileCate = new FileCate();
         long lFileSizeLimit = 10485760;  // 10 mb
