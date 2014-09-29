@@ -12,10 +12,10 @@ namespace SystemConfig
         {
             //ConnectionString = "Server=localhost;Port=5432;User Id=postgres;Password=79184551;Database=QLNS_OU;";
 
-            //ConnectionString = "Server=localhost;Port=5432;User Id=postgres;Password=79184551;Database=QLNS_VPS;"; //local
+            ConnectionString = "Server=localhost;Port=5432;User Id=postgres;Password=79184551;Database=QLNS_VPS;"; //local
             //ConnectionString = "Server=localhost;Port=5432;User Id=postgres;Password=79184551;Database=QLNS_OU;";
 
-            ConnectionString = "Server=10.1.12.6;Port=5432;User Id=postgres;Password=qlnsou;Database=QLNS;"; // server ou
+            //ConnectionString = "Server=10.1.12.6;Port=5432;User Id=postgres;Password=qlnsou;Database=QLNS;"; // server ou
         }
     }
 }

@@ -490,7 +490,6 @@
             this.qĐKhenThưởngNângLươngChuyểnNgạchToolStripMenuItem.Name = "qĐKhenThưởngNângLươngChuyểnNgạchToolStripMenuItem";
             this.qĐKhenThưởngNângLươngChuyểnNgạchToolStripMenuItem.Size = new System.Drawing.Size(336, 26);
             this.qĐKhenThưởngNângLươngChuyểnNgạchToolStripMenuItem.Text = "QĐ Nâng bậc nhanh";
-            this.qĐKhenThưởngNângLươngChuyểnNgạchToolStripMenuItem.Visible = false;
             this.qĐKhenThưởngNângLươngChuyểnNgạchToolStripMenuItem.Click += new System.EventHandler(this.qĐKhenThưởngNângLươngChuyểnNgạchToolStripMenuItem_Click);
             // 
             // qĐĐiềuĐộngToolStripMenuItem
