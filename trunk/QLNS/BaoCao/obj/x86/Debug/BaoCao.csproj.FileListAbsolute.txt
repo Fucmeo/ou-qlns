@@ -31,3 +31,9 @@ D:\Job\QLNS\Projects\QLNS\QLNS\BaoCao\obj\x86\Debug\BaoCao.csproj.GenerateResour
 D:\Job\QLNS\Projects\QLNS\QLNS\BaoCao\obj\x86\Debug\BaoCao.exe
 D:\Job\QLNS\Projects\QLNS\QLNS\BaoCao\obj\x86\Debug\BaoCao.pdb
 D:\Job\QLNS\Projects\QLNS\QLNS\BaoCao\obj\x86\Debug\BaoCao.UCs.NV_BoNoiVu.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\BaoCao\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+D:\Job\QLNS\Projects\QLNS\QLNS\BaoCao\bin\Debug\CrystalDecisions.ReportSource.dll
+D:\Job\QLNS\Projects\QLNS\QLNS\BaoCao\bin\Debug\CrystalDecisions.Windows.Forms.dll
+D:\Job\QLNS\Projects\QLNS\QLNS\BaoCao\bin\Debug\Microsoft.ReportViewer.Common.dll
+D:\Job\QLNS\Projects\QLNS\QLNS\BaoCao\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+D:\Job\QLNS\Projects\QLNS\QLNS\BaoCao\bin\Debug\Microsoft.ReportViewer.WinForms.xml
