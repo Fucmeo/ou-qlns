@@ -384,6 +384,10 @@
       <Project>{BE6A57C0-9563-47D1-B910-A25B573C1944}</Project>
       <Name>Business</Name>
     </ProjectReference>
+    <ProjectReference Include="..\HDQD\HDQD.csproj">
+      <Project>{7B751014-E742-455D-8DD8-6E1E9E5D9156}</Project>
+      <Name>HDQD</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
