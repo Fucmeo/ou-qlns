@@ -11,7 +11,10 @@ namespace BaoCao.UCs
 {
     public partial class NV_BoNoiVu : UserControl
     {
+        #region Global var
+
         string ma_nv;
+        HDQD.UCs.ThongTinCNVC oThongTinCNVC = new HDQD.UCs.ThongTinCNVC();
 
         Business.DonVi oDonVi;
         //Business.BaoCao oBaoCao;
@@ -32,17 +35,19 @@ namespace BaoCao.UCs
         DataTable dt_ThongTinChinh;
         DataTable dt_CMND_HoChieu;
         DataTable dt_CMND;
-        DataTable dt_ThongTinPhu ;
+        DataTable dt_ThongTinPhu;
         DataTable dt_ThongTinTuyenDung;
         DataTable dt_Qtr_Ctac_OU;
         DataTable dt_ChucDanh_ChucVu;
         DataTable dt_Luong;
+        DataTable dt_PC;
         DataTable dt_ThongTinLuong;
         DataTable dt_ChinhTri;
         DataTable dt_ChinhTriExt;
         DataTable dt_Chinh_Tri_HCCB;
         DataTable dt_ChuyenMonTongQuat;
-        DataTable dt_SucKhoe;
+        DataTable dt_SucKhoe; 
+        #endregion
 
         public NV_BoNoiVu()
         {
@@ -60,7 +65,7 @@ namespace BaoCao.UCs
             oCNVC_ChuyenMonTongQuat = new Business.CNVC.CNVC_ChuyenMonTongQuat();
             oCNVC_DienBienSK = new Business.CNVC.CNVC_DienBienSK();
 
-
+            dt_PC = new DataTable();
             dt_SucKhoe = new DataTable();
             dt_Chinh_Tri_HCCB = new DataTable();
             dt_ChinhTri = new DataTable();
@@ -144,6 +149,18 @@ namespace BaoCao.UCs
             try
             {
                 dt_ChuyenMonTongQuat = oCNVC_ChuyenMonTongQuat.GetData();
+            }
+            catch (Exception)
+            {
+                
+            }
+        }
+
+        void Prepare_ThongTinPC()
+        {
+            try
+            {
+                //string 
             }
             catch (Exception)
             {
@@ -440,12 +457,16 @@ namespace BaoCao.UCs
 
         private void NV_BoNoiVu_Load(object sender, EventArgs e)
         {
-            ma_nv = "ĐHM131121";
-            GetMasterData();
-            oCNVC.MaNV = oCNVC_CMND_HoChieu.MaNV = oCNVC_ThongTinPhu.MaNV =
-                    oCNVC_ThongTinTuyenDung.MaNV = oCNVC_ChinhTri.MaNV = oCNVC_ChinhTriExt.Ma_NV = 
-                    oCNVC_ChuyenMonTongQuat.MaNV = oCNVC_DienBienSK.MaNV = ma_nv;
+            
+            gp_SearchCNVC.Controls.Add(oThongTinCNVC);
 
+            oThongTinCNVC.txt_HoTen.KeyUp += new KeyEventHandler(txt_HoTen_KeyUp);
+            GetMasterData();
+            
+        }
+
+        void Prepare_ThongTinAll()
+        {
             Prepare_ThongTinChinh();
             Prepare_ThongTinPhu();
             Prepare_ChucDanh_ChucVu();
@@ -454,41 +475,56 @@ namespace BaoCao.UCs
             Prepare_ChinhTri();
             Prepare_ChuyenMonTongQuat();
             Prepare_SK();
+        }
 
-            DataTable dt_ThongTinTuyenDung = oCNVC_ThongTinTuyenDung.GetData();
+        void txt_HoTen_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && oThongTinCNVC.txt_MaNV.Text != "")
+            {
+                ma_nv = oThongTinCNVC.txt_MaNV.Text;
+                
+                oCNVC.MaNV = oCNVC_CMND_HoChieu.MaNV = oCNVC_ThongTinPhu.MaNV =
+                        oCNVC_ThongTinTuyenDung.MaNV = oCNVC_ChinhTri.MaNV = oCNVC_ChinhTriExt.Ma_NV =
+                        oCNVC_ChuyenMonTongQuat.MaNV = oCNVC_DienBienSK.MaNV = ma_nv;
 
-            /*
-            var result = from thongtinchinh in dt_ThongTinChinh.AsEnumerable()
-                         join cmnd in dt_CMND_HoChieu.AsEnumerable()
-                         on thongtinchinh["ma_nv"] equals cmnd["ma_nv"]
-                         select new
-                         {
-                             ma_nv = thongtinchinh["ma_nv"],
-                             ho = thongtinchinh["ho"],
-                             ten = thongtinchinh["ten"],
-                             cmnd_hochieu = cmnd["cmnd_hochieu"],
-                             ma_so = cmnd["ma_so"]
-                         };
-             */
+                Prepare_ThongTinAll();
 
-            Reports.NV_BoNoiVu rpt = new Reports.NV_BoNoiVu();
+                DataTable dt_ThongTinTuyenDung = oCNVC_ThongTinTuyenDung.GetData();
 
-            rpt.Database.Tables["ThongTinChinh"].SetDataSource(dt_ThongTinChinh);
-            rpt.Database.Tables["CMND_HoChieu"].SetDataSource(dt_CMND);
-            rpt.Database.Tables["ThongTinPhu"].SetDataSource(dt_ThongTinPhu);
-            rpt.Database.Tables["ThongTinTuyenDung"].SetDataSource(dt_ThongTinTuyenDung);
-            rpt.Database.Tables["ChucDanh_ChucVu"].SetDataSource(dt_ChucDanh_ChucVu);
-            rpt.Database.Tables["ThongTinLuong"].SetDataSource(dt_ThongTinLuong);
-            rpt.Database.Tables["ChuyenMonTongQuat"].SetDataSource(dt_ChuyenMonTongQuat);
-            rpt.Database.Tables["ChinhTri"].SetDataSource(dt_ChinhTri);
-            rpt.Database.Tables["ChinhTriExt"].SetDataSource(dt_ChinhTriExt);
-            rpt.Database.Tables["ChinhTri_HCCB"].SetDataSource(dt_Chinh_Tri_HCCB);
-            rpt.Database.Tables["SucKhoe"].SetDataSource(dt_SucKhoe);
+                /*
+                var result = from thongtinchinh in dt_ThongTinChinh.AsEnumerable()
+                             join cmnd in dt_CMND_HoChieu.AsEnumerable()
+                             on thongtinchinh["ma_nv"] equals cmnd["ma_nv"]
+                             select new
+                             {
+                                 ma_nv = thongtinchinh["ma_nv"],
+                                 ho = thongtinchinh["ho"],
+                                 ten = thongtinchinh["ten"],
+                                 cmnd_hochieu = cmnd["cmnd_hochieu"],
+                                 ma_so = cmnd["ma_so"]
+                             };
+                 */
 
-            //rpt.SetDataSource(dt_ThongTinChinh);
-            //rpt.SetDataSource(dt_CMND_HoChieu);
-            crystalReportViewer1.ReportSource = rpt;
-            //((TextObject)(rpt.Subreports["Header.rpt"].ReportDefinition.ReportObjects["rptName"])).Text = "BÁO CÁO NHÂN VIÊN THEO ĐƠN VỊ";
+                Reports.NV_BoNoiVu rpt = new Reports.NV_BoNoiVu();
+
+                rpt.Database.Tables["ThongTinChinh"].SetDataSource(dt_ThongTinChinh);
+                rpt.Database.Tables["CMND_HoChieu"].SetDataSource(dt_CMND);
+                rpt.Database.Tables["ThongTinPhu"].SetDataSource(dt_ThongTinPhu);
+                rpt.Database.Tables["ThongTinTuyenDung"].SetDataSource(dt_ThongTinTuyenDung);
+                rpt.Database.Tables["ChucDanh_ChucVu"].SetDataSource(dt_ChucDanh_ChucVu);
+                rpt.Database.Tables["ThongTinLuong"].SetDataSource(dt_ThongTinLuong);
+                rpt.Database.Tables["ChuyenMonTongQuat"].SetDataSource(dt_ChuyenMonTongQuat);
+                rpt.Database.Tables["ChinhTri"].SetDataSource(dt_ChinhTri);
+                rpt.Database.Tables["ChinhTriExt"].SetDataSource(dt_ChinhTriExt);
+                rpt.Database.Tables["ChinhTri_HCCB"].SetDataSource(dt_Chinh_Tri_HCCB);
+                rpt.Database.Tables["SucKhoe"].SetDataSource(dt_SucKhoe);
+
+                //rpt.SetDataSource(dt_ThongTinChinh);
+                //rpt.SetDataSource(dt_CMND_HoChieu);
+                crystalReportViewer1.ReportSource = rpt;
+                //((TextObject)(rpt.Subreports["Header.rpt"].ReportDefinition.ReportObjects["rptName"])).Text = "BÁO CÁO NHÂN VIÊN THEO ĐƠN VỊ";
+            }
+           
         }
     }
 }

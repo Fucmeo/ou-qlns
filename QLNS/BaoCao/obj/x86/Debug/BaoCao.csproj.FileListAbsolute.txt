@@ -37,3 +37,6 @@ D:\Job\QLNS\Projects\QLNS\QLNS\BaoCao\bin\Debug\CrystalDecisions.Windows.Forms.d
 D:\Job\QLNS\Projects\QLNS\QLNS\BaoCao\bin\Debug\Microsoft.ReportViewer.Common.dll
 D:\Job\QLNS\Projects\QLNS\QLNS\BaoCao\bin\Debug\Microsoft.ReportViewer.WinForms.dll
 D:\Job\QLNS\Projects\QLNS\QLNS\BaoCao\bin\Debug\Microsoft.ReportViewer.WinForms.xml
+D:\Job\QLNS\Projects\QLNS\QLNS\BaoCao\bin\Debug\HDQD.exe
+D:\Job\QLNS\Projects\QLNS\QLNS\BaoCao\bin\Debug\SplitButton.dll
+D:\Job\QLNS\Projects\QLNS\QLNS\BaoCao\bin\Debug\HDQD.pdb
