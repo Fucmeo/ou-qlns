@@ -49,7 +49,7 @@ namespace HDQD.UCs
         private void InitObjects()
         {
             oQtrCTacOU = new Business.CNVC.CNVC_QTr_CongTac_OU();
-            thongTinCNVC1.Set_IsSearchQtrCtac(true, this);
+            thongTinCNVC1.Set_IsSearchQtrCtac(true, this, "Điều động");
             PrepareSourceLoaiQuyetDinh();
             PrepareDataTableDSDieuDong();
             PreapreDataSource();
@@ -458,7 +458,7 @@ namespace HDQD.UCs
                     PrepareDTGVSource(dtDSDieuDong);
                 }
                 else
-                    MessageBox.Show("Không thể thực hiện quyết định điều động trên quá trình công tác này của nhân viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Không thể thực hiện quyết định điều động trên quá trình công tác này của nhân viên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
@@ -493,6 +493,29 @@ namespace HDQD.UCs
         private void btn_NhapFile_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dtg_DSQtrCtac_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                txt_MaHD.Text = dtg_DSQtrCtac.CurrentRow.Cells["ma_hd_display"].Value.ToString();
+                txt_ChucDanh.Text = dtg_DSQtrCtac.CurrentRow.Cells["chuc_danh"].Value.ToString();
+                txt_ChucVu.Text = dtg_DSQtrCtac.CurrentRow.Cells["chuc_vu"].Value.ToString();
+                txt_DonVi.Text = dtg_DSQtrCtac.CurrentRow.Cells["don_vi"].Value.ToString();
+                dTP_NgayBatDau.Value = Convert.ToDateTime(dtg_DSQtrCtac.CurrentRow.Cells["tu_thoi_gian"].Value);
+                if (dtg_DSQtrCtac.CurrentRow.Cells["den_thoi_gian"].Value.ToString() != "")
+                {
+                    dTP_NgayHetHan.Checked = true;
+                    dTP_NgayHetHan.Value = Convert.ToDateTime(dtg_DSQtrCtac.CurrentRow.Cells["den_thoi_gian"].Value);
+                }
+                else
+                {
+                    dTP_NgayHetHan.Checked = false;
+                    //dTP_NgayBatDau.Value = Convert.ToDateTime(dtg_DSQtrCtac.CurrentRow.Cells["den_thoi_gian"].Value);
+                }
+            }
+            catch { }
         }
 
         #region Code cũ

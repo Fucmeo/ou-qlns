@@ -238,8 +238,8 @@ namespace LuongBH.UCs.Luong
             {
                 try
                 {
-                    int tu = Convert.ToInt32(dtp_TuThang.Value.Year.ToString() + dtp_TuThang.Value.Month.ToString() );
-                    int den = Convert.ToInt32(dtp_DenThang.Value.Year.ToString() + dtp_DenThang.Value.Month.ToString());
+                    int tu = Convert.ToInt32(dtp_TuThang.Value.Year.ToString() + dtp_TuThang.Value.Month.ToString("D2") );
+                    int den = Convert.ToInt32(dtp_DenThang.Value.Year.ToString() + dtp_DenThang.Value.Month.ToString("D2"));
                     oCNCV.AddNgayCong(Convert.ToInt16(txt_SoNgayCong.Text.Trim()),tu,den,rtb_GhiChu.Text);
                     MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     GetBindNgayCongInfo();

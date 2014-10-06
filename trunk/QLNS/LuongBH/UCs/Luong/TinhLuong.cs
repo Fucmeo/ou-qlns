@@ -234,14 +234,14 @@ namespace LuongBH.UCs.Luong
                     DateTime den_ngay = new DateTime(nam, thang,DateTime.DaysInMonth(nam,thang));
                     if (rdb_NV.Checked)
                     {
-                        dtLuong = oTinhLuong.TinhLuongByListNV(lstMaNV, tu_ngay, den_ngay, Convert.ToInt32(nam.ToString() + thang.ToString()));
-                        dtPhuCap = oTinhLuong.TinhPhuCapByListNV(lstMaNV, tu_ngay, den_ngay, Convert.ToInt32(nam.ToString() + thang.ToString()));
+                        dtLuong = oTinhLuong.TinhLuongByListNV(lstMaNV, tu_ngay, den_ngay, Convert.ToInt32(nam.ToString() + thang.ToString("D2")));
+                        dtPhuCap = oTinhLuong.TinhPhuCapByListNV(lstMaNV, tu_ngay, den_ngay, Convert.ToInt32(nam.ToString() + thang.ToString("D2")));
                         
                     }
                     else if (rdb_DonVi.Checked)
                     {
-                        dtLuong = oTinhLuong.TinhLuongByListDV(lstDV_ID, tu_ngay, den_ngay, Convert.ToInt32(nam.ToString() + thang.ToString()));
-                        dtPhuCap = oTinhLuong.TinhPhuCapByListDV(lstDV_ID, tu_ngay, den_ngay, Convert.ToInt32(nam.ToString() + thang.ToString()));
+                        dtLuong = oTinhLuong.TinhLuongByListDV(lstDV_ID, tu_ngay, den_ngay, Convert.ToInt32(nam.ToString() + thang.ToString("D2")));
+                        dtPhuCap = oTinhLuong.TinhPhuCapByListDV(lstDV_ID, tu_ngay, den_ngay, Convert.ToInt32(nam.ToString() + thang.ToString("D2")));
                         
                     }
                     dtgv_Luong.DataSource = null;
@@ -257,9 +257,9 @@ namespace LuongBH.UCs.Luong
                     SetupDTGV_Luong();
                     SetupDTGV_PhuCap();
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    
+                    MessageBox.Show("Có lỗi xảy ra!\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 
             }

@@ -329,6 +329,35 @@ namespace Business.HDQD
                 return false;
         }
 
+        public bool AddThoiKiemNhiem(int[] p_qtr_ctac_id, string[] p_ma_nv, int[] p_don_vi_id, int[] p_chuc_vu_id, int[] p_chuc_danh_id, DateTime[] p_tu_ngay, DateTime[] p_den_ngay)
+        {
+            int check;
+            IDataParameter[] paras = new IDataParameter[15]{
+                new NpgsqlParameter("p_ma_quyet_dinh",maquyetdinh + "_" + ngayhieulucqd.ToString("ddMMyyyy")),
+                new NpgsqlParameter("p_ten_quyet_dinh",ten),
+                new NpgsqlParameter("p_loai_qd",loaiquyetdinh),
+                new NpgsqlParameter("p_ngay_ky",NgayKy),
+                new NpgsqlParameter("p_ngay_hieu_luc",ngayhieulucqd),
+                new NpgsqlParameter("p_ngay_het_han",ngayhethanqd),
+                new NpgsqlParameter("p_mo_ta",mota),
+                new NpgsqlParameter("p_path",path),
+                new NpgsqlParameter("p_qtr_ctac_id",p_qtr_ctac_id),
+                new NpgsqlParameter("p_ma_nv",p_ma_nv),
+                new NpgsqlParameter("p_don_vi_id",p_don_vi_id),
+                new NpgsqlParameter("p_chuc_vu_id",p_chuc_vu_id),
+                new NpgsqlParameter("p_chuc_danh_id",p_chuc_danh_id),
+                new NpgsqlParameter("p_tu_ngay",p_tu_ngay),
+                new NpgsqlParameter("p_den_ngay",p_den_ngay)
+            };
+            check = (int)dp.executeScalarProc("sp1_insert_thoi_kiem_nhiem", paras);
+            if (check > 0)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
         public bool UpdateKiemNhiem()
         {
             int check;
