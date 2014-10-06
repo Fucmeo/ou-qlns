@@ -22,7 +22,8 @@ namespace HDQD.UCs
         bool b_SearchQtrCtacOu = false;
         Business.CNVC.CNVC_QTr_CongTac_OU oQtrCtacOU;
         public DataTable dtDSQtrCTac;
-        HDQD.UCs.DieuDong oDieuDong;
+        Object oObject;
+        string m_LoaiQD = "";
 
         public ThongTinCNVC()
         {
@@ -31,10 +32,11 @@ namespace HDQD.UCs
             dtCNVC = new DataTable();
         }
 
-        public void Set_IsSearchQtrCtac(bool p_IsSearchQtrCtac, HDQD.UCs.DieuDong p_DieuDong)
+        public void Set_IsSearchQtrCtac(bool p_IsSearchQtrCtac, Object p_Object, string p_LoaiQD)
         {
             oQtrCtacOU = new Business.CNVC.CNVC_QTr_CongTac_OU();
-            oDieuDong = p_DieuDong;
+            oObject = p_Object;
+            m_LoaiQD = p_LoaiQD;
             dtDSQtrCTac = new DataTable();
             b_SearchQtrCtacOu = p_IsSearchQtrCtac;
         }
@@ -48,7 +50,22 @@ namespace HDQD.UCs
                 {
                     oQtrCtacOU.MaNV = txt_MaNV.Text;
                     dtDSQtrCTac = oQtrCtacOU.GetData();
-                    oDieuDong.Fill_QtrCtacGridview(dtDSQtrCTac);
+                    //oDieuDong.Fill_QtrCtacGridview(dtDSQtrCTac);
+                    switch (m_LoaiQD)
+                    {
+                        case "Điều động":
+                            ((HDQD.UCs.DieuDong)oObject).Fill_QtrCtacGridview(dtDSQtrCTac);
+                            break;
+                        case "Bổ nhiệm":
+                            ((HDQD.UCs.QDBoNhiem)oObject).Fill_QtrCtacGridview(dtDSQtrCTac);
+                            break;
+                        case "Thôi Kiêm nhiệm":
+                            ((HDQD.UCs.QDThoiKiemNhiem)oObject).Fill_QtrCtacGridview(dtDSQtrCTac);
+                            break;
+                        default:
+                            break;
+                    }
+                    
 
                     //if (dtDSQtrCTac.Rows.Count > 0)
                     //{
