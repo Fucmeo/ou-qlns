@@ -543,18 +543,42 @@ namespace QLNS.Forms
         private void qĐKhenThưởngNângLươngChuyểnNgạchToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Forms.Popup f = new Popup("Quyết định nâng bậc nhanh", new HDQD.UCs.ChuyenNgachNhanh());
+            f.WindowState = FormWindowState.Maximized;
             f.ShowDialog();
         }
 
         private void qĐĐiềuĐộngToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Forms.Popup f = new Popup("Quyết định điều động", new HDQD.UCs.DieuDong());
+            f.WindowState = FormWindowState.Maximized;
             f.ShowDialog();
         }
 
         private void qĐKhenThưởngChuyểnNgạchToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Forms.Popup f = new Popup("Quyết định khen thưởng/chuyển ngạch", new HDQD.UCs.QDKhenThuong_ChuyenNgach());
+            f.WindowState = FormWindowState.Maximized;
+            f.ShowDialog();
+        }
+
+        private void bộNộiVụToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Báo cáo bộ nội vụ", new BaoCao.UCs.NV_BoNoiVu());
+            f.WindowState = FormWindowState.Maximized;
+            f.ShowDialog();
+        }
+
+        private void qĐThôiKiêmNhiệmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Quyết định thôi kiêm nhiệm", new HDQD.UCs.QDThoiKiemNhiem());
+            f.WindowState = FormWindowState.Maximized;
+            f.ShowDialog();
+        }
+
+        private void qĐBổNhiệmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.Popup f = new Popup("Quyết định bổ nhiệm nhiệm", new HDQD.UCs.QDBoNhiem());
+            f.WindowState = FormWindowState.Maximized;
             f.ShowDialog();
         }
     }
