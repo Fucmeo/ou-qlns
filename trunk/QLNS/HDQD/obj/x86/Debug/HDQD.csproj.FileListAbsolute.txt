@@ -5,7 +5,6 @@ D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\bin\Debug\SplitButton.dll
 D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\bin\Debug\DataProvider.dll
 D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\bin\Debug\Npgsql.dll
 D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\bin\Debug\SystemConfig.dll
-D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\bin\Debug\Mono.Security.dll
 D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\bin\Debug\Business.pdb
 D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\bin\Debug\DataProvider.pdb
 D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\bin\Debug\Npgsql.pdb
@@ -53,3 +52,5 @@ D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\obj\x86\Debug\HDQD.exe
 D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\obj\x86\Debug\HDQD.pdb
 D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\obj\x86\Debug\HDQD.UCs.ChuyenNgachNhanh.resources
 D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\obj\x86\Debug\HDQD.UCs.QDBoNhiem.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\obj\x86\Debug\HDQD.UCs.QDThoiKiemNhiem.resources
+D:\Job\QLNS\Projects\QLNS\QLNS\HDQD\bin\Debug\Mono.Security.dll

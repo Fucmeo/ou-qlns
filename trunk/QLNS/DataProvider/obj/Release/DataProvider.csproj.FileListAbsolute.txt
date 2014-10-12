@@ -31,3 +31,4 @@ D:\Job\QLNS\Projects\QLNS\QLNS\DataProvider\bin\Release\fi\Npgsql.resources.dll
 D:\Job\QLNS\Projects\QLNS\QLNS\DataProvider\bin\Release\fr\Npgsql.resources.dll
 D:\Job\QLNS\Projects\QLNS\QLNS\DataProvider\bin\Release\ja\Npgsql.resources.dll
 D:\Job\QLNS\Projects\QLNS\QLNS\DataProvider\bin\Release\zh-CN\Npgsql.resources.dll
+D:\Job\QLNS\Projects\QLNS\QLNS\DataProvider\bin\Release\Mono.Security.dll
