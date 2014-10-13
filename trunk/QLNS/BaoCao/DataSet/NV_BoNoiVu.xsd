@@ -161,6 +161,21 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="DaoTaoBoiDuong" msprop:Generator_TableClassName="DaoTaoBoiDuongDataTable" msprop:Generator_TableVarName="tableDaoTaoBoiDuong" msprop:Generator_RowChangedName="DaoTaoBoiDuongRowChanged" msprop:Generator_TablePropName="DaoTaoBoiDuong" msprop:Generator_RowDeletingName="DaoTaoBoiDuongRowDeleting" msprop:Generator_RowChangingName="DaoTaoBoiDuongRowChanging" msprop:Generator_RowEvHandlerName="DaoTaoBoiDuongRowChangeEventHandler" msprop:Generator_RowDeletedName="DaoTaoBoiDuongRowDeleted" msprop:Generator_RowClassName="DaoTaoBoiDuongRow" msprop:Generator_UserTableName="DaoTaoBoiDuong" msprop:Generator_RowEvArgName="DaoTaoBoiDuongRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ten_truong" msprop:Generator_ColumnVarNameInTable="columnten_truong" msprop:Generator_ColumnPropNameInRow="ten_truong" msprop:Generator_ColumnPropNameInTable="ten_truongColumn" msprop:Generator_UserColumnName="ten_truong" type="xs:string" minOccurs="0" />
+              <xs:element name="chuyen_nganh_dao_tao" msprop:Generator_ColumnVarNameInTable="columnchuyen_nganh_dao_tao" msprop:Generator_ColumnPropNameInRow="chuyen_nganh_dao_tao" msprop:Generator_ColumnPropNameInTable="chuyen_nganh_dao_taoColumn" msprop:Generator_UserColumnName="chuyen_nganh_dao_tao" type="xs:string" minOccurs="0" />
+              <xs:element name="tu_ngay" msprop:Generator_ColumnVarNameInTable="columntu_ngay" msprop:Generator_ColumnPropNameInRow="tu_ngay" msprop:Generator_ColumnPropNameInTable="tu_ngayColumn" msprop:Generator_UserColumnName="tu_ngay" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="den_ngay" msprop:Generator_ColumnVarNameInTable="columnden_ngay" msprop:Generator_ColumnPropNameInRow="den_ngay" msprop:Generator_ColumnPropNameInTable="den_ngayColumn" msprop:Generator_UserColumnName="den_ngay" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ten_hinh_thuc" msprop:Generator_ColumnVarNameInTable="columnten_hinh_thuc" msprop:Generator_ColumnPropNameInRow="ten_hinh_thuc" msprop:Generator_ColumnPropNameInTable="ten_hinh_thucColumn" msprop:Generator_UserColumnName="ten_hinh_thuc" type="xs:string" minOccurs="0" />
+              <xs:element name="bd_ten_chung_chi" msprop:Generator_ColumnVarNameInTable="columnbd_ten_chung_chi" msprop:Generator_ColumnPropNameInRow="bd_ten_chung_chi" msprop:Generator_ColumnPropNameInTable="bd_ten_chung_chiColumn" msprop:Generator_UserColumnName="bd_ten_chung_chi" type="xs:string" minOccurs="0" />
+              <xs:element name="ten_van_bang" msprop:Generator_ColumnVarNameInTable="columnten_van_bang" msprop:Generator_ColumnPropNameInRow="ten_van_bang" msprop:Generator_ColumnPropNameInTable="ten_van_bangColumn" msprop:Generator_UserColumnName="ten_van_bang" type="xs:string" minOccurs="0" />
+              <xs:element name="ten" msprop:Generator_ColumnVarNameInTable="columnten" msprop:Generator_ColumnPropNameInRow="ten" msprop:Generator_ColumnPropNameInTable="tenColumn" msprop:Generator_UserColumnName="ten" type="xs:string" minOccurs="0" />
+              <xs:element name="vanbang_chungchi_trinhdo" msprop:Generator_ColumnVarNameInTable="columnvanbang_chungchi_trinhdo" msprop:Generator_ColumnPropNameInRow="vanbang_chungchi_trinhdo" msprop:Generator_ColumnPropNameInTable="vanbang_chungchi_trinhdoColumn" msprop:Generator_UserColumnName="vanbang_chungchi_trinhdo" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

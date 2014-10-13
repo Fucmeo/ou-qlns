@@ -171,6 +171,12 @@
       <DependentUpon>NV_BoNoiVu.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reports\NV_BoNoiVu_Page2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NV_BoNoiVu_Page2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\NV_MoHinh_HinhThuc.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -263,6 +269,10 @@
     <EmbeddedResource Include="Reports\NV_BoNoiVu.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>NV_BoNoiVu.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NV_BoNoiVu_Page2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>NV_BoNoiVu_Page2.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\NV_MoHinh_HinhThuc.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

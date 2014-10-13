@@ -29,6 +29,7 @@ namespace BaoCao.UCs
         Business.CNVC.CNVC_ChinhTriExt oCNVC_ChinhTriExt;
         Business.CNVC.CNVC_ChuyenMonTongQuat oCNVC_ChuyenMonTongQuat;
         Business.CNVC.CNVC_DienBienSK oCNVC_DienBienSK;
+        Business.CNVC.CNVC_DaoTaoBoiDuong oCNVC_DaoTaoBoiDuong;
 
         DataTable dtTinhTP;
         DataTable dtQuocGia;
@@ -46,13 +47,15 @@ namespace BaoCao.UCs
         DataTable dt_ChinhTriExt;
         DataTable dt_Chinh_Tri_HCCB;
         DataTable dt_ChuyenMonTongQuat;
-        DataTable dt_SucKhoe; 
+        DataTable dt_SucKhoe;
+        DataTable dt_DaoTaoBoiDuong;
         #endregion
 
         public NV_BoNoiVu()
         {
             InitializeComponent();
             oDonVi = new Business.DonVi();
+            oCNVC_DaoTaoBoiDuong = new Business.CNVC.CNVC_DaoTaoBoiDuong();
             oCNVC = new Business.CNVC.CNVC();
             oCNVC_CMND_HoChieu = new Business.CNVC.CNVC_CMND_HoChieu();
             oCNVC_ThongTinPhu = new Business.CNVC.CNVC_ThongTinPhu();
@@ -65,6 +68,7 @@ namespace BaoCao.UCs
             oCNVC_ChuyenMonTongQuat = new Business.CNVC.CNVC_ChuyenMonTongQuat();
             oCNVC_DienBienSK = new Business.CNVC.CNVC_DienBienSK();
 
+            dt_DaoTaoBoiDuong = new DataTable();
             dt_PC = new DataTable();
             dt_SucKhoe = new DataTable();
             dt_Chinh_Tri_HCCB = new DataTable();
@@ -98,18 +102,73 @@ namespace BaoCao.UCs
 
         }
 
+        void Prepare_DaoTaoBoiDuong()
+        {
+            try
+            {
+                DataTable dt = oCNVC_DaoTaoBoiDuong.GetData();
+                if (dt !=null && dt.Rows.Count > 0)
+                {
+                    /*
+                   var DaoTaoBoiDuong = from r in dt.AsEnumerable()
+                                         select new
+                                         {
+                                             ten_truong = r.Field<string>("ten_truong"),
+                                             chuyen_nganh_dao_tao = r.Field<string>("chuyen_nganh_dao_tao"),
+                                             tu_ngay = r.Field<DateTime>("tu_ngay").Month + "/" + r.Field<DateTime>("tu_ngay").Year + " - ",
+                                             den_ngay = r.Field<DateTime>("den_ngay").Month + "/" + r.Field<DateTime>("den_ngay").Year,
+                                             ten_hinh_thuc = r.Field<string>("ten_hinh_thuc"),
+                                             bd_ten_chung_chi = r.Field<string>("bd_ten_chung_chi"),
+                                             ten_van_bang = r.Field<string>("ten_van_bang"),
+                                             ten_trinh_do = r.Field<string>("ten")
+                                         };*/
+
+                   var DaoTaoBoiDuong2  = from r in dt.AsEnumerable()
+                                        select r;
+
+                   dt_DaoTaoBoiDuong = DaoTaoBoiDuong2.CopyToDataTable();
+
+                   dt_DaoTaoBoiDuong.Columns.Add("vanbang_chungchi_trinhdo", typeof(string));
+
+                   for (int i = 0; i < dt_DaoTaoBoiDuong.Rows.Count; i++)
+                   {
+                       dt_DaoTaoBoiDuong.Rows[i]["vanbang_chungchi_trinhdo"] = dt_DaoTaoBoiDuong.Rows[i]["ten_van_bang"] + "-" +
+                                                                                dt_DaoTaoBoiDuong.Rows[i]["bd_ten_chung_chi"] + "-" +
+                                                                                dt_DaoTaoBoiDuong.Rows[i]["ten"];
+                   }
+
+                    //ten_van_bang + '-' + bd_ten_chung_chi + '-' + ten
+                }
+            }
+            catch (Exception)
+            {
+               
+            }
+           
+
+
+        }
+
         void Prepare_SK()
         {
-            DataTable dt = oCNVC_DienBienSK.GetData();
-
-           
-            if (dt != null && dt.Rows.Count>0)
+            try
             {
+                DataTable dt = oCNVC_DienBienSK.GetData();
 
-                dt_SucKhoe = (from a in dt.AsEnumerable()
-                              select a).CopyToDataTable();
 
+                if (dt != null && dt.Rows.Count > 0)
+                {
+
+                    dt_SucKhoe = (from a in dt.AsEnumerable()
+                                  select a).CopyToDataTable();
+
+                }
             }
+            catch (Exception)
+            {
+                
+            }
+            
 
         }
 
@@ -475,6 +534,7 @@ namespace BaoCao.UCs
             Prepare_ChinhTri();
             Prepare_ChuyenMonTongQuat();
             Prepare_SK();
+            Prepare_DaoTaoBoiDuong();
         }
 
         void txt_HoTen_KeyUp(object sender, KeyEventArgs e)
@@ -485,7 +545,7 @@ namespace BaoCao.UCs
                 
                 oCNVC.MaNV = oCNVC_CMND_HoChieu.MaNV = oCNVC_ThongTinPhu.MaNV =
                         oCNVC_ThongTinTuyenDung.MaNV = oCNVC_ChinhTri.MaNV = oCNVC_ChinhTriExt.Ma_NV =
-                        oCNVC_ChuyenMonTongQuat.MaNV = oCNVC_DienBienSK.MaNV = ma_nv;
+                        oCNVC_ChuyenMonTongQuat.MaNV = oCNVC_DienBienSK.MaNV = oCNVC_DaoTaoBoiDuong.MaNV = ma_nv;
 
                 Prepare_ThongTinAll();
 
@@ -518,6 +578,7 @@ namespace BaoCao.UCs
                 rpt.Database.Tables["ChinhTriExt"].SetDataSource(dt_ChinhTriExt);
                 rpt.Database.Tables["ChinhTri_HCCB"].SetDataSource(dt_Chinh_Tri_HCCB);
                 rpt.Database.Tables["SucKhoe"].SetDataSource(dt_SucKhoe);
+                rpt.Database.Tables["DaoTaoBoiDuong"].SetDataSource(dt_DaoTaoBoiDuong);
 
                 //rpt.SetDataSource(dt_ThongTinChinh);
                 //rpt.SetDataSource(dt_CMND_HoChieu);
