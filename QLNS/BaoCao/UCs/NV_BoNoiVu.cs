@@ -30,8 +30,11 @@ namespace BaoCao.UCs
         Business.CNVC.CNVC_ChuyenMonTongQuat oCNVC_ChuyenMonTongQuat;
         Business.CNVC.CNVC_DienBienSK oCNVC_DienBienSK;
         Business.CNVC.CNVC_DaoTaoBoiDuong oCNVC_DaoTaoBoiDuong;
+        Business.CNVC.CNVC_QTr_CongTac_OU oCNVC_QTr_CongTac_OU;
+
 
         DataTable dtTinhTP;
+        DataTable dt_CNVC_QTr_CongTac_OU_ChinhTri_ChucVu;
         DataTable dtQuocGia;
         DataTable dt_ThongTinChinh;
         DataTable dt_CMND_HoChieu;
@@ -54,6 +57,7 @@ namespace BaoCao.UCs
         public NV_BoNoiVu()
         {
             InitializeComponent();
+            oCNVC_QTr_CongTac_OU = new Business.CNVC.CNVC_QTr_CongTac_OU();
             oDonVi = new Business.DonVi();
             oCNVC_DaoTaoBoiDuong = new Business.CNVC.CNVC_DaoTaoBoiDuong();
             oCNVC = new Business.CNVC.CNVC();
@@ -68,6 +72,7 @@ namespace BaoCao.UCs
             oCNVC_ChuyenMonTongQuat = new Business.CNVC.CNVC_ChuyenMonTongQuat();
             oCNVC_DienBienSK = new Business.CNVC.CNVC_DienBienSK();
 
+            dt_CNVC_QTr_CongTac_OU_ChinhTri_ChucVu = new DataTable();
             dt_DaoTaoBoiDuong = new DataTable();
             dt_PC = new DataTable();
             dt_SucKhoe = new DataTable();
@@ -100,6 +105,17 @@ namespace BaoCao.UCs
                 
             }
 
+        }
+
+        void Init_Table_CNVC_QTr_CongTac_OU_ChinhTri_ChucVu()
+        {
+            dt_CNVC_QTr_CongTac_OU_ChinhTri_ChucVu = new DataTable();
+
+            dt_CNVC_QTr_CongTac_OU_ChinhTri_ChucVu.Columns.Add("tu_thoi_gian", typeof(DateTime));
+            dt_CNVC_QTr_CongTac_OU_ChinhTri_ChucVu.Columns.Add("den_thoi_gian", typeof(DateTime));
+            dt_CNVC_QTr_CongTac_OU_ChinhTri_ChucVu.Columns.Add("ten_don_vi", typeof(string));
+            dt_CNVC_QTr_CongTac_OU_ChinhTri_ChucVu.Columns.Add("ten_chuc_danh", typeof(string));
+            dt_CNVC_QTr_CongTac_OU_ChinhTri_ChucVu.Columns.Add("ten_chuc_vu", typeof(string));
         }
 
         void Prepare_DaoTaoBoiDuong()
@@ -147,6 +163,48 @@ namespace BaoCao.UCs
            
 
 
+        }
+
+        void Prepare_QtrCtac_ChucVuChinhTri()
+        {
+            try
+            {
+                DataTable dt_qtrctac = oCNVC_QTr_CongTac_OU.GetData();
+                DataTable dt_chinhtri = oCNVC_ChinhTri.Get_Chinh_Tri_Chuc_Vu();
+
+                if ((dt_qtrctac != null && dt_qtrctac.Rows.Count> 0 ) || (dt_chinhtri != null && dt_chinhtri.Rows.Count>0))
+                {
+
+
+                    var QTr_CongTac_OU_ChinhTri_ChucVu = (from qtr in dt_qtrctac.AsEnumerable()
+                                                          select new
+                                                          {
+                                                              tu_thoi_gian = qtr.Field<DateTime>("tu_thoi_gian"),
+                                                              den_thoi_gian = qtr.Field<DateTime>("den_thoi_gian"),
+                                                              ten_don_vi = qtr.Field<string>("don_vi"),
+                                                              ten_chuc_danh = qtr.Field<string>("chuc_danh"),
+                                                              ten_chuc_vu = qtr.Field<string>("chuc_vu")
+                                                          }).Union(from chinhtri in dt_chinhtri.AsEnumerable()
+                                                                   select new
+                                                                   {
+                                                                       tu_thoi_gian = chinhtri.Field<DateTime>("tu_ngay"),
+                                                                       den_thoi_gian = chinhtri.Field<DateTime>("den_ngay"),
+                                                                       ten_don_vi = chinhtri.Field<string>("ten_to_chuc"),
+                                                                       ten_chuc_danh = chinhtri.Field<string>("ten_loai_ctr"),
+                                                                       ten_chuc_vu = chinhtri.Field<string>("ten_cv_ctr")
+                                                                   });
+
+                    foreach (var item in QTr_CongTac_OU_ChinhTri_ChucVu)
+                    {
+                        dt_CNVC_QTr_CongTac_OU_ChinhTri_ChucVu.Rows.Add(new object[] { item.tu_thoi_gian, item.den_thoi_gian, item.ten_don_vi
+                                                                                        , item.ten_chuc_danh, item.ten_chuc_vu});
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                
+            }
         }
 
         void Prepare_SK()
@@ -535,6 +593,7 @@ namespace BaoCao.UCs
             Prepare_ChuyenMonTongQuat();
             Prepare_SK();
             Prepare_DaoTaoBoiDuong();
+            Prepare_QtrCtac_ChucVuChinhTri();
         }
 
         void txt_HoTen_KeyUp(object sender, KeyEventArgs e)
@@ -545,8 +604,10 @@ namespace BaoCao.UCs
                 
                 oCNVC.MaNV = oCNVC_CMND_HoChieu.MaNV = oCNVC_ThongTinPhu.MaNV =
                         oCNVC_ThongTinTuyenDung.MaNV = oCNVC_ChinhTri.MaNV = oCNVC_ChinhTriExt.Ma_NV =
-                        oCNVC_ChuyenMonTongQuat.MaNV = oCNVC_DienBienSK.MaNV = oCNVC_DaoTaoBoiDuong.MaNV = ma_nv;
+                        oCNVC_ChuyenMonTongQuat.MaNV = oCNVC_DienBienSK.MaNV = oCNVC_DaoTaoBoiDuong.MaNV =
+                        oCNVC_QTr_CongTac_OU.MaNV = ma_nv;
 
+                Init_Table_CNVC_QTr_CongTac_OU_ChinhTri_ChucVu();
                 Prepare_ThongTinAll();
 
                 DataTable dt_ThongTinTuyenDung = oCNVC_ThongTinTuyenDung.GetData();
@@ -579,6 +640,7 @@ namespace BaoCao.UCs
                 rpt.Database.Tables["ChinhTri_HCCB"].SetDataSource(dt_Chinh_Tri_HCCB);
                 rpt.Database.Tables["SucKhoe"].SetDataSource(dt_SucKhoe);
                 rpt.Database.Tables["DaoTaoBoiDuong"].SetDataSource(dt_DaoTaoBoiDuong);
+                rpt.Database.Tables["QtrCtac_ChucVuChinhTri"].SetDataSource(dt_CNVC_QTr_CongTac_OU_ChinhTri_ChucVu);
 
                 //rpt.SetDataSource(dt_ThongTinChinh);
                 //rpt.SetDataSource(dt_CMND_HoChieu);
@@ -589,4 +651,6 @@ namespace BaoCao.UCs
         }
     }
 }
+
+
 
