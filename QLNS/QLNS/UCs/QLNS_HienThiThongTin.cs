@@ -1661,6 +1661,18 @@ namespace QLNS.UCs
             
         }
 
+        void ApplyFont(Control c_root)
+        {
+            c_root.Font = SystemFonts.MessageBoxFont;
+            if (c_root.HasChildren)
+            {
+                foreach (Control c in c_root.Controls)
+                {
+                    ApplyFont(c);
+                }
+            }
+        }
+
         public void ChangeDanhMuc()
         {
             if (nPreDanhMucIndex != comB_DanhMuc.SelectedIndex)
@@ -1850,9 +1862,13 @@ namespace QLNS.UCs
                         //}
                         break;
 
+
+
                     default:
                         break;
                 }
+
+                ApplyFont(tableLP_DanhMucThongTin.Controls[1]);
             }
         }
 
