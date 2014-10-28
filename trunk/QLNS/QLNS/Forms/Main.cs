@@ -26,6 +26,40 @@ namespace QLNS.Forms
         private void Main_Load(object sender, EventArgs e)
         {
              LoadImageToMenuStrip();
+
+             ApplyFont(this);
+             ApplyFontForMenuStript();
+            
+             tsmi_TrangChu.Font = SystemFonts.MessageBoxFont;
+        }
+
+        void ApplyFont(Control c_root)
+        {
+            c_root.Font = SystemFonts.MessageBoxFont;
+            if (c_root.HasChildren)
+            {
+                foreach (Control c in c_root.Controls)
+                {
+                    ApplyFont(c);
+                }
+            }
+        }
+
+        private void tableLP_Main_ControlAdded(object sender, ControlEventArgs e)
+        {
+            ApplyFont((Control)sender);
+        }
+
+        void ApplyFontForMenuStript() // apply font cho rieng menu script
+        {
+            menuStrip1.Font = SystemFonts.MessageBoxFont;
+            if (menuStrip1.Items.Count > 0)
+            {
+                foreach (ToolStripMenuItem c in menuStrip1.Items)
+                {
+                    c.Font = SystemFonts.MessageBoxFont;
+                }
+            }
         }
 
         private void LoadImageToMenuStrip()
@@ -581,5 +615,7 @@ namespace QLNS.Forms
             f.WindowState = FormWindowState.Maximized;
             f.ShowDialog();
         }
+
+        
     }
 }

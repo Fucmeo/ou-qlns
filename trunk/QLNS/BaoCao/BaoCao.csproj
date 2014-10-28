@@ -165,6 +165,12 @@
       <DependentUpon>NVTheo_LoaiQD.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reports\NV_BoiNoiVu_Page3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NV_BoiNoiVu_Page3.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\NV_BoNoiVu.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -181,6 +187,18 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>NV_BoNoiVu_Page2_2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\NV_BoNoiVu_Page3_QHToChuc.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NV_BoNoiVu_Page3_QHToChuc.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\NV_BoNoiVu_Page3_ThanNhan.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NV_BoNoiVu_Page3_ThanNhan.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\NV_MoHinh_HinhThuc.cs">
@@ -272,6 +290,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>NVTheo_LoaiQD.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NV_BoiNoiVu_Page3.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>NV_BoiNoiVu_Page3.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\NV_BoNoiVu.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>NV_BoNoiVu.cs</LastGenOutput>
@@ -283,6 +305,14 @@
     <EmbeddedResource Include="Reports\NV_BoNoiVu_Page2_2.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>NV_BoNoiVu_Page2_2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NV_BoNoiVu_Page3_QHToChuc.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>NV_BoNoiVu_Page3_QHToChuc.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NV_BoNoiVu_Page3_ThanNhan.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>NV_BoNoiVu_Page3_ThanNhan.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\NV_MoHinh_HinhThuc.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

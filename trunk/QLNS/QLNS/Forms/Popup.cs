@@ -31,6 +31,22 @@ namespace QLNS.Forms
 
             oUC.Dock = DockStyle.Fill;
             this.tableLayoutPanel1.AutoScrollMinSize = new Size(oUC.Size.Width, oUC.Size.Height);
+
+            ApplyFont(this);
+        }
+
+        void ApplyFont(Control c_root)
+        {
+            c_root.Font = SystemFonts.MessageBoxFont;
+            if (c_root.HasChildren)
+            {
+                foreach (Control c in c_root.Controls)
+                {
+                    ApplyFont(c);
+                }
+            }
+
+
         }
     }
 }

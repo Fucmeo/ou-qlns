@@ -31,7 +31,9 @@ namespace BaoCao.UCs
         Business.CNVC.CNVC_DienBienSK oCNVC_DienBienSK;
         Business.CNVC.CNVC_DaoTaoBoiDuong oCNVC_DaoTaoBoiDuong;
         Business.CNVC.CNVC_QTr_CongTac_OU oCNVC_QTr_CongTac_OU;
-
+        Business.CNVC.CNVC_LSBiBat oCNVC_LSBiBat;
+        Business.CNVC.CNVC_QHGiaDinh oCNVC_QHGiaDinh;
+        Business.CNVC.CNVC_QuanHeToChuc oCNVC_QuanHeToChuc;
 
         DataTable dtTinhTP;
         DataTable dt_CNVC_QTr_CongTac_OU_ChinhTri_ChucVu;
@@ -52,11 +54,17 @@ namespace BaoCao.UCs
         DataTable dt_ChuyenMonTongQuat;
         DataTable dt_SucKhoe;
         DataTable dt_DaoTaoBoiDuong;
+        DataTable dt_CNVC_LSBiBat;
+        DataTable dt_CNVC_QuanHeToChuc;
+        DataTable dt_CNVC_QHGiaDinh_nuoc_ngoai;
+
         #endregion
 
         public NV_BoNoiVu()
         {
             InitializeComponent();
+            oCNVC_QuanHeToChuc = new Business.CNVC.CNVC_QuanHeToChuc();
+            oCNVC_QHGiaDinh = new Business.CNVC.CNVC_QHGiaDinh();
             oCNVC_QTr_CongTac_OU = new Business.CNVC.CNVC_QTr_CongTac_OU();
             oDonVi = new Business.DonVi();
             oCNVC_DaoTaoBoiDuong = new Business.CNVC.CNVC_DaoTaoBoiDuong();
@@ -71,6 +79,7 @@ namespace BaoCao.UCs
             oCNVC_ChinhTriExt = new Business.CNVC.CNVC_ChinhTriExt();
             oCNVC_ChuyenMonTongQuat = new Business.CNVC.CNVC_ChuyenMonTongQuat();
             oCNVC_DienBienSK = new Business.CNVC.CNVC_DienBienSK();
+            oCNVC_LSBiBat = new Business.CNVC.CNVC_LSBiBat();
 
             dt_CNVC_QTr_CongTac_OU_ChinhTri_ChucVu = new DataTable();
             dt_DaoTaoBoiDuong = new DataTable();
@@ -91,6 +100,9 @@ namespace BaoCao.UCs
             dt_ThongTinLuong = new DataTable();
             dt_ChuyenMonTongQuat = new DataTable();
             dt_ChinhTriExt = new DataTable();
+            dt_CNVC_LSBiBat = new DataTable();
+            dt_CNVC_QuanHeToChuc = new DataTable();
+            dt_CNVC_QHGiaDinh_nuoc_ngoai = new DataTable();
         }
 
         private void GetMasterData()
@@ -116,14 +128,157 @@ namespace BaoCao.UCs
             dt_CNVC_QTr_CongTac_OU_ChinhTri_ChucVu.Columns.Add("ten_don_vi", typeof(string));
             dt_CNVC_QTr_CongTac_OU_ChinhTri_ChucVu.Columns.Add("ten_chuc_danh", typeof(string));
             dt_CNVC_QTr_CongTac_OU_ChinhTri_ChucVu.Columns.Add("ten_chuc_vu", typeof(string));
+            dt_CNVC_QTr_CongTac_OU_ChinhTri_ChucVu.Columns.Add("dv_cd_cv", typeof(string));
+        }
+
+        void Prepare_QHThanNhan()
+        {
+            try
+            {
+                dt_CNVC_QHGiaDinh_nuoc_ngoai = oCNVC_QHGiaDinh.GetData();
+
+                dt_CNVC_QHGiaDinh_nuoc_ngoai.Columns.Add("QHGiaDinh", typeof(string));
+                string than_nhan_nuoc_ngoai, is_dang_vien;
+
+                for (int i = 0; i < dt_CNVC_QHGiaDinh_nuoc_ngoai.Rows.Count; i++)
+                {
+                    if (Convert.ToBoolean(dt_CNVC_QHGiaDinh_nuoc_ngoai.Rows[i]["than_nhan_nuoc_ngoai"].ToString())) // nuoc ngoai moi hien thi
+                    {
+                        if (Convert.ToBoolean(dt_CNVC_QHGiaDinh_nuoc_ngoai.Rows[i]["than_nhan_nuoc_ngoai"].ToString()))
+                        {
+                            than_nhan_nuoc_ngoai = "Nước ngoài";
+                        }
+                        else
+                            than_nhan_nuoc_ngoai = "Trong nước";
+
+                        if (Convert.ToBoolean(dt_CNVC_QHGiaDinh_nuoc_ngoai.Rows[i]["is_dang_vien"].ToString()))
+                        {
+                            is_dang_vien = "Là Đảng Viên";
+                        }
+                        else
+                            is_dang_vien = "Không phải Đảng Viên"; ;
+
+                        dt_CNVC_QHGiaDinh_nuoc_ngoai.Rows[i]["QHGiaDinh"] =
+                                dt_CNVC_QHGiaDinh_nuoc_ngoai.Rows[i]["ho"] + " " +
+                                dt_CNVC_QHGiaDinh_nuoc_ngoai.Rows[i]["ten"] + " - " +
+                                dt_CNVC_QHGiaDinh_nuoc_ngoai.Rows[i]["moi_quan_he"] + " - " +
+                                than_nhan_nuoc_ngoai + " - " +
+                                is_dang_vien + " - " +
+                                " sinh năm " + dt_CNVC_QHGiaDinh_nuoc_ngoai.Rows[i]["nam_sinh"] + " - " +
+                                dt_CNVC_QHGiaDinh_nuoc_ngoai.Rows[i]["que_quan"] + " - " +
+                                dt_CNVC_QHGiaDinh_nuoc_ngoai.Rows[i]["nghe_nghiep"] + " - " +
+                                dt_CNVC_QHGiaDinh_nuoc_ngoai.Rows[i]["chuc_danh_chuc_vu"] + " - " +
+                                dt_CNVC_QHGiaDinh_nuoc_ngoai.Rows[i]["don_vi_cong_tac"] + Environment.NewLine +
+                                " địa chỉ " + dt_CNVC_QHGiaDinh_nuoc_ngoai.Rows[i]["so_nha"] + " - " +
+                                dt_CNVC_QHGiaDinh_nuoc_ngoai.Rows[i]["duong"] + " - " +
+                                dt_CNVC_QHGiaDinh_nuoc_ngoai.Rows[i]["phuong_xa"] + " - " +
+                                dt_CNVC_QHGiaDinh_nuoc_ngoai.Rows[i]["quan_huyen"] + " - " +
+                                dt_CNVC_QHGiaDinh_nuoc_ngoai.Rows[i]["ten_tinh_tp"] + " - " +
+                                dt_CNVC_QHGiaDinh_nuoc_ngoai.Rows[i]["ten_quoc_gia"] + Environment.NewLine +
+                                dt_CNVC_QHGiaDinh_nuoc_ngoai.Rows[i]["thanh_vien_to_chuc_ctr_xh"] + " - " +
+                                dt_CNVC_QHGiaDinh_nuoc_ngoai.Rows[i]["hoc_tap"] + " - " +
+                                dt_CNVC_QHGiaDinh_nuoc_ngoai.Rows[i]["ghi_chu"];
+                    }
+                    
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+
+        }
+
+        void Prepare_QuanHeToChuc()
+        {
+            try
+            {
+                dt_CNVC_QuanHeToChuc = oCNVC_QuanHeToChuc.GetData();
+
+                dt_CNVC_QuanHeToChuc.Columns.Add("QuanHeToChuc", typeof(string));
+                string from, to;
+
+                for (int i = 0; i < dt_CNVC_QuanHeToChuc.Rows.Count; i++)
+                {
+                    if (dt_CNVC_QuanHeToChuc.Rows[i]["tu_thoi_gian"].ToString() != "")
+                    {
+                        from = Convert.ToDateTime(dt_CNVC_QuanHeToChuc.Rows[i]["tu_thoi_gian"]).Date.ToString("dd/MM/yyyy");
+                    }
+                    else
+                        from = null;
+
+                    if (dt_CNVC_QuanHeToChuc.Rows[i]["den_thoi_gian"].ToString() != "")
+                    {
+                        to = Convert.ToDateTime(dt_CNVC_QuanHeToChuc.Rows[i]["den_thoi_gian"]).Date.ToString("dd/MM/yyyy");
+                    }
+                    else
+                        to = null;
+
+                    dt_CNVC_QuanHeToChuc.Rows[i]["QuanHeToChuc"] =
+                            dt_CNVC_QuanHeToChuc.Rows[i]["o_nuoc_ngoai"] + " - " +
+                            from + " - " +
+                            to + " - " +
+                            dt_CNVC_QuanHeToChuc.Rows[i]["ten_to_chuc"] + " - " +
+                            dt_CNVC_QuanHeToChuc.Rows[i]["chuc_danh"] + " - " +
+                            dt_CNVC_QuanHeToChuc.Rows[i]["chuc_vu"] + " - " +
+                            dt_CNVC_QuanHeToChuc.Rows[i]["phuong_xa"] + " - " +
+                            dt_CNVC_QuanHeToChuc.Rows[i]["quan_huyen"] + " - " +
+                            dt_CNVC_QuanHeToChuc.Rows[i]["ten_tinh_tp"] + " - " +
+                            dt_CNVC_QuanHeToChuc.Rows[i]["ten_quoc_gia"];
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        void Prepare_LSBiBat()
+        {
+            try
+            {
+                dt_CNVC_LSBiBat = oCNVC_LSBiBat.GetData();
+
+                dt_CNVC_LSBiBat.Columns.Add("LSBiBat",typeof(string));
+                string from, to;
+
+                for (int i = 0; i < dt_CNVC_LSBiBat.Rows.Count; i++)
+                {
+                    if (dt_CNVC_LSBiBat.Rows[i]["tu_thoi_gian"].ToString() != "")
+                    {
+                        from = Convert.ToDateTime(dt_CNVC_LSBiBat.Rows[i]["tu_thoi_gian"]).Date.ToString("dd/MM/yyyy");
+                    }
+                    else
+                        from = null;
+
+                    if (dt_CNVC_LSBiBat.Rows[i]["den_thoi_gian"].ToString() != "")
+                    {
+                        to = Convert.ToDateTime(dt_CNVC_LSBiBat.Rows[i]["den_thoi_gian"]).Date.ToString("dd/MM/yyyy");
+                    }
+                    else
+                        to = null;
+
+                    dt_CNVC_LSBiBat.Rows[i]["LSBiBat"] =
+                            dt_CNVC_LSBiBat.Rows[i]["bi_bat_bi_tu"] + " - " +
+                            from + " - " +
+                            to + " - " +
+                            dt_CNVC_LSBiBat.Rows[i]["tai_noi"] + " - " +
+                            dt_CNVC_LSBiBat.Rows[i]["nguoi_khai_bao"] + " - " +
+                            dt_CNVC_LSBiBat.Rows[i]["noi_dung"];
+                }
+            }
+            catch (Exception)
+            {
+                
+            }
         }
 
         void Prepare_DaoTaoBoiDuong()
         {
             try
             {
-                DataTable dt = oCNVC_DaoTaoBoiDuong.GetData();
-                if (dt !=null && dt.Rows.Count > 0)
+                 dt_DaoTaoBoiDuong = oCNVC_DaoTaoBoiDuong.GetData();
+                 if (dt_DaoTaoBoiDuong != null && dt_DaoTaoBoiDuong.Rows.Count > 0)
                 {
                     /*
                    var DaoTaoBoiDuong = from r in dt.AsEnumerable()
@@ -139,10 +294,7 @@ namespace BaoCao.UCs
                                              ten_trinh_do = r.Field<string>("ten")
                                          };*/
 
-                   var DaoTaoBoiDuong2  = from r in dt.AsEnumerable()
-                                        select r;
-
-                   dt_DaoTaoBoiDuong = DaoTaoBoiDuong2.CopyToDataTable();
+                  
 
                    dt_DaoTaoBoiDuong.Columns.Add("vanbang_chungchi_trinhdo", typeof(string));
 
@@ -154,6 +306,14 @@ namespace BaoCao.UCs
                    }
 
                     //ten_van_bang + '-' + bd_ten_chung_chi + '-' + ten
+                }
+                else // add dòng de hiển thị header
+                {
+                    dt_DaoTaoBoiDuong.Columns.Add("vanbang_chungchi_trinhdo", typeof(string));
+                    DataRow r = dt_DaoTaoBoiDuong.NewRow();
+                    r["ten_truong"] = "  ";
+                    r["vanbang_chungchi_trinhdo"] = "Không có thông tin đào tạo bồi dưỡng";
+                    dt_DaoTaoBoiDuong.Rows.Add(r);
                 }
             }
             catch (Exception)
@@ -197,7 +357,8 @@ namespace BaoCao.UCs
                     foreach (var item in QTr_CongTac_OU_ChinhTri_ChucVu)
                     {
                         dt_CNVC_QTr_CongTac_OU_ChinhTri_ChucVu.Rows.Add(new object[] { item.tu_thoi_gian, item.den_thoi_gian, item.ten_don_vi
-                                                                                        , item.ten_chuc_danh, item.ten_chuc_vu});
+                                                                                        , item.ten_chuc_danh, item.ten_chuc_vu,
+                                                                                        item.ten_don_vi + " " + item.ten_chuc_danh + " " + item.ten_chuc_vu});
                     }
                 }
             }
@@ -594,6 +755,9 @@ namespace BaoCao.UCs
             Prepare_SK();
             Prepare_DaoTaoBoiDuong();
             Prepare_QtrCtac_ChucVuChinhTri();
+            Prepare_LSBiBat();
+            Prepare_QuanHeToChuc();
+            Prepare_QHThanNhan();
         }
 
         void txt_HoTen_KeyUp(object sender, KeyEventArgs e)
@@ -605,7 +769,7 @@ namespace BaoCao.UCs
                 oCNVC.MaNV = oCNVC_CMND_HoChieu.MaNV = oCNVC_ThongTinPhu.MaNV =
                         oCNVC_ThongTinTuyenDung.MaNV = oCNVC_ChinhTri.MaNV = oCNVC_ChinhTriExt.Ma_NV =
                         oCNVC_ChuyenMonTongQuat.MaNV = oCNVC_DienBienSK.MaNV = oCNVC_DaoTaoBoiDuong.MaNV =
-                        oCNVC_QTr_CongTac_OU.MaNV = ma_nv;
+                        oCNVC_QTr_CongTac_OU.MaNV = oCNVC_LSBiBat.MaNV = oCNVC_QHGiaDinh.MaNV = oCNVC_QuanHeToChuc.MaNV= ma_nv;
 
                 Init_Table_CNVC_QTr_CongTac_OU_ChinhTri_ChucVu();
                 Prepare_ThongTinAll();
@@ -626,6 +790,7 @@ namespace BaoCao.UCs
                              };
                  */
 
+                //Reports.NV_BoNoiVu rpt = new Reports.NV_BoNoiVu();
                 Reports.NV_BoNoiVu rpt = new Reports.NV_BoNoiVu();
 
                 rpt.Database.Tables["ThongTinChinh"].SetDataSource(dt_ThongTinChinh);
@@ -641,6 +806,9 @@ namespace BaoCao.UCs
                 rpt.Database.Tables["SucKhoe"].SetDataSource(dt_SucKhoe);
                 rpt.Database.Tables["DaoTaoBoiDuong"].SetDataSource(dt_DaoTaoBoiDuong);
                 rpt.Database.Tables["QtrCtac_ChucVuChinhTri"].SetDataSource(dt_CNVC_QTr_CongTac_OU_ChinhTri_ChucVu);
+                rpt.Database.Tables["QHGiaDinh"].SetDataSource(dt_CNVC_QHGiaDinh_nuoc_ngoai);
+                rpt.Database.Tables["QuanHeToChuc"].SetDataSource(dt_CNVC_QuanHeToChuc);
+                rpt.Database.Tables["tb_LSBiBat"].SetDataSource(dt_CNVC_LSBiBat);
 
                 //rpt.SetDataSource(dt_ThongTinChinh);
                 //rpt.SetDataSource(dt_CMND_HoChieu);
