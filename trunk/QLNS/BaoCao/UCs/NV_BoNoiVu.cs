@@ -35,6 +35,7 @@ namespace BaoCao.UCs
         Business.CNVC.CNVC_QHGiaDinh oCNVC_QHGiaDinh;
         Business.CNVC.CNVC_QuanHeToChuc oCNVC_QuanHeToChuc;
 
+
         DataTable dtTinhTP;
         DataTable dt_CNVC_QTr_CongTac_OU_ChinhTri_ChucVu;
         DataTable dtQuocGia;
@@ -57,6 +58,8 @@ namespace BaoCao.UCs
         DataTable dt_CNVC_LSBiBat;
         DataTable dt_CNVC_QuanHeToChuc;
         DataTable dt_CNVC_QHGiaDinh_nuoc_ngoai;
+        DataTable dt_CNVC_QHGiaDinh_BanThan;
+        DataTable dt_CNVC_QHGiaDinh_VoHoacChong;
 
         #endregion
 
@@ -81,6 +84,8 @@ namespace BaoCao.UCs
             oCNVC_DienBienSK = new Business.CNVC.CNVC_DienBienSK();
             oCNVC_LSBiBat = new Business.CNVC.CNVC_LSBiBat();
 
+            dt_CNVC_QHGiaDinh_BanThan = new DataTable();
+            dt_CNVC_QHGiaDinh_VoHoacChong = new DataTable();
             dt_CNVC_QTr_CongTac_OU_ChinhTri_ChucVu = new DataTable();
             dt_DaoTaoBoiDuong = new DataTable();
             dt_PC = new DataTable();
@@ -129,6 +134,103 @@ namespace BaoCao.UCs
             dt_CNVC_QTr_CongTac_OU_ChinhTri_ChucVu.Columns.Add("ten_chuc_danh", typeof(string));
             dt_CNVC_QTr_CongTac_OU_ChinhTri_ChucVu.Columns.Add("ten_chuc_vu", typeof(string));
             dt_CNVC_QTr_CongTac_OU_ChinhTri_ChucVu.Columns.Add("dv_cd_cv", typeof(string));
+        }
+
+        void Prepare_QHGiaDinh_BanThan()
+        {
+            try
+            {
+                dt_CNVC_QHGiaDinh_BanThan = oCNVC_QHGiaDinh.GetData();
+
+                dt_CNVC_QHGiaDinh_BanThan.Columns.Add("ho_ten", typeof(string));
+                dt_CNVC_QHGiaDinh_BanThan.Columns.Add("que_quan_nghe_nghiep", typeof(string));
+
+
+                for (int i = 0; i < dt_CNVC_QHGiaDinh_BanThan.Rows.Count; i++)
+                {
+                    if (dt_CNVC_QHGiaDinh_BanThan.Rows[i]["moi_quan_he"].ToString().Contains("Ba, mẹ ruột") ||
+                            dt_CNVC_QHGiaDinh_BanThan.Rows[i]["moi_quan_he"].ToString().Contains("Vợ, chồng") ||
+                            dt_CNVC_QHGiaDinh_BanThan.Rows[i]["moi_quan_he"].ToString().Contains("Anh chị em ruột") ||
+                            dt_CNVC_QHGiaDinh_BanThan.Rows[i]["moi_quan_he"].ToString().Contains("Các con")) // than nhan ban than moi hien thi
+                    {
+                        dt_CNVC_QHGiaDinh_BanThan.Rows[i]["ho_ten"] =
+                                dt_CNVC_QHGiaDinh_BanThan.Rows[i]["ho"] + " " +
+                                dt_CNVC_QHGiaDinh_BanThan.Rows[i]["ten"];
+
+                        dt_CNVC_QHGiaDinh_BanThan.Rows[i]["que_quan_nghe_nghiep"] =                                                           
+                                dt_CNVC_QHGiaDinh_BanThan.Rows[i]["que_quan"] + " - " +
+                                dt_CNVC_QHGiaDinh_BanThan.Rows[i]["nghe_nghiep"] + " - " +
+                                dt_CNVC_QHGiaDinh_BanThan.Rows[i]["chuc_danh_chuc_vu"] + " - " +
+                                dt_CNVC_QHGiaDinh_BanThan.Rows[i]["don_vi_cong_tac"] + Environment.NewLine +
+                                " địa chỉ " + dt_CNVC_QHGiaDinh_BanThan.Rows[i]["so_nha"] + " - " +
+                                dt_CNVC_QHGiaDinh_BanThan.Rows[i]["duong"] + " - " +
+                                dt_CNVC_QHGiaDinh_BanThan.Rows[i]["phuong_xa"] + " - " +
+                                dt_CNVC_QHGiaDinh_BanThan.Rows[i]["quan_huyen"] + " - " +
+                                dt_CNVC_QHGiaDinh_BanThan.Rows[i]["ten_tinh_tp"] + " - " +
+                                dt_CNVC_QHGiaDinh_BanThan.Rows[i]["ten_quoc_gia"] + Environment.NewLine +
+                                dt_CNVC_QHGiaDinh_BanThan.Rows[i]["thanh_vien_to_chuc_ctr_xh"] + " - " +
+                                dt_CNVC_QHGiaDinh_BanThan.Rows[i]["hoc_tap"] + " - " +
+                                dt_CNVC_QHGiaDinh_BanThan.Rows[i]["ghi_chu"];
+                    }
+
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+
+        }
+
+        void Prepare_QHGiaDinh_VoHoacChong()
+        {
+            try
+            {
+                dt_CNVC_QHGiaDinh_VoHoacChong = oCNVC_QHGiaDinh.GetData();
+
+                dt_CNVC_QHGiaDinh_VoHoacChong.Columns.Add("ho_ten", typeof(string));
+                dt_CNVC_QHGiaDinh_VoHoacChong.Columns.Add("que_quan_nghe_nghiep", typeof(string));
+
+
+                for (int i = 0; i < dt_CNVC_QHGiaDinh_VoHoacChong.Rows.Count; i++)
+                {
+                    if (!dt_CNVC_QHGiaDinh_VoHoacChong.Rows[i]["moi_quan_he"].ToString().Contains("Ba, mẹ ruột") &&
+                            !dt_CNVC_QHGiaDinh_VoHoacChong.Rows[i]["moi_quan_he"].ToString().Contains("Vợ, chồng") &&
+                           !dt_CNVC_QHGiaDinh_VoHoacChong.Rows[i]["moi_quan_he"].ToString().Contains("Anh chị em ruột") &&
+                            !dt_CNVC_QHGiaDinh_VoHoacChong.Rows[i]["moi_quan_he"].ToString().Contains("Các con")) // than nhan ban than moi hien thi
+                    {
+                        dt_CNVC_QHGiaDinh_VoHoacChong.Rows[i]["ho_ten"] =
+                                dt_CNVC_QHGiaDinh_VoHoacChong.Rows[i]["ho"] + " " +
+                                dt_CNVC_QHGiaDinh_VoHoacChong.Rows[i]["ten"];
+
+                        dt_CNVC_QHGiaDinh_VoHoacChong.Rows[i]["que_quan_nghe_nghiep"] =
+                                dt_CNVC_QHGiaDinh_VoHoacChong.Rows[i]["que_quan"] + " - " +
+                                dt_CNVC_QHGiaDinh_VoHoacChong.Rows[i]["nghe_nghiep"] + " - " +
+                                dt_CNVC_QHGiaDinh_VoHoacChong.Rows[i]["chuc_danh_chuc_vu"] + " - " +
+                                dt_CNVC_QHGiaDinh_VoHoacChong.Rows[i]["don_vi_cong_tac"] + Environment.NewLine +
+                                " địa chỉ " + dt_CNVC_QHGiaDinh_VoHoacChong.Rows[i]["so_nha"] + " - " +
+                                dt_CNVC_QHGiaDinh_VoHoacChong.Rows[i]["duong"] + " - " +
+                                dt_CNVC_QHGiaDinh_VoHoacChong.Rows[i]["phuong_xa"] + " - " +
+                                dt_CNVC_QHGiaDinh_VoHoacChong.Rows[i]["quan_huyen"] + " - " +
+                                dt_CNVC_QHGiaDinh_VoHoacChong.Rows[i]["ten_tinh_tp"] + " - " +
+                                dt_CNVC_QHGiaDinh_VoHoacChong.Rows[i]["ten_quoc_gia"] + Environment.NewLine +
+                                dt_CNVC_QHGiaDinh_VoHoacChong.Rows[i]["thanh_vien_to_chuc_ctr_xh"] + " - " +
+                                dt_CNVC_QHGiaDinh_VoHoacChong.Rows[i]["hoc_tap"] + " - " +
+                                dt_CNVC_QHGiaDinh_VoHoacChong.Rows[i]["ghi_chu"];
+                    }
+                    else // set rỗng de khong hien thi tren report
+                    {
+                        dt_CNVC_QHGiaDinh_VoHoacChong.Rows[i]["nam_sinh"] = "";
+                        dt_CNVC_QHGiaDinh_VoHoacChong.Rows[i]["moi_quan_he"] = "";
+                    }
+
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+
         }
 
         void Prepare_QHThanNhan()
@@ -758,6 +860,8 @@ namespace BaoCao.UCs
             Prepare_LSBiBat();
             Prepare_QuanHeToChuc();
             Prepare_QHThanNhan();
+            Prepare_QHGiaDinh_VoHoacChong();
+            Prepare_QHGiaDinh_BanThan();
         }
 
         void txt_HoTen_KeyUp(object sender, KeyEventArgs e)
@@ -809,6 +913,8 @@ namespace BaoCao.UCs
                 rpt.Database.Tables["QHGiaDinh"].SetDataSource(dt_CNVC_QHGiaDinh_nuoc_ngoai);
                 rpt.Database.Tables["QuanHeToChuc"].SetDataSource(dt_CNVC_QuanHeToChuc);
                 rpt.Database.Tables["tb_LSBiBat"].SetDataSource(dt_CNVC_LSBiBat);
+                rpt.Database.Tables["QHGiaDinh_BanThan"].SetDataSource(dt_CNVC_QHGiaDinh_BanThan);
+                rpt.Database.Tables["QHGiaDinh_VoHoacChong"].SetDataSource(dt_CNVC_QHGiaDinh_VoHoacChong);
 
                 //rpt.SetDataSource(dt_ThongTinChinh);
                 //rpt.SetDataSource(dt_CMND_HoChieu);
