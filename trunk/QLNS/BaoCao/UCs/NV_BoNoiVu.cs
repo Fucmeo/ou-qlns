@@ -60,6 +60,7 @@ namespace BaoCao.UCs
         DataTable dt_CNVC_QHGiaDinh_nuoc_ngoai;
         DataTable dt_CNVC_QHGiaDinh_BanThan;
         DataTable dt_CNVC_QHGiaDinh_VoHoacChong;
+        DataTable dt_DienBienLuong;
 
         #endregion
 
@@ -84,6 +85,7 @@ namespace BaoCao.UCs
             oCNVC_DienBienSK = new Business.CNVC.CNVC_DienBienSK();
             oCNVC_LSBiBat = new Business.CNVC.CNVC_LSBiBat();
 
+            dt_DienBienLuong = new DataTable();
             dt_CNVC_QHGiaDinh_BanThan = new DataTable();
             dt_CNVC_QHGiaDinh_VoHoacChong = new DataTable();
             dt_CNVC_QTr_CongTac_OU_ChinhTri_ChucVu = new DataTable();
@@ -134,6 +136,42 @@ namespace BaoCao.UCs
             dt_CNVC_QTr_CongTac_OU_ChinhTri_ChucVu.Columns.Add("ten_chuc_danh", typeof(string));
             dt_CNVC_QTr_CongTac_OU_ChinhTri_ChucVu.Columns.Add("ten_chuc_vu", typeof(string));
             dt_CNVC_QTr_CongTac_OU_ChinhTri_ChucVu.Columns.Add("dv_cd_cv", typeof(string));
+        }
+
+        void Prepare_DienBienLuong()
+        {
+            try
+            {
+                DataTable dt = oTinhLuong.GetThongTinLuong_ByNV(ma_nv);
+                if (dt.Rows.Count > 0)
+                {
+                    dt_DienBienLuong = (from r in dt.AsEnumerable()
+                                        orderby r.Field<DateTime>("tu_ngay")
+                                        where r.Field<string>("khoan_or_heso") == "Hệ số"
+                                        select r).CopyToDataTable();  // he so moi hien thi
+
+
+                    dt_DienBienLuong.Columns.Add("thang_nam", typeof(string));
+                    dt_DienBienLuong.Columns.Add("ngach_bac", typeof(string));
+
+
+                    for (int i = 0; i < dt_DienBienLuong.Rows.Count; i++)
+                    {
+                        dt_DienBienLuong.Rows[i]["thang_nam"] = Convert.ToDateTime(dt_DienBienLuong.Rows[i]["tu_ngay"]).Month +
+                                                                " / " +
+                                                                Convert.ToDateTime(dt_DienBienLuong.Rows[i]["tu_ngay"]).Year;
+
+                        dt_DienBienLuong.Rows[i]["ngach_bac"] = dt_DienBienLuong.Rows[i]["ten_ngach"] +
+                                                                " bậc " +  dt_DienBienLuong.Rows[i]["bac"] ;
+
+                    }
+                }
+                
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         void Prepare_QHGiaDinh_BanThan()
@@ -847,6 +885,7 @@ namespace BaoCao.UCs
 
         void Prepare_ThongTinAll()
         {
+            Prepare_DienBienLuong();
             Prepare_ThongTinChinh();
             Prepare_ThongTinPhu();
             Prepare_ChucDanh_ChucVu();
@@ -915,6 +954,7 @@ namespace BaoCao.UCs
                 rpt.Database.Tables["tb_LSBiBat"].SetDataSource(dt_CNVC_LSBiBat);
                 rpt.Database.Tables["QHGiaDinh_BanThan"].SetDataSource(dt_CNVC_QHGiaDinh_BanThan);
                 rpt.Database.Tables["QHGiaDinh_VoHoacChong"].SetDataSource(dt_CNVC_QHGiaDinh_VoHoacChong);
+                rpt.Database.Tables["DienBienLuong"].SetDataSource(dt_DienBienLuong);
 
                 //rpt.SetDataSource(dt_ThongTinChinh);
                 //rpt.SetDataSource(dt_CMND_HoChieu);
