@@ -110,8 +110,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>NV_MoHinh_HinhThuc.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Reports\NV_BoNoiVu_Page3_QHGiaDinh2.cs">
-      <DependentUpon>NV_BoNoiVu_Page3_QHGiaDinh2.rpt</DependentUpon>
+    <Compile Include="Reports\NV_BoNoiVu_Page4_DienBienLuong.cs">
+      <DependentUpon>NV_BoNoiVu_Page4_DienBienLuong.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\NV_BoNoiVu_Page4_QHGiaDinh2.cs">
+      <DependentUpon>NV_BoNoiVu_Page4_QHGiaDinh2.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
@@ -261,9 +267,13 @@
     <Compile Include="UCs\NV_MoHinh_HinhThuc.Designer.cs">
       <DependentUpon>NV_MoHinh_HinhThuc.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Reports\NV_BoNoiVu_Page3_QHGiaDinh2.rpt">
+    <EmbeddedResource Include="Reports\NV_BoNoiVu_Page4_DienBienLuong.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>NV_BoNoiVu_Page3_QHGiaDinh2.cs</LastGenOutput>
+      <LastGenOutput>NV_BoNoiVu_Page4_DienBienLuong.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NV_BoNoiVu_Page4_QHGiaDinh2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>NV_BoNoiVu_Page4_QHGiaDinh2.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\Footer.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
