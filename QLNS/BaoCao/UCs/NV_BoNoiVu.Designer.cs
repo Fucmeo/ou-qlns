@@ -29,58 +29,34 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.gp_SearchCNVC = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.bw = new System.ComponentModel.BackgroundWorker();
             this.tableLayoutPanel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.70789F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0.8528785F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.54585F));
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.78431F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.21568F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.groupBox1, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.gp_SearchCNVC, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.progressBar1, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tableLayoutPanel1.MinimumSize = new System.Drawing.Size(600, 140);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.96858F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(938, 1082);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(612, 156);
             this.tableLayoutPanel1.TabIndex = 3;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.crystalReportViewer1);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.groupBox1.Location = new System.Drawing.Point(222, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(713, 1076);
-            this.groupBox1.TabIndex = 19;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Báo cáo";
-            // 
-            // crystalReportViewer1
-            // 
-            this.crystalReportViewer1.ActiveViewIndex = -1;
-            this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.crystalReportViewer1.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.crystalReportViewer1.Location = new System.Drawing.Point(3, 25);
-            this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.ShowCloseButton = false;
-            this.crystalReportViewer1.Size = new System.Drawing.Size(707, 1048);
-            this.crystalReportViewer1.TabIndex = 0;
-            this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
             // gp_SearchCNVC
             // 
@@ -90,10 +66,42 @@
             this.gp_SearchCNVC.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.gp_SearchCNVC.Location = new System.Drawing.Point(3, 3);
             this.gp_SearchCNVC.Name = "gp_SearchCNVC";
-            this.gp_SearchCNVC.Size = new System.Drawing.Size(213, 1076);
+            this.gp_SearchCNVC.Size = new System.Drawing.Size(606, 118);
             this.gp_SearchCNVC.TabIndex = 15;
             this.gp_SearchCNVC.TabStop = false;
             this.gp_SearchCNVC.Text = "Thông tin CNVC";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 128);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 23);
+            this.label1.TabIndex = 16;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.progressBar1.Location = new System.Drawing.Point(221, 128);
+            this.progressBar1.MarqueeAnimationSpeed = 0;
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(245, 23);
+            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.progressBar1.TabIndex = 17;
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.CheckPathExists = false;
+            this.saveFileDialog1.DefaultExt = "doc";
+            this.saveFileDialog1.Filter = "2008 Word Format | *.doc|2010 Word Format | *.docx|PDF Format | *.pdf|2008 Excel " +
+                "Format | *.xls|2010 Excel Format | *.xlsx |All File | *.*";
+            // 
+            // bw
+            // 
+            this.bw.WorkerReportsProgress = true;
+            this.bw.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bw_DoWork);
+            this.bw.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bw_RunWorkerCompleted);
             // 
             // NV_BoNoiVu
             // 
@@ -104,10 +112,10 @@
             this.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "NV_BoNoiVu";
-            this.Size = new System.Drawing.Size(938, 1082);
+            this.Size = new System.Drawing.Size(612, 156);
             this.Load += new System.EventHandler(this.NV_BoNoiVu_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -115,8 +123,10 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
         private System.Windows.Forms.GroupBox gp_SearchCNVC;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.ComponentModel.BackgroundWorker bw;
     }
 }

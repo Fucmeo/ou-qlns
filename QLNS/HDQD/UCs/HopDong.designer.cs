@@ -318,7 +318,7 @@
             this.tableLP_PhuCap.SetColumnSpan(this.comB_LoaiPhuCap, 2);
             this.comB_LoaiPhuCap.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_LoaiPhuCap.FormattingEnabled = true;
-            this.comB_LoaiPhuCap.Location = new System.Drawing.Point(489, 15);
+            this.comB_LoaiPhuCap.Location = new System.Drawing.Point(489, 13);
             this.comB_LoaiPhuCap.Name = "comB_LoaiPhuCap";
             this.comB_LoaiPhuCap.Size = new System.Drawing.Size(252, 29);
             this.comB_LoaiPhuCap.TabIndex = 1;
@@ -666,7 +666,7 @@
             this.comb_Luong.Items.AddRange(new object[] {
             "Hệ số",
             "Khoán"});
-            this.comb_Luong.Location = new System.Drawing.Point(121, 7);
+            this.comb_Luong.Location = new System.Drawing.Point(121, 9);
             this.comb_Luong.Name = "comb_Luong";
             this.comb_Luong.Size = new System.Drawing.Size(201, 29);
             this.comb_Luong.TabIndex = 33;
@@ -718,7 +718,7 @@
             this.comb_Ngach.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comb_Ngach.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comb_Ngach.FormattingEnabled = true;
-            this.comb_Ngach.Location = new System.Drawing.Point(414, 7);
+            this.comb_Ngach.Location = new System.Drawing.Point(414, 9);
             this.comb_Ngach.Name = "comb_Ngach";
             this.comb_Ngach.Size = new System.Drawing.Size(209, 29);
             this.comb_Ngach.TabIndex = 29;
@@ -739,7 +739,7 @@
             this.comb_Bac.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comb_Bac.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comb_Bac.FormattingEnabled = true;
-            this.comb_Bac.Location = new System.Drawing.Point(771, 7);
+            this.comb_Bac.Location = new System.Drawing.Point(771, 9);
             this.comb_Bac.Name = "comb_Bac";
             this.comb_Bac.Size = new System.Drawing.Size(202, 29);
             this.comb_Bac.TabIndex = 30;
@@ -845,7 +845,7 @@
             this.comB_DonVi.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_DonVi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_DonVi.FormattingEnabled = true;
-            this.comB_DonVi.Location = new System.Drawing.Point(122, 135);
+            this.comB_DonVi.Location = new System.Drawing.Point(122, 133);
             this.comB_DonVi.Name = "comB_DonVi";
             this.comB_DonVi.Size = new System.Drawing.Size(203, 29);
             this.comB_DonVi.TabIndex = 6;
@@ -865,7 +865,7 @@
             this.comB_ChucVu.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_ChucVu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_ChucVu.FormattingEnabled = true;
-            this.comB_ChucVu.Location = new System.Drawing.Point(449, 135);
+            this.comB_ChucVu.Location = new System.Drawing.Point(449, 133);
             this.comB_ChucVu.Name = "comB_ChucVu";
             this.comB_ChucVu.Size = new System.Drawing.Size(204, 29);
             this.comB_ChucVu.TabIndex = 7;
@@ -875,7 +875,7 @@
             this.comB_ChucDanh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_ChucDanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_ChucDanh.FormattingEnabled = true;
-            this.comB_ChucDanh.Location = new System.Drawing.Point(778, 135);
+            this.comB_ChucDanh.Location = new System.Drawing.Point(778, 133);
             this.comB_ChucDanh.Name = "comB_ChucDanh";
             this.comB_ChucDanh.Size = new System.Drawing.Size(207, 29);
             this.comB_ChucDanh.TabIndex = 8;
@@ -924,7 +924,7 @@
             this.comB_LoaiHD.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comB_LoaiHD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comB_LoaiHD.FormattingEnabled = true;
-            this.comB_LoaiHD.Location = new System.Drawing.Point(449, 8);
+            this.comB_LoaiHD.Location = new System.Drawing.Point(449, 6);
             this.comB_LoaiHD.Name = "comB_LoaiHD";
             this.comB_LoaiHD.Size = new System.Drawing.Size(204, 29);
             this.comB_LoaiHD.TabIndex = 1;
@@ -1103,6 +1103,7 @@
             this.Controls.Add(this.tableLP_HopDong);
             this.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MinimumSize = new System.Drawing.Size(1000, 1100);
             this.Name = "HopDong";
             this.Size = new System.Drawing.Size(1000, 1100);
             this.Load += new System.EventHandler(this.HopDong_Load);

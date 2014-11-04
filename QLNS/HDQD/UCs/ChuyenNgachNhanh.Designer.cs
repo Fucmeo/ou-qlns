@@ -348,7 +348,7 @@
             this.comb_NgachMoi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comb_NgachMoi.Enabled = false;
             this.comb_NgachMoi.FormattingEnabled = true;
-            this.comb_NgachMoi.Location = new System.Drawing.Point(100, 92);
+            this.comb_NgachMoi.Location = new System.Drawing.Point(100, 90);
             this.comb_NgachMoi.Name = "comb_NgachMoi";
             this.comb_NgachMoi.Size = new System.Drawing.Size(261, 30);
             this.comb_NgachMoi.TabIndex = 31;
@@ -389,7 +389,7 @@
             this.comb_BacMoi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comb_BacMoi.Enabled = false;
             this.comb_BacMoi.FormattingEnabled = true;
-            this.comb_BacMoi.Location = new System.Drawing.Point(100, 162);
+            this.comb_BacMoi.Location = new System.Drawing.Point(100, 160);
             this.comb_BacMoi.Name = "comb_BacMoi";
             this.comb_BacMoi.Size = new System.Drawing.Size(261, 30);
             this.comb_BacMoi.TabIndex = 33;
@@ -628,6 +628,7 @@
             this.Controls.Add(this.TLP_KhenThuong_ChuyenNgach);
             this.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MinimumSize = new System.Drawing.Size(1000, 800);
             this.Name = "ChuyenNgachNhanh";
             this.Size = new System.Drawing.Size(1000, 800);
             this.Load += new System.EventHandler(this.ChuyenNgachNhanh_Load);
