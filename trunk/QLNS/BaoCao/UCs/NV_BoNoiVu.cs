@@ -6,6 +6,10 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
+using System.IO;
+using System.Threading;
 
 namespace BaoCao.UCs
 {
@@ -15,6 +19,7 @@ namespace BaoCao.UCs
 
         string ma_nv;
         HDQD.UCs.ThongTinCNVC oThongTinCNVC = new HDQD.UCs.ThongTinCNVC();
+        bool Start = false; // bien de control thread
 
         Business.DonVi oDonVi;
         //Business.BaoCao oBaoCao;
@@ -143,6 +148,8 @@ namespace BaoCao.UCs
             try
             {
                 DataTable dt = oTinhLuong.GetThongTinLuong_ByNV(ma_nv);
+                
+
                 if (dt.Rows.Count > 0)
                 {
                     dt_DienBienLuong = (from r in dt.AsEnumerable()
@@ -165,6 +172,15 @@ namespace BaoCao.UCs
                                                                 " bậc " +  dt_DienBienLuong.Rows[i]["bac"] ;
 
                     }
+                }
+                else  // insert dong rỗng để show heading
+                {
+                    dt_DienBienLuong.Columns.Add("thang_nam", typeof(string));
+                    dt_DienBienLuong.Columns.Add("ngach_bac", typeof(string));
+                    DataRow r = dt_DienBienLuong.NewRow();
+                    r["thang_nam"] = " ";
+                    r["ngach_bac"] = " ";
+                    r["he_so"] = " ";
                 }
                 
             }
@@ -875,11 +891,12 @@ namespace BaoCao.UCs
 
         private void NV_BoNoiVu_Load(object sender, EventArgs e)
         {
-            
+            //oThongTinCNVC.Dock = DockStyle.Fill;
             gp_SearchCNVC.Controls.Add(oThongTinCNVC);
 
             oThongTinCNVC.txt_HoTen.KeyUp += new KeyEventHandler(txt_HoTen_KeyUp);
             GetMasterData();
+
             
         }
 
@@ -903,37 +920,57 @@ namespace BaoCao.UCs
             Prepare_QHGiaDinh_BanThan();
         }
 
-        void txt_HoTen_KeyUp(object sender, KeyEventArgs e)
+        private void bw_DoWork(object sender, DoWorkEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter && oThongTinCNVC.txt_MaNV.Text != "")
+            try
             {
+                FilePath = saveFileDialog1.FileName;
+
+                ExportOptions eo = new ExportOptions();
+                eo.ExportDestinationType = ExportDestinationType.DiskFile;
+                string Extension = Path.GetExtension(FilePath);
+
+                switch (Extension.ToUpper().Trim())
+                {
+                    case ".DOC":
+                        eo.ExportFormatType = ExportFormatType.WordForWindows;
+                        break;
+                    case ".DOCX":
+                        eo.ExportFormatType = ExportFormatType.WordForWindows;
+                        break;
+                    case ".XLS":
+                        eo.ExportFormatType = ExportFormatType.Excel;
+                        break;
+                    case ".XLSX":
+                        eo.ExportFormatType = ExportFormatType.Excel;
+                        break;
+                    case ".PDF":
+                        eo.ExportFormatType = ExportFormatType.PortableDocFormat;
+                        break;
+                    default:
+                        eo.ExportFormatType = ExportFormatType.WordForWindows;
+                        break;
+                }
+
+
+                DiskFileDestinationOptions DestOption = new DiskFileDestinationOptions();
+                DestOption.DiskFileName = FilePath;
+                eo.ExportDestinationOptions = DestOption;
+
+
                 ma_nv = oThongTinCNVC.txt_MaNV.Text;
-                
+
                 oCNVC.MaNV = oCNVC_CMND_HoChieu.MaNV = oCNVC_ThongTinPhu.MaNV =
                         oCNVC_ThongTinTuyenDung.MaNV = oCNVC_ChinhTri.MaNV = oCNVC_ChinhTriExt.Ma_NV =
                         oCNVC_ChuyenMonTongQuat.MaNV = oCNVC_DienBienSK.MaNV = oCNVC_DaoTaoBoiDuong.MaNV =
-                        oCNVC_QTr_CongTac_OU.MaNV = oCNVC_LSBiBat.MaNV = oCNVC_QHGiaDinh.MaNV = oCNVC_QuanHeToChuc.MaNV= ma_nv;
+                        oCNVC_QTr_CongTac_OU.MaNV = oCNVC_LSBiBat.MaNV = oCNVC_QHGiaDinh.MaNV = oCNVC_QuanHeToChuc.MaNV = ma_nv;
 
                 Init_Table_CNVC_QTr_CongTac_OU_ChinhTri_ChucVu();
                 Prepare_ThongTinAll();
 
                 DataTable dt_ThongTinTuyenDung = oCNVC_ThongTinTuyenDung.GetData();
+                
 
-                /*
-                var result = from thongtinchinh in dt_ThongTinChinh.AsEnumerable()
-                             join cmnd in dt_CMND_HoChieu.AsEnumerable()
-                             on thongtinchinh["ma_nv"] equals cmnd["ma_nv"]
-                             select new
-                             {
-                                 ma_nv = thongtinchinh["ma_nv"],
-                                 ho = thongtinchinh["ho"],
-                                 ten = thongtinchinh["ten"],
-                                 cmnd_hochieu = cmnd["cmnd_hochieu"],
-                                 ma_so = cmnd["ma_so"]
-                             };
-                 */
-
-                //Reports.NV_BoNoiVu rpt = new Reports.NV_BoNoiVu();
                 Reports.NV_BoNoiVu rpt = new Reports.NV_BoNoiVu();
 
                 rpt.Database.Tables["ThongTinChinh"].SetDataSource(dt_ThongTinChinh);
@@ -956,13 +993,90 @@ namespace BaoCao.UCs
                 rpt.Database.Tables["QHGiaDinh_VoHoacChong"].SetDataSource(dt_CNVC_QHGiaDinh_VoHoacChong);
                 rpt.Database.Tables["DienBienLuong"].SetDataSource(dt_DienBienLuong);
 
+                rpt.Export(eo);
+                MessageBox.Show("Xuất báo cáo hoàn tất", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Xuất báo cáo không thành công, xin vui lòng thử lại sau", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                bw.ReportProgress(100);
+            }
+            
+        }
+
+
+        private void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            progressBar1.Style = ProgressBarStyle.Continuous;
+            gp_SearchCNVC.Enabled = true;
+            progressBar1.MarqueeAnimationSpeed = 0;
+            label1.Text = "";
+            
+        }
+
+        void ExportProgress()
+        {
+
+            if (Start)
+            {
+                progressBar1.Style = ProgressBarStyle.Marquee;
+                this.Enabled = false;
+                progressBar1.MarqueeAnimationSpeed = 1000;
+                label1.Text = "Đang xuất báo cáo...";
+            }
+            else
+            {
+                this.Enabled = true;
+                progressBar1.MarqueeAnimationSpeed = 0;
+                label1.Text = "";
+                progressBar1.Style = ProgressBarStyle.Continuous;
+            }
+        }
+
+        void txt_HoTen_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && oThongTinCNVC.txt_MaNV.Text != "")
+            {
+                
+                saveFileDialog1.FileName = oThongTinCNVC.txt_HoTen.Text + " - Bao cao bo noi vu";
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK && saveFileDialog1.FileName != null)
+                {
+                    try
+                    {
+                        progressBar1.Style = ProgressBarStyle.Marquee;
+                        gp_SearchCNVC.Enabled = false;
+                        progressBar1.MarqueeAnimationSpeed = 20;
+                        label1.Text = "Đang xuất báo cáo...";
+
+                        bw.RunWorkerAsync(100);
+
+                        
+                        //bw.ReportProgress(100);
+                        
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Xuất báo cáo không thành công, xin vui lòng thử lại sau", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        bw.ReportProgress(100);
+                    }
+                    
+                }
+
+                
+                //rptExport.ex
+               
+
                 //rpt.SetDataSource(dt_ThongTinChinh);
                 //rpt.SetDataSource(dt_CMND_HoChieu);
-                crystalReportViewer1.ReportSource = rpt;
+                //crystalReportViewer1.ReportSource = rpt;
                 //((TextObject)(rpt.Subreports["Header.rpt"].ReportDefinition.ReportObjects["rptName"])).Text = "BÁO CÁO NHÂN VIÊN THEO ĐƠN VỊ";
             }
            
         }
+
+        public string FilePath { get; set; }
+
+       
     }
 }
 
