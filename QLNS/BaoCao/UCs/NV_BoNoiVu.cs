@@ -891,8 +891,9 @@ namespace BaoCao.UCs
 
         private void NV_BoNoiVu_Load(object sender, EventArgs e)
         {
-            //oThongTinCNVC.Dock = DockStyle.Fill;
-            gp_SearchCNVC.Controls.Add(oThongTinCNVC);
+            oThongTinCNVC.Dock = DockStyle.Fill;
+            this.tableLayoutPanel1.Controls.Add(oThongTinCNVC,0,0);
+            this.tableLayoutPanel1.SetColumnSpan(oThongTinCNVC, 2);
 
             oThongTinCNVC.txt_HoTen.KeyUp += new KeyEventHandler(txt_HoTen_KeyUp);
             GetMasterData();
@@ -1008,7 +1009,7 @@ namespace BaoCao.UCs
         private void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             progressBar1.Style = ProgressBarStyle.Continuous;
-            gp_SearchCNVC.Enabled = true;
+            oThongTinCNVC.Enabled = true;
             progressBar1.MarqueeAnimationSpeed = 0;
             label1.Text = "";
             
@@ -1044,7 +1045,7 @@ namespace BaoCao.UCs
                     try
                     {
                         progressBar1.Style = ProgressBarStyle.Marquee;
-                        gp_SearchCNVC.Enabled = false;
+                        oThongTinCNVC.Enabled = false;
                         progressBar1.MarqueeAnimationSpeed = 20;
                         label1.Text = "Đang xuất báo cáo...";
 

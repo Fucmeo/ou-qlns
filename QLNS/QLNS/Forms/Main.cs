@@ -598,7 +598,7 @@ namespace QLNS.Forms
         private void bộNộiVụToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Forms.Popup f = new Popup("Báo cáo bộ nội vụ", new BaoCao.UCs.NV_BoNoiVu());
-            f.WindowState = FormWindowState.Maximized;
+            //f.WindowState = FormWindowState.Maximized;
             f.ShowDialog();
         }
 
