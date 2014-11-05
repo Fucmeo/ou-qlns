@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.gp_SearchCNVC = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
@@ -41,9 +40,7 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.78431F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.21568F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.gp_SearchCNVC, 0, 0);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.21569F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.progressBar1, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -53,29 +50,16 @@
             this.tableLayoutPanel1.MinimumSize = new System.Drawing.Size(600, 140);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.96858F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(612, 156);
             this.tableLayoutPanel1.TabIndex = 3;
-            // 
-            // gp_SearchCNVC
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.gp_SearchCNVC, 2);
-            this.gp_SearchCNVC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gp_SearchCNVC.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gp_SearchCNVC.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.gp_SearchCNVC.Location = new System.Drawing.Point(3, 3);
-            this.gp_SearchCNVC.Name = "gp_SearchCNVC";
-            this.gp_SearchCNVC.Size = new System.Drawing.Size(606, 118);
-            this.gp_SearchCNVC.TabIndex = 15;
-            this.gp_SearchCNVC.TabStop = false;
-            this.gp_SearchCNVC.Text = "Thông tin CNVC";
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 128);
+            this.label1.Location = new System.Drawing.Point(3, 125);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 23);
             this.label1.TabIndex = 16;
@@ -83,7 +67,7 @@
             // progressBar1
             // 
             this.progressBar1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.progressBar1.Location = new System.Drawing.Point(221, 128);
+            this.progressBar1.Location = new System.Drawing.Point(221, 125);
             this.progressBar1.MarqueeAnimationSpeed = 0;
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(245, 23);
@@ -123,7 +107,6 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.GroupBox gp_SearchCNVC;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ProgressBar progressBar1;

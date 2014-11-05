@@ -213,6 +213,22 @@ namespace HDQD.UCs
 
                      }
                  }
+                 else if (dtLuong.Rows.Count > 0)  // khong co phu cap thi lay ds HD tu lương
+                 {
+                     bLoad_MaHD_PC_Complete = false;
+                     DataTable dtMaHD_PC = dtLuong.AsDataView().ToTable(true, new string[2] { "ma_tuyen_dung", "tuyen_dung_id" });
+
+                     comb_MaHD_PC.DataSource = dtMaHD_PC;
+                     comb_MaHD_PC.DisplayMember = "ma_tuyen_dung";
+                     comb_MaHD_PC.ValueMember = "tuyen_dung_id";
+                     bLoad_MaHD_PC_Complete = true;
+                     if (dtMaHD_PC.Rows.Count > 0)
+                     {
+                         comb_MaHD_PC.SelectedIndex = -1;
+                         comb_MaHD_PC.SelectedIndex = 0;
+
+                     }
+                 }
 
              }
              catch (Exception)
@@ -977,21 +993,29 @@ namespace HDQD.UCs
 
          private void btn_AddPC_Click(object sender, EventArgs e)
          {
-             if (btn_AddPC.ImageKey == "Add.png")
+             if (comb_MaHD_PC.Items.Count > 0)
              {
-                 EnablePCObjects(true);
-                 ChangePCButtonImage(false);
-                 bAddPC = true;
-
-                 comB_LoaiPhuCap.Enabled = true;
-                 comb_MaHD_PC.Enabled = true;
-                 Clear_PC_Interface();
-
-                 if (comb_MaHD_PC.Items.Count > 0)
+                 if (btn_AddPC.ImageKey == "Add.png")
                  {
-                     comb_MaHD_PC.SelectedIndex = 0;
+                     EnablePCObjects(true);
+                     ChangePCButtonImage(false);
+                     bAddPC = true;
+
+                     comB_LoaiPhuCap.Enabled = true;
+                     comb_MaHD_PC.Enabled = true;
+                     Clear_PC_Interface();
+
+                     if (comb_MaHD_PC.Items.Count > 0)
+                     {
+                         comb_MaHD_PC.SelectedIndex = 0;
+                     }
                  }
              }
+             else
+             {
+                 MessageBox.Show("Nhân viên này chưa có thông tin hợp đồng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+             }
+             
 
          }
 
