@@ -32,7 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoaiNgayPhep));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLP_ThaoTac = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_Xoa = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.btn_Sua = new System.Windows.Forms.Button();
+            this.btn_Them = new System.Windows.Forms.Button();
             this.btn_Huy = new System.Windows.Forms.Button();
             this.btn_Luu = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -50,9 +53,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txt_Ten = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.btn_Them = new System.Windows.Forms.Button();
-            this.btn_Sua = new System.Windows.Forms.Button();
-            this.btn_Xoa = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLP_ThaoTac.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -107,6 +107,22 @@
             this.tableLP_ThaoTac.Size = new System.Drawing.Size(806, 71);
             this.tableLP_ThaoTac.TabIndex = 30;
             // 
+            // btn_Xoa
+            // 
+            this.btn_Xoa.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Xoa.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Xoa.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_Xoa.ImageKey = "Garbage.png";
+            this.btn_Xoa.ImageList = this.imageList1;
+            this.btn_Xoa.Location = new System.Drawing.Point(375, 7);
+            this.btn_Xoa.Name = "btn_Xoa";
+            this.btn_Xoa.Size = new System.Drawing.Size(55, 56);
+            this.btn_Xoa.TabIndex = 6;
+            this.btn_Xoa.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Xoa.UseVisualStyleBackColor = true;
+            this.btn_Xoa.Visible = false;
+            this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
+            // 
             // imageList1
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
@@ -116,6 +132,38 @@
             this.imageList1.Images.SetKeyName(2, "Edit Data.png");
             this.imageList1.Images.SetKeyName(3, "Garbage.png");
             this.imageList1.Images.SetKeyName(4, "Save.png");
+            // 
+            // btn_Sua
+            // 
+            this.btn_Sua.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Sua.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Sua.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_Sua.ImageKey = "Edit Data.png";
+            this.btn_Sua.ImageList = this.imageList1;
+            this.btn_Sua.Location = new System.Drawing.Point(214, 7);
+            this.btn_Sua.Name = "btn_Sua";
+            this.btn_Sua.Size = new System.Drawing.Size(55, 56);
+            this.btn_Sua.TabIndex = 5;
+            this.btn_Sua.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Sua.UseVisualStyleBackColor = true;
+            this.btn_Sua.Visible = false;
+            this.btn_Sua.Click += new System.EventHandler(this.btn_Sua_Click);
+            // 
+            // btn_Them
+            // 
+            this.btn_Them.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Them.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Them.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_Them.ImageKey = "Add.png";
+            this.btn_Them.ImageList = this.imageList1;
+            this.btn_Them.Location = new System.Drawing.Point(53, 7);
+            this.btn_Them.Name = "btn_Them";
+            this.btn_Them.Size = new System.Drawing.Size(55, 56);
+            this.btn_Them.TabIndex = 4;
+            this.btn_Them.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Them.UseVisualStyleBackColor = true;
+            this.btn_Them.Visible = false;
+            this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
             // 
             // btn_Huy
             // 
@@ -188,13 +236,14 @@
             this.lstb_DS.Name = "lstb_DS";
             this.lstb_DS.Size = new System.Drawing.Size(209, 218);
             this.lstb_DS.TabIndex = 1;
+            this.lstb_DS.SelectedIndexChanged += new System.EventHandler(this.lstb_DS_SelectedIndexChanged);
             // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.125F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.875F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 483F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 453F));
             this.tableLayoutPanel3.Controls.Add(this.label4, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.numericUpDown1, 1, 0);
@@ -210,7 +259,7 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(99, 98);
+            this.label4.Location = new System.Drawing.Point(128, 98);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(22, 21);
             this.label4.TabIndex = 7;
@@ -220,7 +269,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(5, 98);
+            this.label2.Location = new System.Drawing.Point(9, 98);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(17, 21);
             this.label2.TabIndex = 5;
@@ -229,9 +278,10 @@
             // numericUpDown1
             // 
             this.numericUpDown1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.numericUpDown1.Location = new System.Drawing.Point(30, 95);
+            this.numericUpDown1.DecimalPlaces = 3;
+            this.numericUpDown1.Location = new System.Drawing.Point(38, 95);
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(63, 28);
+            this.numericUpDown1.Size = new System.Drawing.Size(84, 28);
             this.numericUpDown1.TabIndex = 6;
             this.numericUpDown1.Value = new decimal(new int[] {
             100,
@@ -265,6 +315,7 @@
             this.dtgv_DS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgv_DS.Size = new System.Drawing.Size(800, 256);
             this.dtgv_DS.TabIndex = 1;
+            this.dtgv_DS.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_DS_CellClick);
             // 
             // gb_LoaiNP
             // 
@@ -343,54 +394,6 @@
             this.label3.Size = new System.Drawing.Size(63, 21);
             this.label3.TabIndex = 6;
             this.label3.Text = "Ghi chú";
-            // 
-            // btn_Them
-            // 
-            this.btn_Them.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Them.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Them.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_Them.ImageKey = "Add.png";
-            this.btn_Them.ImageList = this.imageList1;
-            this.btn_Them.Location = new System.Drawing.Point(53, 7);
-            this.btn_Them.Name = "btn_Them";
-            this.btn_Them.Size = new System.Drawing.Size(55, 56);
-            this.btn_Them.TabIndex = 4;
-            this.btn_Them.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Them.UseVisualStyleBackColor = true;
-            this.btn_Them.Visible = false;
-            this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
-            // 
-            // btn_Sua
-            // 
-            this.btn_Sua.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Sua.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Sua.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_Sua.ImageKey = "Edit Data.png";
-            this.btn_Sua.ImageList = this.imageList1;
-            this.btn_Sua.Location = new System.Drawing.Point(214, 7);
-            this.btn_Sua.Name = "btn_Sua";
-            this.btn_Sua.Size = new System.Drawing.Size(55, 56);
-            this.btn_Sua.TabIndex = 5;
-            this.btn_Sua.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Sua.UseVisualStyleBackColor = true;
-            this.btn_Sua.Visible = false;
-            this.btn_Sua.Click += new System.EventHandler(this.btn_Sua_Click);
-            // 
-            // btn_Xoa
-            // 
-            this.btn_Xoa.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Xoa.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Xoa.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_Xoa.ImageKey = "Garbage.png";
-            this.btn_Xoa.ImageList = this.imageList1;
-            this.btn_Xoa.Location = new System.Drawing.Point(375, 7);
-            this.btn_Xoa.Name = "btn_Xoa";
-            this.btn_Xoa.Size = new System.Drawing.Size(55, 56);
-            this.btn_Xoa.TabIndex = 6;
-            this.btn_Xoa.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Xoa.UseVisualStyleBackColor = true;
-            this.btn_Xoa.Visible = false;
-            this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
             // 
             // LoaiNgayPhep
             // 
