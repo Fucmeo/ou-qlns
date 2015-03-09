@@ -12,54 +12,89 @@ namespace LuongBH.UCs.Luong
 {
     public partial class LoaiNgayPhep : UserControl
     {
-        bool bAdd;
+        bool bAdd , bLoadListBoxDone = false;
         Business.Luong.LoaiNgayPhep oLoaiNgayPhep;
-        DataTable dtLoaiNgayPhep;
+        Business.HDQD.LoaiPhuCap oLoaiPhuCap;
+        DataTable dtLoaiNgayPhep , dtLoaiNgayPhep_compact;
+        DataTable dtLoaiPC;
 
         public LoaiNgayPhep()
         {
             InitializeComponent();
             oLoaiNgayPhep = new Business.Luong.LoaiNgayPhep();
+            dtLoaiNgayPhep_compact = new DataTable();
             dtLoaiNgayPhep = new DataTable();
+            oLoaiPhuCap = new Business.HDQD.LoaiPhuCap();
         }
 
         private void LoaiNgayPhep_Load(object sender, EventArgs e)
         {
-            dtLoaiNgayPhep = oLoaiNgayPhep.GetData();
-            if (dtLoaiNgayPhep != null && dtLoaiNgayPhep.Rows.Count >0)
+            try
             {
-                PrepareDataSource();
-                EditDtgInterface();
+                dtLoaiNgayPhep = oLoaiNgayPhep.GetData();
+                dtLoaiNgayPhep_compact = oLoaiNgayPhep.GetData_Compact();
+                dtLoaiPC = oLoaiPhuCap.GetList();
+
+                InitListBox();
                 ResetInterface(true);
+
+                if (dtLoaiNgayPhep != null && dtLoaiNgayPhep.Rows.Count > 0)
+                {
+
+                    PrepareDataSource();
+                    EditDtgInterface();
+                   
+                }
+
+                
+                dtgv_DS.ClearSelection();
+            }
+            catch (Exception)
+            {
+                
+            }
+            
+        }
+
+        void InitListBox()
+        {
+            bLoadListBoxDone = false;
+            if (dtLoaiPC != null && dtLoaiPC.Rows.Count >0)
+            {
+                lstb_DS.DataSource = dtLoaiPC;
+                lstb_DS.DisplayMember = "ten_loai";
+                lstb_DS.ValueMember = "id";
+                lstb_DS.ClearSelected();
+                bLoadListBoxDone = true;
             }
         }
 
         void PrepareDataSource()
         {
             BindingSource bs = new BindingSource();
-            bs.DataSource = dtLoaiNgayPhep;
+            bs.DataSource = dtLoaiNgayPhep_compact;
             dtgv_DS.DataSource = bs;
         }
 
         private void EditDtgInterface()
         {
             // Dat ten cho cac cot
-            dtgv_DS.Columns["ten"].HeaderText = "Tên loại ngày phép";
-            dtgv_DS.Columns["ten"].Width = 350;
+            dtgv_DS.Columns["ten_loai_ngay_phep"].HeaderText = "Tên loại ngày phép";
+            dtgv_DS.Columns["ten_loai_ngay_phep"].Width = 350;
 
             dtgv_DS.Columns["ghi_chu"].HeaderText = "Ghi chú";
             dtgv_DS.Columns["ghi_chu"].Width = 400;
 
 
             // An cac cot ID
-            dtgv_DS.Columns["id"].Visible = dtgv_DS.Columns["tinh_luong"].Visible = dtgv_DS.Columns["cong_thuc_id"].Visible = false;
+            dtgv_DS.Columns["id_loai_ngay_phep"].Visible =              false;
         }
 
         private void ResetInterface(bool b)
         {
 
-            btn_Them.Visible = btn_Sua.Visible = btn_Xoa.Visible = dtgv_DS.Enabled =  b;
-            txt_Ten.Enabled = rTB_GhiChu.Enabled = lstb_DS.Enabled = numericUpDown1.Enabled =  btn_Luu.Visible = btn_Huy.Visible = !b;
+            btn_Them.Visible = btn_Sua.Visible = btn_Xoa.Visible = dtgv_DS.Enabled = lstb_DS.Enabled = b;
+            txt_Ten.Enabled = rTB_GhiChu.Enabled =  numericUpDown1.Enabled =  btn_Luu.Visible = btn_Huy.Visible = !b;
 
         }
 
@@ -112,7 +147,38 @@ namespace LuongBH.UCs.Luong
                 {
 
                 }
+            }
+        }
 
+        private void dtgv_DS_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dtgv_DS.SelectedRows != null)
+            {
+                bLoadListBoxDone = false;
+                lstb_DS.ClearSelected();
+                bLoadListBoxDone = true;
+
+                DataRow dr = dtLoaiNgayPhep.AsEnumerable().Where(a => a.Field<int>("id_loai_ngay_phep") ==
+                                                        Convert.ToInt16(dtgv_DS.SelectedRows[0].Cells["id_loai_ngay_phep"].Value)).First();
+
+                txt_Ten.Text = dr["ten_loai_ngay_phep"].ToString();
+                rTB_GhiChu.Text = dr["ghi_chu"].ToString();
+
+
+            }
+        }
+
+        private void lstb_DS_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (bLoadListBoxDone)
+            {
+                int loai_pc_id = Convert.ToInt32(lstb_DS.SelectedValue);
+
+                DataRow dr = dtLoaiNgayPhep.AsEnumerable().Where(a => a.Field<int>("id_loai_ngay_phep") ==
+                                                        Convert.ToInt16(dtgv_DS.SelectedRows[0].Cells["id_loai_ngay_phep"].Value) && 
+                                                                a.Field<int>("id_loai_pc") == loai_pc_id) .First();
+
+                numericUpDown1.Value = Convert.ToDecimal(dr["phan_tram"]);
             }
         }
     }
