@@ -31,20 +31,13 @@ namespace LuongBH.UCs.Luong
         {
             try
             {
-                dtLoaiNgayPhep = oLoaiNgayPhep.GetData();
-                dtLoaiNgayPhep_compact = oLoaiNgayPhep.GetData_Compact();
+                
                 dtLoaiPC = oLoaiPhuCap.GetList();
 
                 InitListBox();
                 ResetInterface(true);
 
-                if (dtLoaiNgayPhep != null && dtLoaiNgayPhep.Rows.Count > 0)
-                {
-
-                    PrepareDataSource();
-                    EditDtgInterface();
-                   
-                }
+                ReloadLoaiNgayPhep();
 
                 
                 dtgv_DS.ClearSelection();
@@ -54,6 +47,20 @@ namespace LuongBH.UCs.Luong
                 
             }
             
+        }
+
+        void ReloadLoaiNgayPhep()
+        {
+            dtLoaiNgayPhep = oLoaiNgayPhep.GetData();
+            dtLoaiNgayPhep_compact = oLoaiNgayPhep.GetData_Compact();
+
+            if (dtLoaiNgayPhep != null && dtLoaiNgayPhep.Rows.Count > 0)
+            {
+
+                PrepareDataSource();
+                EditDtgInterface();
+
+            }
         }
 
         void InitListBox()
@@ -141,11 +148,24 @@ namespace LuongBH.UCs.Luong
 
         private void btn_Xoa_Click(object sender, EventArgs e)
         {
-            if (lstb_DS.SelectedItem != null)
+            if (dtgv_DS.SelectedRows != null)
             {
-                if (MessageBox.Show("Bạn thực sự muốn xoá loại ngày phép \"" + lstb_DS.Text.ToString() + "\" ?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Bạn thực sự muốn xoá loại ngày phép \"" + dtgv_DS.SelectedRows[0].Cells["ten_loai_ngay_phep"].Value.ToString() + "\" ?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
+                    try
+                    {
+                        int id = Convert.ToInt32(dtgv_DS.SelectedRows[0].Cells["id_loai_ngay_phep"].Value);
+                        oLoaiNgayPhep.Delete(id);
+                        MessageBox.Show("Xoá thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                        ReloadLoaiNgayPhep();
+                        ResetInterface(true);
+                        txt_Ten.Text = rTB_GhiChu.Text = "";
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Xoá không thành công. Xin vui lòng thử lại sau.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
             }
         }
