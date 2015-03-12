@@ -12,11 +12,13 @@ namespace LuongBH.UCs.Luong
 {
     public partial class LoaiNgayPhep : UserControl
     {
-        bool bAdd , bLoadListBoxDone = false;
+        bool  bLoadListBoxDone ;
+        bool? bAdd = null;
         Business.Luong.LoaiNgayPhep oLoaiNgayPhep;
         Business.HDQD.LoaiPhuCap oLoaiPhuCap;
         DataTable dtLoaiNgayPhep , dtLoaiNgayPhep_compact;
         DataTable dtLoaiPC;
+        List<KeyValuePair<int, double>> PC_PhanTram;
 
         public LoaiNgayPhep()
         {
@@ -25,6 +27,8 @@ namespace LuongBH.UCs.Luong
             dtLoaiNgayPhep_compact = new DataTable();
             dtLoaiNgayPhep = new DataTable();
             oLoaiPhuCap = new Business.HDQD.LoaiPhuCap();
+            PC_PhanTram = new List<KeyValuePair<int, double>>();
+            
         }
 
         private void LoaiNgayPhep_Load(object sender, EventArgs e)
@@ -68,10 +72,18 @@ namespace LuongBH.UCs.Luong
             bLoadListBoxDone = false;
             if (dtLoaiPC != null && dtLoaiPC.Rows.Count >0)
             {
+                // them row Lương de add vao listbox
+                DataRow newrow = dtLoaiPC.NewRow();
+                newrow["ten_loai"] = "Lương";
+                newrow["id"] = 0;
+
+                dtLoaiPC.Rows.Add(newrow);
+
                 lstb_DS.DataSource = dtLoaiPC;
                 lstb_DS.DisplayMember = "ten_loai";
                 lstb_DS.ValueMember = "id";
                 lstb_DS.ClearSelected();
+
                 bLoadListBoxDone = true;
             }
         }
@@ -100,10 +112,22 @@ namespace LuongBH.UCs.Luong
         private void ResetInterface(bool b)
         {
 
-            btn_Them.Visible = btn_Sua.Visible = btn_Xoa.Visible = dtgv_DS.Enabled = lstb_DS.Enabled = b;
+            btn_Them.Visible = btn_Sua.Visible = btn_Xoa.Visible = dtgv_DS.Enabled  =  b;
             txt_Ten.Enabled = rTB_GhiChu.Enabled =  numericUpDown1.Enabled =  btn_Luu.Visible = btn_Huy.Visible = !b;
 
         }
+
+        void Init_New_PC_PhanTram()
+        {
+            PC_PhanTram = new List<KeyValuePair<int, double>>();
+            for (int i = 0; i < dtLoaiPC.Rows.Count; i++)
+            {
+                PC_PhanTram.Add(new KeyValuePair<int,double>(Convert.ToInt32(dtLoaiPC.Rows[i]["id"]),100));
+            }
+            //PC_PhanTram.Add(new KeyValuePair<int, double>(0, 100)); // Add cho luong
+        }
+
+
 
         private void btn_Them_Click(object sender, EventArgs e)
         {
@@ -112,6 +136,7 @@ namespace LuongBH.UCs.Luong
             lstb_DS.ClearSelected();
             numericUpDown1.Value = 100;
             bAdd = true;
+            Init_New_PC_PhanTram();
         }
 
         private void btn_Huy_Click(object sender, EventArgs e)
@@ -120,6 +145,7 @@ namespace LuongBH.UCs.Luong
             txt_Ten.Text = rTB_GhiChu.Text = "";
             lstb_DS.ClearSelected();
             numericUpDown1.Value = 100;
+            bAdd = null;
         }
 
         private void btn_Sua_Click(object sender, EventArgs e)
@@ -131,15 +157,48 @@ namespace LuongBH.UCs.Luong
 
         private void btn_Luu_Click(object sender, EventArgs e)
         {
-            if (bAdd)
+            if (bAdd == true)
             {
-                
+                if ( txt_Ten.Text != "" )
+                {
+                    if (MessageBox.Show("Bạn thực sự muốn thêm loại ngày phép \"" + txt_Ten.Text + "\" ?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            int[] a_pc_id = new int[PC_PhanTram.Count];
+                            double[] a_phan_tram = new double[PC_PhanTram.Count];
+
+                            for (int i = 0; i < PC_PhanTram.Count; i++)
+                            {
+                                a_pc_id[i] = PC_PhanTram[i].Key;
+                                a_phan_tram[i] = PC_PhanTram[i].Value;
+                            }
+
+                            oLoaiNgayPhep.Add(txt_Ten.Text, rTB_GhiChu.Text, a_pc_id, a_phan_tram);
+                            MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            ReloadLoaiNgayPhep();
+                            ResetInterface(true);
+                            txt_Ten.Text = rTB_GhiChu.Text = "";
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Thêm không thành công. Xin vui lòng thử lại sau.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Tên loại ngày phép không được để rỗng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else
             {
-
+                
             }
 
+            bAdd = null;
             ResetInterface(true);
             txt_Ten.Text = rTB_GhiChu.Text = "";
             lstb_DS.ClearSelected();
@@ -178,6 +237,7 @@ namespace LuongBH.UCs.Luong
                 lstb_DS.ClearSelected();
                 bLoadListBoxDone = true;
 
+
                 DataRow dr = dtLoaiNgayPhep.AsEnumerable().Where(a => a.Field<int>("id_loai_ngay_phep") ==
                                                         Convert.ToInt16(dtgv_DS.SelectedRows[0].Cells["id_loai_ngay_phep"].Value)).First();
 
@@ -190,16 +250,54 @@ namespace LuongBH.UCs.Luong
 
         private void lstb_DS_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (bLoadListBoxDone)
+            if (bLoadListBoxDone )
             {
                 int loai_pc_id = Convert.ToInt32(lstb_DS.SelectedValue);
+                if (bAdd == null)
+                {
+                    DataRow dr = dtLoaiNgayPhep.AsEnumerable().Where(a => a.Field<int>("id_loai_ngay_phep") ==
+                                                            Convert.ToInt16(dtgv_DS.SelectedRows[0].Cells["id_loai_ngay_phep"].Value) &&
+                                                                    a.Field<int>("id_loai_pc") == loai_pc_id).First();
 
-                DataRow dr = dtLoaiNgayPhep.AsEnumerable().Where(a => a.Field<int>("id_loai_ngay_phep") ==
-                                                        Convert.ToInt16(dtgv_DS.SelectedRows[0].Cells["id_loai_ngay_phep"].Value) && 
-                                                                a.Field<int>("id_loai_pc") == loai_pc_id) .First();
+                    numericUpDown1.Value = Convert.ToDecimal(dr["phan_tram"]);
+                }
+                else
+                {
+                    double phan_tram_new=100;
+                    for (int i = 0; i < PC_PhanTram.Count; i++)
+                    {
+                        if (PC_PhanTram[i].Key==loai_pc_id)
+                        {
+                            phan_tram_new = PC_PhanTram[i].Value;
+                            break;
+                        }
+                    }
+                    numericUpDown1.Value = Convert.ToDecimal(phan_tram_new);
 
-                numericUpDown1.Value = Convert.ToDecimal(dr["phan_tram"]);
+                }
+                
             }
+
+        }
+
+        private void numericUpDown1_Leave(object sender, EventArgs e)
+        {
+            int loai_pc_id = Convert.ToInt32(lstb_DS.SelectedValue);
+
+            for (int i = 0; i < PC_PhanTram.Count; i++)
+            {
+                if (PC_PhanTram[i].Key == loai_pc_id)
+                {
+                    PC_PhanTram.RemoveAt(i);
+                    PC_PhanTram.Add(new KeyValuePair<int, double>(loai_pc_id,Convert.ToDouble(numericUpDown1.Value)));
+                    break;
+                }
+            }
+        }
+
+        private void dtgv_DS_SelectionChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
