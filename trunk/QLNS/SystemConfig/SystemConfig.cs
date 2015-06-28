@@ -10,7 +10,7 @@ namespace SystemConfig
         public string ConnectionString { get; private set; }
         public SystemConfig()
         {
-            ConnectionString = "Server=localhost;Port=5432;User Id=postgres;Password=79184551;Database=QLNS_OU;";
+            ConnectionString = "Server=qlns.cg7gpptrydzd.ap-southeast-1.rds.amazonaws.com;Port=5432;User Id=postgres;Password=postgresqlnsou;Database=QLNS_OU;";
 
             //ConnectionString = "Server=localhost;Port=5432;User Id=postgres;Password=79184551;Database=QLNS_VPS;"; //local
 
