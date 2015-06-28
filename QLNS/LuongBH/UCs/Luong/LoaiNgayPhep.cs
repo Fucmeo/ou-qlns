@@ -55,16 +55,16 @@ namespace LuongBH.UCs.Luong
 
         void ReloadLoaiNgayPhep()
         {
-            dtLoaiNgayPhep = oLoaiNgayPhep.GetData();
-            dtLoaiNgayPhep_compact = oLoaiNgayPhep.GetData_Compact();
+            //dtLoaiNgayPhep = oLoaiNgayPhep.GetData();
+            //dtLoaiNgayPhep_compact = oLoaiNgayPhep.GetData_Compact();
 
-            if (dtLoaiNgayPhep != null && dtLoaiNgayPhep.Rows.Count > 0)
-            {
+            //if (dtLoaiNgayPhep != null && dtLoaiNgayPhep.Rows.Count > 0)
+            //{
 
-                PrepareDataSource();
-                EditDtgInterface();
+            //    PrepareDataSource();
+            //    EditDtgInterface();
 
-            }
+            //}
         }
 
         void InitListBox()
@@ -185,108 +185,108 @@ namespace LuongBH.UCs.Luong
 
         private void btn_Luu_Click(object sender, EventArgs e)
         {
-            if (bAdd == true)
-            {
-                if ( txt_Ten.Text != "" )
-                {
-                    if (MessageBox.Show("Bạn thực sự muốn thêm loại ngày phép \"" + txt_Ten.Text + "\" ?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        try
-                        {
-                            int[] a_pc_id = new int[PC_PhanTram.Count];
-                            double[] a_phan_tram = new double[PC_PhanTram.Count];
+            //if (bAdd == true)
+            //{
+            //    if ( txt_Ten.Text != "" )
+            //    {
+            //        if (MessageBox.Show("Bạn thực sự muốn thêm loại ngày phép \"" + txt_Ten.Text + "\" ?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            //        {
+            //            try
+            //            {
+            //                int[] a_pc_id = new int[PC_PhanTram.Count];
+            //                double[] a_phan_tram = new double[PC_PhanTram.Count];
 
-                            for (int i = 0; i < PC_PhanTram.Count; i++)
-                            {
-                                a_pc_id[i] = PC_PhanTram[i].Key;
-                                a_phan_tram[i] = PC_PhanTram[i].Value;
-                            }
+            //                for (int i = 0; i < PC_PhanTram.Count; i++)
+            //                {
+            //                    a_pc_id[i] = PC_PhanTram[i].Key;
+            //                    a_phan_tram[i] = PC_PhanTram[i].Value;
+            //                }
 
-                            oLoaiNgayPhep.Add(txt_Ten.Text, rTB_GhiChu.Text, a_pc_id, a_phan_tram);
-                            MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //                oLoaiNgayPhep.Add(txt_Ten.Text, rTB_GhiChu.Text, a_pc_id, a_phan_tram);
+            //                MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                            ReloadLoaiNgayPhep();
-                            ResetInterface(true);
-                            txt_Ten.Text = rTB_GhiChu.Text = "";
-                        }
-                        catch (Exception)
-                        {
-                            MessageBox.Show("Thêm không thành công. Xin vui lòng thử lại sau.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
+            //                ReloadLoaiNgayPhep();
+            //                ResetInterface(true);
+            //                txt_Ten.Text = rTB_GhiChu.Text = "";
+            //            }
+            //            catch (Exception)
+            //            {
+            //                MessageBox.Show("Thêm không thành công. Xin vui lòng thử lại sau.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //            }
                         
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Tên loại ngày phép không được để rỗng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-            else
-            {
-                if (txt_Ten.Text != "")
-                {
-                    if (MessageBox.Show("Bạn thực sự muốn sửa loại ngày phép \"" + txt_Ten.Text + "\" ?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        try
-                        {
-                            int[] a_pc_id = new int[PC_PhanTram.Count];
-                            double[] a_phan_tram = new double[PC_PhanTram.Count];
+            //        }
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Tên loại ngày phép không được để rỗng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    }
+            //}
+            //else
+            //{
+            //    if (txt_Ten.Text != "")
+            //    {
+            //        if (MessageBox.Show("Bạn thực sự muốn sửa loại ngày phép \"" + txt_Ten.Text + "\" ?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            //        {
+            //            try
+            //            {
+            //                int[] a_pc_id = new int[PC_PhanTram.Count];
+            //                double[] a_phan_tram = new double[PC_PhanTram.Count];
 
-                            for (int i = 0; i < PC_PhanTram.Count; i++)
-                            {
-                                a_pc_id[i] = PC_PhanTram[i].Key;
-                                a_phan_tram[i] = PC_PhanTram[i].Value;
-                            }
+            //                for (int i = 0; i < PC_PhanTram.Count; i++)
+            //                {
+            //                    a_pc_id[i] = PC_PhanTram[i].Key;
+            //                    a_phan_tram[i] = PC_PhanTram[i].Value;
+            //                }
 
-                            oLoaiNgayPhep.Update(Convert.ToInt16(dtgv_DS.SelectedRows[0].Cells["id_loai_ngay_phep"].Value), txt_Ten.Text, rTB_GhiChu.Text, a_pc_id, a_phan_tram);
-                            MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //                oLoaiNgayPhep.Update(Convert.ToInt16(dtgv_DS.SelectedRows[0].Cells["id_loai_ngay_phep"].Value), txt_Ten.Text, rTB_GhiChu.Text, a_pc_id, a_phan_tram);
+            //                MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                            ReloadLoaiNgayPhep();
-                            ResetInterface(true);
-                            txt_Ten.Text = rTB_GhiChu.Text = "";
-                        }
-                        catch (Exception)
-                        {
-                            MessageBox.Show("Sửa không thành công. Xin vui lòng thử lại sau.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
+            //                ReloadLoaiNgayPhep();
+            //                ResetInterface(true);
+            //                txt_Ten.Text = rTB_GhiChu.Text = "";
+            //            }
+            //            catch (Exception)
+            //            {
+            //                MessageBox.Show("Sửa không thành công. Xin vui lòng thử lại sau.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //            }
 
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Tên loại ngày phép không được để rỗng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
+            //        }
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Tên loại ngày phép không được để rỗng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    }
+            //}
 
-            bAdd = null;
-            ResetInterface(true);
-            txt_Ten.Text = rTB_GhiChu.Text = "";
-            lstb_DS.ClearSelected();
-            numericUpDown1.Value = 100;
+            //bAdd = null;
+            //ResetInterface(true);
+            //txt_Ten.Text = rTB_GhiChu.Text = "";
+            //lstb_DS.ClearSelected();
+            //numericUpDown1.Value = 100;
         }
 
         private void btn_Xoa_Click(object sender, EventArgs e)
         {
-            if (dtgv_DS.SelectedRows != null)
-            {
-                if (MessageBox.Show("Bạn thực sự muốn xoá loại ngày phép \"" + dtgv_DS.SelectedRows[0].Cells["ten_loai_ngay_phep"].Value.ToString() + "\" ?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    try
-                    {
-                        int id = Convert.ToInt32(dtgv_DS.SelectedRows[0].Cells["id_loai_ngay_phep"].Value);
-                        oLoaiNgayPhep.Delete(id);
-                        MessageBox.Show("Xoá thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //if (dtgv_DS.SelectedRows != null)
+            //{
+            //    if (MessageBox.Show("Bạn thực sự muốn xoá loại ngày phép \"" + dtgv_DS.SelectedRows[0].Cells["ten_loai_ngay_phep"].Value.ToString() + "\" ?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            //    {
+            //        try
+            //        {
+            //            int id = Convert.ToInt32(dtgv_DS.SelectedRows[0].Cells["id_loai_ngay_phep"].Value);
+            //            oLoaiNgayPhep.Delete(id);
+            //            MessageBox.Show("Xoá thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        ReloadLoaiNgayPhep();
-                        ResetInterface(true);
-                        txt_Ten.Text = rTB_GhiChu.Text = "";
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("Xoá không thành công. Xin vui lòng thử lại sau.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                }
-            }
+            //            ReloadLoaiNgayPhep();
+            //            ResetInterface(true);
+            //            txt_Ten.Text = rTB_GhiChu.Text = "";
+            //        }
+            //        catch (Exception)
+            //        {
+            //            MessageBox.Show("Xoá không thành công. Xin vui lòng thử lại sau.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //        }
+            //    }
+            //}
         }
 
         private void dtgv_DS_CellClick(object sender, DataGridViewCellEventArgs e)

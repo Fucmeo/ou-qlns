@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NgayPhep));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NghiPhep));
             this.TLP_NgayPhep = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_Them = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.TLP_ThongTinNgayPhep = new System.Windows.Forms.TableLayoutPanel();
-            this.comB_Loai = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dTP_NgayHieuLuc = new System.Windows.Forms.DateTimePicker();
+            this.comB_LoaiNgayPhep = new System.Windows.Forms.ComboBox();
+            this.dtp_DenNgay = new System.Windows.Forms.DateTimePicker();
+            this.dTP_TuNgay = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.rTB_MoTa = new System.Windows.Forms.RichTextBox();
+            this.rTB_GhiChu = new System.Windows.Forms.RichTextBox();
             this.gb_TimKiem = new System.Windows.Forms.GroupBox();
             this.TLP_NgayPhep.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -97,6 +97,7 @@
             this.btn_Them.TabIndex = 62;
             this.btn_Them.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Them.UseVisualStyleBackColor = true;
+            this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
             // 
             // imageList1
             // 
@@ -124,70 +125,66 @@
             this.TLP_ThongTinNgayPhep.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.07317F));
             this.TLP_ThongTinNgayPhep.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.65854F));
             this.TLP_ThongTinNgayPhep.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.91057F));
-            this.TLP_ThongTinNgayPhep.Controls.Add(this.comB_Loai, 1, 1);
-            this.TLP_ThongTinNgayPhep.Controls.Add(this.dateTimePicker1, 3, 0);
-            this.TLP_ThongTinNgayPhep.Controls.Add(this.dTP_NgayHieuLuc, 1, 0);
+            this.TLP_ThongTinNgayPhep.Controls.Add(this.comB_LoaiNgayPhep, 1, 1);
+            this.TLP_ThongTinNgayPhep.Controls.Add(this.dtp_DenNgay, 3, 0);
+            this.TLP_ThongTinNgayPhep.Controls.Add(this.dTP_TuNgay, 1, 0);
             this.TLP_ThongTinNgayPhep.Controls.Add(this.label11, 0, 0);
             this.TLP_ThongTinNgayPhep.Controls.Add(this.label2, 0, 1);
             this.TLP_ThongTinNgayPhep.Controls.Add(this.label3, 0, 2);
             this.TLP_ThongTinNgayPhep.Controls.Add(this.label1, 2, 0);
-            this.TLP_ThongTinNgayPhep.Controls.Add(this.rTB_MoTa, 1, 2);
+            this.TLP_ThongTinNgayPhep.Controls.Add(this.rTB_GhiChu, 1, 2);
             this.TLP_ThongTinNgayPhep.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TLP_ThongTinNgayPhep.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TLP_ThongTinNgayPhep.ForeColor = System.Drawing.SystemColors.ControlText;
             this.TLP_ThongTinNgayPhep.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.TLP_ThongTinNgayPhep.Location = new System.Drawing.Point(3, 24);
+            this.TLP_ThongTinNgayPhep.Location = new System.Drawing.Point(3, 20);
             this.TLP_ThongTinNgayPhep.Name = "TLP_ThongTinNgayPhep";
             this.TLP_ThongTinNgayPhep.RowCount = 3;
             this.TLP_ThongTinNgayPhep.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.28572F));
             this.TLP_ThongTinNgayPhep.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.28572F));
             this.TLP_ThongTinNgayPhep.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.42857F));
-            this.TLP_ThongTinNgayPhep.Size = new System.Drawing.Size(615, 167);
+            this.TLP_ThongTinNgayPhep.Size = new System.Drawing.Size(615, 171);
             this.TLP_ThongTinNgayPhep.TabIndex = 0;
             // 
-            // comB_Loai
+            // comB_LoaiNgayPhep
             // 
-            this.comB_Loai.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.comB_Loai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comB_Loai.FormattingEnabled = true;
-            this.comB_Loai.Items.AddRange(new object[] {
-            "Bổ nhiệm",
-            "Kiêm nhiệm",
-            "Điều động"});
-            this.comB_Loai.Location = new System.Drawing.Point(80, 46);
-            this.comB_Loai.Name = "comB_Loai";
-            this.comB_Loai.Size = new System.Drawing.Size(221, 29);
-            this.comB_Loai.TabIndex = 53;
+            this.comB_LoaiNgayPhep.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.comB_LoaiNgayPhep.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comB_LoaiNgayPhep.FormattingEnabled = true;
+            this.comB_LoaiNgayPhep.Location = new System.Drawing.Point(80, 49);
+            this.comB_LoaiNgayPhep.Name = "comB_LoaiNgayPhep";
+            this.comB_LoaiNgayPhep.Size = new System.Drawing.Size(221, 25);
+            this.comB_LoaiNgayPhep.TabIndex = 53;
             // 
-            // dateTimePicker1
+            // dtp_DenNgay
             // 
-            this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.dateTimePicker1.Checked = false;
-            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(390, 4);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(162, 28);
-            this.dateTimePicker1.TabIndex = 52;
+            this.dtp_DenNgay.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.dtp_DenNgay.Checked = false;
+            this.dtp_DenNgay.CustomFormat = "dd/MM/yyyy";
+            this.dtp_DenNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_DenNgay.Location = new System.Drawing.Point(390, 7);
+            this.dtp_DenNgay.Name = "dtp_DenNgay";
+            this.dtp_DenNgay.Size = new System.Drawing.Size(162, 24);
+            this.dtp_DenNgay.TabIndex = 52;
             // 
-            // dTP_NgayHieuLuc
+            // dTP_TuNgay
             // 
-            this.dTP_NgayHieuLuc.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.dTP_NgayHieuLuc.Checked = false;
-            this.dTP_NgayHieuLuc.CustomFormat = "dd/MM/yyyy";
-            this.dTP_NgayHieuLuc.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dTP_NgayHieuLuc.Location = new System.Drawing.Point(80, 4);
-            this.dTP_NgayHieuLuc.Name = "dTP_NgayHieuLuc";
-            this.dTP_NgayHieuLuc.Size = new System.Drawing.Size(162, 28);
-            this.dTP_NgayHieuLuc.TabIndex = 51;
+            this.dTP_TuNgay.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.dTP_TuNgay.Checked = false;
+            this.dTP_TuNgay.CustomFormat = "dd/MM/yyyy";
+            this.dTP_TuNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dTP_TuNgay.Location = new System.Drawing.Point(80, 7);
+            this.dTP_TuNgay.Name = "dTP_TuNgay";
+            this.dTP_TuNgay.Size = new System.Drawing.Size(162, 24);
+            this.dTP_TuNgay.TabIndex = 51;
             // 
             // label11
             // 
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(3, 8);
+            this.label11.Location = new System.Drawing.Point(3, 10);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(64, 21);
+            this.label11.Size = new System.Drawing.Size(52, 17);
             this.label11.TabIndex = 47;
             this.label11.Text = "Từ ngày";
             // 
@@ -195,9 +192,9 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 48);
+            this.label2.Location = new System.Drawing.Point(3, 51);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 21);
+            this.label2.Size = new System.Drawing.Size(31, 17);
             this.label2.TabIndex = 49;
             this.label2.Text = "Loại";
             // 
@@ -205,9 +202,9 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 113);
+            this.label3.Location = new System.Drawing.Point(3, 118);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 21);
+            this.label3.Size = new System.Drawing.Size(50, 17);
             this.label3.TabIndex = 50;
             this.label3.Text = "Ghi chú";
             // 
@@ -215,23 +212,23 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(307, 8);
+            this.label1.Location = new System.Drawing.Point(307, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 21);
+            this.label1.Size = new System.Drawing.Size(61, 17);
             this.label1.TabIndex = 48;
             this.label1.Text = "Đến ngày";
             // 
-            // rTB_MoTa
+            // rTB_GhiChu
             // 
-            this.rTB_MoTa.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TLP_ThongTinNgayPhep.SetColumnSpan(this.rTB_MoTa, 2);
-            this.rTB_MoTa.Location = new System.Drawing.Point(80, 83);
-            this.rTB_MoTa.Name = "rTB_MoTa";
-            this.rTB_MoTa.Size = new System.Drawing.Size(304, 81);
-            this.rTB_MoTa.TabIndex = 54;
-            this.rTB_MoTa.Text = "";
+            this.rTB_GhiChu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.TLP_ThongTinNgayPhep.SetColumnSpan(this.rTB_GhiChu, 2);
+            this.rTB_GhiChu.Location = new System.Drawing.Point(80, 85);
+            this.rTB_GhiChu.Name = "rTB_GhiChu";
+            this.rTB_GhiChu.Size = new System.Drawing.Size(304, 83);
+            this.rTB_GhiChu.TabIndex = 54;
+            this.rTB_GhiChu.Text = "";
             // 
             // gb_TimKiem
             // 
@@ -245,15 +242,15 @@
             this.gb_TimKiem.TabStop = false;
             this.gb_TimKiem.Text = "Thông tin tìm kiếm";
             // 
-            // NgayPhep
+            // NghiPhep
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.TLP_NgayPhep);
             this.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "NgayPhep";
+            this.Name = "NghiPhep";
             this.Size = new System.Drawing.Size(627, 499);
             this.Load += new System.EventHandler(this.NgayPhep_Load);
             this.TLP_NgayPhep.ResumeLayout(false);
@@ -275,10 +272,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        public System.Windows.Forms.DateTimePicker dateTimePicker1;
-        public System.Windows.Forms.DateTimePicker dTP_NgayHieuLuc;
-        public System.Windows.Forms.ComboBox comB_Loai;
-        public System.Windows.Forms.RichTextBox rTB_MoTa;
+        public System.Windows.Forms.DateTimePicker dtp_DenNgay;
+        public System.Windows.Forms.DateTimePicker dTP_TuNgay;
+        public System.Windows.Forms.ComboBox comB_LoaiNgayPhep;
+        public System.Windows.Forms.RichTextBox rTB_GhiChu;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Button btn_Them;

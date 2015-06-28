@@ -95,6 +95,7 @@
     <Compile Include="Luong\LoaiNgayPhep.cs" />
     <Compile Include="Luong\LuongToiThieu.cs" />
     <Compile Include="Luong\Ngach.cs" />
+    <Compile Include="Luong\NghiPhep.cs" />
     <Compile Include="Luong\NhomNgach.cs" />
     <Compile Include="Luong\TinhLuong.cs" />
     <Compile Include="MoHinhDaoTao.cs" />
